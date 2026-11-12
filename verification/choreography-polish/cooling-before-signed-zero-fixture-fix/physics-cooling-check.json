@@ -1,0 +1,41 @@
+{
+  "schema": "glass-atoll.choreography-polish.log-cooling-check.v2",
+  "passed": false,
+  "summary": "3/4",
+  "actualGPU": false,
+  "sourceSHA256": "3b6f283cfb592763b86ad09fb7ff17f70bb7677b65d9b279eec1762badbee7d7",
+  "baselineSHA256": "66cf244ea9ac4d1b2059a9ca762a6995a1806157729189dee46b48eb9fee73e4",
+  "checks": [
+    {
+      "name": "Only one cooling-law block changes; full inverse restores archived66cf source and all20 event constructors remain exact",
+      "passed": true,
+      "details": {
+        "events": 40,
+        "baselineSHA256": "66cf244ea9ac4d1b2059a9ca762a6995a1806157729189dee46b48eb9fee73e4",
+        "sourceSHA256": "3b6f283cfb592763b86ad09fb7ff17f70bb7677b65d9b279eec1762badbee7d7",
+        "profileLifeAndIntensityUnchanged": true
+      }
+    },
+    {
+      "name": "Authored logarithmic cooling is nonnegative, monotone and C1 at onset/extinction, without an exposure input",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ -0\n- 0\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/choreography-polish/physics-cooling-check.mjs:19:61\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/choreography-polish/physics-cooling-check.mjs:9:85)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/choreography-polish/physics-cooling-check.mjs:16:1"
+    },
+    {
+      "name": "Strobe complete old pulse law and rocket envelope remain Object.is exact",
+      "passed": true,
+      "details": {
+        "strobeSamples": 31200,
+        "rocketSamples": 603
+      }
+    },
+    {
+      "name": "Experimental burnProfile emissions and original peak bounds are unchanged at0x/1x/64x",
+      "passed": true,
+      "details": {
+        "profileSamples": 14400,
+        "scope": "Unprofiled native sustained stars, including powered-bees160native, intentionally inherit logarithmic cooling."
+      }
+    }
+  ]
+}

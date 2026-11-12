@@ -1,0 +1,84 @@
+{
+  "schema": "glass-atoll.r23-layout-planner-cpu.v1",
+  "dateUTC": "2026-10-29T13:02:08.172Z",
+  "passed": true,
+  "counts": {
+    "checks": 8,
+    "passed": 8
+  },
+  "checks": [
+    {
+      "name": "constructor caps and complete request rejection remain the existing planner contract",
+      "passed": true
+    },
+    {
+      "name": "native compact partial allocation uses the proven minimum envelope",
+      "passed": true,
+      "evidence": {
+        "activePartialBytes": 552960,
+        "legacyPartialBytes": 18432000,
+        "mapRasterTexels": 17408,
+        "legacyMapRasterTexels": 180224
+      }
+    },
+    {
+      "name": "zero row or density uses a fresh full neutral output and never consumes old partials",
+      "passed": true
+    },
+    {
+      "name": "all returned allocation and publication data are deeply immutable",
+      "passed": true
+    },
+    {
+      "name": "complete 64-packet tile coverage preserves every ordered and inactive row identity",
+      "passed": true
+    },
+    {
+      "name": "the min allocation envelope bounds all integer cap combinations in an exhaustive small domain",
+      "passed": true,
+      "evidence": {
+        "capsCount": 864,
+        "admittedIntegerPairs": 321403
+      }
+    },
+    {
+      "name": "native-cap deterministic samples and threshold extremes fit exact raster/allocation bounds",
+      "passed": true,
+      "evidence": {
+        "samples": 4000
+      }
+    },
+    {
+      "name": "active-count and legacy-max layouts produce bit-identical valid T under unchanged FP32 tile order",
+      "passed": true,
+      "evidence": {
+        "cases": 112,
+        "FP32TileArithmeticOrderUnchanged": true,
+        "staleOutsideCountDisclosed": true
+      }
+    }
+  ],
+  "metrics": {
+    "nativeAllocation": {
+      "activePartialBytes": 552960,
+      "legacyPartialBytes": 18432000,
+      "mapRasterTexels": 17408,
+      "legacyMapRasterTexels": 180224
+    },
+    "exhaustive": {
+      "capsCount": 864,
+      "admittedIntegerPairs": 321403
+    }
+  },
+  "sourceSHA256": {
+    "smoke-transmission-layout.js": "79b76d3ece575ab9eb4678e42825ff19b758200627512b0bfed78ab5b81508a5",
+    "pyro-smoke-transmission-pack.js": "8ccab09237ad8fc9ca9e23daa377b173278e9e7b4a48a33cb564a43aba4ada8d"
+  },
+  "actualGPU": false,
+  "limits": [
+    "Pure planning and FP32 arithmetic/layout emulation only; no GPU, renderer state or frame-time admission.",
+    "All ordered rows/inactive identity and original64-packet summation retained; no chunking, optical LOD or raised pair cap.",
+    "Fresh publication is a required consumer contract; actual GPU factory/generation behavior is verified by separate root/independent tests.",
+    "Legacy comparator retains positive allocation/stride/output math; neutral output uses one pass and does not claim old two-pass dispatch identity."
+  ]
+}

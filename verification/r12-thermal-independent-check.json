@@ -1,0 +1,147 @@
+{
+  "schema": "glass-atoll.r12-thermal-independent.v1",
+  "dateUTC": "2026-10-28T05:39:15.125Z",
+  "actualGPU": false,
+  "sourceSHA256": "bb6a0080f34d714379eb860a45f1e595c2d82241fb62cd04dfb4cb2b601b949b",
+  "baselineSHA256": "cc864bf4cbfee0739362bc3b3770e0d8a2840238afe989b4c8815170660724e6",
+  "counts": {
+    "passed": 9,
+    "total": 9
+  },
+  "passed": true,
+  "wallMs": 1031.7727,
+  "checks": [
+    {
+      "name": "SI spectral-radiance integration and projected spherical area use one pi with quadratic radius",
+      "passed": true,
+      "evidence": {
+        "units": "B_lambda W sr^-1 m^-3 × d_lambda m ×683V lm/W = cd/m²; L×projected areaπr²=cd; isotropic flux4πI=lm",
+        "independentLuminanceCdPerM2": 19417669.42356731,
+        "results": [
+          {
+            "referenceRadiusMm": 1,
+            "candela": 61.00240677597138,
+            "independentSimpsonCandela": 61.00240761091421
+          },
+          {
+            "referenceRadiusMm": 1.125,
+            "candela": 77.2061710758388,
+            "independentSimpsonCandela": 77.2061721325633
+          },
+          {
+            "referenceRadiusMm": 1.75,
+            "candela": 186.81987075141237,
+            "independentSimpsonCandela": 186.8198733084248
+          },
+          {
+            "referenceRadiusMm": 2,
+            "candela": 244.00962710388552,
+            "independentSimpsonCandela": 244.00963044365685
+          },
+          {
+            "referenceRadiusMm": 2.875,
+            "candela": 504.2230185076384,
+            "independentSimpsonCandela": 504.22302540896277
+          },
+          {
+            "referenceRadiusMm": 3,
+            "candela": 549.0216609837424,
+            "independentSimpsonCandela": 549.021668498228
+          }
+        ],
+        "totalLumensFor2mmSphere": 3066.3154076590063
+      }
+    },
+    {
+      "name": "official CIE QA data matches publisher checksum and quantifies fit/air-wavelength approximation",
+      "passed": true,
+      "evidence": {
+        "dataSHA256": "ee5d5d17922ae645d4af52cacf6a50bdb9385749f9d2181ca312eb2b08febac2",
+        "DOI": "10.25039/CIE.DS.dktna2s3",
+        "rights": "CC BY-SA 4.0",
+        "publisherTableLuminance": 19385166.818215244,
+        "runtimeAnalyticFitLuminance": 19417669.15779675,
+        "relativeDifference": 0.0016766602983766532,
+        "scope": "OfficialV is standard-air wavelength; runtime Planck treats lambda as vacuum and keeps analyticYfit. This tolerance does not calibrate real firework output."
+      }
+    },
+    {
+      "name": "default factory all10 types and six phases preserves complete old rendering state with no greybody allocation",
+      "passed": true,
+      "evidence": {
+        "frames": 60,
+        "records": 18164
+      }
+    },
+    {
+      "name": "only native thermal identity scales whole head and tail allocation, including coloured thermal-looking tails",
+      "passed": true,
+      "evidence": {
+        "frames": 80,
+        "selected": 12462,
+        "unchanged": 14120,
+        "unboostedThermalLookingColouredTails": 10008
+      }
+    },
+    {
+      "name": "mode and radius changes at fixed time invalidate photon caches and preserve body/matter event identity",
+      "passed": true,
+      "evidence": {
+        "ledgerSources": 1760,
+        "beforeVersion": 1,
+        "afterVersion": 2
+      }
+    },
+    {
+      "name": "invalid photometry values and combined invalid intensity patches reject transactionally",
+      "passed": true,
+      "evidence": {
+        "invalidPatches": 12
+      }
+    },
+    {
+      "name": "framing hook is an all-positive-emitter deep immutable copy and no time/event/cache side effect",
+      "passed": true,
+      "evidence": {
+        "cases": 4,
+        "sources": 4620
+      }
+    },
+    {
+      "name": "R G B ledger data and per-source projected bounds remain finite with3mm and globalI64",
+      "passed": true,
+      "evidence": {
+        "cases": 48,
+        "RGBLedgerChannels": 61974,
+        "maximumRawProjectedBudget": 1565.6755478711218,
+        "minimumStorageP": 3.25,
+        "clearDepthVisibleSources": 26752,
+        "scope": "CPU live record/ledger/projected source budget only, not receiver/sky/actualGPU photometry; per-source dominance applies to actual inside-depth centres, not debug callbacks before the existing centre clipping gate"
+      }
+    },
+    {
+      "name": "unchanged shader source, no runtime CIEasset import, protected photon-unit physics and accepted audio",
+      "passed": true,
+      "evidence": {
+        "fireworks-physics.js": "dc5de6b1a11a3e1a70d7342d3bdacc5813ab0f66e426f622d6e287991b4af87a",
+        "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+        "scene-radiometry.js": "f942645604dae00fe6ad713c605ad38509bf71cf7fbf10fe5e28b904eb5bf66d"
+      }
+    }
+  ],
+  "modelReview": {
+    "referenceRadiusMeaning": "Configured1..3mm is the area reference atold4cd; each selected nativebody retains originalI/4 relativearea and intensityScale. It is not every body actual radius.",
+    "equivalentEmittingRadiusAtReference2mm": {
+      "old4cdBody": 2,
+      "old18cdCarrier": 4.242640687119285,
+      "old52cdFan": 7.211102550927978
+    },
+    "scope": "Authored2850K effective emission proxy. Runtime Gaussian source radius, body motion/fuel/heat are independent. Cooling mode remains fixedY chromaticity plus old authored brightness envelope; combined mode is not a thermodynamic cooling law."
+  },
+  "limits": [
+    "Independent CPU/native factory and SI-integration checks, not real measured fireworkcandela, absolute panel/display calibration, actualGPU/scene or FPS acceptance.",
+    "All ten default phases compare oldnative outputs, not arbitrary malformed unrelated legacy physicspatches.",
+    "Official CIE V is QA-only and is standard-air wavelength; runtime analyticfit and vacuum Planck basis differ slightly.",
+    "No source chemistry/line-emitter brightness or complete multibounce/distance-bound receiver calibration is established."
+  ]
+}

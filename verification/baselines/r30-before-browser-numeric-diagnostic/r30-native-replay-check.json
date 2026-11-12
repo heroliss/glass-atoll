@@ -1,0 +1,126 @@
+{
+  "schema": "glass-atoll.r30-actual-native-replay-cpu-acceptance.v1",
+  "dateUTC": "2026-10-29T17:44:18.156Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "helperSHA256": "057b86c62d993b65fef4d1ef957a25846cda9be11bb37b194823c80a75fb63bf",
+  "fixtureDigest": "7123a8f336356c69f7598c05b4652472c40b36c27fcea68be9d0cdad6efd838f",
+  "fixtureModuleSHA256": "6d665e0fbf98181408fdf07e30a596a0ca53134ba4c54204995db859b9b266fd",
+  "checks": [
+    {
+      "name": "Fixed deeply frozen physical-only recipe/digest and actual callback pins preserve original R29 target without precomputed optical values",
+      "passed": true,
+      "evidence": {
+        "digest": "7123a8f336356c69f7598c05b4652472c40b36c27fcea68be9d0cdad6efd838f",
+        "frozenObjectNodes": 6944,
+        "physicalTarget": 163.02687017173076,
+        "committedTime": 163,
+        "productionFactoriesPinned": 4,
+        "precomputedOpticalFields": 0
+      }
+    },
+    {
+      "name": "Actual production FW+host replay yields causally and returns complete exact unbaked physical pair with no renderer invocation",
+      "passed": true,
+      "evidence": {
+        "schema": "glass-atoll.r30-native-public-replay-receipt.v1",
+        "revision": "r30-actual-public-native-pair-v1",
+        "passed": true,
+        "actualGPU": false,
+        "recipeDigest": "7123a8f336356c69f7598c05b4652472c40b36c27fcea68be9d0cdad6efd838f",
+        "callbackHashes": {
+          "createFireworks": "156da02a826c169e3c6375e003ffab72d82a959d6387afc735bfe7a4623259ca",
+          "createPyroSmoke": "30d81523a3fa012feaa8e8a6b74b323add4a9a21da448f7aa9f63117f60afaac",
+          "terrainHeight": "2ad59c350bb4dabc8fa9a2d25f4614ef3df9eac36ca4f0cd16bd12f7c637e4f8",
+          "createAirSurface": "62cfc9cd06f0fbb7127d35ccb431bb72789ffbc880deb58f9b40b21be218505e"
+        },
+        "emptyUpdates": 32,
+        "activeUpdates": 633,
+        "completedUpdates": 665,
+        "yields": 123,
+        "maxObservedChunkMs": 24.41540000000009,
+        "elapsedCpuAndYieldMs": 1467.1045000000001,
+        "physicalTime": 163.02687017173076,
+        "committedDensityTime": 163,
+        "densityRevision": 4785,
+        "packets": 2301,
+        "ledgerSources": 1399,
+        "ledgerVersion": 1,
+        "recordGeneration": 1,
+        "physicalRecordCount": 1420,
+        "completeSnapshotExact": true,
+        "completeLedgerWordsAndGroupsExact": true,
+        "snapshotDigest": "de1e574b15eb84d92dee40dfc95cdafd369c4f5622cb53b29f92dd4abe5d7f62",
+        "ledgerWordsDigest": "e1db6c0b71bab530d83d704114e50360f51e33ddf19188e850b5cb9f49a3644a",
+        "material": {
+          "emitted": 18.82667325883885,
+          "airborne": 18.82667325883885,
+          "pendingMass": 0.10904807083883149,
+          "deposited": 0,
+          "escaped": 0,
+          "explicitlyCleared": 0
+        },
+        "sourceScheduler": {
+          "registeredEvents": 1,
+          "emissionsLifetime": 2323,
+          "pendingPlans": 322
+        },
+        "freshRendering": {
+          "projectionMode": "ellipsoid",
+          "packets": 2301,
+          "lastRender": null
+        },
+        "rigDetached": true,
+        "effectsSceneDetached": true,
+        "identityScope": "Browser public full physical snapshot/material/full luminousledger/count; full private record array is separately audited on CLI",
+        "publicSnapshotPolicy": "Each host.snapshot() returns a new object; internal volume snapshot remains production-owned. Equality/revision/layout, not cross-API pointer equality.",
+        "noOpticalFieldOrReferenceSubstitution": true,
+        "rendererCalls": 0
+      }
+    },
+    {
+      "name": "Scene membership and lease disposal touch only the owned rig; physical mutation makes readiness fail closed",
+      "passed": true,
+      "evidence": {
+        "ownedRigOnly": true,
+        "userGroupPreserved": true,
+        "effectsSceneNeverMounted": true,
+        "mutationRejected": true,
+        "disposeIdempotent": true
+      }
+    },
+    {
+      "name": "CLI-only read-only instrumentation reproduces ALL1420 private native records exactly, separately from unmodified browser factory proof",
+      "passed": true,
+      "evidence": {
+        "privateRecords": 1420,
+        "privateCanonicalDigest": "61d4299a2d263cb759050b8d1ab35f9c30129fb4aed4f8e269a7b5f22a88c43b",
+        "instrumentation": "One read-only records getter added at return; unchanged actual numeric source/factories/imports",
+        "browserFactoryUnmodified": true,
+        "sourceSHA256": "f0e3b7db8a268cb02227c81282e85a808158942e2b73656df39fdc752c783463",
+        "rendererCalls": 0
+      }
+    },
+    {
+      "name": "Abort between causal chunks disposes actual owned CPU resources and releases lease; invalid callbacks/options reject before rendering",
+      "passed": true,
+      "evidence": {
+        "actualGeometryDisposals": 10,
+        "abortBeforeAnyRender": true,
+        "leaseReleased": true,
+        "variableTimeAndFakeTerrainRejected": true
+      }
+    }
+  ],
+  "limits": [
+    "Actual unmodified public pair verified on CPU; browser runtime scope is full public snapshot/material/luminousledger/recordcount and no render/bake.",
+    "Full private array proof uses separately declared CLI-only read-only instrumentation; no public getter or source-rewritten browser factory.",
+    "No optical/current-camera pixel counts or renderer/GL/frame acceptance follows from physical replay alone."
+  ]
+}

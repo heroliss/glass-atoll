@@ -1,0 +1,123 @@
+{
+  "schema": "glass-atoll.r36-physics-radiant-integration-check.v1",
+  "passed": true,
+  "counts": {
+    "passed": 7,
+    "total": 7
+  },
+  "actualGPU": false,
+  "browserActions": 0,
+  "rendererCalls": 0,
+  "sourcePins": {
+    "fireworks-physics.js": "033d676b8a1fd044f2bfbf4d49689cf7bb61e169f0147ac2e78c972e8d90273b",
+    "firework-layer-profile.js": "411242962dc8681e2eb487acc7f03937ebe32331ec06414f9e78a5674778c537",
+    "firework-trail-profile.js": "ab1c421c68b7ff9745ad68fc040a653f2810ed3cbd43c48632365908776ec0ba",
+    "firework-radiant-profile.js": "0180dd0f938b51f9e7e65e9b8b5c83155b6975b5cf18512a4329360696779da8"
+  },
+  "checks": [
+    {
+      "name": "Exact whole-physics inverse recovers archivedR35 bytes and CRLF, with new-profile-only seams",
+      "passed": true,
+      "evidence": {
+        "changes": 8,
+        "currentSHA256": "033d676b8a1fd044f2bfbf4d49689cf7bb61e169f0147ac2e78c972e8d90273b",
+        "archivedSHA256": "247bdf9de104354258cd7b63a960501fb2295d3fe2372019d77139ac15a384cc"
+      }
+    },
+    {
+      "name": "Every old type/profile producer, four sampled phases and exported bounds retain exact archived behavior",
+      "passed": true,
+      "evidence": {
+        "cases": 126,
+        "oldIDsIncludeR35": true,
+        "importsOnlyRelocated": true
+      }
+    },
+    {
+      "name": "New optical target is nativeI0×16 once, body.intensity/geometry/material stay native, metadata reports both budgets",
+      "passed": true,
+      "evidence": {
+        "bodies": 9216,
+        "maxRelativeRGBError": 0,
+        "zeroGainCases": 12,
+        "examples": [
+          {
+            "nativeBudget": 1421.2929533421993,
+            "derivedBudget": 22740.68725347519,
+            "alpha": 2.628362904731305
+          }
+        ],
+        "geometryGatePreGain": true,
+        "noNewAudioEvents": true
+      }
+    },
+    {
+      "name": "New D=.88/.66/.40 support and event lifetime cover the final nonzero long-tail release; photopicY time allocation closes",
+      "passed": true,
+      "evidence": {
+        "bodyCount": 192,
+        "minimumEventTailMarginSeconds": 4.2449575641620925,
+        "maxPhotopicIntegralAllocationError": 1.1368683772161603e-13,
+        "late": [
+          {
+            "layer": "outer",
+            "lastPossibleTailAge": 4.368397751046345,
+            "positiveReleaseAge": 3.4873977510463448
+          },
+          {
+            "layer": "middle",
+            "lastPossibleTailAge": 5.2114082464873785,
+            "positiveReleaseAge": 4.550408246487378
+          },
+          {
+            "layer": "inner",
+            "lastPossibleTailAge": 3.155855514496565,
+            "positiveReleaseAge": 2.7548555144965654
+          }
+        ],
+        "scope": "Photopic referenceY allocation only; not spectral/combustion energy conservation."
+      }
+    },
+    {
+      "name": "New eventBounds encloses full actual head/long-tail centre lifetimes under zero and declared variable wind, including explicit heights",
+      "passed": true,
+      "evidence": {
+        "aboveFloorPoints": 67497,
+        "maximumTailComponentPaddingMetres": 14.59132480096031,
+        "oldR35DurationReferenceGuardNotRelaxed": true,
+        "explicitHeightSupport": true
+      }
+    },
+    {
+      "name": "Actual new head and long fixed-lag fields keep bounded causal optical contact at low angles without force/lifetime changes",
+      "passed": true,
+      "evidence": {
+        "cases": 180,
+        "lagSeconds": [
+          0,
+          0.2,
+          0.33,
+          0.4,
+          0.44,
+          0.66,
+          0.88
+        ],
+        "maxUnresolvedSeconds": 3.725290298461914e-9,
+        "maxRootUnderestimateSeconds": 2.026558476586615e-9
+      }
+    },
+    {
+      "name": "New constructor/settings/launch reject unsupported drag atomically and retain25degree launch support",
+      "passed": true,
+      "evidence": {
+        "rejectedStateExact": true,
+        "validLowAngleAccepted": true
+      }
+    }
+  ],
+  "limits": [
+    "ActualCPU source/contact/reference-envelope integration only, no source raster/FPS/image/absolute photometry or terrain safety acceptance.",
+    "Old behavior comparison relocates archived imports only and does not execute/change old owner reports.",
+    "Reference bounds cover actual source/tail centres; live shutter/stretch/source Gaussian support remains the separate renderer/envelope contract."
+  ]
+}

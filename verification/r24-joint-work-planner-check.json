@@ -1,0 +1,124 @@
+{
+  "schema": "glass-atoll.r24-joint-work-planner-check.v1",
+  "passed": true,
+  "counts": {
+    "checks": 10,
+    "passed": 10
+  },
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "checks": [
+    {
+      "name": "Explicit budgets, no aggregate defaults, invalid camera and untrusted completion flags reject",
+      "passed": true,
+      "evidence": {
+        "requiredBudgetFields": [
+          "maxPairs",
+          "maxReductionReads",
+          "maxDraws",
+          "maxOwnedBytes",
+          "maxUploadBytes",
+          "maxRasterTexels"
+        ],
+        "noDefaultAggregateBudget": true
+      }
+    },
+    {
+      "name": "Capture byte cap is checked before any payload cloning and captured typed arrays are private copies",
+      "passed": true,
+      "evidence": {
+        "rejectedBeforeCloneCalls": 0,
+        "captureBytes": 17541
+      }
+    },
+    {
+      "name": "Every original and packed array/profile/key participates in exact identity; kinds stay distinct",
+      "passed": true,
+      "evidence": {
+        "independentMutations": 13,
+        "metadataNegativeZeroPreserved": true
+      }
+    },
+    {
+      "name": "Tiny 16x65 model has complete disjoint tile cells, three draws and unchanged FP32 tile order",
+      "passed": true,
+      "evidence": {
+        "cells": 32,
+        "pairs": 1040,
+        "raster": 64,
+        "draws": 3,
+        "FP32OutputsEqual": 16
+      }
+    },
+    {
+      "name": "Coverage, guarded padding and incumbent neutral semantics at0/1/63/64/65 and row-wrap boundaries",
+      "passed": true,
+      "evidence": {
+        "cases": 120,
+        "cells": 11644,
+        "zeroResolved4096": {
+          "mapFragments": 4096,
+          "totalFragments": 8192,
+          "physicalReductionFetches": 12288
+        }
+      }
+    },
+    {
+      "name": "Two870k views exceed explicit aggregate1m even if the ledger bake is exactly modeled-reused",
+      "passed": true,
+      "evidence": {
+        "pairs": 1740000,
+        "oldPerViewPairs": 870000,
+        "modeledLedgerPairsAvoided": 864000,
+        "capturedCopiesCharged": 4,
+        "reservedPairs": 0,
+        "productionAdmitted": false
+      }
+    },
+    {
+      "name": "Reuse does not evade capture memory; same receipt is charged once and distinct full copies separately",
+      "passed": true,
+      "evidence": {
+        "sharedCaptureBytes": 927,
+        "distinctCopyBytes": 1854,
+        "reusedIdentityStillCharged": true
+      }
+    },
+    {
+      "name": "Physical reduction texture fetches, allocations, draw/upload/raster/memory caps are independently enforced",
+      "passed": true,
+      "evidence": {
+        "physicalSHFetches": 96,
+        "allIndependentCapsReject": true
+      }
+    },
+    {
+      "name": "Old request gate stays at1m; rejected plans are atomic, counts and arithmetic cannot overflow",
+      "passed": true,
+      "evidence": {
+        "unchangedOldCap": 1048576,
+        "rejected755x1734": 1309170,
+        "exactBoundaryAccepted": true
+      }
+    },
+    {
+      "name": "Returned plans are private deeply frozen CPU models; main has no planner import and no partial publication exists",
+      "passed": true,
+      "evidence": {
+        "GPUDispatches": 0,
+        "coordinatorImplemented": false,
+        "productionImportsOfPlanner": 0
+      }
+    }
+  ],
+  "SHA256": {
+    "planner": "2e6ef3291045a4015e704fbbb25b398206d72a874afeca10a0bbb129d2cdb54a",
+    "tests": "3dd01583b49783229255004ef9f7633d3b037dacca71b1f07a7c2aee7fd4bbd1"
+  },
+  "limits": [
+    "Verification-only owned-input/accounting model, not a coordinator or GPU admission",
+    "Aggregate caps are explicit fixture inputs, not global defaults or permanent user requirements",
+    "No visual/performance claim or larger-request dispatch"
+  ]
+}

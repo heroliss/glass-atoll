@@ -1,0 +1,1698 @@
+{
+  "schema": "glass-atoll.r35-scale-contact-independent-study.v1",
+  "passed": true,
+  "actualGPU": false,
+  "browserActions": 0,
+  "rendererCalls": 0,
+  "productionEdits": 0,
+  "proposedProfile": "three-heart-scale120-v1",
+  "scope": "Independent verification-only cloned existing three-heart producer with common relative kick factor; not new production compiler integration acceptance.",
+  "sourcePins": {
+    "fireworks-physics.js": "2cdffbced09c8a151f9fb3cb1531a905633af6978c41f9fc3ea2c1a13006419d",
+    "firework-layer-profile.js": "e42e8c9b4405ff32c86bacc4cdfbbb8ed7cbf9d7275860593fc366e5ff9bdf09",
+    "firework-burn-profile.js": "7308fd7a59ac918de80acbf296a0117f2d499e48d8de40bf2880d0b3c90436d7",
+    "firework-contact-support.js": "d68b44a240f2f266221fa3a5393ebf726874d5a612b85d8d52c60f2114308d32",
+    "firework-air-support.js": "32149ec6c94ae99ab7552347e4eabfd4aa687827b81cdc6e94ac698045527855",
+    "firework-tail-field.js": "fec6dab3486b0dd6ef3c780c0a1af38f685f635629ceec31204a48835d2f1389"
+  },
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "checks": [
+    {
+      "name": "All native seed/rotation kick directions admit alpha<4 by a finite spherical net and a real-arithmetic Lipschitz enclosure",
+      "passed": true,
+      "evidence": {
+        "nativeOuterIDs": "0,3,...189",
+        "nativeSpeedRange": [
+          13,
+          19
+        ],
+        "azimuthJitterRadians": [
+          0,
+          0.08
+        ],
+        "midpointJitterRadians": 0.04,
+        "thetaSteps": 128,
+        "phiSteps": 256,
+        "normalNetNodes": 33024,
+        "minimumEligiblePairs": 64,
+        "minimumNetProjectedDiameter": 1.9595448508055473,
+        "witnessNormal": [
+          0,
+          1,
+          0
+        ],
+        "netAngularRadiusUpper": 0.02454369260617026,
+        "jitterChordUpper": 0.03999733338666616,
+        "projectedDotPerturbationUpper": 0.1045358952962446,
+        "gridPairDotAtMost": -0.2,
+        "unitProjectedDiameterLower": 1.8304627987198745,
+        "nativeWidthAt2p5LowerMetres": 30.430665306948555,
+        "alphaUpper": 3.9433906156694882,
+        "arithmeticMargin": 1e-10,
+        "formalFloatingPointCertificate": false
+      }
+    },
+    {
+      "name": "The outer authored burn curve exceeds the10% gate at2.5s for the complete allowed lifetime interval",
+      "passed": true,
+      "evidence": {
+        "age": 2.5,
+        "lifetimeRange": [
+          3.1959999999999997,
+          3.604
+        ],
+        "minimumYFraction": 0.4148042195601644,
+        "proof": "Peak=6 at .04*timeScale; Y=4 at .65*life and 0 at life. At2.5 the shortest life is the minimum normalized intensity. Independent of I0 including an optically-dark normalization branch."
+      }
+    },
+    {
+      "name": "Real old event producers plus proposed3D kick scaling preserve target width, native head/body/life/burn/material identity across25..90deg and arbitrary admitted orientations",
+      "passed": true,
+      "evidence": {
+        "cases": 120,
+        "alphaMin": 2.5398394590056133,
+        "alphaMax": 2.722864790985752,
+        "maximumWidthError": 5.684341886080802e-14,
+        "minimumHeadYOverLifetimeInSampled63to90Cone": 31.173989350952944,
+        "lowAngleExamples": [
+          {
+            "seed": 0,
+            "elevation": 25,
+            "orientation": null,
+            "alpha": 2.6914682739748668,
+            "burstY": 34.587503494314205,
+            "headsBelowSeaAt2p5": 52,
+            "minimumHeadYOverOwnLifetime": -59.41748232870527
+          },
+          {
+            "seed": 0,
+            "elevation": 25,
+            "orientation": {
+              "yawDegrees": 113.5,
+              "tiltDegrees": -4.2,
+              "rollDegrees": -6.3
+            },
+            "alpha": 2.7083454044477167,
+            "burstY": 34.587503494314205,
+            "headsBelowSeaAt2p5": 54,
+            "minimumHeadYOverOwnLifetime": -60.43404156473518
+          },
+          {
+            "seed": 0,
+            "elevation": 25,
+            "orientation": {
+              "yawDegrees": 90,
+              "tiltDegrees": 45,
+              "rollDegrees": 30
+            },
+            "alpha": 2.601288149426705,
+            "burstY": 34.587503494314205,
+            "headsBelowSeaAt2p5": 47,
+            "minimumHeadYOverOwnLifetime": -62.675430705449074
+          },
+          {
+            "seed": 0,
+            "elevation": 25,
+            "orientation": {
+              "yawDegrees": -360,
+              "tiltDegrees": 90,
+              "rollDegrees": 180
+            },
+            "alpha": 2.660758068686838,
+            "burstY": 34.587503494314205,
+            "headsBelowSeaAt2p5": 54,
+            "minimumHeadYOverOwnLifetime": -65.52476167116893
+          },
+          {
+            "seed": 0,
+            "elevation": 30,
+            "orientation": null,
+            "alpha": 2.6914682739748668,
+            "burstY": 47.191349908950485,
+            "headsBelowSeaAt2p5": 24,
+            "minimumHeadYOverOwnLifetime": -46.81363591406895
+          },
+          {
+            "seed": 0,
+            "elevation": 30,
+            "orientation": {
+              "yawDegrees": 113.5,
+              "tiltDegrees": -4.2,
+              "rollDegrees": -6.3
+            },
+            "alpha": 2.7083454044477167,
+            "burstY": 47.191349908950485,
+            "headsBelowSeaAt2p5": 24,
+            "minimumHeadYOverOwnLifetime": -47.83019515009885
+          },
+          {
+            "seed": 0,
+            "elevation": 30,
+            "orientation": {
+              "yawDegrees": 90,
+              "tiltDegrees": 45,
+              "rollDegrees": 30
+            },
+            "alpha": 2.601288149426705,
+            "burstY": 47.191349908950485,
+            "headsBelowSeaAt2p5": 20,
+            "minimumHeadYOverOwnLifetime": -50.07158429081273
+          },
+          {
+            "seed": 0,
+            "elevation": 30,
+            "orientation": {
+              "yawDegrees": -360,
+              "tiltDegrees": 90,
+              "rollDegrees": 180
+            },
+            "alpha": 2.660758068686838,
+            "burstY": 47.191349908950485,
+            "headsBelowSeaAt2p5": 26,
+            "minimumHeadYOverOwnLifetime": -52.92091525653262
+          },
+          {
+            "seed": 1,
+            "elevation": 25,
+            "orientation": null,
+            "alpha": 2.5948055997848325,
+            "burstY": 34.587503494314205,
+            "headsBelowSeaAt2p5": 50,
+            "minimumHeadYOverOwnLifetime": -63.71249408131911
+          },
+          {
+            "seed": 1,
+            "elevation": 25,
+            "orientation": {
+              "yawDegrees": 113.5,
+              "tiltDegrees": -4.2,
+              "rollDegrees": -6.3
+            },
+            "alpha": 2.591972850759568,
+            "burstY": 34.587503494314205,
+            "headsBelowSeaAt2p5": 52,
+            "minimumHeadYOverOwnLifetime": -61.44809503414043
+          },
+          {
+            "seed": 1,
+            "elevation": 25,
+            "orientation": {
+              "yawDegrees": 90,
+              "tiltDegrees": 45,
+              "rollDegrees": 30
+            },
+            "alpha": 2.541615617022761,
+            "burstY": 34.587503494314205,
+            "headsBelowSeaAt2p5": 48,
+            "minimumHeadYOverOwnLifetime": -62.25623958161722
+          },
+          {
+            "seed": 1,
+            "elevation": 25,
+            "orientation": {
+              "yawDegrees": -360,
+              "tiltDegrees": 90,
+              "rollDegrees": 180
+            },
+            "alpha": 2.5653050239880284,
+            "burstY": 34.587503494314205,
+            "headsBelowSeaAt2p5": 51,
+            "minimumHeadYOverOwnLifetime": -67.31146280092554
+          }
+        ],
+        "scope": "120m is authored free-flight/pre-contact burning-head geometry. No claim that contact-clipped visible width remains120m or that finite samples prove all orientations stay airborne."
+      }
+    },
+    {
+      "name": "Unmodified actual contact adapter handles faster head and fixed-lag tail crossings at low elevations with causal finite support",
+      "passed": true,
+      "evidence": {
+        "cases": 432,
+        "maxRootErrorSeconds": 2.0265575884081954e-9,
+        "maxUnresolvedSeconds": 3.725290298461914e-9,
+        "maximumAdapterEvaluations": 122,
+        "actualAdapterUnmodified": true
+      }
+    },
+    {
+      "name": "Existing resolveBurst carries scaled baseVelocity through committed wind once and leaves calibration width unchanged",
+      "passed": true,
+      "evidence": {
+        "width": 120.00000000000001,
+        "repeatExact": true,
+        "source": "actual sampleFireworkEvent→resolveBurst→sampleBody; proposed velocity patches only"
+      }
+    }
+  ],
+  "phaseCases": [
+    {
+      "seed": 0,
+      "elevation": 25,
+      "orientation": null,
+      "alpha": 2.6914682739748668,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 52,
+      "minimumHeadYOverOwnLifetime": -59.41748232870527
+    },
+    {
+      "seed": 0,
+      "elevation": 25,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.7083454044477167,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 54,
+      "minimumHeadYOverOwnLifetime": -60.43404156473518
+    },
+    {
+      "seed": 0,
+      "elevation": 25,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.601288149426705,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 47,
+      "minimumHeadYOverOwnLifetime": -62.675430705449074
+    },
+    {
+      "seed": 0,
+      "elevation": 25,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.660758068686838,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 54,
+      "minimumHeadYOverOwnLifetime": -65.52476167116893
+    },
+    {
+      "seed": 0,
+      "elevation": 30,
+      "orientation": null,
+      "alpha": 2.6914682739748668,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 24,
+      "minimumHeadYOverOwnLifetime": -46.81363591406895
+    },
+    {
+      "seed": 0,
+      "elevation": 30,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.7083454044477167,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 24,
+      "minimumHeadYOverOwnLifetime": -47.83019515009885
+    },
+    {
+      "seed": 0,
+      "elevation": 30,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.601288149426705,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 20,
+      "minimumHeadYOverOwnLifetime": -50.07158429081273
+    },
+    {
+      "seed": 0,
+      "elevation": 30,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.660758068686838,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 26,
+      "minimumHeadYOverOwnLifetime": -52.92091525653262
+    },
+    {
+      "seed": 0,
+      "elevation": 45,
+      "orientation": null,
+      "alpha": 2.6914682739748668,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -5.144927582842023
+    },
+    {
+      "seed": 0,
+      "elevation": 45,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.7083454044477167,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -6.161486818871936
+    },
+    {
+      "seed": 0,
+      "elevation": 45,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.601288149426705,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -8.402875959585806
+    },
+    {
+      "seed": 0,
+      "elevation": 45,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.660758068686838,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -11.252206925305693
+    },
+    {
+      "seed": 0,
+      "elevation": 63,
+      "orientation": null,
+      "alpha": 2.6914682739748663,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 40.460976707167646
+    },
+    {
+      "seed": 0,
+      "elevation": 63,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.7083454044477167,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 39.44441747113774
+    },
+    {
+      "seed": 0,
+      "elevation": 63,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.6012881494267055,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 37.20302833042385
+    },
+    {
+      "seed": 0,
+      "elevation": 63,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.6607580686868384,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 34.35369736470396
+    },
+    {
+      "seed": 0,
+      "elevation": 78,
+      "orientation": null,
+      "alpha": 2.6914682739748668,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 64.58854505327525
+    },
+    {
+      "seed": 0,
+      "elevation": 78,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.7083454044477167,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 63.57198581724535
+    },
+    {
+      "seed": 0,
+      "elevation": 78,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.6012881494267055,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 61.33059667653143
+    },
+    {
+      "seed": 0,
+      "elevation": 78,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.660758068686838,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 58.48126571081158
+    },
+    {
+      "seed": 0,
+      "elevation": 90,
+      "orientation": null,
+      "alpha": 2.6914682739748668,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 70.8761557182664
+    },
+    {
+      "seed": 0,
+      "elevation": 90,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.7083454044477167,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 69.85959648223647
+    },
+    {
+      "seed": 0,
+      "elevation": 90,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.601288149426705,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 67.61820734152263
+    },
+    {
+      "seed": 0,
+      "elevation": 90,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.660758068686838,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 64.76887637580273
+    },
+    {
+      "seed": 1,
+      "elevation": 25,
+      "orientation": null,
+      "alpha": 2.5948055997848325,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 50,
+      "minimumHeadYOverOwnLifetime": -63.71249408131911
+    },
+    {
+      "seed": 1,
+      "elevation": 25,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.591972850759568,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 52,
+      "minimumHeadYOverOwnLifetime": -61.44809503414043
+    },
+    {
+      "seed": 1,
+      "elevation": 25,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.541615617022761,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 48,
+      "minimumHeadYOverOwnLifetime": -62.25623958161722
+    },
+    {
+      "seed": 1,
+      "elevation": 25,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.5653050239880284,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 51,
+      "minimumHeadYOverOwnLifetime": -67.31146280092554
+    },
+    {
+      "seed": 1,
+      "elevation": 30,
+      "orientation": null,
+      "alpha": 2.5948055997848325,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 22,
+      "minimumHeadYOverOwnLifetime": -51.10864766668278
+    },
+    {
+      "seed": 1,
+      "elevation": 30,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.5919728507595683,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 19,
+      "minimumHeadYOverOwnLifetime": -48.844248619504114
+    },
+    {
+      "seed": 1,
+      "elevation": 30,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.541615617022761,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 21,
+      "minimumHeadYOverOwnLifetime": -49.6523931669809
+    },
+    {
+      "seed": 1,
+      "elevation": 30,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.5653050239880284,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 25,
+      "minimumHeadYOverOwnLifetime": -54.70761638628923
+    },
+    {
+      "seed": 1,
+      "elevation": 45,
+      "orientation": null,
+      "alpha": 2.5948055997848325,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -9.439939335455854
+    },
+    {
+      "seed": 1,
+      "elevation": 45,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.591972850759568,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -7.17554028827718
+    },
+    {
+      "seed": 1,
+      "elevation": 45,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.541615617022761,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -7.983684835753973
+    },
+    {
+      "seed": 1,
+      "elevation": 45,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.5653050239880284,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -13.0389080550623
+    },
+    {
+      "seed": 1,
+      "elevation": 63,
+      "orientation": null,
+      "alpha": 2.5948055997848325,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 36.1659649545538
+    },
+    {
+      "seed": 1,
+      "elevation": 63,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.591972850759568,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 38.43036400173248
+    },
+    {
+      "seed": 1,
+      "elevation": 63,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.541615617022761,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 37.62221945425571
+    },
+    {
+      "seed": 1,
+      "elevation": 63,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.5653050239880284,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 32.56699623494736
+    },
+    {
+      "seed": 1,
+      "elevation": 78,
+      "orientation": null,
+      "alpha": 2.5948055997848325,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 60.29353330066141
+    },
+    {
+      "seed": 1,
+      "elevation": 78,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.591972850759568,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 62.55793234784009
+    },
+    {
+      "seed": 1,
+      "elevation": 78,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.541615617022761,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 61.74978780036329
+    },
+    {
+      "seed": 1,
+      "elevation": 78,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.5653050239880284,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 56.694564581054976
+    },
+    {
+      "seed": 1,
+      "elevation": 90,
+      "orientation": null,
+      "alpha": 2.5948055997848325,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 66.58114396565259
+    },
+    {
+      "seed": 1,
+      "elevation": 90,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.591972850759568,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 68.84554301283126
+    },
+    {
+      "seed": 1,
+      "elevation": 90,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.541615617022761,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 68.03739846535446
+    },
+    {
+      "seed": 1,
+      "elevation": 90,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.5653050239880284,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 62.98217524604613
+    },
+    {
+      "seed": 42,
+      "elevation": 25,
+      "orientation": null,
+      "alpha": 2.6371403287601014,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 56,
+      "minimumHeadYOverOwnLifetime": -58.968603470076175
+    },
+    {
+      "seed": 42,
+      "elevation": 25,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.706357054506211,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 53,
+      "minimumHeadYOverOwnLifetime": -63.025828764666684
+    },
+    {
+      "seed": 42,
+      "elevation": 25,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.594123497005917,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 52,
+      "minimumHeadYOverOwnLifetime": -68.70446968492
+    },
+    {
+      "seed": 42,
+      "elevation": 25,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.6188571916132464,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 52,
+      "minimumHeadYOverOwnLifetime": -63.153548953708
+    },
+    {
+      "seed": 42,
+      "elevation": 30,
+      "orientation": null,
+      "alpha": 2.6371403287601014,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 23,
+      "minimumHeadYOverOwnLifetime": -46.36475705543985
+    },
+    {
+      "seed": 42,
+      "elevation": 30,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.7063570545062112,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 27,
+      "minimumHeadYOverOwnLifetime": -50.42198235003037
+    },
+    {
+      "seed": 42,
+      "elevation": 30,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.594123497005917,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 22,
+      "minimumHeadYOverOwnLifetime": -56.10062327028366
+    },
+    {
+      "seed": 42,
+      "elevation": 30,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.6188571916132455,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 26,
+      "minimumHeadYOverOwnLifetime": -50.54970253907165
+    },
+    {
+      "seed": 42,
+      "elevation": 45,
+      "orientation": null,
+      "alpha": 2.6371403287601014,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -4.6960487242129325
+    },
+    {
+      "seed": 42,
+      "elevation": 45,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.7063570545062112,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -8.753274018803452
+    },
+    {
+      "seed": 42,
+      "elevation": 45,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.594123497005917,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -14.431914939056753
+    },
+    {
+      "seed": 42,
+      "elevation": 45,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.6188571916132455,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -8.880994207844722
+    },
+    {
+      "seed": 42,
+      "elevation": 63,
+      "orientation": null,
+      "alpha": 2.6371403287601014,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 40.909855565796725
+    },
+    {
+      "seed": 42,
+      "elevation": 63,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.7063570545062112,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 36.85263027120622
+    },
+    {
+      "seed": 42,
+      "elevation": 63,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.594123497005917,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 31.173989350952944
+    },
+    {
+      "seed": 42,
+      "elevation": 63,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.6188571916132455,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 36.72491008216497
+    },
+    {
+      "seed": 42,
+      "elevation": 78,
+      "orientation": null,
+      "alpha": 2.6371403287601014,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 65.03742391190434
+    },
+    {
+      "seed": 42,
+      "elevation": 78,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.706357054506211,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 60.98019861731385
+    },
+    {
+      "seed": 42,
+      "elevation": 78,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.594123497005917,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 55.30155769706052
+    },
+    {
+      "seed": 42,
+      "elevation": 78,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.6188571916132455,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 60.852478428272555
+    },
+    {
+      "seed": 42,
+      "elevation": 90,
+      "orientation": null,
+      "alpha": 2.6371403287601014,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 71.3250345768955
+    },
+    {
+      "seed": 42,
+      "elevation": 90,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.706357054506211,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 67.26780928230498
+    },
+    {
+      "seed": 42,
+      "elevation": 90,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.594123497005917,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 61.58916836205168
+    },
+    {
+      "seed": 42,
+      "elevation": 90,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.6188571916132455,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 67.14008909326371
+    },
+    {
+      "seed": 341070,
+      "elevation": 25,
+      "orientation": null,
+      "alpha": 2.6347670343794403,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 55,
+      "minimumHeadYOverOwnLifetime": -60.970450301065185
+    },
+    {
+      "seed": 341070,
+      "elevation": 25,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.5960391768307582,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 50,
+      "minimumHeadYOverOwnLifetime": -60.99874027301427
+    },
+    {
+      "seed": 341070,
+      "elevation": 25,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.6283629047313055,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 51,
+      "minimumHeadYOverOwnLifetime": -68.57331110070794
+    },
+    {
+      "seed": 341070,
+      "elevation": 25,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.5942593011506174,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 51,
+      "minimumHeadYOverOwnLifetime": -67.15676388259233
+    },
+    {
+      "seed": 341070,
+      "elevation": 30,
+      "orientation": null,
+      "alpha": 2.6347670343794403,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 23,
+      "minimumHeadYOverOwnLifetime": -48.36660388642887
+    },
+    {
+      "seed": 341070,
+      "elevation": 30,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.5960391768307582,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 21,
+      "minimumHeadYOverOwnLifetime": -48.39489385837796
+    },
+    {
+      "seed": 341070,
+      "elevation": 30,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.6283629047313055,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 22,
+      "minimumHeadYOverOwnLifetime": -55.969464686071625
+    },
+    {
+      "seed": 341070,
+      "elevation": 30,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.5942593011506188,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 25,
+      "minimumHeadYOverOwnLifetime": -54.552917467956064
+    },
+    {
+      "seed": 341070,
+      "elevation": 45,
+      "orientation": null,
+      "alpha": 2.6347670343794403,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -6.697895555201939
+    },
+    {
+      "seed": 341070,
+      "elevation": 45,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.5960391768307582,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -6.726185527151031
+    },
+    {
+      "seed": 341070,
+      "elevation": 45,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.6283629047313055,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -14.300756354844701
+    },
+    {
+      "seed": 341070,
+      "elevation": 45,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.5942593011506188,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -12.884209136729126
+    },
+    {
+      "seed": 341070,
+      "elevation": 63,
+      "orientation": null,
+      "alpha": 2.6347670343794403,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 38.908008734807716
+    },
+    {
+      "seed": 341070,
+      "elevation": 63,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.5960391768307582,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 38.87971876285862
+    },
+    {
+      "seed": 341070,
+      "elevation": 63,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.6283629047313055,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 31.30514793516499
+    },
+    {
+      "seed": 341070,
+      "elevation": 63,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.5942593011506188,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 32.72169515328053
+    },
+    {
+      "seed": 341070,
+      "elevation": 78,
+      "orientation": null,
+      "alpha": 2.6347670343794403,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 63.03557708091533
+    },
+    {
+      "seed": 341070,
+      "elevation": 78,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.5960391768307582,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 63.007287108966246
+    },
+    {
+      "seed": 341070,
+      "elevation": 78,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.6283629047313055,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 55.43271628127257
+    },
+    {
+      "seed": 341070,
+      "elevation": 78,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.5942593011506188,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 56.849263499388144
+    },
+    {
+      "seed": 341070,
+      "elevation": 90,
+      "orientation": null,
+      "alpha": 2.6347670343794403,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 69.3231877459065
+    },
+    {
+      "seed": 341070,
+      "elevation": 90,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.5960391768307582,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 69.2948977739574
+    },
+    {
+      "seed": 341070,
+      "elevation": 90,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.6283629047313055,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 61.72032694626373
+    },
+    {
+      "seed": 341070,
+      "elevation": 90,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.5942593011506188,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 63.13687416437931
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 25,
+      "orientation": null,
+      "alpha": 2.5425248302663195,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 49,
+      "minimumHeadYOverOwnLifetime": -66.06490150691334
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 25,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.5398394590056133,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 50,
+      "minimumHeadYOverOwnLifetime": -63.69542961672094
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 25,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.722864790985752,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 51,
+      "minimumHeadYOverOwnLifetime": -67.65644537864883
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 25,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.613399545577305,
+      "burstY": 34.587503494314205,
+      "headsBelowSeaAt2p5": 49,
+      "minimumHeadYOverOwnLifetime": -66.95308523489845
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 30,
+      "orientation": null,
+      "alpha": 2.5425248302663195,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 21,
+      "minimumHeadYOverOwnLifetime": -53.46105509227702
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 30,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.5398394590056137,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 22,
+      "minimumHeadYOverOwnLifetime": -51.09158320208463
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 30,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.722864790985752,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 23,
+      "minimumHeadYOverOwnLifetime": -55.05259896401249
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 30,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.613399545577305,
+      "burstY": 47.191349908950485,
+      "headsBelowSeaAt2p5": 25,
+      "minimumHeadYOverOwnLifetime": -54.349238820262116
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 45,
+      "orientation": null,
+      "alpha": 2.5425248302663195,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -11.792346761050094
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 45,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.5398394590056133,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -9.422874870857694
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 45,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.722864790985752,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -13.383890632785569
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 45,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.613399545577305,
+      "burstY": 88.86005824017741,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": -12.680530489035188
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 63,
+      "orientation": null,
+      "alpha": 2.5425248302663195,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 33.813557528959564
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 63,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.5398394590056133,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 36.183029419151964
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 63,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.722864790985752,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 32.222013657224096
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 63,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.613399545577305,
+      "burstY": 134.46596253018708,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 32.92537380097447
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 78,
+      "orientation": null,
+      "alpha": 2.5425248302663195,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 57.94112587506717
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 78,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.5398394590056133,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 60.31059776525957
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 78,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.722864790985752,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 56.349582003331676
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 78,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.613399545577305,
+      "burstY": 158.59353087629472,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 57.05294214708205
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 90,
+      "orientation": null,
+      "alpha": 2.5425248302663195,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 64.22873654005834
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 90,
+      "orientation": {
+        "yawDegrees": 113.5,
+        "tiltDegrees": -4.2,
+        "rollDegrees": -6.3
+      },
+      "alpha": 2.5398394590056133,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 66.59820843025074
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 90,
+      "orientation": {
+        "yawDegrees": 90,
+        "tiltDegrees": 45,
+        "rollDegrees": 30
+      },
+      "alpha": 2.722864790985752,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 62.63719266832287
+    },
+    {
+      "seed": 4294967295,
+      "elevation": 90,
+      "orientation": {
+        "yawDegrees": -360,
+        "tiltDegrees": 90,
+        "rollDegrees": 180
+      },
+      "alpha": 2.613399545577305,
+      "burstY": 164.88114154128584,
+      "headsBelowSeaAt2p5": 0,
+      "minimumHeadYOverOwnLifetime": 63.34055281207324
+    }
+  ],
+  "limitations": [
+    "Finite spherical net bound uses analytic real-arithmetic Lipschitz reasoning with a generous numerical margin, not a formal directed-rounding certificate.",
+    "Sampled angle/seed lifetime and contact tests are falsification evidence, not a global all-seed terrain/visibility guarantee.",
+    "Shell-carrier velocity is unchanged; finite-point kick centroid can be nonzero and scales. No measured particle-mass COM conservation is asserted.",
+    "No visual, performance, GPU capacity, photometry, chemical fuel or supplier time-curve calibration acceptance."
+  ]
+}

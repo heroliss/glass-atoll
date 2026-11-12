@@ -1,0 +1,191 @@
+{
+  "schema": "glass-atoll.r11-capacity-independent.v1",
+  "dateUTC": "2026-10-28T03:53:46.296Z",
+  "actualGPU": false,
+  "sourceSHA256": {
+    "state": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+    "baselineState": "1aa90d24f42adbf6416bd871e8de56d26c4841535e7f0d7f80e591286c6a2cba",
+    "helper": "c33ee75ae4541cc95ef54df7c4f8fdf3540531f2e11d59d612f5f2e49848f76b"
+  },
+  "checks": [
+    {
+      "name": "independent prefix and suffix comparison finds exactly the selection block changed",
+      "passed": true,
+      "evidence": {
+        "baselineHash": "1aa90d24f42adbf6416bd871e8de56d26c4841535e7f0d7f80e591286c6a2cba",
+        "currentHash": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+        "changedBlocks": 1,
+        "ownerNormalizerUsed": false,
+        "validationKernelsAndMutationSequenceUntouched": true
+      }
+    },
+    {
+      "name": "right-of-equals insertion preserves duplicate complete keys stable object identity",
+      "passed": true,
+      "evidence": {
+        "cases": 90,
+        "objects": 2580,
+        "duplicateFullKeysAreSynthetic": true,
+        "productionPairsDeduplicated": true
+      }
+    },
+    {
+      "name": "finite total-order pools match after shuffled ties and x-index tie breaks",
+      "passed": true,
+      "evidence": {
+        "cases": 240,
+        "objects": 125611,
+        "seed": "0x17ba3c6d",
+        "scoresFiniteNonnegative": true
+      }
+    },
+    {
+      "name": "nonfinite generic comparator equivalence is explicitly rejected as a claim",
+      "passed": true,
+      "evidence": {
+        "invalidNaNPool": {
+          "input": [
+            {
+              "score": 1,
+              "i": 1,
+              "j": 5,
+              "tag": 0,
+              "sameSource": true
+            },
+            {
+              "score": 2,
+              "i": 0,
+              "j": 7,
+              "tag": 1,
+              "sameSource": true
+            },
+            {
+              "score": 0,
+              "i": 5,
+              "j": 6,
+              "tag": 2,
+              "sameSource": true
+            },
+            {
+              "score": 1,
+              "i": 9,
+              "j": 8,
+              "tag": 3,
+              "sameSource": true
+            },
+            {
+              "score": 1,
+              "i": 6,
+              "j": 5,
+              "tag": 4,
+              "sameSource": true
+            },
+            {
+              "score": 1,
+              "i": 9,
+              "j": 2,
+              "tag": 5,
+              "sameSource": true
+            },
+            {
+              "score": 1,
+              "i": 3,
+              "j": 5,
+              "tag": 6,
+              "sameSource": true
+            },
+            {
+              "score": 1,
+              "i": 5,
+              "j": 2,
+              "tag": 7,
+              "sameSource": true
+            },
+            {
+              "score": "NaN",
+              "i": 9,
+              "j": 6,
+              "tag": 8,
+              "sameSource": true
+            },
+            {
+              "score": 2,
+              "i": 3,
+              "j": 5,
+              "tag": 9,
+              "sameSource": true
+            }
+          ],
+          "old": [
+            2,
+            0,
+            6,
+            7,
+            4,
+            5,
+            8,
+            3
+          ],
+          "next": [
+            2,
+            0,
+            6,
+            7,
+            4,
+            5,
+            9,
+            8
+          ]
+        },
+        "notAnAdmissibleStatePool": true,
+        "why": "Array.sort comparator with NaN score may not be transitive; equivalence is for validated finite production tuples only.",
+        "numericDomain": {
+          "maximumDistanceSquared": 12000000000000000000,
+          "minimumTrace": 5.999999999999999e-24,
+          "maximumTrace": 600000000000000000000,
+          "maximumScore": 2.0000000000000004e+42
+        },
+        "publishedDomainsAndValidationUnchanged": true
+      }
+    },
+    {
+      "name": "NaN Infinity signed-domain violations reject before current or prior state mutation",
+      "passed": true,
+      "evidence": {
+        "cases": 14,
+        "compactionInvocations": 0,
+        "noNaNCandidateFallbackAdded": true
+      }
+    },
+    {
+      "name": "fixed ticks off-tick sources variable wind and bounded catchup preserve actual merges",
+      "passed": false,
+      "error": "RangeError: Ray direction must be unit length\n    at fail ([in-memory QA module]:8:46)\n    at Object.columnOpticalDepth ([in-memory QA module]:151:208)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r11-capacity-independent-check.mjs:74:110\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r11-capacity-independent-check.mjs:16:78)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r11-capacity-independent-check.mjs:62:1"
+    },
+    {
+      "name": "native palm past-segment emissions replay exactly through wind changes and merges",
+      "passed": false,
+      "error": "RangeError: Ray direction must be unit length\n    at fail ([in-memory QA module]:8:46)\n    at Object.columnOpticalDepth ([in-memory QA module]:151:208)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r11-capacity-independent-check.mjs:93:147\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r11-capacity-independent-check.mjs:16:78)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r11-capacity-independent-check.mjs:83:1"
+    },
+    {
+      "name": "source hashes remained frozen through all independent tests",
+      "passed": true,
+      "evidence": {
+        "current": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+        "baseline": "1aa90d24f42adbf6416bd871e8de56d26c4841535e7f0d7f80e591286c6a2cba"
+      }
+    }
+  ],
+  "counts": {
+    "passed": 6,
+    "total": 8
+  },
+  "wallMs": 214.6149,
+  "limits": [
+    "CPU source and selection semantics only. No new GPU/FPS, photoreal smoke, long-accumulation or all6291/default4096 willow claim.",
+    "Equivalence is for finite validated production candidate tuples. Arbitrary NaN comparators are explicitly not assumed transitive or equivalent.",
+    "Existing forced merge spatial/column approximations remain; exact equality to baseline is not a new global optical error bound.",
+    "Private pool observers are inserted only into in-memory test copies, not runtime files."
+  ],
+  "passed": false
+}

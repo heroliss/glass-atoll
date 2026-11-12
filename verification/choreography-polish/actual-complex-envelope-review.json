@@ -1,0 +1,137 @@
+{
+  "schema": "glass-atoll.actual-complex-envelope-review.v1",
+  "passed": true,
+  "summary": {
+    "passed": 3,
+    "total": 3
+  },
+  "pins": {
+    "complex-fireworks-style.js": "be7e4799281b5b5590d0b3d00636d7bd293e92e573e2d9aaab5c0c87b33b816e",
+    "complex-fireworks.js": "c399c997c865862ac00fd711141ed7a564e0c3d5957abbb029529bb376544acc",
+    "fireworks-physics.js": "a5d0ba41877ad80420efa98982104c561d8fcab1f1301ef1bbc884ff6b797899"
+  },
+  "checks": [
+    {
+      "name": "actual ten families preserve smooth interpolation after randomized body lifetime and clone scaling",
+      "passed": true,
+      "evidence": {
+        "families": [
+          {
+            "type": "display-saturn",
+            "bodies": 256,
+            "jitteredPlanarHeads": 48,
+            "lifeRange": [
+              2.55,
+              5.064009420409799
+            ]
+          },
+          {
+            "type": "display-heart",
+            "bodies": 256,
+            "jitteredPlanarHeads": 48,
+            "lifeRange": [
+              2.55,
+              5.064009420409799
+            ]
+          },
+          {
+            "type": "display-flower",
+            "bodies": 256,
+            "jitteredPlanarHeads": 48,
+            "lifeRange": [
+              2.55,
+              5.064009420409799
+            ]
+          },
+          {
+            "type": "display-chase",
+            "bodies": 208,
+            "jitteredPlanarHeads": 160,
+            "lifeRange": [
+              2.3,
+              5.406624854432418
+            ]
+          },
+          {
+            "type": "display-vfan",
+            "bodies": 128,
+            "jitteredPlanarHeads": 0,
+            "lifeRange": [
+              3.6,
+              3.6
+            ]
+          },
+          {
+            "type": "display-helix",
+            "bodies": 192,
+            "jitteredPlanarHeads": 0,
+            "lifeRange": [
+              4.6,
+              5.8
+            ]
+          },
+          {
+            "type": "display-vortex",
+            "bodies": 192,
+            "jitteredPlanarHeads": 48,
+            "lifeRange": [
+              4.3,
+              5.60072729856614
+            ]
+          },
+          {
+            "type": "display-waterfall",
+            "bodies": 193,
+            "jitteredPlanarHeads": 0,
+            "lifeRange": [
+              3.25,
+              6.0999092546058815
+            ]
+          },
+          {
+            "type": "display-double",
+            "bodies": 180,
+            "jitteredPlanarHeads": 0,
+            "lifeRange": [
+              0.9,
+              4.9
+            ]
+          },
+          {
+            "type": "display-brocade",
+            "bodies": 256,
+            "jitteredPlanarHeads": 0,
+            "lifeRange": [
+              2.8,
+              7.2
+            ]
+          }
+        ],
+        "bodies": 2117,
+        "samples": 273093
+      }
+    },
+    {
+      "name": "all actual explicit primary and child flashes keep the exact .18s authored linear curve",
+      "passed": true,
+      "evidence": {
+        "flashes": 14,
+        "samples": 2534,
+        "curveAndLifetimeExact": true
+      }
+    },
+    {
+      "name": "actual intentional pulse and released-tail paths retain the fading baseline without added sources or passes",
+      "passed": true,
+      "evidence": {
+        "pulseBodies": 32,
+        "tailBodies": 1344,
+        "producerCountsUnchanged": true,
+        "extraGPUWorkFromCurve": 0,
+        "scope": "curve arithmetic only; no claim GPU frame time"
+      }
+    }
+  ],
+  "actualGPU": false,
+  "scope": "Actual CPU event producers and all current complex head/flash envelopes; no renderer/physical replay/visual acceptance"
+}

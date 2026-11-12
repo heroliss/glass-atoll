@@ -1,0 +1,132 @@
+{
+  "schema": "glass-atoll.r18-layer-profile-envelope-cpu.v1",
+  "actualGPU": false,
+  "passed": true,
+  "passedCount": 5,
+  "total": 5,
+  "checks": [
+    {
+      "name": "all ten legacy type envelopes retain exact values keys and strings",
+      "passed": true,
+      "evidence": {
+        "compared": 120,
+        "scope": "Original envelope source rebound only to the current same legacy generator; exact binary64 output and object contract comparison"
+      }
+    },
+    {
+      "name": "candidate hard contracts select extended life with unchanged carrier limits",
+      "passed": true,
+      "evidence": [
+        {
+          "effectProfile": "three-heart-v1",
+          "bodySeconds": 4.876,
+          "tailSeconds": 0.35,
+          "carrierSeconds": [
+            5.246601999576649,
+            5.343968293033149
+          ]
+        },
+        {
+          "effectProfile": "two-colour-v1",
+          "bodySeconds": 3.392,
+          "tailSeconds": 0.35,
+          "carrierSeconds": [
+            5.246601999576649,
+            5.343968293033149
+          ]
+        }
+      ]
+    },
+    {
+      "name": "settings interface options override and unsupported combinations fail closed",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "finite seeded moving-wind witnesses enclose every body and detached tail centre",
+      "passed": true,
+      "evidence": {
+        "cases": 64,
+        "bodyPoints": 61760,
+        "tailPoints": 123520,
+        "maximumLife": {
+          "three-heart-v1": 4.872479929858819,
+          "two-colour-v1": 3.391797228306532
+        },
+        "scope": "Bounded counterexample witnesses; the generator hard-contract and analytic interval argument provide coverage, not seed enumeration"
+      }
+    },
+    {
+      "name": "modulo-three layer selection covers the globe with a measured uniformity caveat",
+      "passed": true,
+      "evidence": {
+        "seed": 42,
+        "originalModuloLayers": [
+          {
+            "count": 64,
+            "octants": [
+              8,
+              8,
+              7,
+              7,
+              8,
+              8,
+              8,
+              10
+            ],
+            "minimumNearestDegrees": 13.11180978002387,
+            "maximum4096ProbeGapDegrees": 23.03926101449644
+          },
+          {
+            "count": 64,
+            "octants": [
+              8,
+              8,
+              9,
+              8,
+              8,
+              8,
+              9,
+              6
+            ],
+            "minimumNearestDegrees": 13.409816817630986,
+            "maximum4096ProbeGapDegrees": 23.61155529270743
+          },
+          {
+            "count": 64,
+            "octants": [
+              9,
+              8,
+              8,
+              10,
+              7,
+              8,
+              7,
+              7
+            ],
+            "minimumNearestDegrees": 13.187805596153245,
+            "maximum4096ProbeGapDegrees": 23.562693095010964
+          }
+        ],
+        "independent64FibonacciReference": {
+          "count": 64,
+          "octants": [
+            8,
+            8,
+            7,
+            8,
+            7,
+            9,
+            9,
+            8
+          ],
+          "minimumNearestDegrees": 22.266982634234587,
+          "maximum4096ProbeGapDegrees": 18.779245248259546
+        },
+        "caveat": "Each modulo layer spans all octants, but stride3 changes azimuth step to52.523deg and worsens uniformity; this is a visual candidate review, not an envelope escape or a universal covering proof. No FW/physics directions changed by this task."
+      }
+    }
+  ],
+  "sourceSHA256": "09af37c8e5498d6bc2ba6f369fc43bf88cfd6151462713ea1f44cafe51f9b9e8",
+  "legacySourceSHA256": "d89bb457d79eb9540798dca97565bb6b712fe4be2f6842ad38ecdb3806e9f050"
+}

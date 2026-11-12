@@ -1,0 +1,34 @@
+{
+  "schema": "glass-atoll.r15-frame-rate-check.v1",
+  "checks": [
+    {
+      "name": "60 actual draws over one wall-clock second report60",
+      "passed": true
+    },
+    {
+      "name": "idle callbacks are not scene frames",
+      "passed": true
+    },
+    {
+      "name": "pause and resume clear previous-window frames",
+      "passed": true
+    },
+    {
+      "name": "hidden or diagnostic reset does not include inactive time",
+      "passed": false,
+      "error": "Cannot read properties of null (reading 'fps')"
+    },
+    {
+      "name": "slow rendering and rejected invalid configuration are explicit",
+      "passed": true
+    }
+  ],
+  "passed": false,
+  "counts": {
+    "passed": 4,
+    "total": 5
+  },
+  "limits": [
+    "Wall-clock draw-rate meter, not GPU benchmark, display scanout or per-frame60fps guarantee."
+  ]
+}

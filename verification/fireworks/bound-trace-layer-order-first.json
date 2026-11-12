@@ -1,0 +1,56 @@
+{
+  "schema": "glass-atoll.bound-trace-cpu.v1",
+  "dateUTC": "2026-10-27T01:19:54.943Z",
+  "passed": false,
+  "passedCount": 5,
+  "total": 6,
+  "sourceSHA256": "b1b1ac57ede266a64d97c8c1f5c02f4d36c11ba47c3efddd0af7994ba3c1fdeb",
+  "baselineSHA256": "6b37e0a635975ede060589c8b42ed0b273a79ed75aa8cbbca36095e3a63e731f",
+  "checks": [
+    {
+      "name": "three exact trace edits restore every pre-hook source byte",
+      "passed": true,
+      "evidence": {
+        "baselineSHA256": "6b37e0a635975ede060589c8b42ed0b273a79ed75aa8cbbca36095e3a63e731f",
+        "sourceSHA256": "b1b1ac57ede266a64d97c8c1f5c02f4d36c11ba47c3efddd0af7994ba3c1fdeb"
+      }
+    },
+    {
+      "name": "missing/duplicated trace edits fail closed",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Missing expected exception.\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/bound-trace-check.mjs:16:108\n    at test (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/bound-trace-check.mjs:11:86)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/bound-trace-check.mjs:16:1"
+    },
+    {
+      "name": "default/null/observed production totals equal frozen baseline for multiple actual record sets",
+      "passed": true,
+      "evidence": {
+        "pairs": 8,
+        "rows": 10936
+      }
+    },
+    {
+      "name": "callback rows and every vector are detached/frozen; attempts cannot alter subsequent result",
+      "passed": true,
+      "evidence": {
+        "rows": 120
+      }
+    },
+    {
+      "name": "invalid callback rejects explicitly and does not change physical event state",
+      "passed": true
+    },
+    {
+      "name": "homogeneous uncertainty covers distinct Float32 dot accumulation orders",
+      "passed": true,
+      "evidence": {
+        "samples": 48000,
+        "maxRatio": 0.4650632404934839,
+        "limit": "CPU Float32 arithmetic witnesses only; actual hardware clipping is separate"
+      }
+    }
+  ],
+  "limits": [
+    "Trace only. Runtime clipping, numerical source bound, shader and output fields remain unchanged.",
+    "CPU arithmetic/compatibility is not hardware-raster proof or a frame-rate measurement."
+  ]
+}

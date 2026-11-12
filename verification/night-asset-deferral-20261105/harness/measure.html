@@ -1,0 +1,42 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>first-frame bytes</title>
+<style>html,body{margin:0;height:100%;background:#000}iframe{border:0;width:100vw;height:100vh;display:block}</style></head>
+<body><script>
+// Loads the runtime in a same-origin frame. window.__ATOLL__ is assigned in the
+// same task as the first frame() call, so the first poll that sees it marks the
+// first rendered frame. The server log gives exact body bytes per request.
+window.result={status:'loading'};
+const entries=[];
+fetch('/__reset').then(()=>{
+  const frame=document.createElement('iframe');frame.src='/play/glass-atoll/'+location.search;document.body.appendChild(frame);
+  const t0=performance.now();let observed=false;
+  const poll=()=>{
+    const w=frame.contentWindow;
+    try{
+      if(!observed&&w&&w.location.href.includes('/play/glass-atoll/')&&w.PerformanceObserver){
+        observed=true;w.performance.setResourceTimingBufferSize(5000);
+        new w.PerformanceObserver(list=>{for(const e of list.getEntries())entries.push({name:e.name.replace(location.origin,''),start:e.startTime,end:e.responseEnd,transfer:e.transferSize,encoded:e.encodedBodySize});}).observe({type:'resource',buffered:true});
+      }
+      if(w&&w.__ATOLL__){
+        const tFirst=w.performance.now();
+        fetch('/__mark?name=first-frame');
+        window.result={status:'first-frame',wallMs:performance.now()-t0,frameTimeMs:tFirst,entriesAtFirstFrame:entries.slice()};
+        return;
+      }
+    }catch(error){window.result.error=String(error);}
+    setTimeout(poll,0);
+  };
+  poll();
+  window.collect=async()=>{
+    const log=await (await fetch('/__log')).json();
+    const markIndex=log.findIndex(r=>r.mark==='first-frame'),mark=log[markIndex];
+    const reqs=log.filter(r=>r.path);
+    const before=reqs.filter(r=>mark&&r.end<=mark.t),startedBefore=reqs.filter(r=>mark&&r.start<=mark.t);
+    const sum=a=>a.reduce((s,r)=>s+r.bytes,0);
+    const night=r=>/milkyway|catalog\/.*\.(bin|pack)$/.test(r.path);
+    return {firstFrameServerMs:mark?.t,completedBeforeFirstFrame:{requests:before.length,bytes:sum(before)},startedBeforeFirstFrame:{requests:startedBefore.length,bytes:sum(startedBefore)},
+      nightBeforeFirstFrame:startedBefore.filter(night).map(r=>[r.path,r.bytes]),nightAfter:reqs.filter(r=>night(r)&&mark&&r.start>mark.t).map(r=>[r.path,r.bytes,Math.round(r.start-mark.t)]),
+      totalAllRequests:{requests:reqs.length,bytes:sum(reqs)},largestBefore:before.sort((a,b)=>b.bytes-a.bytes).slice(0,12).map(r=>[r.path,r.bytes])};
+  };
+});
+</script></body></html>

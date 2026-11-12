@@ -1,0 +1,115 @@
+{
+  "schema": "glass-atoll.r16-horizon-diffuse-cpu.v1",
+  "actualGPU": false,
+  "checks": [
+    {
+      "name": "hemisphere irradiance closure has the correct zeroth angular moment",
+      "passed": true,
+      "evidence": {
+        "derivation": "E=piL; all-sphere zeroth moment of a uniform upper hemisphere isL/2=E/(2pi)",
+        "approximation": "Angular redistribution is replaced by its isotropic mean; not exact anisotropic hemispherical scattering"
+      }
+    },
+    {
+      "name": "zero sky radiance remains zero and the diffuse source is linear",
+      "passed": true
+    },
+    {
+      "name": "invalid diffuse source values reject rather than poisoning uniform state",
+      "passed": true
+    },
+    {
+      "name": "isotropic source uses only scattering, with ozone and absorption retaining attenuation",
+      "passed": true
+    },
+    {
+      "name": "existing midpoint sky march diffuse probability stays betweenzero andone",
+      "passed": true,
+      "evidence": {
+        "maxWeight": 0.9239414904335621,
+        "reason": "x*exp(-x/2)<=1-exp(-x); segment probabilities telescope to at most1"
+      }
+    },
+    {
+      "name": "diffuse storageP is applied once and display cancellation is invariant",
+      "passed": true
+    },
+    {
+      "name": "old lighting providers default missing diffuse source to zero",
+      "passed": true
+    },
+    {
+      "name": "actual atmosphere derivesJ from physical skyE and exposes one shared value",
+      "passed": true,
+      "evidence": {
+        "physicalSkyE": [
+          0.12628438674625395,
+          0.10303864078132179,
+          0.12460745089804795
+        ],
+        "rawJ": [
+          0.02009878438599495,
+          0.016399109009817517,
+          0.019831891756504964
+        ]
+      }
+    },
+    {
+      "name": "diffuse toggle keeps the source irradiance unmodified avoiding feedback iteration",
+      "passed": true
+    },
+    {
+      "name": "frozen sky snapshot restores diffuse source and prohibits its mutation",
+      "passed": true
+    },
+    {
+      "name": "invalid toggle is atomic",
+      "passed": true
+    },
+    {
+      "name": "candidate changes no GPU loops samplers scene passes or targets",
+      "passed": true,
+      "evidence": {
+        "newLoops": 0,
+        "newSamplers": 0,
+        "newPasses": 0,
+        "newRenderTargets": 0
+      }
+    },
+    {
+      "name": "sky addsJ once outside solar/lunar22gains before final storageP",
+      "passed": true
+    },
+    {
+      "name": "finite air segment spacing distance cap and altitude remain isolated from this candidate",
+      "passed": true
+    },
+    {
+      "name": "new sky diffuse probability plus old source remains finite at night twilight andday",
+      "passed": true,
+      "evidence": {
+        "elevations": [
+          -40,
+          -18,
+          -6,
+          -0.3,
+          0,
+          10,
+          48,
+          89
+        ]
+      }
+    }
+  ],
+  "passed": true,
+  "counts": {
+    "passed": 15,
+    "total": 15
+  },
+  "limits": [
+    "One uniform upper-hemisphere diffuse iteration, not a full multiple-scattering/LUT solution.",
+    "The clear-sky irradiance proxy does not solve local sky occlusion or cloud angular redistribution.",
+    "CPU result is not a visual/seam acceptance or GPU performance proof.",
+    "12km finite-air cap and planar altitude are deliberately unchanged to isolate this candidate."
+  ]
+}

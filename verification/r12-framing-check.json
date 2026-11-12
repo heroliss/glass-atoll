@@ -1,0 +1,384 @@
+{
+  "schema": "glass-atoll.r12-luminous-framing-cpu.v1",
+  "dateUTC": "2026-10-28T05:17:16.867Z",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 9,
+    "total": 9
+  },
+  "sourceHashes": {
+    "module": "a628f7e69e9ec08338feeb383e6aab2b09aff595f1943096460989f46d2589ce",
+    "fireworks": "cc864bf4cbfee0739362bc3b3770e0d8a2840238afe989b4c8815170660724e6",
+    "physics": "dc5de6b1a11a3e1a70d7342d3bdacc5813ab0f66e426f622d6e287991b4af87a",
+    "framing": "31f49459f24ee57821873d0bb2471a763efe082920221800b8606797fbe96d1f"
+  },
+  "wallMs": 1282.8034,
+  "checks": [
+    {
+      "name": "native current/future collection keeps every positive record and actual capsule endpoints",
+      "passed": true,
+      "evidence": {
+        "frames": 5,
+        "points": 24808,
+        "fitMetres": 547.5871223450322,
+        "minimum": 0.34205725377485874,
+        "count": 297696
+      }
+    },
+    {
+      "name": "all10 native types and luminous phases include current/near-future source plus virtual image",
+      "passed": true,
+      "evidence": {
+        "cases": 30,
+        "projectedConstraints": 1361160
+      }
+    },
+    {
+      "name": "actual R11-style willow low/high eye composition limits are measured rather than hidden",
+      "passed": true,
+      "evidence": {
+        "fullLifetimeAABBMetres": 773.6660511330361,
+        "frames": 5,
+        "zeroExcludedPositiveFlux": true,
+        "results": [
+          {
+            "eyeHeight": 12,
+            "horizontalDistance": 611.077065454013,
+            "islandProjectedWidthPixels1920": 257.2254994367238,
+            "minimumClearance": 0.3800772937530916
+          },
+          {
+            "eyeHeight": 80,
+            "horizontalDistance": 626.369067063831,
+            "islandProjectedWidthPixels1920": 248.55736290623236,
+            "minimumClearance": 0.3958593985870251
+          },
+          {
+            "eyeHeight": 180,
+            "horizontalDistance": 623.7702522918872,
+            "islandProjectedWidthPixels1920": 241.14867750595442,
+            "minimumClearance": 0.3812963018135609
+          },
+          {
+            "eyeHeight": 260,
+            "horizontalDistance": 605.8025390446765,
+            "islandProjectedWidthPixels1920": 236.71864316873044,
+            "minimumClearance": 0.3575490054697026
+          },
+          {
+            "eyeHeight": 350,
+            "horizontalDistance": 563.6561189275748,
+            "islandProjectedWidthPixels1920": 234.07311454055917,
+            "minimumClearance": 0.29550389006927236
+          },
+          {
+            "eyeHeight": 500,
+            "horizontalDistance": 351.92753838800826,
+            "islandProjectedWidthPixels1920": 250.18872672839132,
+            "minimumClearance": 0.051880216331342766
+          }
+        ],
+        "scope": "Actual native snapshots; no artistic/FPS approval and no continuous future guarantee"
+      }
+    },
+    {
+      "name": "aspect and off-axis perspectives plus farclip countercase are supported without input mutation",
+      "passed": true,
+      "evidence": {
+        "cases": 8,
+        "farCountercaseMetres": 77.58803241986296
+      }
+    },
+    {
+      "name": "explicit optional flux threshold respects budget and default excludes no positive source",
+      "passed": true,
+      "evidence": {
+        "explicitBudget": {
+          "time": 0,
+          "sources": 3,
+          "positiveSources": 3,
+          "included": 2,
+          "excluded": 1,
+          "totalReferenceRGBWeight": 101.001,
+          "excludedReferenceRGBWeight": 0.0009999999999998899,
+          "excludedFraction": 0.00000990089207037445
+        },
+        "defaultZeroBudget": {
+          "time": 0,
+          "sources": 3,
+          "positiveSources": 3,
+          "included": 3,
+          "excluded": 0,
+          "totalReferenceRGBWeight": 101.001,
+          "excludedReferenceRGBWeight": 0,
+          "excludedFraction": 0
+        }
+      }
+    },
+    {
+      "name": "startup horizon is explicit, current frame mandatory and malformed out-of-window input rejected",
+      "passed": true,
+      "evidence": {
+        "sampledWindowNotContinuous": true
+      }
+    },
+    {
+      "name": "physical-dt distance hysteresis holds, shrinks analytically and cancels persistently",
+      "passed": true,
+      "evidence": {
+        "distances": [
+          804.9999999999957,
+          805.0000000000086,
+          804.9999999999828
+        ]
+      }
+    },
+    {
+      "name": "unexpected current coverage wins honestly over smoothing while forecast-only expansion is smooth",
+      "passed": true,
+      "evidence": {
+        "active": true,
+        "horizontalDistance": 1211.7503097415404,
+        "elapsedSeconds": 0.2,
+        "belowTargetSeconds": 0,
+        "coverageCorrections": 1,
+        "limits": [
+          "Host must establish a safe startup view, keep bearing/target stable and check its final actual projection.",
+          "Current coverage correction can jump if a new source was not forecast; this is reported, not hidden clipping.",
+          "Only supplied physical dt advances the governor; cancellation remains inactive until an explicit start."
+        ]
+      }
+    },
+    {
+      "name": "long constant target reaches the same analytic hysteresis boundary at30/60/120Hz",
+      "passed": true,
+      "evidence": {
+        "distances": [
+          670.1030927835052,
+          670.1030927835052,
+          670.1030927835052
+        ],
+        "boundary": 670.1030927835052
+      }
+    }
+  ],
+  "observations": [
+    {
+      "type": "peony",
+      "phase": 0.2,
+      "points": 698,
+      "horizontalDistance": 351.2312839220845,
+      "minimumClearance": 0.22158020828201153
+    },
+    {
+      "type": "peony",
+      "phase": 2.2,
+      "points": 535,
+      "horizontalDistance": 343.3942750943185,
+      "minimumClearance": 0.21690376502335185
+    },
+    {
+      "type": "peony",
+      "phase": 6,
+      "points": 8,
+      "horizontalDistance": 109.4536465417146,
+      "minimumClearance": 0.07257532474742602
+    },
+    {
+      "type": "chrysanthemum",
+      "phase": 0.2,
+      "points": 15578,
+      "horizontalDistance": 461.8123415981521,
+      "minimumClearance": 0.289592190006408
+    },
+    {
+      "type": "chrysanthemum",
+      "phase": 2.2,
+      "points": 17864,
+      "horizontalDistance": 456.9260379159748,
+      "minimumClearance": 0.28666771346725306
+    },
+    {
+      "type": "chrysanthemum",
+      "phase": 6,
+      "points": 8,
+      "horizontalDistance": 109.4536465417146,
+      "minimumClearance": 0.07257532474742602
+    },
+    {
+      "type": "willow",
+      "phase": 0.2,
+      "points": 10118,
+      "horizontalDistance": 553.3091029261961,
+      "minimumClearance": 0.3456045704265076
+    },
+    {
+      "type": "willow",
+      "phase": 2.2,
+      "points": 14888,
+      "horizontalDistance": 547.5871223450322,
+      "minimumClearance": 0.34205725377485874
+    },
+    {
+      "type": "willow",
+      "phase": 6,
+      "points": 14888,
+      "horizontalDistance": 434.2212199498417,
+      "minimumClearance": 0.2727014692735963
+    },
+    {
+      "type": "palm",
+      "phase": 0.2,
+      "points": 893,
+      "horizontalDistance": 569.8564313214587,
+      "minimumClearance": 0.35562627921808976
+    },
+    {
+      "type": "palm",
+      "phase": 2.2,
+      "points": 1124,
+      "horizontalDistance": 578.0540165604317,
+      "minimumClearance": 0.3604606736477507
+    },
+    {
+      "type": "palm",
+      "phase": 6,
+      "points": 379,
+      "horizontalDistance": 421.6434620363734,
+      "minimumClearance": 0.2639105691178074
+    },
+    {
+      "type": "ring",
+      "phase": 0.2,
+      "points": 386,
+      "horizontalDistance": 361.13733276744364,
+      "minimumClearance": 0.2278135901512306
+    },
+    {
+      "type": "ring",
+      "phase": 2.2,
+      "points": 367,
+      "horizontalDistance": 360.86080141032676,
+      "minimumClearance": 0.22787493324526786
+    },
+    {
+      "type": "ring",
+      "phase": 6,
+      "points": 8,
+      "horizontalDistance": 109.4536465417146,
+      "minimumClearance": 0.07257532474742602
+    },
+    {
+      "type": "heart",
+      "phase": 0.2,
+      "points": 458,
+      "horizontalDistance": 458.5958175641009,
+      "minimumClearance": 0.287657560401281
+    },
+    {
+      "type": "heart",
+      "phase": 2.2,
+      "points": 440,
+      "horizontalDistance": 448.55196101422524,
+      "minimumClearance": 0.2816251386427111
+    },
+    {
+      "type": "heart",
+      "phase": 6,
+      "points": 8,
+      "horizontalDistance": 109.4536465417146,
+      "minimumClearance": 0.07257532474742602
+    },
+    {
+      "type": "crossette",
+      "phase": 0.2,
+      "points": 6290,
+      "horizontalDistance": 351.75411273664577,
+      "minimumClearance": 0.22197340637395002
+    },
+    {
+      "type": "crossette",
+      "phase": 2.2,
+      "points": 13400,
+      "horizontalDistance": 352.93976284230604,
+      "minimumClearance": 0.2227064108675556
+    },
+    {
+      "type": "crossette",
+      "phase": 6,
+      "points": 8,
+      "horizontalDistance": 109.4536465417146,
+      "minimumClearance": 0.07257532474742602
+    },
+    {
+      "type": "strobe",
+      "phase": 0.2,
+      "points": 194,
+      "horizontalDistance": 453.12682995857114,
+      "minimumClearance": 0.2841354593004741
+    },
+    {
+      "type": "strobe",
+      "phase": 2.2,
+      "points": 174,
+      "horizontalDistance": 449.6315897476179,
+      "minimumClearance": 0.28239560779473605
+    },
+    {
+      "type": "strobe",
+      "phase": 6,
+      "points": 49,
+      "horizontalDistance": 216.18079920579453,
+      "minimumClearance": 0.142423828451399
+    },
+    {
+      "type": "fan",
+      "phase": 0.2,
+      "points": 579,
+      "horizontalDistance": 109.4536465417146,
+      "minimumClearance": 0.07257532474742602
+    },
+    {
+      "type": "fan",
+      "phase": 2.2,
+      "points": 845,
+      "horizontalDistance": 109.45364654204039,
+      "minimumClearance": 0.07257532485563471
+    },
+    {
+      "type": "fan",
+      "phase": 6,
+      "points": 8,
+      "horizontalDistance": 109.4536465417146,
+      "minimumClearance": 0.07257532474742602
+    },
+    {
+      "type": "bouquet",
+      "phase": 0.2,
+      "points": 8432,
+      "horizontalDistance": 109.45364654258209,
+      "minimumClearance": 0.07257532503557645
+    },
+    {
+      "type": "bouquet",
+      "phase": 2.2,
+      "points": 4795,
+      "horizontalDistance": 109.4536465420249,
+      "minimumClearance": 0.07257532485050244
+    },
+    {
+      "type": "bouquet",
+      "phase": 6,
+      "points": 8,
+      "horizontalDistance": 109.4536465417146,
+      "minimumClearance": 0.07257532474742602
+    }
+  ],
+  "limits": [
+    "CPU native record snapshots only. No browser image, application integration, animation/FPS or photoreal acceptance.",
+    "Samples generated by advancing a separate actual native factory at held wind; production future-snapshot API has not been added by this task.",
+    "All positive reference emission is included by default; sampling/window omissions and arbitrary future wind are explicitly separate from flux selection.",
+    "Low-eye full mirror plus real~200m burst imposes a physical image-scale limit; point fit cannot promise arbitrarily large island and full sky/reflection in16:9."
+  ]
+}

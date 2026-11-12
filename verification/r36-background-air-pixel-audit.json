@@ -1,0 +1,2761 @@
+{
+  "schema": "glass-atoll.r36-background-air-saved-pixel-audit.v1",
+  "passed": true,
+  "checks": [
+    {
+      "name": "Saved inputs have the declared native dimensions and opaque U8 screenshots",
+      "passed": true
+    },
+    {
+      "name": "Same complete density, clusters, physical time, camera and exposure; flags are 0/1/0",
+      "passed": true
+    },
+    {
+      "name": "Background flag has an observed image effect, with bit-exact off-repeat sky control",
+      "passed": true
+    },
+    {
+      "name": "Current source has a complete flag-to-uniform-to-both-pass route",
+      "passed": true
+    },
+    {
+      "name": "Actual setup reports curved far ocean and geometric reflection, clean saved GL state",
+      "passed": true
+    }
+  ],
+  "scope": "CPU-only saved screenshot/receipt/source audit; no browser, GPU, renderer, scene replay or production mutation",
+  "runtime": {
+    "python": "3.14.0",
+    "numpy": "2.4.6"
+  },
+  "inputs": [
+    {
+      "path": "verification/r36-background-air-off-before.json",
+      "bytes": 1192180,
+      "sha256": "5ec70bc0a6ebda6dddbb0285c8b53612f76adf1c81276c9f9f565a764d18efcb"
+    },
+    {
+      "path": "verification/r36-radiant-logical-plus2p50-detail-hdr.png",
+      "bytes": 61166,
+      "sha256": "d833c32cc0c710663c54a101b2c7bf6a9749859a5859857d333600b08c017ad6"
+    },
+    {
+      "path": "verification/r36-background-air-on.json",
+      "bytes": 1155514,
+      "sha256": "e041d054e8272c5c0ae05821472e0267f8391799d596b00852437a7a1262298f"
+    },
+    {
+      "path": "verification/r36-background-air-on.png",
+      "bytes": 61406,
+      "sha256": "a1e82f8836b9a01f0caa1bf6a3e30bfe8a98edbc97d5988cc9c08cf97cc391e4"
+    },
+    {
+      "path": "verification/r36-background-air-off-repeat.json",
+      "bytes": 1155451,
+      "sha256": "9621cd335284d828cb6d632f67878c6c0620dc2250ae840f66c5dc5bfd4e3dbf"
+    },
+    {
+      "path": "verification/r36-background-air-off-repeat.png",
+      "bytes": 61218,
+      "sha256": "601d27df9640eec3c7e533a887d935a76d85a7cb47f7d798fb5f40c1d37c8b92"
+    },
+    {
+      "path": "verification/r36-logical-detail-setup.json",
+      "bytes": 18131,
+      "sha256": "dedd1275993f46b4279bcb88fba189a4c48c3c0165bf4609ef9b65bf381c410e"
+    }
+  ],
+  "sourcePins": [
+    {
+      "path": "aerial-perspective.js",
+      "bytes": 32264,
+      "sha256": "3a098341dcabad61a299e56ac02e7857f924012d9cb2d59639554417eb6c2180"
+    },
+    {
+      "path": "main.js",
+      "bytes": 203407,
+      "sha256": "daee45ec05f1544fb9145a6546006996c82e6ab52cc6876b0dba47068d8adc71"
+    },
+    {
+      "path": "lens.js",
+      "bytes": 31355,
+      "sha256": "54f533c0896267d3267a5c49b37bc71b0026d64d53e69acbc60201430db32f1d"
+    },
+    {
+      "path": "water.js",
+      "bytes": 35237,
+      "sha256": "d7d5b76dadf35e2e507b640b8975fb3819821b29d113ceeebf195080fd88b045"
+    },
+    {
+      "path": "ocean-geometry.js",
+      "bytes": 2209,
+      "sha256": "3004387c4fda53773785a4fb445760edf51d1fb88edf0044b81ec087366ef309"
+    },
+    {
+      "path": "sky.js",
+      "bytes": 67075,
+      "sha256": "51db558ead3dea10d4c74633c2a8eb5bedf20952c136e0668b97de0a5ffc8eee"
+    }
+  ],
+  "imageConvention": "1209x1292 RGBA screenshot; top-left origin; zero-based rows; ROI end exclusive; differences in encoded U8 units, not scene-linear radiance or calibrated nits",
+  "comparisons": {
+    "onMinusOff": {
+      "full": {
+        "rectXYXYExclusive": [
+          0,
+          0,
+          1209,
+          1292
+        ],
+        "pixels": 1562028,
+        "maxChannelDifferenceU8": 108,
+        "meanAbsoluteChannelDifferenceU8": 0.1784775945117501,
+        "meanSignedRGBDifferenceU8": [
+          0.19628073248366867,
+          0.14104548702071923,
+          0.1185535726632301
+        ],
+        "p99MaximumChannelDifferenceU8": 5.0,
+        "changedPixels": 89092,
+        "pixelsAbove2U8": 42629,
+        "maximumAt": {
+          "x": 600,
+          "y": 646,
+          "channel": 0
+        }
+      },
+      "sceneExcludingBottomUI": {
+        "rectXYXYExclusive": [
+          0,
+          0,
+          1209,
+          1180
+        ],
+        "pixels": 1426620,
+        "maxChannelDifferenceU8": 108,
+        "meanAbsoluteChannelDifferenceU8": 0.19541784077049248,
+        "meanSignedRGBDifferenceU8": [
+          0.2149107681092372,
+          0.15443285528031292,
+          0.1298061151532994
+        ],
+        "p99MaximumChannelDifferenceU8": 6.0,
+        "changedPixels": 89092,
+        "pixelsAbove2U8": 42629,
+        "maximumAt": {
+          "x": 600,
+          "y": 646,
+          "channel": 0
+        }
+      },
+      "flower": {
+        "rectXYXYExclusive": [
+          220,
+          250,
+          980,
+          1090
+        ],
+        "pixels": 638400,
+        "maxChannelDifferenceU8": 108,
+        "meanAbsoluteChannelDifferenceU8": 0.43659617794486216,
+        "meanSignedRGBDifferenceU8": [
+          0.48015664160401,
+          0.3450078320802005,
+          0.2899749373433584
+        ],
+        "p99MaximumChannelDifferenceU8": 10.0,
+        "changedPixels": 89028,
+        "pixelsAbove2U8": 42629,
+        "maximumAt": {
+          "x": 600,
+          "y": 646,
+          "channel": 0
+        }
+      },
+      "horizonBand652": {
+        "rectXYXYExclusive": [
+          100,
+          648,
+          1109,
+          658
+        ],
+        "pixels": 10090,
+        "maxChannelDifferenceU8": 102,
+        "meanAbsoluteChannelDifferenceU8": 1.9372646184340931,
+        "meanSignedRGBDifferenceU8": [
+          2.0438057482656093,
+          1.466798810703667,
+          1.2641228939544102
+        ],
+        "p99MaximumChannelDifferenceU8": 65.0,
+        "changedPixels": 3551,
+        "pixelsAbove2U8": 1824,
+        "maximumAt": {
+          "x": 606,
+          "y": 648,
+          "channel": 0
+        }
+      },
+      "wideBand": {
+        "rectXYXYExclusive": [
+          100,
+          640,
+          1109,
+          672
+        ],
+        "pixels": 32288,
+        "maxChannelDifferenceU8": 108,
+        "meanAbsoluteChannelDifferenceU8": 1.6880161876445325,
+        "meanSignedRGBDifferenceU8": [
+          1.9005512884043607,
+          1.392529732408325,
+          1.2357841922695738
+        ],
+        "p99MaximumChannelDifferenceU8": 66.0,
+        "changedPixels": 7497,
+        "pixelsAbove2U8": 4152,
+        "maximumAt": {
+          "x": 600,
+          "y": 646,
+          "channel": 0
+        }
+      },
+      "skyAboveHorizon": {
+        "rectXYXYExclusive": [
+          100,
+          200,
+          1109,
+          600
+        ],
+        "pixels": 403600,
+        "maxChannelDifferenceU8": 25,
+        "meanAbsoluteChannelDifferenceU8": 0.3036025768087215,
+        "meanSignedRGBDifferenceU8": [
+          0.3063949454905847,
+          0.2168037661050545,
+          0.18275768087215064
+        ],
+        "p99MaximumChannelDifferenceU8": 7.0,
+        "changedPixels": 64213,
+        "pixelsAbove2U8": 27729,
+        "maximumAt": {
+          "x": 610,
+          "y": 599,
+          "channel": 0
+        }
+      },
+      "coreBand": {
+        "rectXYXYExclusive": [
+          450,
+          640,
+          720,
+          672
+        ],
+        "pixels": 8640,
+        "maxChannelDifferenceU8": 108,
+        "meanAbsoluteChannelDifferenceU8": 5.737615740740741,
+        "meanSignedRGBDifferenceU8": [
+          6.704282407407407,
+          5.020370370370371,
+          4.386574074074074
+        ],
+        "p99MaximumChannelDifferenceU8": 92.0,
+        "changedPixels": 4212,
+        "pixelsAbove2U8": 3049,
+        "maximumAt": {
+          "x": 600,
+          "y": 646,
+          "channel": 0
+        }
+      }
+    },
+    "repeatMinusOff": {
+      "full": {
+        "rectXYXYExclusive": [
+          0,
+          0,
+          1209,
+          1292
+        ],
+        "pixels": 1562028,
+        "maxChannelDifferenceU8": 113,
+        "meanAbsoluteChannelDifferenceU8": 0.03001973502822399,
+        "meanSignedRGBDifferenceU8": [
+          -0.0012874289065240828,
+          -0.0004058826090185323,
+          -5.249585794876916e-05
+        ],
+        "p99MaximumChannelDifferenceU8": 0.0,
+        "changedPixels": 13723,
+        "pixelsAbove2U8": 6958,
+        "maximumAt": {
+          "x": 492,
+          "y": 790,
+          "channel": 0
+        }
+      },
+      "sceneExcludingBottomUI": {
+        "rectXYXYExclusive": [
+          0,
+          0,
+          1209,
+          1180
+        ],
+        "pixels": 1426620,
+        "maxChannelDifferenceU8": 113,
+        "meanAbsoluteChannelDifferenceU8": 0.0328690658105639,
+        "meanSignedRGBDifferenceU8": [
+          -0.00140962554849925,
+          -0.0004444070600440201,
+          -5.7478515652381154e-05
+        ],
+        "p99MaximumChannelDifferenceU8": 0.0,
+        "changedPixels": 13723,
+        "pixelsAbove2U8": 6958,
+        "maximumAt": {
+          "x": 492,
+          "y": 790,
+          "channel": 0
+        }
+      },
+      "flower": {
+        "rectXYXYExclusive": [
+          220,
+          250,
+          980,
+          1090
+        ],
+        "pixels": 638400,
+        "maxChannelDifferenceU8": 113,
+        "meanAbsoluteChannelDifferenceU8": 0.07345185881370092,
+        "meanSignedRGBDifferenceU8": [
+          -0.003150062656641604,
+          -0.000993107769423559,
+          -0.00012844611528822056
+        ],
+        "p99MaximumChannelDifferenceU8": 3.0,
+        "changedPixels": 13723,
+        "pixelsAbove2U8": 6958,
+        "maximumAt": {
+          "x": 492,
+          "y": 790,
+          "channel": 0
+        }
+      },
+      "horizonBand652": {
+        "rectXYXYExclusive": [
+          100,
+          648,
+          1109,
+          658
+        ],
+        "pixels": 10090,
+        "maxChannelDifferenceU8": 65,
+        "meanAbsoluteChannelDifferenceU8": 0.2221671622068054,
+        "meanSignedRGBDifferenceU8": [
+          -0.04628344895936571,
+          -0.013478691774033697,
+          -0.019425173439048562
+        ],
+        "p99MaximumChannelDifferenceU8": 7.0,
+        "changedPixels": 633,
+        "pixelsAbove2U8": 318,
+        "maximumAt": {
+          "x": 518,
+          "y": 654,
+          "channel": 0
+        }
+      },
+      "wideBand": {
+        "rectXYXYExclusive": [
+          100,
+          640,
+          1109,
+          672
+        ],
+        "pixels": 32288,
+        "maxChannelDifferenceU8": 76,
+        "meanAbsoluteChannelDifferenceU8": 0.18904856293359762,
+        "meanSignedRGBDifferenceU8": [
+          -0.027192765113974234,
+          -0.00015485629335976214,
+          -0.012419474727452924
+        ],
+        "p99MaximumChannelDifferenceU8": 6.0,
+        "changedPixels": 2075,
+        "pixelsAbove2U8": 930,
+        "maximumAt": {
+          "x": 676,
+          "y": 660,
+          "channel": 1
+        }
+      },
+      "skyAboveHorizon": {
+        "rectXYXYExclusive": [
+          100,
+          200,
+          1109,
+          600
+        ],
+        "pixels": 403600,
+        "maxChannelDifferenceU8": 0,
+        "meanAbsoluteChannelDifferenceU8": 0.0,
+        "meanSignedRGBDifferenceU8": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "p99MaximumChannelDifferenceU8": 0.0,
+        "changedPixels": 0,
+        "pixelsAbove2U8": 0,
+        "maximumAt": {
+          "x": 100,
+          "y": 200,
+          "channel": 0
+        }
+      },
+      "coreBand": {
+        "rectXYXYExclusive": [
+          450,
+          640,
+          720,
+          672
+        ],
+        "pixels": 8640,
+        "maxChannelDifferenceU8": 76,
+        "meanAbsoluteChannelDifferenceU8": 0.3751929012345679,
+        "meanSignedRGBDifferenceU8": [
+          -0.07314814814814814,
+          0.006712962962962963,
+          -0.025578703703703704
+        ],
+        "p99MaximumChannelDifferenceU8": 11.0,
+        "changedPixels": 915,
+        "pixelsAbove2U8": 399,
+        "maximumAt": {
+          "x": 676,
+          "y": 660,
+          "channel": 1
+        }
+      }
+    },
+    "onMinusRepeat": {
+      "full": {
+        "rectXYXYExclusive": [
+          0,
+          0,
+          1209,
+          1292
+        ],
+        "pixels": 1562028,
+        "maxChannelDifferenceU8": 113,
+        "meanAbsoluteChannelDifferenceU8": 0.20774915686530587,
+        "meanSignedRGBDifferenceU8": [
+          0.19756816139019276,
+          0.14145136962973776,
+          0.11860606852117887
+        ],
+        "p99MaximumChannelDifferenceU8": 6.0,
+        "changedPixels": 102088,
+        "pixelsAbove2U8": 49353,
+        "maximumAt": {
+          "x": 492,
+          "y": 790,
+          "channel": 0
+        }
+      },
+      "sceneExcludingBottomUI": {
+        "rectXYXYExclusive": [
+          0,
+          0,
+          1209,
+          1180
+        ],
+        "pixels": 1426620,
+        "maxChannelDifferenceU8": 113,
+        "meanAbsoluteChannelDifferenceU8": 0.22746772090675862,
+        "meanSignedRGBDifferenceU8": [
+          0.21632039365773648,
+          0.15487726234035692,
+          0.12986359366895178
+        ],
+        "p99MaximumChannelDifferenceU8": 7.0,
+        "changedPixels": 102088,
+        "pixelsAbove2U8": 49353,
+        "maximumAt": {
+          "x": 492,
+          "y": 790,
+          "channel": 0
+        }
+      },
+      "flower": {
+        "rectXYXYExclusive": [
+          220,
+          250,
+          980,
+          1090
+        ],
+        "pixels": 638400,
+        "maxChannelDifferenceU8": 113,
+        "meanAbsoluteChannelDifferenceU8": 0.5082174185463659,
+        "meanSignedRGBDifferenceU8": [
+          0.48330670426065164,
+          0.34600093984962405,
+          0.2901033834586466
+        ],
+        "p99MaximumChannelDifferenceU8": 11.0,
+        "changedPixels": 102024,
+        "pixelsAbove2U8": 49353,
+        "maximumAt": {
+          "x": 492,
+          "y": 790,
+          "channel": 0
+        }
+      },
+      "horizonBand652": {
+        "rectXYXYExclusive": [
+          100,
+          648,
+          1109,
+          658
+        ],
+        "pixels": 10090,
+        "maxChannelDifferenceU8": 102,
+        "meanAbsoluteChannelDifferenceU8": 2.0911133135117277,
+        "meanSignedRGBDifferenceU8": [
+          2.0900891972249753,
+          1.4802775024777006,
+          1.283548067393459
+        ],
+        "p99MaximumChannelDifferenceU8": 65.0,
+        "changedPixels": 3740,
+        "pixelsAbove2U8": 1988,
+        "maximumAt": {
+          "x": 606,
+          "y": 648,
+          "channel": 0
+        }
+      },
+      "wideBand": {
+        "rectXYXYExclusive": [
+          100,
+          640,
+          1109,
+          672
+        ],
+        "pixels": 32288,
+        "maxChannelDifferenceU8": 108,
+        "meanAbsoluteChannelDifferenceU8": 1.8409316154608524,
+        "meanSignedRGBDifferenceU8": [
+          1.927744053518335,
+          1.3926845887016848,
+          1.2482036669970267
+        ],
+        "p99MaximumChannelDifferenceU8": 66.0,
+        "changedPixels": 8851,
+        "pixelsAbove2U8": 4848,
+        "maximumAt": {
+          "x": 600,
+          "y": 646,
+          "channel": 0
+        }
+      },
+      "skyAboveHorizon": {
+        "rectXYXYExclusive": [
+          100,
+          200,
+          1109,
+          600
+        ],
+        "pixels": 403600,
+        "maxChannelDifferenceU8": 25,
+        "meanAbsoluteChannelDifferenceU8": 0.3036025768087215,
+        "meanSignedRGBDifferenceU8": [
+          0.3063949454905847,
+          0.2168037661050545,
+          0.18275768087215064
+        ],
+        "p99MaximumChannelDifferenceU8": 7.0,
+        "changedPixels": 64213,
+        "pixelsAbove2U8": 27729,
+        "maximumAt": {
+          "x": 610,
+          "y": 599,
+          "channel": 0
+        }
+      },
+      "coreBand": {
+        "rectXYXYExclusive": [
+          450,
+          640,
+          720,
+          672
+        ],
+        "pixels": 8640,
+        "maxChannelDifferenceU8": 108,
+        "meanAbsoluteChannelDifferenceU8": 6.034722222222222,
+        "meanSignedRGBDifferenceU8": [
+          6.777430555555555,
+          5.013657407407408,
+          4.412152777777778
+        ],
+        "p99MaximumChannelDifferenceU8": 92.0,
+        "changedPixels": 4767,
+        "pixelsAbove2U8": 3357,
+        "maximumAt": {
+          "x": 600,
+          "y": 646,
+          "channel": 0
+        }
+      }
+    }
+  },
+  "coreRows630Through680": [
+    {
+      "rowYZeroBased": 630,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            27.066666666666666,
+            22.362962962962964,
+            17.944444444444443
+          ],
+          "medianMaximumChannelU8": 8.0,
+          "p90MaximumChannelU8": 55.29999999999998
+        },
+        "on": {
+          "meanRGBU8": [
+            40.492592592592594,
+            32.43333333333333,
+            26.374074074074073
+          ],
+          "medianMaximumChannelU8": 20.0,
+          "p90MaximumChannelU8": 80.49999999999997
+        },
+        "repeat": {
+          "meanRGBU8": [
+            27.066666666666666,
+            22.362962962962964,
+            17.944444444444443
+          ],
+          "medianMaximumChannelU8": 8.0,
+          "p90MaximumChannelU8": 55.29999999999998
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 631,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            28.507407407407406,
+            23.566666666666666,
+            19.18148148148148
+          ],
+          "medianMaximumChannelU8": 7.0,
+          "p90MaximumChannelU8": 69.19999999999999
+        },
+        "on": {
+          "meanRGBU8": [
+            42.22592592592593,
+            33.96666666666667,
+            27.91111111111111
+          ],
+          "medianMaximumChannelU8": 19.0,
+          "p90MaximumChannelU8": 90.0
+        },
+        "repeat": {
+          "meanRGBU8": [
+            28.507407407407406,
+            23.566666666666666,
+            19.18148148148148
+          ],
+          "medianMaximumChannelU8": 7.0,
+          "p90MaximumChannelU8": 69.19999999999999
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 632,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            29.774074074074075,
+            24.814814814814813,
+            20.396296296296295
+          ],
+          "medianMaximumChannelU8": 7.0,
+          "p90MaximumChannelU8": 81.29999999999998
+        },
+        "on": {
+          "meanRGBU8": [
+            43.851851851851855,
+            35.56296296296296,
+            29.418518518518518
+          ],
+          "medianMaximumChannelU8": 19.0,
+          "p90MaximumChannelU8": 97.0
+        },
+        "repeat": {
+          "meanRGBU8": [
+            29.774074074074075,
+            24.814814814814813,
+            20.396296296296295
+          ],
+          "medianMaximumChannelU8": 7.0,
+          "p90MaximumChannelU8": 81.29999999999998
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 633,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            31.05925925925926,
+            26.333333333333332,
+            21.603703703703705
+          ],
+          "medianMaximumChannelU8": 6.0,
+          "p90MaximumChannelU8": 86.69999999999996
+        },
+        "on": {
+          "meanRGBU8": [
+            45.355555555555554,
+            37.21111111111111,
+            30.90740740740741
+          ],
+          "medianMaximumChannelU8": 20.0,
+          "p90MaximumChannelU8": 104.0
+        },
+        "repeat": {
+          "meanRGBU8": [
+            31.05925925925926,
+            26.333333333333332,
+            21.603703703703705
+          ],
+          "medianMaximumChannelU8": 6.0,
+          "p90MaximumChannelU8": 86.69999999999996
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 634,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            31.61111111111111,
+            27.122222222222224,
+            22.737037037037037
+          ],
+          "medianMaximumChannelU8": 6.0,
+          "p90MaximumChannelU8": 91.6999999999999
+        },
+        "on": {
+          "meanRGBU8": [
+            46.3962962962963,
+            38.27407407407407,
+            32.196296296296296
+          ],
+          "medianMaximumChannelU8": 19.0,
+          "p90MaximumChannelU8": 111.89999999999984
+        },
+        "repeat": {
+          "meanRGBU8": [
+            31.61111111111111,
+            27.122222222222224,
+            22.737037037037037
+          ],
+          "medianMaximumChannelU8": 6.0,
+          "p90MaximumChannelU8": 91.6999999999999
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 635,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            29.096296296296295,
+            24.544444444444444,
+            20.418518518518518
+          ],
+          "medianMaximumChannelU8": 5.0,
+          "p90MaximumChannelU8": 82.19999999999999
+        },
+        "on": {
+          "meanRGBU8": [
+            44.14074074074074,
+            36.17407407407408,
+            30.333333333333332
+          ],
+          "medianMaximumChannelU8": 20.0,
+          "p90MaximumChannelU8": 98.39999999999998
+        },
+        "repeat": {
+          "meanRGBU8": [
+            29.096296296296295,
+            24.544444444444444,
+            20.418518518518518
+          ],
+          "medianMaximumChannelU8": 5.0,
+          "p90MaximumChannelU8": 82.19999999999999
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 636,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            27.762962962962963,
+            23.425925925925927,
+            19.48148148148148
+          ],
+          "medianMaximumChannelU8": 5.0,
+          "p90MaximumChannelU8": 79.1
+        },
+        "on": {
+          "meanRGBU8": [
+            43.51481481481481,
+            35.68888888888889,
+            29.90740740740741
+          ],
+          "medianMaximumChannelU8": 21.0,
+          "p90MaximumChannelU8": 102.0
+        },
+        "repeat": {
+          "meanRGBU8": [
+            27.762962962962963,
+            23.425925925925927,
+            19.48148148148148
+          ],
+          "medianMaximumChannelU8": 5.0,
+          "p90MaximumChannelU8": 79.1
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 637,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            28.274074074074075,
+            24.35185185185185,
+            20.40740740740741
+          ],
+          "medianMaximumChannelU8": 4.0,
+          "p90MaximumChannelU8": 89.19999999999993
+        },
+        "on": {
+          "meanRGBU8": [
+            44.6,
+            37.17777777777778,
+            31.418518518518518
+          ],
+          "medianMaximumChannelU8": 21.0,
+          "p90MaximumChannelU8": 102.39999999999998
+        },
+        "repeat": {
+          "meanRGBU8": [
+            28.274074074074075,
+            24.35185185185185,
+            20.40740740740741
+          ],
+          "medianMaximumChannelU8": 4.0,
+          "p90MaximumChannelU8": 89.19999999999993
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 638,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            28.14074074074074,
+            24.59259259259259,
+            21.151851851851852
+          ],
+          "medianMaximumChannelU8": 5.0,
+          "p90MaximumChannelU8": 91.09999999999994
+        },
+        "on": {
+          "meanRGBU8": [
+            44.91111111111111,
+            37.851851851851855,
+            32.51111111111111
+          ],
+          "medianMaximumChannelU8": 21.0,
+          "p90MaximumChannelU8": 101.29999999999998
+        },
+        "repeat": {
+          "meanRGBU8": [
+            28.14074074074074,
+            24.59259259259259,
+            21.151851851851852
+          ],
+          "medianMaximumChannelU8": 5.0,
+          "p90MaximumChannelU8": 91.09999999999994
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 639,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            28.18888888888889,
+            24.58888888888889,
+            21.755555555555556
+          ],
+          "medianMaximumChannelU8": 4.0,
+          "p90MaximumChannelU8": 63.19999999999999
+        },
+        "on": {
+          "meanRGBU8": [
+            45.25925925925926,
+            37.9,
+            33.15925925925926
+          ],
+          "medianMaximumChannelU8": 21.5,
+          "p90MaximumChannelU8": 94.1
+        },
+        "repeat": {
+          "meanRGBU8": [
+            28.177777777777777,
+            24.59259259259259,
+            21.755555555555556
+          ],
+          "medianMaximumChannelU8": 4.0,
+          "p90MaximumChannelU8": 63.19999999999999
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 640,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            29.003703703703703,
+            24.825925925925926,
+            23.09259259259259
+          ],
+          "medianMaximumChannelU8": 6.0,
+          "p90MaximumChannelU8": 75.39999999999998
+        },
+        "on": {
+          "meanRGBU8": [
+            46.17777777777778,
+            37.955555555555556,
+            34.38148148148148
+          ],
+          "medianMaximumChannelU8": 22.0,
+          "p90MaximumChannelU8": 96.1
+        },
+        "repeat": {
+          "meanRGBU8": [
+            28.966666666666665,
+            24.862962962962964,
+            23.11111111111111
+          ],
+          "medianMaximumChannelU8": 6.0,
+          "p90MaximumChannelU8": 75.39999999999998
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 641,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            32.6,
+            28.103703703703705,
+            27.125925925925927
+          ],
+          "medianMaximumChannelU8": 6.0,
+          "p90MaximumChannelU8": 130.49999999999997
+        },
+        "on": {
+          "meanRGBU8": [
+            49.94074074074074,
+            41.196296296296296,
+            38.407407407407405
+          ],
+          "medianMaximumChannelU8": 23.0,
+          "p90MaximumChannelU8": 129.49999999999991
+        },
+        "repeat": {
+          "meanRGBU8": [
+            32.48148148148148,
+            28.025925925925925,
+            27.04074074074074
+          ],
+          "medianMaximumChannelU8": 6.0,
+          "p90MaximumChannelU8": 128.69999999999996
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 642,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            32.370370370370374,
+            27.64814814814815,
+            26.774074074074075
+          ],
+          "medianMaximumChannelU8": 5.0,
+          "p90MaximumChannelU8": 120.29999999999998
+        },
+        "on": {
+          "meanRGBU8": [
+            49.82962962962963,
+            40.9,
+            38.27407407407407
+          ],
+          "medianMaximumChannelU8": 20.5,
+          "p90MaximumChannelU8": 123.49999999999997
+        },
+        "repeat": {
+          "meanRGBU8": [
+            32.285185185185185,
+            27.696296296296296,
+            26.81851851851852
+          ],
+          "medianMaximumChannelU8": 5.0,
+          "p90MaximumChannelU8": 120.29999999999998
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 643,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            32.32222222222222,
+            27.596296296296295,
+            26.914814814814815
+          ],
+          "medianMaximumChannelU8": 5.0,
+          "p90MaximumChannelU8": 125.59999999999997
+        },
+        "on": {
+          "meanRGBU8": [
+            50.24074074074074,
+            41.1037037037037,
+            38.855555555555554
+          ],
+          "medianMaximumChannelU8": 21.0,
+          "p90MaximumChannelU8": 130.69999999999996
+        },
+        "repeat": {
+          "meanRGBU8": [
+            32.237037037037034,
+            27.61111111111111,
+            26.885185185185186
+          ],
+          "medianMaximumChannelU8": 5.0,
+          "p90MaximumChannelU8": 125.59999999999997
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 644,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            30.892592592592592,
+            26.27037037037037,
+            25.807407407407407
+          ],
+          "medianMaximumChannelU8": 5.0,
+          "p90MaximumChannelU8": 96.29999999999987
+        },
+        "on": {
+          "meanRGBU8": [
+            49.10740740740741,
+            39.80740740740741,
+            37.77777777777778
+          ],
+          "medianMaximumChannelU8": 20.0,
+          "p90MaximumChannelU8": 113.69999999999996
+        },
+        "repeat": {
+          "meanRGBU8": [
+            30.825925925925926,
+            26.29259259259259,
+            25.803703703703704
+          ],
+          "medianMaximumChannelU8": 5.0,
+          "p90MaximumChannelU8": 96.29999999999987
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 645,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            28.362962962962964,
+            23.862962962962964,
+            23.814814814814813
+          ],
+          "medianMaximumChannelU8": 5.0,
+          "p90MaximumChannelU8": 85.29999999999998
+        },
+        "on": {
+          "meanRGBU8": [
+            46.89259259259259,
+            37.696296296296296,
+            36.111111111111114
+          ],
+          "medianMaximumChannelU8": 21.0,
+          "p90MaximumChannelU8": 106.0
+        },
+        "repeat": {
+          "meanRGBU8": [
+            28.385185185185186,
+            23.974074074074075,
+            23.881481481481483
+          ],
+          "medianMaximumChannelU8": 5.0,
+          "p90MaximumChannelU8": 88.19999999999999
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 646,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            28.533333333333335,
+            24.203703703703702,
+            23.614814814814814
+          ],
+          "medianMaximumChannelU8": 4.0,
+          "p90MaximumChannelU8": 97.19999999999993
+        },
+        "on": {
+          "meanRGBU8": [
+            47.196296296296296,
+            37.96666666666667,
+            35.91111111111111
+          ],
+          "medianMaximumChannelU8": 21.5,
+          "p90MaximumChannelU8": 115.79999999999995
+        },
+        "repeat": {
+          "meanRGBU8": [
+            28.474074074074075,
+            24.17037037037037,
+            23.55925925925926
+          ],
+          "medianMaximumChannelU8": 4.0,
+          "p90MaximumChannelU8": 97.19999999999993
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 647,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            27.381481481481483,
+            23.514814814814816,
+            22.362962962962964
+          ],
+          "medianMaximumChannelU8": 4.0,
+          "p90MaximumChannelU8": 79.1
+        },
+        "on": {
+          "meanRGBU8": [
+            45.50370370370371,
+            36.97037037037037,
+            34.36666666666667
+          ],
+          "medianMaximumChannelU8": 22.0,
+          "p90MaximumChannelU8": 102.1
+        },
+        "repeat": {
+          "meanRGBU8": [
+            27.462962962962962,
+            23.68148148148148,
+            22.381481481481483
+          ],
+          "medianMaximumChannelU8": 4.0,
+          "p90MaximumChannelU8": 79.1
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 648,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            29.081481481481482,
+            25.488888888888887,
+            23.433333333333334
+          ],
+          "medianMaximumChannelU8": 4.0,
+          "p90MaximumChannelU8": 73.69999999999996
+        },
+        "on": {
+          "meanRGBU8": [
+            46.974074074074075,
+            38.833333333333336,
+            35.28888888888889
+          ],
+          "medianMaximumChannelU8": 23.0,
+          "p90MaximumChannelU8": 103.49999999999991
+        },
+        "repeat": {
+          "meanRGBU8": [
+            28.996296296296297,
+            25.485185185185184,
+            23.377777777777776
+          ],
+          "medianMaximumChannelU8": 4.0,
+          "p90MaximumChannelU8": 73.69999999999996
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 649,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            27.803703703703704,
+            24.374074074074073,
+            21.548148148148147
+          ],
+          "medianMaximumChannelU8": 5.0,
+          "p90MaximumChannelU8": 74.29999999999998
+        },
+        "on": {
+          "meanRGBU8": [
+            45.22962962962963,
+            37.48518518518519,
+            33.22592592592593
+          ],
+          "medianMaximumChannelU8": 21.5,
+          "p90MaximumChannelU8": 102.59999999999997
+        },
+        "repeat": {
+          "meanRGBU8": [
+            27.607407407407408,
+            24.288888888888888,
+            21.514814814814816
+          ],
+          "medianMaximumChannelU8": 4.0,
+          "p90MaximumChannelU8": 74.29999999999998
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 650,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            26.251851851851853,
+            22.57777777777778,
+            19.196296296296296
+          ],
+          "medianMaximumChannelU8": 4.0,
+          "p90MaximumChannelU8": 82.0
+        },
+        "on": {
+          "meanRGBU8": [
+            42.88148148148148,
+            35.65925925925926,
+            30.962962962962962
+          ],
+          "medianMaximumChannelU8": 20.0,
+          "p90MaximumChannelU8": 98.19999999999999
+        },
+        "repeat": {
+          "meanRGBU8": [
+            26.20740740740741,
+            22.61111111111111,
+            19.18888888888889
+          ],
+          "medianMaximumChannelU8": 4.0,
+          "p90MaximumChannelU8": 82.0
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 651,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            26.485185185185184,
+            22.555555555555557,
+            18.988888888888887
+          ],
+          "medianMaximumChannelU8": 4.0,
+          "p90MaximumChannelU8": 76.19999999999999
+        },
+        "on": {
+          "meanRGBU8": [
+            42.60740740740741,
+            35.63703703703704,
+            30.633333333333333
+          ],
+          "medianMaximumChannelU8": 21.0,
+          "p90MaximumChannelU8": 92.1
+        },
+        "repeat": {
+          "meanRGBU8": [
+            26.40740740740741,
+            22.548148148148147,
+            18.977777777777778
+          ],
+          "medianMaximumChannelU8": 4.0,
+          "p90MaximumChannelU8": 76.19999999999999
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 652,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            26.492592592592594,
+            20.937037037037037,
+            17.44814814814815
+          ],
+          "medianMaximumChannelU8": 7.0,
+          "p90MaximumChannelU8": 63.29999999999998
+        },
+        "on": {
+          "meanRGBU8": [
+            28.022222222222222,
+            20.937037037037037,
+            17.29259259259259
+          ],
+          "medianMaximumChannelU8": 7.0,
+          "p90MaximumChannelU8": 60.49999999999997
+        },
+        "repeat": {
+          "meanRGBU8": [
+            26.48148148148148,
+            21.025925925925925,
+            17.511111111111113
+          ],
+          "medianMaximumChannelU8": 6.0,
+          "p90MaximumChannelU8": 63.29999999999998
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 653,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            38.7037037037037,
+            31.977777777777778,
+            27.955555555555556
+          ],
+          "medianMaximumChannelU8": 18.0,
+          "p90MaximumChannelU8": 82.0
+        },
+        "on": {
+          "meanRGBU8": [
+            39.596296296296295,
+            31.862962962962964,
+            27.33703703703704
+          ],
+          "medianMaximumChannelU8": 17.0,
+          "p90MaximumChannelU8": 83.0
+        },
+        "repeat": {
+          "meanRGBU8": [
+            38.57037037037037,
+            31.955555555555556,
+            27.892592592592592
+          ],
+          "medianMaximumChannelU8": 18.0,
+          "p90MaximumChannelU8": 82.0
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 654,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            27.05925925925926,
+            19.81851851851852,
+            16.625925925925927
+          ],
+          "medianMaximumChannelU8": 7.0,
+          "p90MaximumChannelU8": 63.599999999999966
+        },
+        "on": {
+          "meanRGBU8": [
+            27.244444444444444,
+            19.833333333333332,
+            16.507407407407406
+          ],
+          "medianMaximumChannelU8": 7.5,
+          "p90MaximumChannelU8": 66.1
+        },
+        "repeat": {
+          "meanRGBU8": [
+            26.71851851851852,
+            19.55185185185185,
+            16.35185185185185
+          ],
+          "medianMaximumChannelU8": 7.0,
+          "p90MaximumChannelU8": 63.599999999999966
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 655,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            41.851851851851855,
+            33.28888888888889,
+            29.203703703703702
+          ],
+          "medianMaximumChannelU8": 18.5,
+          "p90MaximumChannelU8": 83.1
+        },
+        "on": {
+          "meanRGBU8": [
+            42.111111111111114,
+            33.67037037037037,
+            28.962962962962962
+          ],
+          "medianMaximumChannelU8": 19.0,
+          "p90MaximumChannelU8": 80.29999999999998
+        },
+        "repeat": {
+          "meanRGBU8": [
+            41.82592592592592,
+            33.29259259259259,
+            29.18888888888889
+          ],
+          "medianMaximumChannelU8": 18.5,
+          "p90MaximumChannelU8": 83.1
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 656,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            43.455555555555556,
+            33.837037037037035,
+            28.6
+          ],
+          "medianMaximumChannelU8": 20.0,
+          "p90MaximumChannelU8": 82.49999999999997
+        },
+        "on": {
+          "meanRGBU8": [
+            43.477777777777774,
+            33.89259259259259,
+            28.474074074074075
+          ],
+          "medianMaximumChannelU8": 21.0,
+          "p90MaximumChannelU8": 82.39999999999998
+        },
+        "repeat": {
+          "meanRGBU8": [
+            43.11851851851852,
+            33.56666666666667,
+            28.35185185185185
+          ],
+          "medianMaximumChannelU8": 20.5,
+          "p90MaximumChannelU8": 82.49999999999997
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 657,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            43.58518518518518,
+            32.84444444444444,
+            26.925925925925927
+          ],
+          "medianMaximumChannelU8": 21.0,
+          "p90MaximumChannelU8": 83.1
+        },
+        "on": {
+          "meanRGBU8": [
+            43.65555555555556,
+            32.91111111111111,
+            26.97037037037037
+          ],
+          "medianMaximumChannelU8": 21.0,
+          "p90MaximumChannelU8": 83.0
+        },
+        "repeat": {
+          "meanRGBU8": [
+            43.58148148148148,
+            32.94074074074074,
+            26.951851851851853
+          ],
+          "medianMaximumChannelU8": 22.0,
+          "p90MaximumChannelU8": 83.1
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 658,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            57.65185185185185,
+            45.95185185185185,
+            39.785185185185185
+          ],
+          "medianMaximumChannelU8": 41.0,
+          "p90MaximumChannelU8": 98.0
+        },
+        "on": {
+          "meanRGBU8": [
+            57.65185185185185,
+            45.95185185185185,
+            39.785185185185185
+          ],
+          "medianMaximumChannelU8": 41.0,
+          "p90MaximumChannelU8": 97.1
+        },
+        "repeat": {
+          "meanRGBU8": [
+            57.407407407407405,
+            45.837037037037035,
+            39.67037037037037
+          ],
+          "medianMaximumChannelU8": 41.5,
+          "p90MaximumChannelU8": 98.0
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 659,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            61.58518518518518,
+            49.34074074074074,
+            43.24074074074074
+          ],
+          "medianMaximumChannelU8": 44.0,
+          "p90MaximumChannelU8": 104.69999999999996
+        },
+        "on": {
+          "meanRGBU8": [
+            61.54814814814815,
+            49.3,
+            43.2
+          ],
+          "medianMaximumChannelU8": 44.0,
+          "p90MaximumChannelU8": 105.59999999999997
+        },
+        "repeat": {
+          "meanRGBU8": [
+            61.333333333333336,
+            49.166666666666664,
+            43.05925925925926
+          ],
+          "medianMaximumChannelU8": 44.0,
+          "p90MaximumChannelU8": 101.1
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 660,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            56.65925925925926,
+            43.7,
+            38.06666666666667
+          ],
+          "medianMaximumChannelU8": 41.0,
+          "p90MaximumChannelU8": 106.99999999999994
+        },
+        "on": {
+          "meanRGBU8": [
+            56.68888888888889,
+            43.72962962962963,
+            38.096296296296295
+          ],
+          "medianMaximumChannelU8": 41.5,
+          "p90MaximumChannelU8": 107.89999999999995
+        },
+        "repeat": {
+          "meanRGBU8": [
+            56.8,
+            43.885185185185186,
+            38.2037037037037
+          ],
+          "medianMaximumChannelU8": 39.5,
+          "p90MaximumChannelU8": 113.29999999999998
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 661,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            57.63703703703704,
+            44.3962962962963,
+            39.3
+          ],
+          "medianMaximumChannelU8": 40.0,
+          "p90MaximumChannelU8": 133.59999999999997
+        },
+        "on": {
+          "meanRGBU8": [
+            57.65925925925926,
+            44.422222222222224,
+            39.32592592592592
+          ],
+          "medianMaximumChannelU8": 40.0,
+          "p90MaximumChannelU8": 133.59999999999997
+        },
+        "repeat": {
+          "meanRGBU8": [
+            57.44444444444444,
+            44.214814814814815,
+            39.08148148148148
+          ],
+          "medianMaximumChannelU8": 40.0,
+          "p90MaximumChannelU8": 133.99999999999994
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 662,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            52.35925925925926,
+            39.129629629629626,
+            34.77407407407407
+          ],
+          "medianMaximumChannelU8": 31.0,
+          "p90MaximumChannelU8": 130.39999999999998
+        },
+        "on": {
+          "meanRGBU8": [
+            52.337037037037035,
+            39.1,
+            34.74444444444445
+          ],
+          "medianMaximumChannelU8": 31.0,
+          "p90MaximumChannelU8": 130.39999999999998
+        },
+        "repeat": {
+          "meanRGBU8": [
+            52.525925925925925,
+            39.43333333333333,
+            35.01851851851852
+          ],
+          "medianMaximumChannelU8": 31.0,
+          "p90MaximumChannelU8": 130.39999999999998
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 663,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            49.25925925925926,
+            36.57037037037037,
+            32.65555555555556
+          ],
+          "medianMaximumChannelU8": 27.0,
+          "p90MaximumChannelU8": 112.6999999999999
+        },
+        "on": {
+          "meanRGBU8": [
+            49.333333333333336,
+            36.648148148148145,
+            32.733333333333334
+          ],
+          "medianMaximumChannelU8": 27.0,
+          "p90MaximumChannelU8": 112.89999999999989
+        },
+        "repeat": {
+          "meanRGBU8": [
+            49.08888888888889,
+            36.46666666666667,
+            32.5
+          ],
+          "medianMaximumChannelU8": 27.0,
+          "p90MaximumChannelU8": 109.99999999999989
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 664,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            45.00370370370371,
+            32.818518518518516,
+            29.451851851851853
+          ],
+          "medianMaximumChannelU8": 22.5,
+          "p90MaximumChannelU8": 109.29999999999998
+        },
+        "on": {
+          "meanRGBU8": [
+            45.00370370370371,
+            32.818518518518516,
+            29.451851851851853
+          ],
+          "medianMaximumChannelU8": 22.5,
+          "p90MaximumChannelU8": 109.29999999999998
+        },
+        "repeat": {
+          "meanRGBU8": [
+            45.0,
+            32.925925925925924,
+            29.51851851851852
+          ],
+          "medianMaximumChannelU8": 23.0,
+          "p90MaximumChannelU8": 109.29999999999998
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 665,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            43.1,
+            31.866666666666667,
+            28.514814814814816
+          ],
+          "medianMaximumChannelU8": 20.5,
+          "p90MaximumChannelU8": 104.29999999999998
+        },
+        "on": {
+          "meanRGBU8": [
+            43.1,
+            31.866666666666667,
+            28.514814814814816
+          ],
+          "medianMaximumChannelU8": 20.5,
+          "p90MaximumChannelU8": 104.29999999999998
+        },
+        "repeat": {
+          "meanRGBU8": [
+            42.96666666666667,
+            31.844444444444445,
+            28.455555555555556
+          ],
+          "medianMaximumChannelU8": 21.0,
+          "p90MaximumChannelU8": 104.29999999999998
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 666,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            38.24444444444445,
+            28.377777777777776,
+            25.1
+          ],
+          "medianMaximumChannelU8": 17.0,
+          "p90MaximumChannelU8": 74.99999999999994
+        },
+        "on": {
+          "meanRGBU8": [
+            38.24444444444445,
+            28.377777777777776,
+            25.1
+          ],
+          "medianMaximumChannelU8": 17.0,
+          "p90MaximumChannelU8": 74.99999999999994
+        },
+        "repeat": {
+          "meanRGBU8": [
+            38.337037037037035,
+            28.55925925925926,
+            25.192592592592593
+          ],
+          "medianMaximumChannelU8": 17.0,
+          "p90MaximumChannelU8": 74.99999999999994
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 667,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            38.68888888888889,
+            29.7,
+            26.17037037037037
+          ],
+          "medianMaximumChannelU8": 15.0,
+          "p90MaximumChannelU8": 81.39999999999992
+        },
+        "on": {
+          "meanRGBU8": [
+            38.68888888888889,
+            29.7,
+            26.17037037037037
+          ],
+          "medianMaximumChannelU8": 15.0,
+          "p90MaximumChannelU8": 81.39999999999992
+        },
+        "repeat": {
+          "meanRGBU8": [
+            38.55925925925926,
+            29.644444444444446,
+            26.144444444444446
+          ],
+          "medianMaximumChannelU8": 15.0,
+          "p90MaximumChannelU8": 81.29999999999993
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 668,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            36.355555555555554,
+            28.137037037037036,
+            24.533333333333335
+          ],
+          "medianMaximumChannelU8": 14.0,
+          "p90MaximumChannelU8": 92.29999999999993
+        },
+        "on": {
+          "meanRGBU8": [
+            36.355555555555554,
+            28.137037037037036,
+            24.533333333333335
+          ],
+          "medianMaximumChannelU8": 14.0,
+          "p90MaximumChannelU8": 92.29999999999993
+        },
+        "repeat": {
+          "meanRGBU8": [
+            36.44814814814815,
+            28.325925925925926,
+            24.596296296296295
+          ],
+          "medianMaximumChannelU8": 14.0,
+          "p90MaximumChannelU8": 103.39999999999998
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 669,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            35.93333333333333,
+            28.155555555555555,
+            24.125925925925927
+          ],
+          "medianMaximumChannelU8": 13.0,
+          "p90MaximumChannelU8": 92.39999999999998
+        },
+        "on": {
+          "meanRGBU8": [
+            35.93333333333333,
+            28.155555555555555,
+            24.125925925925927
+          ],
+          "medianMaximumChannelU8": 13.0,
+          "p90MaximumChannelU8": 92.39999999999998
+        },
+        "repeat": {
+          "meanRGBU8": [
+            35.7962962962963,
+            28.096296296296295,
+            24.118518518518517
+          ],
+          "medianMaximumChannelU8": 13.0,
+          "p90MaximumChannelU8": 92.39999999999998
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 670,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            36.837037037037035,
+            29.255555555555556,
+            25.29259259259259
+          ],
+          "medianMaximumChannelU8": 12.5,
+          "p90MaximumChannelU8": 88.19999999999999
+        },
+        "on": {
+          "meanRGBU8": [
+            36.837037037037035,
+            29.255555555555556,
+            25.29259259259259
+          ],
+          "medianMaximumChannelU8": 12.5,
+          "p90MaximumChannelU8": 88.19999999999999
+        },
+        "repeat": {
+          "meanRGBU8": [
+            36.86666666666667,
+            29.344444444444445,
+            25.3
+          ],
+          "medianMaximumChannelU8": 12.5,
+          "p90MaximumChannelU8": 88.29999999999998
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 671,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            39.67037037037037,
+            32.714814814814815,
+            27.877777777777776
+          ],
+          "medianMaximumChannelU8": 11.0,
+          "p90MaximumChannelU8": 168.9999999999999
+        },
+        "on": {
+          "meanRGBU8": [
+            39.68888888888889,
+            32.71111111111111,
+            27.877777777777776
+          ],
+          "medianMaximumChannelU8": 11.0,
+          "p90MaximumChannelU8": 168.9999999999999
+        },
+        "repeat": {
+          "meanRGBU8": [
+            39.67407407407408,
+            32.72962962962963,
+            27.855555555555554
+          ],
+          "medianMaximumChannelU8": 11.0,
+          "p90MaximumChannelU8": 168.9999999999999
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 672,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            37.15555555555556,
+            31.22962962962963,
+            25.833333333333332
+          ],
+          "medianMaximumChannelU8": 10.5,
+          "p90MaximumChannelU8": 112.1
+        },
+        "on": {
+          "meanRGBU8": [
+            37.196296296296296,
+            31.214814814814815,
+            25.833333333333332
+          ],
+          "medianMaximumChannelU8": 11.0,
+          "p90MaximumChannelU8": 112.1
+        },
+        "repeat": {
+          "meanRGBU8": [
+            37.144444444444446,
+            31.27037037037037,
+            25.81111111111111
+          ],
+          "medianMaximumChannelU8": 11.0,
+          "p90MaximumChannelU8": 111.19999999999999
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 673,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            37.492592592592594,
+            32.162962962962965,
+            26.22962962962963
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 135.49999999999997
+        },
+        "on": {
+          "meanRGBU8": [
+            37.55555555555556,
+            32.15555555555556,
+            26.22962962962963
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 135.49999999999997
+        },
+        "repeat": {
+          "meanRGBU8": [
+            37.46296296296296,
+            32.03333333333333,
+            26.055555555555557
+          ],
+          "medianMaximumChannelU8": 9.5,
+          "p90MaximumChannelU8": 115.19999999999987
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 674,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            38.629629629629626,
+            33.34444444444444,
+            27.02962962962963
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 163.49999999999991
+        },
+        "on": {
+          "meanRGBU8": [
+            38.69259259259259,
+            33.337037037037035,
+            27.02962962962963
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 163.49999999999991
+        },
+        "repeat": {
+          "meanRGBU8": [
+            38.629629629629626,
+            33.407407407407405,
+            27.05925925925926
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 163.49999999999991
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 675,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            37.01481481481481,
+            31.825925925925926,
+            25.3
+          ],
+          "medianMaximumChannelU8": 8.5,
+          "p90MaximumChannelU8": 145.49999999999997
+        },
+        "on": {
+          "meanRGBU8": [
+            37.074074074074076,
+            31.822222222222223,
+            25.3
+          ],
+          "medianMaximumChannelU8": 8.5,
+          "p90MaximumChannelU8": 145.49999999999997
+        },
+        "repeat": {
+          "meanRGBU8": [
+            36.91851851851852,
+            31.737037037037037,
+            25.166666666666668
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 145.49999999999997
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 676,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            36.22222222222222,
+            30.725925925925925,
+            24.192592592592593
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 102.49999999999986
+        },
+        "on": {
+          "meanRGBU8": [
+            36.22962962962963,
+            30.72222222222222,
+            24.192592592592593
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 102.49999999999986
+        },
+        "repeat": {
+          "meanRGBU8": [
+            36.318518518518516,
+            30.85925925925926,
+            24.322222222222223
+          ],
+          "medianMaximumChannelU8": 10.0,
+          "p90MaximumChannelU8": 102.09999999999988
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 677,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            35.55925925925926,
+            29.896296296296295,
+            23.57037037037037
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 86.6999999999999
+        },
+        "on": {
+          "meanRGBU8": [
+            35.56666666666667,
+            29.892592592592592,
+            23.57037037037037
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 86.6999999999999
+        },
+        "repeat": {
+          "meanRGBU8": [
+            35.57037037037037,
+            29.885185185185186,
+            23.54074074074074
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 85.79999999999995
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 678,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            35.05185185185185,
+            29.485185185185184,
+            22.951851851851853
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 88.39999999999992
+        },
+        "on": {
+          "meanRGBU8": [
+            35.17037037037037,
+            29.425925925925927,
+            22.951851851851853
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 88.39999999999992
+        },
+        "repeat": {
+          "meanRGBU8": [
+            35.044444444444444,
+            29.414814814814815,
+            22.862962962962964
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 88.39999999999992
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 679,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            40.818518518518516,
+            35.01481481481481,
+            28.35925925925926
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 184.29999999999998
+        },
+        "on": {
+          "meanRGBU8": [
+            40.93333333333333,
+            34.955555555555556,
+            28.35925925925926
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 184.29999999999998
+        },
+        "repeat": {
+          "meanRGBU8": [
+            40.737037037037034,
+            34.922222222222224,
+            28.333333333333332
+          ],
+          "medianMaximumChannelU8": 9.0,
+          "p90MaximumChannelU8": 187.1
+        }
+      }
+    },
+    {
+      "rowYZeroBased": 680,
+      "xRangeExclusive": [
+        450,
+        720
+      ],
+      "images": {
+        "off": {
+          "meanRGBU8": [
+            41.01481481481481,
+            34.54074074074074,
+            28.14074074074074
+          ],
+          "medianMaximumChannelU8": 10.0,
+          "p90MaximumChannelU8": 177.29999999999998
+        },
+        "on": {
+          "meanRGBU8": [
+            41.13333333333333,
+            34.48518518518519,
+            28.14074074074074
+          ],
+          "medianMaximumChannelU8": 10.0,
+          "p90MaximumChannelU8": 177.29999999999998
+        },
+        "repeat": {
+          "meanRGBU8": [
+            40.99629629629629,
+            34.51111111111111,
+            28.2
+          ],
+          "medianMaximumChannelU8": 9.5,
+          "p90MaximumChannelU8": 180.29999999999998
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "off": {
+      "time": 296.07830880196366,
+      "camera": [
+        -26.367924748274802,
+        133.02981104670693,
+        -41.775295996796075
+      ],
+      "target": [
+        79.63207525172518,
+        133.02981104670693,
+        104.22470400320395
+      ],
+      "snapshotPackets": 1561,
+      "snapshotRevision": 3270,
+      "snapshotExactlyMatchesOff": true,
+      "clustersExactlyMatchOff": true,
+      "parametersDifferencesFromOff": [],
+      "photometryDifferencesFromOff": [],
+      "backgroundLocalScattering": 0,
+      "airFrames": 21870,
+      "airSteps": 6,
+      "airMaxDistance": 12000,
+      "storageEV": 11,
+      "exposureScale": 6.08,
+      "temporal": {
+        "enabled": true,
+        "active": true,
+        "waterEnabled": true,
+        "stillFrames": 41,
+        "frozen": true,
+        "historyFrames": 24,
+        "historyWeight": 0.84,
+        "artificialJitter": false,
+        "jitterPixels": [
+          0,
+          0
+        ],
+        "lastResetReason": "camera or animation cut",
+        "scope": "analytic wind/camera foliage motion, MSAA coverage, independent short water radiance history",
+        "maximumMissingCoverageFrames": 2,
+        "metadata": "R8 age; nearest valid depth, bilinear RGB",
+        "historyBytes": 28116504
+      },
+      "flare": false,
+      "gl": {
+        "label": "r36-air-off-before",
+        "errors": [],
+        "programLive": true,
+        "programDeletePending": false,
+        "vertexArrayLive": true
+      }
+    },
+    "on": {
+      "time": 296.07830880196366,
+      "camera": [
+        -26.367924748274802,
+        133.02981104670693,
+        -41.775295996796075
+      ],
+      "target": [
+        79.63207525172518,
+        133.02981104670693,
+        104.22470400320395
+      ],
+      "snapshotPackets": 1561,
+      "snapshotRevision": 3270,
+      "snapshotExactlyMatchesOff": true,
+      "clustersExactlyMatchOff": true,
+      "parametersDifferencesFromOff": [
+        {
+          "path": ".air.backgroundLocalScattering",
+          "before": null,
+          "after": 1
+        }
+      ],
+      "photometryDifferencesFromOff": [
+        {
+          "path": ".components.medium",
+          "before": 1.2593693552479386,
+          "after": 1.6189414037512488
+        },
+        {
+          "path": ".environment.job.wallAge",
+          "before": 415.72040000000607,
+          "after": 437.11750000000006
+        },
+        {
+          "path": ".frame.adaptationDelta",
+          "before": 0.006899999991059304,
+          "after": 0.031099999994039534
+        },
+        {
+          "path": ".frame.components.medium",
+          "before": 1.2593693552479386,
+          "after": 1.6189414037512488
+        },
+        {
+          "path": ".frame.maxRawRGB",
+          "before": 7.14657893312876,
+          "after": 7.50615098163207
+        },
+        {
+          "path": ".frame.storedBound",
+          "before": 14636.1936550477,
+          "after": 15372.597210382479
+        },
+        {
+          "path": ".maxRawRGB",
+          "before": 7.14657893312876,
+          "after": 7.50615098163207
+        },
+        {
+          "path": ".storedBound",
+          "before": 14636.1936550477,
+          "after": 15372.597210382479
+        }
+      ],
+      "backgroundLocalScattering": 1,
+      "airFrames": 21879,
+      "airSteps": 6,
+      "airMaxDistance": 12000,
+      "storageEV": 11,
+      "exposureScale": 6.08,
+      "temporal": {
+        "enabled": true,
+        "active": true,
+        "waterEnabled": true,
+        "stillFrames": 9,
+        "frozen": false,
+        "historyFrames": 9,
+        "historyWeight": 0.84,
+        "artificialJitter": false,
+        "jitterPixels": [
+          0,
+          0
+        ],
+        "lastResetReason": "QA background local scattering",
+        "scope": "analytic wind/camera foliage motion, MSAA coverage, independent short water radiance history",
+        "maximumMissingCoverageFrames": 2,
+        "metadata": "R8 age; nearest valid depth, bilinear RGB",
+        "historyBytes": 28116504
+      },
+      "flare": false,
+      "gl": {
+        "label": "r36-air-on",
+        "errors": [],
+        "programLive": true,
+        "programDeletePending": false,
+        "vertexArrayLive": true
+      }
+    },
+    "repeat": {
+      "time": 296.07830880196366,
+      "camera": [
+        -26.367924748274802,
+        133.02981104670693,
+        -41.775295996796075
+      ],
+      "target": [
+        79.63207525172518,
+        133.02981104670693,
+        104.22470400320395
+      ],
+      "snapshotPackets": 1561,
+      "snapshotRevision": 3270,
+      "snapshotExactlyMatchesOff": true,
+      "clustersExactlyMatchOff": true,
+      "parametersDifferencesFromOff": [
+        {
+          "path": ".air.backgroundLocalScattering",
+          "before": null,
+          "after": 0
+        }
+      ],
+      "photometryDifferencesFromOff": [
+        {
+          "path": ".environment.job.wallAge",
+          "before": 415.72040000000607,
+          "after": 559.7280999999941
+        },
+        {
+          "path": ".frame.adaptationDelta",
+          "before": 0.006899999991059304,
+          "after": 0.012400000005960464
+        }
+      ],
+      "backgroundLocalScattering": 0,
+      "airFrames": 21919,
+      "airSteps": 6,
+      "airMaxDistance": 12000,
+      "storageEV": 11,
+      "exposureScale": 6.08,
+      "temporal": {
+        "enabled": true,
+        "active": true,
+        "waterEnabled": true,
+        "stillFrames": 8,
+        "frozen": false,
+        "historyFrames": 8,
+        "historyWeight": 0.84,
+        "artificialJitter": false,
+        "jitterPixels": [
+          0,
+          0
+        ],
+        "lastResetReason": "QA background local scattering",
+        "scope": "analytic wind/camera foliage motion, MSAA coverage, independent short water radiance history",
+        "maximumMissingCoverageFrames": 2,
+        "metadata": "R8 age; nearest valid depth, bilinear RGB",
+        "historyBytes": 28116504
+      },
+      "flare": false,
+      "gl": {
+        "label": "r36-air-off-repeat",
+        "errors": [],
+        "programLive": true,
+        "programDeletePending": false,
+        "vertexArrayLive": true
+      }
+    }
+  },
+  "sourceWiring": {
+    "publicFlagIsWrittenToConfigurationAndParameters": true,
+    "allCoefficientRefreshesWriteTheIntegerUniform": true,
+    "updateReappliesCoefficients": true,
+    "bothPassMaterialsShareTheSameUniformObject": true,
+    "skyIntegrationHasASeparateMinusTwoClass": true,
+    "skyCompositeActuallyAddsS": true,
+    "opaqueCompositeRemainsTColourPlusS": true,
+    "lensCallsAerialBeforeEffectRendererAndBloom": true,
+    "wholeAirToggleAlsoChangesFiniteSmokeAirPayload": true
+  },
+  "actualSetupWater": {
+    "farField": {
+      "mode": "curved",
+      "earthRadiusMetres": 6360000,
+      "nearGridHalfExtentMetres": 96,
+      "farHalfExtentMetres": 65536,
+      "requiredCameraFarMetres": 120000,
+      "vertices": 410881,
+      "additionalScenePasses": 0,
+      "additionalSamplers": 0,
+      "axisBytes": 5128,
+      "model": "shared spherical-Earth datum with logarithmic outer grid; analytic bed preserves local water depth"
+    },
+    "reflection": {
+      "directionMode": "geometric",
+      "legacyFloorsRadians": [
+        0.006,
+        0.012
+      ],
+      "geometricSource": "curved macro-frame reflection; incoming Smith visibility; fixed2m environment approximation retained",
+      "size": [
+        1209,
+        1292
+      ],
+      "samples": 2,
+      "colourMipmaps": true,
+      "depthMipmaps": false,
+      "filter": "linear mipmapped colour; independent non-mipmapped depth"
+    }
+  },
+  "findings": [
+    "The flag is observably effective in saved sky pixels; no source-wiring defect was found in the inspected current route.",
+    "The visible narrow band remains in both on and off images. Enabling current quadratic background S did not remove it; the simpler missing-background-S explanation is not established as its dominant cause.",
+    "Core sky additions collapse near rows651/652, consistent with the separate sky/opaque depth classes. Screenshot data cannot identify the responsible pre-composite attachment or prove a unique mechanism.",
+    "Full-flower differences are confounded by temporal histories: first off frozen41, on9, repeat8. Exact density/source state is not exact temporal image history.",
+    "Photometry medium/bound grows on, but storageEV11 and exposureScale6.08 stay equal. The PNG is display encoded and cannot validate an absolute air radiance model."
+  ],
+  "smallestNextObservationProposal": {
+    "implemented": false,
+    "performed": false,
+    "purpose": "Separate a geometric ocean/sky-boundary-aligned band from a source-centred smoke/effect/post band using only the existing public camera API",
+    "views": [
+      {
+        "camera": [
+          -26.367924748274802,
+          133.02981104670693,
+          -41.775295996796075
+        ],
+        "target": [
+          79.63207525172518,
+          133.02981104670693,
+          104.22470400320395
+        ],
+        "pitchDegrees": 0.0,
+        "predictedCentralHorizonRow": 652.4995193692394,
+        "targetDistanceMetres": 180.4217281815026
+      },
+      {
+        "camera": [
+          -26.367924748274802,
+          153.02981104670693,
+          -41.775295996796075
+        ],
+        "target": [
+          79.63207525172518,
+          133.02981104670693,
+          104.22470400320395
+        ],
+        "pitchDegrees": -6.32549208066367,
+        "predictedCentralHorizonRow": 541.6579044130857,
+        "targetDistanceMetres": 181.5268575170077
+      }
+    ],
+    "method": "Keep the same paused physical source/density state, background flag0, all optics/light/quality/settings. Move only camera Y+20m, retain the identical world target and FOV; compare one settled saved view then restore. No new solver/shader/brightness change.",
+    "interpretation": "If the band follows the predicted horizon near541.66 while the target remains near646, prioritize geometric/depth-class/water boundary; if it stays through the centred flower, prioritize source/smoke/effect/post paths. Neither outcome alone uniquely identifies a shader.",
+    "limits": "Changed eye rays may change valid SourceT/reflection row counts and screen composition. This is not a performance pair or a same-ray radiance proof. Whole-air-off is an alternative coarse test but also changes finite smoke/front-air payload; it does not isolate aerial-perspective.js alone."
+  }
+}

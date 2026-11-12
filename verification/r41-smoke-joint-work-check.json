@@ -1,0 +1,57 @@
+{
+  "schema": "glass-atoll.r41-smoke-joint-work-check.v1",
+  "passed": true,
+  "passedChecks": 5,
+  "totalChecks": 5,
+  "actualGPU": false,
+  "sourceSHA256": "ce5ad695378c3d956a95120a12920ed9a00b2344088bb7f774dc6cf28ba22894",
+  "scriptSHA256": "7f585bdd26efe7ad947607ad327304b5a97562c36a021d2d1a5235e721ba21b6",
+  "checks": [
+    {
+      "name": "Actual R39 whole count plan matches production layout, exact rectangle and fresh SH",
+      "passed": true,
+      "detail": {
+        "pairs": 12055087,
+        "slots": 12091520,
+        "draws": 21
+      }
+    },
+    {
+      "name": "Every R40 observed lifecycle count fits optional12m, while current4m refuses known dense epoch",
+      "passed": true,
+      "detail": {
+        "sampledEpochs": 263,
+        "maximumLogicalPairs": 25272520,
+        "maxDraws": 33,
+        "rejected4mEpochs": 69
+      }
+    },
+    {
+      "name": "Inactive T charges zero yet preserves every ordered row; SH cold-zero and disabled cases exact",
+      "passed": true,
+      "detail": {
+        "orderedRowsNeverFiltered": true,
+        "coldNeutralSHDraws": 2,
+        "inactiveTDraws": 0
+      }
+    },
+    {
+      "name": "Map-cap rejection diagnostics and aggregate caps are exact without constructing a huge schedule",
+      "passed": true,
+      "detail": {
+        "oversizedRejected": true,
+        "diagnosticDrawsExact": true,
+        "allThreePerJobReasons": true
+      }
+    },
+    {
+      "name": "Frozen primitive outputs and bounded input/option validation; no ownership or GPU surface",
+      "passed": true,
+      "detail": {
+        "deepFrozen": true,
+        "resourceOrOwnershipSurface": false
+      }
+    }
+  ],
+  "scope": "Production pure count planner only; no live renderer/main integration, GPU, ownership token or complete-frame admission."
+}

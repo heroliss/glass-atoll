@@ -1,0 +1,761 @@
+{
+  "date": "2026-10-26T22:26:54.075Z",
+  "status": "measured",
+  "passed": true,
+  "scope": "Existing-context fixed-input PSF only: original bloom-only versus candidate bloom+flare. Excludes main scene, water/reflection captures, HDR bridge, AA and normal frame scheduling. Not full-scene FPS.",
+  "dimensions": [
+    1209,
+    1292
+  ],
+  "samplesPerVariant": 32,
+  "warmupPairs": 8,
+  "batchPairs": 4,
+  "timer": "EXT_disjoint_timer_query_webgl2 elapsed nanoseconds / 1e6; CPU submit wall measured separately around render()",
+  "candidateSourceSHA256": "52508e641fda1aec9594444c583f2523f9285e7dfec67ca7a25fa0157a2b9601",
+  "baselineSourceSHA256": "4bf96b00252cf79403a865b3d35b902c2aa8dcb9732c4dab4169ac96c1aaca63",
+  "checks": [
+    {
+      "name": "same static nonuniform Float16 source is HDR and finite at independent probes",
+      "passed": true,
+      "probeUV": [
+        [
+          0.19,
+          0.28
+        ],
+        [
+          0.73,
+          0.63
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.08,
+          0.88
+        ]
+      ],
+      "RGB": [
+        [
+          2045,
+          511.5,
+          128
+        ],
+        [
+          256.25,
+          1023.5,
+          2047
+        ],
+        [
+          0.261962890625,
+          0.169921875,
+          0.215576171875
+        ],
+        [
+          0.051971435546875,
+          0.28369140625,
+          0.2314453125
+        ]
+      ]
+    },
+    {
+      "name": "original and candidate both measure five-pass PSF at the same full size",
+      "passed": true
+    },
+    {
+      "name": ">=30 real valid GPU queries per variant with balanced AB/BA order",
+      "passed": true,
+      "counts": {
+        "oldPSF": {
+          "valid": 32,
+          "first": 16,
+          "second": 16
+        },
+        "newBloomFlare": {
+          "valid": 32,
+          "first": 16,
+          "second": 16
+        }
+      }
+    },
+    {
+      "name": "drawing-buffer size and DPR stayed unchanged",
+      "passed": true
+    },
+    {
+      "name": "no shader compilation/WebGL errors in timing fixture",
+      "passed": true,
+      "shaderErrors": [],
+      "glErrors": []
+    },
+    {
+      "name": "caller target/face/mip/rectangles/read-FBO/flags/statistics/size restored",
+      "passed": true
+    },
+    {
+      "name": "temporary textures/geometries/programs released; caller context retained",
+      "passed": true,
+      "before": {
+        "geometries": 53,
+        "textures": 68
+      },
+      "after": {
+        "geometries": 53,
+        "textures": 68
+      },
+      "beforePrograms": 60,
+      "afterPrograms": 60
+    }
+  ],
+  "errors": [],
+  "shaderErrors": [],
+  "glErrors": [],
+  "samples": [
+    {
+      "pair": 0,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 0,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0.19999992847442627,
+      "gpuMs": 0.0768
+    },
+    {
+      "pair": 0,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 1,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.7000000476837158,
+      "gpuMs": 0.5632
+    },
+    {
+      "pair": 1,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 0,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.5,
+      "gpuMs": 0.446464
+    },
+    {
+      "pair": 1,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 1,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0.10000002384185791,
+      "gpuMs": 0.068608
+    },
+    {
+      "pair": 2,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 0,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.264192
+    },
+    {
+      "pair": 2,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 1,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.7999999523162842,
+      "gpuMs": 0.572416
+    },
+    {
+      "pair": 3,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 0,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.2999999523162842,
+      "gpuMs": 0.33792
+    },
+    {
+      "pair": 3,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 1,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.067584
+    },
+    {
+      "pair": 4,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 0,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.077728
+    },
+    {
+      "pair": 4,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 1,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.5999999046325684,
+      "gpuMs": 0.223232
+    },
+    {
+      "pair": 5,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 0,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.8000000715255737,
+      "gpuMs": 0.692224
+    },
+    {
+      "pair": 5,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 1,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0.09999990463256836,
+      "gpuMs": 0.178176
+    },
+    {
+      "pair": 6,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 0,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0.20000004768371582,
+      "gpuMs": 0.069632
+    },
+    {
+      "pair": 6,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 1,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.5,
+      "gpuMs": 0.580608
+    },
+    {
+      "pair": 7,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 0,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.20000004768371582,
+      "gpuMs": 0.193536
+    },
+    {
+      "pair": 7,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 1,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0.09999990463256836,
+      "gpuMs": 0.067584
+    },
+    {
+      "pair": 8,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 0,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0.09999990463256836,
+      "gpuMs": 0.074752
+    },
+    {
+      "pair": 8,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 1,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.6000000238418579,
+      "gpuMs": 0.390144
+    },
+    {
+      "pair": 9,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 0,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.10000002384185791,
+      "gpuMs": 0.479232
+    },
+    {
+      "pair": 9,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 1,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0.09999990463256836,
+      "gpuMs": 0.067584
+    },
+    {
+      "pair": 10,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 0,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.070656
+    },
+    {
+      "pair": 10,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 1,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.9000000953674316,
+      "gpuMs": 0.88576
+    },
+    {
+      "pair": 11,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 0,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.5,
+      "gpuMs": 0.181248
+    },
+    {
+      "pair": 11,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 1,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.06656
+    },
+    {
+      "pair": 12,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 0,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0.10000002384185791,
+      "gpuMs": 0.072416
+    },
+    {
+      "pair": 12,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 1,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.3999999761581421,
+      "gpuMs": 0.843776
+    },
+    {
+      "pair": 13,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 0,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.2999999523162842,
+      "gpuMs": 0.385024
+    },
+    {
+      "pair": 13,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 1,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.06656
+    },
+    {
+      "pair": 14,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 0,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0.10000002384185791,
+      "gpuMs": 0.070656
+    },
+    {
+      "pair": 14,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 1,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.3999999761581421,
+      "gpuMs": 0.188416
+    },
+    {
+      "pair": 15,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 0,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.3999999761581421,
+      "gpuMs": 0.206848
+    },
+    {
+      "pair": 15,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 1,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.06656
+    },
+    {
+      "pair": 16,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 0,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.072704
+    },
+    {
+      "pair": 16,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 1,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.3999999761581421,
+      "gpuMs": 0.29696
+    },
+    {
+      "pair": 17,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 0,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.2999999523162842,
+      "gpuMs": 0.259072
+    },
+    {
+      "pair": 17,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 1,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.06656
+    },
+    {
+      "pair": 18,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 0,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.070656
+    },
+    {
+      "pair": 18,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 1,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.30000007152557373,
+      "gpuMs": 0.339968
+    },
+    {
+      "pair": 19,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 0,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.2999999523162842,
+      "gpuMs": 0.3072
+    },
+    {
+      "pair": 19,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 1,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.065536
+    },
+    {
+      "pair": 20,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 0,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.069632
+    },
+    {
+      "pair": 20,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 1,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.5,
+      "gpuMs": 0.488448
+    },
+    {
+      "pair": 21,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 0,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.40000009536743164,
+      "gpuMs": 0.329728
+    },
+    {
+      "pair": 21,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 1,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.06656
+    },
+    {
+      "pair": 22,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 0,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.069632
+    },
+    {
+      "pair": 22,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 1,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.3999999761581421,
+      "gpuMs": 0.219136
+    },
+    {
+      "pair": 23,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 0,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.2999999523162842,
+      "gpuMs": 0.10752
+    },
+    {
+      "pair": 23,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 1,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.06656
+    },
+    {
+      "pair": 24,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 0,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0.09999990463256836,
+      "gpuMs": 0.074752
+    },
+    {
+      "pair": 24,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 1,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.20000004768371582,
+      "gpuMs": 0.427008
+    },
+    {
+      "pair": 25,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 0,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.5,
+      "gpuMs": 0.406528
+    },
+    {
+      "pair": 25,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 1,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.070656
+    },
+    {
+      "pair": 26,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 0,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0.10000002384185791,
+      "gpuMs": 0.069632
+    },
+    {
+      "pair": 26,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 1,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.8999999761581421,
+      "gpuMs": 0.60416
+    },
+    {
+      "pair": 27,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 0,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.3999999761581421,
+      "gpuMs": 0.119808
+    },
+    {
+      "pair": 27,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 1,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.067584
+    },
+    {
+      "pair": 28,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 0,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0.10000002384185791,
+      "gpuMs": 0.07168
+    },
+    {
+      "pair": 28,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 1,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.3999999761581421,
+      "gpuMs": 0.374784
+    },
+    {
+      "pair": 29,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 0,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.19999992847442627,
+      "gpuMs": 0.26624
+    },
+    {
+      "pair": 29,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 1,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0.10000002384185791,
+      "gpuMs": 0.065536
+    },
+    {
+      "pair": 30,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 0,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.069632
+    },
+    {
+      "pair": 30,
+      "order": "oldPSF -> newBloomFlare",
+      "positionInPair": 1,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.30000007152557373,
+      "gpuMs": 0.126976
+    },
+    {
+      "pair": 31,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 0,
+      "variant": "newBloomFlare",
+      "cpuSubmitMs": 0.19999992847442627,
+      "gpuMs": 0.09728
+    },
+    {
+      "pair": 31,
+      "order": "newBloomFlare -> oldPSF",
+      "positionInPair": 1,
+      "variant": "oldPSF",
+      "cpuSubmitMs": 0,
+      "gpuMs": 0.065536
+    }
+  ],
+  "limits": [
+    "Both variants consume the same immutable nonuniform RGBA16F source at the actual drawing-buffer dimensions. Source generation/probe/warmup are outside measured queries.",
+    "A/B and B/A orders alternate pair by pair. This reduces ordering bias; device clock, cache and thermal variation remain.",
+    "CPU values are synchronous render-call wall time (JavaScript/GL submission/possible driver stalls), excluding query begin/end and polling. They are not GPU duration.",
+    "Each actual GPU query encloses five PSF draws, including its state restoration. No readback, await or scene draw is enclosed.",
+    "Owner must avoid concurrent source/canvas changes or other open timer queries. Normal paused presentation may still happen during bounded polling, outside measured intervals.",
+    "No fixed FPS target or perceptual quality acceptance follows from this isolated cost measurement."
+  ],
+  "input": {
+    "type": "RGBA16F",
+    "colourSpace": "linear/no encoding",
+    "textureUUID": "be1d5266-5029-4cc3-ba10-437c484d0a60",
+    "immutable": true,
+    "dimensions": [
+      1209,
+      1292
+    ],
+    "probeRGB": [
+      [
+        2045,
+        511.5,
+        128
+      ],
+      [
+        256.25,
+        1023.5,
+        2047
+      ],
+      [
+        0.261962890625,
+        0.169921875,
+        0.215576171875
+      ],
+      [
+        0.051971435546875,
+        0.28369140625,
+        0.2314453125
+      ]
+    ]
+  },
+  "variants": {
+    "oldPSF": {
+      "enabled": true,
+      "strength": 0.018,
+      "levels": 4,
+      "model": "normalized, threshold-free linear HDR camera PSF; 1.8% radiance redistribution",
+      "passes": 5
+    },
+    "newBloomFlare": {
+      "enabled": true,
+      "bloom": true,
+      "flare": true,
+      "strength": 0.018,
+      "budget": {
+        "direct": 0.982,
+        "bloom": 0.013,
+        "ghost": 0.003,
+        "veil": 0.002,
+        "total": 0.018
+      },
+      "levels": 4,
+      "passes": 5,
+      "operatorPeakBoundRGB": [
+        0.99652664,
+        0.99649208,
+        0.996484064
+      ],
+      "model": "single threshold-free linear HDR PSF; opt-in affine ghost/veil share at most 1.8% radiance redistribution",
+      "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+    }
+  },
+  "setupAndWarmupWallMs": 48.300000071525574,
+  "results": {
+    "oldPSF": {
+      "gpu": {
+        "count": 32,
+        "meanMs": 0.07902799999999999,
+        "medianMs": 0.069632,
+        "p95Ms": 0.178176,
+        "minimumMs": 0.065536,
+        "maximumMs": 0.264192
+      },
+      "cpuSubmitWall": {
+        "count": 32,
+        "meanMs": 0.046874988824129105,
+        "medianMs": 0,
+        "p95Ms": 0.19999992847442627,
+        "minimumMs": 0,
+        "maximumMs": 0.20000004768371582
+      },
+      "firstPosition": 16,
+      "secondPosition": 16
+    },
+    "newBloomFlare": {
+      "gpu": {
+        "count": 32,
+        "meanMs": 0.37315200000000004,
+        "medianMs": 0.338944,
+        "p95Ms": 0.843776,
+        "minimumMs": 0.09728,
+        "maximumMs": 0.88576
+      },
+      "cpuSubmitWall": {
+        "count": 32,
+        "meanMs": 0.4374999962747097,
+        "medianMs": 0.3999999761581421,
+        "p95Ms": 0.8999999761581421,
+        "minimumMs": 0.10000002384185791,
+        "maximumMs": 0.9000000953674316
+      },
+      "firstPosition": 16,
+      "secondPosition": 16
+    }
+  },
+  "comparison": {
+    "gpu": {
+      "meanDeltaMs": 0.29412400000000005,
+      "medianDeltaMs": 0.269312,
+      "p95DeltaMs": 0.6656,
+      "meanRatio": 4.721769499417929,
+      "medianRatio": 4.86764705882353
+    },
+    "cpuSubmitWall": {
+      "meanDeltaMs": 0.3906250074505806,
+      "medianDeltaMs": 0.3999999761581421,
+      "p95DeltaMs": 0.7000000476837158,
+      "meanRatio": 9.333335479101057,
+      "medianRatio": null
+    }
+  },
+  "outerStateRestored": true,
+  "wallMs": 104.10000002384186,
+  "cleanup": "Own temporary resources/queries/syncs disposed; caller renderer/context retained. No canvas resize or new context.",
+  "interpretation": "Passed means a complete, state-checked isolated cost collection, not full-scene FPS, visual acceptance or a universal hardware cost."
+}

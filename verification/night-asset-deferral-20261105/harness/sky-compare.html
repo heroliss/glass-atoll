@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>sky old/new compare</title>
+<script type="importmap">{"imports":{"three":"/play/glass-atoll/vendor/three.module.js","three/addons/":"/play/glass-atoll/vendor/addons/"}}</script>
+</head><body><script type="module">
+// Renders the real atmosphere mesh (old modules vs new modules, same WebGL
+// context and THREE instance) into a Float32 target at fixed celestial states
+// and compares pixels. No animation frames are needed.
+import * as THREE from 'three';
+window.__cmp={status:'running'};
+const warnings=[];for(const level of ['warn','error']){const original=console[level];console[level]=(...a)=>{warnings.push(level+': '+a.map(String).join(' ').slice(0,300));original.apply(console,a);};}
+try{
+  const NEW='/play/glass-atoll/',OLD='/old/play/glass-atoll/';
+  const [{createAtmosphere:createNew},{createAtmosphere:createOld},{createCelestialController}]=await Promise.all([import(NEW+'sky.js'),import(OLD+'sky.js'),import(NEW+'celestial-controller.js')]);
+  const W=640,H=320,renderer=new THREE.WebGLRenderer({antialias:false,canvas:document.createElement('canvas')});renderer.setSize(W,H,false);
+  const gl=renderer.getContext(),target=new THREE.WebGLRenderTarget(W,H,{type:THREE.FloatType,format:THREE.RGBAFormat,depthBuffer:true});
+  const weather={humidity:.68,temperature:29,cloudBase:'auto',thickness:950,coverage:.35,shear:1.1};
+  const make=create=>{const a=create(THREE,{sunDirection:new THREE.Vector3(),cloudSteps:64,cloudCoverage:.35,weather});a.setCloudBaseContinuity(1);a.uniforms.uCloudWeatherOrigin.value.set(.421875,.734375);a.setStorageExposureEV(null);const scene=new THREE.Scene();scene.add(a.mesh);return {a,scene};};
+  const views={up:{pos:[0,2,0],look:[10,60,-30]},horizon:{pos:[0,2,0],look:[0,8,-100]},east:{pos:[0,2,0],look:[100,25,0]}};
+  // Fixed states: noon (Sun high), dusk (Sun about -3deg), moonlit night, moonless night.
+  const day=Date.UTC(2026,10,5,4,5),states={noon:day,dusk:Date.UTC(2026,10,5,10,0),moonNight:Date.parse('2026-10-26T14:00:00Z'),starNight:Date.parse('2026-08-13T14:00:00Z')};
+  function render({a,scene},utcMs,view){
+    const c=createCelestialController({utcMs,latitude:4.5,longitude:118.6,rate:1,running:false,mode:'astronomical'});
+    const frame=c.state;a.setCelestial(frame);a.setSun({intensity:1});
+    const camera=new THREE.PerspectiveCamera(50,W/H,.15,120000);camera.position.fromArray(views[view].pos);camera.lookAt(...views[view].look);camera.updateMatrixWorld();camera.updateProjectionMatrix();
+    a.update({time:10,wind:1.8,camera});a.prepareStarView(renderer,camera,{width:W,height:H,storageEV:a.lighting().preExposureEV,frame:{time:10,dt:0,utcMs},optics:{shutterSeconds:1/120}});
+    renderer.setRenderTarget(target);renderer.setClearColor(0,0);renderer.clear();renderer.render(scene,camera);
+    const px=new Float32Array(W*H*4);renderer.readRenderTargetPixels(target,0,0,W,H,px);renderer.setRenderTarget(null);
+    const errors=[];for(let e=gl.getError();e!==gl.NO_ERROR&&errors.length<8;e=gl.getError())errors.push(e);
+    return {px,sunAlt:frame.sun.altitudeDeg,errors,preEV:a.lighting().preExposureEV};
+  }
+  const stat=(x,y)=>{let maxAbs=0,maxRel=0,differing=0,nonFinite=0,sum=0,sumRef=0;for(let i=0;i<x.length;i++){if(!Number.isFinite(x[i]))nonFinite++;if(i%4===3)continue;const d=Math.abs(x[i]-y[i]);if(d>0)differing++;maxAbs=Math.max(maxAbs,d);maxRel=Math.max(maxRel,d/Math.max(Math.abs(y[i]),1e-30));sum+=x[i];sumRef+=y[i];}return {differing,maxAbs,maxRel,nonFinite,energyRatio:sumRef?sum/sumRef:null};};
+  // Every instance gets an identical call history from construction.
+  const renderAll=inst=>{const out={};for(const s in states)for(const v in views)out[s+'/'+v]=render(inst,states[s],v);return out;};
+  const old1=make(createOld);await old1.a.ready;const ref=renderAll(old1);
+  const old2=make(createOld);await old2.a.ready;const ref2=renderAll(old2);
+  // New build, loaded before its first render (the state a night frame sees once assets arrive).
+  const loadedNew=make(createNew);await loadedNew.a.dayReady;const newState0=loadedNew.a.getNightState();await loadedNew.a.ready;const post=renderAll(loadedNew);
+  // New build before the night set loads: placeholders only. Rendering dusk/night requests the load.
+  const pending=make(createNew);await pending.a.dayReady;const pendingState0=pending.a.getNightState();const pre=renderAll(pending);
+  const requestedByDusk=pending.a.getNightState().loadRequested,loadedDuringPre=pending.a.getNightState().loaded;
+  const rows={};for(const k in ref)rows[k]={sunAlt:+ref[k].sunAlt.toFixed(2),preEV:+ref[k].preEV.toFixed(3),oldVsOld:stat(ref2[k].px,ref[k].px),postVsOld:stat(post[k].px,ref[k].px),preVsOld:stat(pre[k].px,ref[k].px),glErrors:[...pre[k].errors,...post[k].errors,...ref[k].errors,...ref2[k].errors]};
+  window.__cmp={status:'done',newBeforeReadyAccess:{loaded:newState0.loaded,loadRequested:newState0.loadRequested},pendingAtDayReady:{loaded:pendingState0.loaded,loadRequested:pendingState0.loadRequested},loadRequestedAfterRenderingDuskAndNight:requestedByDusk,loadedDuringPreRenders:loadedDuringPre,rows,warnings};
+}catch(error){window.__cmp={status:'error',error:String(error&&error.stack||error),warnings};}
+</script></body></html>

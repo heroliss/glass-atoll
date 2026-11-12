@@ -1,0 +1,2881 @@
+{
+  "after": {
+    "errors": [],
+    "label": "endpoint-gpu-after",
+    "programDeletePending": false,
+    "programLive": true,
+    "vertexArrayLive": true
+  },
+  "result": {
+    "actualGPU": true,
+    "baselineSource": {
+      "SHA256": "8ef16cf829180985389b8f06c102073a5e02f98e781ec8be4af8cea374a834a6",
+      "path": "verification/baselines/fireworks-before-adaptive-centre/fireworks.js",
+      "scope": "Unchanged pre-fix GLSL, shared unchanged input attributes and uniforms"
+    },
+    "checks": [
+      {
+        "evidence": {
+          "fixtures": 103,
+          "maximumAbsoluteError": 2.3074504904366247e-7,
+          "maximumBudgetRatio": 0.0035402285034122497,
+          "maximumErrorToContinuousIntegral": 0.0008538842931869253,
+          "scope": "Engineering GPU-vs-candidate precision gate; continuous quadrature error separately recorded by oracle",
+          "tolerance": {
+            "absolute": 0.00005,
+            "relative": 0.0005
+          }
+        },
+        "name": "actual production shader matches independent Float32 candidate goldens",
+        "passed": true
+      },
+      {
+        "evidence": [
+          {
+            "L": 17,
+            "adaptive": {
+              "bad": 0,
+              "peak": 0.054466447562449394,
+              "total": 1.000000242061421
+            },
+            "angle": 0,
+            "legacy": {
+              "bad": 0,
+              "peak": 0.1063165739973793,
+              "total": 0.9999449652290174
+            }
+          },
+          {
+            "L": 30,
+            "adaptive": {
+              "bad": 0,
+              "peak": 0.03086351771367949,
+              "total": 1.000000273653476
+            },
+            "angle": 0,
+            "legacy": {
+              "bad": 0,
+              "peak": 0.10381185869711008,
+              "total": 0.9999497294388808
+            }
+          },
+          {
+            "L": 30,
+            "adaptive": {
+              "bad": 0,
+              "peak": 0.03157053502909834,
+              "total": 1.0000003303411762
+            },
+            "angle": 22.5,
+            "legacy": {
+              "bad": 0,
+              "peak": 0.10359445021487582,
+              "total": 1.000297187975316
+            }
+          },
+          {
+            "L": 30,
+            "adaptive": {
+              "bad": 0,
+              "peak": 0.032319862130917004,
+              "total": 1.0000003136838729
+            },
+            "angle": 45,
+            "legacy": {
+              "bad": 0,
+              "peak": 0.1069263731432132,
+              "total": 0.9997881163604864
+            }
+          }
+        ],
+        "name": "complete-source flux remains within .1percent and no negative nonfinite pixels",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "maximumNormalizedPixelPeak": 0.054466447562449394,
+          "pointCeiling": 1
+        },
+        "name": "original point peak ceiling remains conservative",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "maximumAbsoluteDifference": 0
+        },
+        "name": "physical head8 temporal path remains bitexact",
+        "passed": true
+      },
+      {
+        "evidence": [
+          {
+            "maximumAbsoluteDifference": 0,
+            "name": "head8"
+          },
+          {
+            "maximumAbsoluteDifference": 0,
+            "name": "axisTail"
+          },
+          {
+            "maximumAbsoluteDifference": 0,
+            "name": "obliqueTail"
+          },
+          {
+            "maximumAbsoluteDifference": 0,
+            "name": "widePSFTail"
+          }
+        ],
+        "name": "legacy8 tails and physical heads remain bitexact to frozen pre-coordinate production GLSL",
+        "passed": true
+      },
+      {
+        "evidence": [
+          {
+            "differentComponents": 0,
+            "expectedBlend": "zero",
+            "flags": [
+              8,
+              9,
+              0,
+              1
+            ],
+            "maximumAbsoluteDifference": 0,
+            "maximumMagnitude": 0.40558212995529175,
+            "name": "farAxisZero",
+            "nonfinite": 0,
+            "pixels": 16384,
+            "policyMatches": true
+          },
+          {
+            "differentComponents": 0,
+            "expectedBlend": "zero",
+            "flags": [
+              8,
+              9,
+              0,
+              1
+            ],
+            "maximumAbsoluteDifference": 0,
+            "maximumMagnitude": 0.2685374319553375,
+            "name": "farVerticalZero",
+            "nonfinite": 0,
+            "pixels": 16384,
+            "policyMatches": true
+          },
+          {
+            "differentComponents": 21,
+            "expectedBlend": "one",
+            "flags": [
+              34,
+              35,
+              1,
+              1
+            ],
+            "maximumAbsoluteDifference": 1.1102230246251563e-16,
+            "maximumMagnitude": 0.05547226220369339,
+            "name": "oblique22One",
+            "nonfinite": 0,
+            "pixels": 16384,
+            "policyMatches": true
+          },
+          {
+            "differentComponents": 0,
+            "expectedBlend": "one",
+            "flags": [
+              34,
+              35,
+              1,
+              1
+            ],
+            "maximumAbsoluteDifference": 0,
+            "maximumMagnitude": 0.05684807896614075,
+            "name": "oblique45One",
+            "nonfinite": 0,
+            "pixels": 16384,
+            "policyMatches": true
+          },
+          {
+            "differentComponents": 0,
+            "expectedBlend": "interior",
+            "flags": [
+              35,
+              36,
+              0.5,
+              1
+            ],
+            "maximumAbsoluteDifference": 0,
+            "maximumMagnitude": 0.0485093891620636,
+            "name": "axisInterior",
+            "nonfinite": 0,
+            "pixels": 16384,
+            "policyMatches": true
+          },
+          {
+            "differentComponents": 0,
+            "expectedBlend": "interior",
+            "flags": [
+              35,
+              36,
+              0.5,
+              1
+            ],
+            "maximumAbsoluteDifference": 0,
+            "maximumMagnitude": 0.05320123583078384,
+            "name": "verticalInterior",
+            "nonfinite": 0,
+            "pixels": 16384,
+            "policyMatches": true
+          },
+          {
+            "differentComponents": 0,
+            "expectedBlend": "interior",
+            "flags": [
+              35,
+              36,
+              0.5,
+              1
+            ],
+            "maximumAbsoluteDifference": 0,
+            "maximumMagnitude": 0.05550149083137512,
+            "name": "obliqueInterior",
+            "nonfinite": 0,
+            "pixels": 16384,
+            "policyMatches": true
+          },
+          {
+            "differentComponents": 0,
+            "expectedBlend": "interior",
+            "flags": [
+              51,
+              52,
+              0.103515625,
+              1
+            ],
+            "maximumAbsoluteDifference": 0,
+            "maximumMagnitude": 0.0009810632327571511,
+            "name": "wideInterior",
+            "nonfinite": 0,
+            "pixels": 16384,
+            "policyMatches": true
+          },
+          {
+            "differentComponents": 0,
+            "expectedBlend": "interior",
+            "flags": [
+              35,
+              36,
+              0.5,
+              1
+            ],
+            "maximumAbsoluteDifference": 0,
+            "maximumMagnitude": 0.04716086387634277,
+            "name": "largeShutterInterior",
+            "nonfinite": 0,
+            "pixels": 16384,
+            "policyMatches": true
+          }
+        ],
+        "name": "strict zero one and interior adaptive outputs match frozen f0c Float32 full images bitexact",
+        "passed": false
+      },
+      {
+        "evidence": [
+          {
+            "flags": [
+              61,
+              62,
+              0,
+              1
+            ],
+            "name": "narrowActual"
+          },
+          {
+            "flags": [
+              101,
+              102,
+              0,
+              1
+            ],
+            "name": "widePSF"
+          },
+          {
+            "flags": [
+              8,
+              9,
+              0,
+              1
+            ],
+            "name": "hugeSigmaTinyLength"
+          },
+          {
+            "flags": [
+              61,
+              62,
+              0,
+              1
+            ],
+            "name": "sigmaBelowOne"
+          },
+          {
+            "flags": [
+              60,
+              61,
+              0.9980357885360718,
+              1
+            ],
+            "name": "sigmaAboveOne"
+          },
+          {
+            "flags": [
+              8,
+              8,
+              0,
+              0
+            ],
+            "name": "globalOverflow"
+          },
+          {
+            "flags": [
+              8,
+              8,
+              0,
+              0
+            ],
+            "name": "degenerateProjected"
+          }
+        ],
+        "name": "real vertex policy admits narrow and wide PSF and explicitly falls back on budget/degenerate cases",
+        "passed": true
+      },
+      {
+        "evidence": [],
+        "name": "no new WebGL error during fixture",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "info": "",
+          "linked": true
+        },
+        "name": "actual production program linked",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "errors": [],
+          "stateRestored": true
+        },
+        "name": "caller target viewport scissor read bindings program and VAO restored",
+        "passed": true
+      }
+    ],
+    "counts": {
+      "passed": 9,
+      "total": 10
+    },
+    "dateUTC": "2026-10-27T20:04:50.076Z",
+    "endpointBaselineSource": {
+      "SHA256": "f0c6251c3125a5aa3355b9f9a02907f1546aaffa9443ce1a1447ed027590bf03",
+      "path": "verification/baselines/fireworks-before-adaptive-endpoint/fireworks.js",
+      "scope": "Exact prior adaptive GLSL before the single strict endpoint-dispatch optimization"
+    },
+    "endpointComparisons": [
+      {
+        "differentComponents": 0,
+        "expectedBlend": "zero",
+        "flags": [
+          8,
+          9,
+          0,
+          1
+        ],
+        "maximumAbsoluteDifference": 0,
+        "maximumMagnitude": 0.40558212995529175,
+        "name": "farAxisZero",
+        "nonfinite": 0,
+        "pixels": 16384,
+        "policyMatches": true
+      },
+      {
+        "differentComponents": 0,
+        "expectedBlend": "zero",
+        "flags": [
+          8,
+          9,
+          0,
+          1
+        ],
+        "maximumAbsoluteDifference": 0,
+        "maximumMagnitude": 0.2685374319553375,
+        "name": "farVerticalZero",
+        "nonfinite": 0,
+        "pixels": 16384,
+        "policyMatches": true
+      },
+      {
+        "differentComponents": 21,
+        "expectedBlend": "one",
+        "flags": [
+          34,
+          35,
+          1,
+          1
+        ],
+        "maximumAbsoluteDifference": 1.1102230246251563e-16,
+        "maximumMagnitude": 0.05547226220369339,
+        "name": "oblique22One",
+        "nonfinite": 0,
+        "pixels": 16384,
+        "policyMatches": true
+      },
+      {
+        "differentComponents": 0,
+        "expectedBlend": "one",
+        "flags": [
+          34,
+          35,
+          1,
+          1
+        ],
+        "maximumAbsoluteDifference": 0,
+        "maximumMagnitude": 0.05684807896614075,
+        "name": "oblique45One",
+        "nonfinite": 0,
+        "pixels": 16384,
+        "policyMatches": true
+      },
+      {
+        "differentComponents": 0,
+        "expectedBlend": "interior",
+        "flags": [
+          35,
+          36,
+          0.5,
+          1
+        ],
+        "maximumAbsoluteDifference": 0,
+        "maximumMagnitude": 0.0485093891620636,
+        "name": "axisInterior",
+        "nonfinite": 0,
+        "pixels": 16384,
+        "policyMatches": true
+      },
+      {
+        "differentComponents": 0,
+        "expectedBlend": "interior",
+        "flags": [
+          35,
+          36,
+          0.5,
+          1
+        ],
+        "maximumAbsoluteDifference": 0,
+        "maximumMagnitude": 0.05320123583078384,
+        "name": "verticalInterior",
+        "nonfinite": 0,
+        "pixels": 16384,
+        "policyMatches": true
+      },
+      {
+        "differentComponents": 0,
+        "expectedBlend": "interior",
+        "flags": [
+          35,
+          36,
+          0.5,
+          1
+        ],
+        "maximumAbsoluteDifference": 0,
+        "maximumMagnitude": 0.05550149083137512,
+        "name": "obliqueInterior",
+        "nonfinite": 0,
+        "pixels": 16384,
+        "policyMatches": true
+      },
+      {
+        "differentComponents": 0,
+        "expectedBlend": "interior",
+        "flags": [
+          51,
+          52,
+          0.103515625,
+          1
+        ],
+        "maximumAbsoluteDifference": 0,
+        "maximumMagnitude": 0.0009810632327571511,
+        "name": "wideInterior",
+        "nonfinite": 0,
+        "pixels": 16384,
+        "policyMatches": true
+      },
+      {
+        "differentComponents": 0,
+        "expectedBlend": "interior",
+        "flags": [
+          35,
+          36,
+          0.5,
+          1
+        ],
+        "maximumAbsoluteDifference": 0,
+        "maximumMagnitude": 0.04716086387634277,
+        "name": "largeShutterInterior",
+        "nonfinite": 0,
+        "pixels": 16384,
+        "policyMatches": true
+      }
+    ],
+    "entryErrors": [],
+    "fixtures": [
+      {
+        "actual": 1.1983083028728205e-7,
+        "budget": 0.00005000005988260901,
+        "candidateExactErf": 1.1967172752726925e-7,
+        "candidateLocalShaderErf": 1.1976521802599786e-7,
+        "candidateShaderErf": 1.1977408990391786e-7,
+        "error": 6.561226128419116e-11,
+        "expected": 6.696835122816475e-7,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 1.0246928541940744e-14,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -10,
+          0
+        ],
+        "refinementDifference": 2.5516867536035798e-20,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.049232963934084585,
+        "budget": 0.00007461646725997171,
+        "candidateExactErf": 0.0492329316438589,
+        "candidateLocalShaderErf": 0.04923293451994343,
+        "candidateShaderErf": 0.0492329345199436,
+        "error": 2.9414141157479975e-8,
+        "expected": 0.04837907964089766,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.04763642748252532,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -8,
+          0
+        ],
+        "refinementDifference": 3.4694469519536136e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.05446245630933732,
+        "budget": 0.00007723121946699107,
+        "candidateExactErf": 0.05446243189121184,
+        "candidateLocalShaderErf": 0.05446243893398213,
+        "candidateShaderErf": 0.05446243893520846,
+        "error": 1.737535518936406e-8,
+        "expected": 0.054462027509234776,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.01551381864733156,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -4,
+          0
+        ],
+        "refinementDifference": 2.0816681711721685e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.054466447562449394,
+        "budget": 0.00007723321064322614,
+        "candidateExactErf": 0.05446641018161043,
+        "candidateLocalShaderErf": 0.05446642128645227,
+        "candidateShaderErf": 0.05446642128660312,
+        "error": 2.6275997121183448e-8,
+        "expected": 0.05446202750923478,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.005155221709420899,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          0,
+          0
+        ],
+        "refinementDifference": 1.3877787807814457e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.054465271403846355,
+        "budget": 0.00007723263576906422,
+        "candidateExactErf": 0.05446526634319376,
+        "candidateLocalShaderErf": 0.054465271538128426,
+        "candidateShaderErf": 0.05446527153845595,
+        "error": 1.3428207157328842e-10,
+        "expected": 0.0544620275092348,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.007652446246122411,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          2,
+          0
+        ],
+        "refinementDifference": 1.3877787807814457e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.05446244504149314,
+        "budget": 0.00007723121946699104,
+        "candidateExactErf": 0.054462431891211784,
+        "candidateLocalShaderErf": 0.05446243893398208,
+        "candidateShaderErf": 0.05446243893520841,
+        "error": 6.107511059394444e-9,
+        "expected": 0.05446202750923479,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.01551381864733156,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          4,
+          0
+        ],
+        "refinementDifference": 2.0816681711721685e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.04923294318643859,
+        "budget": 0.0000746164672599717,
+        "candidateExactErf": 0.04923293164385887,
+        "candidateLocalShaderErf": 0.0492329345199434,
+        "candidateShaderErf": 0.04923293451994358,
+        "error": 8.666495188158763e-9,
+        "expected": 0.04837907964089766,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.04763642748252532,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          8,
+          0
+        ],
+        "refinementDifference": 2.0816681711721685e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 1.198308005535327e-7,
+        "budget": 0.00005000005988260901,
+        "candidateExactErf": 1.1967172752726925e-7,
+        "candidateLocalShaderErf": 1.1976521802599786e-7,
+        "candidateShaderErf": 1.1977408990391788e-7,
+        "error": 6.558252753483385e-11,
+        "expected": 6.696835122816479e-7,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 1.0246928541940744e-14,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          10,
+          0
+        ],
+        "refinementDifference": 2.5093351062408648e-20,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.00033946858970263454,
+        "budget": 0.000050169739094413465,
+        "candidateExactErf": 0.0003394789563593217,
+        "candidateLocalShaderErf": 0.0003394781888269328,
+        "candidateShaderErf": 0.00033947818882864656,
+        "error": 9.59912429827469e-9,
+        "expected": 0.0005931248427377508,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 1.6172426393403643e-8,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -9.369999885559082,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 7.589415207398531e-19,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.030355789393910215,
+        "budget": 0.00006517801006947964,
+        "candidateExactErf": 0.03035602132037581,
+        "candidateLocalShaderErf": 0.03035602013895926,
+        "candidateShaderErf": 0.030356020138962932,
+        "error": 2.3074504904366247e-7,
+        "expected": 0.030148725494476645,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.006335755735006947,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -8.369999885559082,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 1.0408340855860844e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.0487086786851544,
+        "budget": 0.00007435441908052227,
+        "candidateExactErf": 0.048708835289857214,
+        "candidateLocalShaderErf": 0.04870883816104451,
+        "candidateShaderErf": 0.048708838161179505,
+        "error": 1.5947589011161559e-7,
+        "expected": 0.0487049165734865,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.006665991739690014,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -4.369999885559082,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 2.0816681711721685e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.04870503530261344,
+        "budget": 0.00007435260264476187,
+        "candidateExactErf": 0.04870520603025686,
+        "candidateLocalShaderErf": 0.048705205289523754,
+        "candidateShaderErf": 0.04870520529065789,
+        "error": 1.6998691031167026e-7,
+        "expected": 0.048704916573486454,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.02549229298911963,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -0.3700000047683716,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 3.4694469519536136e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.048702344742095255,
+        "budget": 0.0000743512474632661,
+        "candidateExactErf": 0.04870249722224044,
+        "candidateLocalShaderErf": 0.0487024949265322,
+        "candidateShaderErf": 0.0487024949308106,
+        "error": 1.501844369422578e-7,
+        "expected": 0.0487049165734865,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.04189188845966151,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          1.6299999952316284,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.048700895578056194,
+        "budget": 0.00007435053690449,
+        "candidateExactErf": 0.048701077890030045,
+        "candidateLocalShaderErf": 0.048701073808980005,
+        "candidateShaderErf": 0.048701073823561467,
+        "error": 1.782309238113067e-7,
+        "expected": 0.04870491657348648,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.026665108585784175,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          4.630000114440918,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.04836426820886637,
+        "budget": 0.00007418221726131094,
+        "candidateExactErf": 0.04836443487620278,
+        "candidateLocalShaderErf": 0.04836443452262188,
+        "candidateShaderErf": 0.04836443452469001,
+        "error": 1.6631375551745545e-7,
+        "expected": 0.04811179173074873,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.08872353040507405,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          7.630000114440918,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.018349264474049932,
+        "budget": 0.00005917466469182412,
+        "candidateExactErf": 0.018349328949405774,
+        "candidateLocalShaderErf": 0.018349329383648243,
+        "candidateShaderErf": 0.01834932938470506,
+        "error": 6.490959831087495e-8,
+        "expected": 0.018556191079009857,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.0006929386361483528,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          8.630000114440918,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.000021601150453598404,
+        "budget": 0.00005001080059047025,
+        "candidateExactErf": 0.00002159956433978581,
+        "candidateLocalShaderErf": 0.000021601180940503156,
+        "candidateShaderErf": 0.000021601181475067265,
+        "error": 3.0486904752151595e-11,
+        "expected": 0.000057748603633433565,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 7.777559383529899e-11,
+        "motion": [
+          17,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          9.630000114440918,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 1.3552527156068804e-20,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.0000029793100924482225,
+        "budget": 0.00005000148966672909,
+        "candidateExactErf": 0.0000029791133696731224,
+        "candidateLocalShaderErf": 0.0000029793334581803723,
+        "candidateShaderErf": 0.000002979333479186581,
+        "error": 2.3365732149815835e-11,
+        "expected": 0.000009950523891001423,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 3.679812717899137e-12,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -9,
+          -4
+        ],
+        "refinementDifference": 1.6940658945086007e-20,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.02038327188851302,
+        "budget": 0.00006019163413164697,
+        "candidateExactErf": 0.02038326827730445,
+        "candidateLocalShaderErf": 0.02038326826329394,
+        "candidateShaderErf": 0.02038326826329404,
+        "error": 3.625219079789188e-9,
+        "expected": 0.020411081076012645,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.0013648844224705492,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -8,
+          -3
+        ],
+        "refinementDifference": 3.469446951953614e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.05416611604887986,
+        "budget": 0.00007708305640025607,
+        "candidateExactErf": 0.054166115399071776,
+        "candidateLocalShaderErf": 0.05416611280051213,
+        "candidateShaderErf": 0.054166112800512235,
+        "error": 3.248367727581858e-9,
+        "expected": 0.053900084175089784,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.09871007753378992,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -7,
+          -3
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.04327876751647953,
+        "budget": 0.00007163938682073511,
+        "candidateExactErf": 0.04327877346555862,
+        "candidateLocalShaderErf": 0.0432787736414702,
+        "candidateShaderErf": 0.04327877364152625,
+        "error": 6.12499067437211e-9,
+        "expected": 0.04327727846576623,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.008840106336895493,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -4,
+          -2
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.05571279532109841,
+        "budget": 0.0000778563871381038,
+        "candidateExactErf": 0.0557127707395226,
+        "candidateLocalShaderErf": 0.05571277427620758,
+        "candidateShaderErf": 0.055712774277058355,
+        "error": 2.1044890829990948e-8,
+        "expected": 0.055707719674598345,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.00672714311623056,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          0,
+          0
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.05241650350085021,
+        "budget": 0.00007620825521107336,
+        "candidateExactErf": 0.05241651526076261,
+        "candidateLocalShaderErf": 0.05241651042214672,
+        "candidateShaderErf": 0.0524165104221489,
+        "error": 6.9212965081444375e-9,
+        "expected": 0.052420240100626264,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.007340476424987649,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          2,
+          1
+        ],
+        "refinementDifference": 2.7755575615628914e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.04327876502319551,
+        "budget": 0.00007163938682073508,
+        "candidateExactErf": 0.043278773465558584,
+        "candidateLocalShaderErf": 0.04327877364147017,
+        "candidateShaderErf": 0.043278773641526214,
+        "error": 8.618274656424507e-9,
+        "expected": 0.04327727846576625,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.008840106336895493,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          4,
+          2
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.05416612499705216,
+        "budget": 0.00007708305640025605,
+        "candidateExactErf": 0.054166115399071735,
+        "candidateLocalShaderErf": 0.05416611280051209,
+        "candidateShaderErf": 0.054166112800512194,
+        "error": 1.21965400695645e-8,
+        "expected": 0.0539000841750898,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.09871007753378992,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          7,
+          3
+        ],
+        "refinementDifference": 1.3877787807814457e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.020383275858645092,
+        "budget": 0.000060191634131646993,
+        "candidateExactErf": 0.02038326827730449,
+        "candidateLocalShaderErf": 0.020383268263293983,
+        "candidateShaderErf": 0.020383268263294084,
+        "error": 7.595351108474757e-9,
+        "expected": 0.02041108107601264,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.0013648844224705492,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          8,
+          3
+        ],
+        "refinementDifference": 0,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.0000029793091604494003,
+        "budget": 0.00005000148966672909,
+        "candidateExactErf": 0.0000029791133696731283,
+        "candidateLocalShaderErf": 0.000002979333458180381,
+        "candidateShaderErf": 0.00000297933347918659,
+        "error": 2.429773098090306e-11,
+        "expected": 0.000009950523891001423,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 3.679812717899137e-12,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          9,
+          4
+        ],
+        "refinementDifference": 1.3552527156068804e-20,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.005247436429197342,
+        "budget": 0.000052623772384897225,
+        "candidateExactErf": 0.00524754534871701,
+        "candidateLocalShaderErf": 0.005247544769794447,
+        "candidateShaderErf": 0.005247544769795113,
+        "error": 1.0834059710473909e-7,
+        "expected": 0.00602283139753953,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.000014924613633770947,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -8.369999885559082,
+          -3.2300000190734863
+        ],
+        "refinementDifference": 2.6020852139652106e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.04608353912832914,
+        "budget": 0.00007304185944503166,
+        "candidateExactErf": 0.0460837208664002,
+        "candidateLocalShaderErf": 0.04608371889006331,
+        "candidateShaderErf": 0.046083718890063824,
+        "error": 1.7976173417172395e-7,
+        "expected": 0.04529267044003217,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.04140306928049242,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -7.369999885559082,
+          -3.2300000190734863
+        ],
+        "refinementDifference": 2.7755575615628914e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.02564390298085657,
+        "budget": 0.00006282186938607373,
+        "candidateExactErf": 0.025643738936597413,
+        "candidateLocalShaderErf": 0.02564373877214746,
+        "candidateShaderErf": 0.02564373877214843,
+        "error": 1.642087091059674e-7,
+        "expected": 0.025643082651041763,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.00783306566182444,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -4.369999885559082,
+          -1.2300000190734863
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.05504415835979952,
+        "budget": 0.00007752209272801912,
+        "candidateExactErf": 0.055044186682370176,
+        "candidateLocalShaderErf": 0.05504418545603824,
+        "candidateShaderErf": 0.05504418545791547,
+        "error": 2.7096238724988453e-8,
+        "expected": 0.05504120830784934,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.03748788375560439,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -0.3700000047683716,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.05468947599103496,
+        "budget": 0.00007734474305975221,
+        "candidateExactErf": 0.05468948842227289,
+        "candidateLocalShaderErf": 0.0546894861195044,
+        "candidateShaderErf": 0.054689486119514526,
+        "error": 1.0128469438153154e-8,
+        "expected": 0.054691661052806075,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.025693424176090676,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          1.6299999952316284,
+          0.7699999809265137
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.04798139597004519,
+        "budget": 0.00007399070756716071,
+        "candidateExactErf": 0.04798141241327874,
+        "candidateLocalShaderErf": 0.0479814151343214,
+        "candidateShaderErf": 0.04798141513433623,
+        "error": 1.9164276207628284e-8,
+        "expected": 0.04798006770682866,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.01389804605535552,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          3.630000114440918,
+          1.7699999809265137
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.03315458492253844,
+        "budget": 0.0000665772889808698,
+        "candidateExactErf": 0.03315457817659687,
+        "candidateLocalShaderErf": 0.03315457796173959,
+        "candidateShaderErf": 0.0331545779617396,
+        "error": 6.960798853983263e-9,
+        "expected": 0.03262894615210411,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.020339673789563032,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          7.630000114440918,
+          2.7699999809265137
+        ],
+        "refinementDifference": 0,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.0003650017761825437,
+        "budget": 0.00005018250304024418,
+        "candidateExactErf": 0.0003650063283014152,
+        "candidateLocalShaderErf": 0.0003650060804883504,
+        "candidateShaderErf": 0.0003650060804934412,
+        "error": 4.304305806744624e-9,
+        "expected": 0.0006110424465990497,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 2.8297526058387984e-8,
+        "motion": [
+          15.705951690673828,
+          6.505618572235107
+        ],
+        "passed": true,
+        "pixelOffset": [
+          8.630000114440918,
+          3.7699999809265137
+        ],
+        "refinementDifference": 1.0842021724855044e-19,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.0000023625877915440534,
+        "budget": 0.00005000118130083662,
+        "candidateExactErf": 0.0000023626091978899333,
+        "candidateLocalShaderErf": 0.0000023626016732368686,
+        "candidateShaderErf": 0.0000023626016887422256,
+        "error": 1.3881692815201516e-11,
+        "expected": 0.00000807321451072178,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 2.734594812117491e-12,
+        "motion": [
+          12.020814895629885,
+          12.020814895629885
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -7,
+          -7
+        ],
+        "refinementDifference": 2.879912020664621e-20,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.029282124958003378,
+        "budget": 0.00006464107762997158,
+        "candidateExactErf": 0.029282159467441542,
+        "candidateLocalShaderErf": 0.029282155259943148,
+        "candidateShaderErf": 0.029282155259948324,
+        "error": 3.0301939769883386e-8,
+        "expected": 0.029255948440761192,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.004743272605443368,
+        "motion": [
+          12.020814895629885,
+          12.020814895629885
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -6,
+          -6
+        ],
+        "refinementDifference": 0,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.05702721691073542,
+        "budget": 0.00007851360216435538,
+        "candidateExactErf": 0.05702720626727805,
+        "candidateLocalShaderErf": 0.057027204328710765,
+        "candidateShaderErf": 0.057027204328774256,
+        "error": 1.2582024658258641e-8,
+        "expected": 0.057027796455500115,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.008540440466288275,
+        "motion": [
+          12.020814895629885,
+          12.020814895629885
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -3,
+          -3
+        ],
+        "refinementDifference": 4.163336342344337e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.05703402805658229,
+        "budget": 0.00007851700262509203,
+        "candidateExactErf": 0.057034005409866514,
+        "candidateLocalShaderErf": 0.05703400525018407,
+        "candidateShaderErf": 0.05703400525290048,
+        "error": 2.280639822133113e-8,
+        "expected": 0.05702779645550006,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.008530483834099746,
+        "motion": [
+          12.020814895629885,
+          12.020814895629885
+        ],
+        "passed": true,
+        "pixelOffset": [
+          0,
+          0
+        ],
+        "refinementDifference": 2.0816681711721685e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.05703309218229841,
+        "budget": 0.00007851653583735064,
+        "candidateExactErf": 0.0570330723637578,
+        "candidateLocalShaderErf": 0.057033071674701286,
+        "candidateShaderErf": 0.05703307167520131,
+        "error": 2.0507597127406022e-8,
+        "expected": 0.05702779645550008,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.08232344371000812,
+        "motion": [
+          12.020814895629885,
+          12.020814895629885
+        ],
+        "passed": true,
+        "pixelOffset": [
+          1,
+          1
+        ],
+        "refinementDifference": 2.0816681711721685e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.05702721809977429,
+        "budget": 0.00007851360216435535,
+        "candidateExactErf": 0.05702720626727799,
+        "candidateLocalShaderErf": 0.0570272043287107,
+        "candidateShaderErf": 0.0570272043287742,
+        "error": 1.3771063588075004e-8,
+        "expected": 0.05702779645550006,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.008540440466288275,
+        "motion": [
+          12.020814895629885,
+          12.020814895629885
+        ],
+        "passed": true,
+        "pixelOffset": [
+          3,
+          3
+        ],
+        "refinementDifference": 3.4694469519536136e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.029282129169689152,
+        "budget": 0.00006464107762997162,
+        "candidateExactErf": 0.029282159467441615,
+        "candidateLocalShaderErf": 0.029282155259943217,
+        "candidateShaderErf": 0.029282155259948393,
+        "error": 2.6090254064831123e-8,
+        "expected": 0.029255948440761192,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.004743272605443368,
+        "motion": [
+          12.020814895629885,
+          12.020814895629885
+        ],
+        "passed": true,
+        "pixelOffset": [
+          6,
+          6
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.0000023625876389070413,
+        "budget": 0.00005000118130083662,
+        "candidateExactErf": 0.000002362609197889962,
+        "candidateLocalShaderErf": 0.000002362601673236897,
+        "candidateShaderErf": 0.000002362601688742254,
+        "error": 1.4034329855679996e-11,
+        "expected": 0.000008073214510721786,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 2.734594812117491e-12,
+        "motion": [
+          12.020814895629885,
+          12.020814895629885
+        ],
+        "passed": true,
+        "pixelOffset": [
+          7,
+          7
+        ],
+        "refinementDifference": 2.541098841762901e-20,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.008982124722581766,
+        "budget": 0.000054491148656328645,
+        "candidateExactErf": 0.00898230012449869,
+        "candidateLocalShaderErf": 0.008982297312657282,
+        "candidateShaderErf": 0.008982297312680552,
+        "error": 1.7259007551589933e-7,
+        "expected": 0.009690413138978516,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.00008429961061045047,
+        "motion": [
+          12.020814895629885,
+          12.020814895629885
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -6.369999885559082,
+          -6.230000019073486
+        ],
+        "refinementDifference": 1.0408340855860844e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.0552663629423624,
+        "budget": 0.00007763316767180462,
+        "candidateExactErf": 0.05526633649746355,
+        "candidateLocalShaderErf": 0.055266335343609224,
+        "candidateShaderErf": 0.05526633534361707,
+        "error": 2.7598753171709234e-8,
+        "expected": 0.05510986463981004,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.10434340570527038,
+        "motion": [
+          12.020814895629885,
+          12.020814895629885
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -5.369999885559082,
+          -5.230000019073486
+        ],
+        "refinementDifference": 2.7755575615628914e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.05546901567697551,
+        "budget": 0.00007773450311982136,
+        "candidateExactErf": 0.05546900820370949,
+        "candidateLocalShaderErf": 0.0554690062396427,
+        "candidateShaderErf": 0.05546900623965639,
+        "error": 9.437332804118626e-9,
+        "expected": 0.05547352041446195,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.03801066882382611,
+        "motion": [
+          12.020814895629885,
+          12.020814895629885
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -3.369999885559082,
+          -3.2300000190734863
+        ],
+        "refinementDifference": 2.0816681711721685e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.05547760498425215,
+        "budget": 0.00007773879088214159,
+        "candidateExactErf": 0.05547758376363834,
+        "candidateLocalShaderErf": 0.05547758176428317,
+        "candidateShaderErf": 0.05547758176458704,
+        "error": 2.3219968982302053e-8,
+        "expected": 0.05547351747597925,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.03900612399917184,
+        "motion": [
+          12.020814895629885,
+          12.020814895629885
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -0.3700000047683716,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 2.0816681711721685e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.0554790621908866,
+        "budget": 0.00007773951679152946,
+        "candidateExactErf": 0.05547903691193902,
+        "candidateLocalShaderErf": 0.05547903358305892,
+        "candidateShaderErf": 0.05547903358378568,
+        "error": 2.8607827683158064e-8,
+        "expected": 0.05547351780247747,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.021850269481481912,
+        "motion": [
+          12.020814895629885,
+          12.020814895629885
+        ],
+        "passed": true,
+        "pixelOffset": [
+          1.6299999952316284,
+          1.7699999809265137
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.05547728199598826,
+        "budget": 0.0000777386289022395,
+        "candidateExactErf": 0.05547725958907233,
+        "candidateLocalShaderErf": 0.05547725780447897,
+        "candidateShaderErf": 0.05547725780474311,
+        "error": 2.4191509288840063e-8,
+        "expected": 0.05547352041446193,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.0400119727085291,
+        "motion": [
+          12.020814895629885,
+          12.020814895629885
+        ],
+        "passed": true,
+        "pixelOffset": [
+          2.630000114440918,
+          2.7699999809265137
+        ],
+        "refinementDifference": 4.8572257327350605e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.04748062525165504,
+        "budget": 0.00007374033333070196,
+        "candidateExactErf": 0.04748066670926648,
+        "candidateLocalShaderErf": 0.04748066666140391,
+        "candidateShaderErf": 0.04748066666140489,
+        "error": 4.14097488729559e-8,
+        "expected": 0.04675486072325874,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.040968265110386495,
+        "motion": [
+          12.020814895629885,
+          12.020814895629885
+        ],
+        "passed": true,
+        "pixelOffset": [
+          5.630000114440918,
+          5.769999980926514
+        ],
+        "refinementDifference": 2.7755575615628914e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.0002638511081954113,
+        "budget": 0.00005013192750962345,
+        "candidateExactErf": 0.00026385488783370976,
+        "candidateLocalShaderErf": 0.00026385501924689305,
+        "candidateShaderErf": 0.0002638550192499084,
+        "error": 3.911051481752994e-9,
+        "expected": 0.00045689925062418935,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 1.7864048437664338e-8,
+        "motion": [
+          12.020814895629885,
+          12.020814895629885
+        ],
+        "passed": true,
+        "pixelOffset": [
+          6.630000114440918,
+          6.769999980926514
+        ],
+        "refinementDifference": 6.505213034913028e-19,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.00005868634513510316,
+        "budget": 0.00005002934356136792,
+        "candidateExactErf": 0.00005868638637868493,
+        "candidateLocalShaderErf": 0.00005868712273583735,
+        "candidateShaderErf": 0.00005868712771963671,
+        "error": 7.776007341896434e-10,
+        "expected": 0.00012786537588950803,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -16,
+          0
+        ],
+        "refinementDifference": 5.692061405548898e-19,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.015430073300369308,
+        "budget": 0.00005771503422626222,
+        "candidateExactErf": 0.015430067247993074,
+        "candidateLocalShaderErf": 0.015430068452524438,
+        "candidateShaderErf": 0.015430068459731373,
+        "error": 4.84784486859402e-9,
+        "expected": 0.015430907794283208,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 5.2586584313400946e-8,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -15,
+          0
+        ],
+        "refinementDifference": 1.734723475976807e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.03086166101729588,
+        "budget": 0.00006543082178033301,
+        "candidateExactErf": 0.030861639866534032,
+        "candidateLocalShaderErf": 0.030861643560666015,
+        "candidateShaderErf": 0.03086164356117467,
+        "error": 1.7456629867323992e-8,
+        "expected": 0.030861815588566373,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.00010289631145207967,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -8,
+          0
+        ],
+        "refinementDifference": 3.816391647148976e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.03086351771367949,
+        "budget": 0.00006543175105302141,
+        "candidateExactErf": 0.030863496681161947,
+        "candidateLocalShaderErf": 0.030863502106042825,
+        "candidateShaderErf": 0.03086350210608292,
+        "error": 1.5607636665720962e-8,
+        "expected": 0.030861815588566342,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 1.0517316862680189e-7,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          0,
+          0
+        ],
+        "refinementDifference": 3.469446951953614e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.0308629550694278,
+        "budget": 0.00006543147182167151,
+        "candidateExactErf": 0.030862940459068233,
+        "candidateLocalShaderErf": 0.030862943643343032,
+        "candidateShaderErf": 0.03086294364345037,
+        "error": 1.1426084765842061e-8,
+        "expected": 0.030861815588566363,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.000003400460914650581,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          4,
+          0
+        ],
+        "refinementDifference": 6.591949208711867e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.03086164426967186,
+        "budget": 0.00006543082178033302,
+        "candidateExactErf": 0.030861639866534053,
+        "candidateLocalShaderErf": 0.030861643560666036,
+        "candidateShaderErf": 0.03086164356117469,
+        "error": 7.09005822802089e-10,
+        "expected": 0.030861815588566353,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.00010289631145207967,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          8,
+          0
+        ],
+        "refinementDifference": 6.245004513516506e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.01543009738447361,
+        "budget": 0.00005771503422626222,
+        "candidateExactErf": 0.015430067247993074,
+        "candidateLocalShaderErf": 0.015430068452524436,
+        "candidateShaderErf": 0.015430068459731373,
+        "error": 2.8931949173222063e-8,
+        "expected": 0.015430907794283166,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 5.2586584313400946e-8,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          15,
+          0
+        ],
+        "refinementDifference": 4.163336342344337e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.00005868814003228337,
+        "budget": 0.00005002934356136792,
+        "candidateExactErf": 0.00005868638637868493,
+        "candidateLocalShaderErf": 0.00005868712273583735,
+        "candidateShaderErf": 0.00005868712771963671,
+        "error": 1.017296446015922e-9,
+        "expected": 0.00012786537588950614,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          16,
+          0
+        ],
+        "refinementDifference": 1.3010426069826053e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 4.575126787445115e-7,
+        "budget": 0.000050000228769010526,
+        "candidateExactErf": 4.5732902973028915e-7,
+        "candidateLocalShaderErf": 4.5753802105072587e-7,
+        "candidateShaderErf": 4.57538021493019e-7,
+        "error": 2.5342306214346704e-11,
+        "expected": 0.00000201246691884167,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -16.3700008392334,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 2.2022856628611812e-20,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.004811174373209964,
+        "budget": 0.00005240563027907017,
+        "candidateExactErf": 0.004811260837037367,
+        "candidateLocalShaderErf": 0.004811260558140339,
+        "candidateShaderErf": 0.004811260558141029,
+        "error": 8.618493037466923e-8,
+        "expected": 0.005201360008972115,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 2.390913929287218e-11,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -15.369999885559082,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 6.0715321659188256e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.026368662669949153,
+        "budget": 0.0000631843995290932,
+        "candidateExactErf": 0.0263688014715897,
+        "candidateLocalShaderErf": 0.0263687990581864,
+        "candidateShaderErf": 0.02636879905818747,
+        "error": 1.3638823724571036e-7,
+        "expected": 0.0259840593424512,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.000403518103657486,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -14.369999885559082,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.027600845707248908,
+        "budget": 0.00006380047526389713,
+        "candidateExactErf": 0.027600950018655902,
+        "candidateLocalShaderErf": 0.02760095052779427,
+        "candidateShaderErf": 0.02760095052783069,
+        "error": 1.0482054536159469e-7,
+        "expected": 0.02759945272497567,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 4.5618137210109666e-7,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -7.369999885559082,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 2.4286128663675302e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.0275993815710948,
+        "budget": 0.00006379973705754918,
+        "candidateExactErf": 0.027599474765067345,
+        "candidateLocalShaderErf": 0.027599474115098357,
+        "candidateShaderErf": 0.02759947411546252,
+        "error": 9.254400355762639e-8,
+        "expected": 0.02759945272497565,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.000017163143447282266,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -0.3700000047683716,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 2.7755575615628914e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.027598257462023924,
+        "budget": 0.00006379917450027862,
+        "candidateExactErf": 0.02759835035732903,
+        "candidateLocalShaderErf": 0.027598349000557253,
+        "candidateShaderErf": 0.027598349002258295,
+        "error": 9.153853332971584e-8,
+        "expected": 0.0275994527249757,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 3.875940460926064e-7,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          3.630000114440918,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 3.469446951953614e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.02759785879874884,
+        "budget": 0.00006379897680183784,
+        "candidateExactErf": 0.027597955431309065,
+        "candidateLocalShaderErf": 0.027597953603675663,
+        "candidateShaderErf": 0.02759795361672283,
+        "error": 9.480492682567565e-8,
+        "expected": 0.027599452724975698,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 4.5618137210109666e-7,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          7.630000114440918,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 3.4694469519536136e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.02278807908959982,
+        "budget": 0.00006139408473669535,
+        "candidateExactErf": 0.022788169850122227,
+        "candidateLocalShaderErf": 0.022788169473390685,
+        "candidateShaderErf": 0.022788169473774635,
+        "error": 9.038379086487305e-8,
+        "expected": 0.022398092716003577,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.000017163091513577757,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          14.630000114440918,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 1.3877787807814457e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.0012309405690952616,
+        "budget": 0.00005061547199184916,
+        "candidateExactErf": 0.001230942235183956,
+        "candidateLocalShaderErf": 0.001230943983698315,
+        "candidateShaderErf": 0.0012309439839573,
+        "error": 3.4146030534337735e-9,
+        "expected": 0.001615393382524453,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 4.182571129109303e-14,
+        "motion": [
+          30,
+          0
+        ],
+        "passed": true,
+        "pixelOffset": [
+          15.630000114440918,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 1.0191500421363743e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.000010949425186723056,
+        "budget": 0.000050005474787681426,
+        "candidateExactErf": 0.000010948789023773227,
+        "candidateLocalShaderErf": 0.000010949575362849124,
+        "candidateShaderErf": 0.000010949575729379924,
+        "error": 1.5017612606826902e-10,
+        "expected": 0.0000288651184807077,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -15,
+          -6
+        ],
+        "refinementDifference": 5.759824041329242e-20,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.008675466256881797,
+        "budget": 0.00005433775212270616,
+        "candidateExactErf": 0.008675505317912828,
+        "candidateLocalShaderErf": 0.008675504245412323,
+        "candidateShaderErf": 0.008675504245625337,
+        "error": 3.79885305261396e-8,
+        "expected": 0.008917047645508207,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 2.5491980151246807e-9,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -14,
+          -6
+        ],
+        "refinementDifference": 1.7347234759768068e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.012791192899174887,
+        "budget": 0.000056395602725635384,
+        "candidateExactErf": 0.012791207478542049,
+        "candidateLocalShaderErf": 0.01279120545127076,
+        "candidateShaderErf": 0.012791205451293124,
+        "error": 1.2552095871379287e-8,
+        "expected": 0.012654000814472975,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.0005008117872067605,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -13,
+          -6
+        ],
+        "refinementDifference": 1.214306433183765e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.030919011541523597,
+        "budget": 0.00006545950297985058,
+        "candidateExactErf": 0.030919008128519217,
+        "candidateLocalShaderErf": 0.03091900595970118,
+        "candidateShaderErf": 0.030919005959701627,
+        "error": 5.581822417471961e-9,
+        "expected": 0.030921386074473776,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 8.135641619518172e-7,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -7,
+          -3
+        ],
+        "refinementDifference": 2.0816681711721685e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.03157053502909834,
+        "budget": 0.00006578526352731697,
+        "candidateExactErf": 0.03157052473510947,
+        "candidateLocalShaderErf": 0.03157052705463396,
+        "candidateShaderErf": 0.03157052705486962,
+        "error": 7.974464380500201e-9,
+        "expected": 0.03156770643142524,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 2.947072898660353e-7,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          0,
+          0
+        ],
+        "refinementDifference": 0,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.02790613842996128,
+        "budget": 0.0000639530666072638,
+        "candidateExactErf": 0.02790613551546093,
+        "candidateLocalShaderErf": 0.027906133214527583,
+        "candidateShaderErf": 0.027906133214527975,
+        "error": 5.215433696026395e-9,
+        "expected": 0.02790737353801106,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.0002973530535473075,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          3,
+          1
+        ],
+        "refinementDifference": 4.5102810375396984e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.03091902044224623,
+        "budget": 0.00006545950297985062,
+        "candidateExactErf": 0.030919008128519283,
+        "candidateLocalShaderErf": 0.030919005959701252,
+        "candidateShaderErf": 0.0309190059597017,
+        "error": 1.4482544979238511e-8,
+        "expected": 0.030921386074473797,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 8.135641619518172e-7,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          7,
+          3
+        ],
+        "refinementDifference": 4.5102810375396984e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.012791217150695514,
+        "budget": 0.00005639560272563538,
+        "candidateExactErf": 0.012791207478542031,
+        "candidateLocalShaderErf": 0.012791205451270746,
+        "candidateShaderErf": 0.012791205451293109,
+        "error": 1.169942476751673e-8,
+        "expected": 0.012654000814472996,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.0005008117872067605,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          13,
+          6
+        ],
+        "refinementDifference": 2.7755575615628914e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.008675534764959272,
+        "budget": 0.00005433775212270616,
+        "candidateExactErf": 0.008675505317912828,
+        "candidateLocalShaderErf": 0.008675504245412323,
+        "candidateShaderErf": 0.008675504245625337,
+        "error": 3.0519546948687415e-8,
+        "expected": 0.008917047645508176,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 2.5491980151246807e-9,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          14,
+          6
+        ],
+        "refinementDifference": 4.6837533851373785e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.00001094944685171186,
+        "budget": 0.000050005474787681426,
+        "candidateExactErf": 0.000010948789023773227,
+        "candidateLocalShaderErf": 0.000010949575362849124,
+        "candidateShaderErf": 0.000010949575729379924,
+        "error": 1.2851113726337026e-10,
+        "expected": 0.000028865118480707337,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          15,
+          6
+        ],
+        "refinementDifference": 4.1674021004911577e-19,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.0012504250555198096,
+        "budget": 0.00005062522494246247,
+        "candidateExactErf": 0.0012504500068405376,
+        "candidateLocalShaderErf": 0.001250449884924926,
+        "candidateShaderErf": 0.0012504498858159551,
+        "error": 2.4829405116579692e-8,
+        "expected": 0.001588185309067492,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 1.7009941331435756e-13,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -14.369999885559082,
+          -6.230000019073486
+        ],
+        "refinementDifference": 6.0715321659188256e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.007587009668600542,
+        "budget": 0.0000537935530388145,
+        "candidateExactErf": 0.007587105795658385,
+        "candidateLocalShaderErf": 0.007587106077629005,
+        "candidateShaderErf": 0.007587106077699623,
+        "error": 9.640902846365373e-8,
+        "expected": 0.007433898153010461,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.0000028388073546428273,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -13.369999885559082,
+          -6.230000019073486
+        ],
+        "refinementDifference": 1.0408340855860844e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.02449806050778012,
+        "budget": 0.00006224901915959456,
+        "candidateExactErf": 0.024498041773339217,
+        "candidateLocalShaderErf": 0.02449803831918911,
+        "candidateShaderErf": 0.02449803831919324,
+        "error": 2.2188591009691953e-8,
+        "expected": 0.024167091402415755,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.0004164925820391599,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -13.369999885559082,
+          -5.230000019073486
+        ],
+        "refinementDifference": 1.3877787807814457e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.029581384661836355,
+        "budget": 0.00006479071189215904,
+        "candidateExactErf": 0.029581424083600153,
+        "candidateLocalShaderErf": 0.02958142378431808,
+        "candidateShaderErf": 0.029581423784319844,
+        "error": 3.9122481722969615e-8,
+        "expected": 0.02958186102395124,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.00020403458937581456,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -7.369999885559082,
+          -3.2300000190734863
+        ],
+        "refinementDifference": 2.4286128663675302e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.031191522363962505,
+        "budget": 0.00006559576759516476,
+        "candidateExactErf": 0.031191535666872165,
+        "candidateLocalShaderErf": 0.0311915351903295,
+        "candidateShaderErf": 0.031191535190933616,
+        "error": 1.2826366996288032e-8,
+        "expected": 0.031190016556083347,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.00006706367489663747,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -0.3700000047683716,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 3.122502256758253e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.02718974821627896,
+        "budget": 0.00006359487456204219,
+        "candidateExactErf": 0.02718974727751349,
+        "candidateLocalShaderErf": 0.027189749124084377,
+        "candidateShaderErf": 0.027189749124579464,
+        "error": 9.078054141742341e-10,
+        "expected": 0.027188700173055656,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.0000057481045801222855,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          3.630000114440918,
+          1.7699999809265137
+        ],
+        "refinementDifference": 3.4694469519536136e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.03152913769084647,
+        "budget": 0.00006576457032512364,
+        "candidateExactErf": 0.0315291425049163,
+        "candidateLocalShaderErf": 0.031529140650247284,
+        "candidateShaderErf": 0.03152914065024821,
+        "error": 2.959400814683821e-9,
+        "expected": 0.03153138349211794,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.00001813797659879948,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          6.630000114440918,
+          2.7699999809265137
+        ],
+        "refinementDifference": 3.4694469519536136e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.02115116497115408,
+        "budget": 0.000060575588114427365,
+        "candidateExactErf": 0.021151175120621188,
+        "candidateLocalShaderErf": 0.02115117622885472,
+        "candidateShaderErf": 0.02115117622890041,
+        "error": 1.1257700639755177e-8,
+        "expected": 0.02091872078346027,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.000003958446775264862,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          13.630000114440918,
+          5.769999980926514
+        ],
+        "refinementDifference": 4.163336342344337e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.0005538154540965844,
+        "budget": 0.00005027690779070446,
+        "candidateExactErf": 0.0005538156835368758,
+        "candidateLocalShaderErf": 0.0005538155814089137,
+        "candidateShaderErf": 0.0005538155814692676,
+        "error": 1.273123292986483e-10,
+        "expected": 0.0008088214738739416,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 9.75621191888831e-15,
+        "motion": [
+          27.716386795043945,
+          11.48050308227539
+        ],
+        "passed": true,
+        "pixelOffset": [
+          14.630000114440918,
+          5.769999980926514
+        ],
+        "refinementDifference": 1.0733601507606494e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.0027673239870902333,
+        "budget": 0.00005138365999315433,
+        "candidateExactErf": 0.0027673195490406227,
+        "candidateLocalShaderErf": 0.002767319986308661,
+        "candidateShaderErf": 0.0027673199863088105,
+        "error": 4.000781572352507e-9,
+        "expected": 0.003210475165802457,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 5.573873140802607e-12,
+        "motion": [
+          21.21320343017578,
+          21.21320343017578
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -11,
+          -11
+        ],
+        "refinementDifference": 2.1684043449710093e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.031902867728438665,
+        "budget": 0.00006595144171378208,
+        "candidateExactErf": 0.031902884391683685,
+        "candidateLocalShaderErf": 0.031902883427564144,
+        "candidateShaderErf": 0.03190288342756417,
+        "error": 1.5699125478774167e-8,
+        "expected": 0.03169028187175011,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.005876587347448863,
+        "motion": [
+          21.21320343017578,
+          21.21320343017578
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -10,
+          -10
+        ],
+        "refinementDifference": 3.4694469519536136e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.0323128006487249,
+        "budget": 0.00006615640064414359,
+        "candidateExactErf": 0.032312802263737644,
+        "candidateLocalShaderErf": 0.03231280128828717,
+        "candidateShaderErf": 0.032312801288291365,
+        "error": 6.39562264259652e-10,
+        "expected": 0.03231575029927216,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.0001201988360273899,
+        "motion": [
+          21.21320343017578,
+          21.21320343017578
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -5,
+          -5
+        ],
+        "refinementDifference": 2.0816681711721685e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.03231985461385448,
+        "budget": 0.00006615992332820148,
+        "candidateExactErf": 0.03231984705704176,
+        "candidateLocalShaderErf": 0.03231984665640296,
+        "candidateShaderErf": 0.032319846657172024,
+        "error": 7.957451524098769e-9,
+        "expected": 0.03231575029927217,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 6.33736522636051e-7,
+        "motion": [
+          21.21320343017578,
+          21.21320343017578
+        ],
+        "passed": true,
+        "pixelOffset": [
+          0,
+          0
+        ],
+        "refinementDifference": 0,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.032312887614792896,
+        "budget": 0.00006615644185953972,
+        "candidateExactErf": 0.03231288461140808,
+        "candidateLocalShaderErf": 0.03231288371907942,
+        "candidateShaderErf": 0.03231288371908385,
+        "error": 3.895713474033613e-9,
+        "expected": 0.032315750299272146,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.00024279189578125027,
+        "motion": [
+          21.21320343017578,
+          21.21320343017578
+        ],
+        "passed": true,
+        "pixelOffset": [
+          3,
+          3
+        ],
+        "refinementDifference": 3.4694469519536136e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.03231280398320869,
+        "budget": 0.00006615640064414359,
+        "candidateExactErf": 0.03231280226373766,
+        "candidateLocalShaderErf": 0.03231280128828717,
+        "candidateShaderErf": 0.032312801288291365,
+        "error": 2.6949215220506413e-9,
+        "expected": 0.032315750299272146,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.0001201988360273899,
+        "motion": [
+          21.21320343017578,
+          21.21320343017578
+        ],
+        "passed": true,
+        "pixelOffset": [
+          5,
+          5
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.031902875449951934,
+        "budget": 0.00006595144171378205,
+        "candidateExactErf": 0.03190288439168365,
+        "candidateLocalShaderErf": 0.0319028834275641,
+        "candidateShaderErf": 0.03190288342756413,
+        "error": 7.977612168086345e-9,
+        "expected": 0.03169028187175017,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.005876587347448863,
+        "motion": [
+          21.21320343017578,
+          21.21320343017578
+        ],
+        "passed": true,
+        "pixelOffset": [
+          10,
+          10
+        ],
+        "refinementDifference": 7.63278329429795e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.002767347251357654,
+        "budget": 0.00005138365999315433,
+        "candidateExactErf": 0.002767319549040623,
+        "candidateLocalShaderErf": 0.0027673199863086605,
+        "candidateShaderErf": 0.00276731998630881,
+        "error": 2.726504899370347e-8,
+        "expected": 0.003210475165802429,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 5.573873140802607e-12,
+        "motion": [
+          21.21320343017578,
+          21.21320343017578
+        ],
+        "passed": true,
+        "pixelOffset": [
+          11,
+          11
+        ],
+        "refinementDifference": 2.47198095326695e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.00014031946197237498,
+        "budget": 0.00005007015949087296,
+        "candidateExactErf": 0.00014031891656658764,
+        "candidateLocalShaderErf": 0.00014031898174591368,
+        "candidateShaderErf": 0.0001403189817467732,
+        "error": 4.802264612986834e-10,
+        "expected": 0.0002484718463613691,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 9.835975807910515e-17,
+        "motion": [
+          21.21320343017578,
+          21.21320343017578
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -11.369999885559082,
+          -11.229999542236328
+        ],
+        "refinementDifference": 2.710505431213761e-19,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.02681692764998099,
+        "budget": 0.00006340849202197007,
+        "candidateExactErf": 0.026816984405812053,
+        "candidateLocalShaderErf": 0.026816984043940124,
+        "candidateShaderErf": 0.02681698404394029,
+        "error": 5.6393959134426463e-8,
+        "expected": 0.026396227620211057,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.00011999202715091864,
+        "motion": [
+          21.21320343017578,
+          21.21320343017578
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -10.369999885559082,
+          -10.229999542236328
+        ],
+        "refinementDifference": 6.938893903907228e-18,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.03143521031509962,
+        "budget": 0.00006571760999940638,
+        "candidateExactErf": 0.03143522204999076,
+        "candidateLocalShaderErf": 0.03143521999881277,
+        "candidateShaderErf": 0.0314352199988337,
+        "error": 9.683713150798743e-9,
+        "expected": 0.03143499390396724,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 5.997140104388708e-7,
+        "motion": [
+          21.21320343017578,
+          21.21320343017578
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -5.369999885559082,
+          -5.230000019073486
+        ],
+        "refinementDifference": 1.3877787807814457e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.03143748964283063,
+        "budget": 0.0000657187401882871,
+        "candidateExactErf": 0.0314374812205852,
+        "candidateLocalShaderErf": 0.03143748037657419,
+        "candidateShaderErf": 0.03143748037664676,
+        "error": 9.266256435769282e-9,
+        "expected": 0.03143499223882705,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.0001078758490958331,
+        "motion": [
+          21.21320343017578,
+          21.21320343017578
+        ],
+        "passed": true,
+        "pixelOffset": [
+          -0.3700000047683716,
+          -0.2300000041723251
+        ],
+        "refinementDifference": 4.8572257327350605e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.031435343116134135,
+        "budget": 0.00006571766454758499,
+        "candidateExactErf": 0.031435330949798106,
+        "candidateLocalShaderErf": 0.03143532909516998,
+        "candidateShaderErf": 0.0314353290951921,
+        "error": 1.4020964153593772e-8,
+        "expected": 0.03143499390396728,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 9.847583737446988e-7,
+        "motion": [
+          21.21320343017578,
+          21.21320343017578
+        ],
+        "passed": true,
+        "pixelOffset": [
+          2.630000114440918,
+          2.7699999809265137
+        ],
+        "refinementDifference": 3.4694469519536136e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.03143203848648011,
+        "budget": 0.00006571601613281881,
+        "candidateExactErf": 0.031432033396563565,
+        "candidateLocalShaderErf": 0.03143203226563763,
+        "candidateShaderErf": 0.03143203226564104,
+        "error": 6.220842480031408e-9,
+        "expected": 0.03143499390396721,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 0.00046572294173724186,
+        "motion": [
+          21.21320343017578,
+          21.21320343017578
+        ],
+        "passed": true,
+        "pixelOffset": [
+          5.630000114440918,
+          5.769999980926514
+        ],
+        "refinementDifference": 7.63278329429795e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 0.011905815708952144,
+        "budget": 0.000055952925736899934,
+        "candidateExactErf": 0.011905853198377996,
+        "candidateLocalShaderErf": 0.01190585147379987,
+        "candidateShaderErf": 0.01190585147379989,
+        "error": 3.5764847724009674e-8,
+        "expected": 0.0120608894110459,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 3.1110535290596934e-8,
+        "motion": [
+          21.21320343017578,
+          21.21320343017578
+        ],
+        "passed": true,
+        "pixelOffset": [
+          10.630000114440918,
+          10.770000457763672
+        ],
+        "refinementDifference": 4.8572257327350605e-17,
+        "sigma": 0.2800000011920929
+      },
+      {
+        "actual": 1.4583751196837133e-7,
+        "budget": 0.00005000007291768174,
+        "candidateExactErf": 1.458278157346615e-7,
+        "candidateLocalShaderErf": 1.45835363481015e-7,
+        "candidateShaderErf": 1.4583536359941893e-7,
+        "error": 2.1484873563507514e-12,
+        "expected": 6.853616767286823e-7,
+        "inputRounding": "explicitFloat32beforeallreferencecalls",
+        "legacy8ShaderErf": 1.5262361108983663e-24,
+        "motion": [
+          21.21320343017578,
+          21.21320343017578
+        ],
+        "passed": true,
+        "pixelOffset": [
+          11.630000114440918,
+          11.770000457763672
+        ],
+        "refinementDifference": 1.5140713932170622e-20,
+        "sigma": 0.2800000011920929
+      }
+    ],
+    "floatBlend": true,
+    "images": {},
+    "limits": [
+      "Small synthetic instances using actual production GLSL in caller context, not scene screenshot acceptance or FPS.",
+      "CPU projected runtime counters are estimates; this fixture directly reads actual vertex branch flags for named cases.",
+      "Global/local resource fallback boundaries are explicit and not claimed visually continuous.",
+      "Source optical continuous-integral error remains in independent oracle; approximate erf and original quad crop are separate errors."
+    ],
+    "operationErrors": [],
+    "passed": false,
+    "policy": [
+      {
+        "flags": [
+          61,
+          62,
+          0,
+          1
+        ],
+        "name": "narrowActual"
+      },
+      {
+        "flags": [
+          101,
+          102,
+          0,
+          1
+        ],
+        "name": "widePSF"
+      },
+      {
+        "flags": [
+          8,
+          9,
+          0,
+          1
+        ],
+        "name": "hugeSigmaTinyLength"
+      },
+      {
+        "flags": [
+          61,
+          62,
+          0,
+          1
+        ],
+        "name": "sigmaBelowOne"
+      },
+      {
+        "flags": [
+          60,
+          61,
+          0.9980357885360718,
+          1
+        ],
+        "name": "sigmaAboveOne"
+      },
+      {
+        "flags": [
+          8,
+          8,
+          0,
+          0
+        ],
+        "name": "globalOverflow"
+      },
+      {
+        "flags": [
+          8,
+          8,
+          0,
+          0
+        ],
+        "name": "degenerateProjected"
+      }
+    ],
+    "program": {
+      "info": "",
+      "linked": true
+    },
+    "restorationErrors": [],
+    "schema": "glass-atoll.adaptive-tail-actual-GPU.v3",
+    "stateRestored": true
+  },
+  "status": "done"
+}

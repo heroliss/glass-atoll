@@ -1,0 +1,481 @@
+{
+  "date": "2026-11-12T10:09:57.076Z",
+  "cloudShapeBlend": 2,
+  "sourceSHA256": "6484d75f87099aecd6bea6bb25a99983af921c8f0c8139919b79d3e3d7aef872",
+  "passed": true,
+  "passedCount": 10,
+  "total": 10,
+  "checks": [
+    {
+      "name": "dewpoint equals temperature at saturation",
+      "passed": true,
+      "evidence": 29.000000000000004
+    },
+    {
+      "name": "surface RH lowers estimated LCL",
+      "passed": true,
+      "evidence": {
+        "humid": 226.02177437970948,
+        "normal": 812.9564227727033,
+        "dry": 1869.9832171758887
+      }
+    },
+    {
+      "name": "manual metre-based cloud base respected",
+      "passed": true,
+      "evidence": {
+        "temperature": 29,
+        "humidity": 0.9,
+        "dewPoint": 27.191825804962324,
+        "liftedCondensationLevel": 226.02177437970948,
+        "automaticCloudBase": false,
+        "cloudBase": 1400,
+        "thickness": 1200,
+        "cloudTop": 2600,
+        "coverage": 0.35,
+        "moisture": 1.16,
+        "shear": 1.1,
+        "windDirection": null,
+        "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve"
+      }
+    },
+    {
+      "name": "multi-height density finite and bounded",
+      "passed": true,
+      "evidence": {
+        "probes": 30603,
+        "nonzero": 1135,
+        "nonzeroFraction": 0.03708786720256184,
+        "mean": 0.009592812853871717,
+        "maximum": 0.7719905632486219
+      }
+    },
+    {
+      "name": "cloud confined above condensation base and below layer top",
+      "passed": true,
+      "evidence": {
+        "below": 0,
+        "above": 0
+      }
+    },
+    {
+      "name": "solar RGB finite and reference preserved",
+      "passed": true,
+      "evidence": [
+        {
+          "elevation": 5,
+          "rgb": [
+            1.1817946037137905,
+            0.5850288377229337,
+            0.17359974029126465
+          ],
+          "transmission": [
+            0.5445022757034912,
+            0.24765941145263212,
+            0.06419392560244798
+          ]
+        },
+        {
+          "elevation": 15,
+          "rgb": [
+            0.8619464560843514,
+            0.6927710897582514,
+            0.4838076158832345
+          ],
+          "transmission": [
+            0.7942696732539022,
+            0.5865395662501762,
+            0.3578059511817008
+          ]
+        },
+        {
+          "elevation": 48,
+          "rgb": [
+            1,
+            0.977,
+            0.94
+          ],
+          "transmission": [
+            0.9214837739018139,
+            0.8271839929498107,
+            0.6951887135897685
+          ]
+        },
+        {
+          "elevation": 80,
+          "rgb": [
+            1.020190981438282,
+            1.0233651968587358,
+            1.0274463775186349
+          ],
+          "transmission": [
+            0.9400894356763434,
+            0.8664394163597524,
+            0.7598607717762207
+          ]
+        }
+      ]
+    },
+    {
+      "name": "coverage zero disables cloud and its shadow",
+      "passed": true,
+      "evidence": {
+        "densitySum": 0,
+        "shadow": 1
+      }
+    },
+    {
+      "name": "integrated advection uses actual shared wind",
+      "passed": true,
+      "evidence": {
+        "offset": [
+          26.9568,
+          10.137599999999999
+        ],
+        "expected": 28.800000000000004
+      }
+    },
+    {
+      "name": "wind shear is height dependent, not a world translation",
+      "passed": true,
+      "evidence": [
+        10.296,
+        3.871999999999999
+      ]
+    },
+    {
+      "name": "weather change does not instantaneously teleport cloud base",
+      "passed": true,
+      "evidence": {
+        "start": 812.9564227727033,
+        "middle": 789.94238602828,
+        "end": 226.02177437970948
+      }
+    }
+  ],
+  "diagnostics": {
+    "model": "spherical single-scattering Rayleigh/Mie/ozone atmosphere; bounded hemispherical diffuse-air closure; multi-thermal, entrained volume cumulus",
+    "diffuseAir": {
+      "enabled": true,
+      "rawRadianceRGB": [
+        0.07827017680753337,
+        0.1511775783773189,
+        0.292387565993948
+      ],
+      "model": "Esky/(2*pi) uniform upper hemisphere, one diffuse transport iteration; shared sky/finite air, no extra march",
+      "limits": [
+        "Not a multiple-scattering LUT or angle-resolved sky radiance field",
+        "Clear-sky irradiance proxy; local sky occlusion and cloud angular redistribution are not solved"
+      ]
+    },
+    "cloudSteps": 64,
+    "atmosphereSteps": 8,
+    "cloudSupportProbeCount": 32,
+    "cloudQuadrature": "conservative max-mip weather bounds plus one-segment margin, fixed per-pixel interleaved-gradient offset",
+    "cloudShapeBlend": 2,
+    "cloudBaseContinuity": 0,
+    "cloudDensityKey": "shape2:base0",
+    "cloudSupportEnabled": 1,
+    "maximumViewNoiseLod": 1.25,
+    "cloudShapeModel": "legacy capped column0; Gaussian thermal1; primary3D Worley puffs and continuous liquid-water density2",
+    "noiseDimensions": [
+      64,
+      64,
+      64
+    ],
+    "weatherDimensions": [
+      512,
+      512
+    ],
+    "supportMipCount": 10,
+    "supportBytes": 1398100,
+    "cloudBaseMetres": 812.9564227727033,
+    "cloudTopMetres": 1762.9564227727033,
+    "coverage": 0.35,
+    "cloudExtinctionPerMetre": 0.0036,
+    "weather": {
+      "current": {
+        "temperature": 29,
+        "humidity": 0.68,
+        "dewPoint": 22.496348617818374,
+        "liftedCondensationLevel": 812.9564227727033,
+        "automaticCloudBase": true,
+        "cloudBase": 812.9564227727033,
+        "thickness": 950,
+        "cloudTop": 1762.9564227727033,
+        "coverage": 0.35,
+        "moisture": 0.984,
+        "shear": 1.1,
+        "windDirection": null,
+        "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve"
+      },
+      "target": {
+        "temperature": 29,
+        "humidity": 0.68,
+        "dewPoint": 22.496348617818374,
+        "liftedCondensationLevel": 812.9564227727033,
+        "automaticCloudBase": true,
+        "cloudBase": 812.9564227727033,
+        "thickness": 950,
+        "cloudTop": 1762.9564227727033,
+        "coverage": 0.35,
+        "moisture": 0.984,
+        "shear": 1.1,
+        "windDirection": null,
+        "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve"
+      },
+      "transitionSeconds": 2.5,
+      "units": {
+        "temperature": "degrees Celsius",
+        "humidity": "fraction 0..1",
+        "cloudBase": "metres above sea level",
+        "thickness": "metres",
+        "shear": "metres/second/kilometre",
+        "windDirection": "degrees clockwise from +Z; null follows update wind"
+      },
+      "limits": [
+        "LCL is a surface-parcel estimate, not a sounding",
+        "Cloud coverage is independently prescribed ascent availability",
+        "No precipitation, prognostic humidity, CAPE or Navier–Stokes solve"
+      ]
+    },
+    "time": 10,
+    "offsetMetres": [
+      26.9568,
+      10.137599999999999
+    ],
+    "shearOffsetMetresPerKilometre": [
+      10.296,
+      3.871999999999999
+    ],
+    "weatherOrigin": [
+      0.4384765625,
+      0.7822265625
+    ],
+    "altitudeWindMetresPerSecond": [
+      2.6956800000000003,
+      1.01376
+    ],
+    "sun": [
+      0.17101007166283433,
+      0.984807753012208,
+      -0.030153689607045796
+    ],
+    "groundCloudTransmission": 1,
+    "lighting": {
+      "sunStrength": 1.0274463775186349,
+      "solarTransmission": [
+        0.9400894356763434,
+        0.8664394163597524,
+        0.7598607717762207
+      ],
+      "referenceElevationDegrees": 48
+    },
+    "camera": null,
+    "night": {
+      "utcMs": 1793023210000,
+      "date": "2026-10-26T14:00:10.000Z",
+      "observer": {
+        "latitudeDeg": 4.5,
+        "longitudeDeg": 118.6,
+        "heightM": 2,
+        "northYawDeg": 0
+      },
+      "mode": "artistic",
+      "refraction": "standard",
+      "rate": 1,
+      "running": true,
+      "timeZoneOffsetMinutes": 480,
+      "sun": {
+        "direction": [
+          -0.451350497023515,
+          -0.879664402869273,
+          0.14991086405351378
+        ],
+        "geometricDirection": [
+          -0.44836327309194457,
+          -0.8813589499648495,
+          0.148918691436422
+        ],
+        "altitudeDeg": -61.60190701028539,
+        "geometricAltitudeDeg": -61.80672973993521,
+        "azimuthDeg": 251.62668774944774,
+        "distanceAU": 0.9941339352242844,
+        "angularRadius": 0.004677925234463946
+      },
+      "moon": {
+        "direction": [
+          0.495143103221507,
+          0.8280277898682699,
+          -0.2630651754566621
+        ],
+        "geometricDirection": [
+          0.4952891376236736,
+          0.8279157909035193,
+          -0.2631427622500717
+        ],
+        "altitudeDeg": 55.8966741572546,
+        "geometricAltitudeDeg": 55.885230836619,
+        "azimuthDeg": 62.01868445930148,
+        "distanceAU": 0.002421599190121718,
+        "angularRadius": 0.004795940730595126
+      },
+      "sunDirection": [
+        -0.451350497023515,
+        -0.879664402869273,
+        0.14991086405351378
+      ],
+      "moonDirection": [
+        0.495143103221507,
+        0.8280277898682699,
+        -0.2630651754566621
+      ],
+      "sunGeometricDirection": [
+        -0.44836327309194457,
+        -0.8813589499648495,
+        0.148918691436422
+      ],
+      "moonGeometricDirection": [
+        0.4952891376236736,
+        0.8279157909035193,
+        -0.2631427622500717
+      ],
+      "angularRadii": {
+        "sun": 0.004677925234463946,
+        "moon": 0.004795940730595126
+      },
+      "worldToEquatorialColumns": [
+        [
+          -0.05681289482415031,
+          0.9983848360471796,
+          0.00011888122534222244
+        ],
+        [
+          0.9955093477380139,
+          0.05664023414981319,
+          0.07584868121258427
+        ],
+        [
+          0.07571943969638134,
+          0.004427530519379643,
+          -0.9971193325904206
+        ]
+      ],
+      "moonNorth": [
+        -0.3772899558435524,
+        0.0633790502381059,
+        -0.923923906612707
+      ],
+      "moonSunDirection": [
+        -0.4484871433200383,
+        -0.8812484232955272,
+        0.1491995265266572
+      ],
+      "moonPhase": 0.996004729444767,
+      "moonPhaseAngleRadians": 0.12650063131773587,
+      "moonMagnitude": -12.636694125005407,
+      "moonSourceRatio": 0.0000020003239330660855,
+      "moonLibrationRadians": [
+        -0.06285051600859697,
+        -0.10809631268847633
+      ],
+      "physicalSkyRevision": 1,
+      "epochJulianYear": 2026.8174769310722,
+      "coordinates": "+X east,+Y up,-Z north; geographic azimuth north clockwise; worldToEQJ applies inverse heading; standard refraction is Astronomy Engine normal",
+      "interpolation": {
+        "utcSpanSeconds": 30,
+        "continuous": true,
+        "moonAndSun": "normalized vector interpolation between exact topocentric endpoints",
+        "rotation": "exact current-UTC Astronomy Engine transform"
+      },
+      "diagnostics": {
+        "updates": 2,
+        "ephemerisCalls": 2
+      },
+      "limits": [
+        "Astronomy Engine nominal arcminute-class; not a measurement-grade ephemeris",
+        "standard refraction uses a prescribed atmosphere, not current humidity sounding",
+        "historical UTC/UT1 and proper motion are approximations"
+      ],
+      "settings": {
+        "latitude": 4.5,
+        "longitude": 118.6,
+        "height": 2,
+        "date": "2026-10-26T14:00:00.000Z",
+        "rotationDegrees": 0,
+        "automaticExposure": true,
+        "moonIntensity": 1,
+        "starIntensity": 1
+      },
+      "astronomicalSunDirection": [
+        -0.451350497023515,
+        -0.879664402869273,
+        0.14991086405351378
+      ],
+      "moonAltitudeDegrees": 55.8966741572546,
+      "moonAzimuthDegrees": 62.01868445930148,
+      "moonAngularRadius": 0.004795940730595126,
+      "baseMoonSourceRatio": 0.0000020003239330660855,
+      "currentDate": "2026-10-26T14:00:10.000Z",
+      "loaded": false,
+      "loadError": null,
+      "loadRequested": true,
+      "externalClock": false,
+      "starMap": "NASA SVS4851 no-HIP/Tycho background + HIP/Tycho8.5 point kernels + diffuse complementary aggregate",
+      "starField": {
+        "model": "HIP/Tycho magnitude8.5 direction-cube candidates plus area-conserving diffuse, weak shutter-averaged scintillation",
+        "loaded": false,
+        "error": null,
+        "pointCount": 0,
+        "view": {
+          "width": 1440,
+          "height": 900,
+          "minimumPixelOmega": 1e-8,
+          "table": "native"
+        },
+        "epochYears": 26.81747693107218,
+        "exposureSeconds": 0.008333333333333333,
+        "physicalF0": 9.144e-11,
+        "limits": []
+      },
+      "lunarMap": "NASA SVS4720,LRO1024x512,local",
+      "starScale": 2e-7,
+      "ephemerisRefreshSeconds": 30,
+      "ephemerisInterpolation": "continuous endpoints; exact current EQJ rotation"
+    },
+    "preExposureEV": 0,
+    "initializationMs": 292.919,
+    "recommendedCubeFaceRate": 12,
+    "recommendedPMREMHz": 0.5,
+    "transientClouds": {
+      "optIn": true,
+      "count": 0,
+      "rawRadianceBound": 0,
+      "phaseMaximumBound": 0.7638996395992439,
+      "ssa": 0.999,
+      "sourceCloudSamples": 4,
+      "sourceAndViewCleanAirSamples": 4,
+      "extraSamplers": 0,
+      "environmentCapture": "excluded by default; live restore includes transient state",
+      "reflection": "isolated alpha0 delta; water-hit observer, hardware far depth; no attached-depth sampler",
+      "limits": [
+        "two finite-radius diffuse clusters, not resolved burning-star angular integration",
+        "finite cloud self-shadow four-sample quadrature",
+        "source-to-cloud smoke attenuation not implemented; downstream compositor owns view smoke",
+        "legacy sky cloud view support rd.y>-.015 retained",
+        "relative RGB scene units; no absolute cloud or pyrotechnic calibration",
+        "P must be selected from combined raw source envelopes before rendering"
+      ]
+    },
+    "limits": [
+      "8/6-point single-scattering quadrature, not a full multiple-scattering LUT",
+      "three-sample cloud self-shadow and ground shadow",
+      "bounded diffuse cloud bounce approximation",
+      "surface-parcel LCL estimate, not a measured sounding or cloud forecast",
+      "prescribed ascent and kinematic advection/entrainment; no Navier–Stokes solve",
+      "CPU density is the exact base-LOD density formula; view rays use filtered noise LOD",
+      "GPU budget must be measured on the actual renderer"
+    ]
+  },
+  "limits": "CPU math/constructor checks only. Actual GPU compile, visual morphology, reflection/shadow agreement and >=60 fps need renderer acceptance."
+}

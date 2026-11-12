@@ -1,0 +1,148 @@
+{
+  "schema": "glass-atoll.smoke-motion-media.v1",
+  "passed": true,
+  "passedCount": 9,
+  "total": 9,
+  "checks": [
+    {
+      "name": "taylor: full audiovisual decode clean",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "name": "taylor: H2641920x1080 CFR30 and AAC stereo48k",
+      "passed": true
+    },
+    {
+      "name": "taylor: expected actual recorded duration",
+      "passed": true,
+      "encodedSeconds": 18.020333,
+      "captureWallSeconds": 18.057300000071525
+    },
+    {
+      "name": "taylor: audio finite nonempty and below sample full scale",
+      "passed": true,
+      "peakStereo": [
+        0.37648406624794006,
+        0.3667277693748474
+      ],
+      "rmsStereo": [
+        0.008068553279927792,
+        0.008383154613448053
+      ],
+      "fullScaleSamples": 0
+    },
+    {
+      "name": "burn: full audiovisual decode clean",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "name": "burn: H2641920x1080 CFR30 and AAC stereo48k",
+      "passed": true
+    },
+    {
+      "name": "burn: expected actual recorded duration",
+      "passed": true,
+      "encodedSeconds": 20.076333,
+      "captureWallSeconds": 20.07160000002384
+    },
+    {
+      "name": "burn: audio finite nonempty and below sample full scale",
+      "passed": true,
+      "peakStereo": [
+        0.35419562458992004,
+        0.36704331636428833
+      ],
+      "rmsStereo": [
+        0.00764538004508818,
+        0.007874525655572041
+      ],
+      "fullScaleSamples": 0
+    },
+    {
+      "name": "accepted main boom source unchanged",
+      "passed": true,
+      "sha256": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+    }
+  ],
+  "results": {
+    "taylor": {
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "30/1",
+            "avg_frame_rate": "30/1"
+          },
+          {
+            "codec_name": "aac",
+            "sample_rate": "48000",
+            "channels": 2,
+            "r_frame_rate": "0/0",
+            "avg_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "18.020333",
+          "size": "8302419"
+        }
+      },
+      "peakStereo": [
+        0.37648406624794006,
+        0.3667277693748474
+      ],
+      "rmsStereo": [
+        0.008068553279927792,
+        0.008383154613448053
+      ],
+      "sha256": "59335c71cfcb6a85b6eed0248e9894b88d1403ca78dd712580c5f8fbd500feda",
+      "webmSHA256": "11a4fb1712a8fbe84e77b2ae75ab5ec62975115e71924fa83da5046836ff2de5"
+    },
+    "burn": {
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "30/1",
+            "avg_frame_rate": "30/1"
+          },
+          {
+            "codec_name": "aac",
+            "sample_rate": "48000",
+            "channels": 2,
+            "r_frame_rate": "0/0",
+            "avg_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "20.076333",
+          "size": "9304029"
+        }
+      },
+      "peakStereo": [
+        0.35419562458992004,
+        0.36704331636428833
+      ],
+      "rmsStereo": [
+        0.00764538004508818,
+        0.007874525655572041
+      ],
+      "sha256": "8aa41a0550cdaa6c193f6dda71350243a34bbb72b3377aff395b74f0566a97be",
+      "webmSHA256": "ff930a3f56923b975d726c0844114dbdc2eb2424baa700a3bc76564f70906ce8"
+    }
+  },
+  "limits": [
+    "Full decode/sample peak checks are technical; no new human listening or intersample true-peak/SPL claim.",
+    "CFR encoding duplicates/drops actual captured VFR frames;30fps encoding is not renderer performance.",
+    "Two real scene episodes, not same-event pixel identity. Ordinary SDR recordings."
+  ]
+}

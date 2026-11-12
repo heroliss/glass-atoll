@@ -1,0 +1,225 @@
+{
+  "schema": "glass-atoll.r40-dense-calibration-build.v1",
+  "passed": true,
+  "productionChanged": false,
+  "baseRuntimeSHA256": "0e6f2bd483c18f343dbe129c2c96bceefd3e6fb71ebfbd070f223a331253900c",
+  "runtimeSHA256": "faefe72b5ef4145f0cdfafb0da994dbcc71894174942d7880c6241b5a742e82a",
+  "byteExactWholeR39RuntimeInverse": true,
+  "specs": {
+    "mirror": {
+      "packets": 1663,
+      "tCount": 2418,
+      "lCount": 2413,
+      "mirrorCount": 2418,
+      "tMaps": 6,
+      "lMaps": 0,
+      "tViewKinds": [
+        "reflection"
+      ],
+      "transmissionFields": 1,
+      "draws": 7,
+      "prepares": 1,
+      "readBytes": 38816
+    },
+    "light": {
+      "packets": 1663,
+      "tCount": 2418,
+      "lCount": 2413,
+      "mirrorCount": 2418,
+      "tMaps": 0,
+      "lMaps": 6,
+      "tViewKinds": [],
+      "transmissionFields": 0,
+      "draws": 7,
+      "prepares": 1,
+      "readBytes": 80208
+    },
+    "joint": {
+      "packets": 1663,
+      "tCount": 2418,
+      "lCount": 2413,
+      "mirrorCount": 2418,
+      "tMaps": 6,
+      "lMaps": 6,
+      "tViewKinds": [
+        "main",
+        "reflection"
+      ],
+      "transmissionFields": 2,
+      "draws": 21,
+      "prepares": 3,
+      "readBytes": 157840
+    }
+  },
+  "TCTOR": {
+    "maxSources": 18000,
+    "maxPackets": 4096,
+    "maxPairs": 1048576,
+    "maxRequestPairs": 12000000,
+    "maxMapPairs": 1000000,
+    "maxMapDraws": 16
+  },
+  "LCTOR": {
+    "maxPackets": 4096,
+    "maxSources": 14000,
+    "maxBakePairs": 1048576,
+    "maxRequestPairs": 12000000,
+    "maxMapPairs": 1000000,
+    "maxMapDraws": 16,
+    "anisotropy": 0.32,
+    "bakeMode": "tiled64"
+  },
+  "edits": [
+    {
+      "index": 96,
+      "old": "import {R39_DENSE_CALIBRATION_PINS as PINS} from './r39-dense-calibration-pins.js';",
+      "new": "import {R40_DENSE_CALIBRATION_PINS as PINS} from './r40-dense-calibration-pins.js';"
+    },
+    {
+      "index": 180,
+      "old": "import {R39_DENSE_FIXTURE,R39_DENSE_FIXTURE_DIGEST,r39DenseCanonicalJSON} from './r39-dense-native-fixture.js';",
+      "new": "import {R39_DENSE_JOINT_FIXTURE as R39_DENSE_FIXTURE,R39_DENSE_JOINT_FIXTURE_DIGEST as R39_DENSE_FIXTURE_DIGEST,r39DenseCanonicalJSON} from './r39-dense-joint-fixture.js';"
+    },
+    {
+      "index": 1427,
+      "old": "export const R39_DENSE_CALIBRATION_REVISION='r39-dense-current-main-sourceT-v1';\nconst R29_CALIBRATION_RUNTIME_REVISION=R39_DENSE_CALIBRATION_REVISION;",
+      "new": "export const R40_DENSE_CALIBRATION_REVISION='r40-dense-fixed-mirror-light-joint-v1';\nconst R29_CALIBRATION_RUNTIME_REVISION=R40_DENSE_CALIBRATION_REVISION;"
+    },
+    {
+      "index": 1913,
+      "old": "const SPECS=Object.freeze({source:Object.freeze({\"packets\":1663,\"tCount\":2418,\"lCount\":2413,\"mirrorCount\":2418,\"tMaps\":6,\"lMaps\":0,\"draws\":7,\"prepares\":1,\"readBytes\":38816})});",
+      "new": "const SPECS=Object.freeze({\"mirror\":Object.freeze({\"packets\":1663,\"tCount\":2418,\"lCount\":2413,\"mirrorCount\":2418,\"tMaps\":6,\"lMaps\":0,\"tViewKinds\":Object.freeze([\"reflection\"]),\"transmissionFields\":1,\"draws\":7,\"prepares\":1,\"readBytes\":38816}),\"light\":Object.freeze({\"packets\":1663,\"tCount\":2418,\"lCount\":2413,\"mirrorCount\":2418,\"tMaps\":0,\"lMaps\":6,\"tViewKinds\":Object.freeze([]),\"transmissionFields\":0,\"draws\":7,\"prepares\":1,\"readBytes\":80208}),\"joint\":Object.freeze({\"packets\":1663,\"tCount\":2418,\"lCount\":2413,\"mirrorCount\":2418,\"tMaps\":6,\"lMaps\":6,\"tViewKinds\":Object.freeze([\"main\",\"reflection\"]),\"transmissionFields\":2,\"draws\":21,\"prepares\":3,\"readBytes\":157840})});"
+    },
+    {
+      "index": 5638,
+      "old": " const sourceKeys=[\"../main.js\",\"./r39-dense-pack.js\",\"./r39-dense-layout.js\",\"./r39-dense-gpu.js\",\"./r39-dense-light-tiles.js\",\"./r39-dense-light-field.js\",\"../pyro-smoke-light-native-state.js\",\"../pyro-smoke-renderer.js\",\"../pyro-smoke.js\",\"../fireworks.js\",\"../fireworks-physics.js\",\"../firework-layer-profile.js\",\"../fireworks-audio.js\",\"../package.json\",\"./r39-dense-calibration-runtime.js\",\"./r39-dense-calibration-build.mjs\",\"../smoke-transmission-rectangles.js\",\"../pyro-smoke-light-bound.js\",\"./r16-smoke-transmission-oracle.js\",\"./pyro-smoke-light-field-oracle.js\"];",
+      "new": " const sourceKeys=[\"../main.js\",\"./r39-dense-pack.js\",\"./r39-dense-layout.js\",\"./r39-dense-gpu.js\",\"./r39-dense-light-tiles.js\",\"./r39-dense-light-field.js\",\"../pyro-smoke-light-native-state.js\",\"../pyro-smoke-renderer.js\",\"../pyro-smoke.js\",\"../fireworks.js\",\"../fireworks-physics.js\",\"../firework-layer-profile.js\",\"../fireworks-audio.js\",\"../package.json\",\"./r40-dense-calibration-runtime.js\",\"./r40-dense-calibration-build.mjs\",\"../smoke-transmission-rectangles.js\",\"../pyro-smoke-light-bound.js\",\"./r16-smoke-transmission-oracle.js\",\"./pyro-smoke-light-field-oracle.js\",\"./r39-dense-calibration-runtime.js\"];"
+    },
+    {
+      "index": 6597,
+      "old": "PINS.schema==='glass-atoll.r39-dense-calibration-pins.v1'",
+      "new": "PINS.schema==='glass-atoll.r40-dense-calibration-pins.v1'"
+    },
+    {
+      "index": 6949,
+      "old": "exact(PINS.jobs,['source'])",
+      "new": "exact(PINS.jobs,['mirror','light','joint'])"
+    },
+    {
+      "index": 7053,
+      "old": "for(const key of ['source']){const job=PINS.jobs[key],paths=[\"./r39-dense-native-fixture.js\",\"./r39-dense-native-fixture.json\"];",
+      "new": "for(const key of ['mirror','light','joint']){const job=PINS.jobs[key],paths=['./r39-dense-joint-fixture.js','./r39-dense-joint-fixture.json'];"
+    },
+    {
+      "index": 8205,
+      "old": "function ownPhase(kind,artifact,canonical){",
+      "new": "function bindPartialReferences(list,cells,rows,columns,light=false){\n demand(Array.isArray(list)&&list.length===8,'Exactly eight frozen independent partial references required');const addresses=[];\n for(const r of list){demand(Number.isSafeInteger(r.address)&&r.address>=0&&r.address<cells&&!addresses.includes(r.address),'Unique bounded frozen partial address required');const row=r.address%rows,tile=Math.floor(r.address/rows);if(light){demand(r.packetIndex===row&&r.tile===tile&&r.sourceBegin===tile*64&&r.sourceEnd===Math.min(columns,(tile+1)*64)&&r.normalization==='raw map partial BEFORE once-only final1/(4pi)','SH partial original source/tile/normalization mismatch');demand(Array.isArray(r.attachmentsRGBA)&&r.attachmentsRGBA.length===3&&r.attachmentsRGBA.every(v=>Array.isArray(v)&&v.length===4&&v.every(Number.isFinite)&&v[0]>=0),'All signed raw SH partial references required');}else{demand(r.row===row&&r.tile===tile&&Array.isArray(r.tauRGBA)&&r.tauRGBA.length===4&&r.tauRGBA.every(Number.isFinite)&&r.tauRGBA.slice(0,3).every(v=>v>=0)&&r.tauRGBA[3]===0,'T partial original packet/tile/tau reference mismatch');}addresses.push(r.address);}return addresses;\n}\nfunction ownPhase(kind,artifact,canonical){"
+    },
+    {
+      "index": 11295,
+      "old": " if(spec.tMaps){const v=main.input,input={snapshot,count:v.count,endpoints64:new Float64Array(v.endpoints64),origins64:new Float64Array(v.origins64),active:new Uint8Array(v.active),eye:[...v.eye],sourceVersion:v.sourceVersion};demand(v.densityRevision===snapshot.revision&&main.orderedSources.length===input.count,'Complete original sorted optical association required');const layout=layoutT(input.count,snapshot.packets.length,TCTOR),a=layout.allocation;demand(layout.supported&&layout.layoutMode==='active-count','Fixed complete active layout required');const packed=packT(input,{...TCTOR,packetData:new Float32Array(a.packet.width*a.packet.height*4),sourceData:new Float32Array(a.source.width*a.source.height*4)});demand(packed.supported&&packed.cameraKey===v.cameraKey&&sameWords(main.packing.packetWordsU32,packed.packetData)&&sameWords(main.packing.sourceWordsU32,packed.sourceData),'Full padded original-double native T pack mismatch');const map=rectangles({sourceCount:input.count,packetCount:spec.packets,partialStride:layout.partialStride,partialWidth:a.partial.width,maxMapPairs:1000000,maxDraws:spec.tMaps+1});demand(map.supported&&map.mapDraws===spec.tMaps&&map.totalDraws===spec.tMaps+1&&JSON.stringify(map.mapRects.map(r=>[r.x,r.y,r.width,r.height]))===JSON.stringify(main.policy.mapPlan.mapRects.map(r=>[r.x,r.y,r.width,r.height])),'Exact complete SourceT rectangles differ');const physical=new Float64Array(main.oracle.physicalRGBA),quantized=new Float64Array(main.oracle.quantizedRGBA);demand(physical.length===input.count*4&&quantized.length===input.count*4&&physical.every(x=>Number.isFinite(x)&&x>=0&&x<=1)&&quantized.every(x=>Number.isFinite(x)&&x>=0&&x<=1),'ALL original/packed T reference rows required');const samples=probes(map.mapRects,map.completeCells,input.count*(map.tileCount-1),input.count-1);jobs.push({kind:'transmission',input,packed,layout,map,physical,quantized,samples,stages:[...map.mapRects.map(r=>({kind:'map',rect:[r.x,r.y,r.width,r.height],size:[a.partial.width,a.partial.height]})),{kind:'reduce',rect:[layout.outputDraw.x,layout.outputDraw.y,layout.outputDraw.width,layout.outputDraw.height],size:[a.output.width,a.output.height]}],readBytes:(input.count+samples.length)*16});}\n",
+      "new": " for(const selectedView of spec.tViewKinds){const view=selectedView==='main'?main:mirror,v=view.input,input={snapshot,count:v.count,endpoints64:new Float64Array(v.endpoints64),origins64:new Float64Array(v.origins64),active:new Uint8Array(v.active),eye:[...v.eye],sourceVersion:v.sourceVersion};demand(v.densityRevision===snapshot.revision&&view.orderedSources.length===input.count,'Complete original sorted optical association required');const layout=layoutT(input.count,snapshot.packets.length,TCTOR),a=layout.allocation;demand(layout.supported&&layout.layoutMode==='active-count','Fixed complete active layout required');const packed=packT(input,{...TCTOR,packetData:new Float32Array(a.packet.width*a.packet.height*4),sourceData:new Float32Array(a.source.width*a.source.height*4)});demand(packed.supported&&packed.cameraKey===v.cameraKey&&sameWords(view.packing.packetWordsU32,packed.packetData)&&sameWords(view.packing.sourceWordsU32,packed.sourceData),'Full padded original-double native T pack mismatch');const map=rectangles({sourceCount:input.count,packetCount:spec.packets,partialStride:layout.partialStride,partialWidth:a.partial.width,maxMapPairs:1000000,maxDraws:spec.tMaps+1});demand(map.supported&&map.mapDraws===spec.tMaps&&map.totalDraws===spec.tMaps+1&&JSON.stringify(map.mapRects.map(r=>[r.x,r.y,r.width,r.height]))===JSON.stringify(view.policy.mapPlan.mapRects.map(r=>[r.x,r.y,r.width,r.height])),'Exact complete SourceT rectangles differ');const physical=new Float64Array(view.oracle.physicalRGBA),quantized=new Float64Array(view.oracle.quantizedRGBA);demand(physical.length===input.count*4&&quantized.length===input.count*4&&physical.every(x=>Number.isFinite(x)&&x>=0&&x<=1)&&quantized.every(x=>Number.isFinite(x)&&x>=0&&x<=1),'ALL original/packed T reference rows required');const partialReferences=view.oracle.partialSamples,samples=bindPartialReferences(partialReferences,map.completeCells,input.count,spec.packets);jobs.push({kind:'transmission',view:selectedView,partialReferences,input,packed,layout,map,physical,quantized,samples,stages:[...map.mapRects.map(r=>({kind:'map',rect:[r.x,r.y,r.width,r.height],size:[a.partial.width,a.partial.height]})),{kind:'reduce',rect:[layout.outputDraw.x,layout.outputDraw.y,layout.outputDraw.width,layout.outputDraw.height],size:[a.output.width,a.output.height]}],readBytes:(input.count+samples.length)*16});}\n"
+    },
+    {
+      "index": 15346,
+      "old": "const samples=probes(plan.mapRects,plan.partialTexels,spec.packets*(plan.tileCount-1),light.oracle.colouredSentinel.index);jobs.push({kind:'light',",
+      "new": "const partialReferences=light.oracle.partialSamples,samples=bindPartialReferences(partialReferences,plan.partialTexels,spec.packets,ledger.count,true);jobs.push({kind:'light',view:null,partialReferences,"
+    },
+    {
+      "index": 16086,
+      "old": "if(kind==='joint')demand(jobs[0].input.snapshot===jobs[1].snapshot&&jobs[1].ledger===ledger,'Joint must share SAME owned snapshot and current ledger, no stale result');",
+      "new": "demand(jobs.every(j=>j.kind==='light'?j.snapshot===snapshot&&j.ledger===ledger:j.input.snapshot===snapshot),'All selected jobs require SAME privately owned snapshot and current ledger');if(kind==='joint')demand(jobs.length===3&&jobs[0].view==='main'&&jobs[1].view==='reflection'&&jobs[2].kind==='light','Fixed three-job complete order required');"
+    },
+    {
+      "index": 16839,
+      "old": "sameGenerationOwned:kind!=='joint'||jobs[0].input.snapshot===jobs[1].snapshot",
+      "new": "sameGenerationOwned:jobs.every(j=>j.kind==='light'?j.snapshot===snapshot&&j.ledger===ledger:j.input.snapshot===snapshot)"
+    },
+    {
+      "index": 17003,
+      "old": "let physicalError=0,quantizedError=0,neutralRows=0;",
+      "new": "let physicalError=0,quantizedError=0,neutralRows=0,partialMaximumAbsoluteError=0;"
+    },
+    {
+      "index": 17231,
+      "old": "demand(partials[0][i*4+3]===0,'Partial tau alpha must0');",
+      "new": "demand(partials[0][i*4+3]===0,'Partial tau alpha must0');for(let c=0;c<3;c++)partialMaximumAbsoluteError=Math.max(partialMaximumAbsoluteError,Math.abs(partials[0][i*4+c]-job.partialReferences[i].tauRGBA[c]));"
+    },
+    {
+      "index": 17935,
+      "old": "demand(physicalError<=1e-5&&quantizedError<=8e-6,'All-row original/quantized T tolerance failed');",
+      "new": "demand(physicalError<=1e-5&&quantizedError<=8e-6,'All-row original/quantized T tolerance failed');demand(partialMaximumAbsoluteError<=1e-5,'Frozen independent raw T partial absolute1e-5 gate failed');"
+    },
+    {
+      "index": 18354,
+      "old": "maximumGPUVsQuantizedDoubleTError:quantizedError,neutralRows",
+      "new": "maximumGPUVsQuantizedDoubleTError:quantizedError,partialMaximumAbsoluteError,partialTolerance:{absoluteTau:1e-5,reference:'frozen original64-packet quantized-input double column integrals'},neutralRows"
+    },
+    {
+      "index": 18559,
+      "old": "function validateLight(job,pixels,partials,raw){",
+      "new": "function validateLight(job,pixels,partials,raw){let partialC0Error=0,partialC1Error=0;for(let i=0;i<job.samples.length;i++){const refs=job.partialReferences[i].attachmentsRGBA,scale=Math.max(...refs.map(v=>v[0]),1e-30);for(let c=0;c<3;c++){const values=partials[c].subarray(i*4,i*4+4);partialC0Error=Math.max(partialC0Error,Math.abs(values[0]-refs[c][0])/scale);partialC1Error=Math.max(partialC1Error,Math.hypot(...Array.from(values.slice(1),(v,k)=>v-refs[c][k+1]))/scale);}}demand(partialC0Error<=.002&&partialC1Error<=.002,'Frozen independent raw SH partial signed C0/C1 .002 gate failed');"
+    },
+    {
+      "index": 20493,
+      "old": "validPacketRows:job.snapshot.packets.length,coefficientWords:",
+      "new": "partialMaximumC0ErrorOverPeakReferenceC0:partialC0Error,partialMaximumC1VectorErrorOverPeakReferenceC0:partialC1Error,partialNormalization:'raw map before final1/(4pi); compared directly to frozen256-node references',validPacketRows:job.snapshot.packets.length,coefficientWords:"
+    },
+    {
+      "index": 21237,
+      "old": "export async function runR39DenseCalibration(THREE,renderer,options={}){\n const kind='source',artifact=R39_DENSE_FIXTURE,exportedDigest=R39_DENSE_FIXTURE_DIGEST,canonical=r39DenseCanonicalJSON;",
+      "new": "export async function runR40DenseCalibration(THREE,renderer,options={}){\n const kind=options?.phase===undefined?'mirror':options.phase,artifact=R39_DENSE_FIXTURE,exportedDigest=R39_DENSE_FIXTURE_DIGEST,canonical=r39DenseCanonicalJSON;"
+    },
+    {
+      "index": 21586,
+      "old": "schema:'glass-atoll.r39-dense-current-main-GPU.v1'",
+      "new": "schema:'glass-atoll.r40-dense-fixed-phase-GPU.v1'"
+    },
+    {
+      "index": 24612,
+      "old": "['parentLocked'].includes(k)",
+      "new": "['parentLocked','phase'].includes(k)"
+    },
+    {
+      "index": 24651,
+      "old": "options.parentLocked===true&&THREE.REVISION==='180'",
+      "new": "options.parentLocked===true&&typeof kind==='string'&&Object.hasOwn(SPECS,kind)&&THREE.REVISION==='180'"
+    },
+    {
+      "index": 25627,
+      "old": "submittedConsumers:['main'],unsubmittedConsumers:['reflection','light']",
+      "new": "submittedConsumers:[...spec.tViewKinds,...(spec.lMaps?['light']:[])],unsubmittedConsumers:['main','reflection','light'].filter(v=>!spec.tViewKinds.includes(v)&&!(v==='light'&&spec.lMaps))"
+    },
+    {
+      "index": 26432,
+      "old": "(spec.tMaps?4706304:0)+(spec.lMaps?9916416:0)",
+      "new": "spec.transmissionFields*4706304+(spec.lMaps?9916416:0)"
+    },
+    {
+      "index": 28883,
+      "old": "job.localRenders=0;job.partial=null;job.output=null;}\n  patch(renderer.debug",
+      "new": "job.localRenders=0;job.partial=null;job.output=null;}demand(new Set(fields).size===fields.length,'Selected requests must own distinct fields; two retained T outputs may not alias');\n  patch(renderer.debug"
+    },
+    {
+      "index": 34007,
+      "old": "currentDraw={job:job.kind,index:",
+      "new": "currentDraw={job:job.kind,view:job.view??null,index:"
+    },
+    {
+      "index": 38556,
+      "old": "for(const job of owned.jobs){const light=job.kind==='light',r=job.result,diag=job.field.diagnostics();",
+      "new": "if(kind==='joint')demand(owned.jobs[0].output!==owned.jobs[1].output&&owned.jobs[0].output?.texture!==owned.jobs[1].output?.texture,'Both T outputs must remain independently retained until readback');for(const job of owned.jobs){const light=job.kind==='light',r=job.result,diag=job.field.diagnostics();"
+    },
+    {
+      "index": 39924,
+      "old": "report.jobs.push({kind:job.kind,readback,",
+      "new": "report.jobs.push({kind:job.kind,view:job.view??null,cameraKey:job.input?.cameraKey??job.packed.cameraKey??null,readback,"
+    },
+    {
+      "index": 42748,
+      "old": "'One fixed actual current two-event dense MAIN SourceT job only; all original packets and main rays retained. Captured reflection and current ledger remain owned metadata but are NOT submitted. No source/density thinning, reference GPU, volume, SH, reflection or scene draw.'",
+      "new": "'One fixed selected mirror, SH or ordered main+mirror+SH numerical phase from the SAME current two-event snapshot. All packets/rays/emission sources retained; two distinct T fields hold joint outputs until checks. No thinning, reference GPU, volume or scene draw.'"
+    }
+  ],
+  "actualGPU": false
+}

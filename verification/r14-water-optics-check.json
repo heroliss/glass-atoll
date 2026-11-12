@@ -1,0 +1,149 @@
+{
+  "kind": "R14 RGB water clarity coefficients, Beer/layer transport and actual factory atomic API",
+  "passed": true,
+  "count": 6,
+  "checks": [
+    {
+      "name": "Default0.90 preserves every original authored RGB coefficient exactly; high clarity retains nonzero molecular floor",
+      "passed": true,
+      "evidence": {
+        "default": {
+          "clarity": 0.9,
+          "absorption": [
+            0.16,
+            0.035,
+            0.018
+          ],
+          "scattering": [
+            0.004,
+            0.009,
+            0.014
+          ],
+          "extinction": [
+            0.164,
+            0.044000000000000004,
+            0.032
+          ],
+          "particleMultiplier": 1,
+          "coefficientUnit": "m^-1",
+          "beamEfoldDistanceMetres": [
+            6.097560975609756,
+            22.727272727272727,
+            31.25
+          ],
+          "reference": "authored linear-RGB effective coefficients; clarity changes only suspended-particle scattering; not measured full-spectrum/NTU/Secchi data"
+        },
+        "clear": {
+          "clarity": 1,
+          "absorption": [
+            0.16,
+            0.035,
+            0.018
+          ],
+          "scattering": [
+            0.0005,
+            0.001,
+            0.002
+          ],
+          "extinction": [
+            0.1605,
+            0.036000000000000004,
+            0.019999999999999997
+          ],
+          "particleMultiplier": 0,
+          "coefficientUnit": "m^-1",
+          "beamEfoldDistanceMetres": [
+            6.230529595015576,
+            27.777777777777775,
+            50.00000000000001
+          ],
+          "reference": "authored linear-RGB effective coefficients; clarity changes only suspended-particle scattering; not measured full-spectrum/NTU/Secchi data"
+        },
+        "hazy": {
+          "clarity": 0,
+          "absorption": [
+            0.16,
+            0.035,
+            0.018
+          ],
+          "scattering": [
+            0.35050000000000003,
+            0.801,
+            1.202
+          ],
+          "extinction": [
+            0.5105000000000001,
+            0.8360000000000001,
+            1.22
+          ],
+          "particleMultiplier": 100,
+          "coefficientUnit": "m^-1",
+          "beamEfoldDistanceMetres": [
+            1.958863858961802,
+            1.1961722488038276,
+            0.819672131147541
+          ],
+          "reference": "authored linear-RGB effective coefficients; clarity changes only suspended-particle scattering; not measured full-spectrum/NTU/Secchi data"
+        },
+        "measured": false
+      }
+    },
+    {
+      "name": "Clarity changes suspended scattering monotonically and keeps absorption, wave geometry, pass/target/sampler counts fixed",
+      "passed": true,
+      "evidence": {
+        "samples": 1001,
+        "additionalSamplers": 0,
+        "additionalTargets": 0,
+        "additionalScenePasses": 0,
+        "propGLSL": "byte exact65a block",
+        "waveVertex": "byte exact65a"
+      }
+    },
+    {
+      "name": "Beam attenuation follows a+b, colour and true path distance; reciprocal green coefficient is not Secchi depth",
+      "passed": true,
+      "evidence": {
+        "greenCollimatedBeamEfoldMetres": 22.727272727272727,
+        "greenOneMetreTransmission": 0.9569539574730467,
+        "secchiConversionProvided": false
+      }
+    },
+    {
+      "name": "Piecewise homogeneous single scattering composes in physical front-to-back order and is stable at short/long distance",
+      "passed": true,
+      "evidence": {
+        "homogeneousLayerCases": 150,
+        "maximumError": 4.440892098500626e-16,
+        "differentSourceOrderMatters": true
+      }
+    },
+    {
+      "name": "Malformed clarity and nonmetric/nonfinite paths reject explicitly without clipping",
+      "passed": true,
+      "evidence": {
+        "rejectedPatches": 10,
+        "clampedInvalidInputs": false
+      }
+    },
+    {
+      "name": "Actual factory configuration is atomic, immutable and preserves shared uniform object identity and no-op revisions",
+      "passed": true,
+      "evidence": {
+        "defaultExact": true,
+        "sharedUniformObjectsStable": true,
+        "sharedVectorIdentityStable": true,
+        "atomic": true,
+        "revision": 2
+      }
+    }
+  ],
+  "runtimeSHA256": "da27356ac167f370445e589785ef50005374443b88f700e571f8369cc098b9cb",
+  "opticsSHA256": "b1d330c1596aec1ed4cdd22d787177fbf924e0f781d9452356337a2528fee6db",
+  "baselineSHA256": "65a597fe6946a23d8bf7599369dc8ca5d7ec6f51cbdb5c199b4f25792865c27a",
+  "limits": [
+    "Authored effectiveRGB model, not measured full-spectrum seawater/NTU/Secchi calibration.",
+    "CPU/source/factory tests do not establish full-application GPU default parity, main visual results or frame rate.",
+    "Shared splash uniform integration and actual GPU transport are verified separately."
+  ]
+}

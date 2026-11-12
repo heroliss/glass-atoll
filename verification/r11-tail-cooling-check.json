@@ -1,0 +1,97 @@
+{
+  "schema": "glass-atoll.r11-tail-cooling-check.v1",
+  "dateUTC": "2026-10-28T04:14:10.391Z",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 8,
+    "total": 8
+  },
+  "sourceSHA256": "cc864bf4cbfee0739362bc3b3770e0d8a2840238afe989b4c8815170660724e6",
+  "baselineSHA256": "b37ea388471b6f50a307327fab95ccc10d7f9aaa1dc46ed921fc1abd9c890e43",
+  "profile": {
+    "schema": "glass-atoll.thermal-tail-colour.v1",
+    "hotKelvin": 2850,
+    "coldKelvin": 1900,
+    "samples": 129,
+    "wavelengthStepNm": 5,
+    "age": "detached ember lag / existing tail duration",
+    "luminance": "linear sRGB photopic Y=1; reference candela unchanged",
+    "limits": "authored colour curve, not measured particle temperatures, spectral emissivity or combustion/heat transfer"
+  },
+  "checks": [
+    {
+      "name": "exact scoped inverse restores all R10 b37 source bytes and rejects missing/duplicate scopes",
+      "passed": true,
+      "evidence": {
+        "scopes": 6,
+        "baselineSHA256": "b37ea388471b6f50a307327fab95ccc10d7f9aaa1dc46ed921fc1abd9c890e43"
+      }
+    },
+    {
+      "name": "default constant path allocates no colour LUT and all10 real factories preserve complete records/ledger/cluster/bounds",
+      "passed": true,
+      "evidence": {
+        "cases": 40,
+        "records": 18998
+      }
+    },
+    {
+      "name": "pure colour is finite nonnegative Y1, hotter endpoint byte-identical, monotone redder, bounded convex interpolation",
+      "passed": true,
+      "evidence": {
+        "maxYError": 4.440892098500626e-16,
+        "maxChannel": 2.5852230563071164,
+        "cold": [
+          2.5852230563071164,
+          0.6297281574791765,
+          0
+        ]
+      }
+    },
+    {
+      "name": "independent1nm Planck integration checks LUT colours within predeclared2e-4 absolute/relative budget",
+      "passed": true,
+      "evidence": {
+        "samples": 257,
+        "maxError": 0.0002377860587263747,
+        "maxBudgetRatio": 0.7500969753959673,
+        "oracle": "1nm quadrature, same documented analytic CIE fit; not official measured firework SPD"
+      }
+    },
+    {
+      "name": "invalid pure inputs and constructor/configure modes reject before source state changes",
+      "passed": true
+    },
+    {
+      "name": "cooling changes only detached tail colour, preserves real head and body fields/geometry/I/envelope in all10 types",
+      "passed": true,
+      "evidence": {
+        "cases": 10,
+        "changed": 6102,
+        "unchangedHeads": 1403
+      }
+    },
+    {
+      "name": "paused mode switch rebuilds identical-time records and invalidates all RGB consumers, constant roundtrip restores outputs",
+      "passed": true,
+      "evidence": {
+        "physicalTime": 6.875024273694912,
+        "originalEvents": 2
+      }
+    },
+    {
+      "name": "real complete Float32 emission ledger uses cooled record RGB and keeps photopic source sums",
+      "passed": true,
+      "evidence": {
+        "sources": 6723,
+        "maxRelativeYError": 3.166792718916286e-9
+      }
+    }
+  ],
+  "limits": [
+    "Authored detached-tail chromaticity experiment only. Constant remains default; source I, old brightness envelope and motion unchanged.",
+    "Y conservation is photopic reference-candela conservation, not radiant-energy/heat conservation; no source temperature/yield calibration.",
+    "CPU record/ledger/budget checks are not actual GPU scene, reflection pixels, photoreal appearance or FPS acceptance."
+  ]
+}

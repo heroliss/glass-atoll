@@ -1,0 +1,152 @@
+{
+  "kind": "Independent CPU two-FP16-stage quantization counterexample",
+  "passed": true,
+  "minHalfSubnormal": 5.960464477539063e-8,
+  "vendorConversion": "DataUtils.toHalfFloat drops discarded mantissa bits after FP32 conversion; positive RTZ",
+  "counterexample": {
+    "sourceRaw": [
+      1.7821788844685216e-7,
+      1.7821788844685216e-7,
+      1.7821788844685216e-7,
+      1.1861324367146153e-7
+    ],
+    "sourceEV8": [
+      0.00004562377944239415,
+      0.00004562377944239415,
+      0.00004562377944239415,
+      0.000030364990379894152
+    ],
+    "baseHalfSamples": [
+      1.1920928955078125e-7,
+      1.1920928955078125e-7,
+      1.1920928955078125e-7,
+      5.960464477539063e-8
+    ],
+    "ev8HalfSamples": [
+      0.00004559755325317383,
+      0.00004559755325317383,
+      0.00004559755325317383,
+      0.000030338764190673828
+    ],
+    "x": 1,
+    "y": 1,
+    "base": 5.960464477539063e-8,
+    "actual": 0.00004464387893676758,
+    "expected": 0.0000152587890625,
+    "difference": 0.000029385089874267578,
+    "tolerance": 0.0000200457763671875,
+    "oldGateRatio": 1.4658993164449046,
+    "perfectlyLinearRaw": true
+  },
+  "perHalfSampleExposure": {
+    "passed": true,
+    "mode": "rtz",
+    "relativeArithmetic": 0,
+    "channels": 12,
+    "positiveChannels": 12,
+    "failures": 0,
+    "worstGap": 0,
+    "worst": null
+  },
+  "compositeReconstruction": [
+    {
+      "P": -8,
+      "passed": true,
+      "mode": "rtz",
+      "fp32OperationBudget": 16,
+      "uvError": 0,
+      "channels": 48,
+      "failures": 0,
+      "worstGap": 0,
+      "worst": null
+    },
+    {
+      "P": 0,
+      "passed": true,
+      "mode": "rtz",
+      "fp32OperationBudget": 16,
+      "uvError": 0,
+      "channels": 48,
+      "failures": 0,
+      "worstGap": 0,
+      "worst": null
+    },
+    {
+      "P": 4,
+      "passed": true,
+      "mode": "rtz",
+      "fp32OperationBudget": 16,
+      "uvError": 0,
+      "channels": 48,
+      "failures": 0,
+      "worstGap": 0,
+      "worst": null
+    },
+    {
+      "P": 8,
+      "passed": true,
+      "mode": "rtz",
+      "fp32OperationBudget": 16,
+      "uvError": 0,
+      "channels": 48,
+      "failures": 0,
+      "worstGap": 0,
+      "worst": null
+    }
+  ],
+  "doubledExposureNegativeControl": {
+    "passed": false,
+    "mode": "adjacent",
+    "relativeArithmetic": 0,
+    "channels": 12,
+    "positiveChannels": 12,
+    "failures": 12,
+    "worstGap": 0.00004538893699645996,
+    "worst": {
+      "pixel": 0,
+      "channel": 0,
+      "lower": 0.00004556775093078613,
+      "upper": 1.7881393432617188e-7,
+      "observations": [
+        {
+          "P": -8,
+          "value": 0,
+          "rawInterval": [
+            0,
+            0.0000152587890625
+          ]
+        },
+        {
+          "P": 0,
+          "value": 1.1920928955078125e-7,
+          "rawInterval": [
+            5.960464477539063e-8,
+            1.7881393432617188e-7
+          ]
+        },
+        {
+          "P": 4,
+          "value": 0.00004559755325317383,
+          "rawInterval": [
+            0.0000028461217880249023,
+            0.000002853572368621826
+          ]
+        },
+        {
+          "P": 8,
+          "value": 0.0116729736328125,
+          "rawInterval": [
+            0.00004556775093078613,
+            0.000045627355575561523
+          ]
+        }
+      ]
+    }
+  },
+  "limits": [
+    "CPU counterexample establishes that the old gate is invalid under two RTZ stores; it does not characterize the GPU conversion mode.",
+    "The adjacent-cell gate covers ordinary directed and nearest rounding, but cannot establish an exact rounding mode.",
+    "Composite reconstruction currently supports black RGB and all valid sky markers only; mixed-depth fallback requires a separate oracle.",
+    "Any nonzero UV uncertainty must be independently measured or justified by the GPU precision contract, not chosen to make a failed test pass."
+  ]
+}

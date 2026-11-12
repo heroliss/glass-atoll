@@ -1,0 +1,150 @@
+{
+  "schema": "glass-atoll.r30-main-bridge-independent-cpu.v1",
+  "dateUTC": "2026-10-29T17:57:50.729Z",
+  "passed": true,
+  "actualGPU": false,
+  "browserUsed": false,
+  "nativeContextAccess": false,
+  "mainSHA": "2a29fe755d7b8f5f7a7fe5398c30de9fa737192629f9d82ae081cfb49e4602b5",
+  "bridgeSHA": "c1fdde519b7868c0d20a1a9ade83d1d6d50a7a4d5a299c3a3be0fb8926f4bf5f",
+  "hookTransformedSHA": "4a4f0d33d2fe42fc434e4322dd209abd32dca7de6c2d7e4d9c79331dce9ccce3",
+  "scope": "Actual extracted main bridge and hook with CPU spies only; hook imports are replaced by CPU stubs. No native framebuffer identity, pixel, live GL, or temporal-history equivalence proof",
+  "summary": {
+    "passed": 9,
+    "total": 9
+  },
+  "results": [
+    {
+      "name": "actual bridge success: semantic target, original identity, dimensions, and interactivity restore without rendering",
+      "passed": true,
+      "evidence": {
+        "draws": 0,
+        "targetObjectPreserved": true,
+        "physicalStorageRebuilt": true,
+        "historyIdentityClaim": false,
+        "steps": [
+          "pair.assertReady",
+          "CPU context stub",
+          "cloud decoration",
+          "indirect decoration",
+          "local light decoration",
+          "bind default target",
+          "detach HDR",
+          "setDrawingBufferSize",
+          "drawingBufferStorage",
+          "water.resize",
+          "lens.setSize",
+          "history invalidate",
+          "detach HDR",
+          "bind default target",
+          "setDrawingBufferSize",
+          "water.resize",
+          "lens.setSize",
+          "drawingBufferStorage",
+          "radiometry.update",
+          "lens.setFrameExposure",
+          "history invalidate",
+          "bind original semantic target",
+          "reconnect HDR"
+        ]
+      }
+    },
+    {
+      "name": "partial install failure before rig swap rolls back original state",
+      "passed": true,
+      "evidence": {
+        "draws": 0,
+        "originalRefs": true,
+        "rigParentAndSiblingPreserved": true
+      }
+    },
+    {
+      "name": "partial install drawing-buffer failure still has an installed rollback lease",
+      "passed": true,
+      "evidence": {
+        "draws": 0,
+        "originalRefs": true
+      }
+    },
+    {
+      "name": "restore dimension and target exceptions are reported while remaining cleanup continues",
+      "passed": true,
+      "evidence": {
+        "draws": 0,
+        "stages": [
+          "restore drawing-buffer dimensions",
+          "restore lens dimensions",
+          "rebind original Three target using fresh storage"
+        ],
+        "cleanupCompleted": true,
+        "retryDoesNotRerun": true
+      }
+    },
+    {
+      "name": "current resized viewport is preserved instead of restoring obsolete dimensions",
+      "passed": true,
+      "evidence": {
+        "draws": 0,
+        "logical": [
+          900,
+          600
+        ],
+        "ratio": 1.65,
+        "waterSize": [
+          1188,
+          792
+        ],
+        "cameraAspect": 1.5
+      }
+    },
+    {
+      "name": "fingerprint excludes only automatic derived peak while tracking new intent and scene changes",
+      "passed": true,
+      "evidence": {
+        "derivedPeakIgnored": true,
+        "newIntentAndEpochTracked": true,
+        "draws": 0
+      }
+    },
+    {
+      "name": "actual hook rejects busy and changed loading state before installing any private scene",
+      "passed": true,
+      "evidence": {
+        "draws": 0,
+        "mutationPreserved": true,
+        "loadingRaceRejected": true
+      }
+    },
+    {
+      "name": "actual hook successful helper restores first then separately presents original scene",
+      "passed": true,
+      "evidence": {
+        "events": [
+          "load",
+          "load",
+          "load",
+          "bridge create",
+          "measured helper",
+          "bridge restore",
+          "original air",
+          "original photometry",
+          "original air",
+          "original water presentation",
+          "original lens presentation",
+          "clock drain"
+        ],
+        "originalPresentationIncludedInMeasurement": false
+      }
+    },
+    {
+      "name": "actual hook failed helper or restoration freezes paused presentation and releases its lock",
+      "passed": true,
+      "evidence": {
+        "draws": 0,
+        "failureVariants": 3,
+        "originalPresentationSkipped": true,
+        "lockReleased": true
+      }
+    }
+  ]
+}

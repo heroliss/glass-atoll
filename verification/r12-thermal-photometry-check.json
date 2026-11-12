@@ -1,0 +1,188 @@
+{
+  "schema": "glass-atoll.r12-thermal-photometry-check.v1",
+  "dateUTC": "2026-10-28T05:24:12.851Z",
+  "actualGPU": false,
+  "sourceSHA256": "bb6a0080f34d714379eb860a45f1e595c2d82241fb62cd04dfb4cb2b601b949b",
+  "baselineSHA256": "cc864bf4cbfee0739362bc3b3770e0d8a2840238afe989b4c8815170660724e6",
+  "counts": {
+    "passed": 12,
+    "total": 12
+  },
+  "passed": true,
+  "checks": [
+    {
+      "name": "exact scoped inverse restores frozen R11 CC source and protects out-of-scope changes",
+      "passed": true,
+      "evidence": {
+        "scopes": 8,
+        "baselineSHA256": "cc864bf4cbfee0739362bc3b3770e0d8a2840238afe989b4c8815170660724e6"
+      }
+    },
+    {
+      "name": "fixed profile pure API gives finite spherical projected-area candela and rejects invalid radius",
+      "passed": true,
+      "evidence": {
+        "radiiMm": [
+          1,
+          2,
+          3
+        ],
+        "candela": [
+          61.00240677597138,
+          244.00962710388552,
+          549.0216609837424
+        ],
+        "luminanceCdPerM2": 19417669.15779675,
+        "reference4CdScaleAt2mm": 61.00240677597138
+      }
+    },
+    {
+      "name": "independent SI Planck oracle plus official CIE V dataset quantify analytic-fit approximation",
+      "passed": true,
+      "evidence": {
+        "officialDatasetSHA256": "ee5d5d17922ae645d4af52cacf6a50bdb9385749f9d2181ca312eb2b08febac2",
+        "officialDatasetLicence": "CC BY-SA4.0, CIE2019 DOI10.25039/CIE.DS.dktna2s3; QA only",
+        "officialV2850Luminance": 19385166.94636898,
+        "analyticFit2850Luminance": 19417669.157796744,
+        "relativeFitToOfficialError": 0.0016766536763750395,
+        "acceptanceRelativeTolerance": 0.01,
+        "scope": "SI integration and approximate CIE fit only, not measured firework temperatures/candela; standard-air wavelength is treated as vacuum here."
+      }
+    },
+    {
+      "name": "reference default all ten types and six physical phases remain complete bit-exact R11",
+      "passed": true,
+      "evidence": {
+        "cases": 60,
+        "records": 18363
+      }
+    },
+    {
+      "name": "candidate scales complete native thermal body allocation only, preserving every other record field and event",
+      "passed": true,
+      "evidence": {
+        "cases": 50,
+        "thermal": 8505,
+        "coloured": 9428,
+        "thermalLookingColouredTailsRetained": 6347,
+        "factor": 61.00240677597138
+      }
+    },
+    {
+      "name": "configured radius changes only area-squared thermal scale and works with existing colour cooling and I0/I64",
+      "passed": true,
+      "evidence": {
+        "records": 7040,
+        "scales": [
+          0,
+          0.2,
+          1,
+          64
+        ],
+        "colourMode": "cooling unchanged",
+        "radiusSquared": true
+      }
+    },
+    {
+      "name": "paused mode switch invalidates ledger cluster and radiance budgets and exact reference roundtrip",
+      "passed": true,
+      "evidence": {
+        "ledgerSources": 1760,
+        "versions": [
+          1,
+          2
+        ],
+        "samePhysicalTime": 7.975024273694912
+      }
+    },
+    {
+      "name": "invalid mode radius and combined physics patches reject before observable state or photon changes",
+      "passed": true,
+      "evidence": {
+        "invalidPatches": 13
+      }
+    },
+    {
+      "name": "framing source read is a deep immutable current all-source copy and has no temporal or ledger side effects",
+      "passed": true,
+      "evidence": {
+        "sources": 1584,
+        "ledgerReferenceUnchanged": true
+      }
+    },
+    {
+      "name": "main and mirror upload unmodulated intensity once through the unchanged shader and preserve geometry/RGB",
+      "passed": true,
+      "evidence": {
+        "views": 2,
+        "intensityScale": 61.00240677597138,
+        "scope": "CPU upload/unchangedshader check, not actual GPU/appearance"
+      }
+    },
+    {
+      "name": "actual R11 willow reference cluster predicts weak illumination and greybody changes only source scale",
+      "passed": true,
+      "evidence": {
+        "actualCapturedCluster": {
+          "color": [
+            1.8277674763872391,
+            0.8316207499306238,
+            0.23049133199015817
+          ],
+          "colour": [
+            1.8277674763872391,
+            0.8316207499306238,
+            0.23049133199015817
+          ],
+          "eventId": "42-0.07510",
+          "illuminationModel": "intensity-weighted spatial-moment finite-radius point proxy; not exact area emission",
+          "intensity": 562.8822301505062,
+          "kind": "fireworks diffuse cluster",
+          "maxExtent": 33.34890662838056,
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "position": [
+            98.62102824548025,
+            187.98237843076788,
+            24.84763427211002
+          ],
+          "radius": 28.0459065826075,
+          "referenceCandela": 562.8822301505062,
+          "rmsRadius": 28.0459065826075
+        },
+        "distanceToIslandCentreMetres": 213.73087456332735,
+        "horizontalPlaneReferenceLuxBeforeCut": 0.01083759431785304,
+        "native280mCut": 0.43626319576445344,
+        "groundReferenceLuxAfterCut": 0.004728043531505249,
+        "authoredWhiteSandAlbedo": 0.8,
+        "preTonemapLinearSDRAtC16p5": 0.0030530407588765626,
+        "greybody2mmPredictedReferenceLux": 0.28842203476338346,
+        "greybody2mmPredictedPreTonemapLinearSDR": 0.18624283427660843,
+        "scope": "Capturedactualcluster+analyticlocalformula, no shadow/BRDF/texture/GL claim; not realfireworklux calibration"
+      }
+    },
+    {
+      "name": "protected physics matter audio radiometry and source files remain byte-identical",
+      "passed": true,
+      "evidence": {
+        "fireworks-physics.js": "dc5de6b1a11a3e1a70d7342d3bdacc5813ab0f66e426f622d6e287991b4af87a",
+        "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+        "scene-radiometry.js": "f942645604dae00fe6ad713c605ad38509bf71cf7fbf10fe5e28b904eb5bf66d",
+        "local-lights.js": "c3199796173a445a48f0823b9166c1df416cc9ccb899519cd458df4b38ea97d9",
+        "pyro-smoke.js": "01c4c66e15579f429e472a0089fda9f5ba1f17d782d3cd63d69a226b30225a89",
+        "pyro-smoke-state.js": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+        "pyro-smoke-logical-burn.js": "235dff6244215b5a599d3d80ea93321ccacefb8d690a07813f0c25b827800a15",
+        "pyro-smoke-logical-events.js": "5f7bf8b0d311f9cdac938b18612b9ff16b5c80fa26330a20d79e9e44661a1837"
+      }
+    }
+  ],
+  "limits": [
+    "Explicit authored greybody effective emitting area; not measured firework radiance, combustion/heat transfer or calibrated display.",
+    "Default reference mode retains complete prior rendering values; this does not prove performance or full visual acceptance.",
+    "OfficialCIEVdata is QA-only and attributedCCBYSA4.0; runtime uses the already shared analyticCIEYfit and treats wavelength asvacuum.",
+    "No new burst flash and no chemical line-emitter photometry were introduced; colouredhead bodies and their inherited tails retain referenceI."
+  ]
+}

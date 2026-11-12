@@ -1,0 +1,213 @@
+{
+  "schema": "glass-atoll.r12-tick-independent-audit.v1",
+  "dateUTC": "2026-10-28T08:01:54.594Z",
+  "actualGPU": false,
+  "hostIntegrated": false,
+  "sourceFreeze": {
+    "pyro-smoke-tick-state.js": "bcd8ed7ef9cf57a8bf16ffd9ee3c44b438e63c9315a91b774e9e074461178143",
+    "pyro-smoke-tick-math.js": "6e3555048c9fe43aa0815f60e27ce3968ebbce877b7379f3f2432c02591ad46a",
+    "pyro-smoke-merge-graph.js": "15ab4a6e6789ff1b4352146b70ac5259dff13c70aabc774aaae1f1893e28f0e7",
+    "pyro-smoke-state.js": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+    "fireworks.js": "bb6a0080f34d714379eb860a45f1e595c2d82241fb62cd04dfb4cb2b601b949b",
+    "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+  },
+  "counts": {
+    "passed": 18,
+    "total": 18
+  },
+  "passed": true,
+  "checks": [
+    {
+      "name": "protected actual legacy and accepted audio/FW source hashes remain frozen",
+      "passed": true,
+      "evidence": {
+        "pyro-smoke-tick-state.js": "bcd8ed7ef9cf57a8bf16ffd9ee3c44b438e63c9315a91b774e9e074461178143",
+        "pyro-smoke-tick-math.js": "6e3555048c9fe43aa0815f60e27ce3968ebbce877b7379f3f2432c02591ad46a",
+        "pyro-smoke-merge-graph.js": "15ab4a6e6789ff1b4352146b70ac5259dff13c70aabc774aaae1f1893e28f0e7",
+        "pyro-smoke-state.js": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+        "fireworks.js": "bb6a0080f34d714379eb860a45f1e595c2d82241fb62cd04dfb4cb2b601b949b",
+        "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+      }
+    },
+    {
+      "name": "iterator-bearing indexed mean is either atomically rejected or copied as exactly three finite values",
+      "passed": true,
+      "evidence": {
+        "iteratorYieldCount": 2,
+        "declaredLength": 3,
+        "rejected": false
+      }
+    },
+    {
+      "name": "iterator-bearing indexed wind is either atomically rejected or copied as exactly three finite values",
+      "passed": true,
+      "evidence": {
+        "iteratorYieldCount": 2,
+        "rejected": false
+      }
+    },
+    {
+      "name": "iterator-bearing indexed covariance is either atomically rejected or copied as exactly nine finite values",
+      "passed": true,
+      "evidence": {
+        "declaredLength": 9,
+        "iteratorYieldCount": 10,
+        "rejected": false
+      }
+    },
+    {
+      "name": "revised indexed contract never reads iterator hooks and captures source/profile getters once",
+      "passed": true,
+      "evidence": {
+        "iteratorReads": 0,
+        "sourceReads": 1,
+        "albedoReads": 1
+      }
+    },
+    {
+      "name": "hostile getters iterators and coercions see old C plus Q and cannot reenter mutators",
+      "passed": true,
+      "evidence": {
+        "callbacks": [
+          "time",
+          "emissionId",
+          "profileId",
+          "sourceId",
+          "mass",
+          "mean",
+          "covariance",
+          "temperatureExcessK",
+          "buoyantVelocity",
+          "toString",
+          "indexed-value",
+          "wind-time"
+        ]
+      }
+    },
+    {
+      "name": "all public snapshots profiles diagnostics failures and query results are detached copies",
+      "passed": true,
+      "evidence": {
+        "copiedPackets": 1,
+        "mergedDiagnostics": true
+      }
+    },
+    {
+      "name": "wind at emission time wins before later transport, same-clock replacement is bounded LWW",
+      "passed": true,
+      "evidence": {
+        "firstTransport": 0.075,
+        "secondTransport": 0.275
+      }
+    },
+    {
+      "name": "ordinary numeric transport failure atomically retains tick1 and pending birth, can recover using same-clock wind",
+      "passed": true,
+      "evidence": {
+        "retainedTime": 0.05
+      }
+    },
+    {
+      "name": "ordinary numeric failure recovery preserves accepted IDs and material exactly once",
+      "passed": true,
+      "evidence": {
+        "airborne": 0.201,
+        "sourceIds": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "name": "successful zero-time commit survives later failed tick with exact per-call telemetry",
+      "passed": true,
+      "evidence": {
+        "retainedSameClockMass": 0.1,
+        "retryMass": 0.201
+      }
+    },
+    {
+      "name": "failed late stage after evolution and merge leaves dirty committed kernels observationally unchanged",
+      "passed": true,
+      "evidence": {
+        "retainedQueue": 10,
+        "rollbackIncludesCovarianceAndKernels": true
+      }
+    },
+    {
+      "name": "graph every selected edge equals independent full rebuild through ties negative IDs mixed profiles and null sources",
+      "passed": true,
+      "evidence": {
+        "runs": 180,
+        "merges": 4144,
+        "selections": 44528,
+        "rebuildConstrained": 2570
+      }
+    },
+    {
+      "name": "valid bounded profile/source identifiers containing NUL preserve tuple source grouping",
+      "passed": true,
+      "evidence": {
+        "tuples": 14
+      }
+    },
+    {
+      "name": "same explicit fence protocol matches frozen67fa naive batch under future out-of-ID-time births and variable wind",
+      "passed": true,
+      "evidence": {
+        "cases": 12,
+        "origins": [
+          0,
+          4000
+        ],
+        "sameFenceProtocol": true
+      }
+    },
+    {
+      "name": "actual G4 accepted-prefix before and after-accept faults clear all pending matter and IDs remain monotonic",
+      "passed": true,
+      "evidence": {
+        "cases": 2,
+        "coverage": "actual palm prefix then ground fan, clear at source causal watermark, no host/renderer"
+      }
+    },
+    {
+      "name": "actual G4 crossette includes parent and child matter and ground bouquet closes its source budget",
+      "passed": true,
+      "evidence": [
+        {
+          "type": "crossette",
+          "children": 144,
+          "bodies": 180,
+          "emissions": 1625,
+          "mass": 20.349999999999994
+        },
+        {
+          "type": "bouquet",
+          "children": 0,
+          "bodies": 104,
+          "emissions": 970,
+          "mass": 2.0000000000000018
+        }
+      ]
+    },
+    {
+      "name": "all captured production/legacy/audio/FW sources remain byte-identical throughout independent audit",
+      "passed": true,
+      "evidence": {
+        "pyro-smoke-tick-state.js": "bcd8ed7ef9cf57a8bf16ffd9ee3c44b438e63c9315a91b774e9e074461178143",
+        "pyro-smoke-tick-math.js": "6e3555048c9fe43aa0815f60e27ce3968ebbce877b7379f3f2432c02591ad46a",
+        "pyro-smoke-merge-graph.js": "15ab4a6e6789ff1b4352146b70ac5259dff13c70aabc774aaae1f1893e28f0e7",
+        "pyro-smoke-state.js": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+        "fireworks.js": "bb6a0080f34d714379eb860a45f1e595c2d82241fb62cd04dfb4cb2b601b949b",
+        "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+      }
+    }
+  ],
+  "limits": [
+    "Independent contract-focused additional tests; not all native6291 cells or a fresh GPU/performance acceptance run.",
+    "Frozen67fa naive oracle is only compared after identical explicit fences; its immediate pre-fence density is not used as the candidate contract.",
+    "Production fault probes are compiled in memory; no production callback or source edits.",
+    "Malformed iterable and NUL-identifier tests exercise inputs accepted by current declared bounded numeric/string domains, not the normal native source output."
+  ]
+}

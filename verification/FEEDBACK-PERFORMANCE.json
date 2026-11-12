@@ -1,0 +1,2811 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-26T05:26:24.360392+00:00",
+  "kind": "Independent continuous complete one-second rAF callback count audit",
+  "method": {
+    "event": "render-loop rAF callback frameStart, not hardware presentation timestamp",
+    "reconstruction": "N raw intervals -> N+1 known event times, t0=0, ti=cumulative sum; absolute t0=raw.previous-sum(intervals).",
+    "window": "All complete (s,s+1000ms] within t0..tN; left excluded/right included; callback count divided by exactly 1 second.",
+    "minimum": "Evaluate every valid left-exit event plus domain endpoints; independently direct-count every left-exit/right-entry breakpoint and all adjacent midpoints.",
+    "edges": "Do not extrapolate or zero-pad unknown head/tail; 1 FPS integer quantization.",
+    "quantile": "Sorted original values at floor(p*(N-1)), including GPU samples.",
+    "slow": "Strictly >1000/60 ms; 16.667 is only a rounded label.",
+    "average": "len(raw.frameIntervals)/recording elapsedSeconds, matching source; known-interval-span alternative retained.",
+    "gpu": "Stats recomputed from raw.gpuTimes; queries cover samples, are not hardware present/cadence, and are fewer than rAF callbacks."
+  },
+  "syntheticBoundaryChecks": [
+    {
+      "name": "uniform 100Hz",
+      "minimum": 100,
+      "expected": 100
+    },
+    {
+      "name": "1100ms gap",
+      "minimum": 0,
+      "expected": 0
+    },
+    {
+      "name": "right boundary included",
+      "minimum": 1,
+      "expected": 1
+    }
+  ],
+  "datasets": [
+    {
+      "label": "冻结版远景 native",
+      "versionScope": "final",
+      "sourceFile": "render-benchmark-feedback-far-final.json",
+      "sourceSha256": "b23a92e2ce304bf9c7e7f675862a45719229cce26a7545c7d67c9da1f4f97480",
+      "sourceDate": "2026-10-26T05:24:21.329Z",
+      "recordingElapsedSeconds": 12.002599999904632,
+      "frameIntervalCount": 1035,
+      "averageFps": 86.23131654876642,
+      "averageFpsOverKnownIntervals": 86.35362434904728,
+      "rafMs": {
+        "count": 1035,
+        "mean": 11.580289855095499,
+        "median": 11.300000071525574,
+        "p95": 21.600000023841854,
+        "p99": 23.299999952316284,
+        "maximum": 25.5,
+        "minimum": 2.899999976158142
+      },
+      "gpuMs": {
+        "count": 1030,
+        "mean": 10.964552427184465,
+        "median": 10.865,
+        "p95": 12.284,
+        "p99": 12.857,
+        "maximum": 13.886,
+        "minimum": 9.405
+      },
+      "slowFrameThresholdMs": 16.666666666666668,
+      "slowFrameCount": 174,
+      "slowFrameFraction": 0.1681159420289855,
+      "slowFramePercent": 16.81159420289855,
+      "rollingOneSecond": {
+        "minimumFps": 82,
+        "firstWorstWindowMs": [
+          5717.600000023842,
+          6717.600000023842
+        ],
+        "observedSpanMs": 11985.600000023842,
+        "eventCount": 1036,
+        "candidateCount": 951,
+        "audit": {
+          "breakpoints": 1886,
+          "positions": 3771,
+          "minimumFps": 82,
+          "agrees": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 86223.29999995232,
+        "lastKnownFramePerformanceNowMs": 98208.89999997616,
+        "unknownHeadMs": 8.799999952316284,
+        "unknownTailMs": 8.199999928474426
+      },
+      "initial": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -203.8835761680253,
+          98.74855091481356,
+          11.266633642271932
+        ],
+        "target": [
+          -2.4671,
+          -12.0603,
+          4.0006
+        ],
+        "sun": {
+          "azimuth": 95,
+          "elevation": 8,
+          "intensity": 0.4
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.999107188338299,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 0.0003426053177986871,
+        "cloudOffsetMetres": [
+          269.54452584146804,
+          101.36717211132137
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": false,
+          "dof": true,
+          "exposure": 0,
+          "focal": 35,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 229.9999859954272,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [],
+          "enabled": false,
+          "lastGpuMs": null,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": null
+        }
+      },
+      "final": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -203.8835761680253,
+          98.74855091481356,
+          11.266633642271932
+        ],
+        "target": [
+          -2.4671,
+          -12.0603,
+          4.0006
+        ],
+        "sun": {
+          "azimuth": 95,
+          "elevation": 8,
+          "intensity": 0.4
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.999999832965171,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 0.0003426053177986871,
+        "cloudOffsetMetres": [
+          359.4435975838241,
+          135.17537003152435
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": false,
+          "dof": true,
+          "exposure": 0,
+          "focal": 35,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 229.9999859954272,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [],
+          "enabled": false,
+          "lastGpuMs": null,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": null
+        }
+      },
+      "consistency": {
+        "count": true,
+        "average": true,
+        "p95": true,
+        "p99": true,
+        "slowCount": true,
+        "gpuMean": true,
+        "gpuP95": true,
+        "gpuP99": true,
+        "rollingAudit": true,
+        "knownTimelineInsideRecording": true
+      }
+    },
+    {
+      "label": "冻结版远景 auto（预热后）",
+      "versionScope": "final",
+      "sourceFile": "render-benchmark-feedback-far-auto.json",
+      "sourceSha256": "be47392f969d045f4c626a4806fe5a7e26cc026e9158b9f9505e546a6759c65b",
+      "sourceDate": "2026-10-26T05:25:07.740Z",
+      "recordingElapsedSeconds": 10.000200000047684,
+      "frameIntervalCount": 1074,
+      "averageFps": 107.39785204244703,
+      "averageFpsOverKnownIntervals": 107.50965985228035,
+      "rafMs": {
+        "count": 1074,
+        "mean": 9.301489757980937,
+        "median": 9.099999904632568,
+        "p95": 16.100000023841858,
+        "p99": 18,
+        "maximum": 28.90000009536743,
+        "minimum": 2.8000000715255737
+      },
+      "gpuMs": {
+        "count": 1069,
+        "mean": 8.674387277829748,
+        "median": 8.639,
+        "p95": 9.828,
+        "p99": 10.345,
+        "maximum": 11.225,
+        "minimum": 7.413
+      },
+      "slowFrameThresholdMs": 16.666666666666668,
+      "slowFrameCount": 38,
+      "slowFrameFraction": 0.035381750465549346,
+      "slowFramePercent": 3.5381750465549344,
+      "rollingOneSecond": {
+        "minimumFps": 105,
+        "firstWorstWindowMs": [
+          518.8000000715256,
+          1518.8000000715256
+        ],
+        "observedSpanMs": 9989.800000071526,
+        "eventCount": 1075,
+        "candidateCount": 969,
+        "audit": {
+          "breakpoints": 1921,
+          "positions": 3841,
+          "minimumFps": 105,
+          "agrees": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 134637.09999990463,
+        "lastKnownFramePerformanceNowMs": 144626.89999997616,
+        "unknownHeadMs": 8.899999976158142,
+        "unknownTailMs": 1.5
+      },
+      "initial": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          991,
+          1008
+        ],
+        "renderScale": 0.78,
+        "camera": [
+          -203.8835761680253,
+          98.74855091481356,
+          11.266633642271932
+        ],
+        "target": [
+          -2.4671,
+          -12.0603,
+          4.0006
+        ],
+        "sun": {
+          "azimuth": 95,
+          "elevation": 8,
+          "intensity": 0.4
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.999999999999971,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 0.0008623506849885609,
+        "cloudOffsetMetres": [
+          632.1310980337711,
+          237.72451549988185
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": true,
+          "dof": true,
+          "exposure": 0,
+          "focal": 35,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 229.9999859954272,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "EASU 12-tap + RCAS 5-tap",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [
+            {
+              "costMs": 10.71,
+              "reason": "frame pacing",
+              "scale": 0.92,
+              "seconds": 8.84
+            },
+            {
+              "costMs": 10.2,
+              "reason": "frame pacing",
+              "scale": 0.85,
+              "seconds": 13.63
+            },
+            {
+              "costMs": 9.36,
+              "reason": "frame pacing",
+              "scale": 0.78,
+              "seconds": 18.44
+            }
+          ],
+          "enabled": true,
+          "lastGpuMs": 8.994,
+          "minimumScale": 0.6,
+          "scale": 0.78,
+          "slowFrameFraction": 0.008333333333333333,
+          "smoothedCostMs": 8.72182529466807
+        }
+      },
+      "final": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          991,
+          1008
+        ],
+        "renderScale": 0.78,
+        "camera": [
+          -203.8835761680253,
+          98.74855091481356,
+          11.266633642271932
+        ],
+        "target": [
+          -2.4671,
+          -12.0603,
+          4.0006
+        ],
+        "sun": {
+          "azimuth": 95,
+          "elevation": 8,
+          "intensity": 0.4
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.999999999999972,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 0.0032240856131814477,
+        "cloudOffsetMetres": [
+          707.0215812335867,
+          265.88845789981275
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": true,
+          "dof": true,
+          "exposure": 0,
+          "focal": 35,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 229.9999859954272,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "EASU 12-tap + RCAS 5-tap",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [
+            {
+              "costMs": 10.71,
+              "reason": "frame pacing",
+              "scale": 0.92,
+              "seconds": 8.84
+            },
+            {
+              "costMs": 10.2,
+              "reason": "frame pacing",
+              "scale": 0.85,
+              "seconds": 13.63
+            },
+            {
+              "costMs": 9.36,
+              "reason": "frame pacing",
+              "scale": 0.78,
+              "seconds": 18.44
+            }
+          ],
+          "enabled": true,
+          "lastGpuMs": 8.751,
+          "minimumScale": 0.6,
+          "scale": 0.78,
+          "slowFrameFraction": 0.008333333333333333,
+          "smoothedCostMs": 8.731727879840063
+        }
+      },
+      "consistency": {
+        "count": true,
+        "average": true,
+        "p95": true,
+        "p99": true,
+        "slowCount": true,
+        "gpuMean": true,
+        "gpuP95": true,
+        "gpuP99": true,
+        "rollingAudit": true,
+        "knownTimelineInsideRecording": true
+      }
+    },
+    {
+      "label": "冻结版正午海岛",
+      "versionScope": "final",
+      "sourceFile": "render-benchmark-feedback-noon-final.json",
+      "sourceSha256": "aad7f378bb98ed1d195b0f45b3f3ffa6ca6d6651dbde8779403211db2caf3b7f",
+      "sourceDate": "2026-10-26T05:23:49.042Z",
+      "recordingElapsedSeconds": 10.000899999976156,
+      "frameIntervalCount": 1210,
+      "averageFps": 120.98911098030027,
+      "averageFpsOverKnownIntervals": 121.08112435389447,
+      "rafMs": {
+        "count": 1210,
+        "mean": 8.258925619795303,
+        "median": 7.899999976158142,
+        "p95": 14,
+        "p99": 15.399999976158142,
+        "maximum": 19.899999976158146,
+        "minimum": 2.700000047683716
+      },
+      "gpuMs": {
+        "count": 1205,
+        "mean": 7.629882987551867,
+        "median": 7.453,
+        "p95": 9.347,
+        "p99": 9.994,
+        "maximum": 10.785,
+        "minimum": 6.357
+      },
+      "slowFrameThresholdMs": 16.666666666666668,
+      "slowFrameCount": 4,
+      "slowFrameFraction": 0.003305785123966942,
+      "slowFramePercent": 0.3305785123966942,
+      "rollingOneSecond": {
+        "minimumFps": 118,
+        "firstWorstWindowMs": [
+          1042.8999999761581,
+          2042.8999999761581
+        ],
+        "observedSpanMs": 9993.299999952316,
+        "eventCount": 1211,
+        "candidateCount": 1092,
+        "audit": {
+          "breakpoints": 2155,
+          "positions": 4309,
+          "minimumFps": 118,
+          "agrees": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 55933.799999952316,
+        "lastKnownFramePerformanceNowMs": 65927.09999990463,
+        "unknownHeadMs": 4.899999976158142,
+        "unknownTailMs": 2.700000047683716
+      },
+      "initial": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -48,
+          12.000000000000004,
+          -40.00000000000001
+        ],
+        "target": [
+          0,
+          2.5,
+          0
+        ],
+        "sun": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "windTarget": 1.8,
+        "effectiveWind": 1.8,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 1,
+        "cloudOffsetMetres": [
+          139.72518144000364,
+          52.5462220800013
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 8,
+          "automatic": true,
+          "dof": false,
+          "exposure": 0,
+          "focal": 28,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 63.20007911387454,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [],
+          "enabled": true,
+          "lastGpuMs": 7.699,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0.016666666666666666,
+          "smoothedCostMs": 7.27695131306249
+        }
+      },
+      "final": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -48,
+          12.000000000000004,
+          -40.00000000000001
+        ],
+        "target": [
+          0,
+          2.5,
+          0
+        ],
+        "sun": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "windTarget": 1.8,
+        "effectiveWind": 1.8,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 1,
+        "cloudOffsetMetres": [
+          166.6825205758128,
+          62.684024831929406
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 8,
+          "automatic": true,
+          "dof": false,
+          "exposure": 0,
+          "focal": 28,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 63.20007911387454,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [],
+          "enabled": true,
+          "lastGpuMs": 8.307,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": 7.664590452502516
+        }
+      },
+      "consistency": {
+        "count": true,
+        "average": true,
+        "p95": true,
+        "p99": true,
+        "slowCount": true,
+        "gpuMean": true,
+        "gpuP95": true,
+        "gpuP99": true,
+        "rollingAudit": true,
+        "knownTimelineInsideRecording": true
+      }
+    },
+    {
+      "label": "冻结版地平线可见积云",
+      "versionScope": "final",
+      "sourceFile": "render-benchmark-feedback-dense-sky-final.json",
+      "sourceSha256": "7427343bcd67b7f57a643189f1b6d6dfb696a552addb1da159ccf01d2fa28f2b",
+      "sourceDate": "2026-10-26T05:25:43.209Z",
+      "recordingElapsedSeconds": 10.00660000002384,
+      "frameIntervalCount": 1174,
+      "averageFps": 117.32256710543072,
+      "averageFpsOverKnownIntervals": 117.37652469506098,
+      "rafMs": {
+        "count": 1174,
+        "mean": 8.519591141396933,
+        "median": 8.099999904632568,
+        "p95": 14.5,
+        "p99": 16.799999952316284,
+        "maximum": 21.199999928474423,
+        "minimum": 2.5
+      },
+      "gpuMs": {
+        "count": 1169,
+        "mean": 7.880970915312233,
+        "median": 7.611,
+        "p95": 9.802,
+        "p99": 10.512,
+        "maximum": 11.757,
+        "minimum": 6.372
+      },
+      "slowFrameThresholdMs": 16.666666666666668,
+      "slowFrameCount": 15,
+      "slowFrameFraction": 0.012776831345826235,
+      "slowFramePercent": 1.2776831345826234,
+      "rollingOneSecond": {
+        "minimumFps": 114,
+        "firstWorstWindowMs": [
+          4248.799999952316,
+          5248.799999952316
+        ],
+        "observedSpanMs": 10002,
+        "eventCount": 1175,
+        "candidateCount": 1057,
+        "audit": {
+          "breakpoints": 2094,
+          "positions": 4187,
+          "minimumFps": 114,
+          "agrees": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 170094.39999997616,
+        "lastKnownFramePerformanceNowMs": 180096.39999997616,
+        "unknownHeadMs": 3.700000047683716,
+        "unknownTailMs": 0.8999999761581421
+      },
+      "initial": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -47.99999999999999,
+          12.000000000000002,
+          -40
+        ],
+        "target": [
+          0,
+          2.5,
+          0
+        ],
+        "sun": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.999999999999977,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.9,
+          "humidity": 0.95,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 1800
+        },
+        "actualCloudCoverage": 0.8999761793331914,
+        "cloudTransmissionAtIsland": 1,
+        "cloudOffsetMetres": [
+          895.3110852335286,
+          336.69818589982054
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": true,
+          "dof": false,
+          "exposure": 0,
+          "focal": 28,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 63.20007911387453,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [
+            {
+              "costMs": 10.71,
+              "reason": "frame pacing",
+              "scale": 0.92,
+              "seconds": 8.84
+            },
+            {
+              "costMs": 10.2,
+              "reason": "frame pacing",
+              "scale": 0.85,
+              "seconds": 13.63
+            },
+            {
+              "costMs": 9.36,
+              "reason": "frame pacing",
+              "scale": 0.78,
+              "seconds": 18.44
+            }
+          ],
+          "enabled": true,
+          "lastGpuMs": 8.245,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": 7.447913855426923
+        }
+      },
+      "final": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -47.99999999999999,
+          12.000000000000002,
+          -40
+        ],
+        "target": [
+          0,
+          2.5,
+          0
+        ],
+        "sun": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.999999999999977,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.9,
+          "humidity": 0.95,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 1800
+        },
+        "actualCloudCoverage": 0.8999995651031681,
+        "cloudTransmissionAtIsland": 1,
+        "cloudOffsetMetres": [
+          970.2509892335172,
+          364.8807138998223
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": true,
+          "dof": false,
+          "exposure": 0,
+          "focal": 28,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 63.20007911387453,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [
+            {
+              "costMs": 10.71,
+              "reason": "frame pacing",
+              "scale": 0.92,
+              "seconds": 8.84
+            },
+            {
+              "costMs": 10.2,
+              "reason": "frame pacing",
+              "scale": 0.85,
+              "seconds": 13.63
+            },
+            {
+              "costMs": 9.36,
+              "reason": "frame pacing",
+              "scale": 0.78,
+              "seconds": 18.44
+            }
+          ],
+          "enabled": true,
+          "lastGpuMs": 7.158,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0.008333333333333333,
+          "smoothedCostMs": 7.80762381036275
+        }
+      },
+      "consistency": {
+        "count": true,
+        "average": true,
+        "p95": true,
+        "p99": true,
+        "slowCount": true,
+        "gpuMean": true,
+        "gpuP95": true,
+        "gpuP99": true,
+        "rollingAudit": true,
+        "knownTimelineInsideRecording": true
+      }
+    },
+    {
+      "label": "早期远景 native",
+      "versionScope": "historical",
+      "sourceFile": "render-benchmark-feedback-far-native.json",
+      "sourceSha256": "364f005ca253667c39c98cdffae71d14ea2cfcc8d4f46111c8f17c05699fc211",
+      "sourceDate": "2026-10-26T04:43:11.803Z",
+      "recordingElapsedSeconds": 12.0005,
+      "frameIntervalCount": 662,
+      "averageFps": 55.164368151327025,
+      "averageFpsOverKnownIntervals": 55.247235551846444,
+      "rafMs": {
+        "count": 662,
+        "mean": 18.100453172205437,
+        "median": 17.600000023841858,
+        "p95": 34.59999990463257,
+        "p99": 38,
+        "maximum": 113.20000004768372,
+        "minimum": 3.899999976158142
+      },
+      "gpuMs": {
+        "count": 656,
+        "mean": 17.07883536585366,
+        "median": 17.116,
+        "p95": 19.054,
+        "p99": 19.762,
+        "maximum": 22.861,
+        "minimum": 11.014
+      },
+      "slowFrameThresholdMs": 16.666666666666668,
+      "slowFrameCount": 394,
+      "slowFrameFraction": 0.595166163141994,
+      "slowFramePercent": 59.516616314199396,
+      "rollingOneSecond": {
+        "minimumFps": 52,
+        "firstWorstWindowMs": [
+          931.6000000238419,
+          1931.6000000238419
+        ],
+        "observedSpanMs": 11982.5,
+        "eventCount": 663,
+        "candidateCount": 608,
+        "audit": {
+          "breakpoints": 1210,
+          "positions": 2419,
+          "minimumFps": 52,
+          "agrees": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 106948.59999990465,
+        "lastKnownFramePerformanceNowMs": 118931.09999990465,
+        "unknownHeadMs": 15.899999976172694,
+        "unknownTailMs": 2.100000023827306
+      },
+      "initial": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -203.8835761680253,
+          98.74855091481356,
+          11.26663364227193
+        ],
+        "target": [
+          -2.467068872568115,
+          -12.060274097554071,
+          4.000624539780606
+        ],
+        "sun": {
+          "azimuth": 95,
+          "elevation": 8,
+          "intensity": 0.4
+        },
+        "windTarget": 5,
+        "effectiveWind": 1.8,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 0.0003426053177986871,
+        "cloudOffsetMetres": [
+          276.97276339193195,
+          104.16069734397196
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": false,
+          "dof": true,
+          "exposure": 0,
+          "focal": 35,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 63.20007911387454,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [
+            {
+              "costMs": 10.52,
+              "reason": "frame pacing",
+              "scale": 0.92,
+              "seconds": 8.86
+            },
+            {
+              "costMs": 9.26,
+              "reason": "frame pacing",
+              "scale": 0.85,
+              "seconds": 52.59
+            },
+            {
+              "costMs": 9.74,
+              "reason": "frame pacing",
+              "scale": 0.78,
+              "seconds": 81.69
+            }
+          ],
+          "enabled": false,
+          "lastGpuMs": null,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": null
+        }
+      },
+      "final": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -203.8835761680253,
+          98.74855091481356,
+          11.26663364227193
+        ],
+        "target": [
+          -2.467068872568115,
+          -12.060274097554071,
+          4.000624539780606
+        ],
+        "sun": {
+          "azimuth": 95,
+          "elevation": 8,
+          "intensity": 0.4
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.999372551643135,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 0.0003426053177986871,
+        "cloudOffsetMetres": [
+          359.80313174735477,
+          135.31057946054096
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": false,
+          "dof": true,
+          "exposure": 0,
+          "focal": 35,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 229.9999999999999,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [
+            {
+              "costMs": 10.52,
+              "reason": "frame pacing",
+              "scale": 0.92,
+              "seconds": 8.86
+            },
+            {
+              "costMs": 9.26,
+              "reason": "frame pacing",
+              "scale": 0.85,
+              "seconds": 52.59
+            },
+            {
+              "costMs": 9.74,
+              "reason": "frame pacing",
+              "scale": 0.78,
+              "seconds": 81.69
+            }
+          ],
+          "enabled": false,
+          "lastGpuMs": null,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": null
+        }
+      },
+      "consistency": {
+        "count": true,
+        "average": true,
+        "p95": true,
+        "p99": true,
+        "slowCount": true,
+        "gpuMean": true,
+        "gpuP95": true,
+        "gpuP99": true,
+        "rollingAudit": true,
+        "knownTimelineInsideRecording": true
+      }
+    },
+    {
+      "label": "早期远景 optimized",
+      "versionScope": "historical",
+      "sourceFile": "render-benchmark-feedback-far-optimized.json",
+      "sourceSha256": "398d31680bf458691c64e80216e9b0246ca357e5484fe3a2b9f6409c929e5e36",
+      "sourceDate": "2026-10-26T04:45:25.129Z",
+      "recordingElapsedSeconds": 12.001300000071526,
+      "frameIntervalCount": 736,
+      "averageFps": 61.32668960826024,
+      "averageFpsOverKnownIntervals": 61.34815913894613,
+      "rafMs": {
+        "count": 736,
+        "mean": 16.300407608566076,
+        "median": 16.100000023841858,
+        "p95": 30.5,
+        "p99": 34,
+        "maximum": 37.89999997615814,
+        "minimum": 4
+      },
+      "gpuMs": {
+        "count": 731,
+        "mean": 15.418627906976743,
+        "median": 15.459,
+        "p95": 17.219,
+        "p99": 18.114,
+        "maximum": 18.804,
+        "minimum": 11.069
+      },
+      "slowFrameThresholdMs": 16.666666666666668,
+      "slowFrameCount": 324,
+      "slowFrameFraction": 0.44021739130434784,
+      "slowFramePercent": 44.02173913043478,
+      "rollingOneSecond": {
+        "minimumFps": 56,
+        "firstWorstWindowMs": [
+          8097.799999952316,
+          9097.799999952316
+        ],
+        "observedSpanMs": 11997.099999904633,
+        "eventCount": 737,
+        "candidateCount": 677,
+        "audit": {
+          "breakpoints": 1343,
+          "positions": 2685,
+          "minimumFps": 56,
+          "agrees": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 4979.600000023842,
+        "lastKnownFramePerformanceNowMs": 16976.699999928474,
+        "unknownHeadMs": 1.8000000715255737,
+        "unknownTailMs": 2.4000000953674316
+      },
+      "initial": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -203.8835761680253,
+          98.74855091481356,
+          11.26663364227193
+        ],
+        "target": [
+          -2.467068872568115,
+          -12.060274097554071,
+          4.000624539780606
+        ],
+        "sun": {
+          "azimuth": 95,
+          "elevation": 8,
+          "intensity": 0.4
+        },
+        "windTarget": 5,
+        "effectiveWind": 2.7726920322161313,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 0.0003426053177986871,
+        "cloudOffsetMetres": [
+          2.0594078692865163,
+          0.774478173065015
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": false,
+          "dof": true,
+          "exposure": 0,
+          "focal": 35,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 229.9999999999999,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [],
+          "enabled": false,
+          "lastGpuMs": null,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": null
+        }
+      },
+      "final": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -203.8835761680253,
+          98.74855091481356,
+          11.26663364227193
+        ],
+        "target": [
+          -2.467068872568115,
+          -12.060274097554071,
+          4.000624539780606
+        ],
+        "sun": {
+          "azimuth": 95,
+          "elevation": 8,
+          "intensity": 0.4
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.999583147352397,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 0.0003426053177986871,
+        "cloudOffsetMetres": [
+          87.33669319075027,
+          32.844568379427464
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": false,
+          "dof": true,
+          "exposure": 0,
+          "focal": 35,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 229.9999999999999,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [],
+          "enabled": false,
+          "lastGpuMs": null,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": null
+        }
+      },
+      "consistency": {
+        "count": true,
+        "average": true,
+        "p95": true,
+        "p99": true,
+        "slowCount": true,
+        "gpuMean": true,
+        "gpuP95": true,
+        "gpuP99": true,
+        "rollingAudit": true,
+        "knownTimelineInsideRecording": true
+      }
+    },
+    {
+      "label": "云过滤修正前远景 native",
+      "versionScope": "before-cloud-filter",
+      "sourceFile": "render-benchmark-feedback-far-before-cloud-filter.json",
+      "sourceSha256": "7fea634e26931df79304c56b9f02c28558f26579085655c9cd898814911bfc0b",
+      "sourceDate": "2026-10-26T05:12:08.312Z",
+      "recordingElapsedSeconds": 12.000799999952315,
+      "frameIntervalCount": 985,
+      "averageFps": 82.07786147622774,
+      "averageFpsOverKnownIntervals": 82.09701616936157,
+      "rafMs": {
+        "count": 985,
+        "mean": 12.180710659898477,
+        "median": 12.100000023841858,
+        "p95": 21.299999952316284,
+        "p99": 23.899999976158146,
+        "maximum": 33,
+        "minimum": 1.0999999046325684
+      },
+      "gpuMs": {
+        "count": 979,
+        "mean": 11.504037793667006,
+        "median": 11.45,
+        "p95": 12.781,
+        "p99": 13.395,
+        "maximum": 13.874,
+        "minimum": 9.458
+      },
+      "slowFrameThresholdMs": 16.666666666666668,
+      "slowFrameCount": 142,
+      "slowFrameFraction": 0.14416243654822336,
+      "slowFramePercent": 14.416243654822336,
+      "rollingOneSecond": {
+        "minimumFps": 80,
+        "firstWorstWindowMs": [
+          20.800000071525574,
+          1020.8000000715256
+        ],
+        "observedSpanMs": 11998,
+        "eventCount": 986,
+        "candidateCount": 905,
+        "audit": {
+          "breakpoints": 1796,
+          "positions": 3591,
+          "minimumFps": 80,
+          "agrees": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 101839.29999995232,
+        "lastKnownFramePerformanceNowMs": 113837.29999995232,
+        "unknownHeadMs": 1.6999999284744263,
+        "unknownTailMs": 1.100000023841858
+      },
+      "initial": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -203.8835761680253,
+          98.74855091481356,
+          11.26663364227193
+        ],
+        "target": [
+          -2.467068872568115,
+          -12.060274097554071,
+          4.000624539780606
+        ],
+        "sun": {
+          "azimuth": 95,
+          "elevation": 8,
+          "intensity": 0.4
+        },
+        "windTarget": 5,
+        "effectiveWind": 3.0855382281205266,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 0.0003426053177986871,
+        "cloudOffsetMetres": [
+          259.6658690624899,
+          97.65212169871758
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": false,
+          "dof": true,
+          "exposure": 0,
+          "focal": 35,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 229.9999999999999,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [],
+          "enabled": false,
+          "lastGpuMs": null,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": null
+        }
+      },
+      "final": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -203.8835761680253,
+          98.74855091481356,
+          11.26663364227193
+        ],
+        "target": [
+          -2.467068872568115,
+          -12.060274097554071,
+          4.000624539780606
+        ],
+        "sun": {
+          "azimuth": 95,
+          "elevation": 8,
+          "intensity": 0.4
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.999635867245786,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 0.0003426053177986871,
+        "cloudOffsetMetres": [
+          345.5775305978902,
+          129.9607807376716
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": false,
+          "dof": true,
+          "exposure": 0,
+          "focal": 35,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 229.9999999999999,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [],
+          "enabled": false,
+          "lastGpuMs": null,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": null
+        }
+      },
+      "consistency": {
+        "count": true,
+        "average": true,
+        "p95": true,
+        "p99": true,
+        "slowCount": true,
+        "gpuMean": true,
+        "gpuP95": true,
+        "gpuP99": true,
+        "rollingAudit": true,
+        "knownTimelineInsideRecording": true
+      }
+    },
+    {
+      "label": "云过滤修正前远景 auto",
+      "versionScope": "before-cloud-filter",
+      "sourceFile": "render-benchmark-feedback-far-auto-before-cloud-filter.json",
+      "sourceSha256": "3d6923cc3ba42bcebdf65155be58edba7d4e7b6076b93fe9acd3e0b8bbc6d375",
+      "sourceDate": "2026-10-26T05:14:23.747Z",
+      "recordingElapsedSeconds": 10.0015,
+      "frameIntervalCount": 822,
+      "averageFps": 82.18767184922261,
+      "averageFpsOverKnownIntervals": 82.31194424436859,
+      "rafMs": {
+        "count": 822,
+        "mean": 12.148905109460046,
+        "median": 12,
+        "p95": 21.899999976158146,
+        "p99": 24.100000023841854,
+        "maximum": 29,
+        "minimum": 3.1999999284744263
+      },
+      "gpuMs": {
+        "count": 817,
+        "mean": 11.449179926560587,
+        "median": 11.389,
+        "p95": 12.778,
+        "p99": 13.454,
+        "maximum": 14.96,
+        "minimum": 9.155
+      },
+      "slowFrameThresholdMs": 16.666666666666668,
+      "slowFrameCount": 148,
+      "slowFrameFraction": 0.18004866180048662,
+      "slowFramePercent": 18.004866180048662,
+      "rollingOneSecond": {
+        "minimumFps": 80,
+        "firstWorstWindowMs": [
+          0,
+          1000
+        ],
+        "observedSpanMs": 9986.399999976158,
+        "eventCount": 823,
+        "candidateCount": 738,
+        "audit": {
+          "breakpoints": 1469,
+          "positions": 2937,
+          "minimumFps": 80,
+          "agrees": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 239276.5,
+        "lastKnownFramePerformanceNowMs": 249262.89999997616,
+        "unknownHeadMs": 4.200000047683716,
+        "unknownTailMs": 10.899999976158142
+      },
+      "initial": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -203.8835761680253,
+          98.74855091481356,
+          11.26663364227193
+        ],
+        "target": [
+          -2.467068872568115,
+          -12.060274097554071,
+          4.000624539780606
+        ],
+        "sun": {
+          "azimuth": 95,
+          "elevation": 8,
+          "intensity": 0.4
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.99999999999998,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 1,
+        "cloudOffsetMetres": [
+          1284.7996142931734,
+          483.1725045205036
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": true,
+          "dof": true,
+          "exposure": 0,
+          "focal": 35,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 229.9999999999999,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [],
+          "enabled": true,
+          "lastGpuMs": null,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": null
+        }
+      },
+      "final": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1168,
+          1189
+        ],
+        "renderScale": 0.92,
+        "camera": [
+          -203.8835761680253,
+          98.74855091481356,
+          11.26663364227193
+        ],
+        "target": [
+          -2.467068872568115,
+          -12.060274097554071,
+          4.000624539780606
+        ],
+        "sun": {
+          "azimuth": 95,
+          "elevation": 8,
+          "intensity": 0.4
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.99999999999998,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 1,
+        "cloudOffsetMetres": [
+          1359.643671892631,
+          511.3189877203007
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": true,
+          "dof": true,
+          "exposure": 0,
+          "focal": 35,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 229.9999999999999,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "EASU 12-tap + RCAS 5-tap",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [
+            {
+              "costMs": 11.52,
+              "reason": "frame pacing",
+              "scale": 0.92,
+              "seconds": 8.89
+            }
+          ],
+          "enabled": true,
+          "lastGpuMs": 10.744,
+          "minimumScale": 0.6,
+          "scale": 0.92,
+          "slowFrameFraction": 0.15789473684210523,
+          "smoothedCostMs": 11.24920738159876
+        }
+      },
+      "consistency": {
+        "count": true,
+        "average": true,
+        "p95": true,
+        "p99": true,
+        "slowCount": true,
+        "gpuMean": true,
+        "gpuP95": true,
+        "gpuP99": true,
+        "rollingAudit": true,
+        "knownTimelineInsideRecording": true
+      }
+    },
+    {
+      "label": "云过滤修正前正午海岛",
+      "versionScope": "before-cloud-filter",
+      "sourceFile": "render-benchmark-feedback-noon-before-cloud-filter.json",
+      "sourceSha256": "43f1dcafb940b5ca27f5e3fa459653cf2d2e84ef4fd54d22ade6f621059be581",
+      "sourceDate": "2026-10-26T05:19:34.594Z",
+      "recordingElapsedSeconds": 10.0065,
+      "frameIntervalCount": 1079,
+      "averageFps": 107.8299105581372,
+      "averageFpsOverKnownIntervals": 107.95937765771174,
+      "rafMs": {
+        "count": 1079,
+        "mean": 9.26274328081557,
+        "median": 8.899999976158142,
+        "p95": 15.399999976158142,
+        "p99": 17.700000047683716,
+        "maximum": 30.399999976158146,
+        "minimum": 3.1999999284744263
+      },
+      "gpuMs": {
+        "count": 1073,
+        "mean": 8.568429636533084,
+        "median": 8.291,
+        "p95": 10.614,
+        "p99": 11.374,
+        "maximum": 12.313,
+        "minimum": 6.531
+      },
+      "slowFrameThresholdMs": 16.666666666666668,
+      "slowFrameCount": 28,
+      "slowFrameFraction": 0.025949953660797033,
+      "slowFramePercent": 2.5949953660797034,
+      "rollingOneSecond": {
+        "minimumFps": 105,
+        "firstWorstWindowMs": [
+          6077.599999904633,
+          7077.599999904633
+        ],
+        "observedSpanMs": 9994.5,
+        "eventCount": 1080,
+        "candidateCount": 972,
+        "audit": {
+          "breakpoints": 1926,
+          "positions": 3851,
+          "minimumFps": 105,
+          "agrees": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 550116.7000000477,
+        "lastKnownFramePerformanceNowMs": 560111.2000000477,
+        "unknownHeadMs": 3.200000047683716,
+        "unknownTailMs": 8.799999952316284
+      },
+      "initial": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -47.99999999999999,
+          12.000000000000002,
+          -40
+        ],
+        "target": [
+          0,
+          2.5,
+          0
+        ],
+        "sun": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "windTarget": 1.8,
+        "effectiveWind": 1.8000021949546112,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "actualCloudCoverage": 0.3501929118902084,
+        "cloudTransmissionAtIsland": 1,
+        "cloudOffsetMetres": [
+          3521.07509107524,
+          1324.1649915149185
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 8,
+          "automatic": true,
+          "dof": false,
+          "exposure": 0,
+          "focal": 28,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 63.20007911387453,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [
+            {
+              "costMs": 11.52,
+              "reason": "frame pacing",
+              "scale": 0.92,
+              "seconds": 8.89
+            },
+            {
+              "costMs": 2.99,
+              "scale": 0.945,
+              "seconds": 20.5
+            },
+            {
+              "costMs": 2.81,
+              "scale": 0.97,
+              "seconds": 31.5
+            },
+            {
+              "costMs": 3.15,
+              "scale": 0.995,
+              "seconds": 42.5
+            },
+            {
+              "costMs": 2.94,
+              "scale": 1,
+              "seconds": 53.5
+            }
+          ],
+          "enabled": true,
+          "lastGpuMs": 7.333,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0.016666666666666666,
+          "smoothedCostMs": 8.492945777093597
+        }
+      },
+      "final": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -47.99999999999999,
+          12.000000000000002,
+          -40
+        ],
+        "target": [
+          0,
+          2.5,
+          0
+        ],
+        "sun": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "windTarget": 1.8,
+        "effectiveWind": 1.8000000017037725,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "actualCloudCoverage": 0.3500035242708267,
+        "cloudTransmissionAtIsland": 1,
+        "cloudOffsetMetres": [
+          3548.049147963614,
+          1334.3090812849032
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 8,
+          "automatic": true,
+          "dof": false,
+          "exposure": 0,
+          "focal": 28,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 63.20007911387453,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [
+            {
+              "costMs": 11.52,
+              "reason": "frame pacing",
+              "scale": 0.92,
+              "seconds": 8.89
+            },
+            {
+              "costMs": 2.99,
+              "scale": 0.945,
+              "seconds": 20.5
+            },
+            {
+              "costMs": 2.81,
+              "scale": 0.97,
+              "seconds": 31.5
+            },
+            {
+              "costMs": 3.15,
+              "scale": 0.995,
+              "seconds": 42.5
+            },
+            {
+              "costMs": 2.94,
+              "scale": 1,
+              "seconds": 53.5
+            }
+          ],
+          "enabled": true,
+          "lastGpuMs": 8.387,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0.041666666666666664,
+          "smoothedCostMs": 8.565168342301101
+        }
+      },
+      "consistency": {
+        "count": true,
+        "average": true,
+        "p95": true,
+        "p99": true,
+        "slowCount": true,
+        "gpuMean": true,
+        "gpuP95": true,
+        "gpuP99": true,
+        "rollingAudit": true,
+        "knownTimelineInsideRecording": true
+      }
+    },
+    {
+      "label": "云过滤修正前地平线积云",
+      "versionScope": "before-cloud-filter",
+      "sourceFile": "render-benchmark-feedback-dense-sky-before-cloud-filter.json",
+      "sourceSha256": "f526e56c23a1cff778bd430ffb85d18b4f7e47781c00a912072e30707b21af97",
+      "sourceDate": "2026-10-26T05:18:48.227Z",
+      "recordingElapsedSeconds": 10.003,
+      "frameIntervalCount": 1051,
+      "averageFps": 105.06847945616315,
+      "averageFpsOverKnownIntervals": 105.0810854038757,
+      "rafMs": {
+        "count": 1051,
+        "mean": 9.51646051386444,
+        "median": 9.100000023841858,
+        "p95": 16,
+        "p99": 18.899999976158146,
+        "maximum": 22.59999990463257,
+        "minimum": 3.299999952316284
+      },
+      "gpuMs": {
+        "count": 1045,
+        "mean": 8.814898564593301,
+        "median": 8.485,
+        "p95": 11.068,
+        "p99": 11.769,
+        "maximum": 12.392,
+        "minimum": 6.879
+      },
+      "slowFrameThresholdMs": 16.666666666666668,
+      "slowFrameCount": 40,
+      "slowFrameFraction": 0.038058991436726926,
+      "slowFramePercent": 3.8058991436726926,
+      "rollingOneSecond": {
+        "minimumFps": 102,
+        "firstWorstWindowMs": [
+          4038.3000000715256,
+          5038.300000071526
+        ],
+        "observedSpanMs": 10001.800000071526,
+        "eventCount": 1052,
+        "candidateCount": 947,
+        "audit": {
+          "breakpoints": 1882,
+          "positions": 3763,
+          "minimumFps": 102,
+          "agrees": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 503750.7999999523,
+        "lastKnownFramePerformanceNowMs": 513752.60000002384,
+        "unknownHeadMs": 0.3999999761581421,
+        "unknownTailMs": 0.7999999523162842
+      },
+      "initial": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -47.99999999999999,
+          12.000000000000002,
+          -40
+        ],
+        "target": [
+          0,
+          2.5,
+          0
+        ],
+        "sun": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.999999999999981,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.9,
+          "humidity": 0.95,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 1800
+        },
+        "actualCloudCoverage": 0.8999999999999934,
+        "cloudTransmissionAtIsland": 1,
+        "cloudOffsetMetres": [
+          3262.538411093115,
+          1226.9375221199386
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": true,
+          "dof": false,
+          "exposure": 0,
+          "focal": 28,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 63.20007911387453,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [
+            {
+              "costMs": 11.52,
+              "reason": "frame pacing",
+              "scale": 0.92,
+              "seconds": 8.89
+            },
+            {
+              "costMs": 2.99,
+              "scale": 0.945,
+              "seconds": 20.5
+            },
+            {
+              "costMs": 2.81,
+              "scale": 0.97,
+              "seconds": 31.5
+            },
+            {
+              "costMs": 3.15,
+              "scale": 0.995,
+              "seconds": 42.5
+            },
+            {
+              "costMs": 2.94,
+              "scale": 1,
+              "seconds": 53.5
+            }
+          ],
+          "enabled": true,
+          "lastGpuMs": 9.962,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0.016666666666666666,
+          "smoothedCostMs": 9.225681558601424
+        }
+      },
+      "final": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -47.99999999999999,
+          12.000000000000002,
+          -40
+        ],
+        "target": [
+          0,
+          2.5,
+          0
+        ],
+        "sun": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.999999999999981,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.9,
+          "humidity": 0.95,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 1800
+        },
+        "actualCloudCoverage": 0.8999999999999937,
+        "cloudTransmissionAtIsland": 1,
+        "cloudOffsetMetres": [
+          3337.473073493656,
+          1255.118078920132
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": true,
+          "dof": false,
+          "exposure": 0,
+          "focal": 28,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 63.20007911387453,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [
+            {
+              "costMs": 11.52,
+              "reason": "frame pacing",
+              "scale": 0.92,
+              "seconds": 8.89
+            },
+            {
+              "costMs": 2.99,
+              "scale": 0.945,
+              "seconds": 20.5
+            },
+            {
+              "costMs": 2.81,
+              "scale": 0.97,
+              "seconds": 31.5
+            },
+            {
+              "costMs": 3.15,
+              "scale": 0.995,
+              "seconds": 42.5
+            },
+            {
+              "costMs": 2.94,
+              "scale": 1,
+              "seconds": 53.5
+            }
+          ],
+          "enabled": true,
+          "lastGpuMs": 8.472,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0.03333333333333333,
+          "smoothedCostMs": 8.8052066903573
+        }
+      },
+      "consistency": {
+        "count": true,
+        "average": true,
+        "p95": true,
+        "p99": true,
+        "slowCount": true,
+        "gpuMean": true,
+        "gpuP95": true,
+        "gpuP99": true,
+        "rollingAudit": true,
+        "knownTimelineInsideRecording": true
+      }
+    },
+    {
+      "label": "云过滤修正前仰视云隙",
+      "versionScope": "historical-gap",
+      "sourceFile": "render-benchmark-feedback-sky-gap-final.json",
+      "sourceSha256": "23200145f817ba583ce82cc5acd72e23ac9b70417339221762b3380a2ae36237",
+      "sourceDate": "2026-10-26T05:18:02.855Z",
+      "recordingElapsedSeconds": 10.001800000071526,
+      "frameIntervalCount": 1420,
+      "averageFps": 141.9744445989567,
+      "averageFpsOverKnownIntervals": 142.0099406965259,
+      "rafMs": {
+        "count": 1420,
+        "mean": 7.041760563346702,
+        "median": 6.900000095367432,
+        "p95": 7.800000071525574,
+        "p99": 10.5,
+        "maximum": 18.300000071525577,
+        "minimum": 3
+      },
+      "gpuMs": {
+        "count": 1418,
+        "mean": 3.168576868829337,
+        "median": 2.79,
+        "p95": 5.178,
+        "p99": 6.914,
+        "maximum": 11.895,
+        "minimum": 2.107
+      },
+      "slowFrameThresholdMs": 16.666666666666668,
+      "slowFrameCount": 2,
+      "slowFrameFraction": 0.0014084507042253522,
+      "slowFramePercent": 0.14084507042253522,
+      "rollingOneSecond": {
+        "minimumFps": 125,
+        "firstWorstWindowMs": [
+          8054.5,
+          9054.5
+        ],
+        "observedSpanMs": 9999.299999952316,
+        "eventCount": 1421,
+        "candidateCount": 1280,
+        "audit": {
+          "breakpoints": 2163,
+          "positions": 4325,
+          "minimumFps": 125,
+          "agrees": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 458380.5,
+        "lastKnownFramePerformanceNowMs": 468379.7999999523,
+        "unknownHeadMs": 0.6000000238418579,
+        "unknownTailMs": 1.9000000953674316
+      },
+      "initial": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -47.99999999999999,
+          11.999999999999986,
+          -40
+        ],
+        "target": [
+          0,
+          65,
+          0
+        ],
+        "sun": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.999999999999981,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.9,
+          "humidity": 0.95,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 1800
+        },
+        "actualCloudCoverage": 0.8999999999999907,
+        "cloudTransmissionAtIsland": 1,
+        "cloudOffsetMetres": [
+          2922.7921262937284,
+          1099.1696885203776
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": true,
+          "dof": false,
+          "exposure": 0,
+          "focal": 28,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 81.93289937503738,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [
+            {
+              "costMs": 11.52,
+              "reason": "frame pacing",
+              "scale": 0.92,
+              "seconds": 8.89
+            },
+            {
+              "costMs": 2.99,
+              "scale": 0.945,
+              "seconds": 20.5
+            },
+            {
+              "costMs": 2.81,
+              "scale": 0.97,
+              "seconds": 31.5
+            },
+            {
+              "costMs": 3.15,
+              "scale": 0.995,
+              "seconds": 42.5
+            },
+            {
+              "costMs": 2.94,
+              "scale": 1,
+              "seconds": 53.5
+            }
+          ],
+          "enabled": true,
+          "lastGpuMs": 4.016,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": 3.821172759068136
+        }
+      },
+      "final": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1270,
+          1292
+        ],
+        "internalSize": [
+          1270,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -47.99999999999999,
+          11.999999999999986,
+          -40
+        ],
+        "target": [
+          0,
+          65,
+          0
+        ],
+        "sun": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.999999999999981,
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.9,
+          "humidity": 0.95,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 1800
+        },
+        "actualCloudCoverage": 0.8999999999999909,
+        "cloudTransmissionAtIsland": 1,
+        "cloudOffsetMetres": [
+          2997.721547093073,
+          1127.3482741200417
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": true,
+          "dof": false,
+          "exposure": 0,
+          "focal": 28,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 81.93289937503738,
+        "antialias": "MSAA + selective temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "enabled": true,
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [
+            {
+              "costMs": 11.52,
+              "reason": "frame pacing",
+              "scale": 0.92,
+              "seconds": 8.89
+            },
+            {
+              "costMs": 2.99,
+              "scale": 0.945,
+              "seconds": 20.5
+            },
+            {
+              "costMs": 2.81,
+              "scale": 0.97,
+              "seconds": 31.5
+            },
+            {
+              "costMs": 3.15,
+              "scale": 0.995,
+              "seconds": 42.5
+            },
+            {
+              "costMs": 2.94,
+              "scale": 1,
+              "seconds": 53.5
+            }
+          ],
+          "enabled": true,
+          "lastGpuMs": 4.922,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": 3.5682675656758436
+        }
+      },
+      "consistency": {
+        "count": true,
+        "average": true,
+        "p95": true,
+        "p99": true,
+        "slowCount": true,
+        "gpuMean": true,
+        "gpuP95": true,
+        "gpuP99": true,
+        "rollingAudit": true,
+        "knownTimelineInsideRecording": true
+      }
+    }
+  ],
+  "pending": [],
+  "limits": [
+    "Historical and final runs are different source iterations and dynamic cloud positions; no isolated optimization speedup is claimed.",
+    "Auto-scale run endpoints and governor events are available, but no per-frame scale trace or per-scale raw partition exists.",
+    "Complete one-second callback counts above 60 do not mean every frame meets 16.667ms.",
+    "These short local desktop runs do not guarantee 60fps on arbitrary hardware, OS load, angles or real phones.",
+    "The final auto run was pre-warmed at scale 0.78: equal endpoints and no new governor events, unlike the old scale 1->0.92 transition run.",
+    "Cloud positions/lighting differ across records, including final native versus auto; no isolated per-change speedup is inferred.",
+    "The seven previous datasets are retained as historical evidence; renamed files match the SHA256 from the previous report."
+  ],
+  "historicalEvidencePreservation": [
+    {
+      "originalReportSource": "render-benchmark-feedback-far-native.json",
+      "preservedAs": "render-benchmark-feedback-far-native.json",
+      "sha256Unchanged": true
+    },
+    {
+      "originalReportSource": "render-benchmark-feedback-far-optimized.json",
+      "preservedAs": "render-benchmark-feedback-far-optimized.json",
+      "sha256Unchanged": true
+    },
+    {
+      "originalReportSource": "render-benchmark-feedback-far-final.json",
+      "preservedAs": "render-benchmark-feedback-far-before-cloud-filter.json",
+      "sha256Unchanged": true
+    },
+    {
+      "originalReportSource": "render-benchmark-feedback-far-auto.json",
+      "preservedAs": "render-benchmark-feedback-far-auto-before-cloud-filter.json",
+      "sha256Unchanged": true
+    },
+    {
+      "originalReportSource": "render-benchmark-feedback-noon-final.json",
+      "preservedAs": "render-benchmark-feedback-noon-before-cloud-filter.json",
+      "sha256Unchanged": true
+    },
+    {
+      "originalReportSource": "render-benchmark-feedback-dense-sky-final.json",
+      "preservedAs": "render-benchmark-feedback-dense-sky-before-cloud-filter.json",
+      "sha256Unchanged": true
+    },
+    {
+      "originalReportSource": "render-benchmark-feedback-sky-gap-final.json",
+      "preservedAs": "render-benchmark-feedback-sky-gap-final.json",
+      "sha256Unchanged": true
+    }
+  ],
+  "versionNotes": [
+    {
+      "scope": "final",
+      "files": [
+        "render-benchmark-feedback-far-final.json",
+        "render-benchmark-feedback-far-auto.json",
+        "render-benchmark-feedback-noon-final.json",
+        "render-benchmark-feedback-dense-sky-final.json"
+      ],
+      "description": "根代理确认天空mip过滤小修后冻结源码，四份重新覆盖的最终记录。"
+    },
+    {
+      "scope": "historical",
+      "files": [
+        "render-benchmark-feedback-far-native.json",
+        "render-benchmark-feedback-far-optimized.json"
+      ],
+      "description": "早期中途源码。"
+    },
+    {
+      "scope": "before-cloud-filter",
+      "files": [
+        "render-benchmark-feedback-far-before-cloud-filter.json",
+        "render-benchmark-feedback-far-auto-before-cloud-filter.json",
+        "render-benchmark-feedback-noon-before-cloud-filter.json",
+        "render-benchmark-feedback-dense-sky-before-cloud-filter.json"
+      ],
+      "description": "上版报告中的四份记录改名保存，SHA与上版报告完全一致；非当前冻结源码。"
+    },
+    {
+      "scope": "historical-gap",
+      "files": [
+        "render-benchmark-feedback-sky-gap-final.json"
+      ],
+      "description": "文件名虽含final，属于云过滤小修之前；实际仰视几乎无云，不作浓云压力结论。"
+    }
+  ]
+}

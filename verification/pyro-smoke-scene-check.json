@@ -1,0 +1,3919 @@
+{
+  "status": "done",
+  "pauseTarget": {
+    "date": "2026-10-26T23:26:52.685Z",
+    "passed": true,
+    "passedCount": 9,
+    "total": 9,
+    "checks": [
+      {
+        "name": "physical frame truncates exactly at target after0.137s",
+        "passed": true,
+        "evidence": {
+          "target": 111.07849999999968,
+          "actual": 111.07849999999968
+        }
+      },
+      {
+        "name": "source and smoke request share that exact physical time after0.137s",
+        "passed": true,
+        "evidence": {
+          "fireworks": 111.07849999999968,
+          "smoke": 111.07849999999968
+        }
+      },
+      {
+        "name": "astronomical UTC remains independent",
+        "passed": true,
+        "evidence": {}
+      },
+      {
+        "name": "physical frame truncates exactly at target after0.091s",
+        "passed": true,
+        "evidence": {
+          "target": 111.16949999999967,
+          "actual": 111.16949999999967
+        }
+      },
+      {
+        "name": "source and smoke request share that exact physical time after0.091s",
+        "passed": true,
+        "evidence": {
+          "fireworks": 111.16949999999967,
+          "smoke": 111.16949999999967
+        }
+      },
+      {
+        "name": "astronomical UTC remains independent",
+        "passed": true,
+        "evidence": {}
+      },
+      {
+        "name": "manual pause cancels an armed target",
+        "passed": true,
+        "evidence": {}
+      },
+      {
+        "name": "past and nonfinite targets are rejected",
+        "passed": true,
+        "evidence": {}
+      },
+      {
+        "name": "target equal to current time pauses immediately",
+        "passed": true,
+        "evidence": {}
+      }
+    ],
+    "limits": [
+      "Actual main-loop QA aid for reproducible captures; does not rewind or retime event births.",
+      "Physical time advances during this test; UTC/paused preference are restored."
+    ]
+  },
+  "result": {
+    "date": "2026-10-26T23:26:52.705Z",
+    "checks": [
+      {
+        "name": "live event stream creates18 independent persistent packets",
+        "passed": true,
+        "evidence": {
+          "packets": 18,
+          "sources": 2
+        }
+      },
+      {
+        "name": "production main volume pass is present at the selected phase",
+        "passed": true,
+        "evidence": {
+          "packets": 18,
+          "instances": 18,
+          "culled": 0,
+          "fullScreenFallbacks": 0,
+          "reflection": false,
+          "width": 1209,
+          "height": 1292,
+          "storageEV": 12,
+          "supportSigma": 5,
+          "offProxyOpticalDepthUpperBound": 0.00000997165857627541,
+          "debugMode": 0,
+          "stateRevision": 550,
+          "extraOffscreenTargets": 0,
+          "frontAirEnabled": true,
+          "frontAirCells": 4,
+          "localLightingEnabled": true,
+          "localLightingSources": 6,
+          "legacyClusterSources": 0,
+          "samplerCount": 2
+        }
+      },
+      {
+        "name": "hot actual composed and mirror HDR are finite nonnegative",
+        "passed": true,
+        "evidence": {}
+      },
+      {
+        "name": "combined source budget fits FP16 headroom",
+        "passed": true,
+        "evidence": {
+          "bound": 14543.509912597192,
+          "safe": 16376
+        }
+      },
+      {
+        "name": "hiding smoke preserves physical time and material mass",
+        "passed": true,
+        "evidence": {}
+      },
+      {
+        "name": "hidden volume path still yields finite main and mirror",
+        "passed": true,
+        "evidence": {}
+      },
+      {
+        "name": "volume contributes to the actual fixed-phase exported image",
+        "passed": true,
+        "evidence": {
+          "changedPixels": 2501,
+          "maximumByteDifference": 199,
+          "rmsByteDifference": 2.693463602945627
+        }
+      },
+      {
+        "name": "cold smoke outlives retired energetic events",
+        "passed": true,
+        "evidence": {
+          "active": 0,
+          "age": 22.012021041787918,
+          "mass": 20.350000000000005
+        }
+      },
+      {
+        "name": "cold volume is still drawn and HDR remains finite",
+        "passed": true,
+        "evidence": {}
+      },
+      {
+        "name": "paused physical density remains exactly stable",
+        "passed": true,
+        "evidence": {}
+      },
+      {
+        "name": "no production-frame exceptions during the integrated scenario",
+        "passed": true,
+        "evidence": {
+          "count": 0
+        }
+      }
+    ],
+    "images": {
+      "hot": "[PNG saved]",
+      "hidden": "[PNG saved]",
+      "cold": "[PNG saved]"
+    },
+    "runtimeErrors": [],
+    "launch": {
+      "accepted": true,
+      "queued": false,
+      "id": "2654450032-115.42180",
+      "type": "ring",
+      "smileyLayout": "reference",
+      "intensityScale": 1,
+      "actualStarCount": 120,
+      "burstTime": 120.08017895825832
+    },
+    "hot": {
+      "time": 121.18410000002304,
+      "smoke": {
+        "requestedPhysicalTime": 121.18410000002304,
+        "committedPhysicalTime": 121.13799999999964,
+        "behindSeconds": 0.04610000002340087,
+        "state": {
+          "version": "pyro-smoke-state-v1",
+          "time": 121.13799999999964,
+          "requestedTime": 121.18410000002304,
+          "revision": 550,
+          "packetCount": 18,
+          "capacity": 4096,
+          "peakPacketCount": 18,
+          "pendingEmissions": 0,
+          "pendingWindEvents": 4,
+          "profileCount": 1,
+          "acceptedSources": 18,
+          "lastEmissionId": 17,
+          "totalTickSteps": 195,
+          "lastAdvanceSteps": 0,
+          "fixedStep": 0.05,
+          "maxStepsPerAdvance": 200,
+          "ledger": {
+            "emitted": 20.350000000000005,
+            "airborne": 20.350000000000005,
+            "pendingMass": 0,
+            "residual": 0,
+            "deposited": 0,
+            "escaped": 0,
+            "explicitlyCleared": 0
+          },
+          "merges": 0,
+          "forcedMerges": 0,
+          "preferredSameSourceMerges": 0,
+          "preferredSameProfileMerges": 0,
+          "maximumMergeDistanceMetres": 0,
+          "maximumMergeNormalizedDistance": 0,
+          "maximumSampledMergePeakRelativeError": 0,
+          "maximumSampledMergeColumnRelativeError": 0,
+          "maximumSampledMergeOpticalDepthError": 0,
+          "recentMerges": [],
+          "units": "relative dry mass; metres; physical seconds; authored m2/reference-mass optical profiles. NOT calibrated kg/PM.",
+          "limits": [
+            "no age deletion; no deposition/domain/RH chemistry implemented",
+            "uniform piecewise-held wind and prescribed thermal/diffusion surrogate; no Navier-Stokes or shear",
+            "same-profile capacity merges conserve instantaneous spatial moments; no velocity/thermal variance or position-velocity cross covariance, so future heterogeneous thermal separation is not preserved",
+            "sampled peak/column diagnostics are not global optical bounds; differential-thermal-travel gate only limits preferred merges",
+            "forcedMerges signal visual approximation, not an accepted appearance",
+            "no camera/P/C/UTC or renderer dependency",
+            "erf columns have finite numerical approximation error; not an unbiased ray renderer",
+            "pending queues, profiles and recent merge log are bounded; no retained old source/active-event archive"
+          ]
+        },
+        "events": {
+          "version": "pyro-smoke-events-v1",
+          "revision": 5,
+          "closedThrough": 121.18410000002304,
+          "nextEmissionId": 18,
+          "nextSourceId": 2,
+          "pendingEvents": 0,
+          "rememberedEvents": 0,
+          "maxPendingEvents": 512,
+          "maxRememberedEvents": 2048,
+          "peakRememberedAndPendingKeys": 1,
+          "stagedEvents": 2,
+          "injectedEvents": 2,
+          "duplicates": 0,
+          "staleEvents": 0,
+          "queuedPacketsLifetime": 18,
+          "referenceAreaQueuedLifetime": 20.350000000000005,
+          "clears": 1,
+          "clearedPendingEvents": 0,
+          "fault": null,
+          "parameters": {
+            "burstArea": 20,
+            "launchArea": 0.35,
+            "fanLaunchArea": 0.1,
+            "bouquetLaunchArea": 2,
+            "profileId": "reference",
+            "packetsPerEvent": 9,
+            "packetSpacingSeconds": 0.075
+          },
+          "recentSources": [
+            {
+              "eventId": "2654450032-115.42180",
+              "kind": "launch",
+              "type": "ring",
+              "time": 115.42179999995183,
+              "position": [
+                29.11140820068039,
+                1.477048758752856,
+                7.026891634646991
+              ],
+              "sourceId": "pyro-smoke-source-0-0",
+              "derivedSeedDomain": "pyro-smoke-source-v1",
+              "packetCount": 9,
+              "referenceArea": 0.35,
+              "lastBirthTime": 116.02179999995182
+            },
+            {
+              "eventId": "2654450032-115.42180",
+              "kind": "burst",
+              "type": "ring",
+              "time": 120.08017895825832,
+              "position": [
+                65.98989519914674,
+                121.47704875875286,
+                15.930876442699601
+              ],
+              "sourceId": "pyro-smoke-source-9-1",
+              "derivedSeedDomain": "pyro-smoke-source-v1",
+              "packetCount": 9,
+              "referenceArea": 20,
+              "lastBirthTime": 120.68017895825831
+            }
+          ],
+          "units": "authored reference dry extinction area / relative mass units at a unit reference optical coefficient; NOT measured kg/PM, audio energy or explosive yield",
+          "limits": [
+            "CPU adapter only; no main/render/physics/audio integration",
+            "9 bounded source means/SPD Gaussian kernels; Gaussian spatial support itself is infinite",
+            "mass conserved by downstream state, no age fade/deletion or deposited-mass model here",
+            "temperature excess, initial buoyancy, source spread and isotropic kernel sizes are authored surrogates, not CFD",
+            "completed drain world position is authoritative; no source relocation to current frame/camera",
+            "stage complete batches before flush, then advance state; equal-time events created after flush use arrival-order tie ordering",
+            "bounded identity storage never silently evicts same-watermark events; capacity rejects new input",
+            "clearForState replaces caller-cleared state, retains IDs/tombstones, no old event replay",
+            "state queue failure can be partial and is explicit/fault-locked until clearForState; caller must size queues/profiles before integration"
+          ]
+        },
+        "columns": {
+          "sourceTime": 121.13799999999964,
+          "sourceRevision": 550,
+          "packetCount": 18,
+          "profileCount": 1,
+          "nodeCount": 7,
+          "leafCount": 4,
+          "leafSize": 8,
+          "kSigma": 5,
+          "errorBudget": 0.00001,
+          "builds": 117,
+          "lastBuildMs": 0,
+          "totalBuildMs": 5.100000619888306,
+          "lastUpdateMs": 0,
+          "refits": 97,
+          "structuralRebuilds": 20,
+          "qualityRebuilds": 0,
+          "lastUpdateKind": "refit",
+          "treeQuality": 1.1676966894745642,
+          "treeQualityGrowth": 1.0093667902024732,
+          "refitRebuildThreshold": 2.5,
+          "lastFallbackGrowth": null,
+          "trackedNewPacketRecords": 0,
+          "trackedNewNodeRecords": 0,
+          "rays": 33818,
+          "zeroLengthRays": 0,
+          "visitedNodes": 128858,
+          "bboxTests": 309674,
+          "kernelsEvaluated": 132468,
+          "omittedPackets": 379524,
+          "skippedNodes": 46725,
+          "zeroExtinctionPackets": 0,
+          "totalQueryMs": 103.10000014305115,
+          "maximumQueryMs": 0.20000004768371582,
+          "maximumOmittedBound": 0.000009996756018789824,
+          "mediumDomain": "unbounded full-SPD Gaussian; no halfspace, ground absorption or physical packet deletion",
+          "omissionBound": "Each missed 5-sigma AABB: sum M*trace(invSigma)/(2pi)*max(extinctionRGB)*exp(-12.5); only omitted when cumulative upper bound <= budget.",
+          "numericMethod": "binary64 Cholesky whitening + erf series/continued fraction + close-endpoint four-node quadrature",
+          "errorBoundIncludesRoundoff": false,
+          "units": "metres, relative dry mass, authored m2/reference-mass profiles; tau dimensionless"
+        },
+        "rendering": {
+          "version": "pyro-smoke-renderer-stageA-v3-local",
+          "lastRender": {
+            "packets": 18,
+            "instances": 18,
+            "culled": 0,
+            "fullScreenFallbacks": 0,
+            "reflection": false,
+            "width": 1209,
+            "height": 1292,
+            "storageEV": 12,
+            "supportSigma": 5,
+            "offProxyOpticalDepthUpperBound": 0.00000997165857627541,
+            "debugMode": 0,
+            "stateRevision": 550,
+            "extraOffscreenTargets": 0,
+            "frontAirEnabled": true,
+            "frontAirCells": 4,
+            "localLightingEnabled": true,
+            "localLightingSources": 6,
+            "legacyClusterSources": 0,
+            "samplerCount": 2
+          },
+          "maxPackets": 4096,
+          "packets": 18,
+          "supportSigma": 5,
+          "anisotropy": 0.32,
+          "neutralExtinctionOnly": true,
+          "frontAirOptIn": true,
+          "localLightingOptIn": true,
+          "samplerCount": 2,
+          "limits": [
+            "no app/event/source integration",
+            "true finite Gaussian columns withFloat32/erf and finite proxy-tail error; no unbiased-renderer claim",
+            "back-to-front latent-centre order; S at optical conditional mean, overlapping/source-varying scattering is approximate",
+            "optional four-cell front-air T/S restores front in-scatter at a conditional-mean thin layer; overlapping volumes are not a joint RTE integration",
+            "optional shared6 localIncident sources replace legacy2 clusters; borrowed stored RGB is not multiplied by P again",
+            "no smoke self-shadow, smoke source-path attenuation or multiple scattering; shared torch scene-shadow PCF is reused when active",
+            "air is sun/key-only, exponential height, flat local worldY clamped at0; no smoke/local-light sourced air illumination added by this module",
+            "opaque depth must be independently resolved; no centre-depth discard",
+            "whole-space Gaussian matches state; no ground-fold/deposition model implicitly applied",
+            "no density/P/C coupling; P applied once to own raw lighting including air, borrowed local uniforms must already match this frame P",
+            "proxy culling affects rendering only; physical state mass is never deleted",
+            "far/subpixel footprint filtering and volumeDOF are not solved; per-source PSF remains caller-owned"
+          ]
+        },
+        "explicitlyCleared": 0,
+        "clears": 1,
+        "lastUpdateMs": 0,
+        "limits": [
+          "Physical transport uses fixed20Hz state commits; it is not a fluid/turbulence/settling solver.",
+          "Source-path extinction is queried at emitter/tail anchors; it is not exact per-pixel convolution through a varying medium.",
+          "Whole-space neutral Gaussian medium; scattering, overlap order and clear-air folding retain the renderer StageA approximations."
+        ]
+      },
+      "snapshot": {
+        "schema": "glass-atoll.pyro-smoke-state.v1",
+        "time": 121.13799999999964,
+        "requestedTime": 121.18410000002304,
+        "tick": 195,
+        "revision": 550,
+        "currentWind": [
+          0.0009391198761727241,
+          0,
+          0.0003531732867658107
+        ],
+        "packets": [
+          {
+            "id": 0,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.42179999995183,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.18834911622727,
+              7.3273388209640675,
+              7.0558266798099085
+            ],
+            "covariance": [
+              6.907840000057365,
+              0,
+              0,
+              0,
+              1.494388000011474,
+              0,
+              0,
+              0,
+              6.907840000057365
+            ],
+            "temperatureExcessK": 15.526151951853718,
+            "buoyantVelocity": 1.1173929429869793,
+            "sourceCount": 1
+          },
+          {
+            "id": 1,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.49679999995183,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.23130018567648,
+              7.395614926879521,
+              7.075420250662518
+            ],
+            "covariance": [
+              6.8178400000573625,
+              0,
+              0,
+              0,
+              1.4763880000114735,
+              0,
+              0,
+              0,
+              6.8178400000573625
+            ],
+            "temperatureExcessK": 15.623494279457233,
+            "buoyantVelocity": 1.1211691565029531,
+            "sourceCount": 1
+          },
+          {
+            "id": 2,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.57179999995184,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.133289699468673,
+              7.006943148794777,
+              7.0316795424477885
+            ],
+            "covariance": [
+              6.727840000057361,
+              0,
+              0,
+              0,
+              1.4583880000114726,
+              0,
+              0,
+              0,
+              6.727840000057361
+            ],
+            "temperatureExcessK": 15.721446901792676,
+            "buoyantVelocity": 1.124845644890276,
+            "sourceCount": 1
+          },
+          {
+            "id": 3,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.64679999995182,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.145612724515434,
+              6.986997470501234,
+              7.189189132057951
+            ],
+            "covariance": [
+              6.637840000057375,
+              0,
+              0,
+              0,
+              1.4403880000114753,
+              0,
+              0,
+              0,
+              6.637840000057375
+            ],
+            "temperatureExcessK": 15.820013645146783,
+            "buoyantVelocity": 1.1284170675404506,
+            "sourceCount": 1
+          },
+          {
+            "id": 4,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.72179999995183,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.204287968389607,
+              7.077576590089322,
+              6.912386520380864
+            ],
+            "covariance": [
+              6.54784000005737,
+              0,
+              0,
+              0,
+              1.4223880000114746,
+              0,
+              0,
+              0,
+              6.54784000005737
+            ],
+            "temperatureExcessK": 15.919198359795526,
+            "buoyantVelocity": 1.1318778701777696,
+            "sourceCount": 1
+          },
+          {
+            "id": 5,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.79679999995183,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.322121323472434,
+              6.8536326728907575,
+              6.963445887486398
+            ],
+            "covariance": [
+              6.457840000057366,
+              0,
+              0,
+              0,
+              1.4043880000114737,
+              0,
+              0,
+              0,
+              6.457840000057366
+            ],
+            "temperatureExcessK": 16.01900492015443,
+            "buoyantVelocity": 1.13522227663452,
+            "sourceCount": 1
+          },
+          {
+            "id": 6,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.87179999995183,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.014593366216385,
+              6.870882335260561,
+              7.133170926136064
+            ],
+            "covariance": [
+              6.367840000057363,
+              0,
+              0,
+              0,
+              1.3863880000114734,
+              0,
+              0,
+              0,
+              6.367840000057363
+            ],
+            "temperatureExcessK": 16.119437224929964,
+            "buoyantVelocity": 1.1384442803115495,
+            "sourceCount": 1
+          },
+          {
+            "id": 7,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.94679999995184,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.206308897017536,
+              6.701502767483489,
+              6.9045864622528015
+            ],
+            "covariance": [
+              6.277840000057359,
+              0,
+              0,
+              0,
+              1.3683880000114725,
+              0,
+              0,
+              0,
+              6.277840000057359
+            ],
+            "temperatureExcessK": 16.22049919727179,
+            "buoyantVelocity": 1.1415376353121098,
+            "sourceCount": 1
+          },
+          {
+            "id": 8,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 116.02179999995182,
+            "mass": 0.03888888888888886,
+            "mean": [
+              29.118573872886234,
+              6.681021547696041,
+              7.187580740510329
+            ],
+            "covariance": [
+              6.187840000057374,
+              0,
+              0,
+              0,
+              1.350388000011475,
+              0,
+              0,
+              0,
+              6.187840000057374
+            ],
+            "temperatureExcessK": 16.322194784926044,
+            "buoyantVelocity": 1.1444958472365527,
+            "sourceCount": 1
+          },
+          {
+            "id": 9,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.08017895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              65.99138321454392,
+              121.94448072245542,
+              15.93143603823359
+            ],
+            "covariance": [
+              3.8293852500895866,
+              0,
+              0,
+              0,
+              1.4638770500179177,
+              0,
+              0,
+              0,
+              3.8293852500895866
+            ],
+            "temperatureExcessK": 10.987463008426923,
+            "buoyantVelocity": 0.5136035336420159,
+            "sourceCount": 1
+          },
+          {
+            "id": 10,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.15517895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              66.17600322668635,
+              123.72787036588296,
+              16.28352205552834
+            ],
+            "covariance": [
+              3.739385250089583,
+              0,
+              0,
+              0,
+              1.4458770500179168,
+              0,
+              0,
+              0,
+              3.739385250089583
+            ],
+            "temperatureExcessK": 11.056349698896932,
+            "buoyantVelocity": 0.505685521900382,
+            "sourceCount": 1
+          },
+          {
+            "id": 11,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.23017895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              65.8063310879939,
+              120.04702388022615,
+              15.579187516375304
+            ],
+            "covariance": [
+              3.64938525008958,
+              0,
+              0,
+              0,
+              1.427877050017916,
+              0,
+              0,
+              0,
+              3.64938525008958
+            ],
+            "temperatureExcessK": 11.125668279432936,
+            "buoyantVelocity": 0.49729225910132824,
+            "sourceCount": 1
+          },
+          {
+            "id": 12,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.30517895825831,
+            "mass": 2.2222222222222223,
+            "mean": [
+              66.08300428150896,
+              123.19966897614054,
+              16.202366287790507
+            ],
+            "covariance": [
+              3.559385250089593,
+              0,
+              0,
+              0,
+              1.4098770500179187,
+              0,
+              0,
+              0,
+              3.559385250089593
+            ],
+            "temperatureExcessK": 11.195421457800798,
+            "buoyantVelocity": 0.48840450227288834,
+            "sourceCount": 1
+          },
+          {
+            "id": 13,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.38017895825831,
+            "mass": 2.2222222222222223,
+            "mean": [
+              65.89880359848325,
+              120.42739597883035,
+              15.660145308674908
+            ],
+            "covariance": [
+              3.4693852500895894,
+              0,
+              0,
+              0,
+              1.3918770500179178,
+              0,
+              0,
+              0,
+              3.4693852500895894
+            ],
+            "temperatureExcessK": 11.265611958742952,
+            "buoyantVelocity": 0.47900226634276144,
+            "sourceCount": 1
+          },
+          {
+            "id": 14,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.45517895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              66.8841531467996,
+              120.64777309856413,
+              15.112897805590194
+            ],
+            "covariance": [
+              3.379385250089586,
+              0,
+              0,
+              0,
+              1.3738770500179172,
+              0,
+              0,
+              0,
+              3.379385250089586
+            ],
+            "temperatureExcessK": 11.336242524084732,
+            "buoyantVelocity": 0.46906479573862847,
+            "sourceCount": 1
+          },
+          {
+            "id": 15,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.53017895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              65.09718187773947,
+              122.83710909635857,
+              16.749435964892847
+            ],
+            "covariance": [
+              3.289385250089582,
+              0,
+              0,
+              0,
+              1.355877050017916,
+              0,
+              0,
+              0,
+              3.289385250089582
+            ],
+            "temperatureExcessK": 11.407315912841595,
+            "buoyantVelocity": 0.4585705349029817,
+            "sourceCount": 1
+          },
+          {
+            "id": 16,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.60517895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              66.5075850879217,
+              119.90900003064752,
+              14.856506616988595
+            ],
+            "covariance": [
+              3.1993852500895787,
+              0,
+              0,
+              0,
+              1.3378770500179156,
+              0,
+              0,
+              0,
+              3.1993852500895787
+            ],
+            "temperatureExcessK": 11.47883490132682,
+            "buoyantVelocity": 0.44749709768099516,
+            "sourceCount": 1
+          },
+          {
+            "id": 17,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.68017895825831,
+            "mass": 2.222222222222225,
+            "mean": [
+              65.47332512016872,
+              123.44000155795565,
+              17.005667393462456
+            ],
+            "covariance": [
+              3.1093852500895927,
+              0,
+              0,
+              0,
+              1.3198770500179184,
+              0,
+              0,
+              0,
+              3.1093852500895927
+            ],
+            "temperatureExcessK": 11.55080228325997,
+            "buoyantVelocity": 0.4358212355383863,
+            "sourceCount": 1
+          }
+        ],
+        "profiles": [
+          {
+            "id": "reference",
+            "extinctionPerMassRGB": [
+              1,
+              1,
+              1
+            ],
+            "singleScatteringAlbedoRGB": [
+              0.9,
+              0.9,
+              0.9
+            ]
+          }
+        ],
+        "ledger": {
+          "emitted": 20.350000000000005,
+          "airborne": 20.350000000000005,
+          "pendingMass": 0,
+          "deposited": 0,
+          "escaped": 0,
+          "explicitlyCleared": 0
+        },
+        "pendingEmissions": 0,
+        "pendingWindEvents": 4
+      },
+      "photometry": {
+        "storageEV": 12,
+        "cameraEV": 16.500000000000007,
+        "sceneScale": 4096,
+        "outputExposureScale": 17.19683691845692,
+        "rawPerCandela": 0.000036,
+        "maxRawRGB": 3.550661599755174,
+        "storedBound": 14543.509912597192,
+        "safeMaximum": 16376,
+        "targetEV": 12,
+        "storageEpoch": 9,
+        "lastStorageDeltaEV": 0,
+        "components": {
+          "sky": 0.14268775400258055,
+          "locals": 2.5143410310072687,
+          "fireworks": 0.11206331146480997,
+          "medium": 0.7815695032805147
+        },
+        "reference": "3.6 relative directional irradiance per100000 reference lux; effective, not measured",
+        "limits": [
+          "Source bounds must cover all participating RGB channels and worst relevant overlap.",
+          "Finite FP16 storage and final display dynamic range are different constraints.",
+          "A changed storage exposure does not change photographic exposure."
+        ],
+        "frame": {
+          "time": 121.18410000002304,
+          "dt": 0,
+          "utcMs": 1793023200000,
+          "storageEV": 12,
+          "sceneScale": 4096,
+          "rawPerCandela": 0.000036,
+          "cameraEV": 16.500000000000007,
+          "outputExposureScale": 17.19683691845692,
+          "maxRawRGB": 3.550661599755174,
+          "storedBound": 14543.509912597192,
+          "safeMaximum": 16376,
+          "targetEV": 12,
+          "storageEpoch": 9,
+          "lastStorageDeltaEV": 0,
+          "components": {
+            "sky": 0.14268775400258055,
+            "locals": 2.5143410310072687,
+            "fireworks": 0.11206331146480997,
+            "medium": 0.7815695032805147
+          },
+          "reference": "3.6 relative directional irradiance per100000 reference lux; effective, not measured",
+          "limits": [
+            "Source bounds must cover all participating RGB channels and worst relevant overlap.",
+            "Finite FP16 storage and final display dynamic range are different constraints.",
+            "A changed storage exposure does not change photographic exposure."
+          ],
+          "adaptationDelta": 0.007400000095367431,
+          "observer": {
+            "latitudeDeg": 4.5,
+            "longitudeDeg": 118.6,
+            "heightM": 2,
+            "northYawDeg": 0
+          },
+          "windVector": [
+            0.0009059775832942166,
+            0,
+            0.00034070951850380794
+          ],
+          "weather": {
+            "temperature": 29,
+            "humidity": 0.68,
+            "dewPoint": 22.496348617818374,
+            "liftedCondensationLevel": 812.9564227727033,
+            "automaticCloudBase": true,
+            "cloudBase": 812.9564227727033,
+            "thickness": 950,
+            "cloudTop": 1762.9564227727033,
+            "coverage": 0.35,
+            "moisture": 0.984,
+            "shear": 1.1,
+            "windDirection": null,
+            "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve"
+          }
+        },
+        "environment": {
+          "initialized": true,
+          "disposed": false,
+          "revision": 247,
+          "pmremRevision": 59,
+          "cubeSize": 256,
+          "faceRate": 12,
+          "pmremInterval": 2,
+          "totalFaces": 1494,
+          "fullRefreshes": 6,
+          "cancelledJobs": 2,
+          "cubeCaptureEV": 16,
+          "environmentCaptureEV": 16,
+          "sceneEV": 12,
+          "cubeRatio": 0.0625,
+          "environmentRatio": 0.0625,
+          "cubeTag": {
+            "time": 120.49029999995153,
+            "utcMs": 1793023200000,
+            "physicalRevision": 2,
+            "captureEV": 16,
+            "exposure": {
+              "captureEV": 16,
+              "safeEV": 16,
+              "recommendedEV": 17.703452891212947,
+              "preferredEV": 21,
+              "maxRGB": 0.142314805849395,
+              "maximumStoredRGB": 16376,
+              "storedBound": 9326.74311614595
+            },
+            "sunDirection": [
+              -0.4519843789004561,
+              -0.8793346579548398,
+              0.1499355880016947
+            ],
+            "position": [
+              0,
+              2,
+              0
+            ]
+          },
+          "environmentTag": {
+            "time": 119.99469999992769,
+            "utcMs": 1793023200000,
+            "physicalRevision": 2,
+            "captureEV": 16,
+            "exposure": {
+              "captureEV": 16,
+              "safeEV": 16,
+              "recommendedEV": 17.703452891212947,
+              "preferredEV": 21,
+              "maxRGB": 0.142314805849395,
+              "maximumStoredRGB": 16376,
+              "storedBound": 9326.74311614595
+            },
+            "sunDirection": [
+              -0.4519843789004561,
+              -0.8793346579548398,
+              0.1499355880016947
+            ],
+            "position": [
+              0,
+              2,
+              0
+            ]
+          },
+          "cube": {
+            "captureAge": 0.693800000071505,
+            "utcSecondsAge": 0,
+            "utcSignedSecondsAge": 0
+          },
+          "environment": {
+            "captureAge": 1.1894000000953469,
+            "utcSecondsAge": 0,
+            "utcSignedSecondsAge": 0
+          },
+          "pendingReason": null,
+          "job": {
+            "face": 3,
+            "tag": {
+              "time": 120.99310000002306,
+              "utcMs": 1793023200000,
+              "physicalRevision": 2,
+              "captureEV": 16,
+              "exposure": {
+                "captureEV": 16,
+                "safeEV": 16,
+                "recommendedEV": 17.703452891212947,
+                "preferredEV": 21,
+                "maxRGB": 0.142314805849395,
+                "maximumStoredRGB": 16376,
+                "storedBound": 9326.74311614595
+              },
+              "sunDirection": [
+                -0.4519843789004561,
+                -0.8793346579548398,
+                0.1499355880016947
+              ],
+              "position": [
+                0,
+                2,
+                0
+              ]
+            },
+            "wallAge": 0.7409999999999854
+          },
+          "allocated": {
+            "cubes": 2,
+            "pmrems": 2
+          },
+          "lastReason": "scheduled capture",
+          "errors": [],
+          "limits": [
+            "Snapshot coherence, not instantaneous sky; cube/PMREM age are explicit",
+            "Sky cubemap is captured at one fixed point per round, not a spatial radiance field",
+            "Source bound is atmosphere analytic envelope; not photometer calibration",
+            "Explicit initialize/refresh draws six faces synchronously; scheduled work is face-budgeted",
+            "No CPU/GPU timing or FPS claim"
+          ]
+        }
+      },
+      "camera": [
+        -154.41184961193238,
+        12.000000000000021,
+        -118.66637514188292
+      ],
+      "target": [
+        33.75522281076403,
+        73.90417890380249,
+        20.438635837024407
+      ],
+      "fireworks": {
+        "time": 121.18410000002304,
+        "active": 1,
+        "queued": 0,
+        "launches": 1,
+        "rejected": 0,
+        "maxActive": 2,
+        "maxQueued": 16,
+        "settings": {
+          "type": "ring",
+          "autoLaunch": false,
+          "autoDirection": true,
+          "azimuth": 110,
+          "elevation": 80,
+          "autoFrame": true,
+          "persistentSmoke": true,
+          "cloudIllumination": true,
+          "intensityScale": 1
+        },
+        "windSegments": 797,
+        "activeEvents": [
+          {
+            "id": "2654450032-115.42180",
+            "type": "ring",
+            "pattern": "smiley",
+            "smileyLayout": "reference",
+            "intensityScale": 1,
+            "actualStarCount": 120,
+            "calibreMm": 90,
+            "heightInfo": {
+              "inputMode": "definition-rise",
+              "referenceRiseMetres": 120,
+              "referenceElevationDegrees": 80,
+              "explicitWorldHeight": null,
+              "calibratedRiseMetres": 120,
+              "actualBurstWorldY": 121.47704875875286,
+              "actualBurstRiseMetres": 120,
+              "productReference": {
+                "calibreMm": 90,
+                "riseMetres": 120,
+                "referenceWidthMetres": 60,
+                "source": "https://san-en-fireworks.com/index/products/productse/",
+                "evidence": "supplier product-scale example",
+                "widthCalibrated": false
+              },
+              "widthCalibrated": false,
+              "visibleApex": null
+            },
+            "paletteMode": "yellow-outline-green-features"
+          }
+        ],
+        "model": "analytic linear-drag segments; deterministic world-space events; authored reference photometry, not CFD",
+        "records": 135,
+        "lastRender": {
+          "instances": 120,
+          "reflection": false,
+          "storageEV": 12,
+          "rawPerCandela": 0.000036,
+          "width": 1209,
+          "height": 1292
+        },
+        "quality": {
+          "trailSegments": 8
+        },
+        "radianceBound": {
+          "maximumRawRadiance": 0.00011728916898750633,
+          "maxRawRadiance": 0.00011728916898750633,
+          "globalFiniteSurfaceCeiling": 175.8565283852946,
+          "globalReferenceOnly": true,
+          "ownSmokeRawBound": 0.00011728916898750633,
+          "maximumEmissionRGBChannel": 2.5592428230357753,
+          "visibleSources": 0,
+          "nearPlaneFallbackSources": 0,
+          "method": "32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers",
+          "conservative": true
+        },
+        "warnings": [],
+        "units": "reference cd + approximate emission RGB, linear scene reference once *2^storageEV; not measured pyrotechnic photometry",
+        "renderer": "independent instanced premult effects, four-segment finite air; water-hit reflection origin; sorted short segments",
+        "tailIntegration": {
+          "spatialSamples": 8,
+          "shutter": "<=1px: trace-preserving isotropic variance; >1px:3-point independent quadrature",
+          "kernelEvaluations": "8 normal /24 large-shutter tail; heads unchanged",
+          "extraPasses": 0
+        },
+        "limits": [
+          "linear drag/burn model; no chemical or shock/fluid solve",
+          "grey smoke thin sprites; centre-depth sorting and shared near-air visibility approximation",
+          "resolved opaque depth/defocus occlusion approximation; root owns one shared bloom/vignette",
+          "subpixel tail shutter variance is a bounded angular approximation, not exact time-space convolution",
+          "star/cross-spectrum RGB is approximate CIE fit + authored bands and gamut compression"
+        ],
+        "bounds": {
+          "min": [
+            21.11140820068039,
+            0,
+            -44.77219259905032
+          ],
+          "max": [
+            106.40302752634832,
+            147.80835780760498,
+            85.56872121837286
+          ],
+          "centre": [
+            63.757217863514356,
+            73.90417890380249,
+            20.39826430966127
+          ],
+          "center": [
+            63.757217863514356,
+            73.90417890380249,
+            20.39826430966127
+          ],
+          "radius": 107.36703961148477,
+          "active": true,
+          "predicted": true,
+          "model": "16-point analytic trajectory forecast at current wind +8m margin; 2Hz cache; smoke envelope"
+        },
+        "audio": {
+          "scheduled": 0,
+          "discarded": 2,
+          "recordedPlays": 0,
+          "synthesizedPlays": 0,
+          "activeVoices": 0,
+          "outputReady": false,
+          "recordingLoaded": false,
+          "recordingDuration": 0,
+          "relativeBurstGain": 12,
+          "postCompressorHeadroomGain": 0.7,
+          "compressorAttackSeconds": 0.0005,
+          "source": {
+            "title": "Single Firework",
+            "author": "richwise",
+            "source": "https://freesound.org/people/richwise/sounds/455453/",
+            "license": "CC0 1.0",
+            "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "file": "./assets/audio/fireworks/burst-richwise-preview-mono.ogg",
+            "kind": "real recording, trimmed mono from compressed public HQ preview",
+            "subjectiveReview": "not performed by agent; listening acceptance pending"
+          },
+          "loadError": null,
+          "lastArrival": null,
+          "spatial": "HRTF; inverse pressure-distance once in PannerNode; temperature-dependent propagation delay",
+          "limits": [
+            "real compressed preview recording; subjective background/timbre listening pending",
+            "launch/crackle and failed-load burst explicitly synthesized",
+            "fixed listener at emission scheduling; moving receiver sound-cone not solved",
+            "distance lowpass is an approximation; no absolute sound-pressure calibration",
+            "linear post-compressor headroom lowers all pyro SFX3.10dB; not an arbitrary-source peak limiter"
+          ]
+        }
+      },
+      "range": {
+        "storageEV": 12,
+        "historyEV": 12,
+        "opaque": {
+          "minRGB": [
+            0.00012153387069702148,
+            0.0002200603485107422,
+            0.00005811452865600586
+          ],
+          "maxRGB": [
+            123.625,
+            91.1875,
+            46.4375
+          ],
+          "maxAbsRGB": [
+            123.625,
+            91.1875,
+            46.4375
+          ],
+          "globalMin": 0.00005811452865600586,
+          "globalMax": 123.625,
+          "globalMaxAbs": 123.625,
+          "encodedExtrema": {
+            "minRGB": [
+              0.00012153387069702148,
+              0.0002200603485107422,
+              0.00005811452865600586
+            ],
+            "maxRGB": [
+              123.625,
+              91.1875,
+              46.4375
+            ],
+            "maxAbsRGB": [
+              123.625,
+              91.1875,
+              46.4375
+            ],
+            "globalMin": 0.00005811452865600586,
+            "globalMax": 123.625,
+            "globalMaxAbs": 123.625
+          },
+          "countNaN": 0,
+          "countInf": 0,
+          "countPositiveInf": 0,
+          "countNegativeInf": 0,
+          "countNegativeFinite": 0,
+          "countNegative": 0,
+          "countNonFinite": 0,
+          "finiteComponents": 4686084,
+          "totalComponents": 4686084,
+          "pixels": 1562028,
+          "width": 1209,
+          "height": 1292,
+          "levels": [
+            [
+              303,
+              323
+            ],
+            [
+              76,
+              81
+            ],
+            [
+              19,
+              21
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "cpuReadPixels": 4,
+          "cpuReadBytes": 64,
+          "countEncoding": "exact integer low16/high16 limbs in Float32 MRT",
+          "classifierVersion": "ieee-bits-v2",
+          "classifier": "floatBitsToUint exponent/mantissa/sign masks; no floating-point isnan/isinf",
+          "counterConsistency": true,
+          "stateRestored": true,
+          "space": "Input level-zero RGB after current scene storage exposure P; no decode/exposure/tone mapping added"
+        },
+        "composed": {
+          "minRGB": [
+            0.00011301040649414062,
+            0.0002694129943847656,
+            0.00007075071334838867
+          ],
+          "maxRGB": [
+            114.5,
+            84.3125,
+            42.78125
+          ],
+          "maxAbsRGB": [
+            114.5,
+            84.3125,
+            42.78125
+          ],
+          "globalMin": 0.00007075071334838867,
+          "globalMax": 114.5,
+          "globalMaxAbs": 114.5,
+          "encodedExtrema": {
+            "minRGB": [
+              0.00011301040649414062,
+              0.0002694129943847656,
+              0.00007075071334838867
+            ],
+            "maxRGB": [
+              114.5,
+              84.3125,
+              42.78125
+            ],
+            "maxAbsRGB": [
+              114.5,
+              84.3125,
+              42.78125
+            ],
+            "globalMin": 0.00007075071334838867,
+            "globalMax": 114.5,
+            "globalMaxAbs": 114.5
+          },
+          "countNaN": 0,
+          "countInf": 0,
+          "countPositiveInf": 0,
+          "countNegativeInf": 0,
+          "countNegativeFinite": 0,
+          "countNegative": 0,
+          "countNonFinite": 0,
+          "finiteComponents": 4686084,
+          "totalComponents": 4686084,
+          "pixels": 1562028,
+          "width": 1209,
+          "height": 1292,
+          "levels": [
+            [
+              303,
+              323
+            ],
+            [
+              76,
+              81
+            ],
+            [
+              19,
+              21
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "cpuReadPixels": 4,
+          "cpuReadBytes": 64,
+          "countEncoding": "exact integer low16/high16 limbs in Float32 MRT",
+          "classifierVersion": "ieee-bits-v2",
+          "classifier": "floatBitsToUint exponent/mantissa/sign masks; no floating-point isnan/isinf",
+          "counterConsistency": true,
+          "stateRestored": true,
+          "space": "Input level-zero RGB after current scene storage exposure P; no decode/exposure/tone mapping added"
+        },
+        "reflection": {
+          "minRGB": [
+            0,
+            0,
+            0
+          ],
+          "maxRGB": [
+            162.375,
+            119.875,
+            61.125
+          ],
+          "maxAbsRGB": [
+            162.375,
+            119.875,
+            61.125
+          ],
+          "globalMin": 0,
+          "globalMax": 162.375,
+          "globalMaxAbs": 162.375,
+          "encodedExtrema": {
+            "minRGB": [
+              0,
+              0,
+              0
+            ],
+            "maxRGB": [
+              162.375,
+              119.875,
+              61.125
+            ],
+            "maxAbsRGB": [
+              162.375,
+              119.875,
+              61.125
+            ],
+            "globalMin": 0,
+            "globalMax": 162.375,
+            "globalMaxAbs": 162.375
+          },
+          "countNaN": 0,
+          "countInf": 0,
+          "countPositiveInf": 0,
+          "countNegativeInf": 0,
+          "countNegativeFinite": 0,
+          "countNegative": 0,
+          "countNonFinite": 0,
+          "finiteComponents": 4686084,
+          "totalComponents": 4686084,
+          "pixels": 1562028,
+          "width": 1209,
+          "height": 1292,
+          "levels": [
+            [
+              303,
+              323
+            ],
+            [
+              76,
+              81
+            ],
+            [
+              19,
+              21
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "cpuReadPixels": 4,
+          "cpuReadBytes": 64,
+          "countEncoding": "exact integer low16/high16 limbs in Float32 MRT",
+          "classifierVersion": "ieee-bits-v2",
+          "classifier": "floatBitsToUint exponent/mantissa/sign masks; no floating-point isnan/isinf",
+          "counterConsistency": true,
+          "stateRestored": true,
+          "space": "Input level-zero RGB after current scene storage exposure P; no decode/exposure/tone mapping added"
+        },
+        "photometry": {
+          "storageEV": 12,
+          "cameraEV": 16.500000000000007,
+          "sceneScale": 4096,
+          "outputExposureScale": 17.19683691845692,
+          "rawPerCandela": 0.000036,
+          "maxRawRGB": 3.550661599755174,
+          "storedBound": 14543.509912597192,
+          "safeMaximum": 16376,
+          "targetEV": 12,
+          "storageEpoch": 9,
+          "lastStorageDeltaEV": 0,
+          "components": {
+            "sky": 0.14268775400258055,
+            "locals": 2.5143410310072687,
+            "fireworks": 0.11206331146480997,
+            "medium": 0.7815695032805147
+          },
+          "reference": "3.6 relative directional irradiance per100000 reference lux; effective, not measured",
+          "limits": [
+            "Source bounds must cover all participating RGB channels and worst relevant overlap.",
+            "Finite FP16 storage and final display dynamic range are different constraints.",
+            "A changed storage exposure does not change photographic exposure."
+          ]
+        }
+      }
+    },
+    "hidden": {
+      "time": 121.18410000002304,
+      "range": {
+        "storageEV": 12,
+        "historyEV": 12,
+        "opaque": {
+          "minRGB": [
+            0.00012153387069702148,
+            0.0002200603485107422,
+            0.00005811452865600586
+          ],
+          "maxRGB": [
+            123.625,
+            91.1875,
+            46.4375
+          ],
+          "maxAbsRGB": [
+            123.625,
+            91.1875,
+            46.4375
+          ],
+          "globalMin": 0.00005811452865600586,
+          "globalMax": 123.625,
+          "globalMaxAbs": 123.625,
+          "encodedExtrema": {
+            "minRGB": [
+              0.00012153387069702148,
+              0.0002200603485107422,
+              0.00005811452865600586
+            ],
+            "maxRGB": [
+              123.625,
+              91.1875,
+              46.4375
+            ],
+            "maxAbsRGB": [
+              123.625,
+              91.1875,
+              46.4375
+            ],
+            "globalMin": 0.00005811452865600586,
+            "globalMax": 123.625,
+            "globalMaxAbs": 123.625
+          },
+          "countNaN": 0,
+          "countInf": 0,
+          "countPositiveInf": 0,
+          "countNegativeInf": 0,
+          "countNegativeFinite": 0,
+          "countNegative": 0,
+          "countNonFinite": 0,
+          "finiteComponents": 4686084,
+          "totalComponents": 4686084,
+          "pixels": 1562028,
+          "width": 1209,
+          "height": 1292,
+          "levels": [
+            [
+              303,
+              323
+            ],
+            [
+              76,
+              81
+            ],
+            [
+              19,
+              21
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "cpuReadPixels": 4,
+          "cpuReadBytes": 64,
+          "countEncoding": "exact integer low16/high16 limbs in Float32 MRT",
+          "classifierVersion": "ieee-bits-v2",
+          "classifier": "floatBitsToUint exponent/mantissa/sign masks; no floating-point isnan/isinf",
+          "counterConsistency": true,
+          "stateRestored": true,
+          "space": "Input level-zero RGB after current scene storage exposure P; no decode/exposure/tone mapping added"
+        },
+        "composed": {
+          "minRGB": [
+            0.00011301040649414062,
+            0.0002694129943847656,
+            0.00007075071334838867
+          ],
+          "maxRGB": [
+            114.5,
+            84.3125,
+            42.78125
+          ],
+          "maxAbsRGB": [
+            114.5,
+            84.3125,
+            42.78125
+          ],
+          "globalMin": 0.00007075071334838867,
+          "globalMax": 114.5,
+          "globalMaxAbs": 114.5,
+          "encodedExtrema": {
+            "minRGB": [
+              0.00011301040649414062,
+              0.0002694129943847656,
+              0.00007075071334838867
+            ],
+            "maxRGB": [
+              114.5,
+              84.3125,
+              42.78125
+            ],
+            "maxAbsRGB": [
+              114.5,
+              84.3125,
+              42.78125
+            ],
+            "globalMin": 0.00007075071334838867,
+            "globalMax": 114.5,
+            "globalMaxAbs": 114.5
+          },
+          "countNaN": 0,
+          "countInf": 0,
+          "countPositiveInf": 0,
+          "countNegativeInf": 0,
+          "countNegativeFinite": 0,
+          "countNegative": 0,
+          "countNonFinite": 0,
+          "finiteComponents": 4686084,
+          "totalComponents": 4686084,
+          "pixels": 1562028,
+          "width": 1209,
+          "height": 1292,
+          "levels": [
+            [
+              303,
+              323
+            ],
+            [
+              76,
+              81
+            ],
+            [
+              19,
+              21
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "cpuReadPixels": 4,
+          "cpuReadBytes": 64,
+          "countEncoding": "exact integer low16/high16 limbs in Float32 MRT",
+          "classifierVersion": "ieee-bits-v2",
+          "classifier": "floatBitsToUint exponent/mantissa/sign masks; no floating-point isnan/isinf",
+          "counterConsistency": true,
+          "stateRestored": true,
+          "space": "Input level-zero RGB after current scene storage exposure P; no decode/exposure/tone mapping added"
+        },
+        "reflection": {
+          "minRGB": [
+            0,
+            0,
+            0
+          ],
+          "maxRGB": [
+            162.375,
+            119.875,
+            61.125
+          ],
+          "maxAbsRGB": [
+            162.375,
+            119.875,
+            61.125
+          ],
+          "globalMin": 0,
+          "globalMax": 162.375,
+          "globalMaxAbs": 162.375,
+          "encodedExtrema": {
+            "minRGB": [
+              0,
+              0,
+              0
+            ],
+            "maxRGB": [
+              162.375,
+              119.875,
+              61.125
+            ],
+            "maxAbsRGB": [
+              162.375,
+              119.875,
+              61.125
+            ],
+            "globalMin": 0,
+            "globalMax": 162.375,
+            "globalMaxAbs": 162.375
+          },
+          "countNaN": 0,
+          "countInf": 0,
+          "countPositiveInf": 0,
+          "countNegativeInf": 0,
+          "countNegativeFinite": 0,
+          "countNegative": 0,
+          "countNonFinite": 0,
+          "finiteComponents": 4686084,
+          "totalComponents": 4686084,
+          "pixels": 1562028,
+          "width": 1209,
+          "height": 1292,
+          "levels": [
+            [
+              303,
+              323
+            ],
+            [
+              76,
+              81
+            ],
+            [
+              19,
+              21
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "cpuReadPixels": 4,
+          "cpuReadBytes": 64,
+          "countEncoding": "exact integer low16/high16 limbs in Float32 MRT",
+          "classifierVersion": "ieee-bits-v2",
+          "classifier": "floatBitsToUint exponent/mantissa/sign masks; no floating-point isnan/isinf",
+          "counterConsistency": true,
+          "stateRestored": true,
+          "space": "Input level-zero RGB after current scene storage exposure P; no decode/exposure/tone mapping added"
+        },
+        "photometry": {
+          "storageEV": 12,
+          "cameraEV": 16.500000000000004,
+          "sceneScale": 4096,
+          "outputExposureScale": 17.196836918456878,
+          "rawPerCandela": 0.000036,
+          "maxRawRGB": 3.3976773542264764,
+          "storedBound": 13916.886442911647,
+          "safeMaximum": 16376,
+          "targetEV": 12,
+          "storageEpoch": 9,
+          "lastStorageDeltaEV": 0,
+          "components": {
+            "sky": 0.14268775400258055,
+            "locals": 2.5143410310072687,
+            "fireworks": 0.11206331146480997,
+            "medium": 0.6285852577518172
+          },
+          "reference": "3.6 relative directional irradiance per100000 reference lux; effective, not measured",
+          "limits": [
+            "Source bounds must cover all participating RGB channels and worst relevant overlap.",
+            "Finite FP16 storage and final display dynamic range are different constraints.",
+            "A changed storage exposure does not change photographic exposure."
+          ]
+        }
+      },
+      "snapshot": {
+        "schema": "glass-atoll.pyro-smoke-state.v1",
+        "time": 121.13799999999964,
+        "requestedTime": 121.18410000002304,
+        "tick": 195,
+        "revision": 550,
+        "currentWind": [
+          0.0009391198761727241,
+          0,
+          0.0003531732867658107
+        ],
+        "packets": [
+          {
+            "id": 0,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.42179999995183,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.18834911622727,
+              7.3273388209640675,
+              7.0558266798099085
+            ],
+            "covariance": [
+              6.907840000057365,
+              0,
+              0,
+              0,
+              1.494388000011474,
+              0,
+              0,
+              0,
+              6.907840000057365
+            ],
+            "temperatureExcessK": 15.526151951853718,
+            "buoyantVelocity": 1.1173929429869793,
+            "sourceCount": 1
+          },
+          {
+            "id": 1,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.49679999995183,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.23130018567648,
+              7.395614926879521,
+              7.075420250662518
+            ],
+            "covariance": [
+              6.8178400000573625,
+              0,
+              0,
+              0,
+              1.4763880000114735,
+              0,
+              0,
+              0,
+              6.8178400000573625
+            ],
+            "temperatureExcessK": 15.623494279457233,
+            "buoyantVelocity": 1.1211691565029531,
+            "sourceCount": 1
+          },
+          {
+            "id": 2,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.57179999995184,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.133289699468673,
+              7.006943148794777,
+              7.0316795424477885
+            ],
+            "covariance": [
+              6.727840000057361,
+              0,
+              0,
+              0,
+              1.4583880000114726,
+              0,
+              0,
+              0,
+              6.727840000057361
+            ],
+            "temperatureExcessK": 15.721446901792676,
+            "buoyantVelocity": 1.124845644890276,
+            "sourceCount": 1
+          },
+          {
+            "id": 3,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.64679999995182,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.145612724515434,
+              6.986997470501234,
+              7.189189132057951
+            ],
+            "covariance": [
+              6.637840000057375,
+              0,
+              0,
+              0,
+              1.4403880000114753,
+              0,
+              0,
+              0,
+              6.637840000057375
+            ],
+            "temperatureExcessK": 15.820013645146783,
+            "buoyantVelocity": 1.1284170675404506,
+            "sourceCount": 1
+          },
+          {
+            "id": 4,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.72179999995183,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.204287968389607,
+              7.077576590089322,
+              6.912386520380864
+            ],
+            "covariance": [
+              6.54784000005737,
+              0,
+              0,
+              0,
+              1.4223880000114746,
+              0,
+              0,
+              0,
+              6.54784000005737
+            ],
+            "temperatureExcessK": 15.919198359795526,
+            "buoyantVelocity": 1.1318778701777696,
+            "sourceCount": 1
+          },
+          {
+            "id": 5,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.79679999995183,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.322121323472434,
+              6.8536326728907575,
+              6.963445887486398
+            ],
+            "covariance": [
+              6.457840000057366,
+              0,
+              0,
+              0,
+              1.4043880000114737,
+              0,
+              0,
+              0,
+              6.457840000057366
+            ],
+            "temperatureExcessK": 16.01900492015443,
+            "buoyantVelocity": 1.13522227663452,
+            "sourceCount": 1
+          },
+          {
+            "id": 6,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.87179999995183,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.014593366216385,
+              6.870882335260561,
+              7.133170926136064
+            ],
+            "covariance": [
+              6.367840000057363,
+              0,
+              0,
+              0,
+              1.3863880000114734,
+              0,
+              0,
+              0,
+              6.367840000057363
+            ],
+            "temperatureExcessK": 16.119437224929964,
+            "buoyantVelocity": 1.1384442803115495,
+            "sourceCount": 1
+          },
+          {
+            "id": 7,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.94679999995184,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.206308897017536,
+              6.701502767483489,
+              6.9045864622528015
+            ],
+            "covariance": [
+              6.277840000057359,
+              0,
+              0,
+              0,
+              1.3683880000114725,
+              0,
+              0,
+              0,
+              6.277840000057359
+            ],
+            "temperatureExcessK": 16.22049919727179,
+            "buoyantVelocity": 1.1415376353121098,
+            "sourceCount": 1
+          },
+          {
+            "id": 8,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 116.02179999995182,
+            "mass": 0.03888888888888886,
+            "mean": [
+              29.118573872886234,
+              6.681021547696041,
+              7.187580740510329
+            ],
+            "covariance": [
+              6.187840000057374,
+              0,
+              0,
+              0,
+              1.350388000011475,
+              0,
+              0,
+              0,
+              6.187840000057374
+            ],
+            "temperatureExcessK": 16.322194784926044,
+            "buoyantVelocity": 1.1444958472365527,
+            "sourceCount": 1
+          },
+          {
+            "id": 9,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.08017895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              65.99138321454392,
+              121.94448072245542,
+              15.93143603823359
+            ],
+            "covariance": [
+              3.8293852500895866,
+              0,
+              0,
+              0,
+              1.4638770500179177,
+              0,
+              0,
+              0,
+              3.8293852500895866
+            ],
+            "temperatureExcessK": 10.987463008426923,
+            "buoyantVelocity": 0.5136035336420159,
+            "sourceCount": 1
+          },
+          {
+            "id": 10,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.15517895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              66.17600322668635,
+              123.72787036588296,
+              16.28352205552834
+            ],
+            "covariance": [
+              3.739385250089583,
+              0,
+              0,
+              0,
+              1.4458770500179168,
+              0,
+              0,
+              0,
+              3.739385250089583
+            ],
+            "temperatureExcessK": 11.056349698896932,
+            "buoyantVelocity": 0.505685521900382,
+            "sourceCount": 1
+          },
+          {
+            "id": 11,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.23017895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              65.8063310879939,
+              120.04702388022615,
+              15.579187516375304
+            ],
+            "covariance": [
+              3.64938525008958,
+              0,
+              0,
+              0,
+              1.427877050017916,
+              0,
+              0,
+              0,
+              3.64938525008958
+            ],
+            "temperatureExcessK": 11.125668279432936,
+            "buoyantVelocity": 0.49729225910132824,
+            "sourceCount": 1
+          },
+          {
+            "id": 12,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.30517895825831,
+            "mass": 2.2222222222222223,
+            "mean": [
+              66.08300428150896,
+              123.19966897614054,
+              16.202366287790507
+            ],
+            "covariance": [
+              3.559385250089593,
+              0,
+              0,
+              0,
+              1.4098770500179187,
+              0,
+              0,
+              0,
+              3.559385250089593
+            ],
+            "temperatureExcessK": 11.195421457800798,
+            "buoyantVelocity": 0.48840450227288834,
+            "sourceCount": 1
+          },
+          {
+            "id": 13,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.38017895825831,
+            "mass": 2.2222222222222223,
+            "mean": [
+              65.89880359848325,
+              120.42739597883035,
+              15.660145308674908
+            ],
+            "covariance": [
+              3.4693852500895894,
+              0,
+              0,
+              0,
+              1.3918770500179178,
+              0,
+              0,
+              0,
+              3.4693852500895894
+            ],
+            "temperatureExcessK": 11.265611958742952,
+            "buoyantVelocity": 0.47900226634276144,
+            "sourceCount": 1
+          },
+          {
+            "id": 14,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.45517895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              66.8841531467996,
+              120.64777309856413,
+              15.112897805590194
+            ],
+            "covariance": [
+              3.379385250089586,
+              0,
+              0,
+              0,
+              1.3738770500179172,
+              0,
+              0,
+              0,
+              3.379385250089586
+            ],
+            "temperatureExcessK": 11.336242524084732,
+            "buoyantVelocity": 0.46906479573862847,
+            "sourceCount": 1
+          },
+          {
+            "id": 15,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.53017895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              65.09718187773947,
+              122.83710909635857,
+              16.749435964892847
+            ],
+            "covariance": [
+              3.289385250089582,
+              0,
+              0,
+              0,
+              1.355877050017916,
+              0,
+              0,
+              0,
+              3.289385250089582
+            ],
+            "temperatureExcessK": 11.407315912841595,
+            "buoyantVelocity": 0.4585705349029817,
+            "sourceCount": 1
+          },
+          {
+            "id": 16,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.60517895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              66.5075850879217,
+              119.90900003064752,
+              14.856506616988595
+            ],
+            "covariance": [
+              3.1993852500895787,
+              0,
+              0,
+              0,
+              1.3378770500179156,
+              0,
+              0,
+              0,
+              3.1993852500895787
+            ],
+            "temperatureExcessK": 11.47883490132682,
+            "buoyantVelocity": 0.44749709768099516,
+            "sourceCount": 1
+          },
+          {
+            "id": 17,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.68017895825831,
+            "mass": 2.222222222222225,
+            "mean": [
+              65.47332512016872,
+              123.44000155795565,
+              17.005667393462456
+            ],
+            "covariance": [
+              3.1093852500895927,
+              0,
+              0,
+              0,
+              1.3198770500179184,
+              0,
+              0,
+              0,
+              3.1093852500895927
+            ],
+            "temperatureExcessK": 11.55080228325997,
+            "buoyantVelocity": 0.4358212355383863,
+            "sourceCount": 1
+          }
+        ],
+        "profiles": [
+          {
+            "id": "reference",
+            "extinctionPerMassRGB": [
+              1,
+              1,
+              1
+            ],
+            "singleScatteringAlbedoRGB": [
+              0.9,
+              0.9,
+              0.9
+            ]
+          }
+        ],
+        "ledger": {
+          "emitted": 20.350000000000005,
+          "airborne": 20.350000000000005,
+          "pendingMass": 0,
+          "deposited": 0,
+          "escaped": 0,
+          "explicitlyCleared": 0
+        },
+        "pendingEmissions": 0,
+        "pendingWindEvents": 4
+      },
+      "photometry": {
+        "storageEV": 12,
+        "cameraEV": 16.500000000000004,
+        "sceneScale": 4096,
+        "outputExposureScale": 17.196836918456878,
+        "rawPerCandela": 0.000036,
+        "maxRawRGB": 3.3976773542264764,
+        "storedBound": 13916.886442911647,
+        "safeMaximum": 16376,
+        "targetEV": 12,
+        "storageEpoch": 9,
+        "lastStorageDeltaEV": 0,
+        "components": {
+          "sky": 0.14268775400258055,
+          "locals": 2.5143410310072687,
+          "fireworks": 0.11206331146480997,
+          "medium": 0.6285852577518172
+        },
+        "reference": "3.6 relative directional irradiance per100000 reference lux; effective, not measured",
+        "limits": [
+          "Source bounds must cover all participating RGB channels and worst relevant overlap.",
+          "Finite FP16 storage and final display dynamic range are different constraints.",
+          "A changed storage exposure does not change photographic exposure."
+        ],
+        "frame": {
+          "time": 121.18410000002304,
+          "dt": 0,
+          "utcMs": 1793023200000,
+          "storageEV": 12,
+          "sceneScale": 4096,
+          "rawPerCandela": 0.000036,
+          "cameraEV": 16.500000000000004,
+          "outputExposureScale": 17.196836918456878,
+          "maxRawRGB": 3.3976773542264764,
+          "storedBound": 13916.886442911647,
+          "safeMaximum": 16376,
+          "targetEV": 12,
+          "storageEpoch": 9,
+          "lastStorageDeltaEV": 0,
+          "components": {
+            "sky": 0.14268775400258055,
+            "locals": 2.5143410310072687,
+            "fireworks": 0.11206331146480997,
+            "medium": 0.6285852577518172
+          },
+          "reference": "3.6 relative directional irradiance per100000 reference lux; effective, not measured",
+          "limits": [
+            "Source bounds must cover all participating RGB channels and worst relevant overlap.",
+            "Finite FP16 storage and final display dynamic range are different constraints.",
+            "A changed storage exposure does not change photographic exposure."
+          ],
+          "adaptationDelta": 0.008199999928474427,
+          "observer": {
+            "latitudeDeg": 4.5,
+            "longitudeDeg": 118.6,
+            "heightM": 2,
+            "northYawDeg": 0
+          },
+          "windVector": [
+            0.0009059775832942166,
+            0,
+            0.00034070951850380794
+          ],
+          "weather": {
+            "temperature": 29,
+            "humidity": 0.68,
+            "dewPoint": 22.496348617818374,
+            "liftedCondensationLevel": 812.9564227727033,
+            "automaticCloudBase": true,
+            "cloudBase": 812.9564227727033,
+            "thickness": 950,
+            "cloudTop": 1762.9564227727033,
+            "coverage": 0.35,
+            "moisture": 0.984,
+            "shear": 1.1,
+            "windDirection": null,
+            "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve"
+          }
+        },
+        "environment": {
+          "initialized": true,
+          "disposed": false,
+          "revision": 247,
+          "pmremRevision": 59,
+          "cubeSize": 256,
+          "faceRate": 12,
+          "pmremInterval": 2,
+          "totalFaces": 1494,
+          "fullRefreshes": 6,
+          "cancelledJobs": 2,
+          "cubeCaptureEV": 16,
+          "environmentCaptureEV": 16,
+          "sceneEV": 12,
+          "cubeRatio": 0.0625,
+          "environmentRatio": 0.0625,
+          "cubeTag": {
+            "time": 120.49029999995153,
+            "utcMs": 1793023200000,
+            "physicalRevision": 2,
+            "captureEV": 16,
+            "exposure": {
+              "captureEV": 16,
+              "safeEV": 16,
+              "recommendedEV": 17.703452891212947,
+              "preferredEV": 21,
+              "maxRGB": 0.142314805849395,
+              "maximumStoredRGB": 16376,
+              "storedBound": 9326.74311614595
+            },
+            "sunDirection": [
+              -0.4519843789004561,
+              -0.8793346579548398,
+              0.1499355880016947
+            ],
+            "position": [
+              0,
+              2,
+              0
+            ]
+          },
+          "environmentTag": {
+            "time": 119.99469999992769,
+            "utcMs": 1793023200000,
+            "physicalRevision": 2,
+            "captureEV": 16,
+            "exposure": {
+              "captureEV": 16,
+              "safeEV": 16,
+              "recommendedEV": 17.703452891212947,
+              "preferredEV": 21,
+              "maxRGB": 0.142314805849395,
+              "maximumStoredRGB": 16376,
+              "storedBound": 9326.74311614595
+            },
+            "sunDirection": [
+              -0.4519843789004561,
+              -0.8793346579548398,
+              0.1499355880016947
+            ],
+            "position": [
+              0,
+              2,
+              0
+            ]
+          },
+          "cube": {
+            "captureAge": 0.693800000071505,
+            "utcSecondsAge": 0,
+            "utcSignedSecondsAge": 0
+          },
+          "environment": {
+            "captureAge": 1.1894000000953469,
+            "utcSecondsAge": 0,
+            "utcSignedSecondsAge": 0
+          },
+          "pendingReason": null,
+          "job": {
+            "face": 3,
+            "tag": {
+              "time": 120.99310000002306,
+              "utcMs": 1793023200000,
+              "physicalRevision": 2,
+              "captureEV": 16,
+              "exposure": {
+                "captureEV": 16,
+                "safeEV": 16,
+                "recommendedEV": 17.703452891212947,
+                "preferredEV": 21,
+                "maxRGB": 0.142314805849395,
+                "maximumStoredRGB": 16376,
+                "storedBound": 9326.74311614595
+              },
+              "sunDirection": [
+                -0.4519843789004561,
+                -0.8793346579548398,
+                0.1499355880016947
+              ],
+              "position": [
+                0,
+                2,
+                0
+              ]
+            },
+            "wallAge": 1.5549999999999784
+          },
+          "allocated": {
+            "cubes": 2,
+            "pmrems": 2
+          },
+          "lastReason": "scheduled capture",
+          "errors": [],
+          "limits": [
+            "Snapshot coherence, not instantaneous sky; cube/PMREM age are explicit",
+            "Sky cubemap is captured at one fixed point per round, not a spatial radiance field",
+            "Source bound is atmosphere analytic envelope; not photometer calibration",
+            "Explicit initialize/refresh draws six faces synchronously; scheduled work is face-budgeted",
+            "No CPU/GPU timing or FPS claim"
+          ]
+        }
+      }
+    },
+    "hotVisibleDifference": {
+      "changedPixels": 2501,
+      "maximumByteDifference": 199,
+      "rmsByteDifference": 2.693463602945627
+    },
+    "cold": {
+      "time": 142.09220000004623,
+      "smoke": {
+        "requestedPhysicalTime": 142.09220000004623,
+        "committedPhysicalTime": 142.08799999999962,
+        "behindSeconds": 0.0042000000466089205,
+        "state": {
+          "version": "pyro-smoke-state-v1",
+          "time": 142.08799999999962,
+          "requestedTime": 142.09220000004623,
+          "revision": 2708,
+          "packetCount": 18,
+          "capacity": 4096,
+          "peakPacketCount": 18,
+          "pendingEmissions": 0,
+          "pendingWindEvents": 1,
+          "profileCount": 1,
+          "acceptedSources": 18,
+          "lastEmissionId": 17,
+          "totalTickSteps": 614,
+          "lastAdvanceSteps": 0,
+          "fixedStep": 0.05,
+          "maxStepsPerAdvance": 200,
+          "ledger": {
+            "emitted": 20.350000000000005,
+            "airborne": 20.350000000000005,
+            "pendingMass": 0,
+            "residual": 0,
+            "deposited": 0,
+            "escaped": 0,
+            "explicitlyCleared": 0
+          },
+          "merges": 0,
+          "forcedMerges": 0,
+          "preferredSameSourceMerges": 0,
+          "preferredSameProfileMerges": 0,
+          "maximumMergeDistanceMetres": 0,
+          "maximumMergeNormalizedDistance": 0,
+          "maximumSampledMergePeakRelativeError": 0,
+          "maximumSampledMergeColumnRelativeError": 0,
+          "maximumSampledMergeOpticalDepthError": 0,
+          "recentMerges": [],
+          "units": "relative dry mass; metres; physical seconds; authored m2/reference-mass optical profiles. NOT calibrated kg/PM.",
+          "limits": [
+            "no age deletion; no deposition/domain/RH chemistry implemented",
+            "uniform piecewise-held wind and prescribed thermal/diffusion surrogate; no Navier-Stokes or shear",
+            "same-profile capacity merges conserve instantaneous spatial moments; no velocity/thermal variance or position-velocity cross covariance, so future heterogeneous thermal separation is not preserved",
+            "sampled peak/column diagnostics are not global optical bounds; differential-thermal-travel gate only limits preferred merges",
+            "forcedMerges signal visual approximation, not an accepted appearance",
+            "no camera/P/C/UTC or renderer dependency",
+            "erf columns have finite numerical approximation error; not an unbiased ray renderer",
+            "pending queues, profiles and recent merge log are bounded; no retained old source/active-event archive"
+          ]
+        },
+        "events": {
+          "version": "pyro-smoke-events-v1",
+          "revision": 5,
+          "closedThrough": 142.09220000004623,
+          "nextEmissionId": 18,
+          "nextSourceId": 2,
+          "pendingEvents": 0,
+          "rememberedEvents": 0,
+          "maxPendingEvents": 512,
+          "maxRememberedEvents": 2048,
+          "peakRememberedAndPendingKeys": 1,
+          "stagedEvents": 2,
+          "injectedEvents": 2,
+          "duplicates": 0,
+          "staleEvents": 0,
+          "queuedPacketsLifetime": 18,
+          "referenceAreaQueuedLifetime": 20.350000000000005,
+          "clears": 1,
+          "clearedPendingEvents": 0,
+          "fault": null,
+          "parameters": {
+            "burstArea": 20,
+            "launchArea": 0.35,
+            "fanLaunchArea": 0.1,
+            "bouquetLaunchArea": 2,
+            "profileId": "reference",
+            "packetsPerEvent": 9,
+            "packetSpacingSeconds": 0.075
+          },
+          "recentSources": [
+            {
+              "eventId": "2654450032-115.42180",
+              "kind": "launch",
+              "type": "ring",
+              "time": 115.42179999995183,
+              "position": [
+                29.11140820068039,
+                1.477048758752856,
+                7.026891634646991
+              ],
+              "sourceId": "pyro-smoke-source-0-0",
+              "derivedSeedDomain": "pyro-smoke-source-v1",
+              "packetCount": 9,
+              "referenceArea": 0.35,
+              "lastBirthTime": 116.02179999995182
+            },
+            {
+              "eventId": "2654450032-115.42180",
+              "kind": "burst",
+              "type": "ring",
+              "time": 120.08017895825832,
+              "position": [
+                65.98989519914674,
+                121.47704875875286,
+                15.930876442699601
+              ],
+              "sourceId": "pyro-smoke-source-9-1",
+              "derivedSeedDomain": "pyro-smoke-source-v1",
+              "packetCount": 9,
+              "referenceArea": 20,
+              "lastBirthTime": 120.68017895825831
+            }
+          ],
+          "units": "authored reference dry extinction area / relative mass units at a unit reference optical coefficient; NOT measured kg/PM, audio energy or explosive yield",
+          "limits": [
+            "CPU adapter only; no main/render/physics/audio integration",
+            "9 bounded source means/SPD Gaussian kernels; Gaussian spatial support itself is infinite",
+            "mass conserved by downstream state, no age fade/deletion or deposited-mass model here",
+            "temperature excess, initial buoyancy, source spread and isotropic kernel sizes are authored surrogates, not CFD",
+            "completed drain world position is authoritative; no source relocation to current frame/camera",
+            "stage complete batches before flush, then advance state; equal-time events created after flush use arrival-order tie ordering",
+            "bounded identity storage never silently evicts same-watermark events; capacity rejects new input",
+            "clearForState replaces caller-cleared state, retains IDs/tombstones, no old event replay",
+            "state queue failure can be partial and is explicit/fault-locked until clearForState; caller must size queues/profiles before integration"
+          ]
+        },
+        "columns": {
+          "sourceTime": 142.08799999999962,
+          "sourceRevision": 2708,
+          "packetCount": 18,
+          "profileCount": 1,
+          "nodeCount": 7,
+          "leafCount": 4,
+          "leafSize": 8,
+          "kSigma": 5,
+          "errorBudget": 0.00001,
+          "builds": 534,
+          "lastBuildMs": 0,
+          "totalBuildMs": 17.50000035762787,
+          "lastUpdateMs": 0,
+          "refits": 514,
+          "structuralRebuilds": 20,
+          "qualityRebuilds": 0,
+          "lastUpdateKind": "refit",
+          "treeQuality": 1.4390814407116004,
+          "treeQualityGrowth": 1.24395404024365,
+          "refitRebuildThreshold": 2.5,
+          "lastFallbackGrowth": null,
+          "trackedNewPacketRecords": 0,
+          "trackedNewNodeRecords": 0,
+          "rays": 75990,
+          "zeroLengthRays": 0,
+          "visitedNodes": 332188,
+          "bboxTests": 730419,
+          "kernelsEvaluated": 244972,
+          "omittedPackets": 1026116,
+          "skippedNodes": 124864,
+          "zeroExtinctionPackets": 0,
+          "totalQueryMs": 183.90000021457672,
+          "maximumQueryMs": 1.100000023841858,
+          "maximumOmittedBound": 0.000009996756018789824,
+          "mediumDomain": "unbounded full-SPD Gaussian; no halfspace, ground absorption or physical packet deletion",
+          "omissionBound": "Each missed 5-sigma AABB: sum M*trace(invSigma)/(2pi)*max(extinctionRGB)*exp(-12.5); only omitted when cumulative upper bound <= budget.",
+          "numericMethod": "binary64 Cholesky whitening + erf series/continued fraction + close-endpoint four-node quadrature",
+          "errorBoundIncludesRoundoff": false,
+          "units": "metres, relative dry mass, authored m2/reference-mass profiles; tau dimensionless"
+        },
+        "rendering": {
+          "version": "pyro-smoke-renderer-stageA-v3-local",
+          "lastRender": {
+            "packets": 18,
+            "instances": 18,
+            "culled": 0,
+            "fullScreenFallbacks": 0,
+            "reflection": false,
+            "width": 1209,
+            "height": 1292,
+            "storageEV": 12,
+            "supportSigma": 5,
+            "offProxyOpticalDepthUpperBound": 0.0000019721523865858218,
+            "debugMode": 0,
+            "stateRevision": 2708,
+            "extraOffscreenTargets": 0,
+            "frontAirEnabled": true,
+            "frontAirCells": 4,
+            "localLightingEnabled": true,
+            "localLightingSources": 6,
+            "legacyClusterSources": 0,
+            "samplerCount": 2
+          },
+          "maxPackets": 4096,
+          "packets": 18,
+          "supportSigma": 5,
+          "anisotropy": 0.32,
+          "neutralExtinctionOnly": true,
+          "frontAirOptIn": true,
+          "localLightingOptIn": true,
+          "samplerCount": 2,
+          "limits": [
+            "no app/event/source integration",
+            "true finite Gaussian columns withFloat32/erf and finite proxy-tail error; no unbiased-renderer claim",
+            "back-to-front latent-centre order; S at optical conditional mean, overlapping/source-varying scattering is approximate",
+            "optional four-cell front-air T/S restores front in-scatter at a conditional-mean thin layer; overlapping volumes are not a joint RTE integration",
+            "optional shared6 localIncident sources replace legacy2 clusters; borrowed stored RGB is not multiplied by P again",
+            "no smoke self-shadow, smoke source-path attenuation or multiple scattering; shared torch scene-shadow PCF is reused when active",
+            "air is sun/key-only, exponential height, flat local worldY clamped at0; no smoke/local-light sourced air illumination added by this module",
+            "opaque depth must be independently resolved; no centre-depth discard",
+            "whole-space Gaussian matches state; no ground-fold/deposition model implicitly applied",
+            "no density/P/C coupling; P applied once to own raw lighting including air, borrowed local uniforms must already match this frame P",
+            "proxy culling affects rendering only; physical state mass is never deleted",
+            "far/subpixel footprint filtering and volumeDOF are not solved; per-source PSF remains caller-owned"
+          ]
+        },
+        "explicitlyCleared": 0,
+        "clears": 1,
+        "lastUpdateMs": 0,
+        "limits": [
+          "Physical transport uses fixed20Hz state commits; it is not a fluid/turbulence/settling solver.",
+          "Source-path extinction is queried at emitter/tail anchors; it is not exact per-pixel convolution through a varying medium.",
+          "Whole-space neutral Gaussian medium; scattering, overlap order and clear-air folding retain the renderer StageA approximations."
+        ]
+      },
+      "snapshot": {
+        "schema": "glass-atoll.pyro-smoke-state.v1",
+        "time": 142.08799999999962,
+        "requestedTime": 142.09220000004623,
+        "tick": 614,
+        "revision": 2708,
+        "currentWind": [
+          3.051522509355093e-10,
+          0,
+          1.1475811146292656e-10
+        ],
+        "packets": [
+          {
+            "id": 0,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.42179999995183,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.18966827311344,
+              19.195538505126294,
+              7.056322772997878
+            ],
+            "covariance": [
+              32.04784000005736,
+              0,
+              0,
+              0,
+              6.522388000011483,
+              0,
+              0,
+              0,
+              32.04784000005736
+            ],
+            "temperatureExcessK": 2.709305940385589,
+            "buoyantVelocity": 0.21262347580596505,
+            "sourceCount": 1
+          },
+          {
+            "id": 1,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.49679999995183,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.232619342562653,
+              19.33176460187607,
+              7.075916343850487
+            ],
+            "covariance": [
+              31.957840000057363,
+              0,
+              0,
+              0,
+              6.504388000011482,
+              0,
+              0,
+              0,
+              31.957840000057363
+            ],
+            "temperatureExcessK": 2.7262921290590643,
+            "buoyantVelocity": 0.213956442820907,
+            "sourceCount": 1
+          },
+          {
+            "id": 2,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.57179999995184,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.134608856354845,
+              19.011222038211553,
+              7.032175635635758
+            ],
+            "covariance": [
+              31.867840000057363,
+              0,
+              0,
+              0,
+              6.48638800001148,
+              0,
+              0,
+              0,
+              31.867840000057363
+            ],
+            "temperatureExcessK": 2.743384813865501,
+            "buoyantVelocity": 0.21529776348449892,
+            "sourceCount": 1
+          },
+          {
+            "id": 3,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.64679999995182,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.146931881401606,
+              19.059576491096333,
+              7.1896852252459205
+            ],
+            "covariance": [
+              31.77784000005738,
+              0,
+              0,
+              0,
+              6.468388000011483,
+              0,
+              0,
+              0,
+              31.77784000005738
+            ],
+            "temperatureExcessK": 2.7605846624900536,
+            "buoyantVelocity": 0.21664749003741002,
+            "sourceCount": 1
+          },
+          {
+            "id": 4,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.72179999995183,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.20560712527578,
+              19.218617939355195,
+              6.912882613568834
+            ],
+            "covariance": [
+              31.687840000057374,
+              0,
+              0,
+              0,
+              6.450388000011483,
+              0,
+              0,
+              0,
+              31.687840000057374
+            ],
+            "temperatureExcessK": 2.777892346804023,
+            "buoyantVelocity": 0.21800567504275006,
+            "sourceCount": 1
+          },
+          {
+            "id": 5,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.79679999995183,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.323440480358606,
+              19.063289400260402,
+              6.963941980674368
+            ],
+            "covariance": [
+              31.59784000005737,
+              0,
+              0,
+              0,
+              6.432388000011482,
+              0,
+              0,
+              0,
+              31.59784000005737
+            ],
+            "temperatureExcessK": 2.7953085428910067,
+            "buoyantVelocity": 0.21937237138789534,
+            "sourceCount": 1
+          },
+          {
+            "id": 6,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.87179999995183,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.015912523102557,
+              19.14929789632962,
+              7.133667019324033
+            ],
+            "covariance": [
+              31.507840000057367,
+              0,
+              0,
+              0,
+              6.414388000011482,
+              0,
+              0,
+              0,
+              31.507840000057367
+            ],
+            "temperatureExcessK": 2.8128339310733907,
+            "buoyantVelocity": 0.22074763228631908,
+            "sourceCount": 1
+          },
+          {
+            "id": 7,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 115.94679999995184,
+            "mass": 0.03888888888888889,
+            "mean": [
+              29.207628053903708,
+              19.048810560594923,
+              6.905082555440771
+            ],
+            "covariance": [
+              31.417840000057357,
+              0,
+              0,
+              0,
+              6.3963880000114814,
+              0,
+              0,
+              0,
+              31.417840000057357
+            ],
+            "temperatureExcessK": 2.8304691959388877,
+            "buoyantVelocity": 0.22213151127942937,
+            "sourceCount": 1
+          },
+          {
+            "id": 8,
+            "sourceId": "pyro-smoke-source-0-0",
+            "profileId": "reference",
+            "birthTime": 116.02179999995182,
+            "mass": 0.03888888888888886,
+            "mean": [
+              29.119893029772406,
+              19.097344432209276,
+              7.1880768336982985
+            ],
+            "covariance": [
+              31.32784000005737,
+              0,
+              0,
+              0,
+              6.378388000011483,
+              0,
+              0,
+              0,
+              31.32784000005737
+            ],
+            "temperatureExcessK": 2.8482150263672406,
+            "buoyantVelocity": 0.22352406223840066,
+            "sourceCount": 1
+          },
+          {
+            "id": 9,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.08017895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              65.99270237143033,
+              129.78902547006425,
+              15.931932131421574
+            ],
+            "covariance": [
+              28.9693852500896,
+              0,
+              0,
+              0,
+              6.4918770500179255,
+              0,
+              0,
+              0,
+              28.9693852500896
+            ],
+            "temperatureExcessK": 1.9173069341849416,
+            "buoyantVelocity": 0.15046040337013963,
+            "sourceCount": 1
+          },
+          {
+            "id": 10,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.15517895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              66.17732238357276,
+              131.59932150840396,
+              16.2840181487163
+            ],
+            "covariance": [
+              28.879385250089598,
+              0,
+              0,
+              0,
+              6.473877050017925,
+              0,
+              0,
+              0,
+              28.879385250089598
+            ],
+            "temperatureExcessK": 1.9293276280621265,
+            "buoyantVelocity": 0.15140341123520856,
+            "sourceCount": 1
+          },
+          {
+            "id": 11,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.23017895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              65.8076502448803,
+              127.9446989162481,
+              15.579683609563288
+            ],
+            "covariance": [
+              28.789385250089598,
+              0,
+              0,
+              0,
+              6.455877050017923,
+              0,
+              0,
+              0,
+              28.789385250089598
+            ],
+            "temperatureExcessK": 1.9414236865451078,
+            "buoyantVelocity": 0.15235231933955365,
+            "sourceCount": 1
+          },
+          {
+            "id": 12,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.30517895825831,
+            "mass": 2.2222222222222223,
+            "mean": [
+              66.08432343839537,
+              131.1228485994745,
+              16.202862380978466
+            ],
+            "covariance": [
+              28.699385250089605,
+              0,
+              0,
+              0,
+              6.437877050017926,
+              0,
+              0,
+              0,
+              28.699385250089605
+            ],
+            "temperatureExcessK": 1.9535955821377007,
+            "buoyantVelocity": 0.15330716421597687,
+            "sourceCount": 1
+          },
+          {
+            "id": 13,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.38017895825831,
+            "mass": 2.2222222222222223,
+            "mean": [
+              65.90012275536967,
+              128.37532260488766,
+              15.660641401862891
+            ],
+            "covariance": [
+              28.6093852500896,
+              0,
+              0,
+              0,
+              6.419877050017927,
+              0,
+              0,
+              0,
+              28.6093852500896
+            ],
+            "temperatureExcessK": 1.9658437903061534,
+            "buoyantVelocity": 0.15426798260878297,
+            "sourceCount": 1
+          },
+          {
+            "id": 14,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.45517895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              66.88547230368602,
+              128.61964933399702,
+              15.113393898778178
+            ],
+            "covariance": [
+              28.519385250089602,
+              0,
+              0,
+              0,
+              6.401877050017926,
+              0,
+              0,
+              0,
+              28.519385250089602
+            ],
+            "temperatureExcessK": 1.9781687894976234,
+            "buoyantVelocity": 0.1552348114744264,
+            "sourceCount": 1
+          },
+          {
+            "id": 15,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.53017895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              65.09850103462588,
+              130.83209614980092,
+              16.749932058080805
+            ],
+            "covariance": [
+              28.429385250089595,
+              0,
+              0,
+              0,
+              6.383877050017925,
+              0,
+              0,
+              0,
+              28.429385250089595
+            ],
+            "temperatureExcessK": 1.9905710611589715,
+            "buoyantVelocity": 0.15620768798215412,
+            "sourceCount": 1
+          },
+          {
+            "id": 16,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.60517895825832,
+            "mass": 2.2222222222222223,
+            "mean": [
+              66.50890424480811,
+              127.92621606230144,
+              14.857002710176578
+            ],
+            "covariance": [
+              28.33938525008959,
+              0,
+              0,
+              0,
+              6.365877050017924,
+              0,
+              0,
+              0,
+              28.33938525008959
+            ],
+            "temperatureExcessK": 2.0030510897555076,
+            "buoyantVelocity": 0.15718664951461112,
+            "sourceCount": 1
+          },
+          {
+            "id": 17,
+            "sourceId": "pyro-smoke-source-9-1",
+            "profileId": "reference",
+            "birthTime": 120.68017895825831,
+            "mass": 2.222222222222225,
+            "mean": [
+              65.47464427705513,
+              131.4785199656802,
+              17.006163486650415
+            ],
+            "covariance": [
+              28.249385250089606,
+              0,
+              0,
+              0,
+              6.347877050017927,
+              0,
+              0,
+              0,
+              28.249385250089606
+            ],
+            "temperatureExcessK": 2.01560936278995,
+            "buoyantVelocity": 0.1581717336684324,
+            "sourceCount": 1
+          }
+        ],
+        "profiles": [
+          {
+            "id": "reference",
+            "extinctionPerMassRGB": [
+              1,
+              1,
+              1
+            ],
+            "singleScatteringAlbedoRGB": [
+              0.9,
+              0.9,
+              0.9
+            ]
+          }
+        ],
+        "ledger": {
+          "emitted": 20.350000000000005,
+          "airborne": 20.350000000000005,
+          "pendingMass": 0,
+          "deposited": 0,
+          "escaped": 0,
+          "explicitlyCleared": 0
+        },
+        "pendingEmissions": 0,
+        "pendingWindEvents": 1
+      },
+      "fireworks": {
+        "time": 142.09220000004623,
+        "active": 0,
+        "queued": 0,
+        "launches": 1,
+        "rejected": 0,
+        "maxActive": 2,
+        "maxQueued": 16,
+        "settings": {
+          "type": "ring",
+          "autoLaunch": false,
+          "autoDirection": true,
+          "azimuth": 110,
+          "elevation": 80,
+          "autoFrame": true,
+          "persistentSmoke": true,
+          "cloudIllumination": true,
+          "intensityScale": 1
+        },
+        "windSegments": 358,
+        "activeEvents": [],
+        "model": "analytic linear-drag segments; deterministic world-space events; authored reference photometry, not CFD",
+        "records": 0,
+        "lastRender": {
+          "instances": 0,
+          "reflection": false,
+          "storageEV": 12,
+          "rawPerCandela": 0.000036,
+          "width": 1209,
+          "height": 1292
+        },
+        "quality": {
+          "trailSegments": 8
+        },
+        "radianceBound": {
+          "maximumRawRadiance": 0,
+          "maxRawRadiance": 0,
+          "globalFiniteSurfaceCeiling": 0,
+          "globalReferenceOnly": true,
+          "ownSmokeRawBound": 0,
+          "maximumEmissionRGBChannel": 0,
+          "visibleSources": 0,
+          "nearPlaneFallbackSources": 0,
+          "method": "32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers",
+          "conservative": true
+        },
+        "warnings": [],
+        "units": "reference cd + approximate emission RGB, linear scene reference once *2^storageEV; not measured pyrotechnic photometry",
+        "renderer": "independent instanced premult effects, four-segment finite air; water-hit reflection origin; sorted short segments",
+        "tailIntegration": {
+          "spatialSamples": 8,
+          "shutter": "<=1px: trace-preserving isotropic variance; >1px:3-point independent quadrature",
+          "kernelEvaluations": "8 normal /24 large-shutter tail; heads unchanged",
+          "extraPasses": 0
+        },
+        "limits": [
+          "linear drag/burn model; no chemical or shock/fluid solve",
+          "grey smoke thin sprites; centre-depth sorting and shared near-air visibility approximation",
+          "resolved opaque depth/defocus occlusion approximation; root owns one shared bloom/vignette",
+          "subpixel tail shutter variance is a bounded angular approximation, not exact time-space convolution",
+          "star/cross-spectrum RGB is approximate CIE fit + authored bands and gamut compression"
+        ],
+        "bounds": {
+          "centre": [
+            29,
+            0.6570756417647985,
+            7
+          ],
+          "center": [
+            29,
+            0.6570756417647985,
+            7
+          ],
+          "radius": 2,
+          "min": [
+            28,
+            -0.3429243582352015,
+            6
+          ],
+          "max": [
+            30,
+            1.6570756417647985,
+            8
+          ],
+          "active": false
+        },
+        "audio": {
+          "scheduled": 0,
+          "discarded": 2,
+          "recordedPlays": 0,
+          "synthesizedPlays": 0,
+          "activeVoices": 0,
+          "outputReady": false,
+          "recordingLoaded": false,
+          "recordingDuration": 0,
+          "relativeBurstGain": 12,
+          "postCompressorHeadroomGain": 0.7,
+          "compressorAttackSeconds": 0.0005,
+          "source": {
+            "title": "Single Firework",
+            "author": "richwise",
+            "source": "https://freesound.org/people/richwise/sounds/455453/",
+            "license": "CC0 1.0",
+            "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "file": "./assets/audio/fireworks/burst-richwise-preview-mono.ogg",
+            "kind": "real recording, trimmed mono from compressed public HQ preview",
+            "subjectiveReview": "not performed by agent; listening acceptance pending"
+          },
+          "loadError": null,
+          "lastArrival": null,
+          "spatial": "HRTF; inverse pressure-distance once in PannerNode; temperature-dependent propagation delay",
+          "limits": [
+            "real compressed preview recording; subjective background/timbre listening pending",
+            "launch/crackle and failed-load burst explicitly synthesized",
+            "fixed listener at emission scheduling; moving receiver sound-cone not solved",
+            "distance lowpass is an approximation; no absolute sound-pressure calibration",
+            "linear post-compressor headroom lowers all pyro SFX3.10dB; not an arbitrary-source peak limiter"
+          ]
+        }
+      },
+      "photometry": {
+        "storageEV": 12,
+        "cameraEV": 17.703407214646735,
+        "sceneScale": 4096,
+        "outputExposureScale": 39.6013728154306,
+        "rawPerCandela": 0.000036,
+        "maxRawRGB": 3.437514542961411,
+        "storedBound": 14080.05956796994,
+        "safeMaximum": 16376,
+        "targetEV": 12,
+        "storageEpoch": 9,
+        "lastStorageDeltaEV": 0,
+        "components": {
+          "sky": 0.142314805849395,
+          "locals": 2.5138523261364876,
+          "fireworks": 0,
+          "medium": 0.7813474109755283
+        },
+        "reference": "3.6 relative directional irradiance per100000 reference lux; effective, not measured",
+        "limits": [
+          "Source bounds must cover all participating RGB channels and worst relevant overlap.",
+          "Finite FP16 storage and final display dynamic range are different constraints.",
+          "A changed storage exposure does not change photographic exposure."
+        ],
+        "frame": {
+          "time": 142.09220000004623,
+          "dt": 0,
+          "utcMs": 1793023200000,
+          "storageEV": 12,
+          "sceneScale": 4096,
+          "rawPerCandela": 0.000036,
+          "cameraEV": 17.703407214646735,
+          "outputExposureScale": 39.6013728154306,
+          "maxRawRGB": 3.437514542961411,
+          "storedBound": 14080.05956796994,
+          "safeMaximum": 16376,
+          "targetEV": 12,
+          "storageEpoch": 9,
+          "lastStorageDeltaEV": 0,
+          "components": {
+            "sky": 0.142314805849395,
+            "locals": 2.5138523261364876,
+            "fireworks": 0,
+            "medium": 0.7813474109755283
+          },
+          "reference": "3.6 relative directional irradiance per100000 reference lux; effective, not measured",
+          "limits": [
+            "Source bounds must cover all participating RGB channels and worst relevant overlap.",
+            "Finite FP16 storage and final display dynamic range are different constraints.",
+            "A changed storage exposure does not change photographic exposure."
+          ],
+          "adaptationDelta": 0.011399999976158141,
+          "observer": {
+            "latitudeDeg": 4.5,
+            "longitudeDeg": 118.6,
+            "heightM": 2,
+            "northYawDeg": 0
+          },
+          "windVector": [
+            2.9594332853039387e-10,
+            0,
+            1.1129492696869512e-10
+          ],
+          "weather": {
+            "temperature": 29,
+            "humidity": 0.68,
+            "dewPoint": 22.496348617818374,
+            "liftedCondensationLevel": 812.9564227727033,
+            "automaticCloudBase": true,
+            "cloudBase": 812.9564227727033,
+            "thickness": 950,
+            "cloudTop": 1762.9564227727033,
+            "coverage": 0.35,
+            "moisture": 0.984,
+            "shear": 1.1,
+            "windDirection": null,
+            "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve"
+          }
+        },
+        "environment": {
+          "initialized": true,
+          "disposed": false,
+          "revision": 290,
+          "pmremRevision": 69,
+          "cubeSize": 256,
+          "faceRate": 12,
+          "pmremInterval": 2,
+          "totalFaces": 1750,
+          "fullRefreshes": 6,
+          "cancelledJobs": 2,
+          "cubeCaptureEV": 16,
+          "environmentCaptureEV": 16,
+          "sceneEV": 12,
+          "cubeRatio": 0.0625,
+          "environmentRatio": 0.0625,
+          "cubeTag": {
+            "time": 141.58350000011785,
+            "utcMs": 1793023200000,
+            "physicalRevision": 2,
+            "captureEV": 16,
+            "exposure": {
+              "captureEV": 16,
+              "safeEV": 16,
+              "recommendedEV": 17.703452891212947,
+              "preferredEV": 21,
+              "maxRGB": 0.142314805849395,
+              "maximumStoredRGB": 16376,
+              "storedBound": 9326.74311614595
+            },
+            "sunDirection": [
+              -0.4519843789004561,
+              -0.8793346579548398,
+              0.1499355880016947
+            ],
+            "position": [
+              0,
+              2,
+              0
+            ]
+          },
+          "environmentTag": {
+            "time": 140.58260000002255,
+            "utcMs": 1793023200000,
+            "physicalRevision": 2,
+            "captureEV": 16,
+            "exposure": {
+              "captureEV": 16,
+              "safeEV": 16,
+              "recommendedEV": 17.703452891212947,
+              "preferredEV": 21,
+              "maxRGB": 0.142314805849395,
+              "maximumStoredRGB": 16376,
+              "storedBound": 9326.74311614595
+            },
+            "sunDirection": [
+              -0.4519843789004561,
+              -0.8793346579548398,
+              0.1499355880016947
+            ],
+            "position": [
+              0,
+              2,
+              0
+            ]
+          },
+          "cube": {
+            "captureAge": 0.5086999999283819,
+            "utcSecondsAge": 0,
+            "utcSignedSecondsAge": 0
+          },
+          "environment": {
+            "captureAge": 1.5096000000236813,
+            "utcSecondsAge": 0,
+            "utcSignedSecondsAge": 0
+          },
+          "pendingReason": null,
+          "job": {
+            "face": 1,
+            "tag": {
+              "time": 142.09220000004623,
+              "utcMs": 1793023200000,
+              "physicalRevision": 2,
+              "captureEV": 16,
+              "exposure": {
+                "captureEV": 16,
+                "safeEV": 16,
+                "recommendedEV": 17.703452891212947,
+                "preferredEV": 21,
+                "maxRGB": 0.142314805849395,
+                "maximumStoredRGB": 16376,
+                "storedBound": 9326.74311614595
+              },
+              "sunDirection": [
+                -0.4519843789004561,
+                -0.8793346579548398,
+                0.1499355880016947
+              ],
+              "position": [
+                0,
+                2,
+                0
+              ]
+            },
+            "wallAge": 0.47700000000000387
+          },
+          "allocated": {
+            "cubes": 2,
+            "pmrems": 2
+          },
+          "lastReason": "scheduled capture",
+          "errors": [],
+          "limits": [
+            "Snapshot coherence, not instantaneous sky; cube/PMREM age are explicit",
+            "Sky cubemap is captured at one fixed point per round, not a spatial radiance field",
+            "Source bound is atmosphere analytic envelope; not photometer calibration",
+            "Explicit initialize/refresh draws six faces synchronously; scheduled work is face-budgeted",
+            "No CPU/GPU timing or FPS claim"
+          ]
+        }
+      },
+      "range": {
+        "storageEV": 12,
+        "historyEV": 12,
+        "opaque": {
+          "minRGB": [
+            0.00007867813110351562,
+            0.00020837783813476562,
+            0.000053942203521728516
+          ],
+          "maxRGB": [
+            123.625,
+            91.1875,
+            46.4375
+          ],
+          "maxAbsRGB": [
+            123.625,
+            91.1875,
+            46.4375
+          ],
+          "globalMin": 0.000053942203521728516,
+          "globalMax": 123.625,
+          "globalMaxAbs": 123.625,
+          "encodedExtrema": {
+            "minRGB": [
+              0.00007867813110351562,
+              0.00020837783813476562,
+              0.000053942203521728516
+            ],
+            "maxRGB": [
+              123.625,
+              91.1875,
+              46.4375
+            ],
+            "maxAbsRGB": [
+              123.625,
+              91.1875,
+              46.4375
+            ],
+            "globalMin": 0.000053942203521728516,
+            "globalMax": 123.625,
+            "globalMaxAbs": 123.625
+          },
+          "countNaN": 0,
+          "countInf": 0,
+          "countPositiveInf": 0,
+          "countNegativeInf": 0,
+          "countNegativeFinite": 0,
+          "countNegative": 0,
+          "countNonFinite": 0,
+          "finiteComponents": 4686084,
+          "totalComponents": 4686084,
+          "pixels": 1562028,
+          "width": 1209,
+          "height": 1292,
+          "levels": [
+            [
+              303,
+              323
+            ],
+            [
+              76,
+              81
+            ],
+            [
+              19,
+              21
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "cpuReadPixels": 4,
+          "cpuReadBytes": 64,
+          "countEncoding": "exact integer low16/high16 limbs in Float32 MRT",
+          "classifierVersion": "ieee-bits-v2",
+          "classifier": "floatBitsToUint exponent/mantissa/sign masks; no floating-point isnan/isinf",
+          "counterConsistency": true,
+          "stateRestored": true,
+          "space": "Input level-zero RGB after current scene storage exposure P; no decode/exposure/tone mapping added"
+        },
+        "composed": {
+          "minRGB": [
+            0.00008118152618408203,
+            0.00039267539978027344,
+            0.00006645917892456055
+          ],
+          "maxRGB": [
+            114.5,
+            84.3125,
+            42.78125
+          ],
+          "maxAbsRGB": [
+            114.5,
+            84.3125,
+            42.78125
+          ],
+          "globalMin": 0.00006645917892456055,
+          "globalMax": 114.5,
+          "globalMaxAbs": 114.5,
+          "encodedExtrema": {
+            "minRGB": [
+              0.00008118152618408203,
+              0.00039267539978027344,
+              0.00006645917892456055
+            ],
+            "maxRGB": [
+              114.5,
+              84.3125,
+              42.78125
+            ],
+            "maxAbsRGB": [
+              114.5,
+              84.3125,
+              42.78125
+            ],
+            "globalMin": 0.00006645917892456055,
+            "globalMax": 114.5,
+            "globalMaxAbs": 114.5
+          },
+          "countNaN": 0,
+          "countInf": 0,
+          "countPositiveInf": 0,
+          "countNegativeInf": 0,
+          "countNegativeFinite": 0,
+          "countNegative": 0,
+          "countNonFinite": 0,
+          "finiteComponents": 4686084,
+          "totalComponents": 4686084,
+          "pixels": 1562028,
+          "width": 1209,
+          "height": 1292,
+          "levels": [
+            [
+              303,
+              323
+            ],
+            [
+              76,
+              81
+            ],
+            [
+              19,
+              21
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "cpuReadPixels": 4,
+          "cpuReadBytes": 64,
+          "countEncoding": "exact integer low16/high16 limbs in Float32 MRT",
+          "classifierVersion": "ieee-bits-v2",
+          "classifier": "floatBitsToUint exponent/mantissa/sign masks; no floating-point isnan/isinf",
+          "counterConsistency": true,
+          "stateRestored": true,
+          "space": "Input level-zero RGB after current scene storage exposure P; no decode/exposure/tone mapping added"
+        },
+        "reflection": {
+          "minRGB": [
+            0,
+            0,
+            0
+          ],
+          "maxRGB": [
+            162.375,
+            119.875,
+            61.125
+          ],
+          "maxAbsRGB": [
+            162.375,
+            119.875,
+            61.125
+          ],
+          "globalMin": 0,
+          "globalMax": 162.375,
+          "globalMaxAbs": 162.375,
+          "encodedExtrema": {
+            "minRGB": [
+              0,
+              0,
+              0
+            ],
+            "maxRGB": [
+              162.375,
+              119.875,
+              61.125
+            ],
+            "maxAbsRGB": [
+              162.375,
+              119.875,
+              61.125
+            ],
+            "globalMin": 0,
+            "globalMax": 162.375,
+            "globalMaxAbs": 162.375
+          },
+          "countNaN": 0,
+          "countInf": 0,
+          "countPositiveInf": 0,
+          "countNegativeInf": 0,
+          "countNegativeFinite": 0,
+          "countNegative": 0,
+          "countNonFinite": 0,
+          "finiteComponents": 4686084,
+          "totalComponents": 4686084,
+          "pixels": 1562028,
+          "width": 1209,
+          "height": 1292,
+          "levels": [
+            [
+              303,
+              323
+            ],
+            [
+              76,
+              81
+            ],
+            [
+              19,
+              21
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "cpuReadPixels": 4,
+          "cpuReadBytes": 64,
+          "countEncoding": "exact integer low16/high16 limbs in Float32 MRT",
+          "classifierVersion": "ieee-bits-v2",
+          "classifier": "floatBitsToUint exponent/mantissa/sign masks; no floating-point isnan/isinf",
+          "counterConsistency": true,
+          "stateRestored": true,
+          "space": "Input level-zero RGB after current scene storage exposure P; no decode/exposure/tone mapping added"
+        },
+        "photometry": {
+          "storageEV": 12,
+          "cameraEV": 17.703407214646735,
+          "sceneScale": 4096,
+          "outputExposureScale": 39.6013728154306,
+          "rawPerCandela": 0.000036,
+          "maxRawRGB": 3.437514542961411,
+          "storedBound": 14080.05956796994,
+          "safeMaximum": 16376,
+          "targetEV": 12,
+          "storageEpoch": 9,
+          "lastStorageDeltaEV": 0,
+          "components": {
+            "sky": 0.142314805849395,
+            "locals": 2.5138523261364876,
+            "fireworks": 0,
+            "medium": 0.7813474109755283
+          },
+          "reference": "3.6 relative directional irradiance per100000 reference lux; effective, not measured",
+          "limits": [
+            "Source bounds must cover all participating RGB channels and worst relevant overlap.",
+            "Finite FP16 storage and final display dynamic range are different constraints.",
+            "A changed storage exposure does not change photographic exposure."
+          ]
+        }
+      }
+    },
+    "passed": true,
+    "passedCount": 11,
+    "total": 11,
+    "limits": [
+      "Actual scene at authored source scale1; not an absolute pyrotechnic light calibration.",
+      "Wind was set through the native wind control before this test; residual wind smoothing is recorded in physical state.",
+      "22-second actual persistence verifies integration; 1800-second state behavior is separately CPU-verified.",
+      "Conditional-mean scatter/centre ordering, no light-to-smoke self-extinction, no new local GI, no CFD/settling/ground fold."
+    ]
+  }
+}

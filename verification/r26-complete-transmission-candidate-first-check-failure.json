@@ -1,0 +1,156 @@
+{
+  "schema": "glass-atoll.r26-complete-sync-candidate-cpu.v1",
+  "dateUTC": "2026-10-29T11:04:51.687Z",
+  "actualGPU": false,
+  "productionAdmitted": false,
+  "passed": false,
+  "counts": {
+    "passed": 5,
+    "total": 7
+  },
+  "checks": [
+    {
+      "name": "Copied physical packer code is byte-faithful apart from explicit bounded request policy; incumbent defaults remain unchanged",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ \"function shape(c){if(!c||c.length!==9)throw new TypeError('Full-SPD covariance requires9 components');const a=Array.from(c,(x,i)=>finite(x,'covariance['+i+']')),scale=Math.max(a[0],a[4],a[8]);for(const[i,j]of [[1,3],[2,6],[5,7]])if(Math.abs(a[i]-a[j])>64*Number.EPSILON*scale)throw new RangeError('Covariance must be symmetric');const l0=Math.sqrt(a[0]),l1=a[3]/l0,l2=Math.sqrt(a[4]-l1*l1),l3=a[6]/l0,l4=(a[7]-l3*l1)/l2,l5=Math.sqrt(a[8]-l3*l3-l4*l4),L=[l0,l1,l2,l3,l4,l5];if(!L.every(Number.isFinite)||[l0,l2,l5].some(x=>!(x>0)))throw new RangeError('Covariance must be SPD');return L;}\\r\\n\" +\n+   'export function packSmokeTransmissionInputs({snapshot,count,endpoints64,origins64=null,active,eye,sourceVersion},{maxSources=64,maxPackets=48,maxPairs=3072,packetData=null,sourceData=null}={}){\\r\\n' +\n+   \"  if(!snapshot||!Array.isArray(snapshot.packets))throw new TypeError('Committed density snapshot required');const plan=planSmokeTransmission(count,snapshot.packets.length,{maxSources,maxPackets,maxPairs});if(!plan.supported)return{...plan,effective:false};\\r\\n\" +\n+   \"  if(!Number.isSafeInteger(sourceVersion)||sourceVersion<0)throw new RangeError('Per-fill sourceVersion required');if(!(endpoints64 instanceof Float64Array)||endpoints64.length<count*3||(origins64!==null&&(!(origins64 instanceof Float64Array)||origins64.length<count*3))||!(active instanceof Uint8Array)||active.length<count)throw new TypeError('Original-double endpoints64/origins64 and all-row active mask required');\\r\\n\" +\n+   \"  const E=vec(eye,'eye'),pout=packetData??new Float32Array(maxPackets*16),sout=sourceData??new Float32Array(maxSources*12);if(!(pout instanceof Float32Array)||pout.length<maxPackets*16||!(sout instanceof Float32Array)||sout.length<maxSources*12)throw new RangeError('Fixed input buffers too small');pout.fill(0);sout.fill(0);\\r\\n\" +\n+   '  const profiles=new Map((snapshot.profiles??[]).map(p=>[p.id,p])),diagnostics={maximumMeanQuantizationMetres:0,maximumEndpointQuantizationMetres:0,maximumOriginQuantizationMetres:0,maximumDirectionQuantization:0,maximumLengthQuantizationMetres:0,maximumCholeskyRelativeQuantization:0,maximumNormalizationRelativeQuantization:0,activeRays:0,zeroLengthRays:0,inactiveRows:0,maximumWhitenedCoordinateBound:0,maximumWhitenedDirectionBound:0,originalDoubleReflectionOrigins:true};\\r\\n' +\n+   \"  for(let i=0;i<snapshot.packets.length;i++){const p=snapshot.packets[i],mean=vec(p.mean,'packet.mean'),L=shape(p.covariance),ext=vec(profiles.get(p.profileId)?.extinctionPerMassRGB,'extinction');if(ext.some(x=>x<0)||!(finite(p.mass,'mass')>0))throw new RangeError('Positive mass and nonnegative extinction required');const norm=p.mass/((2*Math.PI)**1.5*L[0]*L[2]*L[5]),o=i*16,values=[mean[0]-E[0],mean[1]-E[1],mean[2]-E[2],norm,...L.slice(0,4),L[4],L[5],ext[0],ext[1],ext[2],0,0,0];for(let j=0;j<16;j++)pout[o+j]=f32(values[j],'packet field');if([pout[o+4],pout[o+6],pout[o+9]].some(x=>!(x>0))||(ext.some(x=>x>0)&&!(pout[o+3]>0)))throw new RangeError('Packet factor/normalization underflows Float32');for(let j=0;j<3;j++)diagnostics.maximumMeanQuantizationMetres=Math.max(diagnostics.maximumMeanQuantizationMetres,Math.abs(pout[o+j]-values[j]));for(let j=0;j<6;j++)if(L[j]!==0)diagnostics.maximumCholeskyRelativeQuantization=Math.max(diagnostics.maximumCholeskyRelativeQuantization,Math.abs(pout[o+4+j]-L[j])/Math.abs(L[j]));diagnostics.maximumNormalizationRelativeQuantization=Math.max(diagnostics.maximumNormalizationRelativeQuantization,Math.abs(pout[o+3]-norm)/norm);}\\r\\n\" +\n+   '  let min0=Infinity,min1=Infinity,min2=Infinity,max0=-Infinity,max1=-Infinity,max2=-Infinity;\\r\\n' +\n+   '  for(let i=0;i<count;i++){\\r\\n' +\n+   '    const o=i*12,w=i*3;\\r\\n' +\n+   '    if(active[i]===0){diagnostics.inactiveRows++;continue;}\\r\\n' +\n+   \"    if(active[i]!==1)throw new RangeError('active mask must contain0 or1');\\r\\n\" +\n+   \"    const ox=finite(origins64?origins64[w]:E[0],'source coordinates'),oy=finite(origins64?origins64[w+1]:E[1],'source coordinates'),oz=finite(origins64?origins64[w+2]:E[2],'source coordinates');\\r\\n\" +\n+   \"    const ex=finite(endpoints64[w],'source coordinates'),ey=finite(endpoints64[w+1],'source coordinates'),ez=finite(endpoints64[w+2],'source coordinates');\\r\\n\" +\n+   '    const dx=ex-ox,dy=ey-oy,dz=ez-oz,length=Math.hypot(dx,dy,dz);\\r\\n' +\n+   '    if(length===0){diagnostics.zeroLengthRays++;continue;}\\r\\n' +\n+   '    // Keep both original binary64 normalizations and Float32 write order.\\r\\n' +\n+   '    const u0=dx/length,u1=dy/length,u2=dz/length,size=Math.hypot(u0,u1,u2),d0=u0/size,d1=u1/size,d2=u2/size;\\r\\n' +\n+   '    const r0=ox-E[0],r1=oy-E[1],r2=oz-E[2],e0=ex-E[0],e1=ey-E[1],e2=ez-E[2];\\r\\n' +\n+   \"    sout[o]=f32(r0,'source ray');sout[o+1]=f32(r1,'source ray');sout[o+2]=f32(r2,'source ray');sout[o+3]=f32(length,'source ray');\\r\\n\" +\n+   \"    sout[o+4]=f32(e0,'source ray');sout[o+5]=f32(e1,'source ray');sout[o+6]=f32(e2,'source ray');sout[o+7]=f32(1,'source ray');\\r\\n\" +\n+   \"    sout[o+8]=f32(d0,'source ray');sout[o+9]=f32(d1,'source ray');sout[o+10]=f32(d2,'source ray');sout[o+11]=f32(0,'source ray');\\r\\n\" +\n+   \"    if(!(sout[o+3]>0))throw new RangeError('Nonzero source ray length underflows Float32');\\r\\n\" +\n+   '    const f0=sout[o],f1=sout[o+1],f2=sout[o+2],f4=sout[o+4],f5=sout[o+5],f6=sout[o+6];\\r\\n' +\n+   '    diagnostics.maximumOriginQuantizationMetres=Math.max(diagnostics.maximumOriginQuantizationMetres,Math.abs(f0-r0));\\r\\n' +\n+   '    diagnostics.maximumEndpointQuantizationMetres=Math.max(diagnostics.maximumEndpointQuantizationMetres,Math.abs(f4-e0));\\r\\n' +\n+   '    diagnostics.maximumDirectionQuantization=Math.max(diagnostics.maximumDirectionQuantization,Math.abs(sout[o+8]-d0));\\r\\n' +\n+   '    diagnostics.maximumOriginQuantizationMetres=Math.max(diagnostics.maximumOriginQuantizationMetres,Math.abs(f1-r1));\\r\\n' +\n+   '    diagnostics.maximumEndpointQuantizationMetres=Math.max(diagnostics.maximumEndpointQuantizationMetres,Math.abs(f5-e1));\\r\\n' +\n+   '    diagnostics.maximumDirectionQuantization=Math.max(diagnostics.maximumDirectionQuantization,Math.abs(sout[o+9]-d1));\\r\\n' +\n+   '    diagnostics.maximumOriginQuantizationMetres=Math.max(diagnostics.maximumOriginQuantizationMetres,Math.abs(f2-r2));\\r\\n' +\n+   '    diagnostics.maximumEndpointQuantizationMetres=Math.max(diagnostics.maximumEndpointQuantizationMetres,Math.abs(f6-e2));\\r\\n' +\n+   '    diagnostics.maximumDirectionQuantization=Math.max(diagnostics.maximumDirectionQuantization,Math.abs(sout[o+10]-d2));\\r\\n' +\n+   '    diagnostics.maximumLengthQuantizationMetres=Math.max(diagnostics.maximumLengthQuantizationMetres,Math.abs(sout[o+3]-length));diagnostics.activeRays++;\\r\\n' +\n+   '    // The old second scan used these same already-rounded Float32 values.\\r\\n' +\n+   '    min0=Math.min(min0,f0);max0=Math.max(max0,f0);min0=Math.min(min0,f4);max0=Math.max(max0,f4);\\r\\n' +\n+   '    min1=Math.min(min1,f1);max1=Math.max(max1,f1);min1=Math.min(min1,f5);max1=Math.max(max1,f5);\\r\\n' +\n+   '    min2=Math.min(min2,f2);max2=Math.max(max2,f2);min2=Math.min(min2,f6);max2=Math.max(max2,f6);\\r\\n' +\n+   '  }\\r\\n' +\n+   '  // Conservative engineering domain gate prevents obvious Float32 overflows.\\r\\n' +\n+   \"  // It is NOT a proof of the CPU's1e-5 optical error budget.\\r\\n\" +\n+   '  const min=[min0,min1,min2],max=[max0,max1,max2];\\r\\n' +\n+   \"  for(let i=0;i<snapshot.packets.length;i++){const o=i*16;if(pout[o+10]===0&&pout[o+11]===0&&pout[o+12]===0)continue;const a=pout[o+4],b=pout[o+5],d=pout[o+6],e=pout[o+7],f=pout[o+8],g=pout[o+9],i00=1/a,i10=-b*i00/d,i11=1/d,i20=-(e*i00+f*i10)/g,i21=-f*i11/g,i22=1/g,invNorm=Math.hypot(i00,i10,i11,i20,i21,i22),distance=diagnostics.activeRays?Math.hypot(...min.map((v,c)=>Math.max(Math.abs(v-pout[o+c]),Math.abs(max[c]-pout[o+c])))):0,qBound=distance*invNorm,lineBound=snapshot.packets[i].mass*invNorm*invNorm/(2*Math.PI);diagnostics.maximumWhitenedCoordinateBound=Math.max(diagnostics.maximumWhitenedCoordinateBound,qBound);diagnostics.maximumWhitenedDirectionBound=Math.max(diagnostics.maximumWhitenedDirectionBound,invNorm);if(qBound>1e5||invNorm>1e5||!Number.isFinite(lineBound)||lineBound>1e20)return{...plan,supported:false,effective:false,reason:'numeric-conditioning-not-admitted',diagnostics,opticallyAdmitted:false};}\\r\\n\" +\n+   \"  return{...plan,packetData:pout,sourceData:sout,densityRevision:snapshot.revision,sourceVersion,cameraKey:smokeTransmissionCameraKey(E),eye:E,diagnostics,layout:{packetStride:16,sourceStride:12,packetFields:'relative mean.xyz,norm;L00,L10,L11,L20;L21,L22,extR,extG;extB,0,0,0',sourceFields:'origin-eye.xyz,length;endpoint-eye.xyz,active;unitDirection.xyz,0'},opticallyAdmitted:false};\\r\\n\" +\n+   '}\\r\\n' +\n+   '// QA convenience only. Production FW writes reused Float64 buffers directly.\\r\\n' +\n+   \"export function smokeTransmissionWorldSources(sources,{eye,reflection=false,planeY=0}={}){const E=vec(eye,'eye'),count=sources.length,endpoints64=new Float64Array(count*3),origins64=new Float64Array(count*3),active=new Uint8Array(count);for(let i=0;i<count;i++){const to=vec(sources[i].position??sources[i],'source'),o=i*3;endpoints64.set(to,o);let from=E;if(reflection){const t=(planeY-E[1])/(to[1]-E[1]);if(!Number.isFinite(t)||t<0||t>1)continue;from=E.map((v,c)=>v+(to[c]-v)*t);}origins64.set(from,o);active[i]=1;}return{count,endpoints64,origins64,active,eye:E};}\\r\\n\"\n- \"function shape(c){if(!c||c.length!==9)throw new TypeError('Full-SPD covariance requires9 components');const a=Array.from(c,(x,i)=>finite(x,'covariance['+i+']')),scale=Math.max(a[0],a[4],a[8]);for(const[i,j]of [[1,3],[2,6],[5,7]])if(Math.abs(a[i]-a[j])>64*Number.EPSILON*scale)throw new RangeError('Covariance must be symmetric');const l0=Math.sqrt(a[0]),l1=a[3]/l0,l2=Math.sqrt(a[4]-l1*l1),l3=a[6]/l0,l4=(a[7]-l3*l1)/l2,l5=Math.sqrt(a[8]-l3*l3-l4*l4),L=[l0,l1,l2,l3,l4,l5];if(!L.every(Number.isFinite)||[l0,l2,l5].some(x=>!(x>0)))throw new RangeError('Covariance must be SPD');return L;}\\n\" +\n-   'export function packSmokeTransmissionInputs({snapshot,count,endpoints64,origins64=null,active,eye,sourceVersion},{maxSources=64,maxPackets=48,maxPairs=3072,packetData=null,sourceData=null}={}){\\n' +\n-   \"  if(!snapshot||!Array.isArray(snapshot.packets))throw new TypeError('Committed density snapshot required');const plan=planSmokeTransmission(count,snapshot.packets.length,{maxSources,maxPackets,maxPairs});if(!plan.supported)return{...plan,effective:false};\\n\" +\n-   \"  if(!Number.isSafeInteger(sourceVersion)||sourceVersion<0)throw new RangeError('Per-fill sourceVersion required');if(!(endpoints64 instanceof Float64Array)||endpoints64.length<count*3||(origins64!==null&&(!(origins64 instanceof Float64Array)||origins64.length<count*3))||!(active instanceof Uint8Array)||active.length<count)throw new TypeError('Original-double endpoints64/origins64 and all-row active mask required');\\n\" +\n-   \"  const E=vec(eye,'eye'),pout=packetData??new Float32Array(maxPackets*16),sout=sourceData??new Float32Array(maxSources*12);if(!(pout instanceof Float32Array)||pout.length<maxPackets*16||!(sout instanceof Float32Array)||sout.length<maxSources*12)throw new RangeError('Fixed input buffers too small');pout.fill(0);sout.fill(0);\\n\" +\n-   '  const profiles=new Map((snapshot.profiles??[]).map(p=>[p.id,p])),diagnostics={maximumMeanQuantizationMetres:0,maximumEndpointQuantizationMetres:0,maximumOriginQuantizationMetres:0,maximumDirectionQuantization:0,maximumLengthQuantizationMetres:0,maximumCholeskyRelativeQuantization:0,maximumNormalizationRelativeQuantization:0,activeRays:0,zeroLengthRays:0,inactiveRows:0,maximumWhitenedCoordinateBound:0,maximumWhitenedDirectionBound:0,originalDoubleReflectionOrigins:true};\\n' +\n-   \"  for(let i=0;i<snapshot.packets.length;i++){const p=snapshot.packets[i],mean=vec(p.mean,'packet.mean'),L=shape(p.covariance),ext=vec(profiles.get(p.profileId)?.extinctionPerMassRGB,'extinction');if(ext.some(x=>x<0)||!(finite(p.mass,'mass')>0))throw new RangeError('Positive mass and nonnegative extinction required');const norm=p.mass/((2*Math.PI)**1.5*L[0]*L[2]*L[5]),o=i*16,values=[mean[0]-E[0],mean[1]-E[1],mean[2]-E[2],norm,...L.slice(0,4),L[4],L[5],ext[0],ext[1],ext[2],0,0,0];for(let j=0;j<16;j++)pout[o+j]=f32(values[j],'packet field');if([pout[o+4],pout[o+6],pout[o+9]].some(x=>!(x>0))||(ext.some(x=>x>0)&&!(pout[o+3]>0)))throw new RangeError('Packet factor/normalization underflows Float32');for(let j=0;j<3;j++)diagnostics.maximumMeanQuantizationMetres=Math.max(diagnostics.maximumMeanQuantizationMetres,Math.abs(pout[o+j]-values[j]));for(let j=0;j<6;j++)if(L[j]!==0)diagnostics.maximumCholeskyRelativeQuantization=Math.max(diagnostics.maximumCholeskyRelativeQuantization,Math.abs(pout[o+4+j]-L[j])/Math.abs(L[j]));diagnostics.maximumNormalizationRelativeQuantization=Math.max(diagnostics.maximumNormalizationRelativeQuantization,Math.abs(pout[o+3]-norm)/norm);}\\n\" +\n-   '  let min0=Infinity,min1=Infinity,min2=Infinity,max0=-Infinity,max1=-Infinity,max2=-Infinity;\\n' +\n-   '  for(let i=0;i<count;i++){\\n' +\n-   '    const o=i*12,w=i*3;\\n' +\n-   '    if(active[i]===0){diagnostics.inactiveRows++;continue;}\\n' +\n-   \"    if(active[i]!==1)throw new RangeError('active mask must contain0 or1');\\n\" +\n-   \"    const ox=finite(origins64?origins64[w]:E[0],'source coordinates'),oy=finite(origins64?origins64[w+1]:E[1],'source coordinates'),oz=finite(origins64?origins64[w+2]:E[2],'source coordinates');\\n\" +\n-   \"    const ex=finite(endpoints64[w],'source coordinates'),ey=finite(endpoints64[w+1],'source coordinates'),ez=finite(endpoints64[w+2],'source coordinates');\\n\" +\n-   '    const dx=ex-ox,dy=ey-oy,dz=ez-oz,length=Math.hypot(dx,dy,dz);\\n' +\n-   '    if(length===0){diagnostics.zeroLengthRays++;continue;}\\n' +\n-   '    // Keep both original binary64 normalizations and Float32 write order.\\n' +\n-   '    const u0=dx/length,u1=dy/length,u2=dz/length,size=Math.hypot(u0,u1,u2),d0=u0/size,d1=u1/size,d2=u2/size;\\n' +\n-   '    const r0=ox-E[0],r1=oy-E[1],r2=oz-E[2],e0=ex-E[0],e1=ey-E[1],e2=ez-E[2];\\n' +\n-   \"    sout[o]=f32(r0,'source ray');sout[o+1]=f32(r1,'source ray');sout[o+2]=f32(r2,'source ray');sout[o+3]=f32(length,'source ray');\\n\" +\n-   \"    sout[o+4]=f32(e0,'source ray');sout[o+5]=f32(e1,'source ray');sout[o+6]=f32(e2,'source ray');sout[o+7]=f32(1,'source ray');\\n\" +\n-   \"    sout[o+8]=f32(d0,'source ray');sout[o+9]=f32(d1,'source ray');sout[o+10]=f32(d2,'source ray');sout[o+11]=f32(0,'source ray');\\n\" +\n-   \"    if(!(sout[o+3]>0))throw new RangeError('Nonzero source ray length underflows Float32');\\n\" +\n-   '    const f0=sout[o],f1=sout[o+1],f2=sout[o+2],f4=sout[o+4],f5=sout[o+5],f6=sout[o+6];\\n' +\n-   '    diagnostics.maximumOriginQuantizationMetres=Math.max(diagnostics.maximumOriginQuantizationMetres,Math.abs(f0-r0));\\n' +\n-   '    diagnostics.maximumEndpointQuantizationMetres=Math.max(diagnostics.maximumEndpointQuantizationMetres,Math.abs(f4-e0));\\n' +\n-   '    diagnostics.maximumDirectionQuantization=Math.max(diagnostics.maximumDirectionQuantization,Math.abs(sout[o+8]-d0));\\n' +\n-   '    diagnostics.maximumOriginQuantizationMetres=Math.max(diagnostics.maximumOriginQuantizationMetres,Math.abs(f1-r1));\\n' +\n-   '    diagnostics.maximumEndpointQuantizationMetres=Math.max(diagnostics.maximumEndpointQuantizationMetres,Math.abs(f5-e1));\\n' +\n-   '    diagnostics.maximumDirectionQuantization=Math.max(diagnostics.maximumDirectionQuantization,Math.abs(sout[o+9]-d1));\\n' +\n-   '    diagnostics.maximumOriginQuantizationMetres=Math.max(diagnostics.maximumOriginQuantizationMetres,Math.abs(f2-r2));\\n' +\n-   '    diagnostics.maximumEndpointQuantizationMetres=Math.max(diagnostics.maximumEndpointQuantizationMetres,Math.abs(f6-e2));\\n' +\n-   '    diagnostics.maximumDirectionQuantization=Math.max(diagnostics.maximumDirectionQuantization,Math.abs(sout[o+10]-d2));\\n' +\n-   '    diagnostics.maximumLengthQuantizationMetres=Math.max(diagnostics.maximumLengthQuantizationMetres,Math.abs(sout[o+3]-length));diagnostics.activeRays++;\\n' +\n-   '    // The old second scan used these same already-rounded Float32 values.\\n' +\n-   '    min0=Math.min(min0,f0);max0=Math.max(max0,f0);min0=Math.min(min0,f4);max0=Math.max(max0,f4);\\n' +\n-   '    min1=Math.min(min1,f1);max1=Math.max(max1,f1);min1=Math.min(min1,f5);max1=Math.max(max1,f5);\\n' +\n-   '    min2=Math.min(min2,f2);max2=Math.max(max2,f2);min2=Math.min(min2,f6);max2=Math.max(max2,f6);\\n' +\n-   '  }\\n' +\n-   '  // Conservative engineering domain gate prevents obvious Float32 overflows.\\n' +\n-   \"  // It is NOT a proof of the CPU's1e-5 optical error budget.\\n\" +\n-   '  const min=[min0,min1,min2],max=[max0,max1,max2];\\n' +\n-   \"  for(let i=0;i<snapshot.packets.length;i++){const o=i*16;if(pout[o+10]===0&&pout[o+11]===0&&pout[o+12]===0)continue;const a=pout[o+4],b=pout[o+5],d=pout[o+6],e=pout[o+7],f=pout[o+8],g=pout[o+9],i00=1/a,i10=-b*i00/d,i11=1/d,i20=-(e*i00+f*i10)/g,i21=-f*i11/g,i22=1/g,invNorm=Math.hypot(i00,i10,i11,i20,i21,i22),distance=diagnostics.activeRays?Math.hypot(...min.map((v,c)=>Math.max(Math.abs(v-pout[o+c]),Math.abs(max[c]-pout[o+c])))):0,qBound=distance*invNorm,lineBound=snapshot.packets[i].mass*invNorm*invNorm/(2*Math.PI);diagnostics.maximumWhitenedCoordinateBound=Math.max(diagnostics.maximumWhitenedCoordinateBound,qBound);diagnostics.maximumWhitenedDirectionBound=Math.max(diagnostics.maximumWhitenedDirectionBound,invNorm);if(qBound>1e5||invNorm>1e5||!Number.isFinite(lineBound)||lineBound>1e20)return{...plan,supported:false,effective:false,reason:'numeric-conditioning-not-admitted',diagnostics,opticallyAdmitted:false};}\\n\" +\n-   \"  return{...plan,packetData:pout,sourceData:sout,densityRevision:snapshot.revision,sourceVersion,cameraKey:smokeTransmissionCameraKey(E),eye:E,diagnostics,layout:{packetStride:16,sourceStride:12,packetFields:'relative mean.xyz,norm;L00,L10,L11,L20;L21,L22,extR,extG;extB,0,0,0',sourceFields:'origin-eye.xyz,length;endpoint-eye.xyz,active;unitDirection.xyz,0'},opticallyAdmitted:false};\\n\" +\n-   '}\\n' +\n-   '// QA convenience only. Production FW writes reused Float64 buffers directly.\\n' +\n-   \"export function smokeTransmissionWorldSources(sources,{eye,reflection=false,planeY=0}={}){const E=vec(eye,'eye'),count=sources.length,endpoints64=new Float64Array(count*3),origins64=new Float64Array(count*3),active=new Uint8Array(count);for(let i=0;i<count;i++){const to=vec(sources[i].position??sources[i],'source'),o=i*3;endpoints64.set(to,o);let from=E;if(reflection){const t=(planeY-E[1])/(to[1]-E[1]);if(!Number.isFinite(t)||t<0||t>1)continue;from=E.map((v,c)=>v+(to[c]-v)*t);}origins64.set(from,o);active[i]=1;}return{count,endpoints64,origins64,active,eye:E};}\\n\"\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r26-complete-transmission-candidate-check.mjs:17:240\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r26-complete-transmission-candidate-check.mjs:13:68)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r26-complete-transmission-candidate-check.mjs:16:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "Old-domain actual factory shaders/upload bytes/ordered synthetic output match production across count and64packet boundaries",
+      "passed": true,
+      "evidence": {
+        "cases": 11,
+        "comparedRows": 3230,
+        "maps": 14,
+        "scope": "Float32 synthetic tags, not GPU optics"
+      }
+    },
+    {
+      "name": "Explicit755x1734 request completes exact ordered maps and one reduction; incumbent gate still rejects and no input is sliced/dropped",
+      "passed": true,
+      "evidence": {
+        "logicalPairs": 1309170,
+        "conservativeSlots": 1331712,
+        "rects": [
+          [
+            0,
+            0,
+            256,
+            61
+          ],
+          [
+            0,
+            61,
+            256,
+            20
+          ],
+          [
+            0,
+            81,
+            72,
+            1
+          ]
+        ],
+        "draws": 4,
+        "gpuNumericalBytes": 499712,
+        "cpuInputBufferBytes": 135168,
+        "scope": "CPU factory coverage only; no native GPU throughput admission"
+      }
+    },
+    {
+      "name": "Higher request policy keeps complete compact allocation proof over every packet count and maximum feasible active count",
+      "passed": true,
+      "evidence": {
+        "checkedPacketCounts": 4096,
+        "partialLogicalCapacity": 39875,
+        "roundedCapacity": 39936,
+        "peak": 36000,
+        "witness": {
+          "n": 18000,
+          "p": 65
+        },
+        "proof": "For fixedp, maximum feasible count maximizes count*ceil(p/64)"
+      }
+    },
+    {
+      "name": "Neutral generations/shrink are fresh and complete; capacity/map-work rejection withdraws public output without any render or context allocation",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(nonempty.result.effective)\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r26-complete-transmission-candidate-check.mjs:31:140\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r26-complete-transmission-candidate-check.mjs:13:68)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r26-complete-transmission-candidate-check.mjs:30:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "Fault on each map or final reduction withdraws result and preserves renderer bindings; next complete retry never reads partial generation",
+      "passed": true,
+      "evidence": {
+        "rows": [
+          {
+            "phase": 1,
+            "failedDraws": 1,
+            "retryDraws": 3
+          },
+          {
+            "phase": 2,
+            "failedDraws": 2,
+            "retryDraws": 3
+          },
+          {
+            "phase": 3,
+            "failedDraws": 3,
+            "retryDraws": 3
+          },
+          {
+            "fault": "fbo",
+            "draws": 0
+          },
+          {
+            "fault": "link",
+            "draws": 1
+          },
+          {
+            "fault": "errorAfterRender",
+            "draws": 1
+          },
+          {
+            "fault": "lossAfterRender",
+            "draws": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Explicit policies reject malformed/unbounded values before GL and ordinary unsafe optical inputs retain production validation",
+      "passed": true,
+      "evidence": {
+        "policyRejections": [
+          {
+            "maxRequestPairs": 1400001
+          },
+          {
+            "maxMapPairs": 1048577
+          },
+          {
+            "maxMapPairs": 63
+          },
+          {
+            "maxMapDraws": 0
+          },
+          {
+            "maxMapDraws": 65
+          }
+        ],
+        "physicalValidationCases": 4
+      }
+    }
+  ],
+  "pins": {
+    "r26-complete-transmission-candidate.js": "7ac5c4c61ed825aa2ab94ea8888306f3fdc988b4727ddd9977206bae32afcdea",
+    "r26-transmission-pack-candidate.js": "138f75dd346107023c373e91623c9d2baf8b989b86170e8b89f156aceef280b6",
+    "r26-transmission-layout-candidate.js": "61a2e73b960a5d555cef3b6611b5aca48cdb3c6fb125db94102f0dd9a0011b86",
+    "r26-transmission-rectangles.js": "70b1a2c95c86847d2f3b1787bf48721a1d4ed32ff599d1eb79c48f37ea2b9d28"
+  },
+  "factorySHA256": "faa852c4b8711d01c8d17d6bd5cc57465b1cf47338b61fa8fdb22fd25aed9802",
+  "limits": [
+    "Verification-only modules, no production import/change, browser or GPU.",
+    "Exact shader/pack equivalence within incumbent domain; synthetic Float32-tag renderer checks routing/association/publication and fault flow.",
+    "755x1734 coverage is a bounded larger complete-request policy fixture, not native hardware admission or a performance claim.",
+    "SourceT only: resolved smoke lighting has an independent request/cost path; no shared complete-scene GPU admission."
+  ]
+}

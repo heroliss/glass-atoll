@@ -1,0 +1,32 @@
+// Small authored linear-RGB curves for the new display collection only.
+// No per-frame spectrum integration, random draws or eight-bin vector optics.
+const Y=v=>.2126*v[0]+.7152*v[1]+.0722*v[2];
+const freeze=o=>{if(o&&typeof o==='object'&&!Object.isFrozen(o)){for(const v of Object.values(o))freeze(v);Object.freeze(o);}return o;};
+const unit=v=>{const y=Y(v);if(!(y>0)||v.some(x=>!Number.isFinite(x)||x<0))throw new RangeError('Positive finite RGB required');return v.map(x=>x/y);};
+export const COMPLEX_COLOURS=freeze(Object.fromEntries(Object.entries({gold:[1,.62,.08],red:[1,.035,.012],pink:[1,.10,.46],violet:[.36,.08,1],blue:[.06,.15,1],green:[.08,1,.045],silver:[1,.95,.82],amber:[1,.27,.025]}).map(([k,v])=>[k,unit(v)])));
+function ordered(knots,name){if(!Array.isArray(knots)||knots.length<2||knots.length>16)throw new RangeError(name+' requires2..16 knots');for(let i=0;i<knots.length;i++)if(!Number.isFinite(knots[i].age)||knots[i].age<0||i&&knots[i].age<=knots[i-1].age)throw new RangeError(name+' clocks must increase');}
+export function createComplexStyle({life,onset=0,colours=[{age:0,colour:'gold'},{age:life,colour:'gold'}],tailSeconds=.35,tailFraction=.24,tailColour='gold',envelopeKnots,pulseHz=0,pulsePhase=0}={}){
+  if(!Number.isFinite(life)||life<=0||life>20||!Number.isFinite(onset)||onset<0||onset>=life)throw new RangeError('Bounded style lifetime/onset required');
+  if(!Number.isFinite(tailSeconds)||tailSeconds<0||tailSeconds>.88||!Number.isFinite(tailFraction)||tailFraction<0||tailFraction>.45||!['gold','silver','source'].includes(tailColour))throw new RangeError('Bounded tail style required');
+  const duration=life-onset;
+  const envelope=envelopeKnots??[{age:0,value:0},...(onset>0?[{age:onset,value:0}]:[]),{age:onset+Math.min(.04,duration*.1),value:1},{age:onset+duration*.28,value:.94},{age:onset+duration*.76,value:.7},{age:life-Math.min(.18,duration*.1),value:.42},{age:life,value:0}];
+  ordered(envelope,'Envelope');for(const k of envelope)if(!Number.isFinite(k.value)||k.value<0||k.value>1)throw new RangeError('Envelope requires0..1');
+  const colourKnots=colours.map(k=>({age:k.age,rgb:Array.isArray(k.rgb)?unit(k.rgb):COMPLEX_COLOURS[k.colour]}));ordered(colourKnots,'Colour');if(colourKnots.some(k=>!k.rgb))throw new RangeError('Unknown display colour');
+  const maximumRGB=[0,1,2].map(c=>Math.max(...colourKnots.map(k=>k.rgb[c]))),tailCandidates=tailColour==='source'?[...colourKnots.map(k=>k.rgb),COMPLEX_COLOURS.amber]:[COMPLEX_COLOURS[tailColour],COMPLEX_COLOURS.amber];
+  return freeze({schema:'glass-atoll.complex-source-style.v1',life,onset,envelopeKnots:envelope.map(k=>({...k})),colourKnots,maximumRGB,tailSeconds,tailFraction:tailSeconds>0?tailFraction:0,tailColour,tailMaximumRGB:[0,1,2].map(c=>Math.max(...tailCandidates.map(k=>k[c]))),pulseHz,pulsePhase,calibration:'authored linear-RGB mixture and reference I0; no measured chemistry or photometry'});
+}
+function interval(knots,age){let i=0;while(i<knots.length-2&&age>knots[i+1].age)i++;const a=knots[i],b=knots[i+1],u=Math.max(0,Math.min(1,(age-a.age)/(b.age-a.age)));return[a,b,u];}
+export function sampleComplexEnvelope(body,age){
+  const s=body.sourceStyle;if(age<0||age>=s.life)return 0;let i=0;while(i<s.envelopeKnots.length-2&&age>s.envelopeKnots[i+1].age)i++;
+  const a=s.envelopeKnots[i],b=s.envelopeKnots[i+1],u=Math.max(0,Math.min(1,(age-a.age)/(b.age-a.age)));let value=a.value+(b.value-a.value)*u;
+  if(s.pulseHz>0){const q=(age*s.pulseHz+s.pulsePhase)%1;value*=q<.5?.35+.65*Math.sin(q*Math.PI*2):.18;}return value;
+}
+export function sampleComplexStyle(body,age){
+  const s=body.sourceStyle,[a,b,u]=interval(s.colourKnots,age),colour=[0,1,2].map(c=>a.rgb[c]+(b.rgb[c]-a.rgb[c])*u);
+  const envelope=sampleComplexEnvelope(body,age);
+  return{envelope,colour,maximumColourRGB:s.maximumRGB,allPhaseMaximumRGB:s.maximumRGB.map(v=>v*body.intensity)};
+}
+export function sampleComplexTailStyle(body,sourceAge,lag){
+  const s=body.sourceStyle,head=sampleComplexStyle(body,sourceAge),base=s.tailColour==='source'?head.colour:COMPLEX_COLOURS[s.tailColour],u=Math.min(1,Math.max(0,lag/Math.max(s.tailSeconds,1e-8)))*.7;
+  return{envelope:head.envelope,colour:base.map((v,c)=>v+(COMPLEX_COLOURS.amber[c]-v)*u),maximumColourRGB:s.tailMaximumRGB,allPhaseMaximumRGB:s.tailMaximumRGB.map(v=>v*body.intensity)};
+}

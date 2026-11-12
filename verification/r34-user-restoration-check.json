@@ -1,0 +1,252 @@
+{
+  "schema": "glass-atoll.r34-user-restoration-independent-check.v1",
+  "mechanism": "R33 strict 29 group intent comparison; no calibration/default exceptions in R34",
+  "actualGPUByChecker": false,
+  "newBrowserActions": 0,
+  "newNativeCalls": 0,
+  "productionEdits": 0,
+  "originalEvidenceEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 29,
+    "total": 29,
+    "exact": 29
+  },
+  "checks": [
+    {
+      "name": "parameters.sun",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.qualityPreset",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.quality",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.paused",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.sound",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.wind",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.current",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.lens",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.weather",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.air",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.graphics",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.sea",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.director",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.qualityCustom",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.renderSampling",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "camera",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "target",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.mode",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.utcMs",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.running",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.rate",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.observer",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "localLights.mode",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "localLights.linked",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "localLights.lamps",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "localLights.flashlight",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "fireworks.settings",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "interface.selectedCategoryPanelViews",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "noTransientActiveAndGLFault",
+      "exact": true,
+      "passed": true,
+      "evidence": {
+        "active": 0,
+        "queued": 0,
+        "packets": 0,
+        "gl": {
+          "label": "r34-after",
+          "errors": [],
+          "programLive": true,
+          "programDeletePending": false,
+          "vertexArrayLive": true
+        },
+        "bodyInert": false
+      }
+    }
+  ],
+  "runtimeChecks": [
+    {
+      "name": "Exactly 29 strict intent groups and complete settings/night UI are restored without semantic normalization",
+      "passed": true,
+      "evidence": {
+        "strictGroups": 29,
+        "semanticExceptions": 0,
+        "completeParametersExact": true,
+        "nightUIExact": true,
+        "lensUIExact": true
+      }
+    },
+    {
+      "name": "Automatic1270 calibration intent stays at the corrected same device, with no panel measurement claim",
+      "passed": true,
+      "evidence": {
+        "beforePeak": 1270,
+        "afterPeak": 1270,
+        "selectedDevice": "\\\\.\\DISPLAY6",
+        "physicalPanelNitsMeasured": false
+      }
+    },
+    {
+      "name": "Before and after are healthy empty production hosts; reload history is explicitly not exact physical phase restoration",
+      "passed": true,
+      "evidence": {
+        "events": 0,
+        "packets": 0,
+        "renderModes": {
+          "projection": "ellipsoid",
+          "bake": "tiled64"
+        },
+        "phaseBefore": 56.86429999996713,
+        "phaseAfter": 69.38960000000888,
+        "physicalPhaseExact": false,
+        "celestialUTCExact": true,
+        "note": "Normal reload/QA elapsed physical phase is not rewound. No exact instantaneous wave/cloud/temporal-buffer history restoration is claimed."
+      }
+    },
+    {
+      "name": "The only current production main edit has exact archived inverse; water/sky/light physics and approved audio retain reviewed source pins",
+      "passed": true,
+      "evidence": {
+        "wholeMainInverseExact": true,
+        "pins": {
+          "../main.js": "c731e448fa23b2897ff8f4b811b724da3dac1a39d391f7484faa64eefe2ef922",
+          "../ui.js": "ab5ebeaeed382bbaf8ac4c42ce45037f3a746b493d8fb907b08de45ea348def2",
+          "../hdr-screen-selection.js": "d8450e111a9c09b57be98b79a6871e5dea59ad24e38e0e9edc12b0bbd7e7dbf5",
+          "../water.js": "d7d5b76dadf35e2e507b640b8975fb3819821b29d113ceeebf195080fd88b045",
+          "../sky.js": "51db558ead3dea10d4c74633c2a8eb5bedf20952c136e0668b97de0a5ffc8eee",
+          "../fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+        },
+        "approvedAudioExact": true,
+        "waterCandidateUnpromoted": true,
+        "cloudCandidateUnpromoted": true
+      }
+    },
+    {
+      "name": "Saved final console has no errors/warnings and original evidence bytes remain unchanged",
+      "passed": true,
+      "evidence": {
+        "consoleErrors": 0,
+        "consoleWarnings": 0,
+        "evidenceHashes": {
+          "r34-user-state-before.json": "44c95fdb8f118258ebf4200148f66e1540ea654b1a153beef9a92bead6c7204f",
+          "r34-user-state-after.json": "bd5b6448e4c5745f36aaa095a58733577f2207f4aa7455e76f5d8bf26aa2302c",
+          "r34-console-after.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      }
+    }
+  ],
+  "limits": [
+    "Physical phase before/after differs across reload; celestial UTC and user settings remain separate intent checks.",
+    "No reset or replay of instantaneous wave/cloud/temporal GPU history is asserted.",
+    "System-reported peak1270 and correct device selection are not physical panel nit measurement or absolute HDR certification.",
+    "No performance, visual realism or changed smoke physics claim follows from this restoration proof."
+  ]
+}

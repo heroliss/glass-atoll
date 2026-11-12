@@ -1,0 +1,145 @@
+{
+  "schema": "glass-atoll.r17-layer-profile-check.v1",
+  "started": "2026-10-29T03:45:39.638Z",
+  "completed": "2026-10-29T03:45:40.114Z",
+  "passed": true,
+  "counts": {
+    "passed": 13,
+    "total": 13
+  },
+  "checks": [
+    {
+      "name": "All10 legacy types, seeds, drag models and public samples remain exactly equal to frozen baseline",
+      "passed": true,
+      "details": {
+        "events": 60,
+        "samples": 180
+      }
+    },
+    {
+      "name": "Legacy simulation default/settings, jitter, random automatic sequence and event draining are unchanged",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Smoke-only sampling exactly equals frozen full sample filtered to smoke across10types/wind/birth boundaries",
+      "passed": true,
+      "details": {
+        "comparisons": 84,
+        "optimization": "Skips carrier/head sampleBody/emission/allocation before consumer discards them; resolveBurst and legacy smoke RNG/state remain identical"
+      }
+    },
+    {
+      "name": "Layered candidates keep192 real roots, stable layer counts, I0s, carrier and audio triggers",
+      "passed": true,
+      "details": [
+        {
+          "effectProfile": "three-heart-v1",
+          "seed": 0,
+          "maxLife": 4.872479929858819,
+          "sumI0": 1500.9964218735695
+        },
+        {
+          "effectProfile": "three-heart-v1",
+          "seed": 42,
+          "maxLife": 4.859836657352745,
+          "sumI0": 1474.5702995359898
+        },
+        {
+          "effectProfile": "three-heart-v1",
+          "seed": 901,
+          "maxLife": 4.872510379670187,
+          "sumI0": 1457.307464107871
+        },
+        {
+          "effectProfile": "two-colour-v1",
+          "seed": 0,
+          "maxLife": 3.391065975606441,
+          "sumI0": 1500.9964218735695
+        },
+        {
+          "effectProfile": "two-colour-v1",
+          "seed": 42,
+          "maxLife": 3.391797228306532,
+          "sumI0": 1474.5702995359898
+        },
+        {
+          "effectProfile": "two-colour-v1",
+          "seed": 901,
+          "maxLife": 3.3849558769166475,
+          "sumI0": 1457.307464107871
+        }
+      ]
+    },
+    {
+      "name": "Relative velocities scale1/.7/.4 and baseVelocity stays consistent through wind-resolved bursts",
+      "passed": true,
+      "details": {
+        "layers": [
+          "outer",
+          "middle",
+          "inner"
+        ],
+        "worldBurst": [
+          79.67273862589808,
+          160.50000000000017,
+          19.76048183549158
+        ]
+      }
+    },
+    {
+      "name": "Profile instantaneous RGB, I and envelope agree; peak budget and all-phase channels hold",
+      "passed": true,
+      "details": {
+        "points": 8064
+      }
+    },
+    {
+      "name": "0/1/2/64 optical gain is applied exactly once and never changes life/CDF/velocity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Candidate public particles carry current RGB/colour and retire at the profile body life",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Window8 local vector bins match pure analytic integral; caller buffers are borrowed and bounded",
+      "passed": true,
+      "details": {
+        "windows": 10
+      }
+    },
+    {
+      "name": "Legacy new sampler preserves original scalar and colour array; vector windows are opt-in",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Simulation candidate is explicit; rejected combinations are atomic, legacy restoration is explicit",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Direct unsupported profiles reject, compiled descriptors stay immutable and do not change source bodies",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "RNG/kernels/audio contracts remain labelled reference and approved audio is unchanged",
+      "passed": true,
+      "details": {
+        "physicsSHA256": "35bbded2c937d335890c14a9a33abc0487db93a34b8458042db2720719374291",
+        "layerSHA256": "fa076d1197f80182d84c82bd841615754417512533e092c31f6cb92764200646",
+        "pureProfileSHA256": "7308fd7a59ac918de80acbf296a0117f2d499e48d8de40bf2880d0b3c90436d7",
+        "audioSHA256": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+      }
+    }
+  ],
+  "limits": [
+    "G0/G1 and pure source windows only; root owns FW/main/optics integration.",
+    "No smoke CDF scheduler change, GPU, native image or sound acceptance.",
+    "Named I0 peak budget retained; different lifetimes do change reference intensity time integral."
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schema": "glass-atoll.r27-production-staging-cpu.v1",
+  "actualGPU": false,
+  "productionPromoted": false,
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "checks": [
+    {
+      "name": "Legacy maxPairs contract and all old policy result fields remain exact; larger allowance requires explicit maxRequestPairs",
+      "passed": true,
+      "evidence": {
+        "oldComparisons": 42,
+        "defaultPairs": 3072,
+        "newAllowanceIsExplicit": true
+      }
+    },
+    {
+      "name": "Old-domain actual factories retain expanded shaders, all upload bits and valid ordered synthetic T in both active and legacy modes",
+      "passed": true,
+      "evidence": {
+        "cases": 14,
+        "comparedRows": 1832,
+        "notOpticalOracle": "Modeled Float32 tags with actual Three material objects"
+      }
+    },
+    {
+      "name": "Explicit complete request matches the already hardware-tested candidate with live-style allocation and all source rows retained",
+      "passed": true,
+      "evidence": {
+        "logicalPairs": 1309170,
+        "draws": 4,
+        "gpuNumericalBytes": 2056192,
+        "allRows": 1734
+      }
+    },
+    {
+      "name": "Old admissible16131x65 request needs four maps; default eight-map allowance avoids introducing a CPU fallback regression",
+      "passed": true,
+      "evidence": {
+        "logicalPairs": 1048515,
+        "mapDraws": 4,
+        "totalDraws": 5
+      }
+    },
+    {
+      "name": "Legacy maximum-stride comparator keeps the historical two-pass path and refuses a larger new request envelope before context work",
+      "passed": true,
+      "evidence": {
+        "legacyDraws": 2,
+        "legacyPartialCells": 1152000,
+        "explicitLargerLegacyRejected": true
+      }
+    },
+    {
+      "name": "Full-generation result stays hidden during every draw, neutral generation is fresh, and an injected later map fault withdraws prior output",
+      "passed": true,
+      "evidence": {
+        "hiddenDuringMapsAndReduce": true,
+        "retryComplete": true,
+        "freshNeutral": true
+      }
+    }
+  ],
+  "sources": {
+    "pyro-smoke-transmission-gpu.js": "4bd14a120d877a50eaf3b5faef1d8647e542eea7bb61af187ad1598afd95a0e5",
+    "pyro-smoke-transmission-pack.js": "8ccab09237ad8fc9ca9e23daa377b173278e9e7b4a48a33cb564a43aba4ada8d",
+    "smoke-transmission-layout.js": "79b76d3ece575ab9eb4678e42825ff19b758200627512b0bfed78ab5b81508a5",
+    "smoke-transmission-rectangles.js": "3080bdaf0630010dd0f7e91ff84b050eac889235f7b0a587c831ea4090898832"
+  },
+  "limits": [
+    "Staging only. Synthetic tagged arithmetic checks routing/association, not GLSL numerical accuracy or frame performance.",
+    "Native full-input GPU verification and independent code review remain required before promotion."
+  ]
+}

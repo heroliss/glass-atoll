@@ -1,0 +1,104 @@
+{
+  "date": "2026-11-12T10:09:59.905Z",
+  "passed": true,
+  "checksPassed": 12,
+  "total": 12,
+  "sourceSHA256": "37b156b3ef9e9574596e284ed6b5e69bff35f0ffbc1e7089779d87e14fa61e91",
+  "checks": [
+    {
+      "name": "actual octave weight finite bounded and monotone",
+      "passed": true,
+      "evidence": {
+        "expression": "1.-smoothstep(.25,.5,cellsPerPixel)"
+      }
+    },
+    {
+      "name": "full near response and zero beyond Nyquist support",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "name": "filter is continuous at both transition boundaries",
+      "passed": true,
+      "evidence": {
+        "boundaryError": 4.800604358479177e-13
+      }
+    },
+    {
+      "name": "near FBM field preserved at millimetre pixel footprint",
+      "passed": true,
+      "evidence": {
+        "nearDifference": 1.1102230246251565e-16,
+        "footprintMetres": 0.0028
+      }
+    },
+    {
+      "name": "near wetness and exact wet/dry shortcuts match baseline",
+      "passed": true,
+      "evidence": {
+        "wetDifference": 0
+      }
+    },
+    {
+      "name": "unresolved FBM returns normalized mean without hashes",
+      "passed": true,
+      "evidence": {
+        "far": 0.5,
+        "farHashCalls": 0
+      }
+    },
+    {
+      "name": "constant underwater/dry wetness skips both noise fields",
+      "passed": true,
+      "evidence": {
+        "underwaterWetHashCalls": 0,
+        "dryWetHashCalls": 0
+      }
+    },
+    {
+      "name": "zero grain support leaves original multiplier unchanged",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "name": "texture mean transition is continuous and monotone",
+      "passed": true,
+      "evidence": {
+        "tileRange": [
+          1,
+          3
+        ],
+        "metresAtPublishedScale": [
+          2.14,
+          6.42
+        ]
+      }
+    },
+    {
+      "name": "texture gradients supplied outside varying texture branch",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "name": "published tile size and albedo constants unchanged",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "name": "nonlinear reef far-mean error quantified, not hidden",
+      "passed": true,
+      "evidence": {
+        "sampleCount": 65536,
+        "localOriginalFbmMean": 0.5102832714281755,
+        "localOriginalReefMaskMean": 0.06711457029180663,
+        "estimatedWorstDeepWaterChannelBrightening": 0.011839010199474689,
+        "note": "Filtering before a nonlinear high threshold does not preserve the sparse-tail mean exactly. Owner explicitly accepted this ~1% material-scale limit; no artistic compensation added."
+      }
+    }
+  ],
+  "limits": [
+    "Double-precision CPU field comparison, not exact GPU hash/pixel identity",
+    "Actual shader compilation, native frame time, wet-edge and water-colour A/B remain owner GPU acceptance",
+    "Nonlinear reef tail mean has a documented ~1% far-material bias"
+  ]
+}

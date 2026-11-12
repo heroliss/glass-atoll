@@ -1,0 +1,232 @@
+{
+  "schema": "glass-atoll.r36-user-and-live-observation-check.v1",
+  "passed": false,
+  "counts": {
+    "passed": 5,
+    "total": 7
+  },
+  "intentCounts": {
+    "passed": 29,
+    "total": 29
+  },
+  "checks": [
+    {
+      "name": "29 intent groups and full parameters exactly restored",
+      "passed": true,
+      "evidence": {
+        "counts": {
+          "passed": 29,
+          "total": 29,
+          "exact": 29
+        },
+        "physicalPhaseRestored": false
+      }
+    },
+    {
+      "name": "Original system-derived HDR and production smoke route restored",
+      "passed": true,
+      "evidence": {
+        "systemReportedNits": 1270,
+        "notPhotometerMeasurement": true,
+        "productionSmokeRestored": true
+      }
+    },
+    {
+      "name": "Six saved normal scene observations retain complete effective GPU paths without GL errors",
+      "passed": false,
+      "error": "Error: ENOENT: no such file or directory, open 'E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\r36-radiant-normal-plus2p50-wide.json'\n    at Object.openSync (node:fs:621:18)\n    at Object.readFileSync (node:fs:487:35)\n    at read (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r36-user-and-live-observation-check.mjs:4:54)\n    at json (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r36-user-and-live-observation-check.mjs:4:103)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r36-user-and-live-observation-check.mjs:17:255\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r36-user-and-live-observation-check.mjs:6:68)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r36-user-and-live-observation-check.mjs:17:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "New default user gain1 uses authored gain16 once and retains scale metadata",
+      "passed": true,
+      "evidence": {
+        "native": 1421.2929533421993,
+        "derived": 22740.68725347519,
+        "authorGain": 16,
+        "measuredPhotometry": false
+      }
+    },
+    {
+      "name": "Same-phase native HDR/SDR observation records remain healthy",
+      "passed": true,
+      "evidence": {
+        "samePhysicalTime": true,
+        "HDRScreenshotsAreCompositorCaptures": true,
+        "absoluteNitsCertified": false
+      }
+    },
+    {
+      "name": "Short evolving measurements complete without asserting target or controlled A/B",
+      "passed": false,
+      "error": "TypeError: Cannot read properties of undefined (reading 'status')\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r36-user-and-live-observation-check.mjs:20:206\n    at Array.map (<anonymous>)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r36-user-and-live-observation-check.mjs:20:114\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r36-user-and-live-observation-check.mjs:6:68)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r36-user-and-live-observation-check.mjs:20:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "Native SDR movie is recorded, exported and cleaned; approved audio remains byte-identical",
+      "passed": true,
+      "evidence": {
+        "bytes": 2160629,
+        "wallSeconds": 24.00620000000298,
+        "physicalSeconds": 23.829299999997055,
+        "performanceBenchmark": false,
+        "approvedAudioExact": true
+      }
+    }
+  ],
+  "intent": [
+    {
+      "name": "parameters.sun",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.qualityPreset",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.quality",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.paused",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.sound",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.wind",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.current",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.lens",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.weather",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.air",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.graphics",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.sea",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.director",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.qualityCustom",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.renderSampling",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "camera",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "target",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.mode",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.utcMs",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.running",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.rate",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.observer",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "localLights.mode",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "localLights.linked",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "localLights.lamps",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "localLights.flashlight",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "fireworks.settings",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "interface",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "emptyHealthyRuntime",
+      "passed": true,
+      "exact": true
+    }
+  ],
+  "actualGPUByChecker": false,
+  "checkedSavedLiveGPUObservations": true,
+  "newBrowserActions": 0,
+  "limits": [
+    "Saved live observations and user-restoration receipts only; no new independent GPU numerical oracle or image parity.",
+    "Normal and logical runs are different absolute phases and evolving workloads; no controlled A/B or peak/sustained performance target.",
+    "Scene settings restore does not rewind wave/cloud/matter phase or history.",
+    "HDR PNG is a browser compositor capture; the motion movie is SDR.",
+    "Overall goal remains active and photorealism is not accepted."
+  ]
+}

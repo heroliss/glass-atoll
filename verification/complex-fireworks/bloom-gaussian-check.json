@@ -1,0 +1,176 @@
+{
+  "schema": "glass-atoll.gaussian-camera-psf-cpu-check.v1",
+  "passed": true,
+  "counts": {
+    "passed": 7,
+    "total": 7
+  },
+  "actualGPU": false,
+  "browserUsed": false,
+  "sourcePins": {
+    "optical-bloom.js": "50190b489b5c0dcb3f63d03dd7c9b31d457408971790ee02cc9907bff40fa4f0",
+    "verification/complex-fireworks/bloom-before-gaussian/optical-bloom.js": "52508e641fda1aec9594444c583f2523f9285e7dfec67ca7a25fa0157a2b9601"
+  },
+  "kernel": {
+    "sigmaPixels": 2,
+    "radiusPixels": 12,
+    "weights": [
+      3.0379414257511445e-9,
+      5.384880022759691e-8,
+      7.433597575725681e-7,
+      0.000007991870555661203,
+      0.00006691511290093393,
+      0.00043634134764345816,
+      0.00221592420658135,
+      0.008764150249206145,
+      0.026995483264053932,
+      0.06475879785084125,
+      0.12098536229300465,
+      0.17603266343079443,
+      0.19947114025583798,
+      0.17603266343079443,
+      0.12098536229300465,
+      0.06475879785084125,
+      0.026995483264053932,
+      0.008764150249206145,
+      0.00221592420658135,
+      0.00043634134764345816,
+      0.00006691511290093393,
+      0.000007991870555661203,
+      7.433597575725681e-7,
+      5.384880022759691e-8,
+      3.0379414257511445e-9
+    ],
+    "fetches": [
+      {
+        "offset": 0,
+        "weight": 0.19947114025583798
+      },
+      {
+        "offset": -1.40733340004593,
+        "weight": 0.2970180257237991
+      },
+      {
+        "offset": 1.40733340004593,
+        "weight": 0.2970180257237991
+      },
+      {
+        "offset": -3.2942149721629885,
+        "weight": 0.09175428111489518
+      },
+      {
+        "offset": 3.2942149721629885,
+        "weight": 0.09175428111489518
+      },
+      {
+        "offset": -5.2018132222603795,
+        "weight": 0.010980074455787496
+      },
+      {
+        "offset": 5.2018132222603795,
+        "weight": 0.010980074455787496
+      },
+      {
+        "offset": -7.132964240197829,
+        "weight": 0.0005032564605443921
+      },
+      {
+        "offset": 7.132964240197829,
+        "weight": 0.0005032564605443921
+      },
+      {
+        "offset": -9.085099045007022,
+        "weight": 0.000008735230313233771
+      },
+      {
+        "offset": 9.085099045007022,
+        "weight": 0.000008735230313233771
+      },
+      {
+        "offset": -11.053403329799822,
+        "weight": 5.6886741653348056e-8
+      },
+      {
+        "offset": 11.053403329799822,
+        "weight": 5.6886741653348056e-8
+      }
+    ],
+    "discreteTaps": 25,
+    "textureFetchesPerAxis": 13,
+    "axes": 2,
+    "supportSigma": 6,
+    "scope": "positive normalized finite discrete Gaussian; bilinear pair reconstruction at same-resolution texel centres; finite sensor crop and float rounding remain"
+  },
+  "scope": "Actual Three target/material factory with inert renderer facade, archivedlegacy comparison, independent doublekernel algebra. No GL context, shaders executed, HDR panel/image realism, full-pyramidGPU flux or timing claim. Default remainslegacy pendingrootactualGPUgate.",
+  "results": [
+    {
+      "name": "Positive symmetric normalized25tap Gaussian is paired into13bounded bilinear fetches",
+      "passed": true,
+      "details": {
+        "mass": 1,
+        "edgeToCentre": 1.522997974471263e-8,
+        "cornerToCentreSquared": 2.3195228302435696e-16,
+        "operatorInfinityBound": 1,
+        "qualification": "Ideal positive normalized operator; no exact binary16/driver rounding bound or unbounded-HDR cutoff guarantee."
+      }
+    },
+    {
+      "name": "Paired fetches reconstruct all25 integer Gaussian taps, including clamped boundaries",
+      "passed": true,
+      "details": {
+        "cases": 342,
+        "maxError": 2.3646862246096134e-11,
+        "scope": "Same-resolution pixel-centre bilinear algebra, not actualGPU sampler precision."
+      }
+    },
+    {
+      "name": "CPU Gaussian preserves constants/black/interior RGB impulse flux and has nearly radial contours",
+      "passed": true,
+      "details": {
+        "interiorFlux": [
+          60000.00000000001,
+          15000.000000000002,
+          3750.0000000000005
+        ],
+        "maximumPointPeakGain": 0.03978873579496419,
+        "strictStandaloneSupportPixels": 12,
+        "orientationWitness": "equal r²=25: (0,5),(3,4),(5,0)",
+        "qualification": "Standalone double reference. Four-stage pyramid, sensor crop and half storage need actualGPU tests."
+      }
+    },
+    {
+      "name": "Default/explicit legacy preserve archived shader strings, five-pass commands and original budgets",
+      "passed": true,
+      "details": {
+        "configurations": 8,
+        "legacyTargets": 5,
+        "legacyPasses": 5
+      }
+    },
+    {
+      "name": "Gaussian actualfactory uses13passes at true per-level sizes with no read/write feedback",
+      "passed": true,
+      "details": {
+        "draws": 13,
+        "targets": 9,
+        "shaderFetchesPerBlur": 13,
+        "extraScratchTexels": 4294
+      }
+    },
+    {
+      "name": "Gaussian throws restore caller state and owned resources dispose exactly once",
+      "passed": true,
+      "details": {
+        "failedOnPass": 3,
+        "targetsDisposed": 9,
+        "materialsDisposed": 3,
+        "geometriesDisposed": 1
+      }
+    },
+    {
+      "name": "Invalid options reject before allocation; disabled gaussian has zero draws and existing atomic config rules",
+      "passed": true,
+      "details": null
+    }
+  ]
+}

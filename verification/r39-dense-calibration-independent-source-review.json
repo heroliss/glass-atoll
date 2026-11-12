@@ -1,0 +1,62 @@
+{
+  "schema": "glass-atoll.r39.dense-main-runtime-independent-source-review.v1",
+  "passed": true,
+  "actualGPU": false,
+  "browserUsed": false,
+  "newExecutionTestsRun": false,
+  "reviewScope": "Read-only full source and saved owner CPU preflight; no GPU, physics replay or new execution tests.",
+  "pins": {
+    "r39-dense-calibration-runtime.js": "0e6f2bd483c18f343dbe129c2c96bceefd3e6fb71ebfbd070f223a331253900c",
+    "r39-dense-calibration-pins.js": "ab1ef452af49b38b33f2693b9fbc9da853a159d43d68869113dcab55a91d4a76",
+    "r39-dense-calibration-pins.json": "e2b631752752cd47a6ef6cdb1dc7e4f8677ddff9356602efa2b92fcc5069082b",
+    "r39-dense-calibration-preflight.mjs": "dbd131733f2573c0c686a56134319417bff5895a29f5d92ee5a74ca0f629b1ff",
+    "r39-dense-calibration-preflight.json": "fb15c87e1f616273c4c84f1f04ec03d118a20481ceb239ab0fe901cbdad3e75b",
+    "r39-dense-calibration-build-receipt.json": "5c36f2d547ee177ef0e1b84d476ab4201406c7f5e17f127b77a258a149fbcba9"
+  },
+  "savedOwnerPreflight": {
+    "passed": true,
+    "checks": 8,
+    "total": 8,
+    "actualGPU": false,
+    "nativeContextCalls": 0,
+    "contextBoundaryStubCalls": 2
+  },
+  "findings": [
+    {
+      "passed": true,
+      "name": "Closed fixed MAIN-only scope",
+      "evidence": "P1663 / main2418; no caller factory/cap/job injection; mirror2418 and ledger2413 remain owned metadata only; no SH factory constructed."
+    },
+    {
+      "passed": true,
+      "name": "Complete work bounded",
+      "evidence": "6 complete global maps + 1 reduce; one synchronous prepare; 38816 read bytes for all2418 rows +8 partials; numeric allocation4706304B, sentinel608B."
+    },
+    {
+      "passed": true,
+      "name": "Immutable input and all-row references before first await",
+      "evidence": "ownPhase clones originals, full padded pack words and full original/quantized offline reference rows; artifact canonical SHA and22 source/17 cached function pins checked before renderer.getContext."
+    },
+    {
+      "passed": true,
+      "name": "Exact distinct clock and lineage",
+      "evidence": "requested/source/ledger7.55 and committed density7.550000000000001 use separate exact fields; density revision3472, optical generation156 and ledger generation51 remain distinct."
+    },
+    {
+      "passed": true,
+      "name": "Inherited query/state/fault/cleanup protocol",
+      "evidence": "Whole-job25ms retrospective timer; one actual numerical triangle per render; no scene/reference/clear passes; state restored before timer yield; first-fault stops later draws; finally disposes owned fields/sentinels/queries and restores descriptors plus outer native state."
+    },
+    {
+      "passed": true,
+      "name": "No live output publication",
+      "evidence": "Private field only, no live consumer attachment; field target/texture hidden before complete reduction; after verification all owned fields disposed and publishedToLive=false."
+    }
+  ],
+  "nonblockingQualification": "Inherited report.limits contains generic joint/SH prose. The fixed source-only SPECS, native.submittedConsumers and first limit control actual scope; no SH/mirror GPU or joint success is inferred.",
+  "limits": [
+    "Owner8/8 is CPU injected-stop evidence, not hardware success.",
+    "Query25ms cannot interrupt already submitted synchronous work.",
+    "No full-frame/performance/visual acceptance, SH or mirror numerical approval."
+  ]
+}

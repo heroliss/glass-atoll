@@ -1,0 +1,148 @@
+{
+  "schema": "glass-atoll.smoke-air-front-math.v1",
+  "dateUTC": "2026-10-27T02:40:32.054Z",
+  "passed": true,
+  "counts": {
+    "checks": 15,
+    "passed": 15
+  },
+  "checks": [
+    {
+      "id": "four_cells_match_homogeneous_analytic_transfer",
+      "passed": true,
+      "four": {
+        "T": [
+          0.522045776761016,
+          0.5488116360940265,
+          0.5769498103804866
+        ],
+        "S": [
+          0.5662735318109811,
+          0.3701813139233558,
+          0.17245796822353612
+        ]
+      },
+      "analytic": {
+        "T": [
+          0.522045776761016,
+          0.5488116360940264,
+          0.5769498103804866
+        ],
+        "S": [
+          0.566273531810981,
+          0.3701813139233558,
+          0.1724579682235361
+        ]
+      }
+    },
+    {
+      "id": "disabled_air_reference_is_identity",
+      "passed": true
+    },
+    {
+      "id": "vacuum_coefficients_are_identity",
+      "passed": true
+    },
+    {
+      "id": "pure_absorber_has_no_scattering_source",
+      "passed": true
+    },
+    {
+      "id": "air_bound_is_raw_and_includes_passive_air_HG_peak",
+      "passed": true,
+      "bound": {
+        "maxRGB": 1.702107738428931,
+        "components": {
+          "smokeSource": 0,
+          "airFront": 1.702107738428931
+        },
+        "airNumericalSafety": 1.00002,
+        "rawBeforeStorageExposure": true,
+        "localLightingEnabled": false,
+        "method": "non-emissive convex-over layer upper bound; passive front-air source plus current raw smoke sources; local records replace legacy clusters when enabled; no factor per historical packet",
+        "limits": "authored raw incident reference, neutral extinction, up to6 shared local lights OR2 legacy clusters; optional four-cell front-air/conditional-mean approximation, small-tau/Float32 safety on air term, not a bound for future joint-media/light transport"
+      },
+      "phasePeak": 2.4315338527928456
+    },
+    {
+      "id": "disabled_bound_keeps_prior_source_maximum",
+      "passed": true
+    },
+    {
+      "id": "front_air_bound_is_not_multiplied_by_packet_count",
+      "passed": true
+    },
+    {
+      "id": "active_air_cannot_create_energy_with_SSA_over_one",
+      "passed": true
+    },
+    {
+      "id": "nonfinite_coefficients_and_zero_sun_axis_are_rejected",
+      "passed": true
+    },
+    {
+      "id": "degenerate_height_and_singular_phase_parameters_are_rejected",
+      "passed": true
+    },
+    {
+      "id": "front_air_repair_matches_exact_two_ordered_thin_layer_algebra",
+      "passed": true,
+      "patched": 0.297056,
+      "direct": 0.297056,
+      "limit": "ordered thin layers only; conditional-mean/overlapping Gaussians are not exact layers"
+    },
+    {
+      "id": "pure_attenuation_would_wrongly_remove_front_air_inscatter",
+      "passed": true,
+      "missing": 0.008
+    },
+    {
+      "id": "mirror_water_hit_air_differs_from_virtual_eye_air",
+      "passed": true,
+      "path": {
+        "T": [
+          0.8975604378537223,
+          0.8722179556258618,
+          0.8475910145230149
+        ],
+        "S": [
+          0.0055630069057406905,
+          0.005340067225558596,
+          0.0038515799944483673
+        ]
+      },
+      "wrong": {
+        "T": [
+          0.5598837404181579,
+          0.5617631259752357,
+          0.5636488201457223
+        ],
+        "S": [
+          0.022509020104156844,
+          0.017316349368797675,
+          0.010221424056391669
+        ]
+      }
+    },
+    {
+      "id": "small_tau_cell_integral_safety_is_below_reported_bound_margin",
+      "passed": true,
+      "maxRatio": 1.0000050000083334,
+      "airSafety": 1.00002,
+      "limit": "does not prove all possible hardware arithmetic"
+    },
+    {
+      "id": "disabled_shader_retains_prior_rgb_statement_and_no_air_multiply",
+      "passed": true
+    }
+  ],
+  "sourceSHA256": "cd7257e8dc80d15b26328e15bc0cd5625cc534c972a9df9f0188fe72d0a96c5b",
+  "noGPU": true,
+  "runtimeIntegration": false,
+  "limits": [
+    "CPU algebra, API validation and source checks only",
+    "conditional-mean thin-layer air front correction is not joint RTE",
+    "whole-space Gaussian; no reflected ground or light-path attenuation",
+    "small-tau bound margin is not a universal hardware proof"
+  ]
+}

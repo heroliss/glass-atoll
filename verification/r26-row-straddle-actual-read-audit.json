@@ -1,0 +1,79 @@
+{
+  "schema": "glass-atoll.r26-row-straddle-existing-actual-cpu-audit.v1",
+  "dateUTC": "2026-10-29T11:41:05.365Z",
+  "actualGPU": false,
+  "analyzedActualGPU": true,
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "Root actual receipt is exactly one fixed prepare/three draws,6192read bytes, clean GL/shader and full declared restoration",
+      "passed": true,
+      "evidence": {
+        "scope": "Existing receipt audit; restoration booleans are root hardware evidence, not new state observations",
+        "counts": {
+          "passed": 4,
+          "total": 4
+        }
+      }
+    },
+    {
+      "name": "Current helper/candidate/copied dependencies retain actual receipt source pins; no source drift after dispatch",
+      "passed": true,
+      "evidence": {
+        "sourceFiles": 8,
+        "helperSHA256": "5e346e9af8e0d10f14c867f55dcbc396bb3aa2aa9b9324bf7cf16d2ce5b3d949"
+      }
+    },
+    {
+      "name": "Recomputed original/quantized CPU references verify all129 GPU outputs, both neutral rows and last two positive packet64 cells",
+      "passed": true,
+      "evidence": {
+        "rows": 129,
+        "partialCells": 258,
+        "physicalError": 1.268724556524603e-7,
+        "quantizedError": 1.2825527118121016e-7,
+        "partialToTError": 7.944811120097484e-8,
+        "tailGPU": [
+          {
+            "source": 127,
+            "address": 256,
+            "tauRGB": [
+              0.002619710983708501,
+              0.0037424443289637566,
+              0.001496977754868567
+            ]
+          },
+          {
+            "source": 128,
+            "address": 257,
+            "tauRGB": [
+              0.0012250487925484776,
+              0.0017500696703791618,
+              0.0007000278565101326
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "One recorded timer admits only this fixture and remains retrospective; native1.3m/SH/frame budget are not inferred",
+      "passed": true,
+      "evidence": {
+        "gpuMs": 0.508928,
+        "cpuSubmitMs": 10.200000002980232,
+        "logicalPairs": 8385,
+        "conservativeSlots": 16512,
+        "scope": "One compiled/uploading tiny job; no native scaling or whole-frame throughput conclusion"
+      }
+    }
+  ],
+  "analyzedReceiptSHA256": "0498cdaf09f96fb036bec9a5c66b6b0c44036b0266c5c8e9414e9ae170a659b7",
+  "limits": [
+    "CPU-only re-read/recompute of root hardware receipt, no new context/browser/GPU/test dispatch.",
+    "Actual source pin, numeric outputs and reported timer/state evidence match the bounded129x65 job only; no larger/native/SH/per-frame admission."
+  ]
+}

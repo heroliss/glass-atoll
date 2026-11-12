@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-12T10:10:03.793Z",
+  "passed": true,
+  "passedCount": 19,
+  "total": 19,
+  "checks": [
+    {
+      "id": "invalid history resets previous pose to the exact current pose",
+      "passed": true
+    },
+    {
+      "id": "invalid history resets previous VP to current",
+      "passed": true
+    },
+    {
+      "id": "next frame keeps the real previous wind time",
+      "passed": true
+    },
+    {
+      "id": "moving camera uses previous unjittered VP",
+      "passed": true
+    },
+    {
+      "id": "motion capture is disabled outside main colour draw",
+      "passed": true
+    },
+    {
+      "id": "physical clip position is captured before raster jitter",
+      "passed": true
+    },
+    {
+      "id": "motion carries velocity previous depth and coverage",
+      "passed": true
+    },
+    {
+      "id": "separate current leaf depth repairs background MSAA depth",
+      "passed": true
+    },
+    {
+      "id": "colour and depth retain exactly the same analytic deformation source",
+      "passed": true
+    },
+    {
+      "id": "non foliage explicitly clears MRT to avoid undefined attachments",
+      "passed": true
+    },
+    {
+      "id": "resolve normalizes partially covered motion data",
+      "passed": true
+    },
+    {
+      "id": "resolve stores real current depth rather than background MSAA depth",
+      "passed": true
+    },
+    {
+      "id": "valid wind motion bypasses only the guessed wind speed penalty",
+      "passed": true
+    },
+    {
+      "id": "physical motion supplies previous UV and previous depth",
+      "passed": true
+    },
+    {
+      "id": "legacy helper can explicitly use camera only fallback",
+      "passed": true
+    },
+    {
+      "id": "shader patch fails loudly on a stale integration anchor",
+      "passed": true
+    },
+    {
+      "id": "MSAA partial coverage does not shrink decoded velocity or depth",
+      "passed": true
+    },
+    {
+      "id": "zero wind or wind debug off has exactly zero physical motion",
+      "passed": true,
+      "maximumRestErrorMetres": 0
+    },
+    {
+      "id": "analytic wind has continuous bounded half frame displacement",
+      "passed": true,
+      "maximumHalfToFullDisplacementRatio": 0.6167620478656652
+    }
+  ],
+  "limits": [
+    "CPU/source verification only; actual MRT sampling, MSAA normalization, reprojection rejection and moving canopy appearance require GPU acceptance",
+    "No physical wind or leaf size/texture changes; no extra scene pass",
+    "Thin geometry visibility is still finite raster sampling, not eliminated by motion vectors"
+  ]
+}

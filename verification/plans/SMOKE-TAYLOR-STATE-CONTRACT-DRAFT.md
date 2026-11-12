@@ -1,0 +1,29 @@
+# Read-only draft: finite-correlation dispersion memory
+
+Status: **proposal only, no runtime edits**. Await the independent primary-source/physical proof before authorizing implementation. The48-source images remain a separate source-sampling experiment; no natural-smoke acceptance follows from this draft.
+
+## Minimal state boundary
+
+Current `pyro-smoke-state.js` has the narrow contacts: `publicPacket` line48; `mergePair` lines50–57; constructor line80; `parseEmission` lines113–119; `evolve` lines122–127; `snapshot` line138. The constructor would accept an opt-in `dispersionModel:'taylor-correlated'` and immutable positive `lagrangianSeconds`. The existing default Brownian branch must retain its original arithmetic, snapshot/diagnostic fields and byte/pixel behavior. No camera, exposure, source intensity, density gain, random noise, age deletion or shader-only covariance is introduced.
+
+For one chosen constant K and TL per state, the proposed marginal variance is `V(a)=2K[a−TL(1−exp(−a/TL))]`. A packet carries physical memory `q=E[exp(−a/TL)]`, with0≤q≤1, not a value inferred from `birthTime`. At a fresh elementary emission q=1. Pending queue entries keep q at their *future birth*, and only active packets evolve it. A source that already represents aged material must explicitly supply its appropriate q at that birth. Invalid/nonfinite memory must reject during preflight before a source ID, wind history or ledger is installed.
+
+For a committed segment dt: `e=exp(−dt/TL)`, `ΔCii=2Ki[dt−TL q(1−e)]`, then `q←q e`. Validate every covariance/memory proposal before mutating any packet, retaining the existing transactional two-loop structure. The increment is nonnegative on the domain; use a stable small-x evaluation, not an arbitrary negative clamp. With x=dt/TL, `dt(1−q)+TL q[x+expm1(−x)]` is convenient, and the bracket needs its positive series `x²/2−x³/6+x⁴/24−…` at tiny x. Existing mean/thermal/wind equations remain unchanged.
+
+Only Taylor snapshots/public packets would expose the extra memory plus their model/TL metadata. Do not reconstruct q from the minimum merged birth time. Covariance remains the sole optical geometry sent to `pyro-smoke-columns.js` and `pyro-smoke-renderer.js`; both continue using the same normalized Gaussian and existing profile coefficients. q is pure CPU state, with no new shader sampler or per-pixel loop. Host clear must recreate the chosen dispersion model/TL at the actual current physical origin, preserving the existing4000s clear contract. Model/TL changes need a fresh explicit host/epoch, rather than silent per-frame reinterpretation.
+
+## Delayed source cell
+
+The same positive five-node source quadrature must replace each node's old `2K age` with V(age). Each node still uses the exact held-wind integral, current native thermal age, and the existing isotropic initial .30m kernel. Collapse the already-aged positions/full covariance as now, and output `qBirth=Σ wi exp(−agei/TL)` with the same positive normalized weights. Resetting q to1 at the delayed cell end would add a second artificial ballistic startup and make transport depend on the source-cell partition. Source and state must agree on K/TL; the adapter validates that immutable contract.
+
+## What q closes, and what it does not
+
+For common K/TL, zero-mean stochastic fluctuations and identical deterministic mean drift, future diffusion increments are affine in q. Thus a same-profile merged packet can use mass-weighted q (prefer the numerically convex form `qa+wb(qb−qa)`) while preserving the weighted future *within-component* diffusion contribution. The existing full mixture covariance at merge time still supplies the between-mean spatial term. This is a marginal Gaussian moment closure, not a shared three-dimensional turbulent flow field or a Navier–Stokes solution.
+
+The existing thermal/mean-velocity counterexample remains: two equal-mass packets at the same position with identical covariance/q but buoyant velocities0 and1m/s, drag2s and no excess heat separate by `2(1−exp(−.5))=.78693868m` after1s. Their unmerged mixture gains `.25×Δy²=.15481812m²` between-mean y variance. Merging into the average buoyant velocity plus average q loses that term. Correct q does not repair discarded position–velocity/temperature covariance. The current preferred-merge thermal gate may reject this as preferred; a forced capacity merge can still incur it. Preserve and disclose that diagnostic rather than claiming future evolution equivalence.
+
+## Scale and falsification
+
+TL≈10s is an authored hypothesis, not a measured quiet-marine parameter. For Kx=.6m²/s and age.75s, Brownian added sigma is .94868m; the proposed Taylor added sigma is about.18144m. With an independent .30m initial kernel the transverse sigma is about.3506m instead of.9950m. K/TL implies velocity variance, so choosing TL also makes a physical velocity-scale assumption. Narrower fixed-mass kernels can raise column optical depth and make a lit core *brighter/opaquer* even while reducing width. They may become thinner bright sausages: the source segment is still a smooth unimodal Gaussian, and the renderer still samples illumination at an optical conditional mean.
+
+The next gate must independently hold M, optical profile, source times, chosen roots, C/I, camera and raw lighting fixed. Compare actual aged covariance, finite-ray tau and native near/far images before claiming improvement. Minimum CPU proofs are: default inverse whole-file parity; stable positive increment and semigroup; exact weighted aged-cell q; heterogeneous-age q merge under common drift; the retained thermal counterexample; same timestamped30/60/120Hz input replay; SPD/finite/mass over1800s; clear/pause/queue-failure boundaries. These establish the stated approximation only. No implementation, source parameter change, performance promise or visual completion is authorized by this document.

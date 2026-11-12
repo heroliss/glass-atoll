@@ -1,0 +1,72 @@
+{
+  "schema": "glass-atoll.adaptive-tail-CPU-scope.v1",
+  "dateUTC": "2026-10-27T18:39:27.414Z",
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "checks": [
+    {
+      "name": "six physical-centre coordinate sites restore exact8ef candidate; missing or duplicate edits reject",
+      "passed": true,
+      "evidence": {
+        "edits": 6,
+        "previousCandidateSHA256": "8ef16cf829180985389b8f06c102073a5e02f98e781ec8be4af8cea374a834a6",
+        "scope": "Only adaptive pixel coordinate source changes; legacy vOffset and full original loop remain unchanged"
+      }
+    },
+    {
+      "name": "exact optional layer restores full40189 source; all absent/duplicate edits fail closed",
+      "passed": true,
+      "evidence": {
+        "edits": 17,
+        "baselineSHA256": "40189f53842b6361a487fa4fa0af78de02727b2de1a23c5720f9128f18c97b9f",
+        "composition": "six centre sites first, then all17 original adaptive sites; both layers reject absent/duplicate edits"
+      }
+    },
+    {
+      "name": "actual default records, source clocks, ledger, clusters and bounds match baseline",
+      "passed": true,
+      "evidence": {
+        "types": 4,
+        "frames": 20
+      }
+    },
+    {
+      "name": "live adaptive mode changes no source records, physical settings, I/RGB or raw ceiling",
+      "passed": true,
+      "evidence": {
+        "sameLedgerObject": true,
+        "sameBoundValues": true,
+        "defaultLegacy": true
+      }
+    },
+    {
+      "name": "pixel helper, head8 shutter and original legacy loop remain byte identical",
+      "passed": true,
+      "evidence": {
+        "positiveClampedBlend": true,
+        "headShutter8Unchanged": true,
+        "noLocalRenormalization": true
+      }
+    },
+    {
+      "name": "unrelated protected runtime files retain exact hashes",
+      "passed": true,
+      "evidence": {
+        "fireworks-physics.js": "dc5de6b1a11a3e1a70d7342d3bdacc5813ab0f66e426f622d6e287991b4af87a",
+        "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+        "pyro-smoke-trajectory-events.js": "4070f8f053ff9f9c40205a2c7e0dadc48ea6a5d257d7093b12fb5b0d4d4cd4da",
+        "pyro-smoke.js": "6cdd9a3da7aa359bba0f90a0403261823edc2ac92ed0159477990308ad1e717a"
+      }
+    }
+  ],
+  "sourceSHA256": "f0c6251c3125a5aa3355b9f9a02907f1546aaffa9443ce1a1447ed027590bf03",
+  "baselineSHA256": "40189f53842b6361a487fa4fa0af78de02727b2de1a23c5720f9128f18c97b9f",
+  "actualGPU": false,
+  "limits": [
+    "Actual factory/default scope and source invariance only; shader GPU correctness, photograph quality and cost require root actual renderer.",
+    "Independent Gaussian oracle lives in gaussian-streak-oracle.json; its mathematical error is separate from these source equality gates."
+  ]
+}

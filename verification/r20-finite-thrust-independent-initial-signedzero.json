@@ -1,0 +1,75 @@
+{
+  "schema": "glass-atoll.r20-finite-thrust-independent.v1",
+  "dateUTC": "2026-10-29T02:39:41.355Z",
+  "sourceSHA256": "c9b1d306d3681594e9cc2f20ddb00ddb6719c0b3d66079f5ce13e895b0d2471a",
+  "passed": false,
+  "counts": {
+    "passed": 5,
+    "total": 6
+  },
+  "checks": [
+    {
+      "name": "Source freeze and declared finite-domain contracts are pinned",
+      "passed": true,
+      "evidence": {
+        "sourceSHA256": "c9b1d306d3681594e9cc2f20ddb00ddb6719c0b3d66079f5ce13e895b0d2471a"
+      }
+    },
+    {
+      "name": "1000-digit independent global impulse-convolution oracle covers tiny/high drag, knots and long post-cutoff age",
+      "passed": true,
+      "evidence": {
+        "witnesses": 140,
+        "decimalDigits": 1000,
+        "maxRelativeVectorScaledError": 8.724741675593134e-14,
+        "maxAbsoluteComponentError": 1.8189894035458565e-12,
+        "oracle": "global force-interval impulse convolution; Decimal exp, no local-prefix/series/RK helper reuse"
+      }
+    },
+    {
+      "name": "Right-hand acceleration, causal prefix independence and autonomous post-cutoff semigroup",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 0\n- -0\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r20-finite-thrust-independent-check.mjs:55:234\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r20-finite-thrust-independent-check.mjs:8:103)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r20-finite-thrust-independent-check.mjs:49:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "All native root IDs and lifetime scales retain bounded correlated seed schedules and conservative response envelopes",
+      "passed": true,
+      "evidence": {
+        "profiles": 576,
+        "queries": 11520,
+        "maxCells": 11,
+        "maxHeadingStepDegrees": 22.453206600621368,
+        "maxSpeedRatio": 1.0000000000000002,
+        "maxPositionRatio": 0.9971311854098576,
+        "numericalEnclosureTolerance": {
+          "velocity": 1e-10,
+          "position": 1e-9
+        },
+        "limit": "Sample witnesses complement the analytic nonnegative-kernel triangle argument; not a universal floating-point enclosure proof"
+      }
+    },
+    {
+      "name": "Accessor, sparse, spoof, field, frame and domain attacks reject without input getter execution",
+      "passed": true,
+      "evidence": {
+        "rejected": 16,
+        "getterCalls": 0
+      }
+    },
+    {
+      "name": "Input copies, deeply frozen authoring data, output arrays and repeated drag-cache eviction are independent",
+      "passed": true,
+      "evidence": {
+        "cacheChurnQueries": 40,
+        "sourceAndAuthoringFrozen": true,
+        "outputMutationIsolated": true,
+        "reverseReplayExact": true
+      }
+    }
+  ],
+  "limits": [
+    "Pure helper only; not imported into the scene, smoke, renderer, optical sources, bounds or UI by this audit.",
+    "Authored acceleration/drag and stepped headings; no measured thrust, mass, fuel, continuous attitude or smooth motor-force envelope.",
+    "Independent Decimal oracle uses decimal reconstructions of finite JSON inputs and finite numerical tolerances; it is not exact real arithmetic."
+  ]
+}

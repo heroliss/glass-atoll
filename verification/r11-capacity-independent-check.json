@@ -1,0 +1,502 @@
+{
+  "schema": "glass-atoll.r11-capacity-independent.v1",
+  "dateUTC": "2026-10-28T03:54:09.179Z",
+  "actualGPU": false,
+  "sourceSHA256": {
+    "state": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+    "baselineState": "1aa90d24f42adbf6416bd871e8de56d26c4841535e7f0d7f80e591286c6a2cba",
+    "helper": "c999676513cf1692843be45e88fd9ea8fa5bde9d5709c0e70f53ddeb3b7b2850"
+  },
+  "checks": [
+    {
+      "name": "independent prefix and suffix comparison finds exactly the selection block changed",
+      "passed": true,
+      "evidence": {
+        "baselineHash": "1aa90d24f42adbf6416bd871e8de56d26c4841535e7f0d7f80e591286c6a2cba",
+        "currentHash": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+        "changedBlocks": 1,
+        "ownerNormalizerUsed": false,
+        "validationKernelsAndMutationSequenceUntouched": true
+      }
+    },
+    {
+      "name": "right-of-equals insertion preserves duplicate complete keys stable object identity",
+      "passed": true,
+      "evidence": {
+        "cases": 90,
+        "objects": 2580,
+        "duplicateFullKeysAreSynthetic": true,
+        "productionPairsDeduplicated": true
+      }
+    },
+    {
+      "name": "finite total-order pools match after shuffled ties and x-index tie breaks",
+      "passed": true,
+      "evidence": {
+        "cases": 240,
+        "objects": 125611,
+        "seed": "0x17ba3c6d",
+        "scoresFiniteNonnegative": true
+      }
+    },
+    {
+      "name": "nonfinite generic comparator equivalence is explicitly rejected as a claim",
+      "passed": true,
+      "evidence": {
+        "invalidNaNPool": {
+          "input": [
+            {
+              "score": 1,
+              "i": 1,
+              "j": 5,
+              "tag": 0,
+              "sameSource": true
+            },
+            {
+              "score": 2,
+              "i": 0,
+              "j": 7,
+              "tag": 1,
+              "sameSource": true
+            },
+            {
+              "score": 0,
+              "i": 5,
+              "j": 6,
+              "tag": 2,
+              "sameSource": true
+            },
+            {
+              "score": 1,
+              "i": 9,
+              "j": 8,
+              "tag": 3,
+              "sameSource": true
+            },
+            {
+              "score": 1,
+              "i": 6,
+              "j": 5,
+              "tag": 4,
+              "sameSource": true
+            },
+            {
+              "score": 1,
+              "i": 9,
+              "j": 2,
+              "tag": 5,
+              "sameSource": true
+            },
+            {
+              "score": 1,
+              "i": 3,
+              "j": 5,
+              "tag": 6,
+              "sameSource": true
+            },
+            {
+              "score": 1,
+              "i": 5,
+              "j": 2,
+              "tag": 7,
+              "sameSource": true
+            },
+            {
+              "score": "NaN",
+              "i": 9,
+              "j": 6,
+              "tag": 8,
+              "sameSource": true
+            },
+            {
+              "score": 2,
+              "i": 3,
+              "j": 5,
+              "tag": 9,
+              "sameSource": true
+            }
+          ],
+          "old": [
+            2,
+            0,
+            6,
+            7,
+            4,
+            5,
+            8,
+            3
+          ],
+          "next": [
+            2,
+            0,
+            6,
+            7,
+            4,
+            5,
+            9,
+            8
+          ]
+        },
+        "notAnAdmissibleStatePool": true,
+        "why": "Array.sort comparator with NaN score may not be transitive; equivalence is for validated finite production tuples only.",
+        "numericDomain": {
+          "maximumDistanceSquared": 12000000000000000000,
+          "minimumTrace": 5.999999999999999e-24,
+          "maximumTrace": 600000000000000000000,
+          "maximumScore": 2.0000000000000004e+42
+        },
+        "publishedDomainsAndValidationUnchanged": true
+      }
+    },
+    {
+      "name": "NaN Infinity signed-domain violations reject before current or prior state mutation",
+      "passed": true,
+      "evidence": {
+        "cases": 14,
+        "compactionInvocations": 0,
+        "noNaNCandidateFallbackAdded": true
+      }
+    },
+    {
+      "name": "fixed ticks off-tick sources variable wind and bounded catchup preserve actual merges",
+      "passed": true,
+      "evidence": {
+        "cases": 24,
+        "merges": 968,
+        "pairs": 15752,
+        "rayQueries": 144,
+        "allCandidateScoresFinite": true,
+        "selectionOrdersEqual": true,
+        "results": [
+          {
+            "dispersionModel": "brownian",
+            "origin": 0,
+            "capacity": 1,
+            "hz": 30,
+            "merges": 47,
+            "forced": 42,
+            "selectionTraceSHA256": "adebc1954650764450bccddc95e0086d76f6877b05180f1477ffc6b68c359d0e",
+            "snapshotSHA256": "ef2b08ef4e5b320113047e68348a108f36330bb5c3672da2a7de5828bd1079fe"
+          },
+          {
+            "dispersionModel": "brownian",
+            "origin": 0,
+            "capacity": 1,
+            "hz": 120,
+            "merges": 47,
+            "forced": 42,
+            "selectionTraceSHA256": "adebc1954650764450bccddc95e0086d76f6877b05180f1477ffc6b68c359d0e",
+            "snapshotSHA256": "ef2b08ef4e5b320113047e68348a108f36330bb5c3672da2a7de5828bd1079fe"
+          },
+          {
+            "dispersionModel": "brownian",
+            "origin": 0,
+            "capacity": 5,
+            "hz": 30,
+            "merges": 43,
+            "forced": 34,
+            "selectionTraceSHA256": "e320f3d78a52804a0f52ac6995f5d17e8173151ec709631575461ccd371e6e6c",
+            "snapshotSHA256": "4b63f880c5725ad05f09cd7f904e45fcf8bad6b1918af509ee20babe9eef706c"
+          },
+          {
+            "dispersionModel": "brownian",
+            "origin": 0,
+            "capacity": 5,
+            "hz": 120,
+            "merges": 43,
+            "forced": 34,
+            "selectionTraceSHA256": "e320f3d78a52804a0f52ac6995f5d17e8173151ec709631575461ccd371e6e6c",
+            "snapshotSHA256": "4b63f880c5725ad05f09cd7f904e45fcf8bad6b1918af509ee20babe9eef706c"
+          },
+          {
+            "dispersionModel": "brownian",
+            "origin": 0,
+            "capacity": 17,
+            "hz": 30,
+            "merges": 31,
+            "forced": 23,
+            "selectionTraceSHA256": "754eb7563d347686d7fa80aee893e3e6c00ef7d2d69e12ed77d4b58327e970d5",
+            "snapshotSHA256": "318996aed50d4fd87ec7b2cea3d960e022031dbec4e938922d6afdf4209a6a1f"
+          },
+          {
+            "dispersionModel": "brownian",
+            "origin": 0,
+            "capacity": 17,
+            "hz": 120,
+            "merges": 31,
+            "forced": 23,
+            "selectionTraceSHA256": "754eb7563d347686d7fa80aee893e3e6c00ef7d2d69e12ed77d4b58327e970d5",
+            "snapshotSHA256": "318996aed50d4fd87ec7b2cea3d960e022031dbec4e938922d6afdf4209a6a1f"
+          },
+          {
+            "dispersionModel": "brownian",
+            "origin": 4000,
+            "capacity": 1,
+            "hz": 30,
+            "merges": 47,
+            "forced": 42,
+            "selectionTraceSHA256": "c0a8ec1ad4402094ebb819334413adbd37ec419c55ca8aef6fb78671887d2cd8",
+            "snapshotSHA256": "fff0f3851b6718f6006bea4262a3c5ac96305bc7045141162f3cb324c4d369e3"
+          },
+          {
+            "dispersionModel": "brownian",
+            "origin": 4000,
+            "capacity": 1,
+            "hz": 120,
+            "merges": 47,
+            "forced": 42,
+            "selectionTraceSHA256": "c0a8ec1ad4402094ebb819334413adbd37ec419c55ca8aef6fb78671887d2cd8",
+            "snapshotSHA256": "fff0f3851b6718f6006bea4262a3c5ac96305bc7045141162f3cb324c4d369e3"
+          },
+          {
+            "dispersionModel": "brownian",
+            "origin": 4000,
+            "capacity": 5,
+            "hz": 30,
+            "merges": 43,
+            "forced": 34,
+            "selectionTraceSHA256": "9dbba0e06a6cfe5699ef227d6f0043c414fb80827ca250a29ae8186c5d977f6d",
+            "snapshotSHA256": "a286a35e7e64567592e17a196825432d5612ef4b99aaf3387036b83726de36b0"
+          },
+          {
+            "dispersionModel": "brownian",
+            "origin": 4000,
+            "capacity": 5,
+            "hz": 120,
+            "merges": 43,
+            "forced": 34,
+            "selectionTraceSHA256": "9dbba0e06a6cfe5699ef227d6f0043c414fb80827ca250a29ae8186c5d977f6d",
+            "snapshotSHA256": "a286a35e7e64567592e17a196825432d5612ef4b99aaf3387036b83726de36b0"
+          },
+          {
+            "dispersionModel": "brownian",
+            "origin": 4000,
+            "capacity": 17,
+            "hz": 30,
+            "merges": 31,
+            "forced": 23,
+            "selectionTraceSHA256": "dac0dcf65769669d61c89e81a761529ac87e3df5062488db1055852b70cc6fc0",
+            "snapshotSHA256": "2a4da803b707dd7891bed59bd7d4ed6fccc4d98c8ca35470051401f116e113d3"
+          },
+          {
+            "dispersionModel": "brownian",
+            "origin": 4000,
+            "capacity": 17,
+            "hz": 120,
+            "merges": 31,
+            "forced": 23,
+            "selectionTraceSHA256": "dac0dcf65769669d61c89e81a761529ac87e3df5062488db1055852b70cc6fc0",
+            "snapshotSHA256": "2a4da803b707dd7891bed59bd7d4ed6fccc4d98c8ca35470051401f116e113d3"
+          },
+          {
+            "dispersionModel": "taylor",
+            "origin": 0,
+            "capacity": 1,
+            "hz": 30,
+            "merges": 47,
+            "forced": 42,
+            "selectionTraceSHA256": "47ebc3a9098b0fce1e44119c66fe94d93a76da62910ff7067359d5e84afa1f6f",
+            "snapshotSHA256": "3ee984c24ccc0f4d4d7483ba2112b922ccd11de54297f52441a6ad9ea6c53330"
+          },
+          {
+            "dispersionModel": "taylor",
+            "origin": 0,
+            "capacity": 1,
+            "hz": 120,
+            "merges": 47,
+            "forced": 42,
+            "selectionTraceSHA256": "47ebc3a9098b0fce1e44119c66fe94d93a76da62910ff7067359d5e84afa1f6f",
+            "snapshotSHA256": "3ee984c24ccc0f4d4d7483ba2112b922ccd11de54297f52441a6ad9ea6c53330"
+          },
+          {
+            "dispersionModel": "taylor",
+            "origin": 0,
+            "capacity": 5,
+            "hz": 30,
+            "merges": 43,
+            "forced": 34,
+            "selectionTraceSHA256": "b4b7833518143aa7ceb2027a7095c13ce3c6b20291cd030b7f85db6f7835177f",
+            "snapshotSHA256": "cd23a1db726d8232c27908629b14f77c3ff14c152bf6b2ed82a32662808b467a"
+          },
+          {
+            "dispersionModel": "taylor",
+            "origin": 0,
+            "capacity": 5,
+            "hz": 120,
+            "merges": 43,
+            "forced": 34,
+            "selectionTraceSHA256": "b4b7833518143aa7ceb2027a7095c13ce3c6b20291cd030b7f85db6f7835177f",
+            "snapshotSHA256": "cd23a1db726d8232c27908629b14f77c3ff14c152bf6b2ed82a32662808b467a"
+          },
+          {
+            "dispersionModel": "taylor",
+            "origin": 0,
+            "capacity": 17,
+            "hz": 30,
+            "merges": 31,
+            "forced": 23,
+            "selectionTraceSHA256": "938d599a4165abcce43334059efdda09386d855f2b6a0f434638df7c40d3eda3",
+            "snapshotSHA256": "07a29acfc3f03ad46b73b8c27e8ad379da7f895e91b754a75f8647e2ccc3c98d"
+          },
+          {
+            "dispersionModel": "taylor",
+            "origin": 0,
+            "capacity": 17,
+            "hz": 120,
+            "merges": 31,
+            "forced": 23,
+            "selectionTraceSHA256": "938d599a4165abcce43334059efdda09386d855f2b6a0f434638df7c40d3eda3",
+            "snapshotSHA256": "07a29acfc3f03ad46b73b8c27e8ad379da7f895e91b754a75f8647e2ccc3c98d"
+          },
+          {
+            "dispersionModel": "taylor",
+            "origin": 4000,
+            "capacity": 1,
+            "hz": 30,
+            "merges": 47,
+            "forced": 42,
+            "selectionTraceSHA256": "bffef4e6a6037ce4dd5e3036ce06dc437ef39d593419852b3af0f6ed93dd4fde",
+            "snapshotSHA256": "73e927d81387d35866cd75568184b4cfedae9f07eddd171cc207fd6d811cabab"
+          },
+          {
+            "dispersionModel": "taylor",
+            "origin": 4000,
+            "capacity": 1,
+            "hz": 120,
+            "merges": 47,
+            "forced": 42,
+            "selectionTraceSHA256": "bffef4e6a6037ce4dd5e3036ce06dc437ef39d593419852b3af0f6ed93dd4fde",
+            "snapshotSHA256": "73e927d81387d35866cd75568184b4cfedae9f07eddd171cc207fd6d811cabab"
+          },
+          {
+            "dispersionModel": "taylor",
+            "origin": 4000,
+            "capacity": 5,
+            "hz": 30,
+            "merges": 43,
+            "forced": 34,
+            "selectionTraceSHA256": "ec86465e9df261c4bf9a8ab6781bb4d296e94f6f2a7df6e3a0e0d7e3e57d264c",
+            "snapshotSHA256": "27b52a80f86cfcd36932bf20686f2f0dfa700ac87f991fccf76c05293eab726e"
+          },
+          {
+            "dispersionModel": "taylor",
+            "origin": 4000,
+            "capacity": 5,
+            "hz": 120,
+            "merges": 43,
+            "forced": 34,
+            "selectionTraceSHA256": "ec86465e9df261c4bf9a8ab6781bb4d296e94f6f2a7df6e3a0e0d7e3e57d264c",
+            "snapshotSHA256": "27b52a80f86cfcd36932bf20686f2f0dfa700ac87f991fccf76c05293eab726e"
+          },
+          {
+            "dispersionModel": "taylor",
+            "origin": 4000,
+            "capacity": 17,
+            "hz": 30,
+            "merges": 31,
+            "forced": 23,
+            "selectionTraceSHA256": "e903eeca2d800923332c0d15c2cf13a28b39816b79ace3d12ea58885ee20371a",
+            "snapshotSHA256": "811e1b3e72614e2105c9a806e22d0f81e5f5ae8817e235d9166920cd39aff2e0"
+          },
+          {
+            "dispersionModel": "taylor",
+            "origin": 4000,
+            "capacity": 17,
+            "hz": 120,
+            "merges": 31,
+            "forced": 23,
+            "selectionTraceSHA256": "e903eeca2d800923332c0d15c2cf13a28b39816b79ace3d12ea58885ee20371a",
+            "snapshotSHA256": "811e1b3e72614e2105c9a806e22d0f81e5f5ae8817e235d9166920cd39aff2e0"
+          }
+        ]
+      }
+    },
+    {
+      "name": "native palm past-segment emissions replay exactly through wind changes and merges",
+      "passed": true,
+      "evidence": {
+        "type": "palm",
+        "seed": 77,
+        "burstTime": 5.775024273694912,
+        "end": 6.825024273694912,
+        "emissions": 52,
+        "tapeSHA256": "d4f6422044b1fe7c362a2c67535977eff4d060a4eb5856bb6f71cabe2cc03c18",
+        "windChanges": [
+          {
+            "time": 0,
+            "velocity": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 0.713,
+            "velocity": [
+              1.2,
+              0,
+              -0.7
+            ]
+          },
+          {
+            "time": 5.605024273694912,
+            "velocity": [
+              -0.6,
+              0,
+              1.3
+            ]
+          },
+          {
+            "time": 5.918024273694912,
+            "velocity": [
+              0.4,
+              0.05,
+              -0.2
+            ]
+          }
+        ],
+        "results": [
+          {
+            "capacity": 8,
+            "merges": 44,
+            "forcedMerges": 34,
+            "candidatePairs": 1144,
+            "selectionSHA256": "a1d1517ccc59aaebb172a2692b0d7e545d159e51cd2107f6bad53e3ac687446c",
+            "snapshotSHA256": "fec3236352e1fafbf1d960f9a1a6d3e47d4d801c81595fa776e8364ab5eb81b0",
+            "diagnosticsSHA256": "e492955e856b78132dc5cf9b3e55e32d426e01abc1eb23475c4de52be340575e"
+          },
+          {
+            "capacity": 24,
+            "merges": 28,
+            "forcedMerges": 18,
+            "candidatePairs": 2661,
+            "selectionSHA256": "ec49332c95b42bae893fc9d58566eaafef90809129c0f6010d04e4c7f80b95ee",
+            "snapshotSHA256": "63d8c93762f47dcdb30c06f307eaa1fd9ee6e21b5dfef91b36332f820c679278",
+            "diagnosticsSHA256": "72a0fb5c3e1fdfe85918a14ab73ccc4fb46f39cf65e58e155175b8dae30bb0ef"
+          }
+        ],
+        "scope": "real native causal source tape, bounded source prefix and CPU states only; no GPU or default4096 stress"
+      }
+    },
+    {
+      "name": "source hashes remained frozen through all independent tests",
+      "passed": true,
+      "evidence": {
+        "current": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+        "baseline": "1aa90d24f42adbf6416bd871e8de56d26c4841535e7f0d7f80e591286c6a2cba"
+      }
+    }
+  ],
+  "counts": {
+    "passed": 8,
+    "total": 8
+  },
+  "wallMs": 968.0577,
+  "limits": [
+    "CPU source and selection semantics only. No new GPU/FPS, photoreal smoke, long-accumulation or all6291/default4096 willow claim.",
+    "Equivalence is for finite validated production candidate tuples. Arbitrary NaN comparators are explicitly not assumed transitive or equivalent.",
+    "Existing forced merge spatial/column approximations remain; exact equality to baseline is not a new global optical error bound.",
+    "Private pool observers are inserted only into in-memory test copies, not runtime files."
+  ],
+  "passed": true
+}

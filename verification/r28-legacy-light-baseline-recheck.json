@@ -1,0 +1,202 @@
+{
+  "schema": "glass-atoll.r28-legacy-light-exact-baseline-recheck.v1",
+  "dateUTC": "2026-10-29T14:47:00.398Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "assertionsModified": false,
+  "baselineSource": "verification/baselines/r28-before-native-light",
+  "preservedCurrentFailedReports": [
+    {
+      "file": "pyro-smoke-light-field-check.json",
+      "sha256": "1d78a29031b31e9c36123b0a1d614a9a2d9a22cff4b762ea11f56fa09c224d7d"
+    },
+    {
+      "file": "r16-smoke-tiles-check.json",
+      "sha256": "8af611f7108fe03cecde6738d60d9f80582f38dfe62ec3fcf0b3b4420bf38fb7"
+    },
+    {
+      "file": "r28-legacy-light-field-check.log",
+      "sha256": "210e2495782bffd4cc54c61da6f8ba00c0e66443ec3826e55d48e345a78c76a3"
+    },
+    {
+      "file": "r28-legacy-light-tiles-check.log",
+      "sha256": "707faa0e2f3db030032be63cd8a8d635f63bf3697d68938118ef27cbcdb6d833"
+    }
+  ],
+  "modules": [
+    {
+      "file": "pyro-smoke-light-field.js",
+      "baselineSHA256": "b72e5142e4239821630efb66573fb37c631511be4c76a2a69a1e7d129b11b1b4",
+      "cloneSHA256": "b72e5142e4239821630efb66573fb37c631511be4c76a2a69a1e7d129b11b1b4",
+      "importOnlyRelocations": []
+    },
+    {
+      "file": "pyro-smoke-light-tiles.js",
+      "baselineSHA256": "c9d712a559c81d7f02122bd0913425ea4808276dec4598172b61e197e4b8620c",
+      "cloneSHA256": "c9d712a559c81d7f02122bd0913425ea4808276dec4598172b61e197e4b8620c",
+      "importOnlyRelocations": []
+    },
+    {
+      "file": "pyro-smoke-light-bound.js",
+      "baselineSHA256": "63685694e78e6d5ed223ffdabd777288615153851abf08342d489048a356bca4",
+      "cloneSHA256": "63685694e78e6d5ed223ffdabd777288615153851abf08342d489048a356bca4",
+      "importOnlyRelocations": []
+    },
+    {
+      "file": "pyro-smoke-renderer.js",
+      "baselineSHA256": "4f152a1470d8351b997728691bc2e0ec15ee0962b55926179917cb42ce7ee3dd",
+      "cloneSHA256": "5930223398dfbede8d24a72fec0c344a3d0eb2375d4458d7044d30b3486f64ba",
+      "importOnlyRelocations": [
+        {
+          "from": "./pyro-smoke-projection.js",
+          "to": "../../pyro-smoke-projection.js"
+        },
+        {
+          "from": "./local-lights.js",
+          "to": "../../local-lights.js"
+        }
+      ]
+    },
+    {
+      "file": "pyro-smoke.js",
+      "baselineSHA256": "b725ae5ffa98e566d8af7c0389434db26847f5e53d8e008a3063f516f1f430f3",
+      "cloneSHA256": "7720bf02e4296b1047ac8b193fc0e7c858c1a93b7cc67f49d3f5a13a60043744",
+      "importOnlyRelocations": [
+        {
+          "from": "./pyro-smoke-dispersion.js",
+          "to": "../../pyro-smoke-dispersion.js"
+        },
+        {
+          "from": "./pyro-smoke-state.js",
+          "to": "../../pyro-smoke-state.js"
+        },
+        {
+          "from": "./pyro-smoke-events.js",
+          "to": "../../pyro-smoke-events.js"
+        },
+        {
+          "from": "./pyro-smoke-trajectory-events.js",
+          "to": "../../pyro-smoke-trajectory-events.js"
+        },
+        {
+          "from": "./pyro-smoke-logical-events.js",
+          "to": "../../pyro-smoke-logical-events.js"
+        },
+        {
+          "from": "./pyro-smoke-logical-burn.js",
+          "to": "../../pyro-smoke-logical-burn.js"
+        },
+        {
+          "from": "./pyro-smoke-source-moments.js",
+          "to": "../../pyro-smoke-source-moments.js"
+        },
+        {
+          "from": "./pyro-smoke-columns.js",
+          "to": "../../pyro-smoke-columns.js"
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "original": "pyro-smoke-light-field-check.mjs",
+      "copy": "r28-legacy-light-field-baseline-check.mjs",
+      "output": "r28-legacy-light-field-baseline-check.json",
+      "originalSHA256": "f9f9fe72bde9eceb4bb46ade716fbf8e7a547da791377a1cac1f66db3ddf855a",
+      "replaySHA256": "8512aa30934dfbd1e2ca42f6900e3bd5b29d719ef1658028ecf8f02bef40a904",
+      "rewrites": [
+        {
+          "kind": "module-location",
+          "from": "'../pyro-smoke-light-field.js'",
+          "to": "'./r28-legacy-prechange-modules/pyro-smoke-light-field.js'",
+          "count": 1
+        },
+        {
+          "kind": "module-location",
+          "from": "'../pyro-smoke-renderer.js'",
+          "to": "'./r28-legacy-prechange-modules/pyro-smoke-renderer.js'",
+          "count": 1
+        },
+        {
+          "kind": "module-location",
+          "from": "'../pyro-smoke.js'",
+          "to": "'./r28-legacy-prechange-modules/pyro-smoke.js'",
+          "count": 1
+        },
+        {
+          "kind": "source-read-router",
+          "from": "read=p=>fs.readFileSync(p,'utf8')",
+          "to": "read=p=>fs.readFileSync(({\"pyro-smoke-light-field.js\":\"verification/baselines/r28-before-native-light/pyro-smoke-light-field.js\",\"pyro-smoke-light-tiles.js\":\"verification/baselines/r28-before-native-light/pyro-smoke-light-tiles.js\",\"pyro-smoke-light-bound.js\":\"verification/baselines/r28-before-native-light/pyro-smoke-light-bound.js\",\"pyro-smoke-renderer.js\":\"verification/baselines/r28-before-native-light/pyro-smoke-renderer.js\",\"pyro-smoke.js\":\"verification/baselines/r28-before-native-light/pyro-smoke.js\"})[p]??p,'utf8')",
+          "count": 1
+        },
+        {
+          "kind": "output-destination",
+          "from": "'verification/pyro-smoke-light-field-check.json'",
+          "to": "'verification/r28-legacy-light-field-baseline-check.json'",
+          "count": 1
+        }
+      ],
+      "exitCode": 1,
+      "counts": {
+        "checks": 15,
+        "passed": 13
+      },
+      "passed": false,
+      "failures": [
+        {
+          "id": "complete_legacy_renderer_and_host_inverse_are_byte_exact_fail_closed",
+          "error": "Error: resolved renderer scope drift: prepare/bind API\n    at inverse (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/resolved-light-default-normalize.mjs:40:202)\n    at normalizeResolvedRendererSource (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/resolved-light-default-normalize.mjs:41:54)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r28-legacy-light-field-baseline-check.mjs:12:380\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r28-legacy-light-field-baseline-check.mjs:5:69)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r28-legacy-light-field-baseline-check.mjs:12:1"
+        },
+        {
+          "id": "default_factory_has_original_shaders_uniforms_and_raw_bound_no_extra_attributes",
+          "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    anisotropy: 0.32,\n    frontAirOptIn: true,\n    lastRender: {\n      culled: 1,\n...\n      packets: 3,\n+     projectionMode: 'legacy-sphere',\n+     proxyRasterPixelUpperBound: 3640,\n+     proxyRasterViewportLayers: 0.3949652777777778,\n      reflection: false,\n      samplerCount: 2,\n      stateRevision: 7,\n      storageEV: 0,\n      supportSigma: 5,\n      width: 96\n    },\n+   lightFieldBakeMode: 'serial-reference',\n    limits: [\n      'no app/event/source integration',\n      'true finite Gaussian columns withFloat32/erf and finite proxy-tail error; no unbiased-renderer claim',\n      'back-to-front latent-centre order; S at optical conditional mean, overlapping/source-varying scattering is approximate',\n      'optional four-cell front-air T/S restores front in-scatter at a conditional-mean thin layer; overlapping volumes are not a joint RTE integration',\n...\n    packets: 3,\n+   projectionMode: 'legacy-sphere',\n    samplerCount: 2,\n    supportSigma: 5,\n    version: 'pyro-smoke-renderer-stageA-v3-local'\n  }\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r28-legacy-light-field-baseline-check.mjs:13:543\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r28-legacy-light-field-baseline-check.mjs:5:69)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r28-legacy-light-field-baseline-check.mjs:13:1"
+        }
+      ]
+    },
+    {
+      "original": "r16-smoke-tiles-check.mjs",
+      "copy": "r28-legacy-light-tiles-baseline-check.mjs",
+      "output": "r28-legacy-light-tiles-baseline-check.json",
+      "originalSHA256": "3d5a4f5b6e7d97d53911bab0f4ed8b12eabd7080503fa2c8d842b8f4ca88f6d9",
+      "replaySHA256": "f227d4ee2d25e7a3040fb855853dee41c22c0dccf71675b591b9040ed7ba5781",
+      "rewrites": [
+        {
+          "kind": "module-location",
+          "from": "'../pyro-smoke-light-field.js'",
+          "to": "'./r28-legacy-prechange-modules/pyro-smoke-light-field.js'",
+          "count": 2
+        },
+        {
+          "kind": "module-location",
+          "from": "'../pyro-smoke-light-tiles.js'",
+          "to": "'./r28-legacy-prechange-modules/pyro-smoke-light-tiles.js'",
+          "count": 2
+        },
+        {
+          "kind": "output-destination",
+          "from": "'./r16-smoke-tiles-check.json'",
+          "to": "'./r28-legacy-light-tiles-baseline-check.json'",
+          "count": 1
+        }
+      ],
+      "exitCode": 1,
+      "counts": {
+        "passed": 7,
+        "total": 8
+      },
+      "passed": false,
+      "failures": [
+        {
+          "id": "serialreference shadergenerator unchanged and bounded tiled loops separate",
+          "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ \"  function ensureResources(){if(resources)return;const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute([-1,-1,0,3,-1,0,-1,3,0],3));const uniforms={uPackets:{value:null},uSources:{value:null},uPacketSize:{value:new THREE.Vector2()},uSourceSize:{value:new THREE.Vector2()},uPacketCount:{value:0},uSourceCount:{value:0},uG:{value:anisotropy}};\\n\" +\n- \"  function ensureResources(){if(resources)return;const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute([-1,-1,3,-1,-1,3],2));const uniforms={uPackets:{value:null},uSources:{value:null},uPacketSize:{value:new THREE.Vector2()},uSourceSize:{value:new THREE.Vector2()},uPacketCount:{value:0},uSourceCount:{value:0},uG:{value:anisotropy}};\\n\" +\n    \"    const material=new THREE.RawShaderMaterial({name:'Raw actual-source per-packet Gaussian SH1',glslVersion:THREE.GLSL3,uniforms,depthTest:false,depthWrite:false,blending:THREE.NoBlending,toneMapped:false,vertexShader:'precision highp float;in vec2 position;void main(){gl_Position=vec4(position,0.,1.);}',fragmentShader:/*glsl*/`precision highp float;precision highp int;uniform highp sampler2D uPackets,uSources;uniform vec2 uPacketSize,uSourceSize;uniform int uPacketCount,uSourceCount;uniform float uG;layout(location=0)out vec4 outR;layout(location=1)out vec4 outG;layout(location=2)out vec4 outB;${smokeLightMomentsGLSL}\\n\" +\n    '      vec4 sourceTexel(int index){return texelFetch(uSources,ivec2(index%int(uSourceSize.x),index/int(uSourceSize.x)),0);}\\n' +\n    '      void main(){int index=int(gl_FragCoord.x)+int(gl_FragCoord.y)*int(uPacketSize.x);vec4 R=vec4(0.),G=vec4(0.),B=vec4(0.);if(index<uPacketCount){vec4 packet=texelFetch(uPackets,ivec2(gl_FragCoord.xy),0);for(int i=0;i<${maxSources};i++){if(i>=uSourceCount)break;vec4 a=sourceTexel(i*2),b=sourceTexel(i*2+1),moments=smokeIsotropicMoments(a.xyz-packet.xyz,packet.w+a.w);moments.yzw*=3.*uG;R+=b.x*moments;G+=b.y*moments;B+=b.z*moments;}}outR=R*.07957747154594767;outG=G*.07957747154594767;outB=B*.07957747154594767;}`});const scene=new THREE.Scene(),mesh=new THREE.Mesh(geometry,material),camera=new THREE.Camera();mesh.frustumCulled=false;scene.add(mesh);resources={geometry,uniforms,material,scene,camera,programChecked:false};}\\n'\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r28-legacy-light-tiles-baseline-check.mjs:15:197\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r28-legacy-light-tiles-baseline-check.mjs:3:72)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r28-legacy-light-tiles-baseline-check.mjs:15:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Existing test assertions are byte-identical except module/source-read destinations and output routing; original tests and current failed reports are not overwritten.",
+    "Baseline dependency clones use original archived field/tiles/bound/renderer/host; unchanged non-archived imports relocate literally to root.",
+    "A historical suite failure is preserved, not waived by newer scoped tests; classifications are recorded separately."
+  ]
+}

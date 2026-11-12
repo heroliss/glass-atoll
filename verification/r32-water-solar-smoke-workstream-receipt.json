@@ -1,0 +1,76 @@
+{
+  "schema": "glass-atoll.r32-water-solar-smoke-workstream-receipt.v1",
+  "revision": "r32-water-zero-key-native-tile-parity-v1",
+  "pendingHardware": true,
+  "actualGPUByChild": false,
+  "browserActionsByChild": 0,
+  "productionEditsByChild": 0,
+  "overallGoalComplete": false,
+  "helperSHA256": "6696482771a8c1d4116d4d42bcc0a558ae28159fe933a4bd100616b496198bb0",
+  "pinsSHA256": "f4365e212b606a954e1a1149733592ef2d24c1d64274f7117eec3eddf53f1c9a",
+  "manifestSHA256": "6f1acdfb6afd0e04997c75db90b497cb07208e79ea59773336fd5522a0e43573",
+  "ownCPU": {
+    "report": "verification/r32-water-solar-preflight.json",
+    "sha256": "aa103505db04c4af604945a02449170d5633ff16a25e8460deba126774628554",
+    "passed": true,
+    "counts": {
+      "passed": 8,
+      "total": 8
+    },
+    "nativeContextCalls": 0
+  },
+  "independentCPU": {
+    "report": "verification/r32-water-solar-helper-independent-review.json",
+    "sha256": "33c208801558b1bf28e5e6d99720bef4c3685facf213f1e70b39825cb7f64204",
+    "passed": true,
+    "counts": {
+      "passed": 7,
+      "total": 7
+    }
+  },
+  "fixture": {
+    "kind": "Onlyzero-key-noProps-debug0",
+    "width": 1209,
+    "height": 1292,
+    "roi": {
+      "x": 588,
+      "y": 256,
+      "width": 32,
+      "height": 32
+    },
+    "samplers": "Actual production textures borrowed unchanged",
+    "shader": "Actual complete expanded water source and actual MRT callback; exact inverse",
+    "geometryIndicesPerDraw": 2457600
+  },
+  "budgets": {
+    "draws": 2,
+    "elements": 4915200,
+    "renderCalls": 2,
+    "blits": 0,
+    "mipmaps": 0,
+    "clears": 2,
+    "perDrawGPUms": 100,
+    "readCalls": 8,
+    "readBytes": 106496,
+    "plannedNumericGPUBytes": 35926644,
+    "maximumPlannedBytes": 67108864
+  },
+  "parity": {
+    "formats": [
+      "RGBA16F",
+      "RGBA16F",
+      "R16F",
+      "R8"
+    ],
+    "samples": 0,
+    "normalMainSamples": 8,
+    "rule": "Exact decodedFloat32 words plusR8bytes",
+    "tolerance": 0,
+    "noAutomaticRetry": true
+  },
+  "limits": [
+    "One scissored tile only, not wholewater/nativeframe/presentation acceptance.",
+    "Two cold perdrawtimings cannot establish a speedup; GPUwake/power/compile bias uncontrolled.",
+    "Nonzero/debug/props fallbacks and boundedfullwaterperformance remain pending separate first-result review."
+  ]
+}

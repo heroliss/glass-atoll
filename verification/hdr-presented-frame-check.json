@@ -1,0 +1,113 @@
+{
+  "schema": "glass-atoll.HDR-presented-frame-offline-QA.v1",
+  "dateUTC": "2026-10-27T11:09:35.241Z",
+  "passed": true,
+  "counts": {
+    "passed": 11,
+    "total": 11
+  },
+  "checks": [
+    {
+      "name": "HDR_observer_source_exact_inverse_and_whole_default_chain",
+      "passed": true,
+      "evidence": {
+        "negativeCases": 11,
+        "baselineSHA256": "fff420ee4c2c120ccee5f5d25b17b4a7d3df6fb89006cbe8e769652fcdf1201a",
+        "mappingCopyAndDefaultChainPreserved": true
+      }
+    },
+    {
+      "name": "actual_setter_exchanges_sync_observer_rejects_async_and_allows_cleanup_after_dispose",
+      "passed": true,
+      "evidence": {
+        "returnsPriorIdentity": true,
+        "invalidInstallDoesNotClobberCurrent": true
+      }
+    },
+    {
+      "name": "actual_copy_block_acquires_once_copies_before_observer_and_isolates_throw",
+      "passed": true,
+      "evidence": {
+        "defaultPayloadNotConstructed": true,
+        "sameDestinationOnce": true,
+        "throwDoesNotStopPresentation": true
+      }
+    },
+    {
+      "name": "half_encoder_exhaustive_finite_roundtrip_and_round_to_nearest_even",
+      "passed": true,
+      "evidence": {
+        "finiteHalfPatterns": 63488,
+        "tieCases": 4
+      }
+    },
+    {
+      "name": "same_flip_and_uniform_ambiguous_orientation_are_distinguished",
+      "passed": true,
+      "evidence": {
+        "paddingIgnored": true,
+        "ambiguousStillColourMatches": true
+      }
+    },
+    {
+      "name": "declared_one_halfULP_gate_rejects_two_and_invalid_values",
+      "passed": true,
+      "evidence": {
+        "exactPredeclaredHalfULPGate": 1,
+        "noNaNOrNegativeMasking": true
+      }
+    },
+    {
+      "name": "timeout_cleans_observer_and_does_not_create_any_GPU_resource",
+      "passed": true,
+      "evidence": {
+        "expectedFailure": "waiting_for_actual_HDR_frame_timed_out",
+        "cleanup": true,
+        "noGPUFrameSupplied": true
+      }
+    },
+    {
+      "name": "abort_restores_previous_observer_and_parallel_capture_rejects",
+      "passed": true,
+      "evidence": {
+        "previousIdentityRestored": true,
+        "noRenderLockOrFrameRequested": true
+      }
+    },
+    {
+      "name": "third_party_replacement_is_not_overwritten_during_cleanup",
+      "passed": true,
+      "evidence": {
+        "replacementIdentityPreserved": true
+      }
+    },
+    {
+      "name": "HDR_stop_detaches_pending_capture_and_non_native_rejects_without_install",
+      "passed": true,
+      "evidence": {
+        "stopCleanup": true,
+        "noSecondRequest": true
+      }
+    },
+    {
+      "name": "only_explicit_notification_requests_a_real_frame_no_new_device_canvas_or_rAF_render",
+      "passed": true,
+      "evidence": {
+        "oneCallerNotification": true,
+        "noSyntheticRenderedFrame": true,
+        "noNewDeviceOrCanvas": true
+      }
+    }
+  ],
+  "noGPU": true,
+  "defaultObserver": null,
+  "sources": {
+    "hdr-output.js": "9958bb923d18625291132e47cc70dfac43a61a3c45af50b24d7e1a2ee4cbbff3",
+    "verification/hdr-presented-frame-check.js": "317383e7c887e1dd6cbc95d944a184d5a1050b58cde3549ee67e85f772c12cd1"
+  },
+  "limits": [
+    "Pure half/image math, actual source observer block/setter, and no-frame cancellation protocol only. No GPU buffer result is fabricated.",
+    "The next real native HDR frame and same presentation texture must still be checked by root on the running browser.",
+    "This explicit full-frame readback is excluded from performance conclusions."
+  ]
+}

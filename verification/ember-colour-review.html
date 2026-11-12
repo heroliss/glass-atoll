@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>余烬颜色 · 高清对照</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,"Microsoft YaHei",sans-serif;background:#101518;color:#e9eeeb}body{margin:0}main{max-width:1600px;margin:auto;padding:28px}h1{font-size:26px;font-weight:500;letter-spacing:.06em;margin:8px 0 14px}p{color:#b7c5c3;line-height:1.7;max-width:75ch}a{color:#bbdfd5}.controls{display:flex;flex-wrap:wrap;align-items:end;gap:18px;margin:24px 0 14px}fieldset{border:0;padding:0;margin:0;display:flex;gap:5px}legend{font-size:12px;color:#9caeac;margin-bottom:8px}button{font:inherit;cursor:pointer;background:#1c282c;border:1px solid #455755;color:#d9e5e0;border-radius:6px;padding:9px 15px}button[aria-pressed=true]{background:#d1e4da;color:#182623;border-color:#d1e4da}button:focus-visible,a:focus-visible{outline:3px solid #f8bf72;outline-offset:4px}.frame{width:100%;height:min(73vh,900px);overflow:auto;border:1px solid #33403f;background:#000;display:flex;align-items:center;justify-content:center}.frame img{max-width:100%;max-height:100%;object-fit:contain;display:block}.frame.native{display:block}.frame.native img{max-width:none;max-height:none;width:1920px;height:1080px}output{display:block;min-height:24px;color:#d3e7df;font-size:14px;margin:12px 0}.small{font-size:13px;color:#91a5a2}header{display:flex;justify-content:space-between;gap:20px;align-items:center}header a{font-size:14px}@media(max-width:700px){main{padding:16px}.controls{gap:14px}button{padding:9px 12px}.frame{height:56vh}header{align-items:flex-start}}
+</style></head><body><main>
+<header><h1>余烬，从金白到暖金。</h1><a href="/">返回海岛</a></header>
+<p>同一枚烟花、同一时刻，切换查看尾迹颜色。B 让脱离主体的余烬随时间偏暖；发光头部、亮度衰减规律、轨迹与烟量保持一致。这是颜色候选，尚未设为网页默认。</p>
+<div class="controls">
+<fieldset data-group="type"><legend>烟花</legend><button data-value="willow" aria-pressed="true">垂柳</button><button data-value="palm" aria-pressed="false">棕榈</button></fieldset>
+<fieldset data-group="angle"><legend>视角</legend><button data-value="detail" aria-pressed="true">近景</button><button data-value="front" aria-pressed="false">全景与水面</button></fieldset>
+<fieldset data-group="mode"><legend>颜色对照</legend><button data-value="constant" aria-pressed="false">A · 原有颜色</button><button data-value="cooling" aria-pressed="true">B · 余烬冷却</button></fieldset>
+<fieldset data-group="zoom"><legend>图像大小</legend><button data-value="fit" aria-pressed="true">适合窗口</button><button data-value="native" aria-pressed="false">原始像素</button></fieldset>
+</div>
+<output id="status" aria-live="polite"></output><div class="frame" id="frame"><img id="photo" width="1920" height="1080" alt="烟花余烬颜色对照"></div>
+<p class="small">原始 1920×1080 SDR 图片；“原始像素”可横向和纵向滚动。两方案都保留原有亮度衰减。色温曲线是近似，并非从这些照片测出的真实粒子温度，也不是完整燃烧或热传导模拟。</p>
+</main><script>
+const state={type:'willow',angle:'detail',mode:'cooling',zoom:'fit'},photo=document.getElementById('photo'),status=document.getElementById('status'),frame=document.getElementById('frame');
+function update(){const label=(state.type==='willow'?'垂柳':'棕榈')+' · '+(state.angle==='detail'?'近景':'全景与水面')+' · '+(state.mode==='cooling'?'B · 余烬冷却':'A · 原有颜色');photo.alt=label;status.textContent=label;photo.src='r11-tail-cooling-'+state.type+'-'+state.angle+'_'+state.mode+'.png';frame.classList.toggle('native',state.zoom==='native');document.querySelectorAll('fieldset[data-group]').forEach(f=>f.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(state[f.dataset.group]===b.dataset.value))));}
+document.querySelectorAll('fieldset[data-group] button').forEach(b=>b.addEventListener('click',()=>{state[b.parentElement.dataset.group]=b.dataset.value;update();}));photo.addEventListener('error',()=>status.textContent='图片未能加载，请刷新页面。');update();
+</script></body></html>

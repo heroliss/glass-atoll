@@ -1,0 +1,109 @@
+{
+  "schema": "glass-atoll.smoke-transmission-interleave-protocol-check.v1",
+  "dateUTC": "2026-10-27T21:42:08.305Z",
+  "actualGPU": false,
+  "actualScene": false,
+  "sourceSHA256": "f4c847c950b20470ef561ad315b93fb90a397cd60c781ae23efc3dfb7de62825",
+  "checks": [
+    {
+      "name": "beginmode remains correct although probe changesmode before end",
+      "passed": true,
+      "modes": {
+        "legacy": {
+          "validWholeFrameGPU": {
+            "n": 70,
+            "mean": 1,
+            "p50": 1,
+            "p95": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "percentile": "nearest-rank ceil(p*n)-1"
+          },
+          "queryCount": 70,
+          "minimumRequired": 30,
+          "phaseRange": [
+            0.15714285714285658,
+            8.042857142857144
+          ]
+        },
+        "fast": {
+          "validWholeFrameGPU": {
+            "n": 70,
+            "mean": 2,
+            "p50": 2,
+            "p95": 2,
+            "minimum": 2,
+            "maximum": 2,
+            "percentile": "nearest-rank ceil(p*n)-1"
+          },
+          "queryCount": 70,
+          "minimumRequired": 30,
+          "phaseRange": [
+            0.21428571428571352,
+            8.100000000000001
+          ]
+        }
+      }
+    },
+    {
+      "name": "minimum30permodes and all actual returned samples retained",
+      "passed": true
+    },
+    {
+      "name": "original ops exactlyonce no ownquery/getError",
+      "passed": true,
+      "counts": {
+        "begin": 140,
+        "result": 140,
+        "available": 141,
+        "getError": 0,
+        "newQuery": 0,
+        "end": 140,
+        "setterFalse": 141,
+        "setterTrue": 1
+      }
+    },
+    {
+      "name": "normalcleanup restores mode/history/methods andpause",
+      "passed": true
+    },
+    {
+      "name": "noquery is invalid not syntheticzeroGPU",
+      "passed": true
+    },
+    {
+      "name": "nonfinite/null results are invalid never counted as0ms",
+      "passed": true
+    },
+    {
+      "name": "contextloss invalidates and skips unsafehistoryGLreset",
+      "passed": true
+    },
+    {
+      "name": "frozen original dense helper unchanged",
+      "passed": true
+    },
+    {
+      "name": "only16explicit route echo metadata naming hunks differ",
+      "passed": true,
+      "authorizedHunks": 16
+    },
+    {
+      "name": "narrowinverse restores every original observer byte",
+      "passed": true
+    },
+    {
+      "name": "actualrouteecho retained and tailadaptive metadata never toggled",
+      "passed": true
+    }
+  ],
+  "limits": [
+    "Fake one-shot mainloop tests only querylabel/timing/cleanup protocol. No browser/GPU/FPS evidence.",
+    "Production scene performance must be run by owner with real8s benchmark and realpreparedtwochrysanthemum."
+  ],
+  "counts": {
+    "passed": 11,
+    "total": 11
+  },
+  "passed": true
+}

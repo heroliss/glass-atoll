@@ -1,0 +1,181 @@
+{
+  "schema": "glass-atoll.smoke-finite-cluster-phase-CPU.v1",
+  "dateUTC": "2026-10-27T02:41:15.085Z",
+  "passed": false,
+  "counts": {
+    "checks": 9,
+    "passed": 8
+  },
+  "checks": [
+    {
+      "id": "seven_exact_extensions_restore_entire_accepted_97fd_source",
+      "passed": true,
+      "baselineSHA256": "97fd2ba3f69cf028b27af88bdba767a206ee9cc839d35121aec61fd960a310bc",
+      "edits": 7
+    },
+    {
+      "id": "compatibility_normalizer_rejects_missing_duplicate_or_unrelated_edits",
+      "passed": true
+    },
+    {
+      "id": "angular_integral_stays_one_at_near_transition_and_far_radii",
+      "passed": true,
+      "rows": [
+        {
+          "radius": 0.1,
+          "distanceScale": 0,
+          "integral": 1.000000000000067
+        },
+        {
+          "radius": 0.1,
+          "distanceScale": 0.5,
+          "integral": 1.000000000000067
+        },
+        {
+          "radius": 0.1,
+          "distanceScale": 1,
+          "integral": 1.000000000000067
+        },
+        {
+          "radius": 0.1,
+          "distanceScale": 1.01,
+          "integral": 1.0000000000000018
+        },
+        {
+          "radius": 0.1,
+          "distanceScale": 1.5,
+          "integral": 0.9999999999999997
+        },
+        {
+          "radius": 0.1,
+          "distanceScale": 1.99,
+          "integral": 1.000000000000004
+        },
+        {
+          "radius": 0.1,
+          "distanceScale": 2,
+          "integral": 1.0000000000000002
+        },
+        {
+          "radius": 0.1,
+          "distanceScale": 4,
+          "integral": 1.0000000000000002
+        },
+        {
+          "radius": 8.8,
+          "distanceScale": 0,
+          "integral": 1.000000000000067
+        },
+        {
+          "radius": 8.8,
+          "distanceScale": 0.5,
+          "integral": 1.000000000000067
+        },
+        {
+          "radius": 8.8,
+          "distanceScale": 1,
+          "integral": 1.000000000000067
+        },
+        {
+          "radius": 8.8,
+          "distanceScale": 1.01,
+          "integral": 1.0000000000000018
+        },
+        {
+          "radius": 8.8,
+          "distanceScale": 1.5,
+          "integral": 0.9999999999999997
+        },
+        {
+          "radius": 8.8,
+          "distanceScale": 1.99,
+          "integral": 1.000000000000004
+        },
+        {
+          "radius": 8.8,
+          "distanceScale": 2,
+          "integral": 1.0000000000000002
+        },
+        {
+          "radius": 8.8,
+          "distanceScale": 4,
+          "integral": 1.0000000000000002
+        },
+        {
+          "radius": 21,
+          "distanceScale": 0,
+          "integral": 1.000000000000067
+        },
+        {
+          "radius": 21,
+          "distanceScale": 0.5,
+          "integral": 1.000000000000067
+        },
+        {
+          "radius": 21,
+          "distanceScale": 1,
+          "integral": 1.000000000000067
+        },
+        {
+          "radius": 21,
+          "distanceScale": 1.01,
+          "integral": 1.0000000000000018
+        },
+        {
+          "radius": 21,
+          "distanceScale": 1.5,
+          "integral": 0.9999999999999997
+        },
+        {
+          "radius": 21,
+          "distanceScale": 1.99,
+          "integral": 1.000000000000004
+        },
+        {
+          "radius": 21,
+          "distanceScale": 2,
+          "integral": 1.0000000000000002
+        },
+        {
+          "radius": 21,
+          "distanceScale": 4,
+          "integral": 1.0000000000000002
+        }
+      ]
+    },
+    {
+      "id": "inner_sphere_is_normalized_isotropic_at_all_angles",
+      "passed": true
+    },
+    {
+      "id": "outside_two_radii_uses_original_HG_with_no_new_energy_gain",
+      "passed": true
+    },
+    {
+      "id": "smooth_transition_has_continuous_value_and_zero_endpoint_slope",
+      "passed": true
+    },
+    {
+      "id": "HG_maximum_still_bounds_every_finite_phase_without_changed_raw_budget",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ \"    getRadianceBound(lighting={}, {air={},localLighting=null}={}){const light=parseLighting(lighting),atmosphere=parseAir(air),local=parseLocalLighting(localLighting),resolved=currentResolvedField(),phaseMax=phaseMaximum(anisotropy);let ssaMax=0;for(const p of records)ssaMax=Math.max(ssaMax,...p.ssa);let maximum=Math.max(...light.ambient)/(4*PI)+Math.max(...light.directional)*phaseMax;if(local){for(const l of (resolved?local.raw.slice(0,4):local.raw))maximum+=Math.max(...l.RGB)/(l.radius*l.radius)*phaseMax;}else if(!resolved){for(const l of light.clusters)maximum+=Math.max(...l.color)*l.intensity/(l.radius*l.radius)*phaseMax;}if(resolved)maximum+=resolved.getRadianceBound().maxRGB;const smokeSource=maximum*ssaMax,airFront=atmosphere.enabled&&records.length?Math.max(...atmosphere.sun)*Math.max(3/(8*PI),phaseMaximum(atmosphere.g))*1.00002:0;return{maxRGB:smokeSource+airFront,components:{smokeSource,airFront},airNumericalSafety:1.00002,rawBeforeStorageExposure:true,...(resolved?{resolvedPyroField:true,resolvedFieldBound:resolved.getRadianceBound()}:{}),localLightingEnabled:!!local,method:'non-emissive convex-over layer upper bound; passive front-air source plus current raw smoke sources; local records replace legacy clusters when enabled; no factor per historical packet',limits:'authored raw incident reference, neutral extinction, up to6 shared local lights OR2 legacy clusters; optional four-cell front-air/conditional-mean approximation, small-tau/Float32 safety on air term, not a bound for future joint-media/light transport'};},\\n\"\n- \"    getRadianceBound(lighting={}, {air={},localLighting=null}={}){const light=parseLighting(lighting),atmosphere=parseAir(air),local=parseLocalLighting(localLighting),phaseMax=phaseMaximum(anisotropy);let ssaMax=0;for(const p of records)ssaMax=Math.max(ssaMax,...p.ssa);let maximum=Math.max(...light.ambient)/(4*PI)+Math.max(...light.directional)*phaseMax;if(local){for(const l of local.raw)maximum+=Math.max(...l.RGB)/(l.radius*l.radius)*phaseMax;}else{for(const l of light.clusters)maximum+=Math.max(...l.color)*l.intensity/(l.radius*l.radius)*phaseMax;}const smokeSource=maximum*ssaMax,airFront=atmosphere.enabled&&records.length?Math.max(...atmosphere.sun)*Math.max(3/(8*PI),phaseMaximum(atmosphere.g))*1.00002:0;return{maxRGB:smokeSource+airFront,components:{smokeSource,airFront},airNumericalSafety:1.00002,rawBeforeStorageExposure:true,localLightingEnabled:!!local,method:'non-emissive convex-over layer upper bound; passive front-air source plus current raw smoke sources; local records replace legacy clusters when enabled; no factor per historical packet',limits:'authored raw incident reference, neutral extinction, up to6 shared local lights OR2 legacy clusters; optional four-cell front-air/conditional-mean approximation, small-tau/Float32 safety on air term, not a bound for future joint-media/light transport'};},\\n\"\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-finite-phase-check.mjs:10:272\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-finite-phase-check.mjs:3:69)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-finite-phase-check.mjs:10:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "id": "only_pyro_local_slots4_5_and_legacy_clusters_are_eligible",
+      "passed": true
+    },
+    {
+      "id": "distance_falloff_P_and_mass_are_unchanged_not_hidden_in_phase",
+      "passed": true
+    }
+  ],
+  "sourceSHA256": "cd7257e8dc80d15b26328e15bc0cd5625cc534c972a9df9f0188fe72d0a96c5b",
+  "baselineSHA256": "97fd2ba3f69cf028b27af88bdba767a206ee9cc839d35121aec61fd960a310bc",
+  "noGPU": true,
+  "limits": [
+    "phase normalization at a fixed physical receiver; Gaussian conditional mean can move with view",
+    "spherically symmetric near/far approximation, not actual star/angular distribution of planar smiley or ring",
+    "source I/radius selection, reference candela, mass, P and old source bounds are untouched",
+    "CPU angular/source scope proof, not GPU or observed cotton-ball improvement"
+  ]
+}

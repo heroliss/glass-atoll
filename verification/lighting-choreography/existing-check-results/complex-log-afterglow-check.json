@@ -1,0 +1,106 @@
+{
+  "schema": "glass-atoll.complex-log-afterglow-check.v1",
+  "passed": false,
+  "summary": {
+    "passed": 5,
+    "total": 6
+  },
+  "sourceSHA": "41ecb458cfec9248f301b9f5d0cdb7c5e597aa97e645d091cd2335cf71875b34",
+  "beforeSHA": "be7e4799281b5b5590d0b3d00636d7bd293e92e573e2d9aaab5c0c87b33b816e",
+  "checks": [
+    {
+      "name": "fixed default positive knots and every burn curve remain bounded, monotone and unchanged in life/peak",
+      "passed": true,
+      "evidence": {
+        "curves": 21,
+        "samples": 86037,
+        "unchangedLifeAndPeak": true
+      }
+    },
+    {
+      "name": "C1/zero endpoint and prior terminal residual gates remain unrelaxed",
+      "passed": true,
+      "evidence": {
+        "maximumScaledSlope": 0.000003000044657142098,
+        "maximumTerminal": 3.7499374870205986e-19,
+        "priorSlopeGate": 0.000004,
+        "priorResidualGate": 2e-11
+      }
+    },
+    {
+      "name": "independent integral remains finite below prior fading budget with no peak or I0 makeup",
+      "passed": true,
+      "evidence": {
+        "examples": [
+          {
+            "life": 0.18,
+            "previousSmoothArea": 0.0767457,
+            "logArea": 0.0614211550364416,
+            "ratio": 0.8003204744557884
+          },
+          {
+            "life": 0.5,
+            "previousSmoothArea": 0.2131825,
+            "logArea": 0.17061431954567116,
+            "ratio": 0.8003204744557887
+          },
+          {
+            "life": 1,
+            "previousSmoothArea": 0.434565,
+            "logArea": 0.34938274030683797,
+            "ratio": 0.803982696045098
+          },
+          {
+            "life": 3.2,
+            "previousSmoothArea": 1.4266880000000002,
+            "logArea": 1.1539028143300623,
+            "ratio": 0.808798289696179
+          },
+          {
+            "life": 5.2,
+            "previousSmoothArea": 2.328618,
+            "logArea": 1.8852846998057207,
+            "ratio": 0.8096152738687584
+          },
+          {
+            "life": 12,
+            "previousSmoothArea": 5.395179999999999,
+            "logArea": 4.371983110422959,
+            "ratio": 0.8103498141717161
+          },
+          {
+            "life": 20,
+            "previousSmoothArea": 9.002900000000002,
+            "logArea": 7.297510652325593,
+            "ratio": 0.8105733321846951
+          }
+        ],
+        "priorIntegrationTolerancePerLife": 1e-7
+      }
+    },
+    {
+      "name": "explicit primary flash and explicit linear/smoothstep curves remain exact",
+      "passed": true,
+      "evidence": {
+        "explicitModes": 3,
+        "samples": 6015,
+        "flashIntegral": 0.06881999999999999
+      }
+    },
+    {
+      "name": "log cache is rebuilt on clones; cache-free samples and pulse/tail equations retain contract",
+      "passed": true,
+      "evidence": {
+        "samples": 2048,
+        "cacheRebuilt": true,
+        "noPerSampleLogForCreatedStyles": true
+      }
+    },
+    {
+      "name": "actual all-ten producer/lifetime clones select new default while all flashes stay linear",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0.075 !== 0.18\n"
+    }
+  ],
+  "scope": "CPU default-curve revision; no GPU/browser/visual acceptance, no renderer edits"
+}

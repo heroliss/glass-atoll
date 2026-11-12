@@ -1,0 +1,4126 @@
+{
+  "schema": "glass-atoll.r12-tick-fence-cpu.v1",
+  "dateUTC": "2026-10-28T06:57:07.185Z",
+  "sourceSHA256": {
+    "state": "58325d57497a1f34c64ae5ca4d16e6cf336e6168cf3ac6351ec8d6b94f794d86",
+    "math": "9330bcd98fc38a1f30a494979887eecdeb946e7b373aa9534b4b5c9c14cddad2",
+    "graph": "99f0fb2650a6279125271ac3bfc7e176a602a74a28aa7b4b1235f5a1eb0ce174",
+    "legacy": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172"
+  },
+  "actualGPU": false,
+  "checks": [
+    {
+      "name": "failed second tick retains first committed tick and all remaining accepted inputs, then retries exactly",
+      "passed": true,
+      "evidence": {
+        "retainedCommittedTime": 0.05,
+        "retainedPending": 8
+      }
+    },
+    {
+      "name": "failed same-clock fence reports zero progress and invalid targets preserve the failure record",
+      "passed": true,
+      "evidence": {
+        "failedBoundary": 0,
+        "retryCompleted": true
+      }
+    },
+    {
+      "name": "private stage reaches the exact capacity+pending bound while public density never exceeds capacity",
+      "passed": true,
+      "evidence": {
+        "privatePeak": 40,
+        "publicPeak": 16
+      }
+    },
+    {
+      "name": "same-clock new causal operations are allowed after a fence and wind normalization is last-write-wins",
+      "passed": true,
+      "evidence": {
+        "causalSameClockAccepted": true
+      }
+    },
+    {
+      "name": "native 30/60/120 delivery preserves the full6291 input stream and physical final snapshot",
+      "passed": true,
+      "evidence": [
+        {
+          "hz": 30,
+          "wallMs": 2475.3197,
+          "maxAdvanceMs": 39.88440000000003
+        },
+        {
+          "hz": 60,
+          "wallMs": 3030.9724999999994,
+          "maxAdvanceMs": 48.04539999999997
+        },
+        {
+          "hz": 120,
+          "wallMs": 3904.3497000000007,
+          "maxAdvanceMs": 50.262799999999515
+        }
+      ]
+    },
+    {
+      "name": "source freeze unchanged after all bounded tests",
+      "passed": true,
+      "evidence": {
+        "state": "58325d57497a1f34c64ae5ca4d16e6cf336e6168cf3ac6351ec8d6b94f794d86",
+        "math": "9330bcd98fc38a1f30a494979887eecdeb946e7b373aa9534b4b5c9c14cddad2",
+        "graph": "99f0fb2650a6279125271ac3bfc7e176a602a74a28aa7b4b1235f5a1eb0ce174",
+        "legacy": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172"
+      }
+    }
+  ],
+  "runs": [
+    {
+      "hz": 30,
+      "completed": true,
+      "wallMs": 2475.3197,
+      "maxAdvanceMs": 39.88440000000003,
+      "emissionCount": 6291,
+      "emissionHash": "c39c6d9c6965ff1b9d4d043da51959c790bfa2944f70b30a8133761cec3317a5",
+      "snapshotHash": "fd9a8784e226af4b528e04b7c4ccb2bea7b77628875341505ee8f5e92944de50",
+      "diagnostics": {
+        "version": "pyro-smoke-tick-state-v1",
+        "stateModel": "tick-graph-v1",
+        "time": 18.6,
+        "requestedTime": 18.60858222067491,
+        "revision": 15148,
+        "packetCount": 4096,
+        "capacity": 4096,
+        "peakPacketCount": 4096,
+        "stagingPeakPacketCount": 4137,
+        "maxStagingPackets": 12288,
+        "pendingEmissions": 0,
+        "pendingWindEvents": 0,
+        "pendingSameClockEmissions": 0,
+        "profileCount": 1,
+        "acceptedSources": 6291,
+        "lastEmissionId": 6290,
+        "totalTickSteps": 372,
+        "lastAdvanceSteps": 0,
+        "lastAdvanceFences": 0,
+        "lastAdvanceFailure": null,
+        "fixedStep": 0.05,
+        "maxStepsPerAdvance": 200,
+        "ledger": {
+          "emitted": 20.35000000000004,
+          "airborne": 20.35000000000004,
+          "pendingMass": 0,
+          "residual": 0,
+          "deposited": 0,
+          "escaped": 0,
+          "explicitlyCleared": 0
+        },
+        "merges": 2195,
+        "forcedMerges": 1842,
+        "preferredSameSourceMerges": 53,
+        "preferredSameProfileMerges": 300,
+        "maximumMergeDistanceMetres": 6.787548088989026,
+        "maximumMergeNormalizedDistance": 2.1542677992020822,
+        "maximumSampledMergePeakRelativeError": 0.3266208534570073,
+        "maximumSampledMergeColumnRelativeError": 0.263983095611234,
+        "maximumSampledMergeOpticalDepthError": 0.0017795404799216402,
+        "diagnosticCacheHits": 31410,
+        "diagnosticCacheMisses": 3710,
+        "recentMerges": [
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.082220306822154,
+            "normalizedDistance": 1.7240270739532377,
+            "differentialThermalTravelBoundMetres": 0.16576202843751384,
+            "normalizedThermalTravelBound": 0.07001211222958792,
+            "sampledPeakAbsoluteError": 0.000004144859676566736,
+            "sampledPeakRelativeError": 0.29208865793916217,
+            "maximumSampledNewDensity": 0.000016605990835370712,
+            "sampledColumnAbsoluteError": 0.00002729721178183662,
+            "sampledColumnRelativeError": 0.24827862494604214,
+            "maximumPerRaySymmetricRelativeError": 0.28557512498032733,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00002729721178183662,
+              0.00002729721178183662,
+              0.00002729721178183662
+            ],
+            "sampledMaximumOpticalDepthError": 0.00002729721178183662,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.087219332753058,
+            "normalizedDistance": 1.724519347097009,
+            "differentialThermalTravelBoundMetres": 0.16569103270965102,
+            "normalizedThermalTravelBound": 0.06991772625794122,
+            "sampledPeakAbsoluteError": 0.0000047602627829396194,
+            "sampledPeakRelativeError": 0.29227803550452797,
+            "maximumSampledNewDensity": 0.000019056797010118837,
+            "sampledColumnAbsoluteError": 0.00003137048069354464,
+            "sampledColumnRelativeError": 0.24836476451643238,
+            "maximumPerRaySymmetricRelativeError": 0.285826422842995,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003137048069354464,
+              0.00003137048069354464,
+              0.00003137048069354464
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003137048069354464,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.084775375140584,
+            "normalizedDistance": 1.7248507425248245,
+            "differentialThermalTravelBoundMetres": 0.16579637588214755,
+            "normalizedThermalTravelBound": 0.07001636296241275,
+            "sampledPeakAbsoluteError": 0.000004819156988874365,
+            "sampledPeakRelativeError": 0.2924017582529166,
+            "maximumSampledNewDensity": 0.000019282859984287903,
+            "sampledColumnAbsoluteError": 0.00003172787884047658,
+            "sampledColumnRelativeError": 0.24840939360912273,
+            "maximumPerRaySymmetricRelativeError": 0.28599123915017155,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003172787884047658,
+              0.00003172787884047658,
+              0.00003172787884047658
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003172787884047658,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.096724649745302,
+            "normalizedDistance": 1.7251776017682485,
+            "differentialThermalTravelBoundMetres": 0.1655202200238025,
+            "normalizedThermalTravelBound": 0.06971184669876773,
+            "sampledPeakAbsoluteError": 0.000004377885528141341,
+            "sampledPeakRelativeError": 0.2925330759328387,
+            "maximumSampledNewDensity": 0.000017507765675929506,
+            "sampledColumnAbsoluteError": 0.000028895438032641314,
+            "sampledColumnRelativeError": 0.2484822868963444,
+            "maximumPerRaySymmetricRelativeError": 0.28616192465151946,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000028895438032641314,
+              0.000028895438032641314,
+              0.000028895438032641314
+            ],
+            "sampledMaximumOpticalDepthError": 0.000028895438032641314,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.088426268845504,
+            "normalizedDistance": 1.7254276725609445,
+            "differentialThermalTravelBoundMetres": 0.16577152347883953,
+            "normalizedThermalTravelBound": 0.06996745256322648,
+            "sampledPeakAbsoluteError": 0.000004633479882962555,
+            "sampledPeakRelativeError": 0.292622233434405,
+            "maximumSampledNewDensity": 0.00001852324511155112,
+            "sampledColumnAbsoluteError": 0.00003051233432439531,
+            "sampledColumnRelativeError": 0.24850509346469818,
+            "maximumPerRaySymmetricRelativeError": 0.28628448459223255,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003051233432439531,
+              0.00003051233432439531,
+              0.00003051233432439531
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003051233432439531,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.120279761916698,
+            "normalizedDistance": 1.425365464150821,
+            "differentialThermalTravelBoundMetres": 0.13248755767138504,
+            "normalizedThermalTravelBound": 0.0890652412126454,
+            "sampledPeakAbsoluteError": 0.0000018034761295282291,
+            "sampledPeakRelativeError": 0.025488047158347616,
+            "maximumSampledNewDensity": 0.00007129490678330475,
+            "sampledColumnAbsoluteError": 0.000005369931912486994,
+            "sampledColumnRelativeError": 0.021833456676360684,
+            "maximumPerRaySymmetricRelativeError": 0.06754590546578133,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000005369931912486994,
+              0.000005369931912486994,
+              0.000005369931912486994
+            ],
+            "sampledMaximumOpticalDepthError": 0.000005369931912486994,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.077535573693455,
+            "normalizedDistance": 1.7220048538424924,
+            "differentialThermalTravelBoundMetres": 0.16563025215655205,
+            "normalizedThermalTravelBound": 0.06995093564505828,
+            "sampledPeakAbsoluteError": 0.0000043901129078257115,
+            "sampledPeakRelativeError": 0.2913210264102767,
+            "maximumSampledNewDensity": 0.000017643793112102286,
+            "sampledColumnAbsoluteError": 0.000028947510727406404,
+            "sampledColumnRelativeError": 0.2479468149743264,
+            "maximumPerRaySymmetricRelativeError": 0.2845548841556111,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000028947510727406404,
+              0.000028947510727406404,
+              0.000028947510727406404
+            ],
+            "sampledMaximumOpticalDepthError": 0.000028947510727406404,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 3.483490866123608,
+            "normalizedDistance": 0.7534120466045582,
+            "differentialThermalTravelBoundMetres": 0.36438999900545854,
+            "normalizedThermalTravelBound": 0.11556779984566518,
+            "sampledPeakAbsoluteError": 6.796743687852519e-7,
+            "sampledPeakRelativeError": 0.03232301942198106,
+            "maximumSampledNewDensity": 0.000021330545475883108,
+            "sampledColumnAbsoluteError": 0.000003194092475877972,
+            "sampledColumnRelativeError": 0.01586602780383529,
+            "maximumPerRaySymmetricRelativeError": 0.027150861421231548,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000003194092475877972,
+              0.000003194092475877972,
+              0.000003194092475877972
+            ],
+            "sampledMaximumOpticalDepthError": 0.000003194092475877972,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.137595058908782,
+            "normalizedDistance": 1.7230009482277253,
+            "differentialThermalTravelBoundMetres": 0.17418951034284433,
+            "normalizedThermalTravelBound": 0.07231309105542383,
+            "sampledPeakAbsoluteError": 0.000010627280368304716,
+            "sampledPeakRelativeError": 0.2899799865092591,
+            "maximumSampledNewDensity": 0.000042672209849253155,
+            "sampledColumnAbsoluteError": 0.00006502309726340202,
+            "sampledColumnRelativeError": 0.22692822771046192,
+            "maximumPerRaySymmetricRelativeError": 0.28501043196280873,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00006502309726340202,
+              0.00006502309726340202,
+              0.00006502309726340202
+            ],
+            "sampledMaximumOpticalDepthError": 0.00006502309726340202,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 5.858806214160125,
+            "normalizedDistance": 1.7134752267470024,
+            "differentialThermalTravelBoundMetres": 0.24796220334540722,
+            "normalizedThermalTravelBound": 0.07785325335867942,
+            "sampledPeakAbsoluteError": 0.0000042322712656149065,
+            "sampledPeakRelativeError": 0.28827654663623903,
+            "maximumSampledNewDensity": 0.000016551693908980113,
+            "sampledColumnAbsoluteError": 0.00003667576302166408,
+            "sampledColumnRelativeError": 0.22574248946152817,
+            "maximumPerRaySymmetricRelativeError": 0.2949670316072016,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003667576302166408,
+              0.00003667576302166408,
+              0.00003667576302166408
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003667576302166408,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 5.734482957681407,
+            "normalizedDistance": 1.5419559478775369,
+            "differentialThermalTravelBoundMetres": 0.14909432979262455,
+            "normalizedThermalTravelBound": 0.04752487535177258,
+            "sampledPeakAbsoluteError": 0.0000021915503886555175,
+            "sampledPeakRelativeError": 0.1906343682619728,
+            "maximumSampledNewDensity": 0.000013017849323699617,
+            "sampledColumnAbsoluteError": 0.00001870049404359822,
+            "sampledColumnRelativeError": 0.150444964509504,
+            "maximumPerRaySymmetricRelativeError": 0.18602478459429378,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00001870049404359822,
+              0.00001870049404359822,
+              0.00001870049404359822
+            ],
+            "sampledMaximumOpticalDepthError": 0.00001870049404359822,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.106832316743558,
+            "normalizedDistance": 1.2069982457635235,
+            "differentialThermalTravelBoundMetres": 0.0021849123169921047,
+            "normalizedThermalTravelBound": 0.0009573208896150044,
+            "sampledPeakAbsoluteError": 0.000003560937463638801,
+            "sampledPeakRelativeError": 0.09310606630320997,
+            "maximumSampledNewDensity": 0.000040823066357088714,
+            "sampledColumnAbsoluteError": 0.000015422207132218972,
+            "sampledColumnRelativeError": 0.04853631737401818,
+            "maximumPerRaySymmetricRelativeError": 0.06514673674783636,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000015422207132218972,
+              0.000015422207132218972,
+              0.000015422207132218972
+            ],
+            "sampledMaximumOpticalDepthError": 0.000015422207132218972,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.4139567548833614,
+            "normalizedDistance": 1.5276916266892206,
+            "differentialThermalTravelBoundMetres": 0.13450914687475196,
+            "normalizedThermalTravelBound": 0.08512518300524771,
+            "sampledPeakAbsoluteError": 0.000006570000129268656,
+            "sampledPeakRelativeError": 0.12502581602156962,
+            "maximumSampledNewDensity": 0.000055064083447362843,
+            "sampledColumnAbsoluteError": 0.000023049061158451434,
+            "sampledColumnRelativeError": 0.10643777590490874,
+            "maximumPerRaySymmetricRelativeError": 0.229619692885455,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000023049061158451434,
+              0.000023049061158451434,
+              0.000023049061158451434
+            ],
+            "sampledMaximumOpticalDepthError": 0.000023049061158451434,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.587715028679019,
+            "normalizedDistance": 1.574413803613625,
+            "differentialThermalTravelBoundMetres": 0.13481740516871485,
+            "normalizedThermalTravelBound": 0.08202543491874248,
+            "sampledPeakAbsoluteError": 0.000007101926005715346,
+            "sampledPeakRelativeError": 0.1559479101114562,
+            "maximumSampledNewDensity": 0.000048740919188883805,
+            "sampledColumnAbsoluteError": 0.000026991986163067195,
+            "sampledColumnRelativeError": 0.1313477292415875,
+            "maximumPerRaySymmetricRelativeError": 0.2492358570955937,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000026991986163067195,
+              0.000026991986163067195,
+              0.000026991986163067195
+            ],
+            "sampledMaximumOpticalDepthError": 0.000026991986163067195,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.0729074293273766,
+            "normalizedDistance": 1.39935606529123,
+            "differentialThermalTravelBoundMetres": 0.13062221384626896,
+            "normalizedThermalTravelBound": 0.08817904414874957,
+            "sampledPeakAbsoluteError": 1.7080788691099848e-7,
+            "sampledPeakRelativeError": 0.0023746726679991855,
+            "maximumSampledNewDensity": 0.00007197981805119533,
+            "sampledColumnAbsoluteError": 5.016567013987731e-7,
+            "sampledColumnRelativeError": 0.002061767656029959,
+            "maximumPerRaySymmetricRelativeError": 0.006825445321745759,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              5.016567013987731e-7,
+              5.016567013987731e-7,
+              5.016567013987731e-7
+            ],
+            "sampledMaximumOpticalDepthError": 5.016567013987731e-7,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.0758575425748904,
+            "normalizedDistance": 1.4018363631772586,
+            "differentialThermalTravelBoundMetres": 0.1309042786367236,
+            "normalizedThermalTravelBound": 0.08840027822435528,
+            "sampledPeakAbsoluteError": 2.857365762723823e-7,
+            "sampledPeakRelativeError": 0.003965329509744143,
+            "maximumSampledNewDensity": 0.00007214339984895026,
+            "sampledColumnAbsoluteError": 8.382920027901332e-7,
+            "sampledColumnRelativeError": 0.0034341469377474655,
+            "maximumPerRaySymmetricRelativeError": 0.011337258904611234,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              8.382920027901332e-7,
+              8.382920027901332e-7,
+              8.382920027901332e-7
+            ],
+            "sampledMaximumOpticalDepthError": 8.382920027901332e-7,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.2636180918477,
+            "normalizedDistance": 1.473439624456782,
+            "differentialThermalTravelBoundMetres": 0.13260171286880118,
+            "normalizedThermalTravelBound": 0.08631342670414045,
+            "sampledPeakAbsoluteError": 0.000004752721390288611,
+            "sampledPeakRelativeError": 0.08054715615058466,
+            "maximumSampledNewDensity": 0.000060634068734203864,
+            "sampledColumnAbsoluteError": 0.00001559904415025192,
+            "sampledColumnRelativeError": 0.06965709491410037,
+            "maximumPerRaySymmetricRelativeError": 0.17366649099819925,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00001559904415025192,
+              0.00001559904415025192,
+              0.00001559904415025192
+            ],
+            "sampledMaximumOpticalDepthError": 0.00001559904415025192,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.420921223625317,
+            "normalizedDistance": 1.5234412204062302,
+            "differentialThermalTravelBoundMetres": 0.13330740038740463,
+            "normalizedThermalTravelBound": 0.08388790774478815,
+            "sampledPeakAbsoluteError": 0.000006296051895337581,
+            "sampledPeakRelativeError": 0.12343399818725195,
+            "maximumSampledNewDensity": 0.00005349022931334273,
+            "sampledColumnAbsoluteError": 0.000022412595095693455,
+            "sampledColumnRelativeError": 0.10603574369718298,
+            "maximumPerRaySymmetricRelativeError": 0.22564255584850165,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000022412595095693455,
+              0.000022412595095693455,
+              0.000022412595095693455
+            ],
+            "sampledMaximumOpticalDepthError": 0.000022412595095693455,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.107265022978238,
+            "normalizedDistance": 1.7113494945458563,
+            "differentialThermalTravelBoundMetres": 0.1634377996738139,
+            "normalizedThermalTravelBound": 0.06810808007036394,
+            "sampledPeakAbsoluteError": 0.000004344317773627793,
+            "sampledPeakRelativeError": 0.2872970354801768,
+            "maximumSampledNewDensity": 0.000017749625227155295,
+            "sampledColumnAbsoluteError": 0.0000292054744416084,
+            "sampledColumnRelativeError": 0.24574029906221498,
+            "maximumPerRaySymmetricRelativeError": 0.2792305659883176,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.0000292054744416084,
+              0.0000292054744416084,
+              0.0000292054744416084
+            ],
+            "sampledMaximumOpticalDepthError": 0.0000292054744416084,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.080804175945247,
+            "normalizedDistance": 1.7108233874394587,
+            "differentialThermalTravelBoundMetres": 0.164112876727962,
+            "normalizedThermalTravelBound": 0.06880624090497789,
+            "sampledPeakAbsoluteError": 0.0000045474755831096155,
+            "sampledPeakRelativeError": 0.28708353170108947,
+            "maximumSampledNewDensity": 0.00001859635716671921,
+            "sampledColumnAbsoluteError": 0.000030394336229522327,
+            "sampledColumnRelativeError": 0.24617405637721235,
+            "maximumPerRaySymmetricRelativeError": 0.278961276966612,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000030394336229522327,
+              0.000030394336229522327,
+              0.000030394336229522327
+            ],
+            "sampledMaximumOpticalDepthError": 0.000030394336229522327,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.074629898839112,
+            "normalizedDistance": 1.7110469431637232,
+            "differentialThermalTravelBoundMetres": 0.16431249202532724,
+            "normalizedThermalTravelBound": 0.06900092020003878,
+            "sampledPeakAbsoluteError": 0.0000045009911558694225,
+            "sampledPeakRelativeError": 0.2871652049291346,
+            "maximumSampledNewDensity": 0.000018400162473661014,
+            "sampledColumnAbsoluteError": 0.000030031328455387967,
+            "sampledColumnRelativeError": 0.2461967221443052,
+            "maximumPerRaySymmetricRelativeError": 0.27907067302862754,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000030031328455387967,
+              0.000030031328455387967,
+              0.000030031328455387967
+            ],
+            "sampledMaximumOpticalDepthError": 0.000030031328455387967,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.089255092844153,
+            "normalizedDistance": 1.7116051465921842,
+            "differentialThermalTravelBoundMetres": 0.16397951549899897,
+            "normalizedThermalTravelBound": 0.06864191267688585,
+            "sampledPeakAbsoluteError": 0.000004149842701390088,
+            "sampledPeakRelativeError": 0.28738496639204164,
+            "maximumSampledNewDensity": 0.0000169491612106434,
+            "sampledColumnAbsoluteError": 0.000027768610724910486,
+            "sampledColumnRelativeError": 0.24631601689425245,
+            "maximumPerRaySymmetricRelativeError": 0.2793524454916435,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000027768610724910486,
+              0.000027768610724910486,
+              0.000027768610724910486
+            ],
+            "sampledMaximumOpticalDepthError": 0.000027768610724910486,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.099992241583529,
+            "normalizedDistance": 1.712366237423522,
+            "differentialThermalTravelBoundMetres": 0.16377905427808212,
+            "normalizedThermalTravelBound": 0.06841147675587139,
+            "sampledPeakAbsoluteError": 0.000004378046287462315,
+            "sampledPeakRelativeError": 0.28767964991007045,
+            "maximumSampledNewDensity": 0.000017859430060816585,
+            "sampledColumnAbsoluteError": 0.000029346426973534897,
+            "sampledColumnRelativeError": 0.2460294811811081,
+            "maximumPerRaySymmetricRelativeError": 0.279739891051525,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000029346426973534897,
+              0.000029346426973534897,
+              0.000029346426973534897
+            ],
+            "sampledMaximumOpticalDepthError": 0.000029346426973534897,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 3.874971634519314,
+            "normalizedDistance": 1.0018490454484483,
+            "differentialThermalTravelBoundMetres": 0.4764722287386435,
+            "normalizedThermalTravelBound": 0.12587735090769292,
+            "sampledPeakAbsoluteError": 0.000001338737172919861,
+            "sampledPeakRelativeError": 0.05413031434476856,
+            "maximumSampledNewDensity": 0.000025759079304065276,
+            "sampledColumnAbsoluteError": 0.0000080881334357628,
+            "sampledColumnRelativeError": 0.03736861858918443,
+            "maximumPerRaySymmetricRelativeError": 0.05397401644621487,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.0000080881334357628,
+              0.0000080881334357628,
+              0.0000080881334357628
+            ],
+            "sampledMaximumOpticalDepthError": 0.0000080881334357628,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.081034001951477,
+            "normalizedDistance": 1.7117111715152864,
+            "differentialThermalTravelBoundMetres": 0.16422060235622588,
+            "normalizedThermalTravelBound": 0.06888227470272583,
+            "sampledPeakAbsoluteError": 0.00000416493200683503,
+            "sampledPeakRelativeError": 0.2874209796507449,
+            "maximumSampledNewDensity": 0.00001700837466149027,
+            "sampledColumnAbsoluteError": 0.000027811336094062095,
+            "sampledColumnRelativeError": 0.24631541796985948,
+            "maximumPerRaySymmetricRelativeError": 0.27940441905770913,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000027811336094062095,
+              0.000027811336094062095,
+              0.000027811336094062095
+            ],
+            "sampledMaximumOpticalDepthError": 0.000027811336094062095,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.081415903699962,
+            "normalizedDistance": 1.3960786990282692,
+            "differentialThermalTravelBoundMetres": 0.12936279101306475,
+            "normalizedThermalTravelBound": 0.08676817546073405,
+            "sampledPeakAbsoluteError": 3.9911341809630626e-7,
+            "sampledPeakRelativeError": 0.005816778334937793,
+            "maximumSampledNewDensity": 0.00006873728938565256,
+            "sampledColumnAbsoluteError": 0.0000011983734473594327,
+            "sampledColumnRelativeError": 0.005122608481230843,
+            "maximumPerRaySymmetricRelativeError": 0.01642348364279545,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.0000011983734473594327,
+              0.0000011983734473594327,
+              0.0000011983734473594327
+            ],
+            "sampledMaximumOpticalDepthError": 0.0000011983734473594327,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.2125251236045105,
+            "normalizedDistance": 1.4533232625329744,
+            "differentialThermalTravelBoundMetres": 0.1318509414481937,
+            "normalizedThermalTravelBound": 0.08660786247087716,
+            "sampledPeakAbsoluteError": 0.0000037915548927630434,
+            "sampledPeakRelativeError": 0.062045200394803726,
+            "maximumSampledNewDensity": 0.00006236549927501845,
+            "sampledColumnAbsoluteError": 0.000012144570388486657,
+            "sampledColumnRelativeError": 0.053916387048557224,
+            "maximumPerRaySymmetricRelativeError": 0.1428100647885306,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000012144570388486657,
+              0.000012144570388486657,
+              0.000012144570388486657
+            ],
+            "sampledMaximumOpticalDepthError": 0.000012144570388486657,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.075398826161423,
+            "normalizedDistance": 1.6687467451995353,
+            "differentialThermalTravelBoundMetres": 0.16022251492519485,
+            "normalizedThermalTravelBound": 0.06540474591807553,
+            "sampledPeakAbsoluteError": 0.000009046006499185485,
+            "sampledPeakRelativeError": 0.27205277600722944,
+            "maximumSampledNewDensity": 0.000039545325856414444,
+            "sampledColumnAbsoluteError": 0.00007629977565279378,
+            "sampledColumnRelativeError": 0.2595444026329143,
+            "maximumPerRaySymmetricRelativeError": 0.2585554691564578,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00007629977565279378,
+              0.00007629977565279378,
+              0.00007629977565279378
+            ],
+            "sampledMaximumOpticalDepthError": 0.00007629977565279378,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 6.516966022429379,
+            "normalizedDistance": 1.4320998989660227,
+            "differentialThermalTravelBoundMetres": 0.08111037221367079,
+            "normalizedThermalTravelBound": 0.030411370422398165,
+            "sampledPeakAbsoluteError": 0.0000027733729036373805,
+            "sampledPeakRelativeError": 0.10367519622436777,
+            "maximumSampledNewDensity": 0.00002519971770161826,
+            "sampledColumnAbsoluteError": 0.00002631575466438603,
+            "sampledColumnRelativeError": 0.0916566402156517,
+            "maximumPerRaySymmetricRelativeError": 0.1592011363888406,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00002631575466438603,
+              0.00002631575466438603,
+              0.00002631575466438603
+            ],
+            "sampledMaximumOpticalDepthError": 0.00002631575466438603,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 5.881830215651018,
+            "normalizedDistance": 1.1306861906194938,
+            "differentialThermalTravelBoundMetres": 0.5073016519378323,
+            "normalizedThermalTravelBound": 0.16128900043790104,
+            "sampledPeakAbsoluteError": 0.0000020192817513937804,
+            "sampledPeakRelativeError": 0.07260314629385224,
+            "maximumSampledNewDensity": 0.000029012978927868088,
+            "sampledColumnAbsoluteError": 0.000014384788361065058,
+            "sampledColumnRelativeError": 0.04291604974820757,
+            "maximumPerRaySymmetricRelativeError": 0.09749953553754001,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000014384788361065058,
+              0.000014384788361065058,
+              0.000014384788361065058
+            ],
+            "sampledMaximumOpticalDepthError": 0.000014384788361065058,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.922733699948903,
+            "normalizedDistance": 1.3558850257911037,
+            "differentialThermalTravelBoundMetres": 0.08064970437702526,
+            "normalizedThermalTravelBound": 0.02302205139396138,
+            "sampledPeakAbsoluteError": 0.0000034410270035981234,
+            "sampledPeakRelativeError": 0.1095765359972005,
+            "maximumSampledNewDensity": 0.000030392836525916282,
+            "sampledColumnAbsoluteError": 0.000045120664944210535,
+            "sampledColumnRelativeError": 0.12677513449017547,
+            "maximumPerRaySymmetricRelativeError": 0.21287668564973752,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000045120664944210535,
+              0.000045120664944210535,
+              0.000045120664944210535
+            ],
+            "sampledMaximumOpticalDepthError": 0.000045120664944210535,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 6.787548088989026,
+            "normalizedDistance": 1.10617548434801,
+            "differentialThermalTravelBoundMetres": 0.23726221512871812,
+            "normalizedThermalTravelBound": 0.07809600471293854,
+            "sampledPeakAbsoluteError": 0.000004688769180656454,
+            "sampledPeakRelativeError": 0.17474042897418413,
+            "maximumSampledNewDensity": 0.000029593506190095383,
+            "sampledColumnAbsoluteError": 0.00004195103581685887,
+            "sampledColumnRelativeError": 0.11144419576857667,
+            "maximumPerRaySymmetricRelativeError": 0.19824364978654815,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00004195103581685887,
+              0.00004195103581685887,
+              0.00004195103581685887
+            ],
+            "sampledMaximumOpticalDepthError": 0.00004195103581685887,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          }
+        ],
+        "units": "relative dry mass; metres; physical seconds; authored m2/reference-mass optical profiles. NOT calibrated kg/PM.",
+        "limits": [
+          "Explicit tick-graph-v1; same-clock inputs remain pending until an advance fence.",
+          "Fences and causal input availability are part of deterministic replay; arbitrary fence partitions are not equivalent.",
+          "Public density is committed only; capacity+maxPending bounds private staging.",
+          "Source transport/thermal model and sampled merge quality remain approximations; no CFD, deposition or global optical compression bound.",
+          "Graph and diagnostic caches live for one common-time commit only."
+        ]
+      },
+      "sourceDiagnostics": {
+        "version": "pyro-smoke-logical-events-v1",
+        "sourceModel": "trajectory-v1",
+        "coverage": "all-logical",
+        "emissionProfile": "logical-family-continuous-v1",
+        "revision": 560,
+        "epoch": 0,
+        "closedThrough": 18.60858222067491,
+        "nextEmissionId": 6291,
+        "nextSerial": 1,
+        "allocatedArea": 20.35,
+        "materializedArea": 20.350000000000037,
+        "reservedArea": 0,
+        "cancelledReservedArea": 0,
+        "accountingResidual": -3.552713678800501e-14,
+        "registeredEvents": 1,
+        "emissionsLifetime": 6291,
+        "pendingEvents": 0,
+        "pendingStreams": 0,
+        "remainingCells": 0,
+        "futureCellArrays": 0,
+        "positionArchives": 0,
+        "duplicates": 0,
+        "staleEvents": 0,
+        "clears": 0,
+        "rememberedEventKeys": 0,
+        "tombstones": 0,
+        "fault": null,
+        "releaseErrors": 0,
+        "lastReleaseError": null,
+        "queueCapacity": 8192,
+        "maxPendingEvents": 128,
+        "maxPendingStreams": 2048,
+        "maxRememberedEvents": 2048,
+        "activeCoverage": [],
+        "completedCoverage": [
+          {
+            "eventId": "42-0.00000",
+            "type": "willow",
+            "bodyCount": 160,
+            "materializedBodies": 160,
+            "allocated": 20.35,
+            "materialized": 20.35000000000004
+          }
+        ],
+        "recentSources": [
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/69\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/69",
+            "bodyId": 69,
+            "role": "aerial-root",
+            "time": 18.186895933660168,
+            "emissionId": 6259,
+            "mass": 0.0010940255560967227,
+            "position": [
+              73.53068251367529,
+              49.00296658860558,
+              52.99092582907873
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/113\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/113",
+            "bodyId": 113,
+            "role": "aerial-root",
+            "time": 18.189805969299236,
+            "emissionId": 6260,
+            "mass": 0.002371824879521006,
+            "position": [
+              112.76594819970042,
+              68.48437106106154,
+              49.40383240903959
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/95\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/95",
+            "bodyId": 95,
+            "role": "aerial-root",
+            "time": 18.189912414137694,
+            "emissionId": 6261,
+            "mass": 0.0010070875854973488,
+            "position": [
+              90.58128086722402,
+              71.73428358000668,
+              49.4472784915022
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/43\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/43",
+            "bodyId": 43,
+            "role": "aerial-root",
+            "time": 18.19377979399306,
+            "emissionId": 6262,
+            "mass": 0.001259785163165647,
+            "position": [
+              64.0192017418843,
+              54.1681118409595,
+              40.128635949630066
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/61\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/61",
+            "bodyId": 61,
+            "role": "aerial-root",
+            "time": 18.195313445950347,
+            "emissionId": 6263,
+            "mass": 0.0010713191716319043,
+            "position": [
+              86.24860155287615,
+              61.74667571753321,
+              55.6285298916925
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/105\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/105",
+            "bodyId": 105,
+            "role": "aerial-root",
+            "time": 18.200951590464868,
+            "emissionId": 6264,
+            "mass": 0.0023810536101778745,
+            "position": [
+              126.01646273352738,
+              52.19650260358435,
+              46.49516554654513
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/91\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/91",
+            "bodyId": 91,
+            "role": "aerial-root",
+            "time": 18.21786926263613,
+            "emissionId": 6265,
+            "mass": 0.0019883944174446666,
+            "position": [
+              98.2391780890154,
+              71.86725762351541,
+              -3.749154661965421
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/107\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/107",
+            "bodyId": 107,
+            "role": "aerial-root",
+            "time": 18.22133535654885,
+            "emissionId": 6266,
+            "mass": 0.002194788235300532,
+            "position": [
+              122.17968445811675,
+              53.04930683138825,
+              -3.64036740786922
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/144\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/144",
+            "bodyId": 144,
+            "role": "aerial-root",
+            "time": 18.221616687282406,
+            "emissionId": 6267,
+            "mass": 0.0023816049658115374,
+            "position": [
+              134.18986245268877,
+              51.00598008273146,
+              24.077717560584933
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/81\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/81",
+            "bodyId": 81,
+            "role": "aerial-root",
+            "time": 18.23438845396177,
+            "emissionId": 6268,
+            "mass": 0.002374576600502304,
+            "position": [
+              131.61102070729038,
+              49.88129430133797,
+              9.341301688485668
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/26\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/26",
+            "bodyId": 26,
+            "role": "aerial-root",
+            "time": 18.236014599475496,
+            "emissionId": 6269,
+            "mass": 0.002377305738752708,
+            "position": [
+              124.11558026749557,
+              68.44394790704776,
+              10.689591760059354
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/94\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/94",
+            "bodyId": 94,
+            "role": "aerial-root",
+            "time": 18.241276819567616,
+            "emissionId": 6270,
+            "mass": 0.00238064648116261,
+            "position": [
+              127.31679132363081,
+              53.34394075931553,
+              2.49892101170957
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/96\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/96",
+            "bodyId": 96,
+            "role": "aerial-root",
+            "time": 18.25055718499371,
+            "emissionId": 6271,
+            "mass": 0.002100645900907,
+            "position": [
+              79.49404306962444,
+              58.910239499131805,
+              -7.408980635457854
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/20\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/20",
+            "bodyId": 20,
+            "role": "aerial-root",
+            "time": 18.294373815349722,
+            "emissionId": 6272,
+            "mass": 0.002373976803646996,
+            "position": [
+              73.55272478382639,
+              55.977265407228096,
+              -4.417119102349882
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/127\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/127",
+            "bodyId": 127,
+            "role": "aerial-root",
+            "time": 18.320301132259377,
+            "emissionId": 6273,
+            "mass": 0.0023803869226060592,
+            "position": [
+              66.29655631831416,
+              66.91926832241653,
+              21.49310042037673
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/106\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/106",
+            "bodyId": 106,
+            "role": "aerial-root",
+            "time": 18.324558387819167,
+            "emissionId": 6274,
+            "mass": 0.00236561482752895,
+            "position": [
+              59.06712497402665,
+              46.90184045164974,
+              26.09647037804689
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/51\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/51",
+            "bodyId": 51,
+            "role": "aerial-root",
+            "time": 18.326184533332892,
+            "emissionId": 6275,
+            "mass": 0.0023734518236770558,
+            "position": [
+              59.17795376889369,
+              44.54010455325008,
+              28.025463629098947
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/145\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/145",
+            "bodyId": 145,
+            "role": "aerial-root",
+            "time": 18.345223484636705,
+            "emissionId": 6276,
+            "mass": 0.002366046300706637,
+            "position": [
+              76.93660902191888,
+              71.31131033296259,
+              40.773233302544014
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/82\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/82",
+            "bodyId": 82,
+            "role": "aerial-root",
+            "time": 18.357995251316062,
+            "emissionId": 6277,
+            "mass": 0.002365266916854583,
+            "position": [
+              80.35640517665901,
+              43.12319346561673,
+              57.44667682387
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/144\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/144",
+            "bodyId": 144,
+            "role": "aerial-root",
+            "time": 18.3715717409099,
+            "emissionId": 6278,
+            "mass": 0.0011904456678925729,
+            "position": [
+              134.19069571872285,
+              47.995338397588334,
+              24.077774735965473
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/105\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/105",
+            "bodyId": 105,
+            "role": "aerial-root",
+            "time": 18.374488591408777,
+            "emissionId": 6279,
+            "mass": 0.0013773363419897766,
+            "position": [
+              126.01719780656988,
+              49.03398535525338,
+              46.49563884298846
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/94\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/94",
+            "bodyId": 94,
+            "role": "aerial-root",
+            "time": 18.376643303391944,
+            "emissionId": 6280,
+            "mass": 0.0010741991446124588,
+            "position": [
+              127.31747479346079,
+              50.42732479034715,
+              2.4986181370758045
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/127\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/127",
+            "bodyId": 127,
+            "role": "aerial-root",
+            "time": 18.378017390106294,
+            "emissionId": 6281,
+            "mass": 0.000457956751335184,
+            "position": [
+              66.29629759371973,
+              64.50333033808103,
+              21.493109800978818
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/134\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/134",
+            "bodyId": 134,
+            "role": "aerial-root",
+            "time": 18.38491643274338,
+            "emissionId": 6282,
+            "mass": 0.0015810422205781577,
+            "position": [
+              111.17048319442026,
+              55.82627233762382,
+              55.8614654549393
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/26\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/26",
+            "bodyId": 26,
+            "role": "aerial-root",
+            "time": 18.394351906218986,
+            "emissionId": 6283,
+            "mass": 0.0012547206265998007,
+            "position": [
+              124.11624291387997,
+              65.37961195275784,
+              10.68941607093795
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/81\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/81",
+            "bodyId": 81,
+            "role": "aerial-root",
+            "time": 18.40885549802934,
+            "emissionId": 6284,
+            "mass": 0.0013809512013388536,
+            "position": [
+              131.61183967629034,
+              46.71274265657828,
+              9.341096044864303
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/20\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/20",
+            "bodyId": 20,
+            "role": "aerial-root",
+            "time": 18.412047497305508,
+            "emissionId": 6285,
+            "mass": 0.0009311819712092134,
+            "position": [
+              73.55253261068901,
+              53.17469032546682,
+              -4.417505811462181
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/51\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/51",
+            "bodyId": 51,
+            "role": "aerial-root",
+            "time": 18.414842660032633,
+            "emissionId": 6286,
+            "mass": 0.0007014193083309528,
+            "position": [
+              59.177575952764954,
+              41.924373777125,
+              28.02556546928062
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/113\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/113",
+            "bodyId": 113,
+            "role": "aerial-root",
+            "time": 18.423512894852507,
+            "emissionId": 6287,
+            "mass": 0.0018477063351453604,
+            "position": [
+              112.76649856239364,
+              64.93478518877956,
+              49.40442264979563
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/145\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/145",
+            "bodyId": 145,
+            "role": "aerial-root",
+            "time": 18.4544042127267,
+            "emissionId": 6288,
+            "mass": 0.0008610888593526267,
+            "position": [
+              76.93647644743308,
+              68.56368355431228,
+              40.773523493357516
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/106\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/106",
+            "bodyId": 106,
+            "role": "aerial-root",
+            "time": 18.45671685140715,
+            "emissionId": 6289,
+            "mass": 0.0010421200701572764,
+            "position": [
+              59.06670699547242,
+              44.00578622451606,
+              26.096552725264726
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/82\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/82",
+            "bodyId": 82,
+            "role": "aerial-root",
+            "time": 18.458582220674913,
+            "emissionId": 6290,
+            "mass": 0.0007930501029704967,
+            "position": [
+              80.35632456964025,
+              40.430548222742836,
+              57.447193956416605
+            ]
+          }
+        ],
+        "parameters": {
+          "emissionProfile": "logical-family-continuous-v1",
+          "kernelModel": "past-segment-v2",
+          "dispersionModel": "brownian",
+          "centralFraction": 0.2,
+          "groundChargeFraction": 0.1,
+          "maximumCellSeconds": 0.3,
+          "budgets": {
+            "aerial": 20.35,
+            "fan": 0.9,
+            "bouquet": 2
+          }
+        },
+        "limits": [
+          "Authored reference matter, not measured kg/fuel/smoke yield. No ascent-engine source or render-tail duplication.",
+          "All logical body paths; full-SPD segment moments still approximate. No source cohort merge.",
+          "Requires actual causal sampleBody; no fallback to root or future positions.",
+          "Fixed4096 density merging and optional resolved-field pair cap remain independent downstream limits.",
+          "Predictable input checks precede queueing; unexpected partial acceptance fault-locks and is never rolled back."
+        ]
+      },
+      "endTime": 18.60858222067491
+    },
+    {
+      "hz": 60,
+      "completed": true,
+      "wallMs": 3030.9724999999994,
+      "maxAdvanceMs": 48.04539999999997,
+      "emissionCount": 6291,
+      "emissionHash": "c39c6d9c6965ff1b9d4d043da51959c790bfa2944f70b30a8133761cec3317a5",
+      "snapshotHash": "fd9a8784e226af4b528e04b7c4ccb2bea7b77628875341505ee8f5e92944de50",
+      "diagnostics": {
+        "version": "pyro-smoke-tick-state-v1",
+        "stateModel": "tick-graph-v1",
+        "time": 18.6,
+        "requestedTime": 18.60858222067491,
+        "revision": 15148,
+        "packetCount": 4096,
+        "capacity": 4096,
+        "peakPacketCount": 4096,
+        "stagingPeakPacketCount": 4137,
+        "maxStagingPackets": 12288,
+        "pendingEmissions": 0,
+        "pendingWindEvents": 0,
+        "pendingSameClockEmissions": 0,
+        "profileCount": 1,
+        "acceptedSources": 6291,
+        "lastEmissionId": 6290,
+        "totalTickSteps": 372,
+        "lastAdvanceSteps": 0,
+        "lastAdvanceFences": 0,
+        "lastAdvanceFailure": null,
+        "fixedStep": 0.05,
+        "maxStepsPerAdvance": 200,
+        "ledger": {
+          "emitted": 20.35000000000004,
+          "airborne": 20.35000000000004,
+          "pendingMass": 0,
+          "residual": 0,
+          "deposited": 0,
+          "escaped": 0,
+          "explicitlyCleared": 0
+        },
+        "merges": 2195,
+        "forcedMerges": 1842,
+        "preferredSameSourceMerges": 53,
+        "preferredSameProfileMerges": 300,
+        "maximumMergeDistanceMetres": 6.787548088989026,
+        "maximumMergeNormalizedDistance": 2.1542677992020822,
+        "maximumSampledMergePeakRelativeError": 0.3266208534570073,
+        "maximumSampledMergeColumnRelativeError": 0.263983095611234,
+        "maximumSampledMergeOpticalDepthError": 0.0017795404799216402,
+        "diagnosticCacheHits": 31410,
+        "diagnosticCacheMisses": 3710,
+        "recentMerges": [
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.082220306822154,
+            "normalizedDistance": 1.7240270739532377,
+            "differentialThermalTravelBoundMetres": 0.16576202843751384,
+            "normalizedThermalTravelBound": 0.07001211222958792,
+            "sampledPeakAbsoluteError": 0.000004144859676566736,
+            "sampledPeakRelativeError": 0.29208865793916217,
+            "maximumSampledNewDensity": 0.000016605990835370712,
+            "sampledColumnAbsoluteError": 0.00002729721178183662,
+            "sampledColumnRelativeError": 0.24827862494604214,
+            "maximumPerRaySymmetricRelativeError": 0.28557512498032733,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00002729721178183662,
+              0.00002729721178183662,
+              0.00002729721178183662
+            ],
+            "sampledMaximumOpticalDepthError": 0.00002729721178183662,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.087219332753058,
+            "normalizedDistance": 1.724519347097009,
+            "differentialThermalTravelBoundMetres": 0.16569103270965102,
+            "normalizedThermalTravelBound": 0.06991772625794122,
+            "sampledPeakAbsoluteError": 0.0000047602627829396194,
+            "sampledPeakRelativeError": 0.29227803550452797,
+            "maximumSampledNewDensity": 0.000019056797010118837,
+            "sampledColumnAbsoluteError": 0.00003137048069354464,
+            "sampledColumnRelativeError": 0.24836476451643238,
+            "maximumPerRaySymmetricRelativeError": 0.285826422842995,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003137048069354464,
+              0.00003137048069354464,
+              0.00003137048069354464
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003137048069354464,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.084775375140584,
+            "normalizedDistance": 1.7248507425248245,
+            "differentialThermalTravelBoundMetres": 0.16579637588214755,
+            "normalizedThermalTravelBound": 0.07001636296241275,
+            "sampledPeakAbsoluteError": 0.000004819156988874365,
+            "sampledPeakRelativeError": 0.2924017582529166,
+            "maximumSampledNewDensity": 0.000019282859984287903,
+            "sampledColumnAbsoluteError": 0.00003172787884047658,
+            "sampledColumnRelativeError": 0.24840939360912273,
+            "maximumPerRaySymmetricRelativeError": 0.28599123915017155,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003172787884047658,
+              0.00003172787884047658,
+              0.00003172787884047658
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003172787884047658,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.096724649745302,
+            "normalizedDistance": 1.7251776017682485,
+            "differentialThermalTravelBoundMetres": 0.1655202200238025,
+            "normalizedThermalTravelBound": 0.06971184669876773,
+            "sampledPeakAbsoluteError": 0.000004377885528141341,
+            "sampledPeakRelativeError": 0.2925330759328387,
+            "maximumSampledNewDensity": 0.000017507765675929506,
+            "sampledColumnAbsoluteError": 0.000028895438032641314,
+            "sampledColumnRelativeError": 0.2484822868963444,
+            "maximumPerRaySymmetricRelativeError": 0.28616192465151946,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000028895438032641314,
+              0.000028895438032641314,
+              0.000028895438032641314
+            ],
+            "sampledMaximumOpticalDepthError": 0.000028895438032641314,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.088426268845504,
+            "normalizedDistance": 1.7254276725609445,
+            "differentialThermalTravelBoundMetres": 0.16577152347883953,
+            "normalizedThermalTravelBound": 0.06996745256322648,
+            "sampledPeakAbsoluteError": 0.000004633479882962555,
+            "sampledPeakRelativeError": 0.292622233434405,
+            "maximumSampledNewDensity": 0.00001852324511155112,
+            "sampledColumnAbsoluteError": 0.00003051233432439531,
+            "sampledColumnRelativeError": 0.24850509346469818,
+            "maximumPerRaySymmetricRelativeError": 0.28628448459223255,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003051233432439531,
+              0.00003051233432439531,
+              0.00003051233432439531
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003051233432439531,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.120279761916698,
+            "normalizedDistance": 1.425365464150821,
+            "differentialThermalTravelBoundMetres": 0.13248755767138504,
+            "normalizedThermalTravelBound": 0.0890652412126454,
+            "sampledPeakAbsoluteError": 0.0000018034761295282291,
+            "sampledPeakRelativeError": 0.025488047158347616,
+            "maximumSampledNewDensity": 0.00007129490678330475,
+            "sampledColumnAbsoluteError": 0.000005369931912486994,
+            "sampledColumnRelativeError": 0.021833456676360684,
+            "maximumPerRaySymmetricRelativeError": 0.06754590546578133,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000005369931912486994,
+              0.000005369931912486994,
+              0.000005369931912486994
+            ],
+            "sampledMaximumOpticalDepthError": 0.000005369931912486994,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.077535573693455,
+            "normalizedDistance": 1.7220048538424924,
+            "differentialThermalTravelBoundMetres": 0.16563025215655205,
+            "normalizedThermalTravelBound": 0.06995093564505828,
+            "sampledPeakAbsoluteError": 0.0000043901129078257115,
+            "sampledPeakRelativeError": 0.2913210264102767,
+            "maximumSampledNewDensity": 0.000017643793112102286,
+            "sampledColumnAbsoluteError": 0.000028947510727406404,
+            "sampledColumnRelativeError": 0.2479468149743264,
+            "maximumPerRaySymmetricRelativeError": 0.2845548841556111,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000028947510727406404,
+              0.000028947510727406404,
+              0.000028947510727406404
+            ],
+            "sampledMaximumOpticalDepthError": 0.000028947510727406404,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 3.483490866123608,
+            "normalizedDistance": 0.7534120466045582,
+            "differentialThermalTravelBoundMetres": 0.36438999900545854,
+            "normalizedThermalTravelBound": 0.11556779984566518,
+            "sampledPeakAbsoluteError": 6.796743687852519e-7,
+            "sampledPeakRelativeError": 0.03232301942198106,
+            "maximumSampledNewDensity": 0.000021330545475883108,
+            "sampledColumnAbsoluteError": 0.000003194092475877972,
+            "sampledColumnRelativeError": 0.01586602780383529,
+            "maximumPerRaySymmetricRelativeError": 0.027150861421231548,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000003194092475877972,
+              0.000003194092475877972,
+              0.000003194092475877972
+            ],
+            "sampledMaximumOpticalDepthError": 0.000003194092475877972,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.137595058908782,
+            "normalizedDistance": 1.7230009482277253,
+            "differentialThermalTravelBoundMetres": 0.17418951034284433,
+            "normalizedThermalTravelBound": 0.07231309105542383,
+            "sampledPeakAbsoluteError": 0.000010627280368304716,
+            "sampledPeakRelativeError": 0.2899799865092591,
+            "maximumSampledNewDensity": 0.000042672209849253155,
+            "sampledColumnAbsoluteError": 0.00006502309726340202,
+            "sampledColumnRelativeError": 0.22692822771046192,
+            "maximumPerRaySymmetricRelativeError": 0.28501043196280873,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00006502309726340202,
+              0.00006502309726340202,
+              0.00006502309726340202
+            ],
+            "sampledMaximumOpticalDepthError": 0.00006502309726340202,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 5.858806214160125,
+            "normalizedDistance": 1.7134752267470024,
+            "differentialThermalTravelBoundMetres": 0.24796220334540722,
+            "normalizedThermalTravelBound": 0.07785325335867942,
+            "sampledPeakAbsoluteError": 0.0000042322712656149065,
+            "sampledPeakRelativeError": 0.28827654663623903,
+            "maximumSampledNewDensity": 0.000016551693908980113,
+            "sampledColumnAbsoluteError": 0.00003667576302166408,
+            "sampledColumnRelativeError": 0.22574248946152817,
+            "maximumPerRaySymmetricRelativeError": 0.2949670316072016,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003667576302166408,
+              0.00003667576302166408,
+              0.00003667576302166408
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003667576302166408,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 5.734482957681407,
+            "normalizedDistance": 1.5419559478775369,
+            "differentialThermalTravelBoundMetres": 0.14909432979262455,
+            "normalizedThermalTravelBound": 0.04752487535177258,
+            "sampledPeakAbsoluteError": 0.0000021915503886555175,
+            "sampledPeakRelativeError": 0.1906343682619728,
+            "maximumSampledNewDensity": 0.000013017849323699617,
+            "sampledColumnAbsoluteError": 0.00001870049404359822,
+            "sampledColumnRelativeError": 0.150444964509504,
+            "maximumPerRaySymmetricRelativeError": 0.18602478459429378,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00001870049404359822,
+              0.00001870049404359822,
+              0.00001870049404359822
+            ],
+            "sampledMaximumOpticalDepthError": 0.00001870049404359822,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.106832316743558,
+            "normalizedDistance": 1.2069982457635235,
+            "differentialThermalTravelBoundMetres": 0.0021849123169921047,
+            "normalizedThermalTravelBound": 0.0009573208896150044,
+            "sampledPeakAbsoluteError": 0.000003560937463638801,
+            "sampledPeakRelativeError": 0.09310606630320997,
+            "maximumSampledNewDensity": 0.000040823066357088714,
+            "sampledColumnAbsoluteError": 0.000015422207132218972,
+            "sampledColumnRelativeError": 0.04853631737401818,
+            "maximumPerRaySymmetricRelativeError": 0.06514673674783636,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000015422207132218972,
+              0.000015422207132218972,
+              0.000015422207132218972
+            ],
+            "sampledMaximumOpticalDepthError": 0.000015422207132218972,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.4139567548833614,
+            "normalizedDistance": 1.5276916266892206,
+            "differentialThermalTravelBoundMetres": 0.13450914687475196,
+            "normalizedThermalTravelBound": 0.08512518300524771,
+            "sampledPeakAbsoluteError": 0.000006570000129268656,
+            "sampledPeakRelativeError": 0.12502581602156962,
+            "maximumSampledNewDensity": 0.000055064083447362843,
+            "sampledColumnAbsoluteError": 0.000023049061158451434,
+            "sampledColumnRelativeError": 0.10643777590490874,
+            "maximumPerRaySymmetricRelativeError": 0.229619692885455,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000023049061158451434,
+              0.000023049061158451434,
+              0.000023049061158451434
+            ],
+            "sampledMaximumOpticalDepthError": 0.000023049061158451434,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.587715028679019,
+            "normalizedDistance": 1.574413803613625,
+            "differentialThermalTravelBoundMetres": 0.13481740516871485,
+            "normalizedThermalTravelBound": 0.08202543491874248,
+            "sampledPeakAbsoluteError": 0.000007101926005715346,
+            "sampledPeakRelativeError": 0.1559479101114562,
+            "maximumSampledNewDensity": 0.000048740919188883805,
+            "sampledColumnAbsoluteError": 0.000026991986163067195,
+            "sampledColumnRelativeError": 0.1313477292415875,
+            "maximumPerRaySymmetricRelativeError": 0.2492358570955937,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000026991986163067195,
+              0.000026991986163067195,
+              0.000026991986163067195
+            ],
+            "sampledMaximumOpticalDepthError": 0.000026991986163067195,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.0729074293273766,
+            "normalizedDistance": 1.39935606529123,
+            "differentialThermalTravelBoundMetres": 0.13062221384626896,
+            "normalizedThermalTravelBound": 0.08817904414874957,
+            "sampledPeakAbsoluteError": 1.7080788691099848e-7,
+            "sampledPeakRelativeError": 0.0023746726679991855,
+            "maximumSampledNewDensity": 0.00007197981805119533,
+            "sampledColumnAbsoluteError": 5.016567013987731e-7,
+            "sampledColumnRelativeError": 0.002061767656029959,
+            "maximumPerRaySymmetricRelativeError": 0.006825445321745759,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              5.016567013987731e-7,
+              5.016567013987731e-7,
+              5.016567013987731e-7
+            ],
+            "sampledMaximumOpticalDepthError": 5.016567013987731e-7,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.0758575425748904,
+            "normalizedDistance": 1.4018363631772586,
+            "differentialThermalTravelBoundMetres": 0.1309042786367236,
+            "normalizedThermalTravelBound": 0.08840027822435528,
+            "sampledPeakAbsoluteError": 2.857365762723823e-7,
+            "sampledPeakRelativeError": 0.003965329509744143,
+            "maximumSampledNewDensity": 0.00007214339984895026,
+            "sampledColumnAbsoluteError": 8.382920027901332e-7,
+            "sampledColumnRelativeError": 0.0034341469377474655,
+            "maximumPerRaySymmetricRelativeError": 0.011337258904611234,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              8.382920027901332e-7,
+              8.382920027901332e-7,
+              8.382920027901332e-7
+            ],
+            "sampledMaximumOpticalDepthError": 8.382920027901332e-7,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.2636180918477,
+            "normalizedDistance": 1.473439624456782,
+            "differentialThermalTravelBoundMetres": 0.13260171286880118,
+            "normalizedThermalTravelBound": 0.08631342670414045,
+            "sampledPeakAbsoluteError": 0.000004752721390288611,
+            "sampledPeakRelativeError": 0.08054715615058466,
+            "maximumSampledNewDensity": 0.000060634068734203864,
+            "sampledColumnAbsoluteError": 0.00001559904415025192,
+            "sampledColumnRelativeError": 0.06965709491410037,
+            "maximumPerRaySymmetricRelativeError": 0.17366649099819925,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00001559904415025192,
+              0.00001559904415025192,
+              0.00001559904415025192
+            ],
+            "sampledMaximumOpticalDepthError": 0.00001559904415025192,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.420921223625317,
+            "normalizedDistance": 1.5234412204062302,
+            "differentialThermalTravelBoundMetres": 0.13330740038740463,
+            "normalizedThermalTravelBound": 0.08388790774478815,
+            "sampledPeakAbsoluteError": 0.000006296051895337581,
+            "sampledPeakRelativeError": 0.12343399818725195,
+            "maximumSampledNewDensity": 0.00005349022931334273,
+            "sampledColumnAbsoluteError": 0.000022412595095693455,
+            "sampledColumnRelativeError": 0.10603574369718298,
+            "maximumPerRaySymmetricRelativeError": 0.22564255584850165,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000022412595095693455,
+              0.000022412595095693455,
+              0.000022412595095693455
+            ],
+            "sampledMaximumOpticalDepthError": 0.000022412595095693455,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.107265022978238,
+            "normalizedDistance": 1.7113494945458563,
+            "differentialThermalTravelBoundMetres": 0.1634377996738139,
+            "normalizedThermalTravelBound": 0.06810808007036394,
+            "sampledPeakAbsoluteError": 0.000004344317773627793,
+            "sampledPeakRelativeError": 0.2872970354801768,
+            "maximumSampledNewDensity": 0.000017749625227155295,
+            "sampledColumnAbsoluteError": 0.0000292054744416084,
+            "sampledColumnRelativeError": 0.24574029906221498,
+            "maximumPerRaySymmetricRelativeError": 0.2792305659883176,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.0000292054744416084,
+              0.0000292054744416084,
+              0.0000292054744416084
+            ],
+            "sampledMaximumOpticalDepthError": 0.0000292054744416084,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.080804175945247,
+            "normalizedDistance": 1.7108233874394587,
+            "differentialThermalTravelBoundMetres": 0.164112876727962,
+            "normalizedThermalTravelBound": 0.06880624090497789,
+            "sampledPeakAbsoluteError": 0.0000045474755831096155,
+            "sampledPeakRelativeError": 0.28708353170108947,
+            "maximumSampledNewDensity": 0.00001859635716671921,
+            "sampledColumnAbsoluteError": 0.000030394336229522327,
+            "sampledColumnRelativeError": 0.24617405637721235,
+            "maximumPerRaySymmetricRelativeError": 0.278961276966612,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000030394336229522327,
+              0.000030394336229522327,
+              0.000030394336229522327
+            ],
+            "sampledMaximumOpticalDepthError": 0.000030394336229522327,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.074629898839112,
+            "normalizedDistance": 1.7110469431637232,
+            "differentialThermalTravelBoundMetres": 0.16431249202532724,
+            "normalizedThermalTravelBound": 0.06900092020003878,
+            "sampledPeakAbsoluteError": 0.0000045009911558694225,
+            "sampledPeakRelativeError": 0.2871652049291346,
+            "maximumSampledNewDensity": 0.000018400162473661014,
+            "sampledColumnAbsoluteError": 0.000030031328455387967,
+            "sampledColumnRelativeError": 0.2461967221443052,
+            "maximumPerRaySymmetricRelativeError": 0.27907067302862754,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000030031328455387967,
+              0.000030031328455387967,
+              0.000030031328455387967
+            ],
+            "sampledMaximumOpticalDepthError": 0.000030031328455387967,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.089255092844153,
+            "normalizedDistance": 1.7116051465921842,
+            "differentialThermalTravelBoundMetres": 0.16397951549899897,
+            "normalizedThermalTravelBound": 0.06864191267688585,
+            "sampledPeakAbsoluteError": 0.000004149842701390088,
+            "sampledPeakRelativeError": 0.28738496639204164,
+            "maximumSampledNewDensity": 0.0000169491612106434,
+            "sampledColumnAbsoluteError": 0.000027768610724910486,
+            "sampledColumnRelativeError": 0.24631601689425245,
+            "maximumPerRaySymmetricRelativeError": 0.2793524454916435,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000027768610724910486,
+              0.000027768610724910486,
+              0.000027768610724910486
+            ],
+            "sampledMaximumOpticalDepthError": 0.000027768610724910486,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.099992241583529,
+            "normalizedDistance": 1.712366237423522,
+            "differentialThermalTravelBoundMetres": 0.16377905427808212,
+            "normalizedThermalTravelBound": 0.06841147675587139,
+            "sampledPeakAbsoluteError": 0.000004378046287462315,
+            "sampledPeakRelativeError": 0.28767964991007045,
+            "maximumSampledNewDensity": 0.000017859430060816585,
+            "sampledColumnAbsoluteError": 0.000029346426973534897,
+            "sampledColumnRelativeError": 0.2460294811811081,
+            "maximumPerRaySymmetricRelativeError": 0.279739891051525,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000029346426973534897,
+              0.000029346426973534897,
+              0.000029346426973534897
+            ],
+            "sampledMaximumOpticalDepthError": 0.000029346426973534897,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 3.874971634519314,
+            "normalizedDistance": 1.0018490454484483,
+            "differentialThermalTravelBoundMetres": 0.4764722287386435,
+            "normalizedThermalTravelBound": 0.12587735090769292,
+            "sampledPeakAbsoluteError": 0.000001338737172919861,
+            "sampledPeakRelativeError": 0.05413031434476856,
+            "maximumSampledNewDensity": 0.000025759079304065276,
+            "sampledColumnAbsoluteError": 0.0000080881334357628,
+            "sampledColumnRelativeError": 0.03736861858918443,
+            "maximumPerRaySymmetricRelativeError": 0.05397401644621487,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.0000080881334357628,
+              0.0000080881334357628,
+              0.0000080881334357628
+            ],
+            "sampledMaximumOpticalDepthError": 0.0000080881334357628,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.081034001951477,
+            "normalizedDistance": 1.7117111715152864,
+            "differentialThermalTravelBoundMetres": 0.16422060235622588,
+            "normalizedThermalTravelBound": 0.06888227470272583,
+            "sampledPeakAbsoluteError": 0.00000416493200683503,
+            "sampledPeakRelativeError": 0.2874209796507449,
+            "maximumSampledNewDensity": 0.00001700837466149027,
+            "sampledColumnAbsoluteError": 0.000027811336094062095,
+            "sampledColumnRelativeError": 0.24631541796985948,
+            "maximumPerRaySymmetricRelativeError": 0.27940441905770913,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000027811336094062095,
+              0.000027811336094062095,
+              0.000027811336094062095
+            ],
+            "sampledMaximumOpticalDepthError": 0.000027811336094062095,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.081415903699962,
+            "normalizedDistance": 1.3960786990282692,
+            "differentialThermalTravelBoundMetres": 0.12936279101306475,
+            "normalizedThermalTravelBound": 0.08676817546073405,
+            "sampledPeakAbsoluteError": 3.9911341809630626e-7,
+            "sampledPeakRelativeError": 0.005816778334937793,
+            "maximumSampledNewDensity": 0.00006873728938565256,
+            "sampledColumnAbsoluteError": 0.0000011983734473594327,
+            "sampledColumnRelativeError": 0.005122608481230843,
+            "maximumPerRaySymmetricRelativeError": 0.01642348364279545,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.0000011983734473594327,
+              0.0000011983734473594327,
+              0.0000011983734473594327
+            ],
+            "sampledMaximumOpticalDepthError": 0.0000011983734473594327,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.2125251236045105,
+            "normalizedDistance": 1.4533232625329744,
+            "differentialThermalTravelBoundMetres": 0.1318509414481937,
+            "normalizedThermalTravelBound": 0.08660786247087716,
+            "sampledPeakAbsoluteError": 0.0000037915548927630434,
+            "sampledPeakRelativeError": 0.062045200394803726,
+            "maximumSampledNewDensity": 0.00006236549927501845,
+            "sampledColumnAbsoluteError": 0.000012144570388486657,
+            "sampledColumnRelativeError": 0.053916387048557224,
+            "maximumPerRaySymmetricRelativeError": 0.1428100647885306,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000012144570388486657,
+              0.000012144570388486657,
+              0.000012144570388486657
+            ],
+            "sampledMaximumOpticalDepthError": 0.000012144570388486657,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.075398826161423,
+            "normalizedDistance": 1.6687467451995353,
+            "differentialThermalTravelBoundMetres": 0.16022251492519485,
+            "normalizedThermalTravelBound": 0.06540474591807553,
+            "sampledPeakAbsoluteError": 0.000009046006499185485,
+            "sampledPeakRelativeError": 0.27205277600722944,
+            "maximumSampledNewDensity": 0.000039545325856414444,
+            "sampledColumnAbsoluteError": 0.00007629977565279378,
+            "sampledColumnRelativeError": 0.2595444026329143,
+            "maximumPerRaySymmetricRelativeError": 0.2585554691564578,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00007629977565279378,
+              0.00007629977565279378,
+              0.00007629977565279378
+            ],
+            "sampledMaximumOpticalDepthError": 0.00007629977565279378,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 6.516966022429379,
+            "normalizedDistance": 1.4320998989660227,
+            "differentialThermalTravelBoundMetres": 0.08111037221367079,
+            "normalizedThermalTravelBound": 0.030411370422398165,
+            "sampledPeakAbsoluteError": 0.0000027733729036373805,
+            "sampledPeakRelativeError": 0.10367519622436777,
+            "maximumSampledNewDensity": 0.00002519971770161826,
+            "sampledColumnAbsoluteError": 0.00002631575466438603,
+            "sampledColumnRelativeError": 0.0916566402156517,
+            "maximumPerRaySymmetricRelativeError": 0.1592011363888406,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00002631575466438603,
+              0.00002631575466438603,
+              0.00002631575466438603
+            ],
+            "sampledMaximumOpticalDepthError": 0.00002631575466438603,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 5.881830215651018,
+            "normalizedDistance": 1.1306861906194938,
+            "differentialThermalTravelBoundMetres": 0.5073016519378323,
+            "normalizedThermalTravelBound": 0.16128900043790104,
+            "sampledPeakAbsoluteError": 0.0000020192817513937804,
+            "sampledPeakRelativeError": 0.07260314629385224,
+            "maximumSampledNewDensity": 0.000029012978927868088,
+            "sampledColumnAbsoluteError": 0.000014384788361065058,
+            "sampledColumnRelativeError": 0.04291604974820757,
+            "maximumPerRaySymmetricRelativeError": 0.09749953553754001,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000014384788361065058,
+              0.000014384788361065058,
+              0.000014384788361065058
+            ],
+            "sampledMaximumOpticalDepthError": 0.000014384788361065058,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.922733699948903,
+            "normalizedDistance": 1.3558850257911037,
+            "differentialThermalTravelBoundMetres": 0.08064970437702526,
+            "normalizedThermalTravelBound": 0.02302205139396138,
+            "sampledPeakAbsoluteError": 0.0000034410270035981234,
+            "sampledPeakRelativeError": 0.1095765359972005,
+            "maximumSampledNewDensity": 0.000030392836525916282,
+            "sampledColumnAbsoluteError": 0.000045120664944210535,
+            "sampledColumnRelativeError": 0.12677513449017547,
+            "maximumPerRaySymmetricRelativeError": 0.21287668564973752,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000045120664944210535,
+              0.000045120664944210535,
+              0.000045120664944210535
+            ],
+            "sampledMaximumOpticalDepthError": 0.000045120664944210535,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 6.787548088989026,
+            "normalizedDistance": 1.10617548434801,
+            "differentialThermalTravelBoundMetres": 0.23726221512871812,
+            "normalizedThermalTravelBound": 0.07809600471293854,
+            "sampledPeakAbsoluteError": 0.000004688769180656454,
+            "sampledPeakRelativeError": 0.17474042897418413,
+            "maximumSampledNewDensity": 0.000029593506190095383,
+            "sampledColumnAbsoluteError": 0.00004195103581685887,
+            "sampledColumnRelativeError": 0.11144419576857667,
+            "maximumPerRaySymmetricRelativeError": 0.19824364978654815,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00004195103581685887,
+              0.00004195103581685887,
+              0.00004195103581685887
+            ],
+            "sampledMaximumOpticalDepthError": 0.00004195103581685887,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          }
+        ],
+        "units": "relative dry mass; metres; physical seconds; authored m2/reference-mass optical profiles. NOT calibrated kg/PM.",
+        "limits": [
+          "Explicit tick-graph-v1; same-clock inputs remain pending until an advance fence.",
+          "Fences and causal input availability are part of deterministic replay; arbitrary fence partitions are not equivalent.",
+          "Public density is committed only; capacity+maxPending bounds private staging.",
+          "Source transport/thermal model and sampled merge quality remain approximations; no CFD, deposition or global optical compression bound.",
+          "Graph and diagnostic caches live for one common-time commit only."
+        ]
+      },
+      "sourceDiagnostics": {
+        "version": "pyro-smoke-logical-events-v1",
+        "sourceModel": "trajectory-v1",
+        "coverage": "all-logical",
+        "emissionProfile": "logical-family-continuous-v1",
+        "revision": 1118,
+        "epoch": 0,
+        "closedThrough": 18.60858222067491,
+        "nextEmissionId": 6291,
+        "nextSerial": 1,
+        "allocatedArea": 20.35,
+        "materializedArea": 20.35000000000003,
+        "reservedArea": 0,
+        "cancelledReservedArea": 0,
+        "accountingResidual": -2.842170943040401e-14,
+        "registeredEvents": 1,
+        "emissionsLifetime": 6291,
+        "pendingEvents": 0,
+        "pendingStreams": 0,
+        "remainingCells": 0,
+        "futureCellArrays": 0,
+        "positionArchives": 0,
+        "duplicates": 0,
+        "staleEvents": 0,
+        "clears": 0,
+        "rememberedEventKeys": 0,
+        "tombstones": 0,
+        "fault": null,
+        "releaseErrors": 0,
+        "lastReleaseError": null,
+        "queueCapacity": 8192,
+        "maxPendingEvents": 128,
+        "maxPendingStreams": 2048,
+        "maxRememberedEvents": 2048,
+        "activeCoverage": [],
+        "completedCoverage": [
+          {
+            "eventId": "42-0.00000",
+            "type": "willow",
+            "bodyCount": 160,
+            "materializedBodies": 160,
+            "allocated": 20.35,
+            "materialized": 20.35000000000004
+          }
+        ],
+        "recentSources": [
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/69\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/69",
+            "bodyId": 69,
+            "role": "aerial-root",
+            "time": 18.186895933660168,
+            "emissionId": 6259,
+            "mass": 0.0010940255560967227,
+            "position": [
+              73.53068251367529,
+              49.00296658860558,
+              52.99092582907873
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/113\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/113",
+            "bodyId": 113,
+            "role": "aerial-root",
+            "time": 18.189805969299236,
+            "emissionId": 6260,
+            "mass": 0.002371824879521006,
+            "position": [
+              112.76594819970042,
+              68.48437106106154,
+              49.40383240903959
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/95\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/95",
+            "bodyId": 95,
+            "role": "aerial-root",
+            "time": 18.189912414137694,
+            "emissionId": 6261,
+            "mass": 0.0010070875854973488,
+            "position": [
+              90.58128086722402,
+              71.73428358000668,
+              49.4472784915022
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/43\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/43",
+            "bodyId": 43,
+            "role": "aerial-root",
+            "time": 18.19377979399306,
+            "emissionId": 6262,
+            "mass": 0.001259785163165647,
+            "position": [
+              64.0192017418843,
+              54.1681118409595,
+              40.128635949630066
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/61\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/61",
+            "bodyId": 61,
+            "role": "aerial-root",
+            "time": 18.195313445950347,
+            "emissionId": 6263,
+            "mass": 0.0010713191716319043,
+            "position": [
+              86.24860155287615,
+              61.74667571753321,
+              55.6285298916925
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/105\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/105",
+            "bodyId": 105,
+            "role": "aerial-root",
+            "time": 18.200951590464868,
+            "emissionId": 6264,
+            "mass": 0.0023810536101778745,
+            "position": [
+              126.01646273352738,
+              52.19650260358435,
+              46.49516554654513
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/91\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/91",
+            "bodyId": 91,
+            "role": "aerial-root",
+            "time": 18.21786926263613,
+            "emissionId": 6265,
+            "mass": 0.0019883944174446666,
+            "position": [
+              98.2391780890154,
+              71.86725762351541,
+              -3.749154661965421
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/107\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/107",
+            "bodyId": 107,
+            "role": "aerial-root",
+            "time": 18.22133535654885,
+            "emissionId": 6266,
+            "mass": 0.002194788235300532,
+            "position": [
+              122.17968445811675,
+              53.04930683138825,
+              -3.64036740786922
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/144\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/144",
+            "bodyId": 144,
+            "role": "aerial-root",
+            "time": 18.221616687282406,
+            "emissionId": 6267,
+            "mass": 0.0023816049658115374,
+            "position": [
+              134.18986245268877,
+              51.00598008273146,
+              24.077717560584933
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/81\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/81",
+            "bodyId": 81,
+            "role": "aerial-root",
+            "time": 18.23438845396177,
+            "emissionId": 6268,
+            "mass": 0.002374576600502304,
+            "position": [
+              131.61102070729038,
+              49.88129430133797,
+              9.341301688485668
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/26\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/26",
+            "bodyId": 26,
+            "role": "aerial-root",
+            "time": 18.236014599475496,
+            "emissionId": 6269,
+            "mass": 0.002377305738752708,
+            "position": [
+              124.11558026749557,
+              68.44394790704776,
+              10.689591760059354
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/94\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/94",
+            "bodyId": 94,
+            "role": "aerial-root",
+            "time": 18.241276819567616,
+            "emissionId": 6270,
+            "mass": 0.00238064648116261,
+            "position": [
+              127.31679132363081,
+              53.34394075931553,
+              2.49892101170957
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/96\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/96",
+            "bodyId": 96,
+            "role": "aerial-root",
+            "time": 18.25055718499371,
+            "emissionId": 6271,
+            "mass": 0.002100645900907,
+            "position": [
+              79.49404306962444,
+              58.910239499131805,
+              -7.408980635457854
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/20\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/20",
+            "bodyId": 20,
+            "role": "aerial-root",
+            "time": 18.294373815349722,
+            "emissionId": 6272,
+            "mass": 0.002373976803646996,
+            "position": [
+              73.55272478382639,
+              55.977265407228096,
+              -4.417119102349882
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/127\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/127",
+            "bodyId": 127,
+            "role": "aerial-root",
+            "time": 18.320301132259377,
+            "emissionId": 6273,
+            "mass": 0.0023803869226060592,
+            "position": [
+              66.29655631831416,
+              66.91926832241653,
+              21.49310042037673
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/106\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/106",
+            "bodyId": 106,
+            "role": "aerial-root",
+            "time": 18.324558387819167,
+            "emissionId": 6274,
+            "mass": 0.00236561482752895,
+            "position": [
+              59.06712497402665,
+              46.90184045164974,
+              26.09647037804689
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/51\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/51",
+            "bodyId": 51,
+            "role": "aerial-root",
+            "time": 18.326184533332892,
+            "emissionId": 6275,
+            "mass": 0.0023734518236770558,
+            "position": [
+              59.17795376889369,
+              44.54010455325008,
+              28.025463629098947
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/145\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/145",
+            "bodyId": 145,
+            "role": "aerial-root",
+            "time": 18.345223484636705,
+            "emissionId": 6276,
+            "mass": 0.002366046300706637,
+            "position": [
+              76.93660902191888,
+              71.31131033296259,
+              40.773233302544014
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/82\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/82",
+            "bodyId": 82,
+            "role": "aerial-root",
+            "time": 18.357995251316062,
+            "emissionId": 6277,
+            "mass": 0.002365266916854583,
+            "position": [
+              80.35640517665901,
+              43.12319346561673,
+              57.44667682387
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/144\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/144",
+            "bodyId": 144,
+            "role": "aerial-root",
+            "time": 18.3715717409099,
+            "emissionId": 6278,
+            "mass": 0.0011904456678925729,
+            "position": [
+              134.19069571872285,
+              47.995338397588334,
+              24.077774735965473
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/105\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/105",
+            "bodyId": 105,
+            "role": "aerial-root",
+            "time": 18.374488591408777,
+            "emissionId": 6279,
+            "mass": 0.0013773363419897766,
+            "position": [
+              126.01719780656988,
+              49.03398535525338,
+              46.49563884298846
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/94\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/94",
+            "bodyId": 94,
+            "role": "aerial-root",
+            "time": 18.376643303391944,
+            "emissionId": 6280,
+            "mass": 0.0010741991446124588,
+            "position": [
+              127.31747479346079,
+              50.42732479034715,
+              2.4986181370758045
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/127\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/127",
+            "bodyId": 127,
+            "role": "aerial-root",
+            "time": 18.378017390106294,
+            "emissionId": 6281,
+            "mass": 0.000457956751335184,
+            "position": [
+              66.29629759371973,
+              64.50333033808103,
+              21.493109800978818
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/134\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/134",
+            "bodyId": 134,
+            "role": "aerial-root",
+            "time": 18.38491643274338,
+            "emissionId": 6282,
+            "mass": 0.0015810422205781577,
+            "position": [
+              111.17048319442026,
+              55.82627233762382,
+              55.8614654549393
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/26\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/26",
+            "bodyId": 26,
+            "role": "aerial-root",
+            "time": 18.394351906218986,
+            "emissionId": 6283,
+            "mass": 0.0012547206265998007,
+            "position": [
+              124.11624291387997,
+              65.37961195275784,
+              10.68941607093795
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/81\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/81",
+            "bodyId": 81,
+            "role": "aerial-root",
+            "time": 18.40885549802934,
+            "emissionId": 6284,
+            "mass": 0.0013809512013388536,
+            "position": [
+              131.61183967629034,
+              46.71274265657828,
+              9.341096044864303
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/20\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/20",
+            "bodyId": 20,
+            "role": "aerial-root",
+            "time": 18.412047497305508,
+            "emissionId": 6285,
+            "mass": 0.0009311819712092134,
+            "position": [
+              73.55253261068901,
+              53.17469032546682,
+              -4.417505811462181
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/51\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/51",
+            "bodyId": 51,
+            "role": "aerial-root",
+            "time": 18.414842660032633,
+            "emissionId": 6286,
+            "mass": 0.0007014193083309528,
+            "position": [
+              59.177575952764954,
+              41.924373777125,
+              28.02556546928062
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/113\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/113",
+            "bodyId": 113,
+            "role": "aerial-root",
+            "time": 18.423512894852507,
+            "emissionId": 6287,
+            "mass": 0.0018477063351453604,
+            "position": [
+              112.76649856239364,
+              64.93478518877956,
+              49.40442264979563
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/145\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/145",
+            "bodyId": 145,
+            "role": "aerial-root",
+            "time": 18.4544042127267,
+            "emissionId": 6288,
+            "mass": 0.0008610888593526267,
+            "position": [
+              76.93647644743308,
+              68.56368355431228,
+              40.773523493357516
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/106\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/106",
+            "bodyId": 106,
+            "role": "aerial-root",
+            "time": 18.45671685140715,
+            "emissionId": 6289,
+            "mass": 0.0010421200701572764,
+            "position": [
+              59.06670699547242,
+              44.00578622451606,
+              26.096552725264726
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/82\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/82",
+            "bodyId": 82,
+            "role": "aerial-root",
+            "time": 18.458582220674913,
+            "emissionId": 6290,
+            "mass": 0.0007930501029704967,
+            "position": [
+              80.35632456964025,
+              40.430548222742836,
+              57.447193956416605
+            ]
+          }
+        ],
+        "parameters": {
+          "emissionProfile": "logical-family-continuous-v1",
+          "kernelModel": "past-segment-v2",
+          "dispersionModel": "brownian",
+          "centralFraction": 0.2,
+          "groundChargeFraction": 0.1,
+          "maximumCellSeconds": 0.3,
+          "budgets": {
+            "aerial": 20.35,
+            "fan": 0.9,
+            "bouquet": 2
+          }
+        },
+        "limits": [
+          "Authored reference matter, not measured kg/fuel/smoke yield. No ascent-engine source or render-tail duplication.",
+          "All logical body paths; full-SPD segment moments still approximate. No source cohort merge.",
+          "Requires actual causal sampleBody; no fallback to root or future positions.",
+          "Fixed4096 density merging and optional resolved-field pair cap remain independent downstream limits.",
+          "Predictable input checks precede queueing; unexpected partial acceptance fault-locks and is never rolled back."
+        ]
+      },
+      "endTime": 18.60858222067491
+    },
+    {
+      "hz": 120,
+      "completed": true,
+      "wallMs": 3904.3497000000007,
+      "maxAdvanceMs": 50.262799999999515,
+      "emissionCount": 6291,
+      "emissionHash": "c39c6d9c6965ff1b9d4d043da51959c790bfa2944f70b30a8133761cec3317a5",
+      "snapshotHash": "fd9a8784e226af4b528e04b7c4ccb2bea7b77628875341505ee8f5e92944de50",
+      "diagnostics": {
+        "version": "pyro-smoke-tick-state-v1",
+        "stateModel": "tick-graph-v1",
+        "time": 18.6,
+        "requestedTime": 18.60858222067491,
+        "revision": 15148,
+        "packetCount": 4096,
+        "capacity": 4096,
+        "peakPacketCount": 4096,
+        "stagingPeakPacketCount": 4137,
+        "maxStagingPackets": 12288,
+        "pendingEmissions": 0,
+        "pendingWindEvents": 0,
+        "pendingSameClockEmissions": 0,
+        "profileCount": 1,
+        "acceptedSources": 6291,
+        "lastEmissionId": 6290,
+        "totalTickSteps": 372,
+        "lastAdvanceSteps": 0,
+        "lastAdvanceFences": 0,
+        "lastAdvanceFailure": null,
+        "fixedStep": 0.05,
+        "maxStepsPerAdvance": 200,
+        "ledger": {
+          "emitted": 20.35000000000004,
+          "airborne": 20.35000000000004,
+          "pendingMass": 0,
+          "residual": 0,
+          "deposited": 0,
+          "escaped": 0,
+          "explicitlyCleared": 0
+        },
+        "merges": 2195,
+        "forcedMerges": 1842,
+        "preferredSameSourceMerges": 53,
+        "preferredSameProfileMerges": 300,
+        "maximumMergeDistanceMetres": 6.787548088989026,
+        "maximumMergeNormalizedDistance": 2.1542677992020822,
+        "maximumSampledMergePeakRelativeError": 0.3266208534570073,
+        "maximumSampledMergeColumnRelativeError": 0.263983095611234,
+        "maximumSampledMergeOpticalDepthError": 0.0017795404799216402,
+        "diagnosticCacheHits": 31410,
+        "diagnosticCacheMisses": 3710,
+        "recentMerges": [
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.082220306822154,
+            "normalizedDistance": 1.7240270739532377,
+            "differentialThermalTravelBoundMetres": 0.16576202843751384,
+            "normalizedThermalTravelBound": 0.07001211222958792,
+            "sampledPeakAbsoluteError": 0.000004144859676566736,
+            "sampledPeakRelativeError": 0.29208865793916217,
+            "maximumSampledNewDensity": 0.000016605990835370712,
+            "sampledColumnAbsoluteError": 0.00002729721178183662,
+            "sampledColumnRelativeError": 0.24827862494604214,
+            "maximumPerRaySymmetricRelativeError": 0.28557512498032733,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00002729721178183662,
+              0.00002729721178183662,
+              0.00002729721178183662
+            ],
+            "sampledMaximumOpticalDepthError": 0.00002729721178183662,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.087219332753058,
+            "normalizedDistance": 1.724519347097009,
+            "differentialThermalTravelBoundMetres": 0.16569103270965102,
+            "normalizedThermalTravelBound": 0.06991772625794122,
+            "sampledPeakAbsoluteError": 0.0000047602627829396194,
+            "sampledPeakRelativeError": 0.29227803550452797,
+            "maximumSampledNewDensity": 0.000019056797010118837,
+            "sampledColumnAbsoluteError": 0.00003137048069354464,
+            "sampledColumnRelativeError": 0.24836476451643238,
+            "maximumPerRaySymmetricRelativeError": 0.285826422842995,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003137048069354464,
+              0.00003137048069354464,
+              0.00003137048069354464
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003137048069354464,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.084775375140584,
+            "normalizedDistance": 1.7248507425248245,
+            "differentialThermalTravelBoundMetres": 0.16579637588214755,
+            "normalizedThermalTravelBound": 0.07001636296241275,
+            "sampledPeakAbsoluteError": 0.000004819156988874365,
+            "sampledPeakRelativeError": 0.2924017582529166,
+            "maximumSampledNewDensity": 0.000019282859984287903,
+            "sampledColumnAbsoluteError": 0.00003172787884047658,
+            "sampledColumnRelativeError": 0.24840939360912273,
+            "maximumPerRaySymmetricRelativeError": 0.28599123915017155,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003172787884047658,
+              0.00003172787884047658,
+              0.00003172787884047658
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003172787884047658,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.096724649745302,
+            "normalizedDistance": 1.7251776017682485,
+            "differentialThermalTravelBoundMetres": 0.1655202200238025,
+            "normalizedThermalTravelBound": 0.06971184669876773,
+            "sampledPeakAbsoluteError": 0.000004377885528141341,
+            "sampledPeakRelativeError": 0.2925330759328387,
+            "maximumSampledNewDensity": 0.000017507765675929506,
+            "sampledColumnAbsoluteError": 0.000028895438032641314,
+            "sampledColumnRelativeError": 0.2484822868963444,
+            "maximumPerRaySymmetricRelativeError": 0.28616192465151946,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000028895438032641314,
+              0.000028895438032641314,
+              0.000028895438032641314
+            ],
+            "sampledMaximumOpticalDepthError": 0.000028895438032641314,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.088426268845504,
+            "normalizedDistance": 1.7254276725609445,
+            "differentialThermalTravelBoundMetres": 0.16577152347883953,
+            "normalizedThermalTravelBound": 0.06996745256322648,
+            "sampledPeakAbsoluteError": 0.000004633479882962555,
+            "sampledPeakRelativeError": 0.292622233434405,
+            "maximumSampledNewDensity": 0.00001852324511155112,
+            "sampledColumnAbsoluteError": 0.00003051233432439531,
+            "sampledColumnRelativeError": 0.24850509346469818,
+            "maximumPerRaySymmetricRelativeError": 0.28628448459223255,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003051233432439531,
+              0.00003051233432439531,
+              0.00003051233432439531
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003051233432439531,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.120279761916698,
+            "normalizedDistance": 1.425365464150821,
+            "differentialThermalTravelBoundMetres": 0.13248755767138504,
+            "normalizedThermalTravelBound": 0.0890652412126454,
+            "sampledPeakAbsoluteError": 0.0000018034761295282291,
+            "sampledPeakRelativeError": 0.025488047158347616,
+            "maximumSampledNewDensity": 0.00007129490678330475,
+            "sampledColumnAbsoluteError": 0.000005369931912486994,
+            "sampledColumnRelativeError": 0.021833456676360684,
+            "maximumPerRaySymmetricRelativeError": 0.06754590546578133,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000005369931912486994,
+              0.000005369931912486994,
+              0.000005369931912486994
+            ],
+            "sampledMaximumOpticalDepthError": 0.000005369931912486994,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.077535573693455,
+            "normalizedDistance": 1.7220048538424924,
+            "differentialThermalTravelBoundMetres": 0.16563025215655205,
+            "normalizedThermalTravelBound": 0.06995093564505828,
+            "sampledPeakAbsoluteError": 0.0000043901129078257115,
+            "sampledPeakRelativeError": 0.2913210264102767,
+            "maximumSampledNewDensity": 0.000017643793112102286,
+            "sampledColumnAbsoluteError": 0.000028947510727406404,
+            "sampledColumnRelativeError": 0.2479468149743264,
+            "maximumPerRaySymmetricRelativeError": 0.2845548841556111,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000028947510727406404,
+              0.000028947510727406404,
+              0.000028947510727406404
+            ],
+            "sampledMaximumOpticalDepthError": 0.000028947510727406404,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 3.483490866123608,
+            "normalizedDistance": 0.7534120466045582,
+            "differentialThermalTravelBoundMetres": 0.36438999900545854,
+            "normalizedThermalTravelBound": 0.11556779984566518,
+            "sampledPeakAbsoluteError": 6.796743687852519e-7,
+            "sampledPeakRelativeError": 0.03232301942198106,
+            "maximumSampledNewDensity": 0.000021330545475883108,
+            "sampledColumnAbsoluteError": 0.000003194092475877972,
+            "sampledColumnRelativeError": 0.01586602780383529,
+            "maximumPerRaySymmetricRelativeError": 0.027150861421231548,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000003194092475877972,
+              0.000003194092475877972,
+              0.000003194092475877972
+            ],
+            "sampledMaximumOpticalDepthError": 0.000003194092475877972,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.137595058908782,
+            "normalizedDistance": 1.7230009482277253,
+            "differentialThermalTravelBoundMetres": 0.17418951034284433,
+            "normalizedThermalTravelBound": 0.07231309105542383,
+            "sampledPeakAbsoluteError": 0.000010627280368304716,
+            "sampledPeakRelativeError": 0.2899799865092591,
+            "maximumSampledNewDensity": 0.000042672209849253155,
+            "sampledColumnAbsoluteError": 0.00006502309726340202,
+            "sampledColumnRelativeError": 0.22692822771046192,
+            "maximumPerRaySymmetricRelativeError": 0.28501043196280873,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00006502309726340202,
+              0.00006502309726340202,
+              0.00006502309726340202
+            ],
+            "sampledMaximumOpticalDepthError": 0.00006502309726340202,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 5.858806214160125,
+            "normalizedDistance": 1.7134752267470024,
+            "differentialThermalTravelBoundMetres": 0.24796220334540722,
+            "normalizedThermalTravelBound": 0.07785325335867942,
+            "sampledPeakAbsoluteError": 0.0000042322712656149065,
+            "sampledPeakRelativeError": 0.28827654663623903,
+            "maximumSampledNewDensity": 0.000016551693908980113,
+            "sampledColumnAbsoluteError": 0.00003667576302166408,
+            "sampledColumnRelativeError": 0.22574248946152817,
+            "maximumPerRaySymmetricRelativeError": 0.2949670316072016,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003667576302166408,
+              0.00003667576302166408,
+              0.00003667576302166408
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003667576302166408,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 5.734482957681407,
+            "normalizedDistance": 1.5419559478775369,
+            "differentialThermalTravelBoundMetres": 0.14909432979262455,
+            "normalizedThermalTravelBound": 0.04752487535177258,
+            "sampledPeakAbsoluteError": 0.0000021915503886555175,
+            "sampledPeakRelativeError": 0.1906343682619728,
+            "maximumSampledNewDensity": 0.000013017849323699617,
+            "sampledColumnAbsoluteError": 0.00001870049404359822,
+            "sampledColumnRelativeError": 0.150444964509504,
+            "maximumPerRaySymmetricRelativeError": 0.18602478459429378,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00001870049404359822,
+              0.00001870049404359822,
+              0.00001870049404359822
+            ],
+            "sampledMaximumOpticalDepthError": 0.00001870049404359822,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.106832316743558,
+            "normalizedDistance": 1.2069982457635235,
+            "differentialThermalTravelBoundMetres": 0.0021849123169921047,
+            "normalizedThermalTravelBound": 0.0009573208896150044,
+            "sampledPeakAbsoluteError": 0.000003560937463638801,
+            "sampledPeakRelativeError": 0.09310606630320997,
+            "maximumSampledNewDensity": 0.000040823066357088714,
+            "sampledColumnAbsoluteError": 0.000015422207132218972,
+            "sampledColumnRelativeError": 0.04853631737401818,
+            "maximumPerRaySymmetricRelativeError": 0.06514673674783636,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000015422207132218972,
+              0.000015422207132218972,
+              0.000015422207132218972
+            ],
+            "sampledMaximumOpticalDepthError": 0.000015422207132218972,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.4139567548833614,
+            "normalizedDistance": 1.5276916266892206,
+            "differentialThermalTravelBoundMetres": 0.13450914687475196,
+            "normalizedThermalTravelBound": 0.08512518300524771,
+            "sampledPeakAbsoluteError": 0.000006570000129268656,
+            "sampledPeakRelativeError": 0.12502581602156962,
+            "maximumSampledNewDensity": 0.000055064083447362843,
+            "sampledColumnAbsoluteError": 0.000023049061158451434,
+            "sampledColumnRelativeError": 0.10643777590490874,
+            "maximumPerRaySymmetricRelativeError": 0.229619692885455,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000023049061158451434,
+              0.000023049061158451434,
+              0.000023049061158451434
+            ],
+            "sampledMaximumOpticalDepthError": 0.000023049061158451434,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.587715028679019,
+            "normalizedDistance": 1.574413803613625,
+            "differentialThermalTravelBoundMetres": 0.13481740516871485,
+            "normalizedThermalTravelBound": 0.08202543491874248,
+            "sampledPeakAbsoluteError": 0.000007101926005715346,
+            "sampledPeakRelativeError": 0.1559479101114562,
+            "maximumSampledNewDensity": 0.000048740919188883805,
+            "sampledColumnAbsoluteError": 0.000026991986163067195,
+            "sampledColumnRelativeError": 0.1313477292415875,
+            "maximumPerRaySymmetricRelativeError": 0.2492358570955937,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000026991986163067195,
+              0.000026991986163067195,
+              0.000026991986163067195
+            ],
+            "sampledMaximumOpticalDepthError": 0.000026991986163067195,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.0729074293273766,
+            "normalizedDistance": 1.39935606529123,
+            "differentialThermalTravelBoundMetres": 0.13062221384626896,
+            "normalizedThermalTravelBound": 0.08817904414874957,
+            "sampledPeakAbsoluteError": 1.7080788691099848e-7,
+            "sampledPeakRelativeError": 0.0023746726679991855,
+            "maximumSampledNewDensity": 0.00007197981805119533,
+            "sampledColumnAbsoluteError": 5.016567013987731e-7,
+            "sampledColumnRelativeError": 0.002061767656029959,
+            "maximumPerRaySymmetricRelativeError": 0.006825445321745759,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              5.016567013987731e-7,
+              5.016567013987731e-7,
+              5.016567013987731e-7
+            ],
+            "sampledMaximumOpticalDepthError": 5.016567013987731e-7,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.0758575425748904,
+            "normalizedDistance": 1.4018363631772586,
+            "differentialThermalTravelBoundMetres": 0.1309042786367236,
+            "normalizedThermalTravelBound": 0.08840027822435528,
+            "sampledPeakAbsoluteError": 2.857365762723823e-7,
+            "sampledPeakRelativeError": 0.003965329509744143,
+            "maximumSampledNewDensity": 0.00007214339984895026,
+            "sampledColumnAbsoluteError": 8.382920027901332e-7,
+            "sampledColumnRelativeError": 0.0034341469377474655,
+            "maximumPerRaySymmetricRelativeError": 0.011337258904611234,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              8.382920027901332e-7,
+              8.382920027901332e-7,
+              8.382920027901332e-7
+            ],
+            "sampledMaximumOpticalDepthError": 8.382920027901332e-7,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.2636180918477,
+            "normalizedDistance": 1.473439624456782,
+            "differentialThermalTravelBoundMetres": 0.13260171286880118,
+            "normalizedThermalTravelBound": 0.08631342670414045,
+            "sampledPeakAbsoluteError": 0.000004752721390288611,
+            "sampledPeakRelativeError": 0.08054715615058466,
+            "maximumSampledNewDensity": 0.000060634068734203864,
+            "sampledColumnAbsoluteError": 0.00001559904415025192,
+            "sampledColumnRelativeError": 0.06965709491410037,
+            "maximumPerRaySymmetricRelativeError": 0.17366649099819925,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00001559904415025192,
+              0.00001559904415025192,
+              0.00001559904415025192
+            ],
+            "sampledMaximumOpticalDepthError": 0.00001559904415025192,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.420921223625317,
+            "normalizedDistance": 1.5234412204062302,
+            "differentialThermalTravelBoundMetres": 0.13330740038740463,
+            "normalizedThermalTravelBound": 0.08388790774478815,
+            "sampledPeakAbsoluteError": 0.000006296051895337581,
+            "sampledPeakRelativeError": 0.12343399818725195,
+            "maximumSampledNewDensity": 0.00005349022931334273,
+            "sampledColumnAbsoluteError": 0.000022412595095693455,
+            "sampledColumnRelativeError": 0.10603574369718298,
+            "maximumPerRaySymmetricRelativeError": 0.22564255584850165,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000022412595095693455,
+              0.000022412595095693455,
+              0.000022412595095693455
+            ],
+            "sampledMaximumOpticalDepthError": 0.000022412595095693455,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.107265022978238,
+            "normalizedDistance": 1.7113494945458563,
+            "differentialThermalTravelBoundMetres": 0.1634377996738139,
+            "normalizedThermalTravelBound": 0.06810808007036394,
+            "sampledPeakAbsoluteError": 0.000004344317773627793,
+            "sampledPeakRelativeError": 0.2872970354801768,
+            "maximumSampledNewDensity": 0.000017749625227155295,
+            "sampledColumnAbsoluteError": 0.0000292054744416084,
+            "sampledColumnRelativeError": 0.24574029906221498,
+            "maximumPerRaySymmetricRelativeError": 0.2792305659883176,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.0000292054744416084,
+              0.0000292054744416084,
+              0.0000292054744416084
+            ],
+            "sampledMaximumOpticalDepthError": 0.0000292054744416084,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.080804175945247,
+            "normalizedDistance": 1.7108233874394587,
+            "differentialThermalTravelBoundMetres": 0.164112876727962,
+            "normalizedThermalTravelBound": 0.06880624090497789,
+            "sampledPeakAbsoluteError": 0.0000045474755831096155,
+            "sampledPeakRelativeError": 0.28708353170108947,
+            "maximumSampledNewDensity": 0.00001859635716671921,
+            "sampledColumnAbsoluteError": 0.000030394336229522327,
+            "sampledColumnRelativeError": 0.24617405637721235,
+            "maximumPerRaySymmetricRelativeError": 0.278961276966612,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000030394336229522327,
+              0.000030394336229522327,
+              0.000030394336229522327
+            ],
+            "sampledMaximumOpticalDepthError": 0.000030394336229522327,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.074629898839112,
+            "normalizedDistance": 1.7110469431637232,
+            "differentialThermalTravelBoundMetres": 0.16431249202532724,
+            "normalizedThermalTravelBound": 0.06900092020003878,
+            "sampledPeakAbsoluteError": 0.0000045009911558694225,
+            "sampledPeakRelativeError": 0.2871652049291346,
+            "maximumSampledNewDensity": 0.000018400162473661014,
+            "sampledColumnAbsoluteError": 0.000030031328455387967,
+            "sampledColumnRelativeError": 0.2461967221443052,
+            "maximumPerRaySymmetricRelativeError": 0.27907067302862754,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000030031328455387967,
+              0.000030031328455387967,
+              0.000030031328455387967
+            ],
+            "sampledMaximumOpticalDepthError": 0.000030031328455387967,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.089255092844153,
+            "normalizedDistance": 1.7116051465921842,
+            "differentialThermalTravelBoundMetres": 0.16397951549899897,
+            "normalizedThermalTravelBound": 0.06864191267688585,
+            "sampledPeakAbsoluteError": 0.000004149842701390088,
+            "sampledPeakRelativeError": 0.28738496639204164,
+            "maximumSampledNewDensity": 0.0000169491612106434,
+            "sampledColumnAbsoluteError": 0.000027768610724910486,
+            "sampledColumnRelativeError": 0.24631601689425245,
+            "maximumPerRaySymmetricRelativeError": 0.2793524454916435,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000027768610724910486,
+              0.000027768610724910486,
+              0.000027768610724910486
+            ],
+            "sampledMaximumOpticalDepthError": 0.000027768610724910486,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.099992241583529,
+            "normalizedDistance": 1.712366237423522,
+            "differentialThermalTravelBoundMetres": 0.16377905427808212,
+            "normalizedThermalTravelBound": 0.06841147675587139,
+            "sampledPeakAbsoluteError": 0.000004378046287462315,
+            "sampledPeakRelativeError": 0.28767964991007045,
+            "maximumSampledNewDensity": 0.000017859430060816585,
+            "sampledColumnAbsoluteError": 0.000029346426973534897,
+            "sampledColumnRelativeError": 0.2460294811811081,
+            "maximumPerRaySymmetricRelativeError": 0.279739891051525,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000029346426973534897,
+              0.000029346426973534897,
+              0.000029346426973534897
+            ],
+            "sampledMaximumOpticalDepthError": 0.000029346426973534897,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 3.874971634519314,
+            "normalizedDistance": 1.0018490454484483,
+            "differentialThermalTravelBoundMetres": 0.4764722287386435,
+            "normalizedThermalTravelBound": 0.12587735090769292,
+            "sampledPeakAbsoluteError": 0.000001338737172919861,
+            "sampledPeakRelativeError": 0.05413031434476856,
+            "maximumSampledNewDensity": 0.000025759079304065276,
+            "sampledColumnAbsoluteError": 0.0000080881334357628,
+            "sampledColumnRelativeError": 0.03736861858918443,
+            "maximumPerRaySymmetricRelativeError": 0.05397401644621487,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.0000080881334357628,
+              0.0000080881334357628,
+              0.0000080881334357628
+            ],
+            "sampledMaximumOpticalDepthError": 0.0000080881334357628,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.081034001951477,
+            "normalizedDistance": 1.7117111715152864,
+            "differentialThermalTravelBoundMetres": 0.16422060235622588,
+            "normalizedThermalTravelBound": 0.06888227470272583,
+            "sampledPeakAbsoluteError": 0.00000416493200683503,
+            "sampledPeakRelativeError": 0.2874209796507449,
+            "maximumSampledNewDensity": 0.00001700837466149027,
+            "sampledColumnAbsoluteError": 0.000027811336094062095,
+            "sampledColumnRelativeError": 0.24631541796985948,
+            "maximumPerRaySymmetricRelativeError": 0.27940441905770913,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000027811336094062095,
+              0.000027811336094062095,
+              0.000027811336094062095
+            ],
+            "sampledMaximumOpticalDepthError": 0.000027811336094062095,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.081415903699962,
+            "normalizedDistance": 1.3960786990282692,
+            "differentialThermalTravelBoundMetres": 0.12936279101306475,
+            "normalizedThermalTravelBound": 0.08676817546073405,
+            "sampledPeakAbsoluteError": 3.9911341809630626e-7,
+            "sampledPeakRelativeError": 0.005816778334937793,
+            "maximumSampledNewDensity": 0.00006873728938565256,
+            "sampledColumnAbsoluteError": 0.0000011983734473594327,
+            "sampledColumnRelativeError": 0.005122608481230843,
+            "maximumPerRaySymmetricRelativeError": 0.01642348364279545,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.0000011983734473594327,
+              0.0000011983734473594327,
+              0.0000011983734473594327
+            ],
+            "sampledMaximumOpticalDepthError": 0.0000011983734473594327,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.2125251236045105,
+            "normalizedDistance": 1.4533232625329744,
+            "differentialThermalTravelBoundMetres": 0.1318509414481937,
+            "normalizedThermalTravelBound": 0.08660786247087716,
+            "sampledPeakAbsoluteError": 0.0000037915548927630434,
+            "sampledPeakRelativeError": 0.062045200394803726,
+            "maximumSampledNewDensity": 0.00006236549927501845,
+            "sampledColumnAbsoluteError": 0.000012144570388486657,
+            "sampledColumnRelativeError": 0.053916387048557224,
+            "maximumPerRaySymmetricRelativeError": 0.1428100647885306,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000012144570388486657,
+              0.000012144570388486657,
+              0.000012144570388486657
+            ],
+            "sampledMaximumOpticalDepthError": 0.000012144570388486657,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.075398826161423,
+            "normalizedDistance": 1.6687467451995353,
+            "differentialThermalTravelBoundMetres": 0.16022251492519485,
+            "normalizedThermalTravelBound": 0.06540474591807553,
+            "sampledPeakAbsoluteError": 0.000009046006499185485,
+            "sampledPeakRelativeError": 0.27205277600722944,
+            "maximumSampledNewDensity": 0.000039545325856414444,
+            "sampledColumnAbsoluteError": 0.00007629977565279378,
+            "sampledColumnRelativeError": 0.2595444026329143,
+            "maximumPerRaySymmetricRelativeError": 0.2585554691564578,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00007629977565279378,
+              0.00007629977565279378,
+              0.00007629977565279378
+            ],
+            "sampledMaximumOpticalDepthError": 0.00007629977565279378,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 6.516966022429379,
+            "normalizedDistance": 1.4320998989660227,
+            "differentialThermalTravelBoundMetres": 0.08111037221367079,
+            "normalizedThermalTravelBound": 0.030411370422398165,
+            "sampledPeakAbsoluteError": 0.0000027733729036373805,
+            "sampledPeakRelativeError": 0.10367519622436777,
+            "maximumSampledNewDensity": 0.00002519971770161826,
+            "sampledColumnAbsoluteError": 0.00002631575466438603,
+            "sampledColumnRelativeError": 0.0916566402156517,
+            "maximumPerRaySymmetricRelativeError": 0.1592011363888406,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00002631575466438603,
+              0.00002631575466438603,
+              0.00002631575466438603
+            ],
+            "sampledMaximumOpticalDepthError": 0.00002631575466438603,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 5.881830215651018,
+            "normalizedDistance": 1.1306861906194938,
+            "differentialThermalTravelBoundMetres": 0.5073016519378323,
+            "normalizedThermalTravelBound": 0.16128900043790104,
+            "sampledPeakAbsoluteError": 0.0000020192817513937804,
+            "sampledPeakRelativeError": 0.07260314629385224,
+            "maximumSampledNewDensity": 0.000029012978927868088,
+            "sampledColumnAbsoluteError": 0.000014384788361065058,
+            "sampledColumnRelativeError": 0.04291604974820757,
+            "maximumPerRaySymmetricRelativeError": 0.09749953553754001,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000014384788361065058,
+              0.000014384788361065058,
+              0.000014384788361065058
+            ],
+            "sampledMaximumOpticalDepthError": 0.000014384788361065058,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.922733699948903,
+            "normalizedDistance": 1.3558850257911037,
+            "differentialThermalTravelBoundMetres": 0.08064970437702526,
+            "normalizedThermalTravelBound": 0.02302205139396138,
+            "sampledPeakAbsoluteError": 0.0000034410270035981234,
+            "sampledPeakRelativeError": 0.1095765359972005,
+            "maximumSampledNewDensity": 0.000030392836525916282,
+            "sampledColumnAbsoluteError": 0.000045120664944210535,
+            "sampledColumnRelativeError": 0.12677513449017547,
+            "maximumPerRaySymmetricRelativeError": 0.21287668564973752,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000045120664944210535,
+              0.000045120664944210535,
+              0.000045120664944210535
+            ],
+            "sampledMaximumOpticalDepthError": 0.000045120664944210535,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 6.787548088989026,
+            "normalizedDistance": 1.10617548434801,
+            "differentialThermalTravelBoundMetres": 0.23726221512871812,
+            "normalizedThermalTravelBound": 0.07809600471293854,
+            "sampledPeakAbsoluteError": 0.000004688769180656454,
+            "sampledPeakRelativeError": 0.17474042897418413,
+            "maximumSampledNewDensity": 0.000029593506190095383,
+            "sampledColumnAbsoluteError": 0.00004195103581685887,
+            "sampledColumnRelativeError": 0.11144419576857667,
+            "maximumPerRaySymmetricRelativeError": 0.19824364978654815,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00004195103581685887,
+              0.00004195103581685887,
+              0.00004195103581685887
+            ],
+            "sampledMaximumOpticalDepthError": 0.00004195103581685887,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          }
+        ],
+        "units": "relative dry mass; metres; physical seconds; authored m2/reference-mass optical profiles. NOT calibrated kg/PM.",
+        "limits": [
+          "Explicit tick-graph-v1; same-clock inputs remain pending until an advance fence.",
+          "Fences and causal input availability are part of deterministic replay; arbitrary fence partitions are not equivalent.",
+          "Public density is committed only; capacity+maxPending bounds private staging.",
+          "Source transport/thermal model and sampled merge quality remain approximations; no CFD, deposition or global optical compression bound.",
+          "Graph and diagnostic caches live for one common-time commit only."
+        ]
+      },
+      "sourceDiagnostics": {
+        "version": "pyro-smoke-logical-events-v1",
+        "sourceModel": "trajectory-v1",
+        "coverage": "all-logical",
+        "emissionProfile": "logical-family-continuous-v1",
+        "revision": 2235,
+        "epoch": 0,
+        "closedThrough": 18.60858222067491,
+        "nextEmissionId": 6291,
+        "nextSerial": 1,
+        "allocatedArea": 20.35,
+        "materializedArea": 20.34999999999995,
+        "reservedArea": 0,
+        "cancelledReservedArea": 0,
+        "accountingResidual": 4.973799150320701e-14,
+        "registeredEvents": 1,
+        "emissionsLifetime": 6291,
+        "pendingEvents": 0,
+        "pendingStreams": 0,
+        "remainingCells": 0,
+        "futureCellArrays": 0,
+        "positionArchives": 0,
+        "duplicates": 0,
+        "staleEvents": 0,
+        "clears": 0,
+        "rememberedEventKeys": 0,
+        "tombstones": 0,
+        "fault": null,
+        "releaseErrors": 0,
+        "lastReleaseError": null,
+        "queueCapacity": 8192,
+        "maxPendingEvents": 128,
+        "maxPendingStreams": 2048,
+        "maxRememberedEvents": 2048,
+        "activeCoverage": [],
+        "completedCoverage": [
+          {
+            "eventId": "42-0.00000",
+            "type": "willow",
+            "bodyCount": 160,
+            "materializedBodies": 160,
+            "allocated": 20.35,
+            "materialized": 20.35000000000004
+          }
+        ],
+        "recentSources": [
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/69\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/69",
+            "bodyId": 69,
+            "role": "aerial-root",
+            "time": 18.186895933660168,
+            "emissionId": 6259,
+            "mass": 0.0010940255560967227,
+            "position": [
+              73.53068251367529,
+              49.00296658860558,
+              52.99092582907873
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/113\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/113",
+            "bodyId": 113,
+            "role": "aerial-root",
+            "time": 18.189805969299236,
+            "emissionId": 6260,
+            "mass": 0.002371824879521006,
+            "position": [
+              112.76594819970042,
+              68.48437106106154,
+              49.40383240903959
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/95\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/95",
+            "bodyId": 95,
+            "role": "aerial-root",
+            "time": 18.189912414137694,
+            "emissionId": 6261,
+            "mass": 0.0010070875854973488,
+            "position": [
+              90.58128086722402,
+              71.73428358000668,
+              49.4472784915022
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/43\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/43",
+            "bodyId": 43,
+            "role": "aerial-root",
+            "time": 18.19377979399306,
+            "emissionId": 6262,
+            "mass": 0.001259785163165647,
+            "position": [
+              64.0192017418843,
+              54.1681118409595,
+              40.128635949630066
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/61\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/61",
+            "bodyId": 61,
+            "role": "aerial-root",
+            "time": 18.195313445950347,
+            "emissionId": 6263,
+            "mass": 0.0010713191716319043,
+            "position": [
+              86.24860155287615,
+              61.74667571753321,
+              55.6285298916925
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/105\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/105",
+            "bodyId": 105,
+            "role": "aerial-root",
+            "time": 18.200951590464868,
+            "emissionId": 6264,
+            "mass": 0.0023810536101778745,
+            "position": [
+              126.01646273352738,
+              52.19650260358435,
+              46.49516554654513
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/91\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/91",
+            "bodyId": 91,
+            "role": "aerial-root",
+            "time": 18.21786926263613,
+            "emissionId": 6265,
+            "mass": 0.0019883944174446666,
+            "position": [
+              98.2391780890154,
+              71.86725762351541,
+              -3.749154661965421
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/107\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/107",
+            "bodyId": 107,
+            "role": "aerial-root",
+            "time": 18.22133535654885,
+            "emissionId": 6266,
+            "mass": 0.002194788235300532,
+            "position": [
+              122.17968445811675,
+              53.04930683138825,
+              -3.64036740786922
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/144\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/144",
+            "bodyId": 144,
+            "role": "aerial-root",
+            "time": 18.221616687282406,
+            "emissionId": 6267,
+            "mass": 0.0023816049658115374,
+            "position": [
+              134.18986245268877,
+              51.00598008273146,
+              24.077717560584933
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/81\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/81",
+            "bodyId": 81,
+            "role": "aerial-root",
+            "time": 18.23438845396177,
+            "emissionId": 6268,
+            "mass": 0.002374576600502304,
+            "position": [
+              131.61102070729038,
+              49.88129430133797,
+              9.341301688485668
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/26\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/26",
+            "bodyId": 26,
+            "role": "aerial-root",
+            "time": 18.236014599475496,
+            "emissionId": 6269,
+            "mass": 0.002377305738752708,
+            "position": [
+              124.11558026749557,
+              68.44394790704776,
+              10.689591760059354
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/94\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/94",
+            "bodyId": 94,
+            "role": "aerial-root",
+            "time": 18.241276819567616,
+            "emissionId": 6270,
+            "mass": 0.00238064648116261,
+            "position": [
+              127.31679132363081,
+              53.34394075931553,
+              2.49892101170957
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/96\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/96",
+            "bodyId": 96,
+            "role": "aerial-root",
+            "time": 18.25055718499371,
+            "emissionId": 6271,
+            "mass": 0.002100645900907,
+            "position": [
+              79.49404306962444,
+              58.910239499131805,
+              -7.408980635457854
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/20\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/20",
+            "bodyId": 20,
+            "role": "aerial-root",
+            "time": 18.294373815349722,
+            "emissionId": 6272,
+            "mass": 0.002373976803646996,
+            "position": [
+              73.55272478382639,
+              55.977265407228096,
+              -4.417119102349882
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/127\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/127",
+            "bodyId": 127,
+            "role": "aerial-root",
+            "time": 18.320301132259377,
+            "emissionId": 6273,
+            "mass": 0.0023803869226060592,
+            "position": [
+              66.29655631831416,
+              66.91926832241653,
+              21.49310042037673
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/106\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/106",
+            "bodyId": 106,
+            "role": "aerial-root",
+            "time": 18.324558387819167,
+            "emissionId": 6274,
+            "mass": 0.00236561482752895,
+            "position": [
+              59.06712497402665,
+              46.90184045164974,
+              26.09647037804689
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/51\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/51",
+            "bodyId": 51,
+            "role": "aerial-root",
+            "time": 18.326184533332892,
+            "emissionId": 6275,
+            "mass": 0.0023734518236770558,
+            "position": [
+              59.17795376889369,
+              44.54010455325008,
+              28.025463629098947
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/145\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/145",
+            "bodyId": 145,
+            "role": "aerial-root",
+            "time": 18.345223484636705,
+            "emissionId": 6276,
+            "mass": 0.002366046300706637,
+            "position": [
+              76.93660902191888,
+              71.31131033296259,
+              40.773233302544014
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/82\",41]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/82",
+            "bodyId": 82,
+            "role": "aerial-root",
+            "time": 18.357995251316062,
+            "emissionId": 6277,
+            "mass": 0.002365266916854583,
+            "position": [
+              80.35640517665901,
+              43.12319346561673,
+              57.44667682387
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/144\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/144",
+            "bodyId": 144,
+            "role": "aerial-root",
+            "time": 18.3715717409099,
+            "emissionId": 6278,
+            "mass": 0.0011904456678925729,
+            "position": [
+              134.19069571872285,
+              47.995338397588334,
+              24.077774735965473
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/105\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/105",
+            "bodyId": 105,
+            "role": "aerial-root",
+            "time": 18.374488591408777,
+            "emissionId": 6279,
+            "mass": 0.0013773363419897766,
+            "position": [
+              126.01719780656988,
+              49.03398535525338,
+              46.49563884298846
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/94\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/94",
+            "bodyId": 94,
+            "role": "aerial-root",
+            "time": 18.376643303391944,
+            "emissionId": 6280,
+            "mass": 0.0010741991446124588,
+            "position": [
+              127.31747479346079,
+              50.42732479034715,
+              2.4986181370758045
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/127\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/127",
+            "bodyId": 127,
+            "role": "aerial-root",
+            "time": 18.378017390106294,
+            "emissionId": 6281,
+            "mass": 0.000457956751335184,
+            "position": [
+              66.29629759371973,
+              64.50333033808103,
+              21.493109800978818
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/134\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/134",
+            "bodyId": 134,
+            "role": "aerial-root",
+            "time": 18.38491643274338,
+            "emissionId": 6282,
+            "mass": 0.0015810422205781577,
+            "position": [
+              111.17048319442026,
+              55.82627233762382,
+              55.8614654549393
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/26\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/26",
+            "bodyId": 26,
+            "role": "aerial-root",
+            "time": 18.394351906218986,
+            "emissionId": 6283,
+            "mass": 0.0012547206265998007,
+            "position": [
+              124.11624291387997,
+              65.37961195275784,
+              10.68941607093795
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/81\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/81",
+            "bodyId": 81,
+            "role": "aerial-root",
+            "time": 18.40885549802934,
+            "emissionId": 6284,
+            "mass": 0.0013809512013388536,
+            "position": [
+              131.61183967629034,
+              46.71274265657828,
+              9.341096044864303
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/20\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/20",
+            "bodyId": 20,
+            "role": "aerial-root",
+            "time": 18.412047497305508,
+            "emissionId": 6285,
+            "mass": 0.0009311819712092134,
+            "position": [
+              73.55253261068901,
+              53.17469032546682,
+              -4.417505811462181
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/51\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/51",
+            "bodyId": 51,
+            "role": "aerial-root",
+            "time": 18.414842660032633,
+            "emissionId": 6286,
+            "mass": 0.0007014193083309528,
+            "position": [
+              59.177575952764954,
+              41.924373777125,
+              28.02556546928062
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/113\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/113",
+            "bodyId": 113,
+            "role": "aerial-root",
+            "time": 18.423512894852507,
+            "emissionId": 6287,
+            "mass": 0.0018477063351453604,
+            "position": [
+              112.76649856239364,
+              64.93478518877956,
+              49.40442264979563
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/145\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/145",
+            "bodyId": 145,
+            "role": "aerial-root",
+            "time": 18.4544042127267,
+            "emissionId": 6288,
+            "mass": 0.0008610888593526267,
+            "position": [
+              76.93647644743308,
+              68.56368355431228,
+              40.773523493357516
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/106\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/106",
+            "bodyId": 106,
+            "role": "aerial-root",
+            "time": 18.45671685140715,
+            "emissionId": 6289,
+            "mass": 0.0010421200701572764,
+            "position": [
+              59.06670699547242,
+              44.00578622451606,
+              26.096552725264726
+            ]
+          },
+          {
+            "key": "[\"42-0.00000\",\"logical-family-continuous-v1\",\"42-0.00000/combustion/body/82\",42]",
+            "eventId": "42-0.00000",
+            "sourceID": "42-0.00000/combustion/body/82",
+            "bodyId": 82,
+            "role": "aerial-root",
+            "time": 18.458582220674913,
+            "emissionId": 6290,
+            "mass": 0.0007930501029704967,
+            "position": [
+              80.35632456964025,
+              40.430548222742836,
+              57.447193956416605
+            ]
+          }
+        ],
+        "parameters": {
+          "emissionProfile": "logical-family-continuous-v1",
+          "kernelModel": "past-segment-v2",
+          "dispersionModel": "brownian",
+          "centralFraction": 0.2,
+          "groundChargeFraction": 0.1,
+          "maximumCellSeconds": 0.3,
+          "budgets": {
+            "aerial": 20.35,
+            "fan": 0.9,
+            "bouquet": 2
+          }
+        },
+        "limits": [
+          "Authored reference matter, not measured kg/fuel/smoke yield. No ascent-engine source or render-tail duplication.",
+          "All logical body paths; full-SPD segment moments still approximate. No source cohort merge.",
+          "Requires actual causal sampleBody; no fallback to root or future positions.",
+          "Fixed4096 density merging and optional resolved-field pair cap remain independent downstream limits.",
+          "Predictable input checks precede queueing; unexpected partial acceptance fault-locks and is never rolled back."
+        ]
+      },
+      "endTime": 18.60858222067491
+    }
+  ],
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "passed": true
+}

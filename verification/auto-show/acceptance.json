@@ -1,0 +1,96 @@
+{
+  "schema": "glass-atoll.automatic-show-acceptance.v1",
+  "date": "2026-10-30T17:10:26.366Z",
+  "functionalChecksPassed": true,
+  "performanceTargetMet": false,
+  "tests": {
+    "scheduler-check.json": {
+      "passed": 15,
+      "total": 15
+    },
+    "envelope-check.json": {
+      "passed": 30,
+      "total": 30
+    },
+    "ui-check.json": {
+      "passed": 9,
+      "total": 9
+    },
+    "fw-capacity-check.json": {
+      "passed": 6,
+      "total": 6
+    },
+    "physical-capacity-check.json": {
+      "passed": 4,
+      "total": 4
+    },
+    "browser-check.json": {
+      "passed": 7,
+      "total": 7
+    }
+  },
+  "sourcePins": {
+    "main.js": "8a05325cc6d97926998f05bd70e9dbeb95d6aa3916a7aa3732d28e8e8fdca936",
+    "firework-auto-show.js": "34cc3dfe13b24a0591d4ad934ea57fc4f110cbe455dbece3091e6fe3e59ccf63",
+    "fireworks-physics.js": "8425fd82af1dfbf12a5cea42e72558625da1b349984463507267b834bde24b45",
+    "fireworks.js": "d982523fbeb6538266b6d26043c148f77006166dac26dab1ce6af0e7a96bc819",
+    "firework-show-envelope.js": "090de396026410aa4ca512ded69440cf99f0d0a7fcb44220521980bcdc3e45ae",
+    "ui.js": "f93d1a61fefdcc35b123325b307b926090a732a960da330b1d918d9cbf5ad4d7",
+    "ui-quick-experience.js": "0c3e7e7e0f9666a33a1c05834f9248501ef74e52eeb80a22c1012dc7177e827c",
+    "index.html": "205065a45e6b1d89bc7af03ec16eb81984a6075c44a1bfb2e735d7adbbb77031",
+    "style.css": "8e4fbfbddd4ca4c1fcad48e1cba2c32ee04234970a3e6449f61ba47c6b5f4e6a",
+    "package.json": "90df037a7f7efde85699ea22acde2ca167a49b28b95326d8f1515a330b62a8bc",
+    "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+  },
+  "restoration": {
+    "passed": true,
+    "parameterGroups": [
+      "sun",
+      "wind",
+      "current",
+      "lens",
+      "weather",
+      "air",
+      "graphics",
+      "sea",
+      "director",
+      "qualityPreset",
+      "paused",
+      "sound"
+    ],
+    "oldFireworkSettingsPreserved": true,
+    "cameraAndTargetExact": true,
+    "utcExact": true,
+    "newDefaults": [
+      1,
+      5,
+      -40,
+      40
+    ],
+    "testGlobalsRemovedByFinalReload": true
+  },
+  "performance": {
+    "scope": "Native1209x1292, DPR1, medium, HDR, light short smoke, cloud illumination enabled, sound disabled; live five-second windows. Different trajectories and ages are not paired before/after evidence.",
+    "target60FpsMet": false,
+    "dense": {
+      "activeAtStart": 28,
+      "averageFps": 12.252756870324225,
+      "cpuMedianMs": 79.40000000596046,
+      "gpuMedianMs": 35.146
+    },
+    "recommended": {
+      "activeAtStart": 4,
+      "activeAtEnd": 5,
+      "averageFps": 16.562899105943455,
+      "cpuMedianMs": 53.80000001192093,
+      "gpuMedianMs": 16.988
+    }
+  },
+  "limitations": [
+    "This feature is complete; the wider photorealism/performance goal is not declared complete.",
+    "At low FPS the existing main-loop55ms delta cap can slow physical time; random ranges are simulation seconds, not guaranteed wall seconds under overload.",
+    "Full long-lived volumetric smoke retains its source/SH budgets; dense GPU acceptance here uses light smoke.",
+    "32 physical chrysanthemum producer capacity is a CPU/factory test, not a32-chrysanthemum sustained GPU FPS guarantee.",
+    "No new audio listening, absolute photometry, chemical or fluid simulation claim."
+  ]
+}

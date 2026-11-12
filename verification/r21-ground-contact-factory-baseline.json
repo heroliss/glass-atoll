@@ -1,0 +1,189 @@
+{
+  "schema": "glass-atoll.r21-ground-contact-actual-factory-baseline.v1",
+  "dateUTC": "2026-10-29T03:18:22.476Z",
+  "status": "known-low-angle-history-defect-baseline",
+  "productionCompleteness": false,
+  "passed": true,
+  "counts": {
+    "passed": 3,
+    "total": 3
+  },
+  "sourceSHA256": "c78afe6600a31d07b27751cec70e21fe28be68e2095bfc613cf071e42f2ae262",
+  "dependencySHA256": {
+    "fireworks-physics.js": "35bbded2c937d335890c14a9a33abc0487db93a34b8458042db2720719374291",
+    "firework-layer-profile.js": "fa076d1197f80182d84c82bd841615754417512533e092c31f6cb92764200646",
+    "firework-burn-profile.js": "7308fd7a59ac918de80acbf296a0117f2d499e48d8de40bf2880d0b3c90436d7",
+    "firework-trail-profile.js": "916aeba9c4647bf85d668a85e659ff5ec50bd2207dc784658dc9bf73015cb0ce",
+    "firework-tail-field.js": "4c19f88ad0083e3e0426464a1ee90facc9a107a5577f873ffe1cbc2a68d4977e",
+    "firework-exposure-window.js": "61d4279bd0c6cb66524ba6a2fc657d851a29588f4fcb1ec5cd9c6f229c43d987",
+    "wind-response.js": "a35e03f9325863e7077d3c9f7e6cdfb4d7e0172f96a1c84e2f4df0f633f619fd",
+    "firework-air-support.js": "3325ee5b5b27ed8fab34dcc5575e88c448f9da27470657746a613563ca5f0d64",
+    "firework-surface.js": "cd460b293b929a21b41d2b89bbb629253e29cb8c8bac1499aa6a3143f230aeaf"
+  },
+  "terrainFormulaNormalizedSHA256": "4f880aba8bc75fc727e4a45538e27ff6b5208a25b0c94372f0e02ef11f7d4562",
+  "airSupportSHA256": "3325ee5b5b27ed8fab34dcc5575e88c448f9da27470657746a613563ca5f0d64",
+  "checks": [
+    {
+      "name": "Real low25 contact witness is outside both terrain ellipses and currently hidden without extinguishing source material",
+      "passed": true,
+      "evidence": {
+        "seed": 1,
+        "elevation": 25,
+        "bodyId": 186,
+        "layerId": "outer",
+        "birth": 2.5521171944387895,
+        "life": 3.243502752875909,
+        "contact": 4.622783505584559,
+        "now": 4.624866838917892,
+        "causalExposure": {
+          "from": 4.616533505584559,
+          "to": 4.624866838917892,
+          "S": 0.008333333333333333
+        },
+        "positionBefore": [
+          216.44001606665785,
+          0.13304955637216942,
+          70.35179597677777
+        ],
+        "positionNow": [
+          216.555573773967,
+          -0.004347257999044896,
+          70.3841046322452
+        ],
+        "planeCertified": {
+          "minimumHeight": 0,
+          "maximumHeight": 0,
+          "maximumSpatialSlope": 0,
+          "maximumTimeRate": 0,
+          "heightErrorMetres": 0,
+          "certifiedSeaOnly": true,
+          "planeHeight": 0,
+          "minimumCoreQuadratic": 66.87810088621825,
+          "minimumSpitQuadratic": 165.64357312505226,
+          "model": "mean-sea plane outside both padded atoll support ellipses"
+        },
+        "headReferenceIntensityAtContact": 6.511886364796117
+      }
+    },
+    {
+      "name": "Certified positive pre-contact history has nonzero exact burn bins, but current factory main/mirror omit target head",
+      "passed": true,
+      "evidence": {
+        "expectedSupportedRGBBins": [
+          2.1692277998057254,
+          3.94405054510132,
+          39.44050545101319,
+          2.1686876847091785,
+          3.9430685176530527,
+          39.430685176530524,
+          2.1681475696126324,
+          3.9420864902047854,
+          39.42086490204785,
+          2.1676074545160855,
+          3.9411044627565186,
+          39.41104462756519,
+          2.167067339419538,
+          3.940122435308252,
+          39.40122435308252,
+          2.1665267078475288,
+          3.9391394688136887,
+          39.39139468813688,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "support": {
+          "schema": "glass-atoll.air-support.v1",
+          "model": "held-wind linear-drag vertical plane pieces; analytic extrema partitions; finite numerical root brackets",
+          "status": "bounded",
+          "physicalNow": 4.624866838917892,
+          "from": 4.616533505584559,
+          "to": 4.624866838917892,
+          "durationSeconds": 0.008333333333333748,
+          "timeToleranceSeconds": 1e-9,
+          "instantaneous": false,
+          "currentActive": false,
+          "currentClearance": -0.03434725799904517,
+          "intervals": [
+            {
+              "from": 4.616533505584559,
+              "to": 4.622783505336207,
+              "anchorTime": 4.619658505460382,
+              "anchorClearanceLowerBound": 4.093587044423114e-9
+            }
+          ],
+          "possibleIntervals": [
+            {
+              "from": 4.616533505584559,
+              "to": 4.622783505832912
+            }
+          ],
+          "negativeIntervals": [
+            {
+              "from": 4.622783505832912,
+              "to": 4.624866838917892
+            }
+          ],
+          "unresolvedBrackets": [
+            {
+              "from": 4.622783505336207,
+              "to": 4.622783505832912
+            }
+          ],
+          "totalUnresolvedSeconds": 4.96704899433098e-10,
+          "maximumUnresolvedBracketSeconds": 4.96704899433098e-10,
+          "evaluations": {
+            "samples": 50,
+            "bounds": 97,
+            "analyticPoses": 50,
+            "total": 197
+          },
+          "policy": "strict clearance > 0; intervals are certified-positive inner support; possibleIntervals retains every unresolved bracket; no dropped interval or support renormalization",
+          "limits": "Certification is conditional on the declared continuous clearance enclosure. Bounded root time is numerical support uncertainty, not exact chemical extinction, collision response, nonlinear shutter integration or smoke accounting."
+        },
+        "actualMainTargetHeads": 0,
+        "actualMirrorTargetHeads": 0,
+        "currentConsistency": {
+          "rows": 2111,
+          "referenceRGB": [
+            1046.0121512415321,
+            734.3649868833559,
+            2002.0834000002596
+          ]
+        },
+        "status": "known-history-loss-reproduced; production air-support wiring still required",
+        "futureAcceptance": "Target head must survive as view-only source over certified pre-contact intervals; current ledger remains zero for it, both main/mirror share clipped RGB and causal support anchors"
+      }
+    },
+    {
+      "name": "Default78 actual factory retains current ledger and matching complete main/mirror profile bins in the high-air phase",
+      "passed": true,
+      "evidence": {
+        "seed": 1,
+        "elevation": 78,
+        "physicalTime": 6.801370171730236,
+        "mainRows": 2112,
+        "mirrorRows": 2112,
+        "minimumCurrentVectorY": 133.86607171066188,
+        "currentConsistency": {
+          "rows": 2112,
+          "referenceRGB": [
+            1692.440121567892,
+            840.1624611936251,
+            2306.647925953945
+          ]
+        },
+        "expectedAfterWiring": "Exact old current ledger and main/mirror attributes at this certified all-air phase; no contact approximation should alter them"
+      }
+    }
+  ],
+  "limits": [
+    "CPU actual source factory with private read-only instrumentation and no-context renderer; no GPU/image or native timing claim.",
+    "Offline contact search samples future analytic states only to author this test fixture; runtime support solver consumes only causal exposure interval.",
+    "This report reproduces a known missing history case and plans acceptance; passed does not mean the production ground-history feature is complete.",
+    "Mean sea/static terrain visibility support, not chemical quenching, terrain response, smoke/material deletion or receiver exposure integration."
+  ]
+}

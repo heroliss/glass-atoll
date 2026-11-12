@@ -1,0 +1,2487 @@
+{
+  "gpu": {
+    "date": "2026-10-26T21:35:19.312Z",
+    "passed": true,
+    "passedCount": 8,
+    "total": 8,
+    "results": [
+      {
+        "name": "actual_finite_effects_shader_compiles_draws_nonzero",
+        "passed": true,
+        "detail": {
+          "nonFinite": 0,
+          "negative": 0,
+          "sumRGB": 0.002347126339713805,
+          "sumAlpha": 0,
+          "maximum": 0.00047009901027195156,
+          "nonzero": 66
+        }
+      },
+      {
+        "name": "pure_emitter_retains_zero_alpha_and_nonzero_RGB",
+        "passed": true,
+        "detail": {
+          "nonFinite": 0,
+          "negative": 0,
+          "sumRGB": 0.002347126339713805,
+          "sumAlpha": 0,
+          "maximum": 0.00047009901027195156,
+          "nonzero": 66
+        }
+      },
+      {
+        "name": "scene_storage_scale_applied_once",
+        "passed": true,
+        "detail": {
+          "relativeError": 0,
+          "a": {
+            "nonFinite": 0,
+            "negative": 0,
+            "sumRGB": 0.27922086797752144,
+            "sumAlpha": 7.960063167905901,
+            "maximum": 0.0017960412660613656,
+            "nonzero": 1476
+          },
+          "b": {
+            "nonFinite": 0,
+            "negative": 0,
+            "sumRGB": 35.740271101122744,
+            "sumAlpha": 7.960063167905901,
+            "maximum": 0.2298932820558548,
+            "nonzero": 1512
+          }
+        }
+      },
+      {
+        "name": "grey_smoke_writes_bounded_coverage",
+        "passed": true,
+        "detail": {
+          "nonFinite": 0,
+          "negative": 0,
+          "sumRGB": 0.27922086797752144,
+          "sumAlpha": 7.960063167905901,
+          "maximum": 0.0017960412660613656,
+          "nonzero": 1476
+        }
+      },
+      {
+        "name": "mirror_variant_draws_with_attached_depth_without_sampling_it",
+        "passed": true,
+        "detail": {
+          "nonFinite": 0,
+          "negative": 0,
+          "sumRGB": 0.07438990116826158,
+          "sumAlpha": 2.1005400910798926,
+          "maximum": 0.0007883580401539803,
+          "nonzero": 542
+        }
+      },
+      {
+        "name": "owned_render_restores_previous_target",
+        "passed": true
+      },
+      {
+        "name": "reflection_sampler_is_compile_time_excluded",
+        "passed": true
+      },
+      {
+        "name": "same_physical_heads_survive_quality_change",
+        "passed": true
+      }
+    ],
+    "scope": "actual isolated GPU renderer fixture, not full-scene visual/performance acceptance",
+    "diagnostics": {
+      "time": 6,
+      "active": 1,
+      "queued": 0,
+      "launches": 1,
+      "rejected": 0,
+      "maxActive": 2,
+      "maxQueued": 16,
+      "settings": {
+        "type": "peony",
+        "azimuth": 0,
+        "elevation": 88,
+        "autoDirection": false,
+        "autoLaunch": false,
+        "interval": 7.5
+      },
+      "windSegments": 2,
+      "activeEvents": [
+        {
+          "id": "2654436377-0.00000",
+          "type": "peony",
+          "pattern": "peony",
+          "calibreMm": 90,
+          "heightInfo": {
+            "inputMode": "definition-rise",
+            "referenceRiseMetres": 120,
+            "referenceElevationDegrees": 80,
+            "explicitWorldHeight": null,
+            "calibratedRiseMetres": 120,
+            "actualBurstWorldY": 124.07073576571001,
+            "actualBurstRiseMetres": 123.2011378198774,
+            "productReference": {
+              "calibreMm": 90,
+              "riseMetres": 120,
+              "referenceWidthMetres": 60,
+              "source": "https://san-en-fireworks.com/index/products/productse/",
+              "evidence": "supplier product-scale example",
+              "widthCalibrated": false
+            },
+            "widthCalibrated": false,
+            "visibleApex": null
+          },
+          "paletteMode": "single-colour"
+        }
+      ],
+      "model": "analytic linear-drag segments; deterministic world-space events; authored reference photometry, not CFD",
+      "records": 242,
+      "lastRender": {
+        "instances": 242,
+        "reflection": false,
+        "storageEV": 0,
+        "rawPerCandela": 0.000036,
+        "width": 128,
+        "height": 128
+      },
+      "quality": {
+        "trailSegments": 6
+      },
+      "radianceBound": null,
+      "warnings": [],
+      "units": "reference cd + approximate emission RGB, linear scene reference once *2^storageEV; not measured pyrotechnic photometry",
+      "renderer": "independent instanced premult effects, four-segment finite air; water-hit reflection origin; sorted short segments",
+      "tailIntegration": {
+        "spatialSamples": 8,
+        "shutter": "<=1px: trace-preserving isotropic variance; >1px:3-point independent quadrature",
+        "kernelEvaluations": "8 normal /24 large-shutter tail; heads unchanged",
+        "extraPasses": 0
+      },
+      "limits": [
+        "linear drag/burn model; no chemical or shock/fluid solve",
+        "grey smoke thin sprites; centre-depth sorting and shared near-air visibility approximation",
+        "resolved opaque depth/defocus occlusion approximation; root owns one shared bloom/vignette",
+        "subpixel tail shutter variance is a bounded angular approximation, not exact time-space convolution",
+        "star/cross-spectrum RGB is approximate CIE fit + authored bands and gamut compression"
+      ]
+    }
+  },
+  "bound": {
+    "date": "2026-10-26T21:35:19.382Z",
+    "passed": true,
+    "passedCount": 7,
+    "total": 7,
+    "results": [
+      {
+        "name": "actual_resolved_on_axis_pixel_peak_fits_budget",
+        "passed": true,
+        "detail": {
+          "peak": 1.5699894428253174,
+          "budget": 1.8954162176433662,
+          "ratio": 0.8283085415283284,
+          "nonfinite": 0,
+          "litPixels": 3136,
+          "escapedPixels": 0,
+          "bounds": [
+            {
+              "peak": 1.5795135147028052,
+              "visible": true,
+              "rect": [
+                163.27640832085643,
+                115.27640832085642,
+                220.72359167914357,
+                172.72359167914357
+              ],
+              "nearPlaneFallback": false,
+              "baseSigma2": 55.01815473139371,
+              "omega": 0.00036403511624291223,
+              "distance": 0.15,
+              "depth": 0.15,
+              "shutterPixels": [
+                0,
+                0
+              ],
+              "stretchPixels": [
+                0,
+                0
+              ]
+            }
+          ],
+          "legacySphericalBudget": 1.9360834302518062,
+          "legacyFailureRatio": 0.810910014668699
+        }
+      },
+      {
+        "name": "actual_resolved_off_axis_blue_peak_fits_budget",
+        "passed": true,
+        "detail": {
+          "peak": 4.972829341888428,
+          "budget": 5.993832361774463,
+          "ratio": 0.829657728434739,
+          "nonfinite": 0,
+          "litPixels": 3080,
+          "escapedPixels": 0,
+          "bounds": [
+            {
+              "peak": 4.994860301478719,
+              "visible": true,
+              "rect": [
+                320.5115495238559,
+                115.27640832085642,
+                377.958732882143,
+                172.72359167914357
+              ],
+              "nearPlaneFallback": false,
+              "baseSigma2": 55.01815473139371,
+              "omega": 0.000011511801156117605,
+              "distance": 0.47434164902525694,
+              "depth": 0.15,
+              "shutterPixels": [
+                0,
+                0
+              ],
+              "stretchPixels": [
+                0,
+                0
+              ]
+            }
+          ],
+          "legacySphericalBudget": 1.9360834302518062,
+          "legacyFailureRatio": 2.5684995099832366
+        }
+      },
+      {
+        "name": "fixture_reproduces_old_spherical_ceiling_failure",
+        "passed": true,
+        "detail": {
+          "oldBudget": 1.9360834302518062,
+          "actual": 4.972829341888428,
+          "newBudget": 5.993832361774463,
+          "oldFailureRatio": 2.5684995099832366,
+          "scope": "same real shader, deliberately resolved off-axis blue source; not synthetic-only formula agreement"
+        }
+      },
+      {
+        "name": "near_crossing_head_uses_full_viewport_and_contains_actual_pixels",
+        "passed": true,
+        "detail": {
+          "peak": 17.1153621673584,
+          "budget": 188.98733719384396,
+          "ratio": 0.09056353944922355,
+          "nonfinite": 0,
+          "litPixels": 748,
+          "escapedPixels": 0,
+          "bounds": [
+            {
+              "peak": 157.48944766153664,
+              "visible": true,
+              "rect": [
+                0,
+                0,
+                384,
+                288
+              ],
+              "nearPlaneFallback": true,
+              "baseSigma2": 0.6277975473139373,
+              "omega": 0.00024718274766901424,
+              "distance": 0.17066048165876013,
+              "depth": 0.15,
+              "shutterPixels": [
+                98.53402182054636,
+                12.578811296239957
+              ],
+              "stretchPixels": [
+                0,
+                0
+              ]
+            }
+          ],
+          "legacySphericalBudget": 193.60834302518063,
+          "legacyFailureRatio": 0.08840198671155602
+        }
+      },
+      {
+        "name": "independent_stretch_and_shutter_near_crossing_fits_budget",
+        "passed": true,
+        "detail": {
+          "peak": 15.029959678649902,
+          "budget": 429.5910193145634,
+          "ratio": 0.0349866710496673,
+          "nonfinite": 0,
+          "litPixels": 584,
+          "escapedPixels": 0,
+          "bounds": [
+            {
+              "peak": 357.9925160954695,
+              "visible": true,
+              "rect": [
+                0,
+                0,
+                384,
+                288
+              ],
+              "nearPlaneFallback": true,
+              "baseSigma2": 0.27618311703301734,
+              "omega": 0.00024718274766901424,
+              "distance": 0.17066048165876013,
+              "depth": 0.15,
+              "shutterPixels": [
+                0.5989910141066623,
+                4.791928112853315
+              ],
+              "stretchPixels": [
+                117.92635590224958,
+                9.827196325187465
+              ]
+            }
+          ],
+          "legacySphericalBudget": 537.800952847724,
+          "legacyFailureRatio": 0.027947067774916286
+        }
+      },
+      {
+        "name": "additive_overlapping_RGB_sources_fit_summed_budget",
+        "passed": true,
+        "detail": {
+          "peak": 14.94157600402832,
+          "budget": 17.9934993989636,
+          "ratio": 0.8303874456398923,
+          "nonfinite": 0,
+          "litPixels": 3080,
+          "escapedPixels": 0,
+          "bounds": [
+            {
+              "peak": 4.994860301478719,
+              "visible": true,
+              "rect": [
+                320.5115495238559,
+                115.27640832085642,
+                377.958732882143,
+                172.72359167914357
+              ],
+              "nearPlaneFallback": false,
+              "baseSigma2": 55.01815473139371,
+              "omega": 0.000011511801156117605,
+              "distance": 0.47434164902525694,
+              "depth": 0.15,
+              "shutterPixels": [
+                0,
+                0
+              ],
+              "stretchPixels": [
+                0,
+                0
+              ]
+            },
+            {
+              "peak": 5.0048511298350045,
+              "visible": true,
+              "rect": [
+                320.8609609487515,
+                115.27640832085642,
+                378.3081443070386,
+                172.72359167914357
+              ],
+              "nearPlaneFallback": false,
+              "baseSigma2": 55.01815473139371,
+              "omega": 0.000011442998115976778,
+              "distance": 0.4752904375221534,
+              "depth": 0.15,
+              "shutterPixels": [
+                0,
+                0
+              ],
+              "stretchPixels": [
+                0,
+                0
+              ]
+            },
+            {
+              "peak": 4.994871401155945,
+              "visible": true,
+              "rect": [
+                320.5115495238559,
+                115.62581974575197,
+                377.958732882143,
+                173.07300310403912
+              ],
+              "nearPlaneFallback": false,
+              "baseSigma2": 55.01815473139371,
+              "omega": 0.000011511724411202925,
+              "distance": 0.4743427031166391,
+              "depth": 0.15,
+              "shutterPixels": [
+                0,
+                0
+              ],
+              "stretchPixels": [
+                0,
+                0
+              ]
+            }
+          ],
+          "legacySphericalBudget": 5.808250290755419,
+          "legacyFailureRatio": 2.572474541568873
+        }
+      },
+      {
+        "name": "production_records_and_overlap_bins_fit_actual_GPU_frame",
+        "passed": true,
+        "detail": {
+          "actualPeak": 0.0006050789379514754,
+          "budget": {
+            "maximumRawRadiance": 0.025526105289385453,
+            "maxRawRadiance": 0.025526105289385453,
+            "globalFiniteSurfaceCeiling": 716.526266576928,
+            "globalReferenceOnly": true,
+            "ownSmokeRawBound": 0.00005350104049097102,
+            "maximumEmissionRGBChannel": 4.63247550175383,
+            "visibleSources": 224,
+            "nearPlaneFallbackSources": 0,
+            "method": "32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers",
+            "conservative": true
+          },
+          "nonfinite": 0
+        }
+      }
+    ],
+    "conditions": {
+      "width": 384,
+      "height": 288,
+      "storageEV": 0,
+      "rawPerCandela": 0.000036,
+      "float32": true
+    },
+    "scope": "real runtime GPU peak/footprint compared with CPU storage budget; no display exposure, no scene FPS; ambient/air/receiver additions remain root budgets"
+  },
+  "smiley": {
+    "date": "2026-10-26T21:35:20.696Z",
+    "passed": false,
+    "passedCount": 16,
+    "total": 18,
+    "checks": [
+      {
+        "name": "actual_factory_ring_event_is_144_star_smiley_at_actual_burst_plus1_1s",
+        "passed": true,
+        "evidence": {
+          "launch": {
+            "accepted": true,
+            "queued": false,
+            "id": "14271-0.00000",
+            "type": "ring",
+            "burstTime": 4.658378958306491
+          },
+          "phaseSeconds": 5.758378958306491,
+          "diagnostic": {
+            "id": "14271-0.00000",
+            "type": "ring",
+            "pattern": "smiley",
+            "calibreMm": 90,
+            "heightInfo": {
+              "inputMode": "definition-rise",
+              "referenceRiseMetres": 120,
+              "referenceElevationDegrees": 80,
+              "explicitWorldHeight": null,
+              "calibratedRiseMetres": 120,
+              "actualBurstWorldY": 121.5599731169882,
+              "actualBurstRiseMetres": 120.00000000000014,
+              "productReference": {
+                "calibreMm": 90,
+                "riseMetres": 120,
+                "referenceWidthMetres": 60,
+                "source": "https://san-en-fireworks.com/index/products/productse/",
+                "evidence": "supplier product-scale example",
+                "widthCalibrated": false
+              },
+              "widthCalibrated": false,
+              "visibleApex": null
+            },
+            "paletteMode": "single-colour"
+          },
+          "geometry": {
+            "instances": 159,
+            "stars": 144,
+            "smoke": 15,
+            "physicalFNV32": "a721ab22",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          }
+        }
+      },
+      {
+        "name": "view_0_actual_GPU_finite_nonzero_inside_frame",
+        "passed": true,
+        "evidence": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.005806459113955498,
+          "rawPeakRGB": 0.005806459113955498,
+          "totalStoredPixelY": 0.3279453009673494,
+          "totalRawPixelY": 0.3279453009673494,
+          "nonzeroPixels": 3177,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 142
+        }
+      },
+      {
+        "name": "view_0_same_uploaded_world_positions_velocities_orientation_and_records",
+        "passed": true,
+        "evidence": {
+          "eventId": "14271-0.00000",
+          "geometry": {
+            "instances": 159,
+            "stars": 144,
+            "smoke": 15,
+            "physicalFNV32": "a721ab22",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          }
+        }
+      },
+      {
+        "name": "view_30_actual_GPU_finite_nonzero_inside_frame",
+        "passed": true,
+        "evidence": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.006309038959443569,
+          "rawPeakRGB": 0.006309038959443569,
+          "totalStoredPixelY": 0.3293211895252674,
+          "totalRawPixelY": 0.3293211895252674,
+          "nonzeroPixels": 2978,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 125
+        }
+      },
+      {
+        "name": "view_30_same_uploaded_world_positions_velocities_orientation_and_records",
+        "passed": true,
+        "evidence": {
+          "eventId": "14271-0.00000",
+          "geometry": {
+            "instances": 159,
+            "stars": 144,
+            "smoke": 15,
+            "physicalFNV32": "a721ab22",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          }
+        }
+      },
+      {
+        "name": "view_60_actual_GPU_finite_nonzero_inside_frame",
+        "passed": true,
+        "evidence": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.006580880843102932,
+          "rawPeakRGB": 0.006580880843102932,
+          "totalStoredPixelY": 0.3288533754212678,
+          "totalRawPixelY": 0.3288533754212678,
+          "nonzeroPixels": 2671,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 90
+        }
+      },
+      {
+        "name": "view_60_same_uploaded_world_positions_velocities_orientation_and_records",
+        "passed": true,
+        "evidence": {
+          "eventId": "14271-0.00000",
+          "geometry": {
+            "instances": 159,
+            "stars": 144,
+            "smoke": 15,
+            "physicalFNV32": "a721ab22",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          }
+        }
+      },
+      {
+        "name": "view_85_actual_GPU_finite_nonzero_inside_frame",
+        "passed": true,
+        "evidence": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.017848636955022812,
+          "rawPeakRGB": 0.017848636955022812,
+          "totalStoredPixelY": 0.33107173829847986,
+          "totalRawPixelY": 0.33107173829847986,
+          "nonzeroPixels": 2337,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 68
+        }
+      },
+      {
+        "name": "view_85_same_uploaded_world_positions_velocities_orientation_and_records",
+        "passed": true,
+        "evidence": {
+          "eventId": "14271-0.00000",
+          "geometry": {
+            "instances": 159,
+            "stars": 144,
+            "smoke": 15,
+            "physicalFNV32": "a721ab22",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          }
+        }
+      },
+      {
+        "name": "view_180_actual_GPU_finite_nonzero_inside_frame",
+        "passed": true,
+        "evidence": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.0057946667075157166,
+          "rawPeakRGB": 0.0057946667075157166,
+          "totalStoredPixelY": 0.3290530947876836,
+          "totalRawPixelY": 0.3290530947876836,
+          "nonzeroPixels": 2930,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 142
+        }
+      },
+      {
+        "name": "view_180_same_uploaded_world_positions_velocities_orientation_and_records",
+        "passed": true,
+        "evidence": {
+          "eventId": "14271-0.00000",
+          "geometry": {
+            "instances": 159,
+            "stars": 144,
+            "smoke": 15,
+            "physicalFNV32": "a721ab22",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          }
+        }
+      },
+      {
+        "name": "edge_view_is_physically_thinner_no_billboard_readability_requirement",
+        "passed": true,
+        "evidence": {
+          "centreWidthRatio85to0": 0.08773359464859844,
+          "expectedOrthographicCosine": 0.08715574274765814,
+          "perspectiveAndPSF": "real perspective and raster PSF need not equal orthographic cosine exactly"
+        }
+      },
+      {
+        "name": "P_plus1_compensated_actual_pixels_are_finite_and_unchanged",
+        "passed": true,
+        "evidence": {
+          "relativeAbsoluteLinearRGBError": 0,
+          "basePeak": 0.005806459113955498,
+          "higherPeak": 0.011612918227910995,
+          "compensation": 0.5
+        }
+      },
+      {
+        "name": "reflection_variant_uses_same_event_world_records_and_is_finite",
+        "passed": false,
+        "evidence": {
+          "eventId": "14271-0.00000",
+          "geometry": {
+            "instances": 159,
+            "stars": 144,
+            "smoke": 15,
+            "physicalFNV32": "a721ab22",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          },
+          "stats": {
+            "nonfinite": 0,
+            "negative": 0,
+            "storedPeakRGB": 0.005010171327739954,
+            "rawPeakRGB": 0.005010171327739954,
+            "totalStoredPixelY": 0.27312353234719033,
+            "totalRawPixelY": 0.27312353234719033,
+            "nonzeroPixels": 3120,
+            "outer2PixelLuminanceFraction": 0,
+            "visibleWidthPixels": 130
+          },
+          "observer": "mirror of an above-water3.5m observer aiming at the virtual burst; air disabled, reflection shutter0 is production behavior"
+        }
+      },
+      {
+        "name": "production_reflection_respects_owned_hardware_depth_blocker",
+        "passed": false,
+        "evidence": {
+          "totalStoredPixelY": 0.27312353234719033,
+          "scope": "opaque depth plane1m ahead; no attached depth sampler bound to reflection variant"
+        }
+      },
+      {
+        "name": "two_tone_default_has_same_physical_event_as_mono",
+        "passed": true,
+        "evidence": {
+          "eventId": "14271-0.00000",
+          "paletteMode": "yellow-outline-green-features",
+          "geometry": {
+            "instances": 159,
+            "stars": 144,
+            "smoke": 15,
+            "physicalFNV32": "a721ab22",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          },
+          "stats": {
+            "nonfinite": 0,
+            "negative": 0,
+            "storedPeakRGB": 0.005036070477217436,
+            "rawPeakRGB": 0.005036070477217436,
+            "totalStoredPixelY": 0.32794928532020806,
+            "totalRawPixelY": 0.32794928532020806,
+            "nonzeroPixels": 3178,
+            "outer2PixelLuminanceFraction": 0,
+            "visibleWidthPixels": 142
+          }
+        }
+      },
+      {
+        "name": "same_P_all_pictured_views_fit_finite_FP16_numeric_range",
+        "passed": true,
+        "evidence": {
+          "storageEV": 0,
+          "maximumStoredPeak": 0.017848636955022812,
+          "scope": "Float32 blending/readback proves numeric range only; not a HalfFloat quantization test"
+        }
+      },
+      {
+        "name": "borrowed_renderer_state_restored",
+        "passed": true
+      }
+    ],
+    "conditions": {
+      "size": 640,
+      "seed": 14271,
+      "launch": {
+        "accepted": true,
+        "queued": false,
+        "id": "14271-0.00000",
+        "type": "ring",
+        "burstTime": 4.658378958306491
+      },
+      "time": 5.758378958306491,
+      "secondsAfterActualBurst": 1.1,
+      "cameraEV": 16.5,
+      "storageEV": 0,
+      "rawPerCandela": 0.000036,
+      "origin": [
+        0,
+        0.7,
+        0
+      ],
+      "wind": [
+        0,
+        0,
+        0
+      ],
+      "air": false,
+      "dof": false,
+      "vignette": false,
+      "bloom": false,
+      "monochrome": "explicit yellow; physical star hue is not altered in the renderer",
+      "floatExtensions": {
+        "floatColour": true,
+        "floatBlend": true
+      }
+    },
+    "frames": [
+      {
+        "id": "mono_0",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          0,
+          115.95831680297852,
+          215.10560989379883
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 260,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 159,
+          "stars": 144,
+          "smoke": 15,
+          "physicalFNV32": "a721ab22",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.005806459113955498,
+          "rawPeakRGB": 0.005806459113955498,
+          "totalStoredPixelY": 0.3279453009673494,
+          "totalRawPixelY": 0.3279453009673494,
+          "nonzeroPixels": 3177,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 142
+        },
+        "viewAngleDegrees": 0,
+        "projectedStarCentreWidthPixels": 139.03680889423077
+      },
+      {
+        "id": "mono_30",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          129.99999999999997,
+          115.95831680297852,
+          180.2722148777529
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 260,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 159,
+          "stars": 144,
+          "smoke": 15,
+          "physicalFNV32": "a721ab22",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.006309038959443569,
+          "rawPeakRGB": 0.006309038959443569,
+          "totalStoredPixelY": 0.3293211895252674,
+          "totalRawPixelY": 0.3293211895252674,
+          "nonzeroPixels": 2978,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 125
+        },
+        "viewAngleDegrees": 30,
+        "projectedStarCentreWidthPixels": 120.60952547334396
+      },
+      {
+        "id": "mono_60",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          225.16660498395404,
+          115.95831680297852,
+          85.10560989379886
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 260,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 159,
+          "stars": 144,
+          "smoke": 15,
+          "physicalFNV32": "a721ab22",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.006580880843102932,
+          "rawPeakRGB": 0.006580880843102932,
+          "totalStoredPixelY": 0.3288533754212678,
+          "totalRawPixelY": 0.3288533754212678,
+          "nonzeroPixels": 2671,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 90
+        },
+        "viewAngleDegrees": 60,
+        "projectedStarCentreWidthPixels": 69.86617306488448
+      },
+      {
+        "id": "mono_85",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          259.0106215038538,
+          115.95831680297852,
+          -22.233896991810056
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 260,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 159,
+          "stars": 144,
+          "smoke": 15,
+          "physicalFNV32": "a721ab22",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.017848636955022812,
+          "rawPeakRGB": 0.017848636955022812,
+          "totalStoredPixelY": 0.33107173829847986,
+          "totalRawPixelY": 0.33107173829847986,
+          "nonzeroPixels": 2337,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 68
+        },
+        "viewAngleDegrees": 85,
+        "projectedStarCentreWidthPixels": 12.198199032761089
+      },
+      {
+        "id": "mono_180",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          3.184081677783118e-14,
+          115.95831680297852,
+          -304.8943901062012
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 260,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 159,
+          "stars": 144,
+          "smoke": 15,
+          "physicalFNV32": "a721ab22",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.0057946667075157166,
+          "rawPeakRGB": 0.0057946667075157166,
+          "totalStoredPixelY": 0.3290530947876836,
+          "totalRawPixelY": 0.3290530947876836,
+          "nonzeroPixels": 2930,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 142
+        },
+        "viewAngleDegrees": 180,
+        "projectedStarCentreWidthPixels": 139.03680889423077
+      },
+      {
+        "id": "mirror_same_event",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          0,
+          -3.5,
+          215.10560989379883
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 286.12984719074797,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 159,
+          "stars": 144,
+          "smoke": 15,
+          "physicalFNV32": "a721ab22",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.005010171327739954,
+          "rawPeakRGB": 0.005010171327739954,
+          "totalStoredPixelY": 0.27312353234719033,
+          "totalRawPixelY": 0.27312353234719033,
+          "nonzeroPixels": 3120,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 130
+        }
+      },
+      {
+        "id": "two_tone_front",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          0,
+          115.95831680297852,
+          215.10560989379883
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 260,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 159,
+          "stars": 144,
+          "smoke": 15,
+          "physicalFNV32": "a721ab22",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.005036070477217436,
+          "rawPeakRGB": 0.005036070477217436,
+          "totalStoredPixelY": 0.32794928532020806,
+          "totalRawPixelY": 0.32794928532020806,
+          "nonzeroPixels": 3178,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 142
+        }
+      }
+    ],
+    "shaderSHA256": {
+      "main": "30df9916486acae1a54dee3ac4f8bc4c93805823346a865f66ccb6ef585d1caa",
+      "reflection": "30df9916486acae1a54dee3ac4f8bc4c93805823346a865f66ccb6ef585d1caa"
+    },
+    "limits": [
+      "Isolated actual production renderer on black; no full-island/cloud/water/air/scene-performance acceptance",
+      "Canonical comparisons cover actual uploaded Float32 positions, velocities, stretches and shapes; camera-dependent smoke lighting and shutter weights are intentionally not called body motion",
+      "All five angles use the same260m radius,48mm focal, C/P and physical event; side-view thinning is expected",
+      "Mirror uses the same physical event with the production reflection variant, inverted camera up and zero shutter; its image need not match the direct view",
+      "Float32 target requires actual float blending; finite FP16 numeric range is checked but FP16 quantization and whole-chain budget remain separate root QA",
+      "PNG is vendor ACES+sRGB at fixed C; no absolute camera or pyrotechnic photometry calibration",
+      "No sound played; locked audio remains unchanged"
+    ]
+  },
+  "director": {
+    "date": "2026-10-26T21:35:28.091Z",
+    "passed": true,
+    "passedCount": 10,
+    "total": 10,
+    "checks": [
+      {
+        "name": "entry starts at actual current pose without an immediate pop",
+        "passed": true,
+        "detail": {}
+      },
+      {
+        "name": "director actually moves in the production loop",
+        "passed": true,
+        "detail": {
+          "director": {
+            "active": true,
+            "elapsedSeconds": 0.6676999999284744,
+            "phase": "entry",
+            "reason": "started",
+            "periodSeconds": 240,
+            "direction": 1,
+            "entrySeconds": 3,
+            "orbitAngularVelocityRadiansPerSecond": 0.0020085288485785914,
+            "orbitAngularAccelerationRadiansPerSecondSquared": 0.007838179135715547,
+            "radiusMetres": 82,
+            "horizontalRadiusMetres": 81.18959292914333,
+            "eyeHeight": 16,
+            "target": [
+              -1.5,
+              4.5,
+              -1
+            ],
+            "pose": {
+              "position": [
+                -49.20357449569778,
+                12.306880602810201,
+                -41.012397964589304
+              ],
+              "target": [
+                -0.11339249940549934,
+                2.639992357092474,
+                -0.08139850757477518
+              ]
+            },
+            "floorLimited": false,
+            "minimumEyeY": 0.42,
+            "defaults": {
+              "periodSeconds": 240,
+              "direction": 1,
+              "entrySeconds": 2
+            },
+            "limits": [
+              "Host must stop navigation and cancel other pose writers before start, and allow the requested OrbitControls distance/target bounds.",
+              "Entry is C2 from a stationary pose when the terrain safety clamp is inactive. A floor contact can introduce a kink.",
+              "Terrain +0.5m and sea clearance .42m only; no tree/fixture collision solver or automatic visibility/framing guarantee.",
+              "Physical dt only; astronomical UTC, events, focal length, exposure and weather are not read or changed."
+            ],
+            "mode": "island",
+            "forecast": null
+          }
+        }
+      },
+      {
+        "name": "director leaves UTC weather and photography unchanged",
+        "passed": true,
+        "detail": {}
+      },
+      {
+        "name": "global pause freezes pose and director physical clock",
+        "passed": true,
+        "detail": {}
+      },
+      {
+        "name": "manual mode retains pose and never automatically restarts",
+        "passed": true,
+        "detail": {}
+      },
+      {
+        "name": "continuous director is the sole camera owner",
+        "passed": true,
+        "detail": {
+          "planningMs": 8,
+          "radius": 279.57538867480156,
+          "entrySeconds": 6.080126896212992,
+          "forecast": {
+            "min": [
+              -51,
+              0,
+              -46.55603315143901
+            ],
+            "max": [
+              134.156691746979,
+              150.41449567575978,
+              96.30263468733456
+            ],
+            "types": [
+              "ring"
+            ],
+            "windMetresPerSecond": [
+              0,
+              5
+            ],
+            "samplesPerBody": 17,
+            "scope": "frozen selected show and lens at start; not a future arbitrary-angle guarantee"
+          }
+        }
+      },
+      {
+        "name": "completed orbit entry fits the real forecast and island in the actual camera",
+        "passed": true,
+        "detail": {
+          "camera": [
+            -164.85646126457752,
+            16.00000000000002,
+            -154.12829184507706
+          ],
+          "target": [
+            41.578345873489496,
+            75.20724783787989,
+            24.873300767947775
+          ],
+          "fov": 65.4704525442152,
+          "corners": [
+            [
+              0.07428886974173061,
+              -0.5073547099237729,
+              0.9980065523383603
+            ],
+            [
+              -0.6655615498287084,
+              -0.4260328245921493,
+              0.9989645444588666
+            ],
+            [
+              0.06124436958232506,
+              0.8422512830443905,
+              0.9983587798752994
+            ],
+            [
+              -0.5989188569925729,
+              0.33542895057000277,
+              0.999069476278408
+            ],
+            [
+              0.7905156117254432,
+              -0.4427341349406825,
+              0.9987677988515706
+            ],
+            [
+              -0.029412678692278087,
+              -0.4044921440989575,
+              0.9992182990551685
+            ],
+            [
+              0.6982353890849441,
+              0.4469476866844479,
+              0.9989130980772959
+            ],
+            [
+              -0.02712525832165723,
+              0.18525154057716348,
+              0.999280063970132
+            ]
+          ]
+        }
+      },
+      {
+        "name": "explicit pose immediately cancels the director",
+        "passed": true,
+        "detail": {}
+      },
+      {
+        "name": "one-shot framing takes ownership without competing with orbit",
+        "passed": true,
+        "detail": {}
+      },
+      {
+        "name": "manual focal-length change cancels the frozen composition",
+        "passed": true,
+        "detail": {}
+      }
+    ],
+    "limits": [
+      "Actual production scene/API; native keyboard takeover is checked separately.",
+      "Framing check covers the frozen selected-show envelope and current lens; it does not promise arbitrary later launch edits are pre-framed.",
+      "Static and pose checks do not establish cinematic quality or FPS."
+    ]
+  },
+  "scene": {
+    "date": "2026-10-26T21:35:28.097Z",
+    "launch": {
+      "accepted": true,
+      "queued": false,
+      "id": "2654450032-153.25710",
+      "type": "ring",
+      "burstTime": 157.91547895820813
+    },
+    "ranges": {
+      "storageEV": 12,
+      "historyEV": 12,
+      "opaque": {
+        "minRGB": [
+          0.00012695789337158203,
+          0.0002446174621582031,
+          0.00005424022674560547
+        ],
+        "maxRGB": [
+          162.375,
+          119.875,
+          61.125
+        ],
+        "maxAbsRGB": [
+          162.375,
+          119.875,
+          61.125
+        ],
+        "globalMin": 0.00005424022674560547,
+        "globalMax": 162.375,
+        "globalMaxAbs": 162.375,
+        "encodedExtrema": {
+          "minRGB": [
+            0.00012695789337158203,
+            0.0002446174621582031,
+            0.00005424022674560547
+          ],
+          "maxRGB": [
+            162.375,
+            119.875,
+            61.125
+          ],
+          "maxAbsRGB": [
+            162.375,
+            119.875,
+            61.125
+          ],
+          "globalMin": 0.00005424022674560547,
+          "globalMax": 162.375,
+          "globalMaxAbs": 162.375
+        },
+        "countNaN": 0,
+        "countInf": 0,
+        "countPositiveInf": 0,
+        "countNegativeInf": 0,
+        "countNegativeFinite": 0,
+        "countNegative": 0,
+        "countNonFinite": 0,
+        "finiteComponents": 4686084,
+        "totalComponents": 4686084,
+        "pixels": 1562028,
+        "width": 1209,
+        "height": 1292,
+        "levels": [
+          [
+            303,
+            323
+          ],
+          [
+            76,
+            81
+          ],
+          [
+            19,
+            21
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "cpuReadPixels": 4,
+        "cpuReadBytes": 64,
+        "countEncoding": "exact integer low16/high16 limbs in Float32 MRT",
+        "classifierVersion": "ieee-bits-v2",
+        "classifier": "floatBitsToUint exponent/mantissa/sign masks; no floating-point isnan/isinf",
+        "counterConsistency": true,
+        "stateRestored": true,
+        "space": "Input level-zero RGB after current scene storage exposure P; no decode/exposure/tone mapping added"
+      },
+      "composed": {
+        "minRGB": [
+          0.00010913610458374023,
+          0.0003018379211425781,
+          0.00006657838821411133
+        ],
+        "maxRGB": [
+          151.5,
+          111.6875,
+          56.71875
+        ],
+        "maxAbsRGB": [
+          151.5,
+          111.6875,
+          56.71875
+        ],
+        "globalMin": 0.00006657838821411133,
+        "globalMax": 151.5,
+        "globalMaxAbs": 151.5,
+        "encodedExtrema": {
+          "minRGB": [
+            0.00010913610458374023,
+            0.0003018379211425781,
+            0.00006657838821411133
+          ],
+          "maxRGB": [
+            151.5,
+            111.6875,
+            56.71875
+          ],
+          "maxAbsRGB": [
+            151.5,
+            111.6875,
+            56.71875
+          ],
+          "globalMin": 0.00006657838821411133,
+          "globalMax": 151.5,
+          "globalMaxAbs": 151.5
+        },
+        "countNaN": 0,
+        "countInf": 0,
+        "countPositiveInf": 0,
+        "countNegativeInf": 0,
+        "countNegativeFinite": 0,
+        "countNegative": 0,
+        "countNonFinite": 0,
+        "finiteComponents": 4686084,
+        "totalComponents": 4686084,
+        "pixels": 1562028,
+        "width": 1209,
+        "height": 1292,
+        "levels": [
+          [
+            303,
+            323
+          ],
+          [
+            76,
+            81
+          ],
+          [
+            19,
+            21
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "cpuReadPixels": 4,
+        "cpuReadBytes": 64,
+        "countEncoding": "exact integer low16/high16 limbs in Float32 MRT",
+        "classifierVersion": "ieee-bits-v2",
+        "classifier": "floatBitsToUint exponent/mantissa/sign masks; no floating-point isnan/isinf",
+        "counterConsistency": true,
+        "stateRestored": true,
+        "space": "Input level-zero RGB after current scene storage exposure P; no decode/exposure/tone mapping added"
+      },
+      "reflection": {
+        "minRGB": [
+          0,
+          0,
+          0
+        ],
+        "maxRGB": [
+          162.375,
+          119.875,
+          61.125
+        ],
+        "maxAbsRGB": [
+          162.375,
+          119.875,
+          61.125
+        ],
+        "globalMin": 0,
+        "globalMax": 162.375,
+        "globalMaxAbs": 162.375,
+        "encodedExtrema": {
+          "minRGB": [
+            0,
+            0,
+            0
+          ],
+          "maxRGB": [
+            162.375,
+            119.875,
+            61.125
+          ],
+          "maxAbsRGB": [
+            162.375,
+            119.875,
+            61.125
+          ],
+          "globalMin": 0,
+          "globalMax": 162.375,
+          "globalMaxAbs": 162.375
+        },
+        "countNaN": 0,
+        "countInf": 0,
+        "countPositiveInf": 0,
+        "countNegativeInf": 0,
+        "countNegativeFinite": 0,
+        "countNegative": 0,
+        "countNonFinite": 0,
+        "finiteComponents": 4686084,
+        "totalComponents": 4686084,
+        "pixels": 1562028,
+        "width": 1209,
+        "height": 1292,
+        "levels": [
+          [
+            303,
+            323
+          ],
+          [
+            76,
+            81
+          ],
+          [
+            19,
+            21
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "cpuReadPixels": 4,
+        "cpuReadBytes": 64,
+        "countEncoding": "exact integer low16/high16 limbs in Float32 MRT",
+        "classifierVersion": "ieee-bits-v2",
+        "classifier": "floatBitsToUint exponent/mantissa/sign masks; no floating-point isnan/isinf",
+        "counterConsistency": true,
+        "stateRestored": true,
+        "space": "Input level-zero RGB after current scene storage exposure P; no decode/exposure/tone mapping added"
+      },
+      "photometry": {
+        "storageEV": 12,
+        "cameraEV": 16.500000000000004,
+        "sceneScale": 4096,
+        "outputExposureScale": 17.196836918456878,
+        "rawPerCandela": 0.000036,
+        "maxRawRGB": 3.4376248713363404,
+        "storedBound": 14080.51147299365,
+        "safeMaximum": 16376,
+        "targetEV": 12,
+        "storageEpoch": 18,
+        "lastStorageDeltaEV": 0,
+        "components": {
+          "sky": 0.142314805849395,
+          "locals": 2.514385681193385,
+          "fireworks": 0.152327963995214,
+          "medium": 0.6285964202983463
+        },
+        "reference": "3.6 relative directional irradiance per100000 reference lux; effective, not measured",
+        "limits": [
+          "Source bounds must cover all participating RGB channels and worst relevant overlap.",
+          "Finite FP16 storage and final display dynamic range are different constraints.",
+          "A changed storage exposure does not change photographic exposure."
+        ]
+      }
+    },
+    "event": {
+      "time": 158.97699999999682,
+      "active": 1,
+      "queued": 0,
+      "launches": 1,
+      "rejected": 0,
+      "maxActive": 2,
+      "maxQueued": 16,
+      "settings": {
+        "type": "ring",
+        "autoLaunch": false,
+        "autoDirection": true,
+        "azimuth": 110,
+        "elevation": 80,
+        "autoFrame": true
+      },
+      "windSegments": 2,
+      "activeEvents": [
+        {
+          "id": "2654450032-153.25710",
+          "type": "ring",
+          "pattern": "smiley",
+          "calibreMm": 90,
+          "heightInfo": {
+            "inputMode": "definition-rise",
+            "referenceRiseMetres": 120,
+            "referenceElevationDegrees": 80,
+            "explicitWorldHeight": null,
+            "calibratedRiseMetres": 120,
+            "actualBurstWorldY": 121.47704875875286,
+            "actualBurstRiseMetres": 120,
+            "productReference": {
+              "calibreMm": 90,
+              "riseMetres": 120,
+              "referenceWidthMetres": 60,
+              "source": "https://san-en-fireworks.com/index/products/productse/",
+              "evidence": "supplier product-scale example",
+              "widthCalibrated": false
+            },
+            "widthCalibrated": false,
+            "visibleApex": null
+          },
+          "paletteMode": "yellow-outline-green-features"
+        }
+      ],
+      "model": "analytic linear-drag segments; deterministic world-space events; authored reference photometry, not CFD",
+      "records": 159,
+      "lastRender": {
+        "instances": 159,
+        "reflection": false,
+        "storageEV": 12,
+        "rawPerCandela": 0.000036,
+        "width": 1209,
+        "height": 1292
+      },
+      "quality": {
+        "trailSegments": 8
+      },
+      "radianceBound": {
+        "maximumRawRadiance": 0.0001280052136554427,
+        "maxRawRadiance": 0.0001280052136554427,
+        "globalFiniteSurfaceCeiling": 199.07708111663857,
+        "globalReferenceOnly": true,
+        "ownSmokeRawBound": 0.0001280052136554427,
+        "maximumEmissionRGBChannel": 2.5592428230357753,
+        "visibleSources": 0,
+        "nearPlaneFallbackSources": 0,
+        "method": "32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers",
+        "conservative": true
+      },
+      "warnings": [],
+      "units": "reference cd + approximate emission RGB, linear scene reference once *2^storageEV; not measured pyrotechnic photometry",
+      "renderer": "independent instanced premult effects, four-segment finite air; water-hit reflection origin; sorted short segments",
+      "tailIntegration": {
+        "spatialSamples": 8,
+        "shutter": "<=1px: trace-preserving isotropic variance; >1px:3-point independent quadrature",
+        "kernelEvaluations": "8 normal /24 large-shutter tail; heads unchanged",
+        "extraPasses": 0
+      },
+      "limits": [
+        "linear drag/burn model; no chemical or shock/fluid solve",
+        "grey smoke thin sprites; centre-depth sorting and shared near-air visibility approximation",
+        "resolved opaque depth/defocus occlusion approximation; root owns one shared bloom/vignette",
+        "subpixel tail shutter variance is a bounded angular approximation, not exact time-space convolution",
+        "star/cross-spectrum RGB is approximate CIE fit + authored bands and gamut compression"
+      ],
+      "bounds": {
+        "min": [
+          21.11140820068039,
+          0,
+          -43.21220800951778
+        ],
+        "max": [
+          110.55116836669704,
+          147.80835780760498,
+          87.12705247855246
+        ],
+        "centre": [
+          65.83128828368872,
+          73.90417890380249,
+          21.957422234517338
+        ],
+        "center": [
+          65.83128828368872,
+          73.90417890380249,
+          21.957422234517338
+        ],
+        "radius": 108.20709791981368,
+        "active": true,
+        "predicted": true,
+        "model": "16-point analytic trajectory forecast at current wind +8m margin; 2Hz cache; smoke envelope"
+      },
+      "audio": {
+        "scheduled": 0,
+        "discarded": 2,
+        "recordedPlays": 0,
+        "synthesizedPlays": 0,
+        "activeVoices": 0,
+        "outputReady": false,
+        "recordingLoaded": false,
+        "recordingDuration": 0,
+        "relativeBurstGain": 12,
+        "postCompressorHeadroomGain": 0.7,
+        "compressorAttackSeconds": 0.0005,
+        "source": {
+          "title": "Single Firework",
+          "author": "richwise",
+          "source": "https://freesound.org/people/richwise/sounds/455453/",
+          "license": "CC0 1.0",
+          "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "file": "./assets/audio/fireworks/burst-richwise-preview-mono.ogg",
+          "kind": "real recording, trimmed mono from compressed public HQ preview",
+          "subjectiveReview": "not performed by agent; listening acceptance pending"
+        },
+        "loadError": null,
+        "lastArrival": null,
+        "spatial": "HRTF; inverse pressure-distance once in PannerNode; temperature-dependent propagation delay",
+        "limits": [
+          "real compressed preview recording; subjective background/timbre listening pending",
+          "launch/crackle and failed-load burst explicitly synthesized",
+          "fixed listener at emission scheduling; moving receiver sound-cone not solved",
+          "distance lowpass is an approximation; no absolute sound-pressure calibration",
+          "linear post-compressor headroom lowers all pyro SFX3.10dB; not an arbitrary-source peak limiter"
+        ]
+      }
+    },
+    "camera": [
+      -154.20169792779888,
+      12.000000000000014,
+      -118.5429729279424
+    ],
+    "target": [
+      35.77558418334852,
+      73.90417890380249,
+      21.957422234517338
+    ],
+    "lens": {
+      "storageEV": 12,
+      "historyEV": 12,
+      "dynamicLighting": false,
+      "sceneAttachments": [
+        "RGBA16F radiance",
+        "RGBA16F motion/coverage",
+        "R16F foliage depth",
+        "R8 local reactive"
+      ],
+      "motion": {
+        "enabled": true,
+        "frames": 13189,
+        "groups": 1,
+        "hasPrevious": true,
+        "extraScenePasses": 0,
+        "attachment": "RGBA16F: unjittered UV velocity.xy, previous linear depth, MSAA coverage; R16F: current linear depth; normalize both by coverage",
+        "limits": [
+          "analytic rest-mesh wind and camera motion only; no arbitrary model-matrix animation",
+          "missing-coverage bridge retains conservative camera-only fallback"
+        ]
+      },
+      "bloom": {
+        "enabled": true,
+        "strength": 0.018,
+        "levels": 4,
+        "model": "normalized, threshold-free linear HDR camera PSF; 1.8% radiance redistribution",
+        "passes": 5
+      },
+      "hdr": {
+        "enabled": true,
+        "available": true,
+        "apiAvailable": true,
+        "displayHDR": true,
+        "mode": "float-canvas-external-copy",
+        "width": 1209,
+        "height": 1292,
+        "maxHz": 120,
+        "maxBridgeWidth": 1440,
+        "paperWhiteNits": 280,
+        "peakNits": 700,
+        "sdrWhiteNits": 280,
+        "headroom": 2.5,
+        "whiteScale": 1,
+        "calibrationSource": "windows-dxgi",
+        "displayName": "Q27G4XM",
+        "calibrationAdjustments": [],
+        "presentedFrames": 12417,
+        "skippedFrames": 771,
+        "lastPresentCpuMs": 0,
+        "lastUploadCpuMs": 0,
+        "lastPresentationTimestamp": 169508,
+        "errors": [],
+        "requiresRedraw": false,
+        "readback": null,
+        "source": "pre-OutputPass, scene-linear sRGB floating-point target",
+        "output": "sRGB-encoded rgba16float, extended, opaque",
+        "noExplicitCPUReadback": true,
+        "absoluteNitsCalibrated": false,
+        "systemReportedCalibration": true,
+        "peakRelativeToBrowserWhite": 2.5,
+        "shoulder": "same fitted SDR ACES anchor through exposed peak 1; C1 bounded highlight extension; nit scale divided by browser/Windows SDR white",
+        "limits": "System-reported luminance is not a photometer measurement and scene lux is not calibrated. This is not an official ACES HDR ODT. Extended sRGB canvas is not a native 80-nit scRGB swap chain. External-image copy is not guaranteed zero-copy. PBO copies pixels through CPU. HDR enlargement is linear, not SDR FSR1."
+      },
+      "width": 1209,
+      "height": 1292,
+      "outputWidth": 1209,
+      "outputHeight": 1292,
+      "upscaler": "native resolution",
+      "samples": 8,
+      "maxSamples": 8,
+      "sampleSupport": [
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ]
+      ],
+      "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+      "temporal": {
+        "enabled": true,
+        "active": true,
+        "waterEnabled": true,
+        "stillFrames": 35,
+        "frozen": true,
+        "historyFrames": 474,
+        "historyWeight": 0.84,
+        "artificialJitter": false,
+        "jitterPixels": [
+          0,
+          0
+        ],
+        "lastResetReason": "clock/location",
+        "scope": "analytic wind/camera foliage motion, MSAA coverage, independent short water radiance history",
+        "maximumMissingCoverageFrames": 2,
+        "metadata": "R8 age; nearest valid depth, bilinear RGB",
+        "historyBytes": 28116504
+      },
+      "focalMm": 28,
+      "cameraFocalMm": 27.999999999999993,
+      "verticalFovDegrees": 65.4704525442152,
+      "exposureScale": 17.196836918456878,
+      "aperture": 8,
+      "focusMode": "target",
+      "focusMetres": 244.26185974257177,
+      "sensorHeightMm": 36,
+      "depthOfField": false,
+      "vignette": true,
+      "sceneStats": {
+        "triangles": 2137210,
+        "calls": 35
+      }
+    },
+    "photometry": {
+      "storageEV": 12,
+      "cameraEV": 16.500000000000004,
+      "sceneScale": 4096,
+      "outputExposureScale": 17.196836918456878,
+      "rawPerCandela": 0.000036,
+      "maxRawRGB": 3.4376248713363404,
+      "storedBound": 14080.51147299365,
+      "safeMaximum": 16376,
+      "targetEV": 12,
+      "storageEpoch": 18,
+      "lastStorageDeltaEV": 0,
+      "components": {
+        "sky": 0.142314805849395,
+        "locals": 2.514385681193385,
+        "fireworks": 0.152327963995214,
+        "medium": 0.6285964202983463
+      },
+      "reference": "3.6 relative directional irradiance per100000 reference lux; effective, not measured",
+      "limits": [
+        "Source bounds must cover all participating RGB channels and worst relevant overlap.",
+        "Finite FP16 storage and final display dynamic range are different constraints.",
+        "A changed storage exposure does not change photographic exposure."
+      ],
+      "frame": {
+        "time": 158.97699999999682,
+        "dt": 0,
+        "utcMs": 1793023200000,
+        "storageEV": 12,
+        "sceneScale": 4096,
+        "rawPerCandela": 0.000036,
+        "cameraEV": 16.500000000000004,
+        "outputExposureScale": 17.196836918456878,
+        "maxRawRGB": 3.4376248713363404,
+        "storedBound": 14080.51147299365,
+        "safeMaximum": 16376,
+        "targetEV": 12,
+        "storageEpoch": 18,
+        "lastStorageDeltaEV": 0,
+        "components": {
+          "sky": 0.142314805849395,
+          "locals": 2.514385681193385,
+          "fireworks": 0.152327963995214,
+          "medium": 0.6285964202983463
+        },
+        "reference": "3.6 relative directional irradiance per100000 reference lux; effective, not measured",
+        "limits": [
+          "Source bounds must cover all participating RGB channels and worst relevant overlap.",
+          "Finite FP16 storage and final display dynamic range are different constraints.",
+          "A changed storage exposure does not change photographic exposure."
+        ],
+        "adaptationDelta": 0.005799999952316284,
+        "observer": {
+          "latitudeDeg": 4.5,
+          "longitudeDeg": 118.6,
+          "heightM": 2,
+          "northYawDeg": 0
+        },
+        "windVector": [
+          1.6848,
+          0,
+          0.6335999999999999
+        ],
+        "weather": {
+          "temperature": 29,
+          "humidity": 0.68,
+          "dewPoint": 22.496348617818374,
+          "liftedCondensationLevel": 812.9564227727033,
+          "automaticCloudBase": true,
+          "cloudBase": 812.9564227727033,
+          "thickness": 950,
+          "cloudTop": 1762.9564227727033,
+          "coverage": 0.35,
+          "moisture": 0.984,
+          "shear": 1.1,
+          "windDirection": null,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve"
+        }
+      },
+      "environment": {
+        "initialized": true,
+        "disposed": false,
+        "revision": 324,
+        "pmremRevision": 75,
+        "cubeSize": 256,
+        "faceRate": 12,
+        "pmremInterval": 2,
+        "totalFaces": 1950,
+        "fullRefreshes": 6,
+        "cancelledJobs": 1,
+        "cubeCaptureEV": 16,
+        "environmentCaptureEV": 16,
+        "sceneEV": 12,
+        "cubeRatio": 0.0625,
+        "environmentRatio": 0.0625,
+        "cubeTag": {
+          "time": 158.3660999999015,
+          "utcMs": 1793023200000,
+          "physicalRevision": 2,
+          "captureEV": 16,
+          "exposure": {
+            "captureEV": 16,
+            "safeEV": 16,
+            "recommendedEV": 17.703452891212947,
+            "preferredEV": 21,
+            "maxRGB": 0.142314805849395,
+            "maximumStoredRGB": 16376,
+            "storedBound": 9326.74311614595
+          },
+          "sunDirection": [
+            -0.4519843789004561,
+            -0.8793346579548398,
+            0.1499355880016947
+          ],
+          "position": [
+            0,
+            2,
+            0
+          ]
+        },
+        "environmentTag": {
+          "time": 156.86439999997316,
+          "utcMs": 1793023200000,
+          "physicalRevision": 2,
+          "captureEV": 16,
+          "exposure": {
+            "captureEV": 16,
+            "safeEV": 16,
+            "recommendedEV": 17.703452891212947,
+            "preferredEV": 21,
+            "maxRGB": 0.142314805849395,
+            "maximumStoredRGB": 16376,
+            "storedBound": 9326.74311614595
+          },
+          "sunDirection": [
+            -0.4519843789004561,
+            -0.8793346579548398,
+            0.1499355880016947
+          ],
+          "position": [
+            0,
+            2,
+            0
+          ]
+        },
+        "cube": {
+          "captureAge": 0.6109000000953131,
+          "utcSecondsAge": 0,
+          "utcSignedSecondsAge": 0
+        },
+        "environment": {
+          "captureAge": 2.1126000000236616,
+          "utcSecondsAge": 0,
+          "utcSignedSecondsAge": 0
+        },
+        "pendingReason": null,
+        "job": {
+          "face": 2,
+          "tag": {
+            "time": 158.86669999992532,
+            "utcMs": 1793023200000,
+            "physicalRevision": 2,
+            "captureEV": 16,
+            "exposure": {
+              "captureEV": 16,
+              "safeEV": 16,
+              "recommendedEV": 17.703452891212947,
+              "preferredEV": 21,
+              "maxRGB": 0.142314805849395,
+              "maximumStoredRGB": 16376,
+              "storedBound": 9326.74311614595
+            },
+            "sunDirection": [
+              -0.4519843789004561,
+              -0.8793346579548398,
+              0.1499355880016947
+            ],
+            "position": [
+              0,
+              2,
+              0
+            ]
+          },
+          "wallAge": 0.6846999999284833
+        },
+        "allocated": {
+          "cubes": 2,
+          "pmrems": 2
+        },
+        "lastReason": "scheduled capture",
+        "errors": [],
+        "limits": [
+          "Snapshot coherence, not instantaneous sky; cube/PMREM age are explicit",
+          "Sky cubemap is captured at one fixed point per round, not a spatial radiance field",
+          "Source bound is atmosphere analytic envelope; not photometer calibration",
+          "Explicit initialize/refresh draws six faces synchronously; scheduled work is face-budgeted",
+          "No CPU/GPU timing or FPS claim"
+        ]
+      }
+    },
+    "lighting": {
+      "mode": "night",
+      "linked": false,
+      "lamps": [
+        {
+          "enabled": true,
+          "brightness": 0.45,
+          "color": "#ffdfa5"
+        },
+        {
+          "enabled": true,
+          "brightness": 0.45,
+          "color": "#ffdfa5"
+        },
+        {
+          "enabled": true,
+          "brightness": 0.45,
+          "color": "#ffdfa5"
+        }
+      ],
+      "flashlight": {
+        "enabled": false,
+        "brightness": 0.7
+      },
+      "layout": "triangle around the cay",
+      "fixture": {
+        "heightMetres": 0.173,
+        "diameterMetres": 0.13,
+        "emission": "unshielded spherical diffuser; omnidirectional point-light approximation"
+      },
+      "rawReference": 0.000036,
+      "shadowSize": 1024,
+      "shadowHz": 45,
+      "active": 4,
+      "lights": [
+        {
+          "id": 0,
+          "type": "point",
+          "position": [
+            -21,
+            0.709387901912434,
+            5.3
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 29.25,
+          "rawRGB": [
+            0.0010530000000000001,
+            0.0007770196604318949,
+            0.00039620401549842946
+          ],
+          "radius": 0.065
+        },
+        {
+          "id": 1,
+          "type": "point",
+          "position": [
+            18,
+            0.7312298412598459,
+            5.3
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 29.25,
+          "rawRGB": [
+            0.0010530000000000001,
+            0.0007770196604318949,
+            0.00039620401549842946
+          ],
+          "radius": 0.065
+        },
+        {
+          "id": 2,
+          "type": "point",
+          "position": [
+            -1.5,
+            0.9182470070781804,
+            -13.7
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 29.25,
+          "rawRGB": [
+            0.0010530000000000001,
+            0.0007770196604318949,
+            0.00039620401549842946
+          ],
+          "radius": 0.065
+        },
+        {
+          "id": 3,
+          "type": "spot",
+          "position": [
+            -154.23689900335086,
+            11.865343366733176,
+            -118.33269074124411
+          ],
+          "direction": [
+            0.7777607290444974,
+            0.2534336673316229,
+            0.5752039852252557
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 0.025
+        },
+        {
+          "id": 4,
+          "type": "point",
+          "position": [
+            74.31645092630393,
+            114.79581668898808,
+            18.028622412731362
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 838.1085129322364,
+          "rawRGB": [
+            0.03846392557968414,
+            0.030346552886572876,
+            0.004025225247129342
+          ],
+          "radius": 8.492168334309554
+        },
+        {
+          "id": 5,
+          "type": "point",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        }
+      ],
+      "frameStorageEV": 12
+    },
+    "checks": [
+      {
+        "name": "ring compatibility request now produces an explicit smiley",
+        "passed": true
+      },
+      {
+        "name": "actual main composed and mirror RGB remain finite/nonnegative",
+        "passed": true
+      },
+      {
+        "name": "scene source budget stays below FP16 headroom",
+        "passed": true
+      }
+    ],
+    "passed": true,
+    "limits": [
+      "Actual scene at fixed physical phase, ordinary SDR export; no calibrated nits or measured pyrotechnic cd claim.",
+      "Persistent smoke, transient cloud illumination, local GI and new lens ghosts are subsequent R2 work, not present in this capture."
+    ]
+  },
+  "done": true
+}

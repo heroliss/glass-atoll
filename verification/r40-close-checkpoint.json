@@ -1,0 +1,57 @@
+{
+  "schema": "glass-atoll.r40-close-checkpoint.v1",
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "User intent and healthy restored runtime",
+      "passed": true,
+      "evidence": {
+        "groups": 29,
+        "parametersExact": true,
+        "HDR": true,
+        "reportedPeakNits": 1270,
+        "phaseHistoryRestored": false,
+        "physicalBefore": 0.07870000000298023,
+        "physicalAfter": 25.2944000000061
+      }
+    },
+    {
+      "name": "Prior R39 files retained with exact source/document archives",
+      "passed": true,
+      "evidence": {
+        "historicalEntriesVerified": 203
+      }
+    },
+    {
+      "name": "Only intended QA entry and prepared source-view staging changed",
+      "passed": true,
+      "evidence": {
+        "changed": [
+          "fireworks.js",
+          "main.js"
+        ],
+        "approvedAudioExact": true,
+        "regularMainUsesPreparedViews": false,
+        "productionCapacityChanged": false
+      }
+    },
+    {
+      "name": "Remaining fixed dense GPU phases completed once with independent audit",
+      "passed": true,
+      "evidence": {
+        "actualGPUCalls": 3,
+        "auditChecks": {
+          "passed": 6,
+          "total": 6
+        },
+        "fullFrameOrFPS": false
+      }
+    }
+  ],
+  "newGPUCallsByChecker": 0,
+  "goalComplete": false
+}

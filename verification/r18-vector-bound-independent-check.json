@@ -1,0 +1,147 @@
+{
+  "schema": "glass-atoll.r18-vector-bound-independent-cpu.v1",
+  "dateUTC": "2026-10-29T03:49:54.855Z",
+  "passed": true,
+  "passedCount": 8,
+  "total": 8,
+  "sourceSHA256": "73648d67def9f5be7a2c5174e8787e24500d9fbc5c8388071c2cd0015043b0aa",
+  "checks": [
+    {
+      "name": "dark-now but bright-history candidate survives filtering upload and projected radiance aggregation",
+      "passed": true,
+      "evidence": {
+        "currentRGB": [
+          0,
+          0,
+          0
+        ],
+        "maximumReferenceRGB": [
+          12,
+          10,
+          30
+        ],
+        "bound": 0.06273111198148576,
+        "tapMean": [
+          0,
+          1.75,
+          6
+        ],
+        "diagnosticMaximumEmissionRGBChannel": 3
+      }
+    },
+    {
+      "name": "every source phase and bin mean is below independently authored componentwise all-phase maximum",
+      "passed": true,
+      "evidence": {
+        "windows": 39,
+        "maximumRGB": [
+          12,
+          10,
+          30
+        ],
+        "oracle": "independent exact local piecewise-linear integral from profile; no current unit-Y colour multiplication"
+      }
+    },
+    {
+      "name": "mixed candidate and legacy records keep candidate causal shutter in mirror while legacy remains S0",
+      "passed": true,
+      "evidence": {
+        "candidateShutter": [
+          0.5,
+          0.5
+        ],
+        "legacyShutter": [
+          0.5,
+          0
+        ],
+        "candidateAnchor": [
+          0.8,
+          20,
+          -100
+        ]
+      }
+    },
+    {
+      "name": "all eight time-bin centres and both spatial-tail endpoints fit the raster quad and CPU bin bound",
+      "passed": true,
+      "evidence": {
+        "witnesses": 640,
+        "scope": "deterministic double-projection support witnesses; actual FP32 raster/link validation belongs to root GPU gate"
+      }
+    },
+    {
+      "name": "candidate core maximum remains independent of current black colour when public single-source bound is queried",
+      "passed": true,
+      "evidence": {
+        "peak": 0.05228663432359215,
+        "allPhaseReferenceRGB": [
+          12,
+          10,
+          30
+        ]
+      }
+    },
+    {
+      "name": "exposure-aware framing retains historical RGB mean and identical optical midpoint at the SAME shutter",
+      "passed": true,
+      "evidence": {
+        "sameShutter": 0.5,
+        "renderedRows": 1,
+        "framingRows": 1,
+        "meanReferenceRGB": [
+          0,
+          1.7500000000000002,
+          5.999999999999998
+        ],
+        "anchor": [
+          2,
+          20,
+          -100
+        ],
+        "defaultWindowRows": 0,
+        "defaultWindowMeaning": "1/120 excludes the already-extinguished history; different shutters are intentionally not interchangeable"
+      }
+    },
+    {
+      "name": "maximumEmissionRGBChannel derives from all-phase reference divided by unmodulated I0 and retains legacy maximum",
+      "passed": true,
+      "evidence": {
+        "darkNowChannelMaximum": 3,
+        "legacyMixedMaximum": 6,
+        "semantics": "dimensionless channel-to-authored-unmodulated-I0 ratio; actual radiance peak continues to use full reference RGB"
+      }
+    },
+    {
+      "name": "candidate kernel cost and approximation diagnostics distinguish the actual 64/2048 paths from legacy",
+      "passed": true,
+      "evidence": {
+        "legacy": "8 normal /24 large-shutter tail; heads unchanged",
+        "candidateSimple": "candidate:8 temporal by8 spatial =64 Gaussian evaluations; zero motion shortcuts once",
+        "candidateAdaptive": "candidate: up to8 temporal bins times2 spatial levels times128 local samples =2048 Gaussian evaluations; zero motion shortcuts once",
+        "scope": "Published upper-work descriptions checked against nested vector time/spatial loop counts; no GPU timing claim"
+      }
+    }
+  ],
+  "observations": [
+    {
+      "kind": "current ground cutoff omits above-ground shutter history",
+      "currentY": -0.04999999999999999,
+      "pastTime": 0.3,
+      "pastY": 0.05000000000000002,
+      "pastReferenceRGB": [
+        0,
+        10,
+        0
+      ],
+      "expectedHistoricalSupport": true,
+      "renderedHistoryRows": 0,
+      "scope": "Synthetic one-body boundary repro; ordinary high-altitude two-profile launches are not established to hit this boundary. Correct physical treatment requires terminating at ground crossing while retaining earlier shutter support, not emitting under water."
+    }
+  ],
+  "limits": [
+    "CPU-only actual Three constructors with instrumented private getters and no-context renderer stub.",
+    "No native shader compilation, fragment radiance, VTF, HDR presentation, frame time or GPU acceptance.",
+    "Same current source snapshot is imported/instrumented; root may subsequently edit runtime; source hash identifies this run.",
+    "Observations are explicit unresolved contract limits, not requirement acceptance passes."
+  ]
+}

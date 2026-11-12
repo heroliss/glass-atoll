@@ -1,0 +1,278 @@
+{
+  "schema": "glass-atoll.static-media-range-HTTP-QA.v1",
+  "dateUTC": "2026-10-27T09:32:20.913Z",
+  "actualHTTP": true,
+  "productionServerRestarted": false,
+  "productionPort5186Untouched": true,
+  "ephemeralPort": 5049,
+  "listenerClosed": true,
+  "temporaryFixtureRemoved": true,
+  "sourceSHA256": "9cefdc0c785496f9ada069a00fa9128aaa024b7181c8dcc4a289aa8fb30d243f",
+  "passed": true,
+  "counts": {
+    "passed": 30,
+    "total": 30
+  },
+  "checks": [
+    {
+      "name": "temporary loopback listener uses ephemeral port and no production port",
+      "passed": true,
+      "evidence": {
+        "port": 5049,
+        "production5186Untouched": true
+      }
+    },
+    {
+      "name": "MP4 full GET correct MIME length and byteexact payload",
+      "passed": true,
+      "evidence": {
+        "status": 200,
+        "bytes": 65539,
+        "sha256": "22a669756ca752468763521a8868cada713dbd6a0309ca6c19b4723bfdea280a"
+      }
+    },
+    {
+      "name": "WebM correct MIME and byteexact content",
+      "passed": true,
+      "evidence": {
+        "contentType": "video/webm"
+      }
+    },
+    {
+      "name": "bounded range",
+      "passed": true,
+      "evidence": {
+        "range": "bytes=8-255",
+        "status": 206,
+        "contentRange": "bytes 8-255/65539",
+        "bytes": 248
+      }
+    },
+    {
+      "name": "single first byte inclusive endpoints",
+      "passed": true,
+      "evidence": {
+        "range": "bytes=0-0",
+        "status": 206,
+        "contentRange": "bytes 0-0/65539",
+        "bytes": 1
+      }
+    },
+    {
+      "name": "single last byte",
+      "passed": true,
+      "evidence": {
+        "range": "bytes=65538-65538",
+        "status": 206,
+        "contentRange": "bytes 65538-65538/65539",
+        "bytes": 1
+      }
+    },
+    {
+      "name": "open ended range",
+      "passed": true,
+      "evidence": {
+        "range": "bytes=65520-",
+        "status": 206,
+        "contentRange": "bytes 65520-65538/65539",
+        "bytes": 19
+      }
+    },
+    {
+      "name": "suffix range",
+      "passed": true,
+      "evidence": {
+        "range": "bytes=-37",
+        "status": 206,
+        "contentRange": "bytes 65502-65538/65539",
+        "bytes": 37
+      }
+    },
+    {
+      "name": "oversized suffix clamps to full representation with206",
+      "passed": true,
+      "evidence": {
+        "range": "bytes=-999999999999999999999999",
+        "status": 206,
+        "contentRange": "bytes 0-65538/65539",
+        "bytes": 65539
+      }
+    },
+    {
+      "name": "oversized end clamps without Float64 rounding",
+      "passed": true,
+      "evidence": {
+        "range": "bytes=65000-999999999999999999999999",
+        "status": 206,
+        "contentRange": "bytes 65000-65538/65539",
+        "bytes": 539
+      }
+    },
+    {
+      "name": "case insensitive byte unit",
+      "passed": true,
+      "evidence": {
+        "range": "BYTES=31-47",
+        "status": 206,
+        "contentRange": "bytes 31-47/65539",
+        "bytes": 17
+      }
+    },
+    {
+      "name": "first byte beyond end returns416",
+      "passed": true,
+      "evidence": {
+        "range": "bytes=65539-",
+        "status": 416,
+        "contentRange": "bytes */65539"
+      }
+    },
+    {
+      "name": "huge start unsatisfiable safely",
+      "passed": true,
+      "evidence": {
+        "range": "bytes=999999999999999999999999-",
+        "status": 416,
+        "contentRange": "bytes */65539"
+      }
+    },
+    {
+      "name": "reversed range rejected",
+      "passed": true,
+      "evidence": {
+        "range": "bytes=100-1",
+        "status": 416,
+        "contentRange": "bytes */65539"
+      }
+    },
+    {
+      "name": "zero suffix unsatisfiable",
+      "passed": true,
+      "evidence": {
+        "range": "bytes=-0",
+        "status": 416,
+        "contentRange": "bytes */65539"
+      }
+    },
+    {
+      "name": "malformed supported byte ranges rejected",
+      "passed": true,
+      "evidence": {
+        "cases": 5
+      }
+    },
+    {
+      "name": "multiple ranges deliberately ignored as full200",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "unknown range unit ignored as full200",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "IfRange unvalidated request safely falls back to full200",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "HEAD full representation headers no body",
+      "passed": true,
+      "evidence": {
+        "status": 200,
+        "contentLength": "65539",
+        "bodyBytes": 0
+      }
+    },
+    {
+      "name": "HEAD ignores Range per GETonly RFC semantics",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "empty full GET and HEAD no chunked body",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "empty range returns416 and total0",
+      "passed": true,
+      "evidence": {
+        "range": "bytes=0-",
+        "status": 416,
+        "contentRange": "bytes */0"
+      }
+    },
+    {
+      "name": "directory index preserved",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "unsupported static method405 with Allow",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "missing GET and HEAD404 without duplicate headers",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "existing encoded Windows traversal guard preserved",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "displayHDR crossOrigin rejection and method guard preserved without native probing",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "display probe route path guard and original listen bytes unchanged",
+      "passed": true,
+      "evidence": {
+        "preserved": [
+          "displayProbe",
+          "displayRoute",
+          "pathGuard",
+          "listen"
+        ],
+        "beforeServerSHA256": "62d6b65ada0044b58b408ef5316fcf6a7ffe5f49dab23959d48890e5757c4b33"
+      }
+    },
+    {
+      "name": "actual existing MP4 media header tail and seekoffset bytes match disk",
+      "passed": true,
+      "evidence": {
+        "file": "verification/pyro-r7-apex-motion.mp4",
+        "fileBytes": 6446625,
+        "samples": [
+          {
+            "offset": 0,
+            "bytes": 128,
+            "sha256": "671ae2018b9d83cceba21b28ea64e3c61e409588f181e3f89fe7002462a63e7f"
+          },
+          {
+            "offset": 2385251,
+            "bytes": 128,
+            "sha256": "b2195b7792e54696a40e44b899c44b8e000bae17fd49485effcca5f6b286cf6c"
+          },
+          {
+            "offset": 6446497,
+            "bytes": 128,
+            "sha256": "1bab3b0326ee50159b068e819d16df336e92d21bce5589ce31ebfae820e5cdb7"
+          }
+        ],
+        "mediaDecodedInThisTest": false
+      }
+    }
+  ],
+  "limits": [
+    "Actual browser/native video seek is a separate acceptance after the owner restarts the existing server.",
+    "No browser decode/playback/FPS/HDR proof from HTTP bytes.",
+    "Single byte range only; multiRange/unknown-unit/IfRange fallback200; HEAD ignores Range."
+  ],
+  "specification": "https://www.rfc-editor.org/rfc/rfc9110.html#section-14.2"
+}

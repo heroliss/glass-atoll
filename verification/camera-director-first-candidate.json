@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-26T21:16:38.400Z",
+  "scope": "Pure CPU pose/continuity/control tests. No native input, browser composition, tree collisions or visual/FPS acceptance.",
+  "sourceSHA256": "1eb098e2b721aecb7fb7869addaab52976045dc2d8da0d7ca5687c8421858d98",
+  "passed": false,
+  "passedCount": 18,
+  "total": 19,
+  "checks": [
+    {
+      "name": "t=0 exactly preserves actual pose without start pop",
+      "passed": true
+    },
+    {
+      "name": "physical dt is partition independent at30/60/120Hz",
+      "passed": true,
+      "detail": [
+        {
+          "hz": 30,
+          "positionMetres": 0,
+          "elapsedSeconds": 240
+        },
+        {
+          "hz": 60,
+          "positionMetres": 0,
+          "elapsedSeconds": 240
+        },
+        {
+          "hz": 120,
+          "positionMetres": 0,
+          "elapsedSeconds": 240
+        }
+      ]
+    },
+    {
+      "name": "nonuniform frame partitions preserve final pose",
+      "passed": true,
+      "detail": {
+        "elapsed": 100
+      }
+    },
+    {
+      "name": "pause discards paused dt and resume has no catch-up",
+      "passed": true
+    },
+    {
+      "name": "cancel immediately returns null and never automatically resumes",
+      "passed": true
+    },
+    {
+      "name": "entry angular phase equals integral of smooth angular speed",
+      "passed": true
+    },
+    {
+      "name": "entry start has vanishing pose velocity",
+      "passed": true,
+      "detail": {
+        "positionSpeedProxy": 0.00002698181786702149,
+        "targetSpeedProxy": 0.000005871173809024509
+      }
+    },
+    {
+      "name": "entry/orbit join is numerically C1 and C2 away from terrain clamp",
+      "passed": true,
+      "detail": {
+        "position": {
+          "velocityJoinError": 0.0000012122759191336872,
+          "accelerationJoinError": 0.006880167368825712
+        },
+        "target": {
+          "velocityJoinError": 4.2632564145606e-9,
+          "accelerationJoinError": 0.0016218439513001677
+        }
+      }
+    },
+    {
+      "name": "outward/antipodal look never sends target through eye",
+      "passed": true,
+      "detail": {
+        "minimumLookDistance": 69.99999999999999
+      }
+    },
+    {
+      "name": "clockwise/counterclockwise modes have opposed orbital tangents",
+      "passed": true
+    },
+    {
+      "name": "complete steady period closes the same world orbit",
+      "passed": true
+    },
+    {
+      "name": "terrain safety matches+.5m and sea clearance without t0 jump",
+      "passed": true
+    },
+    {
+      "name": "higher terrain clamps eye without changing target at entry join",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(touched)\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/camera-director-check.mjs:25:384\n    at test (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/camera-director-check.mjs:5:75)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/camera-director-check.mjs:25:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "defaults change next start but do not retime an active orbit",
+      "passed": true
+    },
+    {
+      "name": "invalid requests fail before replacing a live run",
+      "passed": true
+    },
+    {
+      "name": "input/output/state arrays do not leak mutable control state",
+      "passed": true
+    },
+    {
+      "name": "callbacks only fire on start and actual cancel",
+      "passed": true
+    },
+    {
+      "name": "long physical-time sample remains finite without absolute-time exponentials",
+      "passed": true
+    },
+    {
+      "name": "module has no renderer/DOM/UTC/event or random dependency",
+      "passed": true
+    }
+  ]
+}

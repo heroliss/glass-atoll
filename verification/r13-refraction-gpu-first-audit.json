@@ -1,0 +1,75 @@
+{
+  "kind": "R13 first actual GPU failure audit before any production change",
+  "originalHelperSHA256": "75493258a4c934655b326fd9b8e9a8c16fd88966ab0fa5ad963fe127bc252ee8",
+  "runtimeUnchangedSHA256": "65a597fe6946a23d8bf7599369dc8ca5d7ec6f51cbdb5c199b4f25792865c27a",
+  "firstChecksPassed": 6,
+  "firstChecksTotal": 9,
+  "actualGlErrors": [
+    "0x502",
+    "0x502"
+  ],
+  "isolatedProgramSamplerCount": 0,
+  "productionProgramSamplerCounts": [
+    16,
+    16
+  ],
+  "localPrimaryCodeEvidence": {
+    "path": "vendor/three.module.js",
+    "rawPrefixLine": 6075,
+    "normalShaderGLSL3ConversionLine": 6433,
+    "normalShaderTexture2DAliasLine": 6451
+  },
+  "causalHypothesis": "The fixture is RawShaderMaterial GLSL3 but embedded production ShaderMaterial texture2D calls without the Three GLSL3 alias. Its isolated program has no active samplers and GL502. Actual compile logs were not captured in the first report, so independent rerun must confirm the alias correction links and produces nonzero hits.",
+  "correction": "Fixture only: exact #define texture2D texture compatibility alias, owned shader compile/link logs, reject failed programs before pixel reads. Production trace source and every original numerical gate unchanged.",
+  "notClaimed": [
+    "Production trace correct",
+    "Real island stones visible",
+    "Frame-rate acceptance",
+    "GPU/context failure cause in previous aerial task"
+  ],
+  "followup": {
+    "report": "verification/r13-refraction-gpu-alias.json",
+    "helperSHA256": "c73148029db150d54196397bdaac7e9dd783778b48e7d4a43a9f9618a28c24c0",
+    "checksPassed": 9,
+    "checksTotal": 9,
+    "fixturePrograms": [
+      {
+        "id": 62,
+        "linked": true,
+        "log": "",
+        "shaders": [
+          {
+            "compiled": true,
+            "log": "",
+            "type": 35633
+          },
+          {
+            "compiled": true,
+            "log": "",
+            "type": 35632
+          }
+        ]
+      }
+    ],
+    "glErrors": [],
+    "contextLost": false,
+    "coreCoverages": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "realHits": [
+      333,
+      167,
+      159,
+      172
+    ],
+    "conclusion": "The exact production functions produce actual native-depth hits after adding only the ShaderMaterial compatibility alias to the Raw GLSL3 fixture. First all-zero/GL502 failure was a fixture compile issue; no production trace change or threshold relaxation was required.",
+    "remaining": [
+      "Actual main-scene photos and continuous stone entry acceptance",
+      "Production optical costs at 0/1/12/36 live bounds",
+      "Screen-space native-buffer visibility and pixel-footprint silhouette limits"
+    ]
+  }
+}

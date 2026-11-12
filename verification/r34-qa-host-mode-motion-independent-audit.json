@@ -1,0 +1,165 @@
+{
+  "schema": "glass-atoll.r34-qa-host-mode-motion-independent-audit.v1",
+  "actualGPUExecutedByAuditor": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 7,
+    "total": 7
+  },
+  "sourcePins": {
+    "verification/baselines/r34-before-host-mode-preservation/main.js": "328f997e0b7595388a4564427c0cb8db10beeedb8f881e0bbec3cbb6af1e232b",
+    "main.js": "c731e448fa23b2897ff8f4b811b724da3dac1a39d391f7484faa64eefe2ef922",
+    "verification/r34-logical-same-phase-tiled-repair.json": "90e3f45d1ddc1ac4b2285f7ac53b53649dfe5809436f4eae456af93e1a4d9ca8",
+    "verification/r34-logical-detail-setup.json": "4eea57e9c0992ce8fe25e3caa5f0ab7101479d57b12e720f07ed404c54b86722",
+    "verification/r34-logical-three-layer-corrected-detail-state.json": "f859ac9f3b4cf988e1d4c72791f2c06c37361ba25f7ee4e53c45d6cd0b402caa",
+    "verification/r34-profile-mode-reload-live.json": "480c9945b0bdb7326a20efdf52ecd50b96ba4a2f1413629b09db2b5d1ed006ea"
+  },
+  "priorEvidence": {
+    "path": "verification/r34-qa-host-mode-motion-independent-audit-before-camera-observation-fix.json",
+    "sha256": "8ee978790032cdccb8ab22800bde62533ea1157f3f27acc4390933014cf1bc80",
+    "counts": {
+      "passed": 6,
+      "total": 7
+    },
+    "reason": "Initial6/7 receipt retained. One assertion incorrectly demanded two separately captured detail camera observations be exact; final report preserves both raw differing coordinates and claims no camera equality. Physical/source gates were not relaxed."
+  },
+  "checks": [
+    {
+      "name": "Whole main inverse proves exactly one QA rendering read and two inherited constructor fields; normal constructor and libraries unchanged",
+      "passed": true,
+      "wholeMainByteInverse": true,
+      "protectedFiles": [
+        "scene-radiometry.js",
+        "fireworks-physics.js",
+        "firework-layer-profile.js",
+        "fireworks.js",
+        "local-lights.js",
+        "sky.js",
+        "pyro-smoke-renderer.js",
+        "pyro-smoke-light-field.js",
+        "fireworks-audio.js"
+      ],
+      "productionInitializationStillExplicitEllipsoidTiled64": true
+    },
+    {
+      "name": "Old-runtime public setter repairs SH at exactly unchanged complete saved physical snapshot, state, scheduler, active events and light clusters",
+      "passed": true,
+      "fullSavedSnapshotExact": true,
+      "packetCount": 1051,
+      "sourceCount": 1728,
+      "requiredPairs": 1816128,
+      "fieldMapDraws": 3,
+      "fieldPasses": 4,
+      "physicalTime": 51.570808801963764,
+      "oldRuntimeSetterEvidenceOnly": true,
+      "signedZeroScope": "Equality of parsed complete saved JSON values, not a binary64 word capture or signed-zero proof."
+    },
+    {
+      "name": "Repair record retains two previously effective complete GPU SourceT eyes with no CPU attenuation; no new-draw claim from unchanged metadata",
+      "passed": true,
+      "views": {
+        "main": {
+          "instances": 1728,
+          "sourceVersion": 1014,
+          "densityRevision": 2234
+        },
+        "reflection": {
+          "instances": 1728,
+          "sourceVersion": 1013,
+          "densityRevision": 2234
+        }
+      },
+      "metadataUnchanged": true,
+      "newPostRepairViewDrawProvenByThisRecord": false
+    },
+    {
+      "name": "Detail setup preserves public physical state/matter/active bodies/clusters, explicitly retaining changed logical transaction revisions",
+      "passed": true,
+      "completePublicStateExact": true,
+      "massLedgerExact": true,
+      "activeEventsAndClustersExact": true,
+      "schedulerExceptExplicitRevisionDifferencesExact": true,
+      "schedulerDifferences": [
+        {
+          "path": "events.revision",
+          "before": 98987,
+          "after": 106077
+        },
+        {
+          "path": "events.activeCoverage.0.revision",
+          "before": 98987,
+          "after": 106077
+        }
+      ],
+      "detailCameraObservation": {
+        "setup": [
+          37.44833494943836,
+          140.9560931586712,
+          46.40076864322566
+        ],
+        "final": [
+          37.44833494943837,
+          140.9560931586712,
+          46.40076864322565
+        ],
+        "exact": false,
+        "differences": [
+          {
+            "component": 0,
+            "setup": 37.44833494943836,
+            "final": 37.44833494943837,
+            "difference": 7.105427357601002e-15
+          },
+          {
+            "component": 2,
+            "setup": 46.40076864322566,
+            "final": 46.40076864322565,
+            "difference": -7.105427357601002e-15
+          }
+        ],
+        "scope": "Separate setup and final observations have small raw camera differences; no camera-exactness or tolerance-normalized equality is claimed."
+      },
+      "detailCompletePacketSnapshotIndependentComparison": false,
+      "detailSnapshotScope": "setup records an in-page complete snapshot unchanged boolean; final detail file independently exposes public state, not a second complete packet array."
+    },
+    {
+      "name": "Final detail has active main GPU T and empty reflection with no CPU calls; resolved full SH remains effective",
+      "passed": true,
+      "main": {
+        "instances": 1728,
+        "backend": "gpu",
+        "mediumQueries": 0
+      },
+      "reflection": {
+        "instances": 0,
+        "diagnosticBackend": "cpu",
+        "reason": "no-active-source-rays",
+        "mediumQueries": 0
+      },
+      "bothEyesActiveGPUClaim": false,
+      "reflectionCPUOpticalFallbackClaim": false
+    },
+    {
+      "name": "Separately reloaded patched QA method retains both rendering modes through an empty logical/profile roundtrip",
+      "passed": true,
+      "methodSHA256": "177b690f1d4978d4a85301c5a3be98abf18499cceca37c9c9337ed1405d8768f",
+      "reloadedEmptyProfileRoundtripObserved": true,
+      "separateFromOldRuntimeSetterRepair": true
+    },
+    {
+      "name": "All saved GL health is clean and approved audio remains exact",
+      "passed": true,
+      "savedGLRecords": 3,
+      "errors": [],
+      "audioUnchanged": true
+    }
+  ],
+  "limits": [
+    "Old loaded runtime setter success is not caused by the not-yet-reloaded source patch. The later empty reload record is separate evidence.",
+    "Complete before/after repair snapshots are independently compared; detail only has saved public physical state plus an in-page snapshot assertion.",
+    "SH effective and GL health are technical route evidence, not visual approval, absolute photometry or FPS.",
+    "Ordinary production initialization remained tiled64 throughout; the defect concerned QA host replacement mode inheritance."
+  ]
+}

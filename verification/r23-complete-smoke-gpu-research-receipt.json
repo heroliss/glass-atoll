@@ -1,0 +1,78 @@
+{
+  "schema": "glass-atoll.r23-complete-smoke-gpu-research-receipt.v1",
+  "status": "research-draft-not-implemented",
+  "productionEdits": 0,
+  "browserActions": 0,
+  "GPUdispatches": 0,
+  "candidateUIPromotionAccepted": false,
+  "evidence": {
+    "frozenAverageFps": 41.47192416560913,
+    "frozenCPUmeanMs": 23.332283464575728,
+    "frozenGPUmeanMs": 18.317887999999996,
+    "postSourceT": {
+      "packets": 755,
+      "rows": 1734,
+      "pairs": 1309170,
+      "CPUqueries": 1734
+    },
+    "postResolved": {
+      "packets": 755,
+      "sources": 1728,
+      "pairs": 1304640
+    },
+    "proxyRasterUpperBoundGrowth": 22.390141557879247,
+    "oldSourceTPartialTexels": 216000,
+    "activeSourceTPartialTexels": 20808,
+    "independentN10CPUPeak": {
+      "age": 3.9,
+      "time": 9.201370171730236,
+      "committedTime": 9.2,
+      "densityPackets": 2323,
+      "ledgerSources": 1716,
+      "resolvedPairs": 3986268
+    }
+  },
+  "recommendation": [
+    "compact actual ordered-row stride without optical reduction",
+    "bounded complete same-generation GPU chunks with per-map/request/frame budgets",
+    "independent optical-density hierarchy/cohorts for actual pair/fill reduction",
+    "defer WebGPU migration as a separate measured architecture branch"
+  ],
+  "nextGate": {
+    "requiresPriorCPUPlanApproval": true,
+    "existingRendererOnly": true,
+    "rays": 32,
+    "packets": 65,
+    "totalPairs": 2080,
+    "testPerMapPairCap": 2048,
+    "mapDraws": 2,
+    "reduceDraws": 1,
+    "firstFaultStops": true,
+    "isolatedDrawStopMs": 25
+  },
+  "primarySources": [
+    "https://threejs.org/manual/pages/webgpurenderer",
+    "https://threejs.org/docs/pages/RawShaderMaterial.html",
+    "https://gpuweb.github.io/gpuweb/"
+  ],
+  "SHA256": {
+    "pyro-smoke-transmission-gpu.js": "2a35974fac7f6d75d6fa128fa04e869160d0ca40c9671569fe356bfef03ee294",
+    "pyro-smoke-transmission-pack.js": "c4c64278c6fe994c68ed9727ce82b3396295cbde109d7fb85362d3429e7f0fe8",
+    "pyro-smoke-light-tiles.js": "c9d712a559c81d7f02122bd0913425ea4808276dec4598172b61e197e4b8620c",
+    "pyro-smoke-light-field.js": "b72e5142e4239821630efb66573fb37c631511be4c76a2a69a1e7d129b11b1b4",
+    "pyro-smoke-renderer.js": "0221cab9bdd44ed04178fd8d838d5aa31d2521d1d0b5af27a8a228bdc40c2e0e",
+    "fireworks.js": "f0e3b7db8a268cb02227c81282e85a808158942e2b73656df39fdc752c783463",
+    "main.js": "c7067c2ceb727b8a3bdcb9619089832d77b3ed872a8c69e30816b220c383284e",
+    "verification/r22-native-powered-mid.json": "6e2aaaff6535839758dc6ed6e3ec7b2025574b4e5d3c42bdc6fd348507700ace",
+    "verification/r22-native-powered-post-cutoff.json": "e723b48d12055246a743d8c45e031f8dfaea1b01ac5dfd8f8affae5a189c50c1",
+    "verification/r22-native-powered-mid-frozen-benchmark.json": "3abb1d285675c0c349ed0c37332a36cebface4c903c0c53c3c6617fcc067f038",
+    "verification/r23-one-candidate-pair-envelope-cpu.mjs": "af8044c9f55be7c1e7e415752b978432c92e67d5082827b2ceffa99aad524217",
+    "verification/r23-one-candidate-pair-envelope-cpu.json": "e8e39437677f0448b360534e03fabe2334f844f97e2d178109f6952977b698a8",
+    "verification/plans/R23-COMPLETE-SMOKE-GPU-RESEARCH-DRAFT.md": "5da011500210b25b4febb1d497c835964b960030fe0b6647cb44d127b7bff437"
+  },
+  "limits": [
+    "No implementation/numerical GPU/timing admission.",
+    "Root frozen benchmark is one physical phase, not evolving simulation.",
+    "N10/no-contact CPU fixture differs from root mediumN8; not a native render reproduction."
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "schema": "glass-atoll.r27-staging-independent-cpu.v1",
+  "dateUTC": "2026-10-29T12:34:01.573Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "productionPromoted": false,
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "checks": [
+    {
+      "name": "Four frozen staging hashes are recorded, and physical shader/renderer-state code remains the reviewed candidate code",
+      "passed": true,
+      "evidence": {
+        "pins": {
+          "pyro-smoke-transmission-gpu.js": "4bd14a120d877a50eaf3b5faef1d8647e542eea7bb61af187ad1598afd95a0e5",
+          "pyro-smoke-transmission-pack.js": "8ccab09237ad8fc9ca9e23daa377b173278e9e7b4a48a33cb564a43aba4ada8d",
+          "smoke-transmission-layout.js": "79b76d3ece575ab9eb4678e42825ff19b758200627512b0bfed78ab5b81508a5",
+          "smoke-transmission-rectangles.js": "3080bdaf0630010dd0f7e91ff84b050eac889235f7b0a587c831ea4090898832"
+        },
+        "shaderTemplateBytesUnchanged": true
+      }
+    },
+    {
+      "name": "Old maxPairs default/result fields remain exact and an explicit larger active allowance cannot leak into legacy-max",
+      "passed": true,
+      "evidence": {
+        "oldPolicyComparisons": 56,
+        "defaultPairs": 3072,
+        "largerLegacyRejectedBeforeContext": true
+      }
+    },
+    {
+      "name": "Old-domain active/legacy factories retain every padded input word, valid output row, shader byte and camera/source generation",
+      "passed": true,
+      "evidence": {
+        "outcomes": [
+          {
+            "mode": "active-count",
+            "n": 0,
+            "p": 65,
+            "oldPasses": 1,
+            "stagedPasses": 1
+          },
+          {
+            "mode": "active-count",
+            "n": 1,
+            "p": 1,
+            "oldPasses": 2,
+            "stagedPasses": 2
+          },
+          {
+            "mode": "active-count",
+            "n": 17,
+            "p": 65,
+            "oldPasses": 2,
+            "stagedPasses": 2
+          },
+          {
+            "mode": "active-count",
+            "n": 257,
+            "p": 65,
+            "oldPasses": 2,
+            "stagedPasses": 3
+          },
+          {
+            "mode": "legacy-max",
+            "n": 0,
+            "p": 65,
+            "oldPasses": 1,
+            "stagedPasses": 1
+          },
+          {
+            "mode": "legacy-max",
+            "n": 1,
+            "p": 1,
+            "oldPasses": 2,
+            "stagedPasses": 2
+          },
+          {
+            "mode": "legacy-max",
+            "n": 17,
+            "p": 65,
+            "oldPasses": 2,
+            "stagedPasses": 2
+          },
+          {
+            "mode": "legacy-max",
+            "n": 257,
+            "p": 65,
+            "oldPasses": 2,
+            "stagedPasses": 2
+          }
+        ],
+        "scope": "Actual factories, shared synthetic tag renderer; no Gaussian optical/GPU computation"
+      }
+    },
+    {
+      "name": "Complete native fixed-allocation request exactly matches hardware-tested R26 candidate routing and every packed bit",
+      "passed": true,
+      "evidence": {
+        "nativeRows": 1734,
+        "allPackets": 755,
+        "logicalPairs": 1309170,
+        "mapDraws": 3,
+        "finalReductionDraws": 1,
+        "numericGPUBytes": 2056192,
+        "scope": "CPU routing parity with frozen hardware-tested candidate; not a fresh staged GPU run"
+      }
+    },
+    {
+      "name": "Default8 admits old four-map case; dedicated legacy comparator and every new generation remain complete",
+      "passed": true,
+      "evidence": {
+        "old16131x65Maps": 4,
+        "defaultMapCap": 8,
+        "legacyComparatorPasses": 2,
+        "legacyPaddedCells": 1152000,
+        "hiddenObservedRenders": 10,
+        "freshNeutral": true
+      }
+    }
+  ],
+  "limits": [
+    "Read-only staging review and synthetic CPU factory parity; no staged shader/FBO/timer readback was executed by this agent.",
+    "Promotion still requires the frozen full native candidate GPU receipt plus reviewed code-equivalence/normal-caller integration.",
+    "Legacy-max is an explicit old two-pass QA comparator, not covered by new active map-work policies; larger request allowance is refused there.",
+    "All SourceT outputs are borrowed per matching view/generation and must be consumed before next prepare. SH and total frame performance remain independent."
+  ]
+}

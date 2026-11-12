@@ -1,0 +1,67 @@
+{
+  "schema": "glass-atoll.r30-owned-pack-adapter-layer-bounds-review.v1",
+  "actualGPU": false,
+  "browserActions": 0,
+  "physicalReplaysByReviewer": 0,
+  "gpuHelperImported": false,
+  "productionEdits": 0,
+  "passed": true,
+  "summary": {
+    "passed": 3,
+    "total": 3
+  },
+  "checks": [
+    {
+      "name": "v3 source delta is exactly typed/padded ownership adapter plus revision and one pre-context call site",
+      "passed": true,
+      "evidence": {
+        "helperSHA": "bb4a23bc39be07c3c3dc16ebbebda20de8a59cf5433f9cf50945ed0dcdcdbff1",
+        "oldVersionSHA": "19073ac5f4ee82e9221f33e3e0de06d021088783d3f69852c604272efcc7ec82",
+        "adapterSHA": "bf8fc4e9eb02a1a8ada4d3f2f2d833b4eb4aee11d74819ee8963b372898c59c0",
+        "completeTimedTailOtherwiseByteExact": true,
+        "originalDoubleCopy": true,
+        "allPaddedWordsExplicit": true
+      }
+    },
+    {
+      "name": "Meaningful owner-run test uses actual production factories, cameras, preplan and subsequent complete FW fills",
+      "passed": true,
+      "evidence": {
+        "ownerActualTestSourceSHA": "e5a7052b03c931420e4c6857503a9e160b35ef0397f4a4c012f371517b7018a6",
+        "ownerActualReceiptSHA": "536078520315a8b2963d2f9aa88ab7b5b44c1a11c7ece108a444a0f41d722a0b",
+        "ownerActualCounts": {
+          "passed": 5,
+          "total": 5
+        },
+        "reviewerReplayedPhysicalSimulation": false,
+        "allOriginalF64Coordinates": 16824,
+        "allMaskRows": 2804,
+        "completePaddedWordsCompared": 563200,
+        "liveSubsequentProducerViews": [
+          "reflection",
+          "main"
+        ],
+        "realRendererCalls": 0
+      }
+    },
+    {
+      "name": "Full new source pins and unchanged current root/kernel paths match; failed earlier handoff remains explicitly pre-GPU",
+      "passed": true,
+      "evidence": {
+        "sourcePins": 34,
+        "cachedFunctionPins": 12,
+        "mainUnchanged": true,
+        "physicsAndShaderChanges": false,
+        "priorRuntimeTypeFailureRetained": true,
+        "priorExperimentalDraws": 0
+      }
+    }
+  ],
+  "finding": "Previous count-only/control-boundary preflight did not exercise the actual frozen-array→production pack contract. Both typed input ownership and global texture padding are now covered by an owner-run actual production CPU integration test, not merely a fabricated count plan.",
+  "decision": "No remaining material typed-pack handoff blocker found in frozen v3. Same frame/query/draw/blit/geometry bounds and previously reviewed reference/restore controls remain. Root may separately consider ONE explicit fixed frame dispatch after confirming current loaded revision and prior strict-browser CPU prerequisite; this peer report is not a GPU or FPS result.",
+  "limits": [
+    "The actual5/5 physical CPU test was run by its owner and reviewed here; the reviewer did not rerun it or claim an independent second physical replay.",
+    "CPU inert acknowledgements only capture producer geometry and packing; actual GPU T/SH and complete composed-image correctness still require the bounded frame gate.",
+    "Earlier Node/browser exact and v2 pack failures remain failed historical evidence; old source-only green reviews do not cover the missing adapter."
+  ]
+}

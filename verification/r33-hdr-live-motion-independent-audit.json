@@ -1,0 +1,148 @@
+{
+  "schema": "glass-atoll.r33-hdr-saved-live-motion-independent-audit.v1",
+  "actualGPUByAuditor": false,
+  "newBrowserActions": 0,
+  "newNativeCalls": 0,
+  "productionEdits": 0,
+  "originalEvidenceEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 9,
+    "total": 9
+  },
+  "checks": [
+    {
+      "name": "Original checker3/3 summary references exactly the unchanged three saved actual-state bytes",
+      "passed": true,
+      "evidence": {
+        "checks": 3,
+        "checkerSHA256": "fe99e6e1e1dac81084432a7dd80fc798ada49f2d1961f8481dafc80f94124b48",
+        "summarySHA256": "00350a81eff269f2f85c1df38be2862e4fb1cb93cafd2ad3b2dd40e5bf539e3c"
+      }
+    },
+    {
+      "name": "Each native report retains two distinct attached identities with the same friendly name and opposite foreground",
+      "passed": true,
+      "evidence": {
+        "native5": {
+          "peakNits": 700,
+          "foreground": true
+        },
+        "native6": {
+          "peakNits": 1270,
+          "foreground": false
+        },
+        "identity": "Native deviceName, not shared Q27G4XM label"
+      }
+    },
+    {
+      "name": "Independent rectangle arithmetic corroborates current-window containment on DISPLAY6 in all three states",
+      "passed": true,
+      "evidence": {
+        "screen": {
+          "left": -2560,
+          "top": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "window": {
+          "left": -2552,
+          "top": 8,
+          "right": -8,
+          "bottom": 1432
+        },
+        "windowAreaPixels": 3622656,
+        "otherScreenOverlap": 0,
+        "qualification": "Saved geometry/policy classification; these three snapshots do not separately retain raw devicePixelRatio"
+      }
+    },
+    {
+      "name": "Both actual automatic states choose current DISPLAY6/1270 rather than foreground DISPLAY5/700",
+      "passed": true,
+      "evidence": {
+        "indices": [
+          0,
+          2
+        ],
+        "device": "\\\\.\\DISPLAY6",
+        "peakNits": 1270,
+        "foregroundIgnored": true
+      }
+    },
+    {
+      "name": "Explicit DISPLAY5 selection overrides same current-browser DISPLAY6 metadata and configures700",
+      "passed": true,
+      "evidence": {
+        "selected": "\\\\.\\DISPLAY5",
+        "currentGeometry": "\\\\.\\DISPLAY6",
+        "peakNits": 700,
+        "scope": "Explicit screen choice while HDR mode stays auto; no physical window move or manual nit override claim"
+      }
+    },
+    {
+      "name": "Restoring auto and refreshing yields6/1270 with newer report and continuing presentation counter",
+      "passed": true,
+      "evidence": {
+        "generatedAt": [
+          "2026-10-29T23:05:58.1582651Z",
+          "2026-10-29T23:06:28.1517174Z",
+          "2026-10-29T23:07:21.3857982Z"
+        ],
+        "presentedFrames": [
+          4730,
+          4768,
+          4805
+        ],
+        "scope": "Chronology and non-stalled saved output only, not a timed frame-rate measurement"
+      }
+    },
+    {
+      "name": "Configured white, peak and headroom agree with selected system report without asserting measured panel luminance",
+      "passed": true,
+      "evidence": {
+        "headroom": [
+          4.535714285714286,
+          2.5,
+          4.535714285714286
+        ],
+        "paperWhiteNits": 280,
+        "absoluteNitsCalibrated": false,
+        "qualification": "EDID/driver/system capability reports and configured output; not photometer, panel peak or official ACES/HDR certification"
+      }
+    },
+    {
+      "name": "All saved actual HDR output states and GL program/VAO remain healthy",
+      "passed": true,
+      "evidence": {
+        "states": 3,
+        "glErrors": 0,
+        "hdrErrors": 0,
+        "source": "pre-OutputPass, scene-linear sRGB floating-point target",
+        "output": "sRGB-encoded rgba16float, extended, opaque",
+        "scope": "No new GL work by this audit; saved reported state, not retained HDR pixel values"
+      }
+    },
+    {
+      "name": "All original live evidence and checker bytes remain unchanged; water and approved audio remain pinned",
+      "passed": true,
+      "evidence": {
+        "evidenceHashes": {
+          "r33-hdr-auto-left1270.json": "3e8682dcad787baee33864e1ee8e5cae2efe04556aa59eed64a9964ba8da5b1a",
+          "r33-hdr-explicit-display5-700.json": "b6a240dfb23d098a365d660bfe275018b88b1d668000741793169cc14e2762ba",
+          "r33-hdr-auto-refresh1270.json": "9cc09f56e07fae2be634f2646b0b1c9ec2590d9223f14448ce1e7ff4bf3cbd53",
+          "r33-hdr-live-check.mjs": "fe99e6e1e1dac81084432a7dd80fc798ada49f2d1961f8481dafc80f94124b48",
+          "r33-hdr-live-check.json": "00350a81eff269f2f85c1df38be2862e4fb1cb93cafd2ad3b2dd40e5bf539e3c"
+        },
+        "productionWaterSHA256": "d7d5b76dadf35e2e507b640b8975fb3819821b29d113ceeebf195080fd88b045",
+        "approvedAudioSHA256": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+      }
+    }
+  ],
+  "limits": [
+    "Verifies immutable saved normal-page states and their mutual geometry/configuration consistency; performs no live selection or presentation.",
+    "Current unit-scale negative-coordinate browser case and explicit device choice only; no mixedDPI, actual physical window movement or general spoof authentication.",
+    "The captured3states report their accepted unit-scale policy/geometry but do not retain a separate raw DPR property for an independent repeated DPR acquisition.",
+    "Reported peak/white and enabled float HDR output are not photometric panel measurements, retained HDR pixel validation, absolute calibration, display quality approval or official ACES/HDR certification.",
+    "OS-settings-unchanged is the producer/read-only source contract; these snapshots alone are not a complete Windows settings diff."
+  ]
+}

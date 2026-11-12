@@ -1,0 +1,117 @@
+{
+  "schema": "glass-atoll.r30-native-physical-cpu-diagnostic-acceptance.v1",
+  "dateUTC": "2026-10-29T18:41:41.237Z",
+  "passed": false,
+  "counts": {
+    "passed": 4,
+    "total": 5
+  },
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "replayModuleSHA256": "5dfd2c6c54f0592449d52b068eb876c715baf5673db569687c386dd24675f09d",
+  "collectorModuleSHA256": "c13f690a06282c8872c08756ac92ee955a5e484c03969242b3396c9d09045919",
+  "checks": [
+    {
+      "name": "Exact generic comparator preserves signed binary64 values and quantifies every abs/relative/ULP difference without tolerance",
+      "passed": true,
+      "evidence": {
+        "allDifferences": [
+          {
+            "path": "snapshot.p.0",
+            "actual": 1.0000000000000002,
+            "expected": 1,
+            "actualHex64": "3ff0000000000001",
+            "expectedHex64": "3ff0000000000000",
+            "absoluteError": 2.220446049250313e-16,
+            "relativeError": 2.2204460492503126e-16,
+            "ulpDistance": "1",
+            "finite": true,
+            "signedZeroOnly": false
+          },
+          {
+            "path": "snapshot.p.1",
+            "actual": -0.9999999999999999,
+            "expected": -1,
+            "actualHex64": "bfefffffffffffff",
+            "expectedHex64": "bff0000000000000",
+            "absoluteError": 1.1102230246251565e-16,
+            "relativeError": 1.1102230246251565e-16,
+            "ulpDistance": "1",
+            "finite": true,
+            "signedZeroOnly": false
+          },
+          {
+            "path": "snapshot.p.2",
+            "actual": 0,
+            "expected": 0,
+            "actualHex64": "8000000000000000",
+            "expectedHex64": "0000000000000000",
+            "absoluteError": 0,
+            "relativeError": 0,
+            "ulpDistance": "1",
+            "finite": true,
+            "signedZeroOnly": true
+          }
+        ],
+        "structural": [
+          {
+            "path": "snapshot.extra",
+            "actualOwn": false,
+            "expectedOwn": true
+          },
+          {
+            "path": "snapshot.missing",
+            "actualOwn": true,
+            "expectedOwn": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "SAME strict actual production replay passes Node identity but diagnostic ALWAYS returns only full plain evidence and disposes actual pair",
+      "passed": true,
+      "evidence": {
+        "packets": 2301,
+        "ledger": 1399,
+        "records": 1420,
+        "allSnapshotNumbersCompared": 41439,
+        "allLedgerNumbersCompared": 11208,
+        "completeSourceTDensityWords": [
+          65536,
+          65536
+        ],
+        "completeSHWords": 9204,
+        "fullValidLedgerWords": 11192,
+        "strictPassed": true,
+        "disposed": true,
+        "actualGPU": false
+      }
+    },
+    {
+      "name": "Controlled CPU negative witness perturbs Math.sin only AFTER launch; full diagnostics survive strict physical throw and owned lease disposes",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(negative.verificationBoundaryCaptured&&!negative.strictReplayPassed&&negative.ownedReplayDisposed)\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r30-native-replay-diagnostic-check.mjs:7:462\n    at async check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r30-native-replay-diagnostic-check.mjs:3:776)\n    at async file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r30-native-replay-diagnostic-check.mjs:7:1"
+    },
+    {
+      "name": "Strict public replay still rejects variable diagnostic mode/options and remains an independently owned exact pair path",
+      "passed": true,
+      "evidence": {
+        "strictEqualityUnchanged": true,
+        "noPublicToleranceOrDiagnosticOption": true,
+        "strictPairRemainsIndependent": true
+      }
+    },
+    {
+      "name": "Early abort diagnostic cannot publish a scene object or leak lease; no optical/raycast/renderer path is called",
+      "passed": true,
+      "evidence": {
+        "earlyAbortReported": true,
+        "sceneObjectsPublished": false,
+        "leaseReleased": true,
+        "actualRendererCalls": 0
+      }
+    }
+  ],
+  "scope": "Diagnostic evidence and ownership only. No change to expected physical values, strict acceptance, tolerance, optical arithmetic or native GPU admission."
+}

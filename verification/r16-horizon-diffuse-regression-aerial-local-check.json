@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-28T15:25:30.687Z",
+  "passed": true,
+  "count": 14,
+  "checks": [
+    {
+      "name": "factory shares exact local uniform objects, no copied exposure-scaled colours",
+      "passed": true
+    },
+    {
+      "name": "local source integration stays below fragment sampler limit",
+      "passed": true
+    },
+    {
+      "name": "persistent sampling survives per-frame coefficient and quality updates",
+      "passed": true
+    },
+    {
+      "name": "sampling overrides independently cleared to current quality defaults",
+      "passed": true
+    },
+    {
+      "name": "explicit sample counts are bounded and cannot divide by zero",
+      "passed": true
+    },
+    {
+      "name": "invalid sampling patch is rejected atomically",
+      "passed": true
+    },
+    {
+      "name": "Rayleigh local source agrees with independent mu=0 formula, no Lambert factor",
+      "passed": true
+    },
+    {
+      "name": "isotropic local Mie source agrees with E beta /4pi",
+      "passed": true
+    },
+    {
+      "name": "forward HG local illumination is stronger than backscatter",
+      "passed": true
+    },
+    {
+      "name": "no medium or no incident light creates no local radiance",
+      "passed": true
+    },
+    {
+      "name": "sum of six local sources is additive in stored RGB",
+      "passed": true
+    },
+    {
+      "name": "actual local-light colour contains raw reference and sceneScale exactly once",
+      "passed": true
+    },
+    {
+      "name": "local illumination can remain lit at night with zero sun",
+      "passed": true
+    },
+    {
+      "name": "absent localLights keeps original solar-only path and defaults",
+      "passed": true
+    }
+  ],
+  "limits": [
+    "CPU source algebra and actual module/shared-uniform/sampling configuration only. No GPU shader, visibility pixel, beam realism or performance claim.",
+    "Source-to-sample air extinction is not separately integrated; flashlight uses shared nine-tap shadow.",
+    "Sampling override is independent of per-frame coefficient updates."
+  ]
+}

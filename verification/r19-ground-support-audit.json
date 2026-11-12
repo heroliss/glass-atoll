@@ -1,0 +1,90 @@
+{
+  "schema": "glass-atoll.r19-ground-support-audit.v1",
+  "date": "2026-10-29T02:03:36.637Z",
+  "status": "known-reachable-ground-cutoff-defect-reproduced",
+  "productionCompleteness": false,
+  "sources": {
+    "fireworks": "c78afe6600a31d07b27751cec70e21fe28be68e2095bfc613cf071e42f2ae262",
+    "physics": "35bbded2c937d335890c14a9a33abc0487db93a34b8458042db2720719374291"
+  },
+  "scope": {
+    "effects": [
+      "three-heart-v1"
+    ],
+    "drag": "bounded-descent",
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "agesPerBody": 81,
+    "rootCount": 192,
+    "defaultCreateEventOrigin": [
+      29,
+      0.5,
+      7
+    ],
+    "wind": "zero",
+    "gpu": false,
+    "productionEdited": false
+  },
+  "summaries": [
+    {
+      "elevation": 25,
+      "minBurstY": 34.587503494314205,
+      "maxBurstY": 34.587503494314205,
+      "minLiveY": -36.0246214773247,
+      "liveGround": 11673,
+      "nearGround": 12559,
+      "maxMissingI": 6.987866791075696
+    },
+    {
+      "elevation": 45,
+      "minBurstY": 88.86005824017741,
+      "maxBurstY": 88.86005824017741,
+      "minLiveY": 18.24793326853853,
+      "liveGround": 0,
+      "nearGround": 0,
+      "maxMissingI": 0
+    },
+    {
+      "elevation": 60,
+      "minBurstY": 127.83668282569602,
+      "maxBurstY": 127.83668282569602,
+      "minLiveY": 57.22455785405714,
+      "liveGround": 0,
+      "nearGround": 0,
+      "maxMissingI": 0
+    },
+    {
+      "elevation": 78,
+      "minBurstY": 158.59353087629472,
+      "maxBurstY": 158.59353087629472,
+      "minLiveY": 87.98140590465583,
+      "liveGround": 0,
+      "nearGround": 0,
+      "maxMissingI": 0
+    },
+    {
+      "elevation": 90,
+      "minBurstY": 164.88114154128584,
+      "maxBurstY": 164.88114154128584,
+      "minLiveY": 94.26901656964696,
+      "liveGround": 0,
+      "nearGround": 0,
+      "maxMissingI": 0
+    }
+  ],
+  "interpretation": [
+    "These are finite CPU samples, not continuous minima or a complete seed/parameter proof.",
+    "At the default 78 degree direction all sampled live heads remain high above water; this particular limitation does not invalidate that native visual case.",
+    "The supported 25 degree direction yields live sources below the current Y cutoff, so the acknowledged ground/history issue is reachable with exposed controls.",
+    "fireworks.js lines517 and525 filter using current Y before optical history construction; this audit does not implement or validate physical ground/water collision or interval clipping.",
+    "Intensity values are authored reference photopic head cd before the profile head fraction; not measured fireworks photometry."
+  ]
+}

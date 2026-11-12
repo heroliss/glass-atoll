@@ -1,0 +1,249 @@
+{
+  "schema": "glass-atoll.r13-shore-cpu-check.v1",
+  "dateUTC": "2026-10-28T10:37:55.919Z",
+  "actualGPU": false,
+  "defaultHostImported": false,
+  "counts": {
+    "passed": 14,
+    "total": 14
+  },
+  "passed": true,
+  "checks": [
+    {
+      "name": "native64 swell phase and amplitude exactly match the spectrum low band at origin0/4000",
+      "passed": true,
+      "elapsedCpuMs": 3.2453000000000003,
+      "evidence": {
+        "modes": 64,
+        "maximumEtaError": 4.85722573273506e-17
+      }
+    },
+    {
+      "name": "lake at rest includes slope steps dry island and nonzero water level",
+      "passed": true,
+      "elapsedCpuMs": 73.7098,
+      "evidence": {
+        "maxHeightError": 0,
+        "maxSpeed": 9.816024442351285e-16
+      }
+    },
+    {
+      "name": "closed2D disturbance preserves volume positivity and detached snapshots",
+      "passed": true,
+      "elapsedCpuMs": 63.2547,
+      "evidence": {
+        "initialVolume": 144.07853981633974,
+        "volume": 144.0785398163397,
+        "boundaryVolume": 0,
+        "residual": -2.842170943040401e-14
+      }
+    },
+    {
+      "name": "diagonal isolated wet cell rejects unsafe2D CFL without input mutation, stable dt remains positive",
+      "passed": true,
+      "elapsedCpuMs": 1.3500999999999976,
+      "evidence": {
+        "oneDimensionalCflAtRejectedStep": 0.2783022988168291,
+        "stableTwoDimensionalStep": {
+          "maxCFL": 0.02226418390534633,
+          "maxDepth": 0.9777358160946537,
+          "maxSpeed": 11.4964227787324,
+          "minDepth": 0,
+          "boundaryVolume": 0
+        }
+      }
+    },
+    {
+      "name": "x/z transpose preserves the2D operator with tangential flux and bed correction",
+      "passed": true,
+      "elapsedCpuMs": 1.6567000000000007,
+      "evidence": {
+        "maximumTransposeError": 1.734723475976807e-18
+      }
+    },
+    {
+      "name": "fixed-clock30/60/120Hz fences and bounded catchup produce identical complete state",
+      "passed": true,
+      "elapsedCpuMs": 88.4126,
+      "evidence": [
+        {
+          "hz": 30,
+          "hash": "10e1766e536bfdddbd40719cee5ca046172d26266e09d60848d5dec788ad714b",
+          "ledger": {
+            "initialVolume": 327.06214252015127,
+            "volume": 327.07107897130254,
+            "boundaryVolume": 0.008936451151317632,
+            "residual": -4.6346607107672355e-14
+          }
+        },
+        {
+          "hz": 60,
+          "hash": "10e1766e536bfdddbd40719cee5ca046172d26266e09d60848d5dec788ad714b",
+          "ledger": {
+            "initialVolume": 327.06214252015127,
+            "volume": 327.07107897130254,
+            "boundaryVolume": 0.008936451151317632,
+            "residual": -4.6346607107672355e-14
+          }
+        },
+        {
+          "hz": 120,
+          "hash": "10e1766e536bfdddbd40719cee5ca046172d26266e09d60848d5dec788ad714b",
+          "ledger": {
+            "initialVolume": 327.06214252015127,
+            "volume": 327.07107897130254,
+            "boundaryVolume": 0.008936451151317632,
+            "residual": -4.6346607107672355e-14
+          }
+        }
+      ]
+    },
+    {
+      "name": "actual-CFL failure keeps committed C requested target and retry counters honest",
+      "passed": true,
+      "elapsedCpuMs": 1.980199999999968,
+      "evidence": {
+        "failedTime": 0.016666666666666666,
+        "publicTime": 0,
+        "requestedTime": 0.1
+      }
+    },
+    {
+      "name": "a verifier-injected second-commit failure retains the successful prefix and retries without corruption",
+      "passed": true,
+      "elapsedCpuMs": 13.791199999999947,
+      "evidence": {
+        "failureAfterTicks": 1,
+        "retryFinalTicks": 3,
+        "allPhysicalFieldsIdentical": true,
+        "instrumentation": "verification-only source copy, before publication"
+      }
+    },
+    {
+      "name": "wet-contact memory has declared growth and dry decay without changing mass",
+      "passed": true,
+      "elapsedCpuMs": 0.6600999999999999,
+      "evidence": {
+        "wetAfter10ms": 0.30766274021002316,
+        "dryAfter10ms": 0.2499285816316813,
+        "massChanged": false
+      }
+    },
+    {
+      "name": "small plane wave packet moves at shallow-water speed with grid refinement",
+      "passed": true,
+      "elapsedCpuMs": 262.6151,
+      "evidence": [
+        {
+          "n": 32,
+          "dx": 0.75,
+          "measuredSpeed": 3.1320823102587396,
+          "expectedSpeed": 3.132091952673165,
+          "relativeSpeedError": -0.00000307858599657429
+        },
+        {
+          "n": 64,
+          "dx": 0.375,
+          "measuredSpeed": 3.132090435941853,
+          "expectedSpeed": 3.132091952673165,
+          "relativeSpeedError": -4.842550394013045e-7
+        },
+        {
+          "n": 96,
+          "dx": 0.25,
+          "measuredSpeed": 3.1320915720956957,
+          "expectedSpeed": 3.132091952673165,
+          "relativeSpeedError": -1.2150903461183304e-7
+        }
+      ]
+    },
+    {
+      "name": "the same packet at quarter depth has half celerity and zero native swell injects no forcing",
+      "passed": true,
+      "elapsedCpuMs": 69.53280000000007,
+      "evidence": {
+        "speeds": [
+          {
+            "depth": 0.25,
+            "measured": 1.5660439508227633,
+            "expected": 1.5660459763365826
+          },
+          {
+            "depth": 1,
+            "measured": 3.1320910246518556,
+            "expected": 3.132091952673165
+          }
+        ],
+        "ratio": 2.0000019942009466,
+        "zeroSwellNoForcing": true
+      }
+    },
+    {
+      "name": "actualROI192/256/384 options allocate bounded three-state grids with stable origin and no old-host import",
+      "passed": true,
+      "elapsedCpuMs": 112.10829999999999,
+      "evidence": [
+        {
+          "n": 192,
+          "microSteps": 7,
+          "microDt": 0.0023809523809523807,
+          "volume": 327.3693898283138
+        },
+        {
+          "n": 256,
+          "microSteps": 9,
+          "microDt": 0.001851851851851852,
+          "volume": 327.37163933918407
+        },
+        {
+          "n": 384,
+          "microSteps": 14,
+          "microDt": 0.0011904761904761904,
+          "volume": 327.3731547627313
+        }
+      ]
+    },
+    {
+      "name": "new default terrain ROI evolves finite under the same64-mode source",
+      "passed": true,
+      "elapsedCpuMs": 162.47000000000003,
+      "evidence": {
+        "time": 6,
+        "volume": 322.08242390697393,
+        "maximumCfl": 0.10673798247558954,
+        "maximumVelocity": 0.20543237140485754
+      }
+    },
+    {
+      "name": "production incumbent files remain byte-identical and accepted audio is unchanged",
+      "passed": true,
+      "elapsedCpuMs": 0.96550000000002,
+      "evidence": {
+        "hydrodynamics.js": "6ac8daffa0c27bd2387990edc7930ea60e91755e0261fd132eeb5cc3785c5ad9",
+        "waves.js": "af1d6b1559b701b8f1d36c53bbd89dd721e22bb792517a58543473f4629396d4",
+        "spectral-waves.js": "58ae823709ff9b5db57b638813ff2350bdd70405c38f4c3892adae999afaf82a",
+        "sand.js": "37b156b3ef9e9574596e284ed6b5e69bff35f0ffbc1e7089779d87e14fa61e91",
+        "fireworks.js": "bb6a0080f34d714379eb860a45f1e595c2d82241fb62cd04dfb4cb2b601b949b",
+        "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+      }
+    }
+  ],
+  "sourceSHA256": {
+    "state": "1b8f46e37143f6f869319ab6e17ad1f44b16175fcea56f8cb734aee33d957e07",
+    "boundary": "c6fd1347bdb246f9c1c9a440f522b48d365b2fd135c08e3ecb7e38568a678707"
+  },
+  "incumbentSHA256": {
+    "hydrodynamics.js": "6ac8daffa0c27bd2387990edc7930ea60e91755e0261fd132eeb5cc3785c5ad9",
+    "waves.js": "af1d6b1559b701b8f1d36c53bbd89dd721e22bb792517a58543473f4629396d4",
+    "spectral-waves.js": "58ae823709ff9b5db57b638813ff2350bdd70405c38f4c3892adae999afaf82a",
+    "sand.js": "37b156b3ef9e9574596e284ed6b5e69bff35f0ffbc1e7089779d87e14fa61e91",
+    "fireworks.js": "bb6a0080f34d714379eb860a45f1e595c2d82241fb62cd04dfb4cb2b601b949b",
+    "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+  },
+  "limits": [
+    "CPU numerical gates only; WebGL2 shaders and renderer-state preservation are not yet executed.",
+    "192/256/384 grids are allocated here, not run as full-cost CPU/GPU surfing benchmarks.",
+    "Separate r13-shore-runup-check provides a bounded coarse2D wet-front fixture; final full-quality convergence remains open.",
+    "No water/foam/sand/caustic runtime handoff or scene visual acceptance."
+  ]
+}

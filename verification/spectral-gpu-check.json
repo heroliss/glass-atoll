@@ -1,0 +1,6006 @@
+{
+  "after": {
+    "spectrum": {
+      "channels": [
+        "height",
+        "slopeX",
+        "slopeZ",
+        "slopeSquared"
+      ],
+      "components": 256,
+      "domainsMetres": [
+        521,
+        137,
+        29,
+        5.3
+      ],
+      "method": "256-mode GPU Fourier synthesis, mipmapped slope moments; non-FFT",
+      "phasePrecision": "CPU double precision modulo 2pi each frame",
+      "resolution": 256,
+      "rmsHeight": 0.03600642384703511,
+      "rmsSlope": 0.10856334556377673,
+      "significantHeight": 0.14402569538814045,
+      "time": 0.11270000004768373,
+      "updates": 4
+    }
+  },
+  "before": {
+    "cubeFace": 0,
+    "mipLevel": 0,
+    "spectrum": {
+      "channels": [
+        "height",
+        "slopeX",
+        "slopeZ",
+        "slopeSquared"
+      ],
+      "components": 256,
+      "domainsMetres": [
+        521,
+        137,
+        29,
+        5.3
+      ],
+      "method": "256-mode GPU Fourier synthesis, mipmapped slope moments; non-FFT",
+      "phasePrecision": "CPU double precision modulo 2pi each frame",
+      "resolution": 256,
+      "rmsHeight": 0.03600642384703511,
+      "rmsSlope": 0.10856334556377673,
+      "significantHeight": 0.14402569538814045,
+      "time": 0.11270000004768373,
+      "updates": 4
+    },
+    "targetUUID": null
+  },
+  "checks": [
+    {
+      "name": "WebGL2 and an initialized finite active spectrum time",
+      "passed": true,
+      "time": 0.11270000004768373
+    },
+    {
+      "domains": [
+        521,
+        137,
+        29,
+        5.3
+      ],
+      "modesPerCascade": [
+        64,
+        64,
+        64,
+        64
+      ],
+      "name": "Four power-of-two RGBA half-float fields match the declared domains",
+      "passed": true,
+      "resolution": 256,
+      "totalModes": 256
+    },
+    {
+      "cascade": 0,
+      "maximum": [
+        0.09173583984375,
+        0.0192413330078125,
+        0.01271820068359375,
+        0.00038695335388183594
+      ],
+      "minimum": [
+        -0.099853515625,
+        -0.0179290771484375,
+        -0.01244354248046875,
+        0
+      ],
+      "name": "active: cascade 0 finite signed height/slopes and nonnegative moment",
+      "nonFinite": 0,
+      "passed": false,
+      "variance": {
+        "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+        "maximumRaw": 5.049514584243298e-7,
+        "meanClamped": 1.0381516787503696e-8,
+        "minimumRaw": -1.80563802132383e-7,
+        "negativeBeyondHalfRoundAllowance": 6059
+      }
+    },
+    {
+      "cascade": 0,
+      "channels": [
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000057648202574811513,
+          "meanAbsoluteError": 0.000007822353969091875,
+          "outsideTolerance": 0,
+          "rmsError": 0.000011909329572894704,
+          "worst": {
+            "actual": -0.06317138671875,
+            "channel": 0,
+            "expected": -0.06322903492132481,
+            "texel": [
+              5,
+              224
+            ],
+            "tolerance": 0.00025541613968529925
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000007495977509234739,
+          "meanAbsoluteError": 0.000001521414887858501,
+          "outsideTolerance": 0,
+          "rmsError": 0.000002152472018913534,
+          "worst": {
+            "actual": 0.0098114013671875,
+            "channel": 1,
+            "expected": 0.009818897344696736,
+            "texel": [
+              245,
+              172
+            ],
+            "tolerance": 0.00004177558937878694
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00000759205427920337,
+          "meanAbsoluteError": 0.0000011081173399675102,
+          "outsideTolerance": 0,
+          "rmsError": 0.000001655714136319636,
+          "worst": {
+            "actual": 0.00893402099609375,
+            "channel": 2,
+            "expected": 0.008941613050372953,
+            "texel": [
+              254,
+              254
+            ],
+            "tolerance": 0.00003826645220149182
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 1.1670735931005239e-7,
+          "meanAbsoluteError": 3.0841079192498163e-8,
+          "outsideTolerance": 0,
+          "rmsError": 3.6837558981928873e-8,
+          "worst": {
+            "actual": 0.00020742416381835935,
+            "channel": 3,
+            "expected": 0.00020754087117766943,
+            "texel": [
+              104,
+              38
+            ],
+            "tolerance": 0.0000014452452270660165
+          }
+        }
+      ],
+      "comparedTexels": 256,
+      "name": "active: cascade 0 CPU Fourier at matching texel centres",
+      "passed": true,
+      "time": 0.11270000004768373
+    },
+    {
+      "cascade": 1,
+      "maximum": [
+        0.081298828125,
+        0.0782470703125,
+        0.051513671875,
+        0.00901031494140625
+      ],
+      "minimum": [
+        -0.08367919921875,
+        -0.091796875,
+        -0.05413818359375,
+        0
+      ],
+      "name": "active: cascade 1 finite signed height/slopes and nonnegative moment",
+      "nonFinite": 0,
+      "passed": false,
+      "variance": {
+        "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+        "maximumRaw": 0.000009052455425262451,
+        "meanClamped": 2.5077574070976605e-7,
+        "minimumRaw": -0.0000031056260922923684,
+        "negativeBeyondHalfRoundAllowance": 414
+      }
+    },
+    {
+      "cascade": 1,
+      "channels": [
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.0000291224520423336,
+          "meanAbsoluteError": 0.000006020277546995245,
+          "outsideTolerance": 0,
+          "rmsError": 0.000008960654017280232,
+          "worst": {
+            "actual": 0.034423828125,
+            "channel": 0,
+            "expected": 0.034452950577042334,
+            "texel": [
+              114,
+              145
+            ],
+            "tolerance": 0.00014031180230816934
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00002761833402424585,
+          "meanAbsoluteError": 0.000005453795737538458,
+          "outsideTolerance": 0,
+          "rmsError": 0.000008213302790330668,
+          "worst": {
+            "actual": -0.03643798828125,
+            "channel": 1,
+            "expected": -0.036465606615274246,
+            "texel": [
+              3,
+              212
+            ],
+            "tolerance": 0.000148362426461097
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00002783169330380919,
+          "meanAbsoluteError": 0.0000034049992578366388,
+          "outsideTolerance": 0,
+          "rmsError": 0.000004931109571702079,
+          "worst": {
+            "actual": 0.0408935546875,
+            "channel": 2,
+            "expected": 0.04092138638080381,
+            "texel": [
+              228,
+              63
+            ],
+            "tolerance": 0.00016618554552321526
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.0000018327793371727095,
+          "meanAbsoluteError": 1.6397778908409017e-7,
+          "outsideTolerance": 0,
+          "rmsError": 2.77442643719248e-7,
+          "worst": {
+            "actual": 0.00339508056640625,
+            "channel": 3,
+            "expected": 0.0033969133457434227,
+            "texel": [
+              199,
+              24
+            ],
+            "tolerance": 0.000020581480074460537
+          }
+        }
+      ],
+      "comparedTexels": 256,
+      "name": "active: cascade 1 CPU Fourier at matching texel centres",
+      "passed": true,
+      "time": 0.11270000004768373
+    },
+    {
+      "cascade": 2,
+      "maximum": [
+        0.048797607421875,
+        0.1865234375,
+        0.105712890625,
+        0.03521728515625
+      ],
+      "minimum": [
+        -0.052001953125,
+        -0.1788330078125,
+        -0.10711669921875,
+        0
+      ],
+      "name": "active: cascade 2 finite signed height/slopes and nonnegative moment",
+      "nonFinite": 0,
+      "passed": false,
+      "variance": {
+        "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+        "maximumRaw": 0.00003440584987401962,
+        "meanClamped": 0.000001215921851591042,
+        "minimumRaw": -0.000017225975170731544,
+        "negativeBeyondHalfRoundAllowance": 81
+      }
+    },
+    {
+      "cascade": 2,
+      "channels": [
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000015119844030585944,
+          "meanAbsoluteError": 0.0000032203819186725276,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000045910428292612,
+          "worst": {
+            "actual": -0.0236968994140625,
+            "channel": 0,
+            "expected": -0.02371201925809309,
+            "texel": [
+              199,
+              18
+            ],
+            "tolerance": 0.00009734807703237236
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00008590365455368731,
+          "meanAbsoluteError": 0.000014252907659106207,
+          "outsideTolerance": 0,
+          "rmsError": 0.00002063879589524336,
+          "worst": {
+            "actual": 0.1300048828125,
+            "channel": 1,
+            "expected": 0.1300907864670537,
+            "texel": [
+              81,
+              171
+            ],
+            "tolerance": 0.0005228631458682148
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000043730507755149195,
+          "meanAbsoluteError": 0.000007304532573529656,
+          "outsideTolerance": 0,
+          "rmsError": 0.000010483320668272996,
+          "worst": {
+            "actual": 0.0643310546875,
+            "channel": 2,
+            "expected": 0.06437478519525515,
+            "texel": [
+              116,
+              229
+            ],
+            "tolerance": 0.0002599991407810206
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00000766268694783745,
+          "meanAbsoluteError": 0.0000011187183011490098,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000019015843874805156,
+          "worst": {
+            "actual": 0.0104522705078125,
+            "channel": 3,
+            "expected": 0.010459933194760336,
+            "texel": [
+              125,
+              80
+            ],
+            "tolerance": 0.00006295959916856203
+          }
+        }
+      ],
+      "comparedTexels": 256,
+      "name": "active: cascade 2 CPU Fourier at matching texel centres",
+      "passed": true,
+      "time": 0.11270000004768373
+    },
+    {
+      "cascade": 3,
+      "maximum": [
+        0.01230621337890625,
+        0.298095703125,
+        0.2171630859375,
+        0.09423828125
+      ],
+      "minimum": [
+        -0.0111236572265625,
+        -0.305419921875,
+        -0.199462890625,
+        0
+      ],
+      "name": "active: cascade 3 finite signed height/slopes and nonnegative moment",
+      "nonFinite": 0,
+      "passed": false,
+      "variance": {
+        "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+        "maximumRaw": 0.00012439489364624023,
+        "meanClamped": 0.000003259119422454324,
+        "minimumRaw": -0.00004390836693346501,
+        "negativeBeyondHalfRoundAllowance": 34
+      }
+    },
+    {
+      "cascade": 3,
+      "channels": [
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000005652131101530761,
+          "meanAbsoluteError": 8.743757073183139e-7,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000012522965936877474,
+          "worst": {
+            "actual": -0.00879669189453125,
+            "channel": 0,
+            "expected": -0.00880234402563278,
+            "texel": [
+              152,
+              240
+            ],
+            "tolerance": 0.000037709376102531125
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00011216185138365752,
+          "meanAbsoluteError": 0.000020135475649759884,
+          "outsideTolerance": 0,
+          "rmsError": 0.000029243714004811656,
+          "worst": {
+            "actual": 0.134033203125,
+            "channel": 1,
+            "expected": 0.13414536497638366,
+            "texel": [
+              158,
+              74
+            ],
+            "tolerance": 0.0005390814599055346
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00009560871471950284,
+          "meanAbsoluteError": 0.0000151378138402746,
+          "outsideTolerance": 0,
+          "rmsError": 0.00002252937272755993,
+          "worst": {
+            "actual": 0.1680908203125,
+            "channel": 2,
+            "expected": 0.1681864290272195,
+            "texel": [
+              140,
+              134
+            ],
+            "tolerance": 0.000675245716108878
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00005237768718885372,
+          "meanAbsoluteError": 0.0000030337875519417553,
+          "outsideTolerance": 0,
+          "rmsError": 0.000005904190846563365,
+          "worst": {
+            "actual": 0.0703125,
+            "channel": 3,
+            "expected": 0.07036487768718885,
+            "texel": [
+              98,
+              163
+            ],
+            "tolerance": 0.00042238926612313314
+          }
+        }
+      ],
+      "comparedTexels": 256,
+      "name": "active: cascade 3 CPU Fourier at matching texel centres",
+      "passed": true,
+      "time": 0.11270000004768373
+    },
+    {
+      "cascade": 0,
+      "channels": [
+        {
+          "count": 16384,
+          "maximumAbsoluteError": 0.00006103515625,
+          "meanAbsoluteError": 0.000006970138201722875,
+          "outsideTolerance": 0,
+          "rmsError": 0.000012632009396152624,
+          "worst": {
+            "actual": -0.0869140625,
+            "channel": 0,
+            "expected": -0.08685302734375,
+            "texelIndex": 301,
+            "tolerance": 0.000349912109375
+          }
+        },
+        {
+          "count": 16384,
+          "maximumAbsoluteError": 0.0000152587890625,
+          "meanAbsoluteError": 0.0000012876917026005683,
+          "outsideTolerance": 0,
+          "rmsError": 0.000002325442254909587,
+          "worst": {
+            "actual": -0.0167999267578125,
+            "channel": 1,
+            "expected": -0.01678466796875,
+            "texelIndex": 2228,
+            "tolerance": 0.00006963867187500001
+          }
+        },
+        {
+          "count": 16384,
+          "maximumAbsoluteError": 0.00000762939453125,
+          "meanAbsoluteError": 9.30780515773222e-7,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000016673096518964752,
+          "worst": {
+            "actual": -0.00995635986328125,
+            "channel": 2,
+            "expected": -0.00994873046875,
+            "texelIndex": 174,
+            "tolerance": 0.000042294921875
+          }
+        },
+        {
+          "count": 16384,
+          "maximumAbsoluteError": 2.384185791015625e-7,
+          "meanAbsoluteError": 3.01588443107903e-8,
+          "outsideTolerance": 0,
+          "rmsError": 4.3443977049330634e-8,
+          "worst": {
+            "actual": 0.0002923011779785156,
+            "channel": 3,
+            "expected": 0.00029206275939941406,
+            "texelIndex": 2228,
+            "tolerance": 0.0000019523765563964845
+          }
+        }
+      ],
+      "dimensions": [
+        128,
+        128
+      ],
+      "level": 1,
+      "name": "cascade 0: actual textureLod 1 is averaged with valid slope variance",
+      "passed": true,
+      "scan": {
+        "maximum": [
+          0.08465576171875,
+          0.0175933837890625,
+          0.0112152099609375,
+          0.0003142356872558594
+        ],
+        "mean": [
+          -4.0734448703005917e-8,
+          -6.031768862158061e-9,
+          2.6338966563344e-9,
+          0.000035976390790892765
+        ],
+        "meanSlopeEnergy": 0.00003180530492964857,
+        "minimum": [
+          -0.09503173828125,
+          -0.0170440673828125,
+          -0.01154327392578125,
+          2.384185791015625e-7
+        ],
+        "negative": [
+          8222,
+          8253,
+          8195,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 16384,
+        "positive": [
+          8162,
+          8131,
+          8188,
+          16384
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.00003640993145381799,
+          "meanClamped": 0.000004171085861244192,
+          "minimumRaw": 1.1244992492720485e-8,
+          "negativeBeyondHalfRoundAllowance": 0
+        }
+      }
+    },
+    {
+      "cascade": 0,
+      "channels": [
+        {
+          "count": 1024,
+          "maximumAbsoluteError": 0.00006103515625,
+          "meanAbsoluteError": 0.000014200224541127682,
+          "outsideTolerance": 8,
+          "rmsError": 0.000018665858024202752,
+          "worst": {
+            "actual": -0.040618896484375,
+            "channel": 0,
+            "expected": -0.040557861328125,
+            "texelIndex": 11,
+            "tolerance": 0.0001647314453125
+          }
+        },
+        {
+          "count": 1024,
+          "maximumAbsoluteError": 0.00000762939453125,
+          "meanAbsoluteError": 0.0000018937280401587488,
+          "outsideTolerance": 1,
+          "rmsError": 0.0000024774706966473437,
+          "worst": {
+            "actual": 0.004329681396484375,
+            "channel": 1,
+            "expected": 0.004322052001953125,
+            "texelIndex": 69,
+            "tolerance": 0.0000197882080078125
+          }
+        },
+        {
+          "count": 1024,
+          "maximumAbsoluteError": 0.00000762939453125,
+          "meanAbsoluteError": 0.0000016722478903830051,
+          "outsideTolerance": 0,
+          "rmsError": 0.000002206286471218778,
+          "worst": {
+            "actual": 0.0046844482421875,
+            "channel": 2,
+            "expected": 0.00467681884765625,
+            "texelIndex": 38,
+            "tolerance": 0.000021207275390625
+          }
+        },
+        {
+          "count": 1024,
+          "maximumAbsoluteError": 1.788139343261719e-7,
+          "meanAbsoluteError": 8.975621312856674e-8,
+          "outsideTolerance": 0,
+          "rmsError": 9.47938162833413e-8,
+          "worst": {
+            "actual": 0.0000794529914855957,
+            "channel": 3,
+            "expected": 0.00007927417755126953,
+            "texelIndex": 211,
+            "tolerance": 6.756450653076172e-7
+          }
+        }
+      ],
+      "dimensions": [
+        32,
+        32
+      ],
+      "level": 3,
+      "name": "cascade 0: actual textureLod 3 is averaged with valid slope variance",
+      "passed": false,
+      "scan": {
+        "maximum": [
+          0.04656982421875,
+          0.007568359375,
+          0.00653839111328125,
+          0.00011146068572998048
+        ],
+        "mean": [
+          1.781154423952103e-8,
+          -2.5145709514617923e-8,
+          5.995389074087143e-9,
+          0.000035991601180285215
+        ],
+        "meanSlopeEnergy": 0.000008239213138274554,
+        "minimum": [
+          -0.0546875,
+          -0.007259368896484375,
+          -0.005519866943359375,
+          0.000007331371307373047
+        ],
+        "negative": [
+          509,
+          527,
+          519,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 1024,
+        "positive": [
+          515,
+          497,
+          505,
+          1024
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.00010243494398309848,
+          "meanClamped": 0.00002775238804201066,
+          "minimumRaw": 0.000004830360921914689,
+          "negativeBeyondHalfRoundAllowance": 0
+        }
+      }
+    },
+    {
+      "cascade": 0,
+      "channels": [
+        {
+          "count": 16,
+          "maximumAbsoluteError": 0.000003814697265625,
+          "meanAbsoluteError": 0.000001959502696990967,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000022862480180276236,
+          "worst": {
+            "actual": -0.002040863037109375,
+            "channel": 0,
+            "expected": -0.00203704833984375,
+            "texelIndex": 4,
+            "tolerance": 0.000010648193359375
+          }
+        },
+        {
+          "count": 16,
+          "maximumAbsoluteError": 4.76837158203125e-7,
+          "meanAbsoluteError": 2.048909664154053e-7,
+          "outsideTolerance": 0,
+          "rmsError": 2.515605541487654e-7,
+          "worst": {
+            "actual": -0.0001983642578125,
+            "channel": 1,
+            "expected": -0.00019788742065429688,
+            "texelIndex": 1,
+            "tolerance": 0.000003291549682617188
+          }
+        },
+        {
+          "count": 16,
+          "maximumAbsoluteError": 3.576278686523438e-7,
+          "meanAbsoluteError": 1.9371509552001953e-7,
+          "outsideTolerance": 0,
+          "rmsError": 2.1283115233608637e-7,
+          "worst": {
+            "actual": -0.00006628036499023438,
+            "channel": 2,
+            "expected": -0.00006592273712158203,
+            "texelIndex": 13,
+            "tolerance": 0.0000027636909484863283
+          }
+        },
+        {
+          "count": 16,
+          "maximumAbsoluteError": 2.384185791015625e-7,
+          "meanAbsoluteError": 1.788139343261719e-7,
+          "outsideTolerance": 0,
+          "rmsError": 1.812804499357408e-7,
+          "worst": {
+            "actual": 0.00003516674041748047,
+            "channel": 3,
+            "expected": 0.000034928321838378906,
+            "texelIndex": 11,
+            "tolerance": 4.095699310302735e-7
+          }
+        }
+      ],
+      "dimensions": [
+        4,
+        4
+      ],
+      "level": 6,
+      "name": "cascade 0: actual textureLod 6 is averaged with valid slope variance",
+      "passed": true,
+      "scan": {
+        "maximum": [
+          0.0015001296997070312,
+          0.00016748905181884766,
+          0.00012755393981933594,
+          0.00004315376281738281
+        ],
+        "mean": [
+          -1.1175870895385742e-8,
+          -3.725290298461914e-8,
+          1.1175870895385742e-8,
+          0.00003601238131523132
+        ],
+        "meanSlopeEnergy": 1.7356886816699557e-8,
+        "minimum": [
+          -0.002040863037109375,
+          -0.0001983642578125,
+          -0.00010401010513305664,
+          0.00003045797348022461
+        ],
+        "negative": [
+          8,
+          7,
+          8,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 16,
+        "positive": [
+          8,
+          9,
+          8,
+          16
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.00004310359633663552,
+          "meanClamped": 0.000035995024428414624,
+          "minimumRaw": 0.0000304493631055891,
+          "negativeBeyondHalfRoundAllowance": 0
+        }
+      }
+    },
+    {
+      "cascade": 0,
+      "channels": [
+        {
+          "count": 1,
+          "maximumAbsoluteError": 1.788139343261719e-7,
+          "meanAbsoluteError": 1.788139343261719e-7,
+          "outsideTolerance": 0,
+          "rmsError": 1.788139343261719e-7,
+          "worst": {
+            "actual": -5.960464477539064e-8,
+            "channel": 0,
+            "expected": -2.384185791015625e-7,
+            "texelIndex": 0,
+            "tolerance": 0.0000025009536743164063
+          }
+        },
+        {
+          "count": 1,
+          "maximumAbsoluteError": 5.960464477539064e-8,
+          "meanAbsoluteError": 5.960464477539064e-8,
+          "outsideTolerance": 0,
+          "rmsError": 5.960464477539064e-8,
+          "worst": {
+            "actual": -5.960464477539064e-8,
+            "channel": 1,
+            "expected": 0,
+            "texelIndex": 0,
+            "tolerance": 0.0000025
+          }
+        },
+        {
+          "count": 1,
+          "maximumAbsoluteError": 0,
+          "meanAbsoluteError": 0,
+          "outsideTolerance": 0,
+          "rmsError": 0,
+          "worst": null
+        },
+        {
+          "count": 1,
+          "maximumAbsoluteError": 2.384185791015625e-7,
+          "meanAbsoluteError": 2.384185791015625e-7,
+          "outsideTolerance": 0,
+          "rmsError": 2.384185791015625e-7,
+          "worst": {
+            "actual": 0.00003600120544433594,
+            "channel": 3,
+            "expected": 0.000035762786865234375,
+            "texelIndex": 0,
+            "tolerance": 4.145767211914062e-7
+          }
+        }
+      ],
+      "dimensions": [
+        1,
+        1
+      ],
+      "level": 8,
+      "name": "cascade 0: actual textureLod 8 is averaged with valid slope variance",
+      "passed": true,
+      "scan": {
+        "maximum": [
+          -5.960464477539064e-8,
+          -5.960464477539064e-8,
+          0,
+          0.00003600120544433594
+        ],
+        "mean": [
+          -5.960464477539064e-8,
+          -5.960464477539064e-8,
+          0,
+          0.00003600120544433594
+        ],
+        "meanSlopeEnergy": 3.552713678800501e-15,
+        "minimum": [
+          -5.960464477539064e-8,
+          -5.960464477539064e-8,
+          0,
+          0.00003600120544433594
+        ],
+        "negative": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 1,
+        "positive": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.000036001205440783224,
+          "meanClamped": 0.000036001205440783224,
+          "minimumRaw": 0.000036001205440783224,
+          "negativeBeyondHalfRoundAllowance": 0
+        }
+      }
+    },
+    {
+      "baseMeanGradientSquared": 0.000035974580230884096,
+      "baseMeanSlopeSquared": 0.000035968972952105105,
+      "coarseMeanGradientSquared": 3.552713678800501e-15,
+      "coarseMeanSlopeSquared": 0.00003600120544433594,
+      "name": "cascade 0: coarse mip removes resolved gradients but retains slope energy",
+      "passed": true
+    },
+    {
+      "maximumAcrossSeam": 0.000457763671875,
+      "name": "cascade 0: 521 m period repeats continuously across both axes",
+      "passed": false,
+      "periodicMaximumError": 0,
+      "seamBilinearCPUComparison": [
+        {
+          "count": 128,
+          "maximumAbsoluteError": 0.000029325485229492188,
+          "meanAbsoluteError": 0.000003564720827853307,
+          "outsideTolerance": 5,
+          "rmsError": 0.000005579398838177897,
+          "worst": {
+            "actual": 0.07550048828125,
+            "axis": 0,
+            "channel": 0,
+            "expected": 0.07547116279602051,
+            "texel": [
+              1,
+              3
+            ],
+            "tolerance": 0.000024641348838806152
+          }
+        },
+        {
+          "count": 128,
+          "maximumAbsoluteError": 0.000003635883331298828,
+          "meanAbsoluteError": 5.560068530030549e-7,
+          "outsideTolerance": 0,
+          "rmsError": 8.755655246031794e-7,
+          "worst": {
+            "actual": 0.00811767578125,
+            "axis": 1,
+            "channel": 1,
+            "expected": 0.008121311664581299,
+            "texel": [
+              29,
+              0
+            ],
+            "tolerance": 0.000004436393499374389
+          }
+        },
+        {
+          "count": 128,
+          "maximumAbsoluteError": 0.000001862645149230957,
+          "meanAbsoluteError": 4.7013236326165497e-7,
+          "outsideTolerance": 0,
+          "rmsError": 6.803134480221542e-7,
+          "worst": {
+            "actual": -0.006244659423828125,
+            "axis": 0,
+            "channel": 2,
+            "expected": -0.006242796778678894,
+            "texel": [
+              1,
+              18
+            ],
+            "tolerance": 0.000003872839033603668
+          }
+        },
+        {
+          "count": 128,
+          "maximumAbsoluteError": 5.7043507695198066e-8,
+          "meanAbsoluteError": 1.5981640899553895e-8,
+          "outsideTolerance": 0,
+          "rmsError": 1.9288485413694236e-8,
+          "worst": {
+            "actual": 0.00016164779663085938,
+            "axis": 0,
+            "channel": 3,
+            "expected": 0.00016159075312316418,
+            "texel": [
+              1,
+              27
+            ],
+            "tolerance": 0.000002048477225936949
+          }
+        }
+      ],
+      "seamEpsilonInUV": 0.00006103515625
+    },
+    {
+      "cascade": 1,
+      "channels": [
+        {
+          "count": 16384,
+          "maximumAbsoluteError": 0.00006103515625,
+          "meanAbsoluteError": 0.0000057498327805660665,
+          "outsideTolerance": 0,
+          "rmsError": 0.000010296573628123864,
+          "worst": {
+            "actual": 0.06488037109375,
+            "channel": 0,
+            "expected": 0.0648193359375,
+            "texelIndex": 1816,
+            "tolerance": 0.00026177734375
+          }
+        },
+        {
+          "count": 16384,
+          "maximumAbsoluteError": 0.00006103515625,
+          "meanAbsoluteError": 0.000005359361239243299,
+          "outsideTolerance": 0,
+          "rmsError": 0.000009717998723482528,
+          "worst": {
+            "actual": 0.07098388671875,
+            "channel": 1,
+            "expected": 0.0709228515625,
+            "texelIndex": 1750,
+            "tolerance": 0.00028619140625
+          }
+        },
+        {
+          "count": 16384,
+          "maximumAbsoluteError": 0.000030517578125,
+          "meanAbsoluteError": 0.000003381290298420936,
+          "outsideTolerance": 0,
+          "rmsError": 0.000006148329318424732,
+          "worst": {
+            "actual": -0.0335693359375,
+            "channel": 2,
+            "expected": -0.033538818359375,
+            "texelIndex": 538,
+            "tolerance": 0.0001366552734375
+          }
+        },
+        {
+          "count": 16384,
+          "maximumAbsoluteError": 0.000003814697265625,
+          "meanAbsoluteError": 2.182241587433964e-7,
+          "outsideTolerance": 0,
+          "rmsError": 4.236747512376276e-7,
+          "worst": {
+            "actual": 0.004669189453125,
+            "channel": 3,
+            "expected": 0.004665374755859375,
+            "texelIndex": 1136,
+            "tolerance": 0.000028192248535156252
+          }
+        }
+      ],
+      "dimensions": [
+        128,
+        128
+      ],
+      "level": 1,
+      "name": "cascade 1: actual textureLod 1 is averaged with valid slope variance",
+      "passed": true,
+      "scan": {
+        "maximum": [
+          0.071533203125,
+          0.07098388671875,
+          0.04541015625,
+          0.0068511962890625
+        ],
+        "mean": [
+          1.873559085652232e-9,
+          4.333196557126939e-8,
+          8.36735125631094e-11,
+          0.0006248048666748218
+        ],
+        "meanSlopeEnergy": 0.000511249317078564,
+        "minimum": [
+          -0.07958984375,
+          -0.07763671875,
+          -0.04815673828125,
+          0.000003039836883544922
+        ],
+        "negative": [
+          8222,
+          8231,
+          8235,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 16384,
+        "positive": [
+          8162,
+          8153,
+          8149,
+          16384
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.001153144312411314,
+          "meanClamped": 0.00011355554959625782,
+          "minimumRaw": 5.177539037504175e-7,
+          "negativeBeyondHalfRoundAllowance": 0
+        }
+      }
+    },
+    {
+      "cascade": 1,
+      "channels": [
+        {
+          "count": 1024,
+          "maximumAbsoluteError": 0.00006103515625,
+          "meanAbsoluteError": 0.000009470037184655666,
+          "outsideTolerance": 7,
+          "rmsError": 0.000012517419436255068,
+          "worst": {
+            "actual": -0.034912109375,
+            "channel": 0,
+            "expected": -0.03485107421875,
+            "texelIndex": 739,
+            "tolerance": 0.00014190429687500002
+          }
+        },
+        {
+          "count": 1024,
+          "maximumAbsoluteError": 0.000030517578125,
+          "meanAbsoluteError": 0.00000636163167655468,
+          "outsideTolerance": 12,
+          "rmsError": 0.00000835588177779582,
+          "worst": {
+            "actual": -0.0192108154296875,
+            "channel": 1,
+            "expected": -0.0191802978515625,
+            "texelIndex": 98,
+            "tolerance": 0.00007922119140625001
+          }
+        },
+        {
+          "count": 1024,
+          "maximumAbsoluteError": 0.00002288818359375,
+          "meanAbsoluteError": 0.000004520465154200792,
+          "outsideTolerance": 3,
+          "rmsError": 0.000005852140865565373,
+          "worst": {
+            "actual": 0.01104736328125,
+            "channel": 2,
+            "expected": 0.01102447509765625,
+            "texelIndex": 769,
+            "tolerance": 0.000046597900390625
+          }
+        },
+        {
+          "count": 1024,
+          "maximumAbsoluteError": 0.0000019073486328125,
+          "meanAbsoluteError": 6.655463948845863e-7,
+          "outsideTolerance": 0,
+          "rmsError": 7.639752102216751e-7,
+          "worst": {
+            "actual": 0.0011730194091796875,
+            "channel": 3,
+            "expected": 0.001171112060546875,
+            "texelIndex": 100,
+            "tolerance": 0.00000722667236328125
+          }
+        }
+      ],
+      "dimensions": [
+        32,
+        32
+      ],
+      "level": 3,
+      "name": "cascade 1: actual textureLod 3 is averaged with valid slope variance",
+      "passed": false,
+      "scan": {
+        "maximum": [
+          0.033355712890625,
+          0.0234832763671875,
+          0.0163726806640625,
+          0.0017185211181640625
+        ],
+        "mean": [
+          1.9941944628953936e-7,
+          4.284083843231201e-8,
+          2.3166649043560028e-8,
+          0.0006248699501156807
+        ],
+        "meanSlopeEnergy": 0.00007811704677056219,
+        "minimum": [
+          -0.03924560546875,
+          -0.02398681640625,
+          -0.0161285400390625,
+          0.00013780593872070312
+        ],
+        "negative": [
+          510,
+          506,
+          512,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 1024,
+        "positive": [
+          514,
+          518,
+          512,
+          1024
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.0015546982031082734,
+          "meanClamped": 0.0005467529033451185,
+          "minimumRaw": 0.00013074052526462765,
+          "negativeBeyondHalfRoundAllowance": 0
+        }
+      }
+    },
+    {
+      "cascade": 1,
+      "channels": [
+        {
+          "count": 16,
+          "maximumAbsoluteError": 0.0000010728836059570312,
+          "meanAbsoluteError": 5.587935447692871e-7,
+          "outsideTolerance": 0,
+          "rmsError": 6.457551920420066e-7,
+          "worst": {
+            "actual": 0.0001741647720336914,
+            "channel": 0,
+            "expected": 0.00017309188842773438,
+            "texelIndex": 1,
+            "tolerance": 0.0000031923675537109377
+          }
+        },
+        {
+          "count": 16,
+          "maximumAbsoluteError": 9.5367431640625e-7,
+          "meanAbsoluteError": 3.948807716369629e-7,
+          "outsideTolerance": 0,
+          "rmsError": 4.800857214208547e-7,
+          "worst": {
+            "actual": -0.0003690719604492187,
+            "channel": 1,
+            "expected": -0.0003681182861328125,
+            "texelIndex": 1,
+            "tolerance": 0.00000397247314453125
+          }
+        },
+        {
+          "count": 16,
+          "maximumAbsoluteError": 7.152557373046875e-7,
+          "meanAbsoluteError": 1.862645149230957e-7,
+          "outsideTolerance": 0,
+          "rmsError": 2.682209014892578e-7,
+          "worst": {
+            "actual": 0.000024259090423583984,
+            "channel": 2,
+            "expected": 0.000023543834686279297,
+            "texelIndex": 10,
+            "tolerance": 0.0000025941753387451173
+          }
+        },
+        {
+          "count": 16,
+          "maximumAbsoluteError": 0.0000019073486328125,
+          "meanAbsoluteError": 0.0000014603137969970703,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000014745374771181322,
+          "worst": {
+            "actual": 0.0006527900695800781,
+            "channel": 3,
+            "expected": 0.0006508827209472656,
+            "texelIndex": 14,
+            "tolerance": 0.000004105296325683593
+          }
+        }
+      ],
+      "dimensions": [
+        4,
+        4
+      ],
+      "level": 6,
+      "name": "cascade 1: actual textureLod 6 is averaged with valid slope variance",
+      "passed": true,
+      "scan": {
+        "maximum": [
+          0.00037217140197753906,
+          0.0003867149353027344,
+          0.00008726119995117188,
+          0.0006823539733886719
+        ],
+        "mean": [
+          1.4528632164001465e-7,
+          -3.725290298461914e-9,
+          4.0978193283081055e-8,
+          0.0006250739097595215
+        ],
+        "meanSlopeEnergy": 4.3085945033993767e-8,
+        "minimum": [
+          -0.00027871131896972656,
+          -0.0003690719604492187,
+          -0.00009942054748535156,
+          0.0005574226379394531
+        ],
+        "negative": [
+          9,
+          8,
+          8,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 16,
+        "positive": [
+          7,
+          8,
+          8,
+          16
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.0006823290532196324,
+          "meanClamped": 0.0006250308238144875,
+          "minimumRaw": 0.0005574007970352568,
+          "negativeBeyondHalfRoundAllowance": 0
+        }
+      }
+    },
+    {
+      "cascade": 1,
+      "channels": [
+        {
+          "count": 1,
+          "maximumAbsoluteError": 0,
+          "meanAbsoluteError": 0,
+          "outsideTolerance": 0,
+          "rmsError": 0,
+          "worst": null
+        },
+        {
+          "count": 1,
+          "maximumAbsoluteError": 0,
+          "meanAbsoluteError": 0,
+          "outsideTolerance": 0,
+          "rmsError": 0,
+          "worst": null
+        },
+        {
+          "count": 1,
+          "maximumAbsoluteError": 1.1920928955078125e-7,
+          "meanAbsoluteError": 1.1920928955078125e-7,
+          "outsideTolerance": 0,
+          "rmsError": 1.1920928955078125e-7,
+          "worst": {
+            "actual": 5.960464477539064e-8,
+            "channel": 2,
+            "expected": -5.960464477539064e-8,
+            "texelIndex": 0,
+            "tolerance": 0.0000025002384185791016
+          }
+        },
+        {
+          "count": 1,
+          "maximumAbsoluteError": 0.0000019073486328125,
+          "meanAbsoluteError": 0.0000019073486328125,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000019073486328125,
+          "worst": {
+            "actual": 0.0006251335144042969,
+            "channel": 3,
+            "expected": 0.0006232261657714844,
+            "texelIndex": 0,
+            "tolerance": 0.000003939356994628906
+          }
+        }
+      ],
+      "dimensions": [
+        1,
+        1
+      ],
+      "level": 8,
+      "name": "cascade 1: actual textureLod 8 is averaged with valid slope variance",
+      "passed": true,
+      "scan": {
+        "maximum": [
+          1.1920928955078125e-7,
+          0,
+          5.960464477539064e-8,
+          0.0006251335144042969
+        ],
+        "mean": [
+          1.1920928955078125e-7,
+          0,
+          5.960464477539064e-8,
+          0.0006251335144042969
+        ],
+        "meanSlopeEnergy": 3.552713678800501e-15,
+        "minimum": [
+          1.1920928955078125e-7,
+          0,
+          5.960464477539064e-8,
+          0.0006251335144042969
+        ],
+        "negative": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 1,
+        "positive": [
+          1,
+          0,
+          1,
+          1
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.0006251335144007442,
+          "meanClamped": 0.0006251335144007442,
+          "minimumRaw": 0.0006251335144007442,
+          "negativeBeyondHalfRoundAllowance": 0
+        }
+      }
+    },
+    {
+      "baseMeanGradientSquared": 0.0006245592384920161,
+      "baseMeanSlopeSquared": 0.0006247780938792857,
+      "coarseMeanGradientSquared": 3.552713678800501e-15,
+      "coarseMeanSlopeSquared": 0.0006251335144042969,
+      "name": "cascade 1: coarse mip removes resolved gradients but retains slope energy",
+      "passed": true
+    },
+    {
+      "maximumAcrossSeam": 0.000652313232421875,
+      "name": "cascade 1: 137 m period repeats continuously across both axes",
+      "passed": false,
+      "periodicMaximumError": 0,
+      "seamBilinearCPUComparison": [
+        {
+          "count": 128,
+          "maximumAbsoluteError": 0.000014901161193847656,
+          "meanAbsoluteError": 0.000002554588718339801,
+          "outsideTolerance": 2,
+          "rmsError": 0.000003698983898070175,
+          "worst": {
+            "actual": -0.047393798828125,
+            "axis": 0,
+            "channel": 0,
+            "expected": -0.04737889766693115,
+            "texel": [
+              0,
+              5
+            ],
+            "tolerance": 0.000016213669300079344
+          }
+        },
+        {
+          "count": 128,
+          "maximumAbsoluteError": 0.000013172626495361328,
+          "meanAbsoluteError": 0.0000024295914045069367,
+          "outsideTolerance": 2,
+          "rmsError": 0.000003496982262755952,
+          "worst": {
+            "actual": -0.031463623046875,
+            "axis": 1,
+            "channel": 1,
+            "expected": -0.03147679567337036,
+            "texel": [
+              11,
+              0
+            ],
+            "tolerance": 0.000011443038702011108
+          }
+        },
+        {
+          "count": 128,
+          "maximumAbsoluteError": 0.000015020370483398438,
+          "meanAbsoluteError": 0.0000018745486158877611,
+          "outsideTolerance": 3,
+          "rmsError": 0.0000030045694173897897,
+          "worst": {
+            "actual": -0.03216552734375,
+            "axis": 0,
+            "channel": 2,
+            "expected": -0.0321805477142334,
+            "texel": [
+              0,
+              5
+            ],
+            "tolerance": 0.00001165416431427002
+          }
+        },
+        {
+          "count": 128,
+          "maximumAbsoluteError": 8.23289155960083e-7,
+          "meanAbsoluteError": 9.80799086391926e-8,
+          "outsideTolerance": 0,
+          "rmsError": 1.4772003444711438e-7,
+          "worst": {
+            "actual": 0.0020771026611328125,
+            "axis": 0,
+            "channel": 3,
+            "expected": 0.0020762793719768524,
+            "texel": [
+              1,
+              19
+            ],
+            "tolerance": 0.000002622883811593056
+          }
+        }
+      ],
+      "seamEpsilonInUV": 0.00006103515625
+    },
+    {
+      "cascade": 2,
+      "channels": [
+        {
+          "count": 16384,
+          "maximumAbsoluteError": 0.000030517578125,
+          "meanAbsoluteError": 0.0000034157928894273937,
+          "outsideTolerance": 0,
+          "rmsError": 0.000006196428614095746,
+          "worst": {
+            "actual": -0.03509521484375,
+            "channel": 0,
+            "expected": -0.035064697265625,
+            "texelIndex": 512,
+            "tolerance": 0.0001427587890625
+          }
+        },
+        {
+          "count": 16384,
+          "maximumAbsoluteError": 0.0001220703125,
+          "meanAbsoluteError": 0.000012521984899649397,
+          "outsideTolerance": 0,
+          "rmsError": 0.000022646779822808487,
+          "worst": {
+            "actual": 0.126708984375,
+            "channel": 1,
+            "expected": 0.1265869140625,
+            "texelIndex": 387,
+            "tolerance": 0.00050884765625
+          }
+        },
+        {
+          "count": 16384,
+          "maximumAbsoluteError": 0.00006103515625,
+          "meanAbsoluteError": 0.000007159458618843928,
+          "outsideTolerance": 0,
+          "rmsError": 0.000012851405187745094,
+          "worst": {
+            "actual": -0.07989501953125,
+            "channel": 2,
+            "expected": -0.079833984375,
+            "texelIndex": 589,
+            "tolerance": 0.0003218359375
+          }
+        },
+        {
+          "count": 16384,
+          "maximumAbsoluteError": 0.000030517578125,
+          "meanAbsoluteError": 0.0000010633266356308011,
+          "outsideTolerance": 0,
+          "rmsError": 0.000002146429171423708,
+          "worst": {
+            "actual": 0.034271240234375,
+            "channel": 3,
+            "expected": 0.03424072265625,
+            "texelIndex": 4164,
+            "tolerance": 0.0002056443359375
+          }
+        }
+      ],
+      "dimensions": [
+        128,
+        128
+      ],
+      "level": 1,
+      "name": "cascade 2: actual textureLod 1 is averaged with valid slope variance",
+      "passed": true,
+      "scan": {
+        "maximum": [
+          0.0452880859375,
+          0.1842041015625,
+          0.09521484375,
+          0.034271240234375
+        ],
+        "mean": [
+          -1.979060471057892e-9,
+          5.9124431572854526e-8,
+          -7.392372936010361e-9,
+          0.0030240802952903323
+        ],
+        "meanSlopeEnergy": 0.0026173325996816264,
+        "minimum": [
+          -0.05023193359375,
+          -0.1636962890625,
+          -0.09100341796875,
+          0.000019729137420654297
+        ],
+        "negative": [
+          8293,
+          8242,
+          8193,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 16384,
+        "positive": [
+          8091,
+          8142,
+          8189,
+          16384
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.005225881468504667,
+          "meanClamped": 0.00040674769560870546,
+          "minimumRaw": 0.0000012051314115524292,
+          "negativeBeyondHalfRoundAllowance": 0
+        }
+      }
+    },
+    {
+      "cascade": 2,
+      "channels": [
+        {
+          "count": 1024,
+          "maximumAbsoluteError": 0.000030517578125,
+          "meanAbsoluteError": 0.000006279442459344864,
+          "outsideTolerance": 4,
+          "rmsError": 0.000008421545855235593,
+          "worst": {
+            "actual": -0.0190277099609375,
+            "channel": 0,
+            "expected": -0.0189971923828125,
+            "texelIndex": 89,
+            "tolerance": 0.00007848876953125001
+          }
+        },
+        {
+          "count": 1024,
+          "maximumAbsoluteError": 0.0001220703125,
+          "meanAbsoluteError": 0.00002108560875058174,
+          "outsideTolerance": 16,
+          "rmsError": 0.000027790505828091184,
+          "worst": {
+            "actual": 0.07427978515625,
+            "channel": 1,
+            "expected": 0.07415771484375,
+            "texelIndex": 150,
+            "tolerance": 0.000299130859375
+          }
+        },
+        {
+          "count": 1024,
+          "maximumAbsoluteError": 0.00006103515625,
+          "meanAbsoluteError": 0.000010624178685247898,
+          "outsideTolerance": 10,
+          "rmsError": 0.000013836298384937256,
+          "worst": {
+            "actual": 0.033172607421875,
+            "channel": 2,
+            "expected": 0.033111572265625,
+            "texelIndex": 239,
+            "tolerance": 0.0001349462890625
+          }
+        },
+        {
+          "count": 1024,
+          "maximumAbsoluteError": 0.0000152587890625,
+          "meanAbsoluteError": 0.0000032279640436172485,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000038590267637206146,
+          "worst": {
+            "actual": 0.00843048095703125,
+            "channel": 3,
+            "expected": 0.00841522216796875,
+            "texelIndex": 126,
+            "tolerance": 0.0000506913330078125
+          }
+        }
+      ],
+      "dimensions": [
+        32,
+        32
+      ],
+      "level": 3,
+      "name": "cascade 2: actual textureLod 3 is averaged with valid slope variance",
+      "passed": false,
+      "scan": {
+        "maximum": [
+          0.0246124267578125,
+          0.074951171875,
+          0.03656005859375,
+          0.01103973388671875
+        ],
+        "mean": [
+          7.10715539753437e-8,
+          7.869675755500793e-8,
+          -3.9348378777503974e-8,
+          0.003024353180080652
+        ],
+        "meanSlopeEnergy": 0.0007458117661519326,
+        "minimum": [
+          -0.024505615234375,
+          -0.0697021484375,
+          -0.039703369140625,
+          0.0005631446838378906
+        ],
+        "negative": [
+          527,
+          515,
+          519,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 1024,
+        "positive": [
+          497,
+          509,
+          505,
+          1024
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.009518138831481338,
+          "meanClamped": 0.0022785414139287197,
+          "minimumRaw": 0.0004695418756455183,
+          "negativeBeyondHalfRoundAllowance": 0
+        }
+      }
+    },
+    {
+      "cascade": 2,
+      "channels": [
+        {
+          "count": 16,
+          "maximumAbsoluteError": 0.0000010728836059570312,
+          "meanAbsoluteError": 5.476176738739014e-7,
+          "outsideTolerance": 0,
+          "rmsError": 6.277970800680189e-7,
+          "worst": {
+            "actual": -0.0001690387725830078,
+            "channel": 0,
+            "expected": -0.00016796588897705078,
+            "texelIndex": 5,
+            "tolerance": 0.0000031718635559082032
+          }
+        },
+        {
+          "count": 16,
+          "maximumAbsoluteError": 0.00000476837158203125,
+          "meanAbsoluteError": 0.0000018700957298278809,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000024359638794564538,
+          "worst": {
+            "actual": -0.0017910003662109375,
+            "channel": 1,
+            "expected": -0.0017862319946289062,
+            "texelIndex": 14,
+            "tolerance": 0.000009644927978515626
+          }
+        },
+        {
+          "count": 16,
+          "maximumAbsoluteError": 0.0000012516975402832031,
+          "meanAbsoluteError": 6.07222318649292e-7,
+          "outsideTolerance": 0,
+          "rmsError": 7.431183838720132e-7,
+          "worst": {
+            "actual": 0.000012278556823730469,
+            "channel": 2,
+            "expected": 0.000011026859283447266,
+            "texelIndex": 3,
+            "tolerance": 0.00000254410743713379
+          }
+        },
+        {
+          "count": 16,
+          "maximumAbsoluteError": 0.000011444091796875,
+          "meanAbsoluteError": 0.000006318092346191406,
+          "outsideTolerance": 0,
+          "rmsError": 0.00000655542711490036,
+          "worst": {
+            "actual": 0.003955841064453125,
+            "channel": 3,
+            "expected": 0.00394439697265625,
+            "texelIndex": 2,
+            "tolerance": 0.0000238663818359375
+          }
+        }
+      ],
+      "dimensions": [
+        4,
+        4
+      ],
+      "level": 6,
+      "name": "cascade 2: actual textureLod 6 is averaged with valid slope variance",
+      "passed": true,
+      "scan": {
+        "maximum": [
+          0.00020182132720947263,
+          0.0011987686157226562,
+          0.0002732276916503906,
+          0.003955841064453125
+        ],
+        "mean": [
+          4.842877388000488e-8,
+          4.4703483581542975e-8,
+          -1.4901161193847656e-8,
+          0.003024816513061523
+        ],
+        "meanSlopeEnergy": 6.166400550178253e-7,
+        "minimum": [
+          -0.00034427642822265625,
+          -0.0017910003662109375,
+          -0.00034046173095703125,
+          0.0023288726806640625
+        ],
+        "negative": [
+          6,
+          8,
+          6,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 16,
+        "positive": [
+          10,
+          8,
+          10,
+          16
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.003955469028369407,
+          "meanClamped": 0.0030241998730065056,
+          "minimumRaw": 0.00232881028648535,
+          "negativeBeyondHalfRoundAllowance": 0
+        }
+      }
+    },
+    {
+      "cascade": 2,
+      "channels": [
+        {
+          "count": 1,
+          "maximumAbsoluteError": 0,
+          "meanAbsoluteError": 0,
+          "outsideTolerance": 0,
+          "rmsError": 0,
+          "worst": null
+        },
+        {
+          "count": 1,
+          "maximumAbsoluteError": 5.960464477539062e-7,
+          "meanAbsoluteError": 5.960464477539062e-7,
+          "outsideTolerance": 0,
+          "rmsError": 5.960464477539062e-7,
+          "worst": {
+            "actual": 5.960464477539064e-8,
+            "channel": 1,
+            "expected": -5.364418029785156e-7,
+            "texelIndex": 0,
+            "tolerance": 0.0000025021457672119143
+          }
+        },
+        {
+          "count": 1,
+          "maximumAbsoluteError": 5.960464477539064e-8,
+          "meanAbsoluteError": 5.960464477539064e-8,
+          "outsideTolerance": 0,
+          "rmsError": 5.960464477539064e-8,
+          "worst": {
+            "actual": 0,
+            "channel": 2,
+            "expected": -5.960464477539064e-8,
+            "texelIndex": 0,
+            "tolerance": 0.0000025002384185791016
+          }
+        },
+        {
+          "count": 1,
+          "maximumAbsoluteError": 0.00000762939453125,
+          "meanAbsoluteError": 0.00000762939453125,
+          "outsideTolerance": 0,
+          "rmsError": 0.00000762939453125,
+          "worst": {
+            "actual": 0.003025054931640625,
+            "channel": 3,
+            "expected": 0.003017425537109375,
+            "texelIndex": 0,
+            "tolerance": 0.000018304553222656253
+          }
+        }
+      ],
+      "dimensions": [
+        1,
+        1
+      ],
+      "level": 8,
+      "name": "cascade 2: actual textureLod 8 is averaged with valid slope variance",
+      "passed": true,
+      "scan": {
+        "maximum": [
+          5.960464477539064e-8,
+          5.960464477539064e-8,
+          0,
+          0.003025054931640625
+        ],
+        "mean": [
+          5.960464477539064e-8,
+          5.960464477539064e-8,
+          0,
+          0.003025054931640625
+        ],
+        "meanSlopeEnergy": 3.552713678800501e-15,
+        "minimum": [
+          5.960464477539064e-8,
+          5.960464477539064e-8,
+          0,
+          0.003025054931640625
+        ],
+        "negative": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 1,
+        "positive": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.0030250549316370723,
+          "meanClamped": 0.0030250549316370723,
+          "minimumRaw": 0.0030250549316370723,
+          "negativeBeyondHalfRoundAllowance": 0
+        }
+      }
+    },
+    {
+      "baseMeanGradientSquared": 0.003022875366500404,
+      "baseMeanSlopeSquared": 0.003023934885277413,
+      "coarseMeanGradientSquared": 3.552713678800501e-15,
+      "coarseMeanSlopeSquared": 0.003025054931640625,
+      "name": "cascade 2: coarse mip removes resolved gradients but retains slope energy",
+      "passed": true
+    },
+    {
+      "maximumAcrossSeam": 0.001068115234375,
+      "name": "cascade 2: 29 m period repeats continuously across both axes",
+      "passed": false,
+      "periodicMaximumError": 0,
+      "seamBilinearCPUComparison": [
+        {
+          "count": 128,
+          "maximumAbsoluteError": 0.000014185905456542969,
+          "meanAbsoluteError": 0.000002044023858616129,
+          "outsideTolerance": 1,
+          "rmsError": 0.000002912371600472732,
+          "worst": {
+            "actual": -0.032806396484375,
+            "axis": 0,
+            "channel": 0,
+            "expected": -0.03279221057891846,
+            "texel": [
+              1,
+              1
+            ],
+            "tolerance": 0.000011837663173675536
+          }
+        },
+        {
+          "count": 128,
+          "maximumAbsoluteError": 0.000017881393432617188,
+          "meanAbsoluteError": 0.000005329737177817151,
+          "outsideTolerance": 6,
+          "rmsError": 0.000007224449276160477,
+          "worst": {
+            "actual": 0.0653076171875,
+            "axis": 0,
+            "channel": 1,
+            "expected": 0.06532549858093262,
+            "texel": [
+              0,
+              4
+            ],
+            "tolerance": 0.000021597649574279785
+          }
+        },
+        {
+          "count": 128,
+          "maximumAbsoluteError": 0.000014781951904296877,
+          "meanAbsoluteError": 0.0000037679565139114857,
+          "outsideTolerance": 5,
+          "rmsError": 0.0000053707254822334524,
+          "worst": {
+            "actual": 0.034912109375,
+            "axis": 0,
+            "channel": 2,
+            "expected": 0.0348973274230957,
+            "texel": [
+              0,
+              21
+            ],
+            "tolerance": 0.000012469198226928707
+          }
+        },
+        {
+          "count": 128,
+          "maximumAbsoluteError": 0.0000019101426005363464,
+          "meanAbsoluteError": 4.609610186889768e-7,
+          "outsideTolerance": 0,
+          "rmsError": 6.583917407362191e-7,
+          "worst": {
+            "actual": 0.0039215087890625,
+            "axis": 1,
+            "channel": 3,
+            "expected": 0.003923418931663036,
+            "texel": [
+              21,
+              0
+            ],
+            "tolerance": 0.0000031770256794989108
+          }
+        }
+      ],
+      "seamEpsilonInUV": 0.00006103515625
+    },
+    {
+      "cascade": 3,
+      "channels": [
+        {
+          "count": 16384,
+          "maximumAbsoluteError": 0.00000762939453125,
+          "meanAbsoluteError": 7.923990779090673e-7,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000014290105514897668,
+          "worst": {
+            "actual": 0.00901031494140625,
+            "channel": 0,
+            "expected": 0.009002685546875,
+            "texelIndex": 857,
+            "tolerance": 0.0000385107421875
+          }
+        },
+        {
+          "count": 16384,
+          "maximumAbsoluteError": 0.0001220703125,
+          "meanAbsoluteError": 0.00001696178878773935,
+          "outsideTolerance": 0,
+          "rmsError": 0.00003084463729250991,
+          "worst": {
+            "actual": -0.1319580078125,
+            "channel": 1,
+            "expected": -0.1318359375,
+            "texelIndex": 48,
+            "tolerance": 0.00052984375
+          }
+        },
+        {
+          "count": 16384,
+          "maximumAbsoluteError": 0.0001220703125,
+          "meanAbsoluteError": 0.000013181252143112944,
+          "outsideTolerance": 0,
+          "rmsError": 0.000023717923078169088,
+          "worst": {
+            "actual": -0.15771484375,
+            "channel": 2,
+            "expected": -0.1575927734375,
+            "texelIndex": 31,
+            "tolerance": 0.00063287109375
+          }
+        },
+        {
+          "count": 16384,
+          "maximumAbsoluteError": 0.00006103515625,
+          "meanAbsoluteError": 0.0000028120084607508034,
+          "outsideTolerance": 0,
+          "rmsError": 0.000005167151151921556,
+          "worst": {
+            "actual": 0.0714111328125,
+            "channel": 3,
+            "expected": 0.07135009765625,
+            "texelIndex": 6125,
+            "tolerance": 0.0004283005859375
+          }
+        }
+      ],
+      "dimensions": [
+        128,
+        128
+      ],
+      "level": 1,
+      "name": "cascade 3: actual textureLod 1 is averaged with valid slope variance",
+      "passed": true,
+      "scan": {
+        "maximum": [
+          0.0108642578125,
+          0.26318359375,
+          0.1767578125,
+          0.0714111328125
+        ],
+        "mean": [
+          1.877197064459324e-9,
+          5.0651578931137926e-8,
+          5.3718395065516233e-8,
+          0.008097402151179267
+        ],
+        "meanSlopeEnergy": 0.005886703825863417,
+        "minimum": [
+          -0.01044464111328125,
+          -0.2205810546875,
+          -0.1778564453125,
+          0.00003421306610107422
+        ],
+        "negative": [
+          8155,
+          8187,
+          8176,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 16384,
+        "positive": [
+          8229,
+          8197,
+          8208,
+          16384
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.01967365574091673,
+          "meanClamped": 0.0022106983253158503,
+          "minimumRaw": 0.000023886561393737793,
+          "negativeBeyondHalfRoundAllowance": 0
+        }
+      }
+    },
+    {
+      "cascade": 3,
+      "channels": [
+        {
+          "count": 1024,
+          "maximumAbsoluteError": 0.00000762939453125,
+          "meanAbsoluteError": 0.0000014089164324104786,
+          "outsideTolerance": 0,
+          "rmsError": 0.000001884708821612936,
+          "worst": {
+            "actual": 0.004947662353515625,
+            "channel": 0,
+            "expected": 0.004940032958984375,
+            "texelIndex": 54,
+            "tolerance": 0.0000222601318359375
+          }
+        },
+        {
+          "count": 1024,
+          "maximumAbsoluteError": 0.0001220703125,
+          "meanAbsoluteError": 0.000021029729396104813,
+          "outsideTolerance": 41,
+          "rmsError": 0.00002755324635000971,
+          "worst": {
+            "actual": 0.08038330078125,
+            "channel": 1,
+            "expected": 0.08026123046875,
+            "texelIndex": 379,
+            "tolerance": 0.000323544921875
+          }
+        },
+        {
+          "count": 1024,
+          "maximumAbsoluteError": 0.00006103515625,
+          "meanAbsoluteError": 0.000016583595424890518,
+          "outsideTolerance": 30,
+          "rmsError": 0.00002184117337650735,
+          "worst": {
+            "actual": -0.04150390625,
+            "channel": 2,
+            "expected": -0.04144287109375,
+            "texelIndex": 20,
+            "tolerance": 0.00016827148437500002
+          }
+        },
+        {
+          "count": 1024,
+          "maximumAbsoluteError": 0.000030517578125,
+          "meanAbsoluteError": 0.00000856444239616394,
+          "outsideTolerance": 0,
+          "rmsError": 0.000009573923590307838,
+          "worst": {
+            "actual": 0.0167236328125,
+            "channel": 3,
+            "expected": 0.016693115234375,
+            "texelIndex": 154,
+            "tolerance": 0.00010035869140625
+          }
+        }
+      ],
+      "dimensions": [
+        32,
+        32
+      ],
+      "level": 3,
+      "name": "cascade 3: actual textureLod 3 is averaged with valid slope variance",
+      "passed": false,
+      "scan": {
+        "maximum": [
+          0.00569915771484375,
+          0.08038330078125,
+          0.062744140625,
+          0.02789306640625
+        ],
+        "mean": [
+          2.3923348635435104e-8,
+          -8.66129994392395e-8,
+          -1.240987330675125e-7,
+          0.00809812918305397
+        ],
+        "meanSlopeEnergy": 0.0009490689603628976,
+        "minimum": [
+          -0.004962921142578125,
+          -0.07904052734375,
+          -0.060577392578125,
+          0.00226593017578125
+        ],
+        "negative": [
+          509,
+          493,
+          511,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 1024,
+        "positive": [
+          515,
+          531,
+          513,
+          1024
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.027233867906033993,
+          "meanClamped": 0.007149060222691073,
+          "minimumRaw": 0.001852389410487376,
+          "negativeBeyondHalfRoundAllowance": 0
+        }
+      }
+    },
+    {
+      "cascade": 3,
+      "channels": [
+        {
+          "count": 16,
+          "maximumAbsoluteError": 2.980232238769531e-7,
+          "meanAbsoluteError": 1.1548399925231935e-7,
+          "outsideTolerance": 0,
+          "rmsError": 1.526914651089847e-7,
+          "worst": {
+            "actual": -0.000006556510925292969,
+            "channel": 0,
+            "expected": -0.000006258487701416016,
+            "texelIndex": 6,
+            "tolerance": 0.0000025250339508056644
+          }
+        },
+        {
+          "count": 16,
+          "maximumAbsoluteError": 0.00000286102294921875,
+          "meanAbsoluteError": 0.0000010281801223754885,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000013715545533900084,
+          "worst": {
+            "actual": 0.0006031990051269531,
+            "channel": 1,
+            "expected": 0.0006003379821777344,
+            "texelIndex": 14,
+            "tolerance": 0.000004901351928710938
+          }
+        },
+        {
+          "count": 16,
+          "maximumAbsoluteError": 0.000002384185791015625,
+          "meanAbsoluteError": 8.977949619293213e-7,
+          "outsideTolerance": 0,
+          "rmsError": 0.000001185649355324066,
+          "worst": {
+            "actual": -0.0004148483276367187,
+            "channel": 2,
+            "expected": -0.0004124641418457031,
+            "texelIndex": 6,
+            "tolerance": 0.000004149856567382813
+          }
+        },
+        {
+          "count": 16,
+          "maximumAbsoluteError": 0.00002288818359375,
+          "meanAbsoluteError": 0.000016927719116210938,
+          "outsideTolerance": 0,
+          "rmsError": 0.000017298085353104643,
+          "worst": {
+            "actual": 0.00887298583984375,
+            "channel": 3,
+            "expected": 0.00885009765625,
+            "texelIndex": 2,
+            "tolerance": 0.0000533005859375
+          }
+        }
+      ],
+      "dimensions": [
+        4,
+        4
+      ],
+      "level": 6,
+      "name": "cascade 3: actual textureLod 6 is averaged with valid slope variance",
+      "passed": true,
+      "scan": {
+        "maximum": [
+          0.000041484832763671875,
+          0.0006031990051269531,
+          0.0003886222839355469,
+          0.00887298583984375
+        ],
+        "mean": [
+          2.9802322387695312e-8,
+          1.1920928955078125e-7,
+          -1.2665987014770508e-7,
+          0.00809931755065918
+        ],
+        "meanSlopeEnergy": 2.2199588789462157e-7,
+        "minimum": [
+          -0.00005567073822021485,
+          -0.0006756782531738281,
+          -0.0004148483276367187,
+          0.007518768310546875
+        ],
+        "negative": [
+          8,
+          7,
+          8,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 16,
+        "positive": [
+          8,
+          9,
+          8,
+          16
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.008872954818784251,
+          "meanClamped": 0.008099095554771285,
+          "minimumRaw": 0.007518611236264405,
+          "negativeBeyondHalfRoundAllowance": 0
+        }
+      }
+    },
+    {
+      "cascade": 3,
+      "channels": [
+        {
+          "count": 1,
+          "maximumAbsoluteError": 5.960464477539064e-8,
+          "meanAbsoluteError": 5.960464477539064e-8,
+          "outsideTolerance": 0,
+          "rmsError": 5.960464477539064e-8,
+          "worst": {
+            "actual": 5.960464477539064e-8,
+            "channel": 0,
+            "expected": 0,
+            "texelIndex": 0,
+            "tolerance": 0.0000025
+          }
+        },
+        {
+          "count": 1,
+          "maximumAbsoluteError": 4.172325134277344e-7,
+          "meanAbsoluteError": 4.172325134277344e-7,
+          "outsideTolerance": 0,
+          "rmsError": 4.172325134277344e-7,
+          "worst": {
+            "actual": 1.1920928955078125e-7,
+            "channel": 1,
+            "expected": -2.980232238769531e-7,
+            "texelIndex": 0,
+            "tolerance": 0.000002501192092895508
+          }
+        },
+        {
+          "count": 1,
+          "maximumAbsoluteError": 1.1920928955078125e-7,
+          "meanAbsoluteError": 1.1920928955078125e-7,
+          "outsideTolerance": 0,
+          "rmsError": 1.1920928955078125e-7,
+          "worst": {
+            "actual": -1.1920928955078125e-7,
+            "channel": 2,
+            "expected": -2.384185791015625e-7,
+            "texelIndex": 0,
+            "tolerance": 0.0000025009536743164063
+          }
+        },
+        {
+          "count": 1,
+          "maximumAbsoluteError": 0.000030517578125,
+          "meanAbsoluteError": 0.000030517578125,
+          "outsideTolerance": 0,
+          "rmsError": 0.000030517578125,
+          "worst": {
+            "actual": 0.0081024169921875,
+            "channel": 3,
+            "expected": 0.0080718994140625,
+            "texelIndex": 0,
+            "tolerance": 0.000048631396484375
+          }
+        }
+      ],
+      "dimensions": [
+        1,
+        1
+      ],
+      "level": 8,
+      "name": "cascade 3: actual textureLod 8 is averaged with valid slope variance",
+      "passed": true,
+      "scan": {
+        "maximum": [
+          5.960464477539064e-8,
+          1.1920928955078125e-7,
+          -1.1920928955078125e-7,
+          0.0081024169921875
+        ],
+        "mean": [
+          5.960464477539064e-8,
+          1.1920928955078125e-7,
+          -1.1920928955078125e-7,
+          0.0081024169921875
+        ],
+        "meanSlopeEnergy": 2.8421709430404014e-14,
+        "minimum": [
+          5.960464477539064e-8,
+          1.1920928955078125e-7,
+          -1.1920928955078125e-7,
+          0.0081024169921875
+        ],
+        "negative": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 1,
+        "positive": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.008102416992159078,
+          "meanClamped": 0.008102416992159078,
+          "minimumRaw": 0.008102416992159078,
+          "negativeBeyondHalfRoundAllowance": 0
+        }
+      }
+    },
+    {
+      "baseMeanGradientSquared": 0.008094303336726465,
+      "baseMeanSlopeSquared": 0.008097154565803066,
+      "coarseMeanGradientSquared": 2.8421709430404014e-14,
+      "coarseMeanSlopeSquared": 0.0081024169921875,
+      "name": "cascade 3: coarse mip removes resolved gradients but retains slope energy",
+      "passed": true
+    },
+    {
+      "maximumAcrossSeam": 0.0029296875,
+      "name": "cascade 3: 5.3 m period repeats continuously across both axes",
+      "passed": false,
+      "periodicMaximumError": 0,
+      "seamBilinearCPUComparison": [
+        {
+          "count": 128,
+          "maximumAbsoluteError": 0.000001825392246246338,
+          "meanAbsoluteError": 3.371023922227323e-7,
+          "outsideTolerance": 0,
+          "rmsError": 4.849334937628604e-7,
+          "worst": {
+            "actual": 0.00438690185546875,
+            "axis": 1,
+            "channel": 0,
+            "expected": 0.004388727247714996,
+            "texel": [
+              23,
+              0
+            ],
+            "tolerance": 0.000003316618174314499
+          }
+        },
+        {
+          "count": 128,
+          "maximumAbsoluteError": 0.00003147125244140625,
+          "meanAbsoluteError": 0.0000067896617110818624,
+          "outsideTolerance": 3,
+          "rmsError": 0.000010073779363489493,
+          "worst": {
+            "actual": 0.15478515625,
+            "axis": 1,
+            "channel": 1,
+            "expected": 0.1547536849975586,
+            "texel": [
+              20,
+              0
+            ],
+            "tolerance": 0.00004842610549926757
+          }
+        },
+        {
+          "count": 128,
+          "maximumAbsoluteError": 0.000029802322387695312,
+          "meanAbsoluteError": 0.0000056879507610574365,
+          "outsideTolerance": 3,
+          "rmsError": 0.000008281488560062056,
+          "worst": {
+            "actual": 0.06524658203125,
+            "axis": 0,
+            "channel": 2,
+            "expected": 0.0652167797088623,
+            "texel": [
+              0,
+              22
+            ],
+            "tolerance": 0.00002156503391265869
+          }
+        },
+        {
+          "count": 128,
+          "maximumAbsoluteError": 0.000010728836059570312,
+          "meanAbsoluteError": 0.00000137212555273436,
+          "outsideTolerance": 0,
+          "rmsError": 0.000002167785161621308,
+          "worst": {
+            "actual": 0.05938720703125,
+            "axis": 1,
+            "channel": 3,
+            "expected": 0.05939793586730957,
+            "texel": [
+              26,
+              0
+            ],
+            "tolerance": 0.00001981938076019287
+          }
+        }
+      ],
+      "seamEpsilonInUV": 0.00006103515625
+    },
+    {
+      "cascade": 0,
+      "maximum": [
+        0.098388671875,
+        0.0198974609375,
+        0.0137176513671875,
+        0.0004563331604003906
+      ],
+      "minimum": [
+        -0.09625244140625,
+        -0.0211944580078125,
+        -0.01387786865234375,
+        0
+      ],
+      "name": "long-time wrapped phases: cascade 0 finite signed height/slopes and nonnegative moment",
+      "nonFinite": 0,
+      "passed": false,
+      "variance": {
+        "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+        "maximumRaw": 4.543826435110532e-7,
+        "meanClamped": 1.0469167211857136e-8,
+        "minimumRaw": -2.003653207793832e-7,
+        "negativeBeyondHalfRoundAllowance": 6200
+      }
+    },
+    {
+      "cascade": 0,
+      "channels": [
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00006087065758397792,
+          "meanAbsoluteError": 0.000007268435963453655,
+          "outsideTolerance": 0,
+          "rmsError": 0.000010915990828585294,
+          "worst": {
+            "actual": -0.06829833984375,
+            "channel": 0,
+            "expected": -0.06835921050133398,
+            "texel": [
+              142,
+              58
+            ],
+            "tolerance": 0.0002759368420053359
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000007441828445562543,
+          "meanAbsoluteError": 0.000001270667372918047,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000018917899844904887,
+          "worst": {
+            "actual": -0.0083465576171875,
+            "channel": 1,
+            "expected": -0.008353999445633063,
+            "texel": [
+              177,
+              73
+            ],
+            "tolerance": 0.000035915997782532254
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000007609115634759148,
+          "meanAbsoluteError": 9.89954071197821e-7,
+          "outsideTolerance": 0,
+          "rmsError": 0.000001514632703197042,
+          "worst": {
+            "actual": 0.0079803466796875,
+            "channel": 2,
+            "expected": 0.00798795579532226,
+            "texel": [
+              111,
+              6
+            ],
+            "tolerance": 0.000034451823181289036
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 1.13640409609339e-7,
+          "meanAbsoluteError": 3.032859538724766e-8,
+          "outsideTolerance": 0,
+          "rmsError": 3.5884753399520914e-8,
+          "worst": {
+            "actual": 0.00015926361083984375,
+            "channel": 3,
+            "expected": 0.0001593772512494531,
+            "texel": [
+              108,
+              255
+            ],
+            "tolerance": 0.0000011562635074967185
+          }
+        }
+      ],
+      "comparedTexels": 256,
+      "name": "long-time wrapped phases: cascade 0 CPU Fourier at matching texel centres",
+      "passed": true,
+      "time": 30000
+    },
+    {
+      "cascade": 1,
+      "maximum": [
+        0.084716796875,
+        0.08404541015625,
+        0.05621337890625,
+        0.0079345703125
+      ],
+      "minimum": [
+        -0.073974609375,
+        -0.0887451171875,
+        -0.052520751953125,
+        0
+      ],
+      "name": "long-time wrapped phases: cascade 1 finite signed height/slopes and nonnegative moment",
+      "nonFinite": 0,
+      "passed": false,
+      "variance": {
+        "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+        "maximumRaw": 0.000008001690730452538,
+        "meanClamped": 2.500937171479533e-7,
+        "minimumRaw": -0.00000295788049697876,
+        "negativeBeyondHalfRoundAllowance": 416
+      }
+    },
+    {
+      "cascade": 1,
+      "channels": [
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00003052681343952701,
+          "meanAbsoluteError": 0.000005926931695482043,
+          "outsideTolerance": 0,
+          "rmsError": 0.000008785750391285984,
+          "worst": {
+            "actual": -0.040496826171875,
+            "channel": 0,
+            "expected": -0.04052735298531453,
+            "texel": [
+              103,
+              222
+            ],
+            "tolerance": 0.00016460941194125812
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00002938324222163252,
+          "meanAbsoluteError": 0.000005744217895061767,
+          "outsideTolerance": 0,
+          "rmsError": 0.000008353390556748708,
+          "worst": {
+            "actual": -0.03460693359375,
+            "channel": 1,
+            "expected": -0.03463631683597163,
+            "texel": [
+              177,
+              73
+            ],
+            "tolerance": 0.00014104526734388657
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000023648430468363457,
+          "meanAbsoluteError": 0.000003960733518240632,
+          "outsideTolerance": 0,
+          "rmsError": 0.000005680466070988584,
+          "worst": {
+            "actual": 0.032470703125,
+            "channel": 2,
+            "expected": 0.03249435155546836,
+            "texel": [
+              154,
+              211
+            ],
+            "tolerance": 0.00013247740622187345
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000001922548695590387,
+          "meanAbsoluteError": 2.362337457842602e-7,
+          "outsideTolerance": 0,
+          "rmsError": 3.958193737205039e-7,
+          "worst": {
+            "actual": 0.0020351409912109375,
+            "channel": 3,
+            "expected": 0.002037063539906528,
+            "texel": [
+              66,
+              42
+            ],
+            "tolerance": 0.000012422381239439168
+          }
+        }
+      ],
+      "comparedTexels": 256,
+      "name": "long-time wrapped phases: cascade 1 CPU Fourier at matching texel centres",
+      "passed": true,
+      "time": 30000
+    },
+    {
+      "cascade": 2,
+      "maximum": [
+        0.048309326171875,
+        0.193115234375,
+        0.11004638671875,
+        0.04083251953125
+      ],
+      "minimum": [
+        -0.04718017578125,
+        -0.2012939453125,
+        -0.1036376953125,
+        0
+      ],
+      "name": "long-time wrapped phases: cascade 2 finite signed height/slopes and nonnegative moment",
+      "nonFinite": 0,
+      "passed": false,
+      "variance": {
+        "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+        "maximumRaw": 0.00003814697265625,
+        "meanClamped": 0.0000012136909097765103,
+        "minimumRaw": -0.000027381815016269684,
+        "negativeBeyondHalfRoundAllowance": 95
+      }
+    },
+    {
+      "cascade": 2,
+      "channels": [
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00003045760497126515,
+          "meanAbsoluteError": 0.000003682294971927572,
+          "outsideTolerance": 0,
+          "rmsError": 0.000005723516964664182,
+          "worst": {
+            "actual": 0.0335693359375,
+            "channel": 0,
+            "expected": 0.033599793542471265,
+            "texel": [
+              89,
+              250
+            ],
+            "tolerance": 0.00013689917416988506
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.0001153968752989898,
+          "meanAbsoluteError": 0.000014487787352829982,
+          "outsideTolerance": 0,
+          "rmsError": 0.000021803577579107183,
+          "worst": {
+            "actual": 0.1297607421875,
+            "channel": 1,
+            "expected": 0.129876139062799,
+            "texel": [
+              151,
+              225
+            ],
+            "tolerance": 0.000522004556251196
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000028678385884078897,
+          "meanAbsoluteError": 0.000006967795502517487,
+          "outsideTolerance": 0,
+          "rmsError": 0.00001001225171445167,
+          "worst": {
+            "actual": 0.032745361328125,
+            "channel": 2,
+            "expected": 0.03277403971400908,
+            "texel": [
+              255,
+              0
+            ],
+            "tolerance": 0.00013359615885603633
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00002790745303732356,
+          "meanAbsoluteError": 0.0000011921599693584791,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000025439024740419427,
+          "worst": {
+            "actual": 0.033203125,
+            "channel": 3,
+            "expected": 0.033231032453037324,
+            "texel": [
+              250,
+              86
+            ],
+            "tolerance": 0.00019958619471822396
+          }
+        }
+      ],
+      "comparedTexels": 256,
+      "name": "long-time wrapped phases: cascade 2 CPU Fourier at matching texel centres",
+      "passed": true,
+      "time": 30000
+    },
+    {
+      "cascade": 3,
+      "maximum": [
+        0.01212310791015625,
+        0.302978515625,
+        0.200439453125,
+        0.09393310546875
+      ],
+      "minimum": [
+        -0.01195526123046875,
+        -0.29248046875,
+        -0.211669921875,
+        0
+      ],
+      "name": "long-time wrapped phases: cascade 3 finite signed height/slopes and nonnegative moment",
+      "nonFinite": 0,
+      "passed": false,
+      "variance": {
+        "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+        "maximumRaw": 0.0001263022422790527,
+        "meanClamped": 0.000003255785484290155,
+        "minimumRaw": -0.00003007892519235611,
+        "negativeBeyondHalfRoundAllowance": 46
+      }
+    },
+    {
+      "cascade": 3,
+      "channels": [
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000003518009763356887,
+          "meanAbsoluteError": 7.430539775449429e-7,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000010497069928581558,
+          "worst": {
+            "actual": 0.006481170654296875,
+            "channel": 0,
+            "expected": 0.006484688664060232,
+            "texel": [
+              105,
+              77
+            ],
+            "tolerance": 0.000028438754656240928
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.0001159902218739739,
+          "meanAbsoluteError": 0.00002351317190837988,
+          "outsideTolerance": 0,
+          "rmsError": 0.000033539466877658975,
+          "worst": {
+            "actual": -0.12841796875,
+            "channel": 1,
+            "expected": -0.12853395897187395,
+            "texel": [
+              94,
+              99
+            ],
+            "tolerance": 0.0005166358358874959
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00011364284593193276,
+          "meanAbsoluteError": 0.000014805519976175673,
+          "outsideTolerance": 0,
+          "rmsError": 0.00002156487293285231,
+          "worst": {
+            "actual": 0.1563720703125,
+            "channel": 2,
+            "expected": 0.15648571315843193,
+            "texel": [
+              236,
+              48
+            ],
+            "tolerance": 0.0006284428526337277
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000029718831140335137,
+          "meanAbsoluteError": 0.0000031777032008651423,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000052338259788453505,
+          "worst": {
+            "actual": 0.045745849609375,
+            "channel": 3,
+            "expected": 0.045775568440515335,
+            "texel": [
+              195,
+              45
+            ],
+            "tolerance": 0.00027485341064309205
+          }
+        }
+      ],
+      "comparedTexels": 256,
+      "name": "long-time wrapped phases: cascade 3 CPU Fourier at matching texel centres",
+      "passed": true,
+      "time": 30000
+    },
+    {
+      "afterTime": 0.11270000004768373,
+      "afterUpdates": 4,
+      "beforeTime": 0.11270000004768373,
+      "beforeUpdates": 4,
+      "name": "Active spectrum time/state/targets remain exactly unchanged",
+      "passed": true
+    },
+    {
+      "cubeFace": 0,
+      "mipLevel": 0,
+      "name": "Restore renderer target/cube face/mip/viewport/scissor",
+      "passed": true,
+      "targetUUID": null
+    }
+  ],
+  "context": {
+    "maxVertexTextures": 16,
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "webgl2": true
+  },
+  "elapsedCpuWallMilliseconds": 274.2000000476837,
+  "fields": [
+    {
+      "cascade": 0,
+      "cpuComparison": [
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000057648202574811513,
+          "meanAbsoluteError": 0.000007822353969091875,
+          "outsideTolerance": 0,
+          "rmsError": 0.000011909329572894704,
+          "worst": {
+            "actual": -0.06317138671875,
+            "channel": 0,
+            "expected": -0.06322903492132481,
+            "texel": [
+              5,
+              224
+            ],
+            "tolerance": 0.00025541613968529925
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000007495977509234739,
+          "meanAbsoluteError": 0.000001521414887858501,
+          "outsideTolerance": 0,
+          "rmsError": 0.000002152472018913534,
+          "worst": {
+            "actual": 0.0098114013671875,
+            "channel": 1,
+            "expected": 0.009818897344696736,
+            "texel": [
+              245,
+              172
+            ],
+            "tolerance": 0.00004177558937878694
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00000759205427920337,
+          "meanAbsoluteError": 0.0000011081173399675102,
+          "outsideTolerance": 0,
+          "rmsError": 0.000001655714136319636,
+          "worst": {
+            "actual": 0.00893402099609375,
+            "channel": 2,
+            "expected": 0.008941613050372953,
+            "texel": [
+              254,
+              254
+            ],
+            "tolerance": 0.00003826645220149182
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 1.1670735931005239e-7,
+          "meanAbsoluteError": 3.0841079192498163e-8,
+          "outsideTolerance": 0,
+          "rmsError": 3.6837558981928873e-8,
+          "worst": {
+            "actual": 0.00020742416381835935,
+            "channel": 3,
+            "expected": 0.00020754087117766943,
+            "texel": [
+              104,
+              38
+            ],
+            "tolerance": 0.0000014452452270660165
+          }
+        }
+      ],
+      "domainMetres": 521,
+      "mips": [
+        {
+          "cpuComparison": [
+            {
+              "count": 16384,
+              "maximumAbsoluteError": 0.00006103515625,
+              "meanAbsoluteError": 0.000006970138201722875,
+              "outsideTolerance": 0,
+              "rmsError": 0.000012632009396152624,
+              "worst": {
+                "actual": -0.0869140625,
+                "channel": 0,
+                "expected": -0.08685302734375,
+                "texelIndex": 301,
+                "tolerance": 0.000349912109375
+              }
+            },
+            {
+              "count": 16384,
+              "maximumAbsoluteError": 0.0000152587890625,
+              "meanAbsoluteError": 0.0000012876917026005683,
+              "outsideTolerance": 0,
+              "rmsError": 0.000002325442254909587,
+              "worst": {
+                "actual": -0.0167999267578125,
+                "channel": 1,
+                "expected": -0.01678466796875,
+                "texelIndex": 2228,
+                "tolerance": 0.00006963867187500001
+              }
+            },
+            {
+              "count": 16384,
+              "maximumAbsoluteError": 0.00000762939453125,
+              "meanAbsoluteError": 9.30780515773222e-7,
+              "outsideTolerance": 0,
+              "rmsError": 0.0000016673096518964752,
+              "worst": {
+                "actual": -0.00995635986328125,
+                "channel": 2,
+                "expected": -0.00994873046875,
+                "texelIndex": 174,
+                "tolerance": 0.000042294921875
+              }
+            },
+            {
+              "count": 16384,
+              "maximumAbsoluteError": 2.384185791015625e-7,
+              "meanAbsoluteError": 3.01588443107903e-8,
+              "outsideTolerance": 0,
+              "rmsError": 4.3443977049330634e-8,
+              "worst": {
+                "actual": 0.0002923011779785156,
+                "channel": 3,
+                "expected": 0.00029206275939941406,
+                "texelIndex": 2228,
+                "tolerance": 0.0000019523765563964845
+              }
+            }
+          ],
+          "dimensions": [
+            128,
+            128
+          ],
+          "level": 1,
+          "scan": {
+            "maximum": [
+              0.08465576171875,
+              0.0175933837890625,
+              0.0112152099609375,
+              0.0003142356872558594
+            ],
+            "mean": [
+              -4.0734448703005917e-8,
+              -6.031768862158061e-9,
+              2.6338966563344e-9,
+              0.000035976390790892765
+            ],
+            "meanSlopeEnergy": 0.00003180530492964857,
+            "minimum": [
+              -0.09503173828125,
+              -0.0170440673828125,
+              -0.01154327392578125,
+              2.384185791015625e-7
+            ],
+            "negative": [
+              8222,
+              8253,
+              8195,
+              0
+            ],
+            "nonFinite": 0,
+            "pixels": 16384,
+            "positive": [
+              8162,
+              8131,
+              8188,
+              16384
+            ],
+            "variance": {
+              "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+              "maximumRaw": 0.00003640993145381799,
+              "meanClamped": 0.000004171085861244192,
+              "minimumRaw": 1.1244992492720485e-8,
+              "negativeBeyondHalfRoundAllowance": 0
+            }
+          }
+        },
+        {
+          "cpuComparison": [
+            {
+              "count": 1024,
+              "maximumAbsoluteError": 0.00006103515625,
+              "meanAbsoluteError": 0.000014200224541127682,
+              "outsideTolerance": 8,
+              "rmsError": 0.000018665858024202752,
+              "worst": {
+                "actual": -0.040618896484375,
+                "channel": 0,
+                "expected": -0.040557861328125,
+                "texelIndex": 11,
+                "tolerance": 0.0001647314453125
+              }
+            },
+            {
+              "count": 1024,
+              "maximumAbsoluteError": 0.00000762939453125,
+              "meanAbsoluteError": 0.0000018937280401587488,
+              "outsideTolerance": 1,
+              "rmsError": 0.0000024774706966473437,
+              "worst": {
+                "actual": 0.004329681396484375,
+                "channel": 1,
+                "expected": 0.004322052001953125,
+                "texelIndex": 69,
+                "tolerance": 0.0000197882080078125
+              }
+            },
+            {
+              "count": 1024,
+              "maximumAbsoluteError": 0.00000762939453125,
+              "meanAbsoluteError": 0.0000016722478903830051,
+              "outsideTolerance": 0,
+              "rmsError": 0.000002206286471218778,
+              "worst": {
+                "actual": 0.0046844482421875,
+                "channel": 2,
+                "expected": 0.00467681884765625,
+                "texelIndex": 38,
+                "tolerance": 0.000021207275390625
+              }
+            },
+            {
+              "count": 1024,
+              "maximumAbsoluteError": 1.788139343261719e-7,
+              "meanAbsoluteError": 8.975621312856674e-8,
+              "outsideTolerance": 0,
+              "rmsError": 9.47938162833413e-8,
+              "worst": {
+                "actual": 0.0000794529914855957,
+                "channel": 3,
+                "expected": 0.00007927417755126953,
+                "texelIndex": 211,
+                "tolerance": 6.756450653076172e-7
+              }
+            }
+          ],
+          "dimensions": [
+            32,
+            32
+          ],
+          "level": 3,
+          "scan": {
+            "maximum": [
+              0.04656982421875,
+              0.007568359375,
+              0.00653839111328125,
+              0.00011146068572998048
+            ],
+            "mean": [
+              1.781154423952103e-8,
+              -2.5145709514617923e-8,
+              5.995389074087143e-9,
+              0.000035991601180285215
+            ],
+            "meanSlopeEnergy": 0.000008239213138274554,
+            "minimum": [
+              -0.0546875,
+              -0.007259368896484375,
+              -0.005519866943359375,
+              0.000007331371307373047
+            ],
+            "negative": [
+              509,
+              527,
+              519,
+              0
+            ],
+            "nonFinite": 0,
+            "pixels": 1024,
+            "positive": [
+              515,
+              497,
+              505,
+              1024
+            ],
+            "variance": {
+              "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+              "maximumRaw": 0.00010243494398309848,
+              "meanClamped": 0.00002775238804201066,
+              "minimumRaw": 0.000004830360921914689,
+              "negativeBeyondHalfRoundAllowance": 0
+            }
+          }
+        },
+        {
+          "cpuComparison": [
+            {
+              "count": 16,
+              "maximumAbsoluteError": 0.000003814697265625,
+              "meanAbsoluteError": 0.000001959502696990967,
+              "outsideTolerance": 0,
+              "rmsError": 0.0000022862480180276236,
+              "worst": {
+                "actual": -0.002040863037109375,
+                "channel": 0,
+                "expected": -0.00203704833984375,
+                "texelIndex": 4,
+                "tolerance": 0.000010648193359375
+              }
+            },
+            {
+              "count": 16,
+              "maximumAbsoluteError": 4.76837158203125e-7,
+              "meanAbsoluteError": 2.048909664154053e-7,
+              "outsideTolerance": 0,
+              "rmsError": 2.515605541487654e-7,
+              "worst": {
+                "actual": -0.0001983642578125,
+                "channel": 1,
+                "expected": -0.00019788742065429688,
+                "texelIndex": 1,
+                "tolerance": 0.000003291549682617188
+              }
+            },
+            {
+              "count": 16,
+              "maximumAbsoluteError": 3.576278686523438e-7,
+              "meanAbsoluteError": 1.9371509552001953e-7,
+              "outsideTolerance": 0,
+              "rmsError": 2.1283115233608637e-7,
+              "worst": {
+                "actual": -0.00006628036499023438,
+                "channel": 2,
+                "expected": -0.00006592273712158203,
+                "texelIndex": 13,
+                "tolerance": 0.0000027636909484863283
+              }
+            },
+            {
+              "count": 16,
+              "maximumAbsoluteError": 2.384185791015625e-7,
+              "meanAbsoluteError": 1.788139343261719e-7,
+              "outsideTolerance": 0,
+              "rmsError": 1.812804499357408e-7,
+              "worst": {
+                "actual": 0.00003516674041748047,
+                "channel": 3,
+                "expected": 0.000034928321838378906,
+                "texelIndex": 11,
+                "tolerance": 4.095699310302735e-7
+              }
+            }
+          ],
+          "dimensions": [
+            4,
+            4
+          ],
+          "level": 6,
+          "scan": {
+            "maximum": [
+              0.0015001296997070312,
+              0.00016748905181884766,
+              0.00012755393981933594,
+              0.00004315376281738281
+            ],
+            "mean": [
+              -1.1175870895385742e-8,
+              -3.725290298461914e-8,
+              1.1175870895385742e-8,
+              0.00003601238131523132
+            ],
+            "meanSlopeEnergy": 1.7356886816699557e-8,
+            "minimum": [
+              -0.002040863037109375,
+              -0.0001983642578125,
+              -0.00010401010513305664,
+              0.00003045797348022461
+            ],
+            "negative": [
+              8,
+              7,
+              8,
+              0
+            ],
+            "nonFinite": 0,
+            "pixels": 16,
+            "positive": [
+              8,
+              9,
+              8,
+              16
+            ],
+            "variance": {
+              "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+              "maximumRaw": 0.00004310359633663552,
+              "meanClamped": 0.000035995024428414624,
+              "minimumRaw": 0.0000304493631055891,
+              "negativeBeyondHalfRoundAllowance": 0
+            }
+          }
+        },
+        {
+          "cpuComparison": [
+            {
+              "count": 1,
+              "maximumAbsoluteError": 1.788139343261719e-7,
+              "meanAbsoluteError": 1.788139343261719e-7,
+              "outsideTolerance": 0,
+              "rmsError": 1.788139343261719e-7,
+              "worst": {
+                "actual": -5.960464477539064e-8,
+                "channel": 0,
+                "expected": -2.384185791015625e-7,
+                "texelIndex": 0,
+                "tolerance": 0.0000025009536743164063
+              }
+            },
+            {
+              "count": 1,
+              "maximumAbsoluteError": 5.960464477539064e-8,
+              "meanAbsoluteError": 5.960464477539064e-8,
+              "outsideTolerance": 0,
+              "rmsError": 5.960464477539064e-8,
+              "worst": {
+                "actual": -5.960464477539064e-8,
+                "channel": 1,
+                "expected": 0,
+                "texelIndex": 0,
+                "tolerance": 0.0000025
+              }
+            },
+            {
+              "count": 1,
+              "maximumAbsoluteError": 0,
+              "meanAbsoluteError": 0,
+              "outsideTolerance": 0,
+              "rmsError": 0,
+              "worst": null
+            },
+            {
+              "count": 1,
+              "maximumAbsoluteError": 2.384185791015625e-7,
+              "meanAbsoluteError": 2.384185791015625e-7,
+              "outsideTolerance": 0,
+              "rmsError": 2.384185791015625e-7,
+              "worst": {
+                "actual": 0.00003600120544433594,
+                "channel": 3,
+                "expected": 0.000035762786865234375,
+                "texelIndex": 0,
+                "tolerance": 4.145767211914062e-7
+              }
+            }
+          ],
+          "dimensions": [
+            1,
+            1
+          ],
+          "level": 8,
+          "scan": {
+            "maximum": [
+              -5.960464477539064e-8,
+              -5.960464477539064e-8,
+              0,
+              0.00003600120544433594
+            ],
+            "mean": [
+              -5.960464477539064e-8,
+              -5.960464477539064e-8,
+              0,
+              0.00003600120544433594
+            ],
+            "meanSlopeEnergy": 3.552713678800501e-15,
+            "minimum": [
+              -5.960464477539064e-8,
+              -5.960464477539064e-8,
+              0,
+              0.00003600120544433594
+            ],
+            "negative": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "nonFinite": 0,
+            "pixels": 1,
+            "positive": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "variance": {
+              "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+              "maximumRaw": 0.000036001205440783224,
+              "meanClamped": 0.000036001205440783224,
+              "minimumRaw": 0.000036001205440783224,
+              "negativeBeyondHalfRoundAllowance": 0
+            }
+          }
+        }
+      ],
+      "periodicity": {
+        "comparison": [
+          {
+            "count": 128,
+            "maximumAbsoluteError": 0.000029325485229492188,
+            "meanAbsoluteError": 0.000003564720827853307,
+            "outsideTolerance": 5,
+            "rmsError": 0.000005579398838177897,
+            "worst": {
+              "actual": 0.07550048828125,
+              "axis": 0,
+              "channel": 0,
+              "expected": 0.07547116279602051,
+              "texel": [
+                1,
+                3
+              ],
+              "tolerance": 0.000024641348838806152
+            }
+          },
+          {
+            "count": 128,
+            "maximumAbsoluteError": 0.000003635883331298828,
+            "meanAbsoluteError": 5.560068530030549e-7,
+            "outsideTolerance": 0,
+            "rmsError": 8.755655246031794e-7,
+            "worst": {
+              "actual": 0.00811767578125,
+              "axis": 1,
+              "channel": 1,
+              "expected": 0.008121311664581299,
+              "texel": [
+                29,
+                0
+              ],
+              "tolerance": 0.000004436393499374389
+            }
+          },
+          {
+            "count": 128,
+            "maximumAbsoluteError": 0.000001862645149230957,
+            "meanAbsoluteError": 4.7013236326165497e-7,
+            "outsideTolerance": 0,
+            "rmsError": 6.803134480221542e-7,
+            "worst": {
+              "actual": -0.006244659423828125,
+              "axis": 0,
+              "channel": 2,
+              "expected": -0.006242796778678894,
+              "texel": [
+                1,
+                18
+              ],
+              "tolerance": 0.000003872839033603668
+            }
+          },
+          {
+            "count": 128,
+            "maximumAbsoluteError": 5.7043507695198066e-8,
+            "meanAbsoluteError": 1.5981640899553895e-8,
+            "outsideTolerance": 0,
+            "rmsError": 1.9288485413694236e-8,
+            "worst": {
+              "actual": 0.00016164779663085938,
+              "axis": 0,
+              "channel": 3,
+              "expected": 0.00016159075312316418,
+              "texel": [
+                1,
+                27
+              ],
+              "tolerance": 0.000002048477225936949
+            }
+          }
+        ],
+        "maximumAcrossSeam": 0.000457763671875,
+        "periodicMaximumError": 0,
+        "seamEpsilonInUV": 0.00006103515625
+      },
+      "scan": {
+        "maximum": [
+          0.09173583984375,
+          0.0192413330078125,
+          0.01271820068359375,
+          0.00038695335388183594
+        ],
+        "mean": [
+          5.207766662351787e-9,
+          -9.06948116607964e-9,
+          -3.292370820418e-10,
+          0.000035968972952105105
+        ],
+        "meanSlopeEnergy": 0.000035974580230884096,
+        "minimum": [
+          -0.099853515625,
+          -0.0179290771484375,
+          -0.01244354248046875,
+          0
+        ],
+        "negative": [
+          32806,
+          32922,
+          32626,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 65536,
+        "positive": [
+          32730,
+          32612,
+          32909,
+          65427
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 5.049514584243298e-7,
+          "meanClamped": 1.0381516787503696e-8,
+          "minimumRaw": -1.80563802132383e-7,
+          "negativeBeyondHalfRoundAllowance": 6059
+        }
+      },
+      "time": 0.11270000004768373
+    },
+    {
+      "cascade": 1,
+      "cpuComparison": [
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.0000291224520423336,
+          "meanAbsoluteError": 0.000006020277546995245,
+          "outsideTolerance": 0,
+          "rmsError": 0.000008960654017280232,
+          "worst": {
+            "actual": 0.034423828125,
+            "channel": 0,
+            "expected": 0.034452950577042334,
+            "texel": [
+              114,
+              145
+            ],
+            "tolerance": 0.00014031180230816934
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00002761833402424585,
+          "meanAbsoluteError": 0.000005453795737538458,
+          "outsideTolerance": 0,
+          "rmsError": 0.000008213302790330668,
+          "worst": {
+            "actual": -0.03643798828125,
+            "channel": 1,
+            "expected": -0.036465606615274246,
+            "texel": [
+              3,
+              212
+            ],
+            "tolerance": 0.000148362426461097
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00002783169330380919,
+          "meanAbsoluteError": 0.0000034049992578366388,
+          "outsideTolerance": 0,
+          "rmsError": 0.000004931109571702079,
+          "worst": {
+            "actual": 0.0408935546875,
+            "channel": 2,
+            "expected": 0.04092138638080381,
+            "texel": [
+              228,
+              63
+            ],
+            "tolerance": 0.00016618554552321526
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.0000018327793371727095,
+          "meanAbsoluteError": 1.6397778908409017e-7,
+          "outsideTolerance": 0,
+          "rmsError": 2.77442643719248e-7,
+          "worst": {
+            "actual": 0.00339508056640625,
+            "channel": 3,
+            "expected": 0.0033969133457434227,
+            "texel": [
+              199,
+              24
+            ],
+            "tolerance": 0.000020581480074460537
+          }
+        }
+      ],
+      "domainMetres": 137,
+      "mips": [
+        {
+          "cpuComparison": [
+            {
+              "count": 16384,
+              "maximumAbsoluteError": 0.00006103515625,
+              "meanAbsoluteError": 0.0000057498327805660665,
+              "outsideTolerance": 0,
+              "rmsError": 0.000010296573628123864,
+              "worst": {
+                "actual": 0.06488037109375,
+                "channel": 0,
+                "expected": 0.0648193359375,
+                "texelIndex": 1816,
+                "tolerance": 0.00026177734375
+              }
+            },
+            {
+              "count": 16384,
+              "maximumAbsoluteError": 0.00006103515625,
+              "meanAbsoluteError": 0.000005359361239243299,
+              "outsideTolerance": 0,
+              "rmsError": 0.000009717998723482528,
+              "worst": {
+                "actual": 0.07098388671875,
+                "channel": 1,
+                "expected": 0.0709228515625,
+                "texelIndex": 1750,
+                "tolerance": 0.00028619140625
+              }
+            },
+            {
+              "count": 16384,
+              "maximumAbsoluteError": 0.000030517578125,
+              "meanAbsoluteError": 0.000003381290298420936,
+              "outsideTolerance": 0,
+              "rmsError": 0.000006148329318424732,
+              "worst": {
+                "actual": -0.0335693359375,
+                "channel": 2,
+                "expected": -0.033538818359375,
+                "texelIndex": 538,
+                "tolerance": 0.0001366552734375
+              }
+            },
+            {
+              "count": 16384,
+              "maximumAbsoluteError": 0.000003814697265625,
+              "meanAbsoluteError": 2.182241587433964e-7,
+              "outsideTolerance": 0,
+              "rmsError": 4.236747512376276e-7,
+              "worst": {
+                "actual": 0.004669189453125,
+                "channel": 3,
+                "expected": 0.004665374755859375,
+                "texelIndex": 1136,
+                "tolerance": 0.000028192248535156252
+              }
+            }
+          ],
+          "dimensions": [
+            128,
+            128
+          ],
+          "level": 1,
+          "scan": {
+            "maximum": [
+              0.071533203125,
+              0.07098388671875,
+              0.04541015625,
+              0.0068511962890625
+            ],
+            "mean": [
+              1.873559085652232e-9,
+              4.333196557126939e-8,
+              8.36735125631094e-11,
+              0.0006248048666748218
+            ],
+            "meanSlopeEnergy": 0.000511249317078564,
+            "minimum": [
+              -0.07958984375,
+              -0.07763671875,
+              -0.04815673828125,
+              0.000003039836883544922
+            ],
+            "negative": [
+              8222,
+              8231,
+              8235,
+              0
+            ],
+            "nonFinite": 0,
+            "pixels": 16384,
+            "positive": [
+              8162,
+              8153,
+              8149,
+              16384
+            ],
+            "variance": {
+              "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+              "maximumRaw": 0.001153144312411314,
+              "meanClamped": 0.00011355554959625782,
+              "minimumRaw": 5.177539037504175e-7,
+              "negativeBeyondHalfRoundAllowance": 0
+            }
+          }
+        },
+        {
+          "cpuComparison": [
+            {
+              "count": 1024,
+              "maximumAbsoluteError": 0.00006103515625,
+              "meanAbsoluteError": 0.000009470037184655666,
+              "outsideTolerance": 7,
+              "rmsError": 0.000012517419436255068,
+              "worst": {
+                "actual": -0.034912109375,
+                "channel": 0,
+                "expected": -0.03485107421875,
+                "texelIndex": 739,
+                "tolerance": 0.00014190429687500002
+              }
+            },
+            {
+              "count": 1024,
+              "maximumAbsoluteError": 0.000030517578125,
+              "meanAbsoluteError": 0.00000636163167655468,
+              "outsideTolerance": 12,
+              "rmsError": 0.00000835588177779582,
+              "worst": {
+                "actual": -0.0192108154296875,
+                "channel": 1,
+                "expected": -0.0191802978515625,
+                "texelIndex": 98,
+                "tolerance": 0.00007922119140625001
+              }
+            },
+            {
+              "count": 1024,
+              "maximumAbsoluteError": 0.00002288818359375,
+              "meanAbsoluteError": 0.000004520465154200792,
+              "outsideTolerance": 3,
+              "rmsError": 0.000005852140865565373,
+              "worst": {
+                "actual": 0.01104736328125,
+                "channel": 2,
+                "expected": 0.01102447509765625,
+                "texelIndex": 769,
+                "tolerance": 0.000046597900390625
+              }
+            },
+            {
+              "count": 1024,
+              "maximumAbsoluteError": 0.0000019073486328125,
+              "meanAbsoluteError": 6.655463948845863e-7,
+              "outsideTolerance": 0,
+              "rmsError": 7.639752102216751e-7,
+              "worst": {
+                "actual": 0.0011730194091796875,
+                "channel": 3,
+                "expected": 0.001171112060546875,
+                "texelIndex": 100,
+                "tolerance": 0.00000722667236328125
+              }
+            }
+          ],
+          "dimensions": [
+            32,
+            32
+          ],
+          "level": 3,
+          "scan": {
+            "maximum": [
+              0.033355712890625,
+              0.0234832763671875,
+              0.0163726806640625,
+              0.0017185211181640625
+            ],
+            "mean": [
+              1.9941944628953936e-7,
+              4.284083843231201e-8,
+              2.3166649043560028e-8,
+              0.0006248699501156807
+            ],
+            "meanSlopeEnergy": 0.00007811704677056219,
+            "minimum": [
+              -0.03924560546875,
+              -0.02398681640625,
+              -0.0161285400390625,
+              0.00013780593872070312
+            ],
+            "negative": [
+              510,
+              506,
+              512,
+              0
+            ],
+            "nonFinite": 0,
+            "pixels": 1024,
+            "positive": [
+              514,
+              518,
+              512,
+              1024
+            ],
+            "variance": {
+              "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+              "maximumRaw": 0.0015546982031082734,
+              "meanClamped": 0.0005467529033451185,
+              "minimumRaw": 0.00013074052526462765,
+              "negativeBeyondHalfRoundAllowance": 0
+            }
+          }
+        },
+        {
+          "cpuComparison": [
+            {
+              "count": 16,
+              "maximumAbsoluteError": 0.0000010728836059570312,
+              "meanAbsoluteError": 5.587935447692871e-7,
+              "outsideTolerance": 0,
+              "rmsError": 6.457551920420066e-7,
+              "worst": {
+                "actual": 0.0001741647720336914,
+                "channel": 0,
+                "expected": 0.00017309188842773438,
+                "texelIndex": 1,
+                "tolerance": 0.0000031923675537109377
+              }
+            },
+            {
+              "count": 16,
+              "maximumAbsoluteError": 9.5367431640625e-7,
+              "meanAbsoluteError": 3.948807716369629e-7,
+              "outsideTolerance": 0,
+              "rmsError": 4.800857214208547e-7,
+              "worst": {
+                "actual": -0.0003690719604492187,
+                "channel": 1,
+                "expected": -0.0003681182861328125,
+                "texelIndex": 1,
+                "tolerance": 0.00000397247314453125
+              }
+            },
+            {
+              "count": 16,
+              "maximumAbsoluteError": 7.152557373046875e-7,
+              "meanAbsoluteError": 1.862645149230957e-7,
+              "outsideTolerance": 0,
+              "rmsError": 2.682209014892578e-7,
+              "worst": {
+                "actual": 0.000024259090423583984,
+                "channel": 2,
+                "expected": 0.000023543834686279297,
+                "texelIndex": 10,
+                "tolerance": 0.0000025941753387451173
+              }
+            },
+            {
+              "count": 16,
+              "maximumAbsoluteError": 0.0000019073486328125,
+              "meanAbsoluteError": 0.0000014603137969970703,
+              "outsideTolerance": 0,
+              "rmsError": 0.0000014745374771181322,
+              "worst": {
+                "actual": 0.0006527900695800781,
+                "channel": 3,
+                "expected": 0.0006508827209472656,
+                "texelIndex": 14,
+                "tolerance": 0.000004105296325683593
+              }
+            }
+          ],
+          "dimensions": [
+            4,
+            4
+          ],
+          "level": 6,
+          "scan": {
+            "maximum": [
+              0.00037217140197753906,
+              0.0003867149353027344,
+              0.00008726119995117188,
+              0.0006823539733886719
+            ],
+            "mean": [
+              1.4528632164001465e-7,
+              -3.725290298461914e-9,
+              4.0978193283081055e-8,
+              0.0006250739097595215
+            ],
+            "meanSlopeEnergy": 4.3085945033993767e-8,
+            "minimum": [
+              -0.00027871131896972656,
+              -0.0003690719604492187,
+              -0.00009942054748535156,
+              0.0005574226379394531
+            ],
+            "negative": [
+              9,
+              8,
+              8,
+              0
+            ],
+            "nonFinite": 0,
+            "pixels": 16,
+            "positive": [
+              7,
+              8,
+              8,
+              16
+            ],
+            "variance": {
+              "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+              "maximumRaw": 0.0006823290532196324,
+              "meanClamped": 0.0006250308238144875,
+              "minimumRaw": 0.0005574007970352568,
+              "negativeBeyondHalfRoundAllowance": 0
+            }
+          }
+        },
+        {
+          "cpuComparison": [
+            {
+              "count": 1,
+              "maximumAbsoluteError": 0,
+              "meanAbsoluteError": 0,
+              "outsideTolerance": 0,
+              "rmsError": 0,
+              "worst": null
+            },
+            {
+              "count": 1,
+              "maximumAbsoluteError": 0,
+              "meanAbsoluteError": 0,
+              "outsideTolerance": 0,
+              "rmsError": 0,
+              "worst": null
+            },
+            {
+              "count": 1,
+              "maximumAbsoluteError": 1.1920928955078125e-7,
+              "meanAbsoluteError": 1.1920928955078125e-7,
+              "outsideTolerance": 0,
+              "rmsError": 1.1920928955078125e-7,
+              "worst": {
+                "actual": 5.960464477539064e-8,
+                "channel": 2,
+                "expected": -5.960464477539064e-8,
+                "texelIndex": 0,
+                "tolerance": 0.0000025002384185791016
+              }
+            },
+            {
+              "count": 1,
+              "maximumAbsoluteError": 0.0000019073486328125,
+              "meanAbsoluteError": 0.0000019073486328125,
+              "outsideTolerance": 0,
+              "rmsError": 0.0000019073486328125,
+              "worst": {
+                "actual": 0.0006251335144042969,
+                "channel": 3,
+                "expected": 0.0006232261657714844,
+                "texelIndex": 0,
+                "tolerance": 0.000003939356994628906
+              }
+            }
+          ],
+          "dimensions": [
+            1,
+            1
+          ],
+          "level": 8,
+          "scan": {
+            "maximum": [
+              1.1920928955078125e-7,
+              0,
+              5.960464477539064e-8,
+              0.0006251335144042969
+            ],
+            "mean": [
+              1.1920928955078125e-7,
+              0,
+              5.960464477539064e-8,
+              0.0006251335144042969
+            ],
+            "meanSlopeEnergy": 3.552713678800501e-15,
+            "minimum": [
+              1.1920928955078125e-7,
+              0,
+              5.960464477539064e-8,
+              0.0006251335144042969
+            ],
+            "negative": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "nonFinite": 0,
+            "pixels": 1,
+            "positive": [
+              1,
+              0,
+              1,
+              1
+            ],
+            "variance": {
+              "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+              "maximumRaw": 0.0006251335144007442,
+              "meanClamped": 0.0006251335144007442,
+              "minimumRaw": 0.0006251335144007442,
+              "negativeBeyondHalfRoundAllowance": 0
+            }
+          }
+        }
+      ],
+      "periodicity": {
+        "comparison": [
+          {
+            "count": 128,
+            "maximumAbsoluteError": 0.000014901161193847656,
+            "meanAbsoluteError": 0.000002554588718339801,
+            "outsideTolerance": 2,
+            "rmsError": 0.000003698983898070175,
+            "worst": {
+              "actual": -0.047393798828125,
+              "axis": 0,
+              "channel": 0,
+              "expected": -0.04737889766693115,
+              "texel": [
+                0,
+                5
+              ],
+              "tolerance": 0.000016213669300079344
+            }
+          },
+          {
+            "count": 128,
+            "maximumAbsoluteError": 0.000013172626495361328,
+            "meanAbsoluteError": 0.0000024295914045069367,
+            "outsideTolerance": 2,
+            "rmsError": 0.000003496982262755952,
+            "worst": {
+              "actual": -0.031463623046875,
+              "axis": 1,
+              "channel": 1,
+              "expected": -0.03147679567337036,
+              "texel": [
+                11,
+                0
+              ],
+              "tolerance": 0.000011443038702011108
+            }
+          },
+          {
+            "count": 128,
+            "maximumAbsoluteError": 0.000015020370483398438,
+            "meanAbsoluteError": 0.0000018745486158877611,
+            "outsideTolerance": 3,
+            "rmsError": 0.0000030045694173897897,
+            "worst": {
+              "actual": -0.03216552734375,
+              "axis": 0,
+              "channel": 2,
+              "expected": -0.0321805477142334,
+              "texel": [
+                0,
+                5
+              ],
+              "tolerance": 0.00001165416431427002
+            }
+          },
+          {
+            "count": 128,
+            "maximumAbsoluteError": 8.23289155960083e-7,
+            "meanAbsoluteError": 9.80799086391926e-8,
+            "outsideTolerance": 0,
+            "rmsError": 1.4772003444711438e-7,
+            "worst": {
+              "actual": 0.0020771026611328125,
+              "axis": 0,
+              "channel": 3,
+              "expected": 0.0020762793719768524,
+              "texel": [
+                1,
+                19
+              ],
+              "tolerance": 0.000002622883811593056
+            }
+          }
+        ],
+        "maximumAcrossSeam": 0.000652313232421875,
+        "periodicMaximumError": 0,
+        "seamEpsilonInUV": 0.00006103515625
+      },
+      "scan": {
+        "maximum": [
+          0.081298828125,
+          0.0782470703125,
+          0.051513671875,
+          0.00901031494140625
+        ],
+        "mean": [
+          2.4854671210050583e-8,
+          6.508344085887074e-9,
+          -1.1056727089453489e-8,
+          0.0006247780938792857
+        ],
+        "meanSlopeEnergy": 0.0006245592384920161,
+        "minimum": [
+          -0.08367919921875,
+          -0.091796875,
+          -0.05413818359375,
+          0
+        ],
+        "negative": [
+          32922,
+          32678,
+          32795,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 65536,
+        "positive": [
+          32614,
+          32858,
+          32741,
+          65530
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.000009052455425262451,
+          "meanClamped": 2.5077574070976605e-7,
+          "minimumRaw": -0.0000031056260922923684,
+          "negativeBeyondHalfRoundAllowance": 414
+        }
+      },
+      "time": 0.11270000004768373
+    },
+    {
+      "cascade": 2,
+      "cpuComparison": [
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000015119844030585944,
+          "meanAbsoluteError": 0.0000032203819186725276,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000045910428292612,
+          "worst": {
+            "actual": -0.0236968994140625,
+            "channel": 0,
+            "expected": -0.02371201925809309,
+            "texel": [
+              199,
+              18
+            ],
+            "tolerance": 0.00009734807703237236
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00008590365455368731,
+          "meanAbsoluteError": 0.000014252907659106207,
+          "outsideTolerance": 0,
+          "rmsError": 0.00002063879589524336,
+          "worst": {
+            "actual": 0.1300048828125,
+            "channel": 1,
+            "expected": 0.1300907864670537,
+            "texel": [
+              81,
+              171
+            ],
+            "tolerance": 0.0005228631458682148
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000043730507755149195,
+          "meanAbsoluteError": 0.000007304532573529656,
+          "outsideTolerance": 0,
+          "rmsError": 0.000010483320668272996,
+          "worst": {
+            "actual": 0.0643310546875,
+            "channel": 2,
+            "expected": 0.06437478519525515,
+            "texel": [
+              116,
+              229
+            ],
+            "tolerance": 0.0002599991407810206
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00000766268694783745,
+          "meanAbsoluteError": 0.0000011187183011490098,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000019015843874805156,
+          "worst": {
+            "actual": 0.0104522705078125,
+            "channel": 3,
+            "expected": 0.010459933194760336,
+            "texel": [
+              125,
+              80
+            ],
+            "tolerance": 0.00006295959916856203
+          }
+        }
+      ],
+      "domainMetres": 29,
+      "mips": [
+        {
+          "cpuComparison": [
+            {
+              "count": 16384,
+              "maximumAbsoluteError": 0.000030517578125,
+              "meanAbsoluteError": 0.0000034157928894273937,
+              "outsideTolerance": 0,
+              "rmsError": 0.000006196428614095746,
+              "worst": {
+                "actual": -0.03509521484375,
+                "channel": 0,
+                "expected": -0.035064697265625,
+                "texelIndex": 512,
+                "tolerance": 0.0001427587890625
+              }
+            },
+            {
+              "count": 16384,
+              "maximumAbsoluteError": 0.0001220703125,
+              "meanAbsoluteError": 0.000012521984899649397,
+              "outsideTolerance": 0,
+              "rmsError": 0.000022646779822808487,
+              "worst": {
+                "actual": 0.126708984375,
+                "channel": 1,
+                "expected": 0.1265869140625,
+                "texelIndex": 387,
+                "tolerance": 0.00050884765625
+              }
+            },
+            {
+              "count": 16384,
+              "maximumAbsoluteError": 0.00006103515625,
+              "meanAbsoluteError": 0.000007159458618843928,
+              "outsideTolerance": 0,
+              "rmsError": 0.000012851405187745094,
+              "worst": {
+                "actual": -0.07989501953125,
+                "channel": 2,
+                "expected": -0.079833984375,
+                "texelIndex": 589,
+                "tolerance": 0.0003218359375
+              }
+            },
+            {
+              "count": 16384,
+              "maximumAbsoluteError": 0.000030517578125,
+              "meanAbsoluteError": 0.0000010633266356308011,
+              "outsideTolerance": 0,
+              "rmsError": 0.000002146429171423708,
+              "worst": {
+                "actual": 0.034271240234375,
+                "channel": 3,
+                "expected": 0.03424072265625,
+                "texelIndex": 4164,
+                "tolerance": 0.0002056443359375
+              }
+            }
+          ],
+          "dimensions": [
+            128,
+            128
+          ],
+          "level": 1,
+          "scan": {
+            "maximum": [
+              0.0452880859375,
+              0.1842041015625,
+              0.09521484375,
+              0.034271240234375
+            ],
+            "mean": [
+              -1.979060471057892e-9,
+              5.9124431572854526e-8,
+              -7.392372936010361e-9,
+              0.0030240802952903323
+            ],
+            "meanSlopeEnergy": 0.0026173325996816264,
+            "minimum": [
+              -0.05023193359375,
+              -0.1636962890625,
+              -0.09100341796875,
+              0.000019729137420654297
+            ],
+            "negative": [
+              8293,
+              8242,
+              8193,
+              0
+            ],
+            "nonFinite": 0,
+            "pixels": 16384,
+            "positive": [
+              8091,
+              8142,
+              8189,
+              16384
+            ],
+            "variance": {
+              "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+              "maximumRaw": 0.005225881468504667,
+              "meanClamped": 0.00040674769560870546,
+              "minimumRaw": 0.0000012051314115524292,
+              "negativeBeyondHalfRoundAllowance": 0
+            }
+          }
+        },
+        {
+          "cpuComparison": [
+            {
+              "count": 1024,
+              "maximumAbsoluteError": 0.000030517578125,
+              "meanAbsoluteError": 0.000006279442459344864,
+              "outsideTolerance": 4,
+              "rmsError": 0.000008421545855235593,
+              "worst": {
+                "actual": -0.0190277099609375,
+                "channel": 0,
+                "expected": -0.0189971923828125,
+                "texelIndex": 89,
+                "tolerance": 0.00007848876953125001
+              }
+            },
+            {
+              "count": 1024,
+              "maximumAbsoluteError": 0.0001220703125,
+              "meanAbsoluteError": 0.00002108560875058174,
+              "outsideTolerance": 16,
+              "rmsError": 0.000027790505828091184,
+              "worst": {
+                "actual": 0.07427978515625,
+                "channel": 1,
+                "expected": 0.07415771484375,
+                "texelIndex": 150,
+                "tolerance": 0.000299130859375
+              }
+            },
+            {
+              "count": 1024,
+              "maximumAbsoluteError": 0.00006103515625,
+              "meanAbsoluteError": 0.000010624178685247898,
+              "outsideTolerance": 10,
+              "rmsError": 0.000013836298384937256,
+              "worst": {
+                "actual": 0.033172607421875,
+                "channel": 2,
+                "expected": 0.033111572265625,
+                "texelIndex": 239,
+                "tolerance": 0.0001349462890625
+              }
+            },
+            {
+              "count": 1024,
+              "maximumAbsoluteError": 0.0000152587890625,
+              "meanAbsoluteError": 0.0000032279640436172485,
+              "outsideTolerance": 0,
+              "rmsError": 0.0000038590267637206146,
+              "worst": {
+                "actual": 0.00843048095703125,
+                "channel": 3,
+                "expected": 0.00841522216796875,
+                "texelIndex": 126,
+                "tolerance": 0.0000506913330078125
+              }
+            }
+          ],
+          "dimensions": [
+            32,
+            32
+          ],
+          "level": 3,
+          "scan": {
+            "maximum": [
+              0.0246124267578125,
+              0.074951171875,
+              0.03656005859375,
+              0.01103973388671875
+            ],
+            "mean": [
+              7.10715539753437e-8,
+              7.869675755500793e-8,
+              -3.9348378777503974e-8,
+              0.003024353180080652
+            ],
+            "meanSlopeEnergy": 0.0007458117661519326,
+            "minimum": [
+              -0.024505615234375,
+              -0.0697021484375,
+              -0.039703369140625,
+              0.0005631446838378906
+            ],
+            "negative": [
+              527,
+              515,
+              519,
+              0
+            ],
+            "nonFinite": 0,
+            "pixels": 1024,
+            "positive": [
+              497,
+              509,
+              505,
+              1024
+            ],
+            "variance": {
+              "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+              "maximumRaw": 0.009518138831481338,
+              "meanClamped": 0.0022785414139287197,
+              "minimumRaw": 0.0004695418756455183,
+              "negativeBeyondHalfRoundAllowance": 0
+            }
+          }
+        },
+        {
+          "cpuComparison": [
+            {
+              "count": 16,
+              "maximumAbsoluteError": 0.0000010728836059570312,
+              "meanAbsoluteError": 5.476176738739014e-7,
+              "outsideTolerance": 0,
+              "rmsError": 6.277970800680189e-7,
+              "worst": {
+                "actual": -0.0001690387725830078,
+                "channel": 0,
+                "expected": -0.00016796588897705078,
+                "texelIndex": 5,
+                "tolerance": 0.0000031718635559082032
+              }
+            },
+            {
+              "count": 16,
+              "maximumAbsoluteError": 0.00000476837158203125,
+              "meanAbsoluteError": 0.0000018700957298278809,
+              "outsideTolerance": 0,
+              "rmsError": 0.0000024359638794564538,
+              "worst": {
+                "actual": -0.0017910003662109375,
+                "channel": 1,
+                "expected": -0.0017862319946289062,
+                "texelIndex": 14,
+                "tolerance": 0.000009644927978515626
+              }
+            },
+            {
+              "count": 16,
+              "maximumAbsoluteError": 0.0000012516975402832031,
+              "meanAbsoluteError": 6.07222318649292e-7,
+              "outsideTolerance": 0,
+              "rmsError": 7.431183838720132e-7,
+              "worst": {
+                "actual": 0.000012278556823730469,
+                "channel": 2,
+                "expected": 0.000011026859283447266,
+                "texelIndex": 3,
+                "tolerance": 0.00000254410743713379
+              }
+            },
+            {
+              "count": 16,
+              "maximumAbsoluteError": 0.000011444091796875,
+              "meanAbsoluteError": 0.000006318092346191406,
+              "outsideTolerance": 0,
+              "rmsError": 0.00000655542711490036,
+              "worst": {
+                "actual": 0.003955841064453125,
+                "channel": 3,
+                "expected": 0.00394439697265625,
+                "texelIndex": 2,
+                "tolerance": 0.0000238663818359375
+              }
+            }
+          ],
+          "dimensions": [
+            4,
+            4
+          ],
+          "level": 6,
+          "scan": {
+            "maximum": [
+              0.00020182132720947263,
+              0.0011987686157226562,
+              0.0002732276916503906,
+              0.003955841064453125
+            ],
+            "mean": [
+              4.842877388000488e-8,
+              4.4703483581542975e-8,
+              -1.4901161193847656e-8,
+              0.003024816513061523
+            ],
+            "meanSlopeEnergy": 6.166400550178253e-7,
+            "minimum": [
+              -0.00034427642822265625,
+              -0.0017910003662109375,
+              -0.00034046173095703125,
+              0.0023288726806640625
+            ],
+            "negative": [
+              6,
+              8,
+              6,
+              0
+            ],
+            "nonFinite": 0,
+            "pixels": 16,
+            "positive": [
+              10,
+              8,
+              10,
+              16
+            ],
+            "variance": {
+              "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+              "maximumRaw": 0.003955469028369407,
+              "meanClamped": 0.0030241998730065056,
+              "minimumRaw": 0.00232881028648535,
+              "negativeBeyondHalfRoundAllowance": 0
+            }
+          }
+        },
+        {
+          "cpuComparison": [
+            {
+              "count": 1,
+              "maximumAbsoluteError": 0,
+              "meanAbsoluteError": 0,
+              "outsideTolerance": 0,
+              "rmsError": 0,
+              "worst": null
+            },
+            {
+              "count": 1,
+              "maximumAbsoluteError": 5.960464477539062e-7,
+              "meanAbsoluteError": 5.960464477539062e-7,
+              "outsideTolerance": 0,
+              "rmsError": 5.960464477539062e-7,
+              "worst": {
+                "actual": 5.960464477539064e-8,
+                "channel": 1,
+                "expected": -5.364418029785156e-7,
+                "texelIndex": 0,
+                "tolerance": 0.0000025021457672119143
+              }
+            },
+            {
+              "count": 1,
+              "maximumAbsoluteError": 5.960464477539064e-8,
+              "meanAbsoluteError": 5.960464477539064e-8,
+              "outsideTolerance": 0,
+              "rmsError": 5.960464477539064e-8,
+              "worst": {
+                "actual": 0,
+                "channel": 2,
+                "expected": -5.960464477539064e-8,
+                "texelIndex": 0,
+                "tolerance": 0.0000025002384185791016
+              }
+            },
+            {
+              "count": 1,
+              "maximumAbsoluteError": 0.00000762939453125,
+              "meanAbsoluteError": 0.00000762939453125,
+              "outsideTolerance": 0,
+              "rmsError": 0.00000762939453125,
+              "worst": {
+                "actual": 0.003025054931640625,
+                "channel": 3,
+                "expected": 0.003017425537109375,
+                "texelIndex": 0,
+                "tolerance": 0.000018304553222656253
+              }
+            }
+          ],
+          "dimensions": [
+            1,
+            1
+          ],
+          "level": 8,
+          "scan": {
+            "maximum": [
+              5.960464477539064e-8,
+              5.960464477539064e-8,
+              0,
+              0.003025054931640625
+            ],
+            "mean": [
+              5.960464477539064e-8,
+              5.960464477539064e-8,
+              0,
+              0.003025054931640625
+            ],
+            "meanSlopeEnergy": 3.552713678800501e-15,
+            "minimum": [
+              5.960464477539064e-8,
+              5.960464477539064e-8,
+              0,
+              0.003025054931640625
+            ],
+            "negative": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "nonFinite": 0,
+            "pixels": 1,
+            "positive": [
+              1,
+              1,
+              0,
+              1
+            ],
+            "variance": {
+              "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+              "maximumRaw": 0.0030250549316370723,
+              "meanClamped": 0.0030250549316370723,
+              "minimumRaw": 0.0030250549316370723,
+              "negativeBeyondHalfRoundAllowance": 0
+            }
+          }
+        }
+      ],
+      "periodicity": {
+        "comparison": [
+          {
+            "count": 128,
+            "maximumAbsoluteError": 0.000014185905456542969,
+            "meanAbsoluteError": 0.000002044023858616129,
+            "outsideTolerance": 1,
+            "rmsError": 0.000002912371600472732,
+            "worst": {
+              "actual": -0.032806396484375,
+              "axis": 0,
+              "channel": 0,
+              "expected": -0.03279221057891846,
+              "texel": [
+                1,
+                1
+              ],
+              "tolerance": 0.000011837663173675536
+            }
+          },
+          {
+            "count": 128,
+            "maximumAbsoluteError": 0.000017881393432617188,
+            "meanAbsoluteError": 0.000005329737177817151,
+            "outsideTolerance": 6,
+            "rmsError": 0.000007224449276160477,
+            "worst": {
+              "actual": 0.0653076171875,
+              "axis": 0,
+              "channel": 1,
+              "expected": 0.06532549858093262,
+              "texel": [
+                0,
+                4
+              ],
+              "tolerance": 0.000021597649574279785
+            }
+          },
+          {
+            "count": 128,
+            "maximumAbsoluteError": 0.000014781951904296877,
+            "meanAbsoluteError": 0.0000037679565139114857,
+            "outsideTolerance": 5,
+            "rmsError": 0.0000053707254822334524,
+            "worst": {
+              "actual": 0.034912109375,
+              "axis": 0,
+              "channel": 2,
+              "expected": 0.0348973274230957,
+              "texel": [
+                0,
+                21
+              ],
+              "tolerance": 0.000012469198226928707
+            }
+          },
+          {
+            "count": 128,
+            "maximumAbsoluteError": 0.0000019101426005363464,
+            "meanAbsoluteError": 4.609610186889768e-7,
+            "outsideTolerance": 0,
+            "rmsError": 6.583917407362191e-7,
+            "worst": {
+              "actual": 0.0039215087890625,
+              "axis": 1,
+              "channel": 3,
+              "expected": 0.003923418931663036,
+              "texel": [
+                21,
+                0
+              ],
+              "tolerance": 0.0000031770256794989108
+            }
+          }
+        ],
+        "maximumAcrossSeam": 0.001068115234375,
+        "periodicMaximumError": 0,
+        "seamEpsilonInUV": 0.00006103515625
+      },
+      "scan": {
+        "maximum": [
+          0.048797607421875,
+          0.1865234375,
+          0.105712890625,
+          0.03521728515625
+        ],
+        "mean": [
+          -3.530658432282507e-9,
+          3.182685759384185e-8,
+          3.269633452873677e-9,
+          0.003023934885277413
+        ],
+        "meanSlopeEnergy": 0.003022875366500404,
+        "minimum": [
+          -0.052001953125,
+          -0.1788330078125,
+          -0.10711669921875,
+          0
+        ],
+        "negative": [
+          33083,
+          32774,
+          32615,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 65536,
+        "positive": [
+          32453,
+          32762,
+          32921,
+          65535
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.00003440584987401962,
+          "meanClamped": 0.000001215921851591042,
+          "minimumRaw": -0.000017225975170731544,
+          "negativeBeyondHalfRoundAllowance": 81
+        }
+      },
+      "time": 0.11270000004768373
+    },
+    {
+      "cascade": 3,
+      "cpuComparison": [
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000005652131101530761,
+          "meanAbsoluteError": 8.743757073183139e-7,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000012522965936877474,
+          "worst": {
+            "actual": -0.00879669189453125,
+            "channel": 0,
+            "expected": -0.00880234402563278,
+            "texel": [
+              152,
+              240
+            ],
+            "tolerance": 0.000037709376102531125
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00011216185138365752,
+          "meanAbsoluteError": 0.000020135475649759884,
+          "outsideTolerance": 0,
+          "rmsError": 0.000029243714004811656,
+          "worst": {
+            "actual": 0.134033203125,
+            "channel": 1,
+            "expected": 0.13414536497638366,
+            "texel": [
+              158,
+              74
+            ],
+            "tolerance": 0.0005390814599055346
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00009560871471950284,
+          "meanAbsoluteError": 0.0000151378138402746,
+          "outsideTolerance": 0,
+          "rmsError": 0.00002252937272755993,
+          "worst": {
+            "actual": 0.1680908203125,
+            "channel": 2,
+            "expected": 0.1681864290272195,
+            "texel": [
+              140,
+              134
+            ],
+            "tolerance": 0.000675245716108878
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00005237768718885372,
+          "meanAbsoluteError": 0.0000030337875519417553,
+          "outsideTolerance": 0,
+          "rmsError": 0.000005904190846563365,
+          "worst": {
+            "actual": 0.0703125,
+            "channel": 3,
+            "expected": 0.07036487768718885,
+            "texel": [
+              98,
+              163
+            ],
+            "tolerance": 0.00042238926612313314
+          }
+        }
+      ],
+      "domainMetres": 5.3,
+      "mips": [
+        {
+          "cpuComparison": [
+            {
+              "count": 16384,
+              "maximumAbsoluteError": 0.00000762939453125,
+              "meanAbsoluteError": 7.923990779090673e-7,
+              "outsideTolerance": 0,
+              "rmsError": 0.0000014290105514897668,
+              "worst": {
+                "actual": 0.00901031494140625,
+                "channel": 0,
+                "expected": 0.009002685546875,
+                "texelIndex": 857,
+                "tolerance": 0.0000385107421875
+              }
+            },
+            {
+              "count": 16384,
+              "maximumAbsoluteError": 0.0001220703125,
+              "meanAbsoluteError": 0.00001696178878773935,
+              "outsideTolerance": 0,
+              "rmsError": 0.00003084463729250991,
+              "worst": {
+                "actual": -0.1319580078125,
+                "channel": 1,
+                "expected": -0.1318359375,
+                "texelIndex": 48,
+                "tolerance": 0.00052984375
+              }
+            },
+            {
+              "count": 16384,
+              "maximumAbsoluteError": 0.0001220703125,
+              "meanAbsoluteError": 0.000013181252143112944,
+              "outsideTolerance": 0,
+              "rmsError": 0.000023717923078169088,
+              "worst": {
+                "actual": -0.15771484375,
+                "channel": 2,
+                "expected": -0.1575927734375,
+                "texelIndex": 31,
+                "tolerance": 0.00063287109375
+              }
+            },
+            {
+              "count": 16384,
+              "maximumAbsoluteError": 0.00006103515625,
+              "meanAbsoluteError": 0.0000028120084607508034,
+              "outsideTolerance": 0,
+              "rmsError": 0.000005167151151921556,
+              "worst": {
+                "actual": 0.0714111328125,
+                "channel": 3,
+                "expected": 0.07135009765625,
+                "texelIndex": 6125,
+                "tolerance": 0.0004283005859375
+              }
+            }
+          ],
+          "dimensions": [
+            128,
+            128
+          ],
+          "level": 1,
+          "scan": {
+            "maximum": [
+              0.0108642578125,
+              0.26318359375,
+              0.1767578125,
+              0.0714111328125
+            ],
+            "mean": [
+              1.877197064459324e-9,
+              5.0651578931137926e-8,
+              5.3718395065516233e-8,
+              0.008097402151179267
+            ],
+            "meanSlopeEnergy": 0.005886703825863417,
+            "minimum": [
+              -0.01044464111328125,
+              -0.2205810546875,
+              -0.1778564453125,
+              0.00003421306610107422
+            ],
+            "negative": [
+              8155,
+              8187,
+              8176,
+              0
+            ],
+            "nonFinite": 0,
+            "pixels": 16384,
+            "positive": [
+              8229,
+              8197,
+              8208,
+              16384
+            ],
+            "variance": {
+              "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+              "maximumRaw": 0.01967365574091673,
+              "meanClamped": 0.0022106983253158503,
+              "minimumRaw": 0.000023886561393737793,
+              "negativeBeyondHalfRoundAllowance": 0
+            }
+          }
+        },
+        {
+          "cpuComparison": [
+            {
+              "count": 1024,
+              "maximumAbsoluteError": 0.00000762939453125,
+              "meanAbsoluteError": 0.0000014089164324104786,
+              "outsideTolerance": 0,
+              "rmsError": 0.000001884708821612936,
+              "worst": {
+                "actual": 0.004947662353515625,
+                "channel": 0,
+                "expected": 0.004940032958984375,
+                "texelIndex": 54,
+                "tolerance": 0.0000222601318359375
+              }
+            },
+            {
+              "count": 1024,
+              "maximumAbsoluteError": 0.0001220703125,
+              "meanAbsoluteError": 0.000021029729396104813,
+              "outsideTolerance": 41,
+              "rmsError": 0.00002755324635000971,
+              "worst": {
+                "actual": 0.08038330078125,
+                "channel": 1,
+                "expected": 0.08026123046875,
+                "texelIndex": 379,
+                "tolerance": 0.000323544921875
+              }
+            },
+            {
+              "count": 1024,
+              "maximumAbsoluteError": 0.00006103515625,
+              "meanAbsoluteError": 0.000016583595424890518,
+              "outsideTolerance": 30,
+              "rmsError": 0.00002184117337650735,
+              "worst": {
+                "actual": -0.04150390625,
+                "channel": 2,
+                "expected": -0.04144287109375,
+                "texelIndex": 20,
+                "tolerance": 0.00016827148437500002
+              }
+            },
+            {
+              "count": 1024,
+              "maximumAbsoluteError": 0.000030517578125,
+              "meanAbsoluteError": 0.00000856444239616394,
+              "outsideTolerance": 0,
+              "rmsError": 0.000009573923590307838,
+              "worst": {
+                "actual": 0.0167236328125,
+                "channel": 3,
+                "expected": 0.016693115234375,
+                "texelIndex": 154,
+                "tolerance": 0.00010035869140625
+              }
+            }
+          ],
+          "dimensions": [
+            32,
+            32
+          ],
+          "level": 3,
+          "scan": {
+            "maximum": [
+              0.00569915771484375,
+              0.08038330078125,
+              0.062744140625,
+              0.02789306640625
+            ],
+            "mean": [
+              2.3923348635435104e-8,
+              -8.66129994392395e-8,
+              -1.240987330675125e-7,
+              0.00809812918305397
+            ],
+            "meanSlopeEnergy": 0.0009490689603628976,
+            "minimum": [
+              -0.004962921142578125,
+              -0.07904052734375,
+              -0.060577392578125,
+              0.00226593017578125
+            ],
+            "negative": [
+              509,
+              493,
+              511,
+              0
+            ],
+            "nonFinite": 0,
+            "pixels": 1024,
+            "positive": [
+              515,
+              531,
+              513,
+              1024
+            ],
+            "variance": {
+              "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+              "maximumRaw": 0.027233867906033993,
+              "meanClamped": 0.007149060222691073,
+              "minimumRaw": 0.001852389410487376,
+              "negativeBeyondHalfRoundAllowance": 0
+            }
+          }
+        },
+        {
+          "cpuComparison": [
+            {
+              "count": 16,
+              "maximumAbsoluteError": 2.980232238769531e-7,
+              "meanAbsoluteError": 1.1548399925231935e-7,
+              "outsideTolerance": 0,
+              "rmsError": 1.526914651089847e-7,
+              "worst": {
+                "actual": -0.000006556510925292969,
+                "channel": 0,
+                "expected": -0.000006258487701416016,
+                "texelIndex": 6,
+                "tolerance": 0.0000025250339508056644
+              }
+            },
+            {
+              "count": 16,
+              "maximumAbsoluteError": 0.00000286102294921875,
+              "meanAbsoluteError": 0.0000010281801223754885,
+              "outsideTolerance": 0,
+              "rmsError": 0.0000013715545533900084,
+              "worst": {
+                "actual": 0.0006031990051269531,
+                "channel": 1,
+                "expected": 0.0006003379821777344,
+                "texelIndex": 14,
+                "tolerance": 0.000004901351928710938
+              }
+            },
+            {
+              "count": 16,
+              "maximumAbsoluteError": 0.000002384185791015625,
+              "meanAbsoluteError": 8.977949619293213e-7,
+              "outsideTolerance": 0,
+              "rmsError": 0.000001185649355324066,
+              "worst": {
+                "actual": -0.0004148483276367187,
+                "channel": 2,
+                "expected": -0.0004124641418457031,
+                "texelIndex": 6,
+                "tolerance": 0.000004149856567382813
+              }
+            },
+            {
+              "count": 16,
+              "maximumAbsoluteError": 0.00002288818359375,
+              "meanAbsoluteError": 0.000016927719116210938,
+              "outsideTolerance": 0,
+              "rmsError": 0.000017298085353104643,
+              "worst": {
+                "actual": 0.00887298583984375,
+                "channel": 3,
+                "expected": 0.00885009765625,
+                "texelIndex": 2,
+                "tolerance": 0.0000533005859375
+              }
+            }
+          ],
+          "dimensions": [
+            4,
+            4
+          ],
+          "level": 6,
+          "scan": {
+            "maximum": [
+              0.000041484832763671875,
+              0.0006031990051269531,
+              0.0003886222839355469,
+              0.00887298583984375
+            ],
+            "mean": [
+              2.9802322387695312e-8,
+              1.1920928955078125e-7,
+              -1.2665987014770508e-7,
+              0.00809931755065918
+            ],
+            "meanSlopeEnergy": 2.2199588789462157e-7,
+            "minimum": [
+              -0.00005567073822021485,
+              -0.0006756782531738281,
+              -0.0004148483276367187,
+              0.007518768310546875
+            ],
+            "negative": [
+              8,
+              7,
+              8,
+              0
+            ],
+            "nonFinite": 0,
+            "pixels": 16,
+            "positive": [
+              8,
+              9,
+              8,
+              16
+            ],
+            "variance": {
+              "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+              "maximumRaw": 0.008872954818784251,
+              "meanClamped": 0.008099095554771285,
+              "minimumRaw": 0.007518611236264405,
+              "negativeBeyondHalfRoundAllowance": 0
+            }
+          }
+        },
+        {
+          "cpuComparison": [
+            {
+              "count": 1,
+              "maximumAbsoluteError": 5.960464477539064e-8,
+              "meanAbsoluteError": 5.960464477539064e-8,
+              "outsideTolerance": 0,
+              "rmsError": 5.960464477539064e-8,
+              "worst": {
+                "actual": 5.960464477539064e-8,
+                "channel": 0,
+                "expected": 0,
+                "texelIndex": 0,
+                "tolerance": 0.0000025
+              }
+            },
+            {
+              "count": 1,
+              "maximumAbsoluteError": 4.172325134277344e-7,
+              "meanAbsoluteError": 4.172325134277344e-7,
+              "outsideTolerance": 0,
+              "rmsError": 4.172325134277344e-7,
+              "worst": {
+                "actual": 1.1920928955078125e-7,
+                "channel": 1,
+                "expected": -2.980232238769531e-7,
+                "texelIndex": 0,
+                "tolerance": 0.000002501192092895508
+              }
+            },
+            {
+              "count": 1,
+              "maximumAbsoluteError": 1.1920928955078125e-7,
+              "meanAbsoluteError": 1.1920928955078125e-7,
+              "outsideTolerance": 0,
+              "rmsError": 1.1920928955078125e-7,
+              "worst": {
+                "actual": -1.1920928955078125e-7,
+                "channel": 2,
+                "expected": -2.384185791015625e-7,
+                "texelIndex": 0,
+                "tolerance": 0.0000025009536743164063
+              }
+            },
+            {
+              "count": 1,
+              "maximumAbsoluteError": 0.000030517578125,
+              "meanAbsoluteError": 0.000030517578125,
+              "outsideTolerance": 0,
+              "rmsError": 0.000030517578125,
+              "worst": {
+                "actual": 0.0081024169921875,
+                "channel": 3,
+                "expected": 0.0080718994140625,
+                "texelIndex": 0,
+                "tolerance": 0.000048631396484375
+              }
+            }
+          ],
+          "dimensions": [
+            1,
+            1
+          ],
+          "level": 8,
+          "scan": {
+            "maximum": [
+              5.960464477539064e-8,
+              1.1920928955078125e-7,
+              -1.1920928955078125e-7,
+              0.0081024169921875
+            ],
+            "mean": [
+              5.960464477539064e-8,
+              1.1920928955078125e-7,
+              -1.1920928955078125e-7,
+              0.0081024169921875
+            ],
+            "meanSlopeEnergy": 2.8421709430404014e-14,
+            "minimum": [
+              5.960464477539064e-8,
+              1.1920928955078125e-7,
+              -1.1920928955078125e-7,
+              0.0081024169921875
+            ],
+            "negative": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "nonFinite": 0,
+            "pixels": 1,
+            "positive": [
+              1,
+              1,
+              0,
+              1
+            ],
+            "variance": {
+              "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+              "maximumRaw": 0.008102416992159078,
+              "meanClamped": 0.008102416992159078,
+              "minimumRaw": 0.008102416992159078,
+              "negativeBeyondHalfRoundAllowance": 0
+            }
+          }
+        }
+      ],
+      "periodicity": {
+        "comparison": [
+          {
+            "count": 128,
+            "maximumAbsoluteError": 0.000001825392246246338,
+            "meanAbsoluteError": 3.371023922227323e-7,
+            "outsideTolerance": 0,
+            "rmsError": 4.849334937628604e-7,
+            "worst": {
+              "actual": 0.00438690185546875,
+              "axis": 1,
+              "channel": 0,
+              "expected": 0.004388727247714996,
+              "texel": [
+                23,
+                0
+              ],
+              "tolerance": 0.000003316618174314499
+            }
+          },
+          {
+            "count": 128,
+            "maximumAbsoluteError": 0.00003147125244140625,
+            "meanAbsoluteError": 0.0000067896617110818624,
+            "outsideTolerance": 3,
+            "rmsError": 0.000010073779363489493,
+            "worst": {
+              "actual": 0.15478515625,
+              "axis": 1,
+              "channel": 1,
+              "expected": 0.1547536849975586,
+              "texel": [
+                20,
+                0
+              ],
+              "tolerance": 0.00004842610549926757
+            }
+          },
+          {
+            "count": 128,
+            "maximumAbsoluteError": 0.000029802322387695312,
+            "meanAbsoluteError": 0.0000056879507610574365,
+            "outsideTolerance": 3,
+            "rmsError": 0.000008281488560062056,
+            "worst": {
+              "actual": 0.06524658203125,
+              "axis": 0,
+              "channel": 2,
+              "expected": 0.0652167797088623,
+              "texel": [
+                0,
+                22
+              ],
+              "tolerance": 0.00002156503391265869
+            }
+          },
+          {
+            "count": 128,
+            "maximumAbsoluteError": 0.000010728836059570312,
+            "meanAbsoluteError": 0.00000137212555273436,
+            "outsideTolerance": 0,
+            "rmsError": 0.000002167785161621308,
+            "worst": {
+              "actual": 0.05938720703125,
+              "axis": 1,
+              "channel": 3,
+              "expected": 0.05939793586730957,
+              "texel": [
+                26,
+                0
+              ],
+              "tolerance": 0.00001981938076019287
+            }
+          }
+        ],
+        "maximumAcrossSeam": 0.0029296875,
+        "periodicMaximumError": 0,
+        "seamEpsilonInUV": 0.00006103515625
+      },
+      "scan": {
+        "maximum": [
+          0.01230621337890625,
+          0.298095703125,
+          0.2171630859375,
+          0.09423828125
+        ],
+        "mean": [
+          2.465640136506408e-9,
+          4.517460183706134e-9,
+          5.616220732918009e-8,
+          0.008097154565803066
+        ],
+        "meanSlopeEnergy": 0.008094303336726465,
+        "minimum": [
+          -0.0111236572265625,
+          -0.305419921875,
+          -0.199462890625,
+          0
+        ],
+        "negative": [
+          32735,
+          32877,
+          32731,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 65536,
+        "positive": [
+          32800,
+          32659,
+          32805,
+          65535
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.00012439489364624023,
+          "meanClamped": 0.000003259119422454324,
+          "minimumRaw": -0.00004390836693346501,
+          "negativeBeyondHalfRoundAllowance": 34
+        }
+      },
+      "time": 0.11270000004768373
+    }
+  ],
+  "glErrors": [],
+  "kind": "Actual GPU Fourier spectrum / independent CPU double-precision oracle",
+  "limits": [
+    "This is a 256-mode directional Fourier synthesis check, not an FFT, nonlinear wave solver, SWE validation or visual realism assessment.",
+    "CPU oracle uses the original double-precision mode constants; tolerances allow half-float storage, float shader arithmetic and mip quantization.",
+    "Base-level finite/sign scans cover every texel. Fourier comparisons use a deterministic subset including corners and boundary texels.",
+    "The 30000-second test uses a temporary instance of the same factory on the same renderer. The active instance time, phase buffers, textures and update counter are never changed.",
+    "A successful periodic/mip check does not prove the absence of all temporal aliasing, visible repetition or camera-dependent shimmer.",
+    "Readback and CPU execution durations are not GPU timings or scene FPS. This check allocates temporary offscreen targets and briefly blocks the main JS thread."
+  ],
+  "longTime": {
+    "activeInstanceMutated": false,
+    "seconds": 30000,
+    "state": {
+      "channels": [
+        "height",
+        "slopeX",
+        "slopeZ",
+        "slopeSquared"
+      ],
+      "components": 256,
+      "domainsMetres": [
+        521,
+        137,
+        29,
+        5.3
+      ],
+      "method": "256-mode GPU Fourier synthesis, mipmapped slope moments; non-FFT",
+      "phasePrecision": "CPU double precision modulo 2pi each frame",
+      "resolution": 256,
+      "rmsHeight": 0.03600642384703511,
+      "rmsSlope": 0.10856334556377673,
+      "significantHeight": 0.14402569538814045,
+      "time": 30000,
+      "updates": 1
+    }
+  },
+  "longTimeFields": [
+    {
+      "cascade": 0,
+      "cpuComparison": [
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00006087065758397792,
+          "meanAbsoluteError": 0.000007268435963453655,
+          "outsideTolerance": 0,
+          "rmsError": 0.000010915990828585294,
+          "worst": {
+            "actual": -0.06829833984375,
+            "channel": 0,
+            "expected": -0.06835921050133398,
+            "texel": [
+              142,
+              58
+            ],
+            "tolerance": 0.0002759368420053359
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000007441828445562543,
+          "meanAbsoluteError": 0.000001270667372918047,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000018917899844904887,
+          "worst": {
+            "actual": -0.0083465576171875,
+            "channel": 1,
+            "expected": -0.008353999445633063,
+            "texel": [
+              177,
+              73
+            ],
+            "tolerance": 0.000035915997782532254
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000007609115634759148,
+          "meanAbsoluteError": 9.89954071197821e-7,
+          "outsideTolerance": 0,
+          "rmsError": 0.000001514632703197042,
+          "worst": {
+            "actual": 0.0079803466796875,
+            "channel": 2,
+            "expected": 0.00798795579532226,
+            "texel": [
+              111,
+              6
+            ],
+            "tolerance": 0.000034451823181289036
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 1.13640409609339e-7,
+          "meanAbsoluteError": 3.032859538724766e-8,
+          "outsideTolerance": 0,
+          "rmsError": 3.5884753399520914e-8,
+          "worst": {
+            "actual": 0.00015926361083984375,
+            "channel": 3,
+            "expected": 0.0001593772512494531,
+            "texel": [
+              108,
+              255
+            ],
+            "tolerance": 0.0000011562635074967185
+          }
+        }
+      ],
+      "domainMetres": 521,
+      "scan": {
+        "maximum": [
+          0.098388671875,
+          0.0198974609375,
+          0.0137176513671875,
+          0.0004563331604003906
+        ],
+        "mean": [
+          4.1075509216170765e-8,
+          2.862179826479405e-9,
+          -1.1214069672860203e-9,
+          0.00003596908209146932
+        ],
+        "meanSlopeEnergy": 0.00003597462742888416,
+        "minimum": [
+          -0.09625244140625,
+          -0.0211944580078125,
+          -0.01387786865234375,
+          0
+        ],
+        "negative": [
+          32937,
+          32699,
+          32775,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 65536,
+        "positive": [
+          32599,
+          32837,
+          32760,
+          65423
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 4.543826435110532e-7,
+          "meanClamped": 1.0469167211857136e-8,
+          "minimumRaw": -2.003653207793832e-7,
+          "negativeBeyondHalfRoundAllowance": 6200
+        }
+      },
+      "time": 30000
+    },
+    {
+      "cascade": 1,
+      "cpuComparison": [
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00003052681343952701,
+          "meanAbsoluteError": 0.000005926931695482043,
+          "outsideTolerance": 0,
+          "rmsError": 0.000008785750391285984,
+          "worst": {
+            "actual": -0.040496826171875,
+            "channel": 0,
+            "expected": -0.04052735298531453,
+            "texel": [
+              103,
+              222
+            ],
+            "tolerance": 0.00016460941194125812
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00002938324222163252,
+          "meanAbsoluteError": 0.000005744217895061767,
+          "outsideTolerance": 0,
+          "rmsError": 0.000008353390556748708,
+          "worst": {
+            "actual": -0.03460693359375,
+            "channel": 1,
+            "expected": -0.03463631683597163,
+            "texel": [
+              177,
+              73
+            ],
+            "tolerance": 0.00014104526734388657
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000023648430468363457,
+          "meanAbsoluteError": 0.000003960733518240632,
+          "outsideTolerance": 0,
+          "rmsError": 0.000005680466070988584,
+          "worst": {
+            "actual": 0.032470703125,
+            "channel": 2,
+            "expected": 0.03249435155546836,
+            "texel": [
+              154,
+              211
+            ],
+            "tolerance": 0.00013247740622187345
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000001922548695590387,
+          "meanAbsoluteError": 2.362337457842602e-7,
+          "outsideTolerance": 0,
+          "rmsError": 3.958193737205039e-7,
+          "worst": {
+            "actual": 0.0020351409912109375,
+            "channel": 3,
+            "expected": 0.002037063539906528,
+            "texel": [
+              66,
+              42
+            ],
+            "tolerance": 0.000012422381239439168
+          }
+        }
+      ],
+      "domainMetres": 137,
+      "scan": {
+        "maximum": [
+          0.084716796875,
+          0.08404541015625,
+          0.05621337890625,
+          0.0079345703125
+        ],
+        "mean": [
+          -6.032678356859833e-9,
+          2.1272171579767022e-8,
+          1.1702468327712268e-8,
+          0.000624778306701046
+        ],
+        "meanSlopeEnergy": 0.0006245602170230787,
+        "minimum": [
+          -0.073974609375,
+          -0.0887451171875,
+          -0.052520751953125,
+          0
+        ],
+        "negative": [
+          32696,
+          32836,
+          32757,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 65536,
+        "positive": [
+          32840,
+          32700,
+          32779,
+          65525
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.000008001690730452538,
+          "meanClamped": 2.500937171479533e-7,
+          "minimumRaw": -0.00000295788049697876,
+          "negativeBeyondHalfRoundAllowance": 416
+        }
+      },
+      "time": 30000
+    },
+    {
+      "cascade": 2,
+      "cpuComparison": [
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00003045760497126515,
+          "meanAbsoluteError": 0.000003682294971927572,
+          "outsideTolerance": 0,
+          "rmsError": 0.000005723516964664182,
+          "worst": {
+            "actual": 0.0335693359375,
+            "channel": 0,
+            "expected": 0.033599793542471265,
+            "texel": [
+              89,
+              250
+            ],
+            "tolerance": 0.00013689917416988506
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.0001153968752989898,
+          "meanAbsoluteError": 0.000014487787352829982,
+          "outsideTolerance": 0,
+          "rmsError": 0.000021803577579107183,
+          "worst": {
+            "actual": 0.1297607421875,
+            "channel": 1,
+            "expected": 0.129876139062799,
+            "texel": [
+              151,
+              225
+            ],
+            "tolerance": 0.000522004556251196
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000028678385884078897,
+          "meanAbsoluteError": 0.000006967795502517487,
+          "outsideTolerance": 0,
+          "rmsError": 0.00001001225171445167,
+          "worst": {
+            "actual": 0.032745361328125,
+            "channel": 2,
+            "expected": 0.03277403971400908,
+            "texel": [
+              255,
+              0
+            ],
+            "tolerance": 0.00013359615885603633
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00002790745303732356,
+          "meanAbsoluteError": 0.0000011921599693584791,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000025439024740419427,
+          "worst": {
+            "actual": 0.033203125,
+            "channel": 3,
+            "expected": 0.033231032453037324,
+            "texel": [
+              250,
+              86
+            ],
+            "tolerance": 0.00019958619471822396
+          }
+        }
+      ],
+      "domainMetres": 29,
+      "scan": {
+        "maximum": [
+          0.048309326171875,
+          0.193115234375,
+          0.11004638671875,
+          0.04083251953125
+        ],
+        "mean": [
+          -1.5897967386990786e-8,
+          1.0963049135170877e-8,
+          2.6961970434058458e-8,
+          0.0030239398174671805
+        ],
+        "meanSlopeEnergy": 0.0030228779032896716,
+        "minimum": [
+          -0.04718017578125,
+          -0.2012939453125,
+          -0.1036376953125,
+          0
+        ],
+        "negative": [
+          32740,
+          32767,
+          32841,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 65536,
+        "positive": [
+          32795,
+          32769,
+          32695,
+          65535
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.00003814697265625,
+          "meanClamped": 0.0000012136909097765103,
+          "minimumRaw": -0.000027381815016269684,
+          "negativeBeyondHalfRoundAllowance": 95
+        }
+      },
+      "time": 30000
+    },
+    {
+      "cascade": 3,
+      "cpuComparison": [
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000003518009763356887,
+          "meanAbsoluteError": 7.430539775449429e-7,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000010497069928581558,
+          "worst": {
+            "actual": 0.006481170654296875,
+            "channel": 0,
+            "expected": 0.006484688664060232,
+            "texel": [
+              105,
+              77
+            ],
+            "tolerance": 0.000028438754656240928
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.0001159902218739739,
+          "meanAbsoluteError": 0.00002351317190837988,
+          "outsideTolerance": 0,
+          "rmsError": 0.000033539466877658975,
+          "worst": {
+            "actual": -0.12841796875,
+            "channel": 1,
+            "expected": -0.12853395897187395,
+            "texel": [
+              94,
+              99
+            ],
+            "tolerance": 0.0005166358358874959
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.00011364284593193276,
+          "meanAbsoluteError": 0.000014805519976175673,
+          "outsideTolerance": 0,
+          "rmsError": 0.00002156487293285231,
+          "worst": {
+            "actual": 0.1563720703125,
+            "channel": 2,
+            "expected": 0.15648571315843193,
+            "texel": [
+              236,
+              48
+            ],
+            "tolerance": 0.0006284428526337277
+          }
+        },
+        {
+          "count": 256,
+          "maximumAbsoluteError": 0.000029718831140335137,
+          "meanAbsoluteError": 0.0000031777032008651423,
+          "outsideTolerance": 0,
+          "rmsError": 0.0000052338259788453505,
+          "worst": {
+            "actual": 0.045745849609375,
+            "channel": 3,
+            "expected": 0.045775568440515335,
+            "texel": [
+              195,
+              45
+            ],
+            "tolerance": 0.00027485341064309205
+          }
+        }
+      ],
+      "domainMetres": 5.3,
+      "scan": {
+        "maximum": [
+          0.01212310791015625,
+          0.302978515625,
+          0.200439453125,
+          0.09393310546875
+        ],
+        "mean": [
+          3.376953827682882e-9,
+          1.0402527550468221e-7,
+          5.742549546994269e-9,
+          0.008097155130599276
+        ],
+        "meanSlopeEnergy": 0.008094291258993917,
+        "minimum": [
+          -0.01195526123046875,
+          -0.29248046875,
+          -0.211669921875,
+          0
+        ],
+        "negative": [
+          32753,
+          32946,
+          32736,
+          0
+        ],
+        "nonFinite": 0,
+        "pixels": 65536,
+        "positive": [
+          32781,
+          32590,
+          32800,
+          65535
+        ],
+        "variance": {
+          "allowance": "2e-8 + 0.003 * max(storedSlopeSquared, squaredStoredGradient, 1e-7)",
+          "maximumRaw": 0.0001263022422790527,
+          "meanClamped": 0.000003255785484290155,
+          "minimumRaw": -0.00003007892519235611,
+          "negativeBeyondHalfRoundAllowance": 46
+        }
+      },
+      "time": 30000
+    }
+  ],
+  "passed": false,
+  "preexistingGlErrors": [],
+  "restoration": {
+    "activeSpectrumUnchanged": true,
+    "ownedResourcesDisposed": true,
+    "rendererStateRestored": true
+  },
+  "shaderErrors": []
+}

@@ -1,0 +1,1761 @@
+{
+  "state": {
+    "ready": true,
+    "time": 0.07929999999701977,
+    "fps": 0,
+    "gpuMs": 95.495,
+    "renderScale": 1,
+    "graphicsContextInterrupted": false,
+    "pausedRenderCached": true,
+    "pausedSteadyFrames": 196225,
+    "parameters": {
+      "sun": {
+        "azimuth": 100,
+        "elevation": 48,
+        "intensity": 1
+      },
+      "quality": "high",
+      "paused": true,
+      "sound": false,
+      "wind": 1.8,
+      "current": 0.16,
+      "lens": {
+        "focal": 28,
+        "aperture": 8,
+        "exposure": 0,
+        "dof": false,
+        "vignette": true,
+        "antialias": "smaa",
+        "automatic": false,
+        "manualExposureEV": 0,
+        "temporal": true,
+        "glintAA": true,
+        "opticalBloom": true,
+        "opticalFlare": false,
+        "focusMode": "target",
+        "focusDistance": 60
+      },
+      "weather": {
+        "humidity": 0.68,
+        "temperature": 29,
+        "cloudBase": "auto",
+        "thickness": 950,
+        "coverage": 0.35,
+        "shear": 1.1
+      },
+      "air": {
+        "enabled": true,
+        "aerosolScale": 8,
+        "shadows": true
+      },
+      "graphics": {
+        "indirect": "low",
+        "shadows": "recommended",
+        "targetFps": 60,
+        "hdr": true,
+        "hdrMode": "auto",
+        "displayName": "auto",
+        "systemCalibration": true,
+        "peakNits": 1270,
+        "paperWhiteNits": 280,
+        "displayTransform": "legacy",
+        "waveResolution": 512,
+        "hdrHeadroom": 4
+      },
+      "sea": {
+        "swellHeight": 0.16,
+        "windSea": 1,
+        "clarity": 0.9
+      },
+      "director": {
+        "mode": "off",
+        "periodSeconds": 240
+      },
+      "qualityPreset": "medium",
+      "renderSampling": {
+        "indirect": "low",
+        "antialias": "smaa",
+        "temporal": true,
+        "glintAA": true,
+        "opticalBloom": true,
+        "dprCap": 1.65,
+        "msaaSamples": 8,
+        "shadowSize": 4096,
+        "shadowHz": 45,
+        "waveResolution": 512,
+        "cloudSteps": 64,
+        "atmosphereSteps": 8,
+        "airSteps": 6,
+        "airShadowTaps": 1,
+        "causticsGrid": 1280,
+        "causticsSize": 1536,
+        "causticsHz": 24,
+        "reflectionScale": 1,
+        "reflectionSamples": 2
+      },
+      "qualityCustom": false
+    },
+    "lens": {
+      "displayTransform": {
+        "kind": "hdr",
+        "requested": true,
+        "effective": "legacy",
+        "reason": "render-declined",
+        "error": null,
+        "adapter": {
+          "requested": "legacy",
+          "preparation": {
+            "status": "idle",
+            "reason": "selected-legacy",
+            "peakNits": 1270,
+            "error": null
+          },
+          "sdr": {
+            "effective": "none",
+            "peakNits": 100,
+            "reason": "awaiting-render",
+            "error": null
+          },
+          "hdr": {
+            "effective": "legacy",
+            "peakNits": 1270,
+            "reason": "selected-legacy",
+            "error": null
+          },
+          "variant": "aces2-ocio26-accurate-atan-v1",
+          "supportedTargets": [
+            100,
+            700,
+            1270
+          ],
+          "preparablePeakRange": {
+            "min": 100,
+            "max": 10000,
+            "integerOnly": true
+          },
+          "lastError": null,
+          "revision": 1,
+          "disposed": false,
+          "frames": {
+            "sdr": 0,
+            "hdr": 0
+          },
+          "fallbackFrames": {
+            "sdr": 0,
+            "hdr": 45
+          },
+          "output": null
+        }
+      },
+      "storageEV": 12.25,
+      "historyEV": 12.25,
+      "dynamicLighting": false,
+      "sceneAttachments": [
+        "RGBA16F radiance",
+        "RGBA16F motion/coverage",
+        "R16F foliage depth",
+        "R8 local reactive"
+      ],
+      "motion": {
+        "enabled": true,
+        "frames": 46,
+        "groups": 1,
+        "hasPrevious": true,
+        "extraScenePasses": 0,
+        "attachment": "RGBA16F: unjittered UV velocity.xy, previous linear depth, MSAA coverage; R16F: current linear depth; normalize both by coverage",
+        "limits": [
+          "analytic rest-mesh wind and camera motion only; no arbitrary model-matrix animation",
+          "missing-coverage bridge retains conservative camera-only fallback"
+        ]
+      },
+      "bloom": {
+        "enabled": true,
+        "bloom": true,
+        "flare": false,
+        "strength": 0.018,
+        "budget": {
+          "direct": 0.982,
+          "bloom": 0.018,
+          "ghost": 0,
+          "veil": 0,
+          "total": 0.018
+        },
+        "levels": 4,
+        "passes": 5,
+        "operatorPeakBoundRGB": [
+          1,
+          1,
+          1
+        ],
+        "model": "single threshold-free linear HDR PSF; opt-in affine ghost/veil share at most 1.8% radiance redistribution",
+        "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+      },
+      "hdr": {
+        "enabled": true,
+        "available": true,
+        "apiAvailable": true,
+        "displayHDR": true,
+        "mode": "float-canvas-external-copy",
+        "width": 1209,
+        "height": 1292,
+        "maxHz": 120,
+        "maxBridgeWidth": 1440,
+        "paperWhiteNits": 280,
+        "peakNits": 1270,
+        "sdrWhiteNits": 280,
+        "headroom": 4.535714285714286,
+        "whiteScale": 1,
+        "calibrationSource": "windows-dxgi",
+        "displayName": "Q27G4XM",
+        "calibrationAdjustments": [],
+        "presentedFrames": 45,
+        "skippedFrames": 1,
+        "lastPresentCpuMs": 0.19999998807907104,
+        "lastUploadCpuMs": 0,
+        "lastPresentationTimestamp": 8727.60000000894,
+        "errors": [],
+        "requiresRedraw": false,
+        "readback": null,
+        "presentationObserverActive": false,
+        "presentationObserverError": null,
+        "displayTransform": {
+          "kind": "hdr",
+          "requested": true,
+          "effective": "legacy",
+          "reason": "render-declined",
+          "error": null,
+          "adapter": {
+            "requested": "legacy",
+            "preparation": {
+              "status": "idle",
+              "reason": "selected-legacy",
+              "peakNits": 1270,
+              "error": null
+            },
+            "sdr": {
+              "effective": "none",
+              "peakNits": 100,
+              "reason": "awaiting-render",
+              "error": null
+            },
+            "hdr": {
+              "effective": "legacy",
+              "peakNits": 1270,
+              "reason": "selected-legacy",
+              "error": null
+            },
+            "variant": "aces2-ocio26-accurate-atan-v1",
+            "supportedTargets": [
+              100,
+              700,
+              1270
+            ],
+            "preparablePeakRange": {
+              "min": 100,
+              "max": 10000,
+              "integerOnly": true
+            },
+            "lastError": null,
+            "revision": 1,
+            "disposed": false,
+            "frames": {
+              "sdr": 0,
+              "hdr": 0
+            },
+            "fallbackFrames": {
+              "sdr": 0,
+              "hdr": 45
+            },
+            "output": null
+          }
+        },
+        "source": "pre-OutputPass, scene-linear sRGB floating-point target",
+        "output": "sRGB-encoded rgba16float, extended, opaque",
+        "noExplicitCPUReadback": true,
+        "absoluteNitsCalibrated": false,
+        "systemReportedCalibration": true,
+        "peakRelativeToBrowserWhite": 4.535714285714286,
+        "shoulder": "same fitted SDR ACES anchor through exposed peak 1; C1 bounded highlight extension; nit scale divided by browser/Windows SDR white",
+        "limits": "System-reported luminance is not a photometer measurement and scene lux is not calibrated. This is not an official ACES HDR ODT. Extended sRGB canvas is not a native 80-nit scRGB swap chain. External-image copy is not guaranteed zero-copy. PBO copies pixels through CPU. HDR enlargement is linear, not SDR FSR1."
+      },
+      "width": 1209,
+      "height": 1292,
+      "outputWidth": 1209,
+      "outputHeight": 1292,
+      "upscaler": "native resolution",
+      "samples": 8,
+      "maxSamples": 8,
+      "sampleSupport": [
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ]
+      ],
+      "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+      "temporal": {
+        "enabled": true,
+        "active": true,
+        "waterEnabled": true,
+        "stillFrames": 43,
+        "frozen": true,
+        "historyFrames": 24,
+        "historyWeight": 0.84,
+        "artificialJitter": false,
+        "jitterPixels": [
+          0,
+          0
+        ],
+        "lastResetReason": "firework illumination",
+        "scope": "analytic wind/camera foliage motion, MSAA coverage, independent short water radiance history",
+        "maximumMissingCoverageFrames": 2,
+        "metadata": "R8 age; nearest valid depth, bilinear RGB",
+        "historyBytes": 28116504
+      },
+      "shutterSeconds": 0.008333333333333333,
+      "focalMm": 28,
+      "cameraFocalMm": 27.999999999999993,
+      "verticalFovDegrees": 65.4704525442152,
+      "exposureScale": 2.556325102371292,
+      "aperture": 8,
+      "focusMode": "target",
+      "focusMetres": 476.5178374998543,
+      "sensorHeightMm": 36,
+      "depthOfField": false,
+      "vignette": true,
+      "sceneStats": {
+        "triangles": 2137210,
+        "calls": 35
+      }
+    },
+    "caustics": {
+      "quality": "high",
+      "gridSegments": 1280,
+      "maxHz": 24
+    },
+    "performance": {
+      "enabled": false,
+      "targetFps": 60,
+      "referenceBudgetMs": 16.666666666666668,
+      "scale": 1,
+      "minimumScale": 0.6,
+      "smoothedCostMs": null,
+      "lastGpuMs": null,
+      "slowFrameFraction": 0,
+      "changes": []
+    },
+    "camera": [
+      -157.6425659120671,
+      11.999999999999947,
+      -367.0586520111614
+    ],
+    "target": [
+      110.01852283013451,
+      0,
+      27.000722993261995
+    ],
+    "ripples": [
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ]
+    ],
+    "triangles": 2137210,
+    "drawCalls": 35,
+    "leaves": []
+  },
+  "celestial": {
+    "utcMs": 1786629600000,
+    "date": "2026-08-13T14:00:00.000Z",
+    "observer": {
+      "latitudeDeg": 4.5,
+      "longitudeDeg": 118.6,
+      "heightM": 2,
+      "northYawDeg": 0
+    },
+    "mode": "astronomical",
+    "refraction": "standard",
+    "rate": 1,
+    "running": false,
+    "timeZoneOffsetMinutes": 480,
+    "sun": {
+      "direction": [
+        -0.5249567118995889,
+        -0.7901894077745367,
+        -0.31626120608209124
+      ],
+      "geometricDirection": [
+        -0.5217303608122683,
+        -0.7930964314249236,
+        -0.3143174845085009
+      ],
+      "altitudeDeg": -52.20321546712672,
+      "geometricAltitudeDeg": -52.47582673954013,
+      "azimuthDeg": 301.06694451969213,
+      "distanceAU": 1.013183738932362,
+      "angularRadius": 0.004589970615904144
+    },
+    "moon": {
+      "direction": [
+        -0.6722060607615179,
+        -0.7017571671213764,
+        -0.23595739079177716
+      ],
+      "geometricDirection": [
+        -0.6684082024582462,
+        -0.7058200389715212,
+        -0.23462426872081327
+      ],
+      "altitudeDeg": -44.56815232234212,
+      "geometricAltitudeDeg": -44.89583188441512,
+      "azimuthDeg": 289.34206463642346,
+      "distanceAU": 0.0025039949981149664,
+      "angularRadius": 0.0046381256012219246
+    },
+    "sunDirection": [
+      -0.5249567118995889,
+      -0.7901894077745367,
+      -0.31626120608209124
+    ],
+    "moonDirection": [
+      -0.6722060607615179,
+      -0.7017571671213764,
+      -0.23595739079177716
+    ],
+    "sunGeometricDirection": [
+      -0.5217303608122683,
+      -0.7930964314249236,
+      -0.3143174845085009
+    ],
+    "moonGeometricDirection": [
+      -0.6684082024582462,
+      -0.7058200389715212,
+      -0.23462426872081327
+    ],
+    "angularRadii": {
+      "sun": 0.004589970615904144,
+      "moon": 0.0046381256012219246
+    },
+    "worldToEquatorialColumns": [
+      [
+        0.9380079230941737,
+        0.34660512433183044,
+        -0.002454383725330086
+      ],
+      [
+        0.34573994144311165,
+        -0.9351170839091515,
+        0.07758822250933668
+      ],
+      [
+        0.02459733935750962,
+        -0.07362694593802599,
+        -0.9969824691178728
+      ]
+    ],
+    "moonNorth": [
+      -0.11985822160546641,
+      0.42880641568124256,
+      -0.8954099980367543
+    ],
+    "moonSunDirection": [
+      -0.5213439894790797,
+      -0.7932777079209018,
+      -0.31450106955270873
+    ],
+    "moonPhase": 0.009803503328842778,
+    "moonPhaseAngleRadians": 2.9432423763500433,
+    "moonMagnitude": -5.15970926843516,
+    "moonSourceRatio": 2.0431788681608914e-9,
+    "moonLibrationRadians": [
+      0.08753448364848265,
+      0.005680622831542095
+    ],
+    "physicalSkyRevision": 3,
+    "epochJulianYear": 2026.6148756559435,
+    "coordinates": "+X east,+Y up,-Z north; geographic azimuth north clockwise; worldToEQJ applies inverse heading; standard refraction is Astronomy Engine normal",
+    "interpolation": {
+      "utcSpanSeconds": 30,
+      "continuous": true,
+      "moonAndSun": "normalized vector interpolation between exact topocentric endpoints",
+      "rotation": "exact current-UTC Astronomy Engine transform"
+    },
+    "diagnostics": {
+      "updates": 196231,
+      "ephemerisCalls": 6
+    },
+    "limits": [
+      "Astronomy Engine nominal arcminute-class; not a measurement-grade ephemeris",
+      "standard refraction uses a prescribed atmosphere, not current humidity sounding",
+      "historical UTC/UT1 and proper motion are approximations"
+    ]
+  },
+  "localLights": {
+    "mode": "night",
+    "linked": false,
+    "lamps": [
+      {
+        "enabled": true,
+        "brightness": 0.45,
+        "color": "#ffdfa5"
+      },
+      {
+        "enabled": true,
+        "brightness": 0.45,
+        "color": "#ffdfa5"
+      },
+      {
+        "enabled": true,
+        "brightness": 0.45,
+        "color": "#ffdfa5"
+      }
+    ],
+    "flashlight": {
+      "enabled": false,
+      "brightness": 0.7
+    },
+    "layout": "triangle around the cay",
+    "fixture": {
+      "heightMetres": 0.173,
+      "diameterMetres": 0.13,
+      "emission": "unshielded spherical diffuser; omnidirectional point-light approximation"
+    },
+    "rawReference": 0.000036,
+    "shadowSize": 1024,
+    "shadowHz": 45,
+    "active": 3,
+    "lights": [
+      {
+        "id": 0,
+        "type": "point",
+        "position": [
+          -21,
+          0.709387901912434,
+          5.3
+        ],
+        "direction": [
+          0,
+          0,
+          0
+        ],
+        "candela": 29.25,
+        "rawRGB": [
+          0.0010530000000000001,
+          0.0007770196604318949,
+          0.00039620401549842946
+        ],
+        "radius": 0.065
+      },
+      {
+        "id": 1,
+        "type": "point",
+        "position": [
+          18,
+          0.7312298412598459,
+          5.3
+        ],
+        "direction": [
+          0,
+          0,
+          0
+        ],
+        "candela": 29.25,
+        "rawRGB": [
+          0.0010530000000000001,
+          0.0007770196604318949,
+          0.00039620401549842946
+        ],
+        "radius": 0.065
+      },
+      {
+        "id": 2,
+        "type": "point",
+        "position": [
+          -1.5,
+          0.9182470070781804,
+          -13.7
+        ],
+        "direction": [
+          0,
+          0,
+          0
+        ],
+        "candela": 29.25,
+        "rawRGB": [
+          0.0010530000000000001,
+          0.0007770196604318949,
+          0.00039620401549842946
+        ],
+        "radius": 0.065
+      },
+      {
+        "id": 3,
+        "type": "spot",
+        "position": [
+          -157.7435672185523,
+          11.837481731205862,
+          -366.8691991293924
+        ],
+        "direction": [
+          0.5617021393082342,
+          -0.02518268794083415,
+          0.8269561892413816
+        ],
+        "candela": 0,
+        "rawRGB": [
+          0,
+          0,
+          0
+        ],
+        "radius": 0.025
+      },
+      {
+        "id": 4,
+        "type": "point",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "direction": [
+          0,
+          0,
+          0
+        ],
+        "candela": 0,
+        "rawRGB": [
+          0,
+          0,
+          0
+        ],
+        "radius": 5
+      },
+      {
+        "id": 5,
+        "type": "point",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "direction": [
+          0,
+          0,
+          0
+        ],
+        "candela": 0,
+        "rawRGB": [
+          0,
+          0,
+          0
+        ],
+        "radius": 5
+      }
+    ],
+    "frameStorageEV": 12.25
+  },
+  "fireworks": {
+    "time": 0.07929999999701977,
+    "active": 0,
+    "queued": 0,
+    "launches": 0,
+    "rejected": 0,
+    "skippedAutomatic": 0,
+    "maxActive": 4,
+    "maxQueued": 16,
+    "launchPolicy": "immediate",
+    "lastLaunch": null,
+    "settings": {
+      "type": "peony",
+      "autoLaunch": false,
+      "autoDirection": true,
+      "azimuth": 110,
+      "elevation": 78,
+      "autoFrame": false,
+      "persistentSmoke": true,
+      "cloudIllumination": true,
+      "resolvedSmokeLighting": true,
+      "intensityScale": 1,
+      "intervalSeconds": 7.5,
+      "launchSpreadDegrees": 15,
+      "burstTiltDegrees": 27,
+      "burstRollDegrees": 20,
+      "starDragModel": "bounded-descent",
+      "clusterModel": "moments",
+      "finiteClusterPhase": true,
+      "effectProfile": "legacy"
+    },
+    "windSegments": 2,
+    "activeEvents": [],
+    "model": "analytic linear-drag segments; deterministic world-space events; authored reference photometry, not CFD",
+    "capacityPolicy": "complete events, immediate acceptance or explicit rejection; automatic full slots skip without queue",
+    "clusterModel": "moments",
+    "clusterIlluminationModel": "spatial-moment finite-radius point proxy; not exact area emission",
+    "records": 0,
+    "contactSupport": {
+      "currentQueries": 0,
+      "surfaceQueries": 0,
+      "viewQueries": 0,
+      "fastAbove": 0,
+      "planeSolves": 0,
+      "boundedSolves": 0,
+      "partialRows": 0,
+      "emptyRows": 0,
+      "maximumIntervals": 0,
+      "maximumUnresolvedSeconds": 0,
+      "evaluations": 0,
+      "surface": "glass-atoll.atoll-air-surface.v1",
+      "clearanceMetres": 0.03,
+      "scope": "air-source centre support over static terrain/mean sea; finite root brackets; smoke and material unchanged"
+    },
+    "lastRender": {
+      "instances": 0,
+      "reflection": false,
+      "time": 0.07929999999701977,
+      "rendered": false,
+      "skipped": true,
+      "storageEV": 12.25,
+      "rawPerCandela": 0.000036,
+      "width": 1209,
+      "height": 1292,
+      "mediumQueries": 0,
+      "sourceTransmission": {
+        "backend": "none",
+        "requested": true,
+        "effective": false,
+        "reason": "no-source-records",
+        "mediumQueries": 0,
+        "instances": 0,
+        "activeRayCount": 0,
+        "sourceVersion": null,
+        "recordsGeneration": 5,
+        "densityRevision": null,
+        "cameraKey": null,
+        "reflection": false
+      },
+      "sourceVisibility": {
+        "mode": "conservative",
+        "inputRecords": 0,
+        "luminousSources": 0,
+        "depthCulled": 0,
+        "quadCulled": 0,
+        "conservativeRetained": 0,
+        "mediumQueries": 0,
+        "renderedRecords": 0
+      }
+    },
+    "lastRenderByView": {
+      "main": {
+        "instances": 0,
+        "reflection": false,
+        "time": 0.07929999999701977,
+        "rendered": false,
+        "skipped": true,
+        "storageEV": 12.25,
+        "rawPerCandela": 0.000036,
+        "width": 1209,
+        "height": 1292,
+        "mediumQueries": 0,
+        "sourceTransmission": {
+          "backend": "none",
+          "requested": true,
+          "effective": false,
+          "reason": "no-source-records",
+          "mediumQueries": 0,
+          "instances": 0,
+          "activeRayCount": 0,
+          "sourceVersion": null,
+          "recordsGeneration": 5,
+          "densityRevision": null,
+          "cameraKey": null,
+          "reflection": false
+        },
+        "sourceVisibility": {
+          "mode": "conservative",
+          "inputRecords": 0,
+          "luminousSources": 0,
+          "depthCulled": 0,
+          "quadCulled": 0,
+          "conservativeRetained": 0,
+          "mediumQueries": 0,
+          "renderedRecords": 0
+        }
+      },
+      "reflection": {
+        "instances": 0,
+        "reflection": true,
+        "time": 0.07929999999701977,
+        "rendered": false,
+        "skipped": true,
+        "storageEV": 12.25,
+        "rawPerCandela": 0.000036,
+        "width": 1209,
+        "height": 1292,
+        "mediumQueries": 0,
+        "sourceTransmission": {
+          "backend": "none",
+          "requested": true,
+          "effective": false,
+          "reason": "no-source-records",
+          "mediumQueries": 0,
+          "instances": 0,
+          "activeRayCount": 0,
+          "sourceVersion": null,
+          "recordsGeneration": 5,
+          "densityRevision": null,
+          "cameraKey": null,
+          "reflection": true
+        },
+        "sourceVisibility": {
+          "mode": "conservative",
+          "inputRecords": 0,
+          "luminousSources": 0,
+          "depthCulled": 0,
+          "quadCulled": 0,
+          "conservativeRetained": 0,
+          "mediumQueries": 0,
+          "renderedRecords": 0
+        }
+      }
+    },
+    "quality": {
+      "trailSegments": 8
+    },
+    "opticalCapacity": 14000,
+    "physicalLedgerCapacity": 14000,
+    "radianceBound": {
+      "maximumRawRadiance": 0,
+      "maxRawRadiance": 0,
+      "globalFiniteSurfaceCeiling": 0,
+      "globalReferenceOnly": true,
+      "ownSmokeRawBound": 0,
+      "maximumEmissionRGBChannel": 0,
+      "visibleSources": 0,
+      "nearPlaneFallbackSources": 0,
+      "method": "32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers",
+      "conservative": true
+    },
+    "warnings": [],
+    "units": "reference cd + approximate emission RGB, linear scene reference once *2^storageEV; not measured pyrotechnic photometry",
+    "renderer": "independent instanced premult effects, four-segment finite air; water-hit reflection origin; sorted short segments",
+    "tailIntegration": {
+      "spatialSamples": "positive adaptive N/N+1",
+      "requested": "adaptive",
+      "effective": "awaiting-render",
+      "mode": "adaptive",
+      "estimates": null,
+      "shutter": "<=1px: trace-preserving isotropic variance; >1px:3-point independent quadrature",
+      "kernelEvaluations": "upper limits256 local spatial evaluations /768 with large shutter; projected counters are CPU estimates, not actual GPU execution counts",
+      "extraPasses": 0
+    },
+    "limits": [
+      "linear drag/burn model; no chemical or shock/fluid solve",
+      "grey smoke thin sprites; centre-depth sorting and shared near-air visibility approximation",
+      "resolved opaque depth/defocus occlusion approximation; root owns one shared bloom/vignette",
+      "subpixel tail shutter variance is a bounded angular approximation, not exact time-space convolution",
+      "star/cross-spectrum RGB is approximate CIE fit + authored bands and gamut compression"
+    ],
+    "lightingField": {
+      "requestedEnabled": true,
+      "effective": false,
+      "supported": true,
+      "reason": "disabled",
+      "requiredPairs": 0,
+      "maxBakePairs": 1048576,
+      "reused": false,
+      "hidden": false,
+      "awaitingSmoke": true
+    },
+    "bounds": {
+      "centre": [
+        29,
+        0.6570756417647985,
+        7
+      ],
+      "center": [
+        29,
+        0.6570756417647985,
+        7
+      ],
+      "radius": 2,
+      "min": [
+        28,
+        -0.3429243582352015,
+        6
+      ],
+      "max": [
+        30,
+        1.6570756417647985,
+        8
+      ],
+      "active": false
+    },
+    "audio": {
+      "scheduled": 0,
+      "discarded": 0,
+      "recordedPlays": 0,
+      "synthesizedPlays": 0,
+      "activeVoices": 0,
+      "outputReady": false,
+      "recordingLoaded": false,
+      "recordingDuration": 0,
+      "relativeBurstGain": 12,
+      "postCompressorHeadroomGain": 0.7,
+      "compressorAttackSeconds": 0.0005,
+      "source": {
+        "title": "Single Firework",
+        "author": "richwise",
+        "source": "https://freesound.org/people/richwise/sounds/455453/",
+        "license": "CC0 1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "file": "./assets/audio/fireworks/burst-richwise-preview-mono.ogg",
+        "kind": "real recording, trimmed mono from compressed public HQ preview",
+        "subjectiveReview": "not performed by agent; listening acceptance pending"
+      },
+      "loadError": null,
+      "lastArrival": null,
+      "spatial": "HRTF; inverse pressure-distance once in PannerNode; temperature-dependent propagation delay",
+      "limits": [
+        "real compressed preview recording; subjective background/timbre listening pending",
+        "launch/crackle and failed-load burst explicitly synthesized",
+        "fixed listener at emission scheduling; moving receiver sound-cone not solved",
+        "distance lowpass is an approximation; no absolute sound-pressure calibration",
+        "linear post-compressor headroom lowers all pyro SFX3.10dB; not an arbitrary-source peak limiter"
+      ]
+    }
+  },
+  "interface": {
+    "sun": {
+      "azimuth": 100,
+      "elevation": 48,
+      "intensity": 1
+    },
+    "view": "shore",
+    "quality": "medium",
+    "paused": true,
+    "sound": false,
+    "hidden": false,
+    "director": {
+      "mode": "off",
+      "periodSeconds": 240
+    },
+    "qualityState": {
+      "requested": "medium",
+      "effective": {
+        "indirect": "low",
+        "antialias": "smaa",
+        "temporal": true,
+        "glintAA": true,
+        "opticalBloom": true,
+        "dprCap": 1.65,
+        "msaaSamples": 8,
+        "shadowSize": 4096,
+        "shadowHz": 45,
+        "waveResolution": 512,
+        "cloudSteps": 64,
+        "atmosphereSteps": 8,
+        "airSteps": 6,
+        "airShadowTaps": 1,
+        "causticsGrid": 1280,
+        "causticsSize": 1536,
+        "causticsHz": 24,
+        "reflectionScale": 1,
+        "reflectionSamples": 2
+      },
+      "custom": false,
+      "limits": []
+    },
+    "time": {
+      "utcMs": 1786629600000,
+      "rate": 1,
+      "running": false,
+      "mode": "astronomical",
+      "timeZoneOffsetMinutes": 480,
+      "observer": {
+        "latitude": 4.5,
+        "longitude": 118.6,
+        "height": 2
+      },
+      "preset": null
+    },
+    "lamps": {
+      "mode": "night",
+      "linked": false,
+      "selected": 0,
+      "lamps": [
+        {
+          "enabled": true,
+          "brightness": 0.45,
+          "color": "#ffdfa5"
+        },
+        {
+          "enabled": true,
+          "brightness": 0.45,
+          "color": "#ffdfa5"
+        },
+        {
+          "enabled": true,
+          "brightness": 0.45,
+          "color": "#ffdfa5"
+        }
+      ]
+    },
+    "flashlight": {
+      "enabled": false,
+      "brightness": 0.7
+    },
+    "fireworks": {
+      "type": "peony",
+      "autoLaunch": false,
+      "autoDirection": true,
+      "azimuth": 110,
+      "elevation": 78,
+      "autoFrame": false,
+      "persistentSmoke": true,
+      "cloudIllumination": true,
+      "resolvedSmokeLighting": true,
+      "intensityScale": 1,
+      "intervalSeconds": 7.5,
+      "launchSpreadDegrees": 15,
+      "burstTiltDegrees": 27,
+      "burstRollDegrees": 20,
+      "gpuTransmission": {
+        "requested": true,
+        "available": true,
+        "effective": false,
+        "idle": true,
+        "reason": "not-prepared"
+      },
+      "lightFieldStatus": {
+        "requestedEnabled": true,
+        "effective": false,
+        "supported": true,
+        "reason": "disabled",
+        "requiredPairs": 0,
+        "maxBakePairs": 1048576,
+        "reused": false,
+        "hidden": false,
+        "awaitingSmoke": true
+      },
+      "effectProfile": "legacy"
+    },
+    "wind": 1.8,
+    "current": 0.16,
+    "sea": {
+      "swellHeight": 0.16,
+      "windSea": 1,
+      "clarity": 0.9
+    },
+    "graphics": {
+      "indirect": "low",
+      "shadows": "recommended",
+      "targetFps": 60,
+      "hdr": true,
+      "hdrHeadroom": 4,
+      "hdrMode": "auto",
+      "displayTransform": "legacy",
+      "displayName": "auto",
+      "systemCalibration": true,
+      "peakNits": 1270,
+      "paperWhiteNits": 280,
+      "waveResolution": 512
+    },
+    "displayTransformState": {
+      "requested": "legacy",
+      "preparation": {
+        "status": "idle",
+        "reason": "selected-legacy",
+        "peakNits": 1270,
+        "error": null
+      },
+      "sdr": {
+        "effective": "none",
+        "peakNits": 100,
+        "reason": "awaiting-render",
+        "error": null
+      },
+      "hdr": {
+        "effective": "legacy",
+        "peakNits": 1270,
+        "reason": "selected-legacy",
+        "error": null
+      },
+      "variant": "aces2-ocio26-accurate-atan-v1",
+      "supportedTargets": [
+        100,
+        700,
+        1270
+      ],
+      "preparablePeakRange": {
+        "min": 100,
+        "max": 10000,
+        "integerOnly": true
+      },
+      "lastError": null,
+      "revision": 1,
+      "disposed": false,
+      "frames": {
+        "sdr": 0,
+        "hdr": 0
+      },
+      "fallbackFrames": {
+        "sdr": 0,
+        "hdr": 45
+      },
+      "output": null
+    },
+    "weather": {
+      "humidity": 0.68,
+      "temperature": 29,
+      "cloudBase": "auto",
+      "thickness": 950,
+      "coverage": 0.35,
+      "shear": 1.1
+    },
+    "air": {
+      "enabled": true,
+      "aerosolScale": 8,
+      "shadows": true
+    },
+    "lens": {
+      "focal": 28,
+      "aperture": 8,
+      "exposure": 0,
+      "dof": false,
+      "vignette": true,
+      "antialias": "smaa",
+      "automatic": false,
+      "temporal": true,
+      "glintAA": true,
+      "opticalBloom": true,
+      "opticalFlare": false,
+      "focusMode": "target",
+      "focusDistance": 476.5178374998543,
+      "manualExposureEV": 0
+    },
+    "night": {
+      "date": "2026-08-13T22:00:00",
+      "autoExposure": true
+    },
+    "panelOpen": true,
+    "viewsOpen": false,
+    "activeCategory": "fireworks",
+    "statsVisible": true,
+    "stats": {
+      "fps": 0,
+      "gpuMs": 95.495,
+      "paused": true,
+      "status": "ready",
+      "renderScale": 1
+    }
+  },
+  "smoke": {
+    "requestedPhysicalTime": 0.07929999999701977,
+    "committedPhysicalTime": 0.05,
+    "behindSeconds": 0.029299999997019766,
+    "state": {
+      "version": "pyro-smoke-state-v1",
+      "time": 0.05,
+      "requestedTime": 0.07929999999701977,
+      "revision": 0,
+      "packetCount": 0,
+      "capacity": 4096,
+      "peakPacketCount": 0,
+      "pendingEmissions": 0,
+      "pendingWindEvents": 0,
+      "profileCount": 1,
+      "acceptedSources": 0,
+      "lastEmissionId": -1,
+      "totalTickSteps": 1,
+      "lastAdvanceSteps": 0,
+      "fixedStep": 0.05,
+      "maxStepsPerAdvance": 200,
+      "ledger": {
+        "emitted": 0,
+        "airborne": 0,
+        "pendingMass": 0,
+        "residual": 0,
+        "deposited": 0,
+        "escaped": 0,
+        "explicitlyCleared": 0
+      },
+      "merges": 0,
+      "forcedMerges": 0,
+      "preferredSameSourceMerges": 0,
+      "preferredSameProfileMerges": 0,
+      "maximumMergeDistanceMetres": 0,
+      "maximumMergeNormalizedDistance": 0,
+      "maximumSampledMergePeakRelativeError": 0,
+      "maximumSampledMergeColumnRelativeError": 0,
+      "maximumSampledMergeOpticalDepthError": 0,
+      "recentMerges": [],
+      "units": "relative dry mass; metres; physical seconds; authored m2/reference-mass optical profiles. NOT calibrated kg/PM.",
+      "limits": [
+        "no age deletion; no deposition/domain/RH chemistry implemented",
+        "uniform piecewise-held wind and prescribed thermal/diffusion surrogate; no Navier-Stokes or shear",
+        "same-profile capacity merges conserve instantaneous spatial moments; no velocity/thermal variance or position-velocity cross covariance, so future heterogeneous thermal separation is not preserved",
+        "sampled peak/column diagnostics are not global optical bounds; differential-thermal-travel gate only limits preferred merges",
+        "forcedMerges signal visual approximation, not an accepted appearance",
+        "no camera/P/C/UTC or renderer dependency",
+        "erf columns have finite numerical approximation error; not an unbiased ray renderer",
+        "pending queues, profiles and recent merge log are bounded; no retained old source/active-event archive"
+      ]
+    },
+    "events": {
+      "version": "pyro-smoke-trajectory-v1",
+      "releaseErrors": 0,
+      "lastReleaseError": null,
+      "sourceModel": "trajectory-v1",
+      "revision": 196231,
+      "epoch": 0,
+      "closedThrough": 0.07929999999701977,
+      "nextEmissionId": 0,
+      "nextSerial": 0,
+      "registeredEvents": 0,
+      "emissionsLifetime": 0,
+      "materializedArea": 0,
+      "allocatedArea": 0,
+      "reservedArea": 0,
+      "cancelledReservedArea": 0,
+      "accountingResidual": 0,
+      "pendingEvents": 0,
+      "pendingPlans": 0,
+      "rememberedEventKeys": 0,
+      "tombstones": 0,
+      "duplicates": 0,
+      "staleEvents": 0,
+      "clears": 0,
+      "clearedEventRecords": 0,
+      "queueCapacity": 8192,
+      "maxPendingEvents": 128,
+      "maxPendingPlans": 2048,
+      "maxRememberedEvents": 2048,
+      "fault": null,
+      "recentSources": [],
+      "parameters": {
+        "burstArea": 20,
+        "launchArea": 0.35,
+        "fanLaunchArea": 0.1,
+        "bouquetLaunchArea": 2,
+        "centralFraction": 0.2,
+        "trajectorySlots": 12,
+        "releaseAges": [
+          0.35,
+          0.65
+        ],
+        "centrePackets": 3,
+        "launchPackets": 9
+      },
+      "limits": [
+        "authored reference material, not measured kg/PM or per-star yield",
+        "3centre+12root+9launch=24 aerial kernels; fan retains81 and bouquet9",
+        "root-only sparse deposition0.35/0.65s; no child/long-burn continuous source solve",
+        "all future reservations have clocks/matter/IDs of logical roots but no world positions or emission IDs",
+        "future source model changes require a fresh host/explicit epoch protocol; legacy9 is a separate unchanged branch",
+        "provider must retain active descriptor and causal wind until due; absent/pruned sources reject without retiming",
+        "predictable input/provider/capacity failures are pre-commit; unexpected queue failures fault-lock and disclose partial acceptance"
+      ]
+    },
+    "sourceModel": "trajectory-v1",
+    "cancelledReservedArea": 0,
+    "columns": {
+      "sourceTime": 0,
+      "sourceRevision": 0,
+      "columnKernel": "scalar",
+      "columnOriginCache": false,
+      "packetCount": 0,
+      "profileCount": 1,
+      "nodeCount": 0,
+      "leafCount": 0,
+      "leafSize": 8,
+      "kSigma": 5,
+      "errorBudget": 0.00001,
+      "builds": 1,
+      "lastBuildMs": 0,
+      "totalBuildMs": 0,
+      "lastUpdateMs": 0,
+      "refits": 0,
+      "structuralRebuilds": 1,
+      "qualityRebuilds": 0,
+      "lastUpdateKind": "structural-rebuild",
+      "treeQuality": 0,
+      "treeQualityGrowth": 1,
+      "refitRebuildThreshold": 2.5,
+      "lastFallbackGrowth": null,
+      "trackedNewPacketRecords": 0,
+      "trackedNewNodeRecords": 0,
+      "rays": 0,
+      "zeroLengthRays": 0,
+      "visitedNodes": 0,
+      "bboxTests": 0,
+      "kernelsEvaluated": 0,
+      "omittedPackets": 0,
+      "skippedNodes": 0,
+      "zeroExtinctionPackets": 0,
+      "approximateKernels": 0,
+      "exactFallbackKernels": 0,
+      "maximumApproximationBound": 0,
+      "maximumCombinedErrorBound": 0,
+      "originWhitenHits": 0,
+      "originWhitenMisses": 0,
+      "totalQueryMs": 0,
+      "maximumQueryMs": 0,
+      "maximumOmittedBound": 0,
+      "mediumDomain": "unbounded full-SPD Gaussian; no halfspace, ground absorption or physical packet deletion",
+      "omissionBound": "Each missed 5-sigma AABB: sum M*trace(invSigma)/(2pi)*max(extinctionRGB)*exp(-12.5); only omitted when cumulative upper bound <= budget.",
+      "numericMethod": "binary64 Cholesky whitening + erf series/continued fraction + close-endpoint four-node quadrature",
+      "errorBoundIncludesRoundoff": false,
+      "units": "metres, relative dry mass, authored m2/reference-mass profiles; tau dimensionless"
+    },
+    "rendering": {
+      "version": "pyro-smoke-renderer-stageA-v3-local",
+      "lastRender": null,
+      "projectionMode": "ellipsoid",
+      "lightFieldBakeMode": "tiled64",
+      "maxPackets": 4096,
+      "packets": 0,
+      "supportSigma": 5,
+      "anisotropy": 0.32,
+      "neutralExtinctionOnly": true,
+      "frontAirOptIn": true,
+      "localLightingOptIn": true,
+      "samplerCount": 2,
+      "limits": [
+        "no app/event/source integration",
+        "true finite Gaussian columns withFloat32/erf and finite proxy-tail error; no unbiased-renderer claim",
+        "back-to-front latent-centre order; S at optical conditional mean, overlapping/source-varying scattering is approximate",
+        "optional four-cell front-air T/S restores front in-scatter at a conditional-mean thin layer; overlapping volumes are not a joint RTE integration",
+        "optional shared6 localIncident sources replace legacy2 clusters; borrowed stored RGB is not multiplied by P again",
+        "no smoke self-shadow, smoke source-path attenuation or multiple scattering; shared torch scene-shadow PCF is reused when active",
+        "air is sun/key-only, exponential height, flat local worldY clamped at0; no smoke/local-light sourced air illumination added by this module",
+        "opaque depth must be independently resolved; no centre-depth discard",
+        "whole-space Gaussian matches state; no ground-fold/deposition model implicitly applied",
+        "no density/P/C coupling; P applied once to own raw lighting including air, borrowed local uniforms must already match this frame P",
+        "proxy culling affects rendering only; physical state mass is never deleted",
+        "far/subpixel footprint filtering and volumeDOF are not solved; per-source PSF remains caller-owned"
+      ]
+    },
+    "explicitlyCleared": 0,
+    "clears": 0,
+    "lastUpdateMs": 0,
+    "limits": [
+      "Physical transport uses fixed20Hz state commits; it is not a fluid/turbulence/settling solver.",
+      "Source-path extinction is queried at emitter/tail anchors; it is not exact per-pixel convolution through a varying medium.",
+      "Whole-space neutral Gaussian medium; scattering, overlap order and clear-air folding retain the renderer StageA approximations."
+    ]
+  },
+  "sourceT": {
+    "effective": false,
+    "supported": true,
+    "reason": "not-prepared",
+    "count": 0,
+    "width": 256,
+    "height": 71,
+    "opticallyAdmitted": false,
+    "prepares": 0,
+    "draws": 0,
+    "allocated": false,
+    "bytes": {
+      "packetInput": 262144,
+      "sourceInput": 864256,
+      "partialTarget": 1290240,
+      "transmissionTarget": 290816,
+      "total": 2707456
+    },
+    "gpuNumericalBytes": 2707456,
+    "cpuInputBufferBytes": 1126400,
+    "caps": {
+      "maxSources": 18000,
+      "maxPackets": 4096,
+      "maxPairs": 1048576,
+      "maxRequestPairs": 4000000,
+      "maxMapPairs": 1000000,
+      "maxMapDraws": 8
+    },
+    "layoutMode": "active-count",
+    "mapPlan": null,
+    "layoutPlan": null,
+    "allocationPlan": {
+      "schema": "glass-atoll.smoke-transmission-layout.v1",
+      "supported": true,
+      "reason": "ready",
+      "count": 0,
+      "packets": 0,
+      "pairs": 0,
+      "maxPairs": 4000000,
+      "tileCount": 0,
+      "maxTiles": 64,
+      "maxSources": 18000,
+      "maxPackets": 4096,
+      "tilePackets": 64,
+      "layoutMode": "active-count",
+      "action": "neutral",
+      "allocation": {
+        "packet": {
+          "width": 256,
+          "height": 64,
+          "logicalCapacity": 16384,
+          "texelCapacity": 16384
+        },
+        "source": {
+          "width": 256,
+          "height": 211,
+          "logicalCapacity": 54000,
+          "texelCapacity": 54016
+        },
+        "partial": {
+          "width": 256,
+          "height": 315,
+          "logicalCapacity": 80500,
+          "texelCapacity": 80640
+        },
+        "output": {
+          "width": 256,
+          "height": 71,
+          "logicalCapacity": 18000,
+          "texelCapacity": 18176
+        }
+      },
+      "partialCapacityTexels": 80500,
+      "partialCapacityBound": {
+        "rectangular": 1152000,
+        "pairEnvelope": 80500,
+        "compactCapacity": 80500
+      },
+      "partialStride": 1,
+      "activePartialTexels": 0,
+      "mapDomainTexels": 0,
+      "mapDraw": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 0,
+        "rasterTexels": 0,
+        "paddingTexels": 0
+      },
+      "outputDraw": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 71,
+        "rasterTexels": 18176,
+        "paddingTexels": 18176
+      },
+      "mapRequired": false,
+      "reduceRequired": true,
+      "reduceTileCount": 0,
+      "neutralOutput": true,
+      "fullOutputWrite": true,
+      "validOutputCount": 0,
+      "outsideCountMayBeStale": false,
+      "freshGenerationRequired": true,
+      "publishAfter": "completed-neutral-output-pass",
+      "publication": {
+        "orderedCount": 0,
+        "inactiveRowsNeutral": true,
+        "neutralRGB": [
+          1,
+          1,
+          1
+        ],
+        "allAllocatedOutputsNeutral": true,
+        "validReadExtent": "metadata.count only",
+        "staleGenerationAllowed": false,
+        "partialResultAllowed": false
+      },
+      "limits": [
+        "Exact numerical layout only: no packet/source reduction, implicit pair allowance or frame-time admission.",
+        "For nonempty active-count output, texels beyond metadata.count may retain old values and are not valid reads.",
+        "Zero count or zero density requires one fresh full allocated neutral-output pass; no previous texture may substitute for that pass."
+      ]
+    },
+    "capabilityCache": {
+      "probes": 0,
+      "cached": false,
+      "contextInvalid": false
+    },
+    "packing": null,
+    "revision": "complete-sync-v1",
+    "model": "full-SPD finite Gaussian extinction; unchanged64packet sums in exact rectangles then one complete increasing-tile reduction; no SH1/SSA/P/C",
+    "prototype": true,
+    "limits": [
+      "No universalCPU1e-5 error guarantee; Float32 input/kernel/summation/exp require separate oracle admission.",
+      "Original-double reflection water-hit origins supplied by caller; normalised per-source ray, nearer endpoint reversal and cross-product perpendicular distance.",
+      "Each prepare replaces the borrowed T texture; sorted FW row ordering/sourceVersion must match and draw immediately. Only metadata.count output rows are valid; nonempty active-count requests may leave unused capacity texels stale.",
+      "Explicit complete-request and per-map policies; unsupported dispatch requires caller CPU fallback. Legacy-max is an incumbent two-pass QA comparator restricted to the old complete-request ceiling.",
+      "Fixed capabilities are cached for one live context; observed loss/replacement requires a new field before GPU reuse."
+    ]
+  },
+  "display": {
+    "report": {
+      "available": true,
+      "platform": "win32",
+      "source": "DXGI Output6 + DisplayConfig (read only)",
+      "generatedAt": "2026-10-30T04:03:27.9744443Z",
+      "displays": [
+        {
+          "deviceName": "\\\\.\\DISPLAY5",
+          "friendlyName": "Q27G4XM",
+          "colorSpaceName": "RGB_FULL_G2084_NONE_P2020",
+          "bounds": {
+            "left": 0,
+            "top": 0,
+            "right": 2560,
+            "bottom": 1440
+          },
+          "attached": true,
+          "bitsPerColor": 10,
+          "colorSpace": 12,
+          "minLuminanceNits": 0.26489999890327454,
+          "maxLuminanceNits": 700,
+          "maxFullFrameLuminanceNits": 700,
+          "redPrimary": [
+            0.6865243911743164,
+            0.3056659698486328
+          ],
+          "greenPrimary": [
+            0.22265243530273438,
+            0.7304744720458984
+          ],
+          "bluePrimary": [
+            0.1533212661743164,
+            0.03613471984863281
+          ],
+          "whitePoint": [
+            0.3134727478027344,
+            0.3290977478027344
+          ],
+          "sdrWhiteNits": 280,
+          "scaleFactor": 1,
+          "sdrWhiteLevelRaw": 3500,
+          "advancedColorSupported": true,
+          "advancedColorEnabled": true,
+          "foregroundMonitor": false,
+          "luminanceSource": "DXGI_OUTPUT_DESC1: EDID/driver/calibration report, not a photometer measurement"
+        },
+        {
+          "deviceName": "\\\\.\\DISPLAY6",
+          "friendlyName": "Q27G4XM",
+          "colorSpaceName": "RGB_FULL_G2084_NONE_P2020",
+          "bounds": {
+            "left": -2560,
+            "top": 0,
+            "right": 0,
+            "bottom": 1440
+          },
+          "attached": true,
+          "bitsPerColor": 8,
+          "colorSpace": 12,
+          "minLuminanceNits": 0.05000000074505806,
+          "maxLuminanceNits": 1270,
+          "maxFullFrameLuminanceNits": 1270,
+          "redPrimary": [
+            0.6865243911743164,
+            0.3056659698486328
+          ],
+          "greenPrimary": [
+            0.22265243530273438,
+            0.7304744720458984
+          ],
+          "bluePrimary": [
+            0.1533212661743164,
+            0.03613471984863281
+          ],
+          "whitePoint": [
+            0.3134727478027344,
+            0.3290977478027344
+          ],
+          "sdrWhiteNits": 280,
+          "scaleFactor": 1,
+          "sdrWhiteLevelRaw": 3500,
+          "advancedColorSupported": true,
+          "advancedColorEnabled": true,
+          "foregroundMonitor": true,
+          "luminanceSource": "DXGI_OUTPUT_DESC1: EDID/driver/calibration report, not a photometer measurement"
+        }
+      ],
+      "errors": [],
+      "note": "Reported peak is a small-area capability; full-frame peak is separate. SDR white is the current Windows setting. No Windows setting was changed.",
+      "serverReadAt": "2026-10-30T04:03:28.039Z",
+      "cache": {
+        "ageMs": 0,
+        "ttlMs": 5000
+      }
+    },
+    "calibration": {
+      "display": {
+        "deviceName": "\\\\.\\DISPLAY6",
+        "friendlyName": "Q27G4XM",
+        "colorSpaceName": "RGB_FULL_G2084_NONE_P2020",
+        "bounds": {
+          "left": -2560,
+          "top": 0,
+          "right": 0,
+          "bottom": 1440
+        },
+        "attached": true,
+        "bitsPerColor": 8,
+        "colorSpace": 12,
+        "minLuminanceNits": 0.05000000074505806,
+        "maxLuminanceNits": 1270,
+        "maxFullFrameLuminanceNits": 1270,
+        "redPrimary": [
+          0.6865243911743164,
+          0.3056659698486328
+        ],
+        "greenPrimary": [
+          0.22265243530273438,
+          0.7304744720458984
+        ],
+        "bluePrimary": [
+          0.1533212661743164,
+          0.03613471984863281
+        ],
+        "whitePoint": [
+          0.3134727478027344,
+          0.3290977478027344
+        ],
+        "sdrWhiteNits": 280,
+        "scaleFactor": 1,
+        "sdrWhiteLevelRaw": 3500,
+        "advancedColorSupported": true,
+        "advancedColorEnabled": true,
+        "foregroundMonitor": true,
+        "luminanceSource": "DXGI_OUTPUT_DESC1: EDID/driver/calibration report, not a photometer measurement"
+      },
+      "confidence": "screen-geometry",
+      "reason": "已匹配当前浏览器所在屏幕",
+      "paperWhiteNits": 280,
+      "sdrWhiteNits": 280,
+      "peakNits": 1270,
+      "calibrationSource": "windows-dxgi",
+      "displayName": "Q27G4XM",
+      "nativePeakNits": 1270,
+      "nativeFullFrameNits": 1270,
+      "nativeSDRWhiteNits": 280,
+      "note": "系统/驱动报告，非测光仪实测；未更改 Windows 设置。",
+      "observationSelection": {
+        "policy": "r33-unit-scale-screen-and-contained-window-v1",
+        "reliable": true,
+        "reason": "unique-unit-scale-screen-with-fully-contained-window",
+        "deviceName": "\\\\.\\DISPLAY6",
+        "screen": {
+          "left": -2560,
+          "top": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "originSource": "legacy-available-origin-exactly-equals-native-full-origin",
+        "window": {
+          "left": -2552,
+          "top": 8,
+          "right": -8,
+          "bottom": 1432
+        },
+        "qualification": "Corroborated trusted snapshot, not authentication against a self-consistent forged browser/native report"
+      }
+    }
+  },
+  "audio": {
+    "enabled": false,
+    "contextState": "not-created",
+    "loading": false,
+    "loaded": false,
+    "decoded": {},
+    "sources": [
+      "Beach sounds South Carolina — Anthropic42",
+      "Rustling leaves — Gravity Sound"
+    ],
+    "mix": {
+      "sea": 0,
+      "wind": 0,
+      "air": 0,
+      "swell": 0,
+      "shoreDistance": 0,
+      "shorePositions": []
+    },
+    "paused": true,
+    "splashCount": 0,
+    "audibleSplashes": 0,
+    "activeSplashes": 0,
+    "lastSplashResponse": null,
+    "loopSources": 0,
+    "captureActive": false,
+    "fallbacks": [
+      "procedural stone splash",
+      "quiet shaped-noise air bed"
+    ],
+    "warnings": []
+  },
+  "gl": {
+    "label": "r37-before",
+    "errors": [],
+    "programLive": true,
+    "programDeletePending": false,
+    "vertexArrayLive": true
+  },
+  "bodyInert": false
+}

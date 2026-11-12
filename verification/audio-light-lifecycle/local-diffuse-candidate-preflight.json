@@ -1,0 +1,45 @@
+{
+  "schema": "glass-atoll.local-diffuse-candidate-preflight.v1",
+  "passed": true,
+  "checks": [
+    {
+      "name": "only three ground points and torch enter the native renderer light list",
+      "passed": true,
+      "evidence": {
+        "nativeLights": 4,
+        "sharedSlots": 20
+      }
+    },
+    {
+      "name": "all 16 firework slots retain current shared source RGB and extinguish exactly",
+      "passed": true,
+      "evidence": {
+        "fireworkSlots": 16,
+        "extinguished": true
+      }
+    },
+    {
+      "name": "actual Standard shader hook uses final normal, one exposure and native Lambert diffuse coefficient",
+      "passed": true,
+      "evidence": {
+        "hook": "MeshStandardMaterial",
+        "sameNativeDiffuseCoefficient": true,
+        "fireworkSpecular": false
+      }
+    },
+    {
+      "name": "thin-leaf shader retains its existing independent back transmission loop",
+      "passed": true,
+      "evidence": {
+        "thinBackTransmissionPreserved": true
+      }
+    }
+  ],
+  "sourceSHA256": "4b787e888b38a5d11eb53fcc0e756c2c4f6e293f6ec55eae4f7c76556ca8615f",
+  "actualGPU": false,
+  "limits": [
+    "Route-only candidate, production unchanged.",
+    "CPU shader hook assembly and real scene graph only; no WebGL compile, pixels, first-frame performance or subjective acceptance.",
+    "Fireworks become diffuse-only on Standard surfaces; torch and ground lights retain native PBR, water and air keep their shared sources."
+  ]
+}

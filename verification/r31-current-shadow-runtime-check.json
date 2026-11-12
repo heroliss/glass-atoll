@@ -1,0 +1,83 @@
+{
+  "schema": "glass-atoll.r31-current-shadow-saved-runtime-source-check.v1",
+  "actualGPU": false,
+  "newBrowserActions": 0,
+  "newNativeContextCalls": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "sourcePins": {
+    "afterSnapshot": "f12c39fc0c35cbede910e5fc3e2bd58c20da806e7d6af986631eeccbe49b518f",
+    "promotionReceipt": "7c5ada4838dd157ed1dbcab1cd3335f18b77fc4098918e20b9be2f3273d1f4d7",
+    "sunShadowGLSL": "6cd3736d68238c622b1c0397b33f99776c91c79aa59f5ba3a86dcee5ac835922"
+  },
+  "checks": [
+    {
+      "name": "Current Node module and main match the promoted source hashes",
+      "passed": true,
+      "evidence": {
+        "sunShadows": "8c7773d93682c0fc8202dab0611c0d7ed4424a42169bc0e7e9bb5662be8bbedd",
+        "main": "e43f1445109226a16f5fbd6ba70656a5faa6401c076ce16ce57369e055680674"
+      }
+    },
+    {
+      "name": "Saved live source getter is the complete current actual shared GLSL",
+      "passed": true,
+      "evidence": {
+        "bytes": 1430,
+        "sha256": "6cd3736d68238c622b1c0397b33f99776c91c79aa59f5ba3a86dcee5ac835922",
+        "exact": true
+      }
+    },
+    {
+      "name": "Promoted shadow equals strict candidate and exact inverse baseline",
+      "passed": true,
+      "evidence": {
+        "baseline": "82a14b72b003cf4105f6cedb804e9ebd6c4b21da065d6ac51106db66ea2ca0d5",
+        "candidate": "8c7773d93682c0fc8202dab0611c0d7ed4424a42169bc0e7e9bb5662be8bbedd",
+        "wholeFileExact": true
+      }
+    },
+    {
+      "name": "Actual imported source exposes uniform disabled return before all coordinates and derivatives",
+      "passed": true,
+      "evidence": {
+        "getter": "Direct returned actual module export; no copied replacement shader",
+        "enabledTailExact": true
+      }
+    },
+    {
+      "name": "Every retained current linked-program descriptor reports success",
+      "passed": true,
+      "evidence": {
+        "programs": 69,
+        "linked": 69,
+        "scope": "Saved actual link descriptors; not per-program compiled-fragment-source inspection"
+      }
+    },
+    {
+      "name": "Saved empty paused runtime is healthy with disabled shadow and clean saved console",
+      "passed": true,
+      "evidence": {
+        "shadowEnabled": false,
+        "gl": {
+          "label": "r31-final",
+          "errors": [],
+          "programLive": true,
+          "programDeletePending": false,
+          "vertexArrayLive": true
+        },
+        "consoleErrors": 0,
+        "consoleWarnings": 0
+      }
+    }
+  ],
+  "limits": [
+    "Uses an existing normal-runtime snapshot; this checker performs no compile or rendering itself.",
+    "The saved getter equals the current actual shared module export and all retained programs linked, but saved descriptors do not contain every expanded compiled fragment source.",
+    "This is source/link/restoration evidence, not pixel parity, visible shadow approval, measured GPU speedup or steady-state FPS."
+  ]
+}

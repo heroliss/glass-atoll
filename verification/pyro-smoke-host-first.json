@@ -1,0 +1,17 @@
+{
+  "schema": "glass-atoll.pyro-smoke-host-readonly-first.v1",
+  "passed": false,
+  "runtimeEditedByReviewer": false,
+  "sourceSHA256": "6e03bb915eb8033156ffda0e7b336358dd4764b365b1cd700f9878e37e8995e6",
+  "checks": [{
+    "id": "empty_host_public_snapshot_tracks_committed_clock_and_wind",
+    "passed": false,
+    "fixture": "createPyroSmoke(THREE,{}); update({time:1,windVector:[2,0,0]})",
+    "actualAdvance": {"time":1,"requestedTime":1,"steps":20,"completed":true,"behindSeconds":0,"uncommittedRemainderSeconds":0,"revision":0},
+    "actualPublicSnapshotHeader": {"time":0,"requestedTime":0,"tick":0,"revision":0,"currentWind":[0,0,0],"packets":[]},
+    "actualCommittedStateTimeFromDiagnostics": 1,
+    "cause": "host refresh returned on equal density revision; empty physical clock and wind changes did not update cached public snapshot",
+    "scope": "actual Node read-only factory run, not a GPU/app failure; physical state committed at1 correctly, but public snapshot metadata stayed at0"
+  }],
+  "correction": "Root changed public snapshot to current state.snapshot while keeping renderer/columns density-revision cache; first failure retained for provenance."
+}

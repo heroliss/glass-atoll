@@ -1,0 +1,151 @@
+{
+  "schema": "glass-atoll.r27-native-production-existing-gpu-cpu-audit.v1",
+  "dateUTC": "2026-10-29T12:59:39.281Z",
+  "actualGPU": false,
+  "analyzedActualGPU": true,
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "checks": [
+    {
+      "name": "Saved actual promoted production is one complete four-draw request with clean GL/shader/restoration and exact frozen artifact",
+      "passed": true,
+      "evidence": {
+        "artifactDigest": "b400c7e03f674a15a1590d92fcc016b91638322e4ebc6b8eca2b2534d5aa860d",
+        "actualGPUReceipt": {
+          "passed": 4,
+          "total": 4
+        },
+        "scope": "Existing root receipt, not new hardware state observation"
+      }
+    },
+    {
+      "name": "All1734 valid T rows independently recompute saved physical/packed oracle errors and exact neutral rows",
+      "passed": true,
+      "evidence": {
+        "rows": 1734,
+        "physicalError": 1.6361973009804132e-7,
+        "packedError": 9.640012998968217e-8,
+        "neutralRows": 0
+      }
+    },
+    {
+      "name": "Seven actual partial boundary cells agree with separately built single-ray64packet-tile physical/packed references",
+      "passed": true,
+      "evidence": {
+        "rows": [
+          {
+            "address": 0,
+            "source": 0,
+            "tile": 0,
+            "packetBegin": 0,
+            "packetEnd": 64,
+            "physicalTError": 0,
+            "packedTError": 0
+          },
+          {
+            "address": 15615,
+            "source": 9,
+            "tile": 9,
+            "packetBegin": 576,
+            "packetEnd": 640,
+            "physicalTError": 9.438516634929783e-11,
+            "packedTError": 1.2238295932220922e-9
+          },
+          {
+            "address": 15616,
+            "source": 10,
+            "tile": 9,
+            "packetBegin": 576,
+            "packetEnd": 640,
+            "physicalTError": 5.998090912839871e-10,
+            "packedTError": 1.936030225024865e-10
+          },
+          {
+            "address": 20735,
+            "source": 1661,
+            "tile": 11,
+            "packetBegin": 704,
+            "packetEnd": 755,
+            "physicalTError": 0,
+            "packedTError": 0
+          },
+          {
+            "address": 20736,
+            "source": 1662,
+            "tile": 11,
+            "packetBegin": 704,
+            "packetEnd": 755,
+            "physicalTError": 0,
+            "packedTError": 0
+          },
+          {
+            "address": 20807,
+            "source": 1733,
+            "tile": 11,
+            "packetBegin": 704,
+            "packetEnd": 755,
+            "physicalTError": 0,
+            "packedTError": 0
+          },
+          {
+            "address": 19074,
+            "source": 0,
+            "tile": 11,
+            "packetBegin": 704,
+            "packetEnd": 755,
+            "physicalTError": 1.6460899310288823e-10,
+            "packedTError": 1.1266465538284365e-10
+          }
+        ],
+        "scope": "CPU references of saved partial pixels only; no reference GPU or new dispatch"
+      }
+    },
+    {
+      "name": "One timer and fixed-global allocation apply only to this SourceT request; reflection and resolved path remain separate",
+      "passed": true,
+      "evidence": {
+        "gpuMs": 0.853696,
+        "cpuSubmitMs": 18.299999997019768,
+        "scope": "CPU submit includes QA/packing/compile/upload, not pure implementation CPU cost; no whole-frame/SH or60fps claim"
+      }
+    },
+    {
+      "name": "Promoted production and frozen candidate actual outputs/partial samples are bitwise identical on the SAME native fixture",
+      "passed": true,
+      "evidence": {
+        "outputRows": 1734,
+        "outputWords": 6936,
+        "partialWords": 28,
+        "changedWords": 0,
+        "exactLiveConstructor": true
+      }
+    },
+    {
+      "name": "Current deployed production source/factory pins and main default configuration match the actual measured live constructor",
+      "passed": true,
+      "evidence": {
+        "currentFactorySHA256": "5f2f922ca6e7a4818966bcf92fdcb14f2d344b2caada1cbd4f0819ec737d834f",
+        "constructor": {
+          "maxSources": 18000,
+          "maxPackets": 4096,
+          "maxPairs": 1048576,
+          "maxRequestPairs": 1400000,
+          "maxMapPairs": 1000000,
+          "maxMapDraws": 8
+        },
+        "mainDefaultSourceSHA256": "713640b631c29b64abe85d5fb6efc5e04e7cdfa5ab0fcf65c03ab3c9f4cfb088",
+        "scope": "Current default-source configuration and isolated measured constructor; no whole-frame runtime inference"
+      }
+    }
+  ],
+  "receiptSHA256": "e55220fb5c9fcaf0e8f6e12be4ab01cb5c53060e636b3f4c243de6ea8cfbf987",
+  "artifactDigest": "b400c7e03f674a15a1590d92fcc016b91638322e4ebc6b8eca2b2534d5aa860d",
+  "limits": [
+    "CPU-only saved receipt audit; no new GPU, browser or native physics generation.",
+    "The saved production phase uses separate source pins; frozen candidate phase is retained and paired by actual numeric output bits.",
+    "All-row and7partial numeric references pass; live policy/SH/shared frame budget remain separate."
+  ]
+}

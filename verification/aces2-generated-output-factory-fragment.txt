@@ -1,0 +1,36 @@
+  async function boundedResponse(response,maximum){
+    const declared=response.headers?.get?.('content-length');if(declared!==null&&declared!==undefined){requireThat(/^\d+$/.test(declared)&&Number(declared)<=maximum,'generated response exceeds byte limit');}
+    if(!response.body?.getReader){const b=await response.arrayBuffer();requireThat(b.byteLength<=maximum,'generated response exceeds byte limit');return b;}
+    const reader=response.body.getReader(),chunks=[];let total=0;
+    try{for(;;){const {done,value}=await reader.read();if(done)break;total+=value.byteLength;requireThat(total<=maximum,'generated response exceeds byte limit');chunks.push(value);}const bytes=new Uint8Array(total);let at=0;for(const chunk of chunks){bytes.set(chunk,at);at+=chunk.byteLength;}return bytes.buffer;}
+    catch(error){try{await reader.cancel();}catch{}throw error;}finally{reader.releaseLock();}
+  }
+  async function generatedFetch(url,options={},maximum=GENERATED_MAX_FILE){
+    const response=await fetcher(url,{cache:'no-store',redirect:'error',credentials:'same-origin',mode:'same-origin',...options});
+    requireThat(response.redirected!==true&&(!response.url||new URL(response.url).href===url.href),'generated fetch redirect is forbidden');
+    const b=await boundedResponse(response,maximum);
+    if(!response.ok){let code='HTTP_'+response.status;try{const body=JSON.parse(decoder.decode(b));if(typeof body.error?.code==='string'&&/^[A-Z_]{1,40}$/.test(body.error.code))code=body.error.code;}catch{}const error=Error('ACES2 output: target service '+code);error.aces2Reason='service-'+code.toLowerCase().replaceAll('_','-');throw error;}
+    return b;
+  }
+  async function loadGenerated(peak,request){
+    requireThat(base.origin===new URL(import.meta.url).origin,'generated service must share the module origin');
+    const serviceURL=new URL('/api/aces2-target',base),raw=await generatedFetch(serviceURL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({peakNits:peak})},512*1024),info=JSON.parse(decoder.decode(raw)),validated=validateACES2GeneratedPackage(info,peak);
+    if(disposed||request!==epoch)return null;
+    const root=new URL(validated.root,base);requireThat(root.origin===base.origin,'generated package must remain same-origin');
+    const fetchAsset=async(name,expectedHash,expectedBytes,maximum=GENERATED_MAX_FILE)=>{flatMember(name);const b=await generatedFetch(new URL(name,root),{},maximum);requireThat((expectedBytes===undefined||b.byteLength===expectedBytes)&&await digest(b)===expectedHash,'generated asset SHA256/length mismatch: '+name);return b;};
+    const sealBytes=await fetchAsset('ARTIFACTS.json',info.artifactManifestSHA256,undefined,64*1024),seal=JSON.parse(decoder.decode(sealBytes));
+    requireThat(seal?.schema==='glass-atoll.single-peak-aces2-seal.v1'&&seal.peakNits===peak&&seal.actualGPU===false&&Array.isArray(seal.files)&&seal.files.length>=12&&seal.files.length<=32,'generated package inventory mismatch');
+    const inventory=new Map();let packageBytes=sealBytes.byteLength;
+    for(const row of seal.files){flatMember(row?.file);requireThat(!inventory.has(row.file)&&row.file!=='ARTIFACTS.json'&&row.file!=='ready.json'&&validHash(row.sha256)&&Number.isSafeInteger(row.bytes)&&row.bytes>0&&row.bytes<=GENERATED_MAX_FILE,'invalid generated inventory member');packageBytes+=row.bytes;requireThat(packageBytes<=GENERATED_MAX_PACKAGE,'generated package exceeds total byte limit');inventory.set(row.file,row);}
+    const contents=new Map(await Promise.all(seal.files.map(async row=>[row.file,await fetchAsset(row.file,row.sha256,row.bytes)])));
+    const member=(name,hash=null,bytes=null)=>{flatMember(name);const row=inventory.get(name);requireThat(row&&contents.has(name)&&(hash===null||row.sha256===hash)&&(bytes===null||row.bytes===bytes),'generated descriptor/inventory mismatch: '+name);return contents.get(name);};
+    const descriptorBytes=member('candidate-export-report.json',info.candidateDescriptorSHA256);requireThat(same(JSON.parse(decoder.decode(descriptorBytes)),info.descriptor),'service/served descriptor mismatch');
+    member('source-inputs.json',GENERATED_PINS.input);member('OCIO-LICENSE.txt',GENERATED_PINS.license);
+    const markerBytes=await fetchAsset('ready.json',info.readyMarkerSHA256,undefined,64*1024),marker=JSON.parse(decoder.decode(markerBytes));
+    for(const key of ['schema','cacheKey','peakNits','artifactManifestSHA256','candidateDescriptorSHA256','exporterSHA256','assetBaseURL','descriptorURL','fixtures','cpuChecks','actualGPU','gpuAdmission','productionIntegrated'])requireThat(same(marker[key],info[key]),'service ready marker mismatch: '+key);
+    const t=validated.target,c=validated.descriptor.candidate,p=t.gpuPattern,m=await manifest();requireThat(m.atanHelper.sha256===GENERATED_PINS.prefix,'pinned atan prefix mismatch');const prefixBytes=await bytes(m.atanHelper),prefix=decoder.decode(prefixBytes),source=decoder.decode(member(t.functionFile,t.functionSHA256)),original=decoder.decode(member(c.officialFunctionFile,c.officialFunctionSHA256));
+    member(t.probeFragmentFile,t.probeFragmentSHA256);requireThat(source.startsWith(prefix)&&source.split(c.replacement.to).length-1===1&&source.split(c.replacement.from).length-1===0&&source.slice(prefix.length).replace(c.replacement.to,c.replacement.from)===original,'generated candidate does not exactly restore official source');
+    const tables=t.textures2D.map(table=>{const rgba=floatData(member(table.rgbaUploadFile,table.rgbaSHA256,5808)),rawTable=floatData(member(table.rawFile,table.rawSHA256,table.rawBytes));requireThat(rgba.every(Number.isFinite)&&rawTable.every(Number.isFinite),'generated table has nonfinite data');for(let i=0;i<363;i++)for(let ch=0;ch<4;ch++){const expected=ch<(table.index===0?1:3)?rawTable[i*(table.index===0?1:3)+ch]:ch===3?1:0;requireThat(rgba[i*4+ch]===expected,'raw/RGBA hue-table upload mismatch');}return rgba;});
+    const cpu=JSON.parse(decoder.decode(member(t.cpuOracleFile,info.fixtures.oracle.sha256,info.fixtures.oracle.bytes))),input=floatData(member(p.inputFile,p.inputSHA256,16384)),expected=floatData(member(p.expectedFile,p.expectedSHA256,16384)),anchors=validateACES2GeneratedFixtures(cpu,input,expected,peak,t);
+    return{source,tables,anchors,entry:{peakNits:peak,function:t.function,tables:t.textures2D},assetHashes:{descriptor:info.candidateDescriptorSHA256,artifacts:info.artifactManifestSHA256,ready:info.readyMarkerSHA256,function:t.functionSHA256,official:c.officialFunctionSHA256,tables:t.textures2D.map(table=>table.rgbaSHA256),input:p.inputSHA256,expected:p.expectedSHA256,oracle:info.fixtures.oracle.sha256,core:GENERATED_PINS.core,atan:GENERATED_PINS.atan,prefix:GENERATED_PINS.prefix,exporter:GENERATED_PINS.exporter,packageBytes}};
+  }

@@ -1,0 +1,160 @@
+{
+  "schema": "glass-atoll.pyro-source-moments-math.v1",
+  "dateUTC": "2026-10-29T04:23:33.562Z",
+  "passed": true,
+  "counts": {
+    "checks": 12,
+    "passed": 12
+  },
+  "checks": [
+    {
+      "name": "straight_path_constant_wind_has_analytic_mean_and_full_tensor",
+      "passed": true,
+      "evidence": {
+        "mean": [
+          206.45,
+          38.54,
+          -55.75000000000001
+        ],
+        "covariance": [
+          2.257500000000028,
+          0.5610000000000057,
+          -0.8925000000000096,
+          0.5610000000000057,
+          0.23520000000000105,
+          -0.23100000000000184,
+          -0.8925000000000096,
+          -0.23100000000000184,
+          0.4575000000000032
+        ],
+        "offDiagonalTensor": true
+      }
+    },
+    {
+      "name": "co_moving_star_has_only_isotropic_injection_plus_native_aged_diffusion",
+      "passed": true,
+      "evidence": {
+        "covariance": [
+          0.2700000000000002,
+          3.4595463482505886e-34,
+          0,
+          3.4595463482505886e-34,
+          0.12600000000000003,
+          0,
+          0,
+          0,
+          0.2700000000000002
+        ],
+        "sigmaMeansIsotropicInjectionNot2DOnly": true
+      }
+    },
+    {
+      "name": "thermal_age_matches_independent_RK4_including_equal_rates",
+      "passed": true,
+      "evidence": {
+        "maximumAbsoluteError": 4.263256414560601e-14
+      }
+    },
+    {
+      "name": "thermal_mean_and_native_state_semigroup_share_same_units_once",
+      "passed": true
+    },
+    {
+      "name": "curved_path_native_age_moments_match_dense_independent_RK4_Simpson",
+      "passed": true,
+      "evidence": {
+        "samples": 4097,
+        "maximumAbsoluteMomentError": 7.815970093361102e-14,
+        "independentThermalODE": true
+      }
+    },
+    {
+      "name": "held_wind_integral_is_exact_and_capacity_failure_keeps_old_value",
+      "passed": true,
+      "evidence": {
+        "travel": [
+          0.65,
+          0,
+          -0.3
+        ],
+        "maxSamples": 8
+      }
+    },
+    {
+      "name": "step_wind_five_node_mixture_is_exactly_defined_but_continuous_error_is_reported",
+      "passed": true,
+      "evidence": {
+        "meanErrorMetres": -0.0005483457137160919,
+        "varianceErrorMetres2": 0.0007133572426493984,
+        "note": "finite5-node representative mixture is the source definition; no exact continuous-wind-quadrature claim"
+      }
+    },
+    {
+      "name": "all_root_callbacks_and_wind_reads_are_strictly_past_and_inputs_immutable",
+      "passed": true
+    },
+    {
+      "name": "local_moments_avoid_absolute_time_exponent_and_large_world_second_moment_cancellation",
+      "passed": true,
+      "evidence": {
+        "absoluteTime": 30000,
+        "worldOffsetMetres": 3000000,
+        "noExpOfAbsoluteTime": true
+      }
+    },
+    {
+      "name": "fullSPD_native_state_and_shared_CPU_columns_match_independent_density_integral",
+      "passed": true,
+      "evidence": {
+        "native": 0.3360778832621652,
+        "numeric": 0.3360778832621642,
+        "columns": 0.3360778832621652,
+        "nativeASerfAllowance": 5.041168404363701e-8,
+        "determinant": 0.1075965053537493
+      }
+    },
+    {
+      "name": "later_heat_velocity_cross_covariance_is_disclosed_not_falsely_preserved",
+      "passed": true,
+      "evidence": {
+        "atSecondsAfterBirth": 2,
+        "maximumCovarianceDifferenceMetres2": 0.026066959283163826,
+        "meanRemainsLinear": true,
+        "notAnExactFutureCovarianceClaim": true
+      }
+    },
+    {
+      "name": "invalid_kernel_inputs_reject_without_mutating_past_history",
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "maximumThermalRK4Error": 4.263256414560601e-14,
+    "denseMomentMaximumError": 7.815970093361102e-14,
+    "stepWindQuadrature": {
+      "meanErrorMetres": -0.0005483457137160919,
+      "varianceErrorMetres2": 0.0007133572426493984,
+      "note": "finite5-node representative mixture is the source definition; no exact continuous-wind-quadrature claim"
+    },
+    "fullSPDRay": {
+      "native": 0.3360778832621652,
+      "numeric": 0.3360778832621642,
+      "columns": 0.3360778832621652,
+      "nativeASerfAllowance": 5.041168404363701e-8,
+      "determinant": 0.1075965053537493
+    },
+    "futureCovarianceApproximation": {
+      "atSecondsAfterBirth": 2,
+      "maximumCovarianceDifferenceMetres2": 0.026066959283163826,
+      "meanRemainsLinear": true,
+      "notAnExactFutureCovarianceClaim": true
+    }
+  },
+  "sourceSHA256": "bf58d288d9a4db72a54e588c5c3593601870c276b2f2046dd08c9e07ff5c396d",
+  "limits": [
+    "finite5-node representative source-time mixture, not exact continuous emission or CFD",
+    "same end-time M/mean/full covariance; later thermal/velocity cross covariance is not stored by existing state",
+    "sigmaPerp is the isotropic injection kernel width; additional long axis arises from actual aged path covariance",
+    "CPU density/columns only; actual GPU optical appearance and footprint cost are root acceptance"
+  ]
+}

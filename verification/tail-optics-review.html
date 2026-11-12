@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>白尾积分 · 原始高清对照</title>
+  <style>
+    html { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #101820; color: #eef2f1; font: 16px/1.6 system-ui, sans-serif; }
+    main { max-width: 1968px; margin: auto; padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 24px; }
+    h2 { margin: 28px 0 8px; font-size: 20px; }
+    p { max-width: 1120px; color: #bfcbd0; }
+    a { color: #a9dbce; }
+    button { padding: 9px 16px; border: 1px solid #56676e; border-radius: 5px; background: #1d2c34; color: inherit; font: inherit; cursor: pointer; }
+    button[aria-pressed="true"] { background: #d4e7df; color: #12241f; }
+    button:focus-visible, a:focus-visible { outline: 3px solid #a9dbce; outline-offset: 3px; }
+    .controls { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+    .controls + .controls { margin-top: 8px; }
+    #state { margin-bottom: 8px; font-weight: 600; color: #eef2f1; }
+    .image-window { width: 100%; overflow: auto; border: 1px solid #33434c; background: #020507; }
+    #comparison { display: block; width: 100%; max-width: none; height: auto; }
+    .image-window.native #comparison { width: 1920px; }
+    video { display: block; width: 100%; height: auto; background: #020507; }
+    .caption, small { color: #aab9bf; }
+    details { max-width: 1120px; margin: 22px 0; }
+    footer { margin-top: 24px; }
+    @media (max-width: 640px) { main { padding: 14px; } h1 { font-size: 22px; } button { padding: 8px 12px; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>白尾积分 · 原始高清对照</h1>
+  <p>切换旧版与新版，观察白尾的等距亮点是否变成连续亮线。图片均为实际网页的原始1920×1080截图，完整显示、不裁切；没有锐化、降噪或重新绘制。可用100%像素模式近看珠串。</p>
+
+  <div class="controls" role="group" aria-label="选择视角">
+    <button type="button" data-angle="front" aria-pressed="false">全景</button>
+    <button type="button" data-angle="detail" aria-pressed="true">近景</button>
+  </div>
+  <div class="controls" role="group" aria-label="选择白尾积分方式">
+    <button type="button" data-mode="legacy8" aria-pressed="false">旧版 · 8点积分</button>
+    <button type="button" data-mode="adaptive" aria-pressed="true">新版 · 自适应积分</button>
+  </div>
+  <div class="controls" role="group" aria-label="图片缩放">
+    <button type="button" data-zoom="fit" aria-pressed="true">适应窗口 · 完整画面</button>
+    <button type="button" data-zoom="native" aria-pressed="false">100%像素 · 可横向滚动</button>
+  </div>
+  <p id="state" aria-live="polite">近景 · 新版自适应积分 · 适应窗口</p>
+  <div class="image-window" id="image-window" tabindex="0" aria-label="完整原始对照图，100%模式可滚动查看">
+    <img id="comparison" src="r9-tail-detail_adaptive.png" width="1920" height="1080" alt="近景，新版自适应积分的实际1920×1080截图">
+  </div>
+  <p class="caption"><a id="original" href="r9-tail-detail_adaptive.png" target="_blank" rel="noopener">打开当前原始1920×1080 PNG</a>。100%模式是一张源图像素对应一个CSS像素，不自动锐化；浏览器或系统缩放仍会影响屏幕上的物理像素比例。</p>
+  <p class="caption">全部原图：<a href="r9-tail-front_legacy8.png" target="_blank" rel="noopener">全景旧版</a> · <a href="r9-tail-front_adaptive.png" target="_blank" rel="noopener">全景新版</a> · <a href="r9-tail-detail_legacy8.png" target="_blank" rel="noopener">近景旧版</a> · <a href="r9-tail-detail_adaptive.png" target="_blank" rel="noopener">近景新版</a></p>
+
+  <h2>独立实际录屏</h2>
+  <p>下方影片记录发射、开花及一次切近。它是独立录制的实际事件，不是上方暂停PNG的同一时刻对照；播放、暂停和全屏由播放器控制，不会自动播放。</p>
+  <video controls preload="none" playsinline src="pyro-r9-tail-motion.mp4" aria-label="白尾积分实际录屏">
+    浏览器无法播放此影片，可<a href="pyro-r9-tail-motion.mp4">打开原始MP4</a>。
+  </video>
+  <p><a href="pyro-r9-tail-motion.mp4" target="_blank" rel="noopener">打开原始影片</a> · <a href="r9-adaptive-tail-scene.json">同事件截图及数值记录</a> · <a href="r9-adaptive-tail-scene-performance.json">独立动态整场性能记录</a> · <a href="/">返回可操作场景</a></p>
+
+  <details open>
+    <summary>对照范围与限制</summary>
+    <p>上方旧/新PNG是在同一发烟花暂停后切换积分方式，同一视角内保持物理时间、相机、光源及曝光不变；全景和近景之间的相机位置不同。摄影曝光固定C=16.5，画面为SDR，不能证明HDR面板实际亮度。</p>
+    <p>烟源采用本轮QA持续释烟与Taylor候选扩散。白尾自适应积分不增加光强、不修改物理轨迹；原主爆炸音效沿用，未在本轮改版。影片与PNG应分别审看，不把独立电影当作逐像素A/B证据。</p>
+    <p>本页用于检查局部成像改善；红头光晕、云形和场景细节仍有程序感。数值或截图通过不等于整体照片感、全部闪烁消失或稳定60fps认证；影片编码帧率也不是实时渲染速度。</p>
+  </details>
+  <footer><small>仅本地QA审阅页。所有图片、影片与报告均使用同目录实际文件，无外部图片、字体、播放器或网络服务。</small></footer>
+</main>
+<script>
+  const state = { angle: 'detail', mode: 'adaptive', zoom: 'fit' };
+  const image = document.querySelector('#comparison');
+  const windowElement = document.querySelector('#image-window');
+  const names = { front: '全景', detail: '近景', legacy8: '旧版8点积分', adaptive: '新版自适应积分', fit: '适应窗口', native: '100%像素' };
+  function showSelection() {
+    const path = `r9-tail-${state.angle}_${state.mode}.png`;
+    image.src = path;
+    image.alt = `${names[state.angle]}，${names[state.mode]}的实际1920×1080截图`;
+    document.querySelector('#original').href = path;
+    document.querySelector('#state').textContent = `${names[state.angle]} · ${names[state.mode]} · ${names[state.zoom]}`;
+    windowElement.classList.toggle('native', state.zoom === 'native');
+    for (const key of ['angle', 'mode', 'zoom']) {
+      for (const button of document.querySelectorAll(`[data-${key}]`)) button.setAttribute('aria-pressed', String(button.dataset[key] === state[key]));
+    }
+  }
+  for (const key of ['angle', 'mode', 'zoom']) {
+    for (const button of document.querySelectorAll(`[data-${key}]`)) button.addEventListener('click', () => { state[key] = button.dataset[key]; showSelection(); });
+  }
+  showSelection();
+</script>
+</body>
+</html>

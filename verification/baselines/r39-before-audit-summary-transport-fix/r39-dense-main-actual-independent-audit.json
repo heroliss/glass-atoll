@@ -1,0 +1,347 @@
+{
+  "schema": "glass-atoll.r39-dense-main-saved-actual-independent-audit.v1",
+  "passed": false,
+  "counts": {
+    "passed": 5,
+    "total": 6
+  },
+  "auditActualGPU": false,
+  "browserUsed": false,
+  "physicalReplay": false,
+  "rawGpuReceiptActualGPU": true,
+  "rawReceiptSHA256": "2a27f329de7d7e8ea7c29ad7f5dd0667651a45801826dcc6993bf666de843a4a",
+  "fixtureDigest": "00288cd6826d34276789d898ef92f590c8398e2b951265aa78a89698b6bca932",
+  "sourceSHA256": "c403fed67b7944e30aebf2bb00ebb779d709461d982f9073b2ab575b6475330a",
+  "checks": [
+    {
+      "name": "Saved actual receipt is one completed private MAIN job with intact fixed input identities",
+      "passed": true,
+      "actualGPUReceipt": true,
+      "auditActualGPU": false,
+      "originalPackets": 1663,
+      "allMainRows": 2418,
+      "sourceVersion": 101,
+      "densityRequestedVsCommittedDistinct": true,
+      "opticalGeneration": 156,
+      "ledgerGeneration": 51,
+      "mirrorAndSHPending": true
+    },
+    {
+      "name": "Every saved source/function pin binds the fixed runtime, original model and immutable data",
+      "passed": true,
+      "sourcePins": 22,
+      "cachedFunctionPins": 17,
+      "runtimeSHA256": "0e6f2bd483c18f343dbe129c2c96bceefd3e6fb71ebfbd070f223a331253900c",
+      "approvedAudioSHA256": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+    },
+    {
+      "name": "ALL 2418 RGBA output rows recover unique Float32 words and meet both full reference gates",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 1.0160878427534215e-7\n- 1.0160878427534217e-7\n                   ^\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r39-dense-main-actual-independent-audit.mjs:53:98\n    at test (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r39-dense-main-actual-independent-audit.mjs:14:61)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r39-dense-main-actual-independent-audit.mjs:45:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "Eight ACTUAL partial addresses map to their own row/tile and independent bounded scalar-column references",
+      "passed": true,
+      "addresses": [
+        0,
+        62867,
+        60450,
+        2417,
+        15615,
+        15616,
+        31434,
+        1
+      ],
+      "independentReferences": 8,
+      "packetQueriesUpperBound": 510,
+      "maxAbsoluteTauError": 5.59373619472836e-12,
+      "maxSliceTransmittanceError": 5.5928595088516886e-12,
+      "engineeringGate": {
+        "absoluteTau": 0.00001,
+        "sliceTransmittance": 0.000008,
+        "relativeGate": false
+      },
+      "scope": "Additional offline bounded-address audit only. In-browser runtime partial validation was finite/nonnegative/alpha sanity, not this numerical oracle. No relative accuracy is asserted near underflow; no full partial texture or general tau bound is certified."
+    },
+    {
+      "name": "Exact complete schedule, allocation and retrospective timer remain within this one-job contract",
+      "passed": true,
+      "actualDraws": 7,
+      "prepares": 1,
+      "logicalPairs": 4021134,
+      "complete64Slots": 4023552,
+      "readBytes": 38816,
+      "numericalGpuBytes": 4706304,
+      "sentinelBytes": 608,
+      "retrospectiveGpuMs": 2.864128,
+      "coldInstrumentedCpuSubmitMs": 18.700000002980232,
+      "noFullFrameOrSpeedupClaim": true
+    },
+    {
+      "name": "Saved full native-state/descriptor restoration and GL health are clean; raw receipt stays immutable",
+      "passed": true,
+      "savedStateReceiptPassed": true,
+      "savedDescriptorReceiptPassed": true,
+      "glErrors": 0,
+      "shaderErrors": 0,
+      "originalActualReceiptUnchanged": true,
+      "independentLiveStateReinspection": false
+    }
+  ],
+  "additionalActualAddressPartialReferences": [
+    {
+      "address": 0,
+      "row": 0,
+      "tile": 0,
+      "actualFloat32TauRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "independentPackedDoubleTauRGBA": [
+        3.4814173700333937e-85,
+        3.4814173700333937e-85,
+        3.4814173700333937e-85,
+        0
+      ],
+      "absoluteTauErrorRGBA": [
+        3.4814173700333937e-85,
+        3.4814173700333937e-85,
+        3.4814173700333937e-85,
+        0
+      ],
+      "matchedExistingFixtureAddress": true,
+      "serialization": {
+        "values": 4,
+        "nonExactTransportDecimals": 0,
+        "maxAbsoluteDecimalToNearestFloat32": 0,
+        "maxFractionOfNearestHalfGap": 0,
+        "wordSHA256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+      }
+    },
+    {
+      "address": 62867,
+      "row": 2417,
+      "tile": 25,
+      "actualFloat32TauRGBA": [
+        8.894883163357292e-10,
+        8.894883163357292e-10,
+        8.894883163357292e-10,
+        0
+      ],
+      "independentPackedDoubleTauRGBA": [
+        8.887146009904974e-10,
+        8.887146009904974e-10,
+        8.887146009904974e-10,
+        0
+      ],
+      "absoluteTauErrorRGBA": [
+        7.737153452317838e-13,
+        7.737153452317838e-13,
+        7.737153452317838e-13,
+        0
+      ],
+      "matchedExistingFixtureAddress": true,
+      "serialization": {
+        "values": 4,
+        "nonExactTransportDecimals": 3,
+        "maxAbsoluteDecimalToNearestFloat32": 1.0339757656912846e-25,
+        "maxFractionOfNearestHalfGap": 3.725290298461914e-9,
+        "wordSHA256": "60541cc31b1efd3420bae9d3c3e8c2644fc0a1da93639a892990b813fe2e5d0b"
+      }
+    },
+    {
+      "address": 60450,
+      "row": 0,
+      "tile": 25,
+      "actualFloat32TauRGBA": [
+        0.00016811187379062176,
+        0.00016811187379062176,
+        0.00016811187379062176,
+        0
+      ],
+      "independentPackedDoubleTauRGBA": [
+        0.00016811187938435795,
+        0.00016811187938435795,
+        0.00016811187938435795,
+        0
+      ],
+      "absoluteTauErrorRGBA": [
+        5.59373619472836e-12,
+        5.59373619472836e-12,
+        5.59373619472836e-12,
+        0
+      ],
+      "matchedExistingFixtureAddress": false,
+      "serialization": {
+        "values": 4,
+        "nonExactTransportDecimals": 0,
+        "maxAbsoluteDecimalToNearestFloat32": 0,
+        "maxFractionOfNearestHalfGap": 0,
+        "wordSHA256": "539acdb426ff31d7c9c5be28b1731079694cb931f3df075ff76eb90f2968991e"
+      }
+    },
+    {
+      "address": 2417,
+      "row": 2417,
+      "tile": 0,
+      "actualFloat32TauRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "independentPackedDoubleTauRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "absoluteTauErrorRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "matchedExistingFixtureAddress": false,
+      "serialization": {
+        "values": 4,
+        "nonExactTransportDecimals": 0,
+        "maxAbsoluteDecimalToNearestFloat32": 0,
+        "maxFractionOfNearestHalfGap": 0,
+        "wordSHA256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+      }
+    },
+    {
+      "address": 15615,
+      "row": 1107,
+      "tile": 6,
+      "actualFloat32TauRGBA": [
+        1.7798090778953224e-9,
+        1.7798090778953224e-9,
+        1.7798090778953224e-9,
+        0
+      ],
+      "independentPackedDoubleTauRGBA": [
+        1.779805623334281e-9,
+        1.779805623334281e-9,
+        1.779805623334281e-9,
+        0
+      ],
+      "absoluteTauErrorRGBA": [
+        3.4545610412897683e-15,
+        3.4545610412897683e-15,
+        3.4545610412897683e-15,
+        0
+      ],
+      "matchedExistingFixtureAddress": true,
+      "serialization": {
+        "values": 4,
+        "nonExactTransportDecimals": 3,
+        "maxAbsoluteDecimalToNearestFloat32": 2.0679515313825692e-25,
+        "maxFractionOfNearestHalfGap": 3.725290298461914e-9,
+        "wordSHA256": "f8640927aca08c75a5bbecf86e064aaf692d825a348387318c2c413e44eb56d3"
+      }
+    },
+    {
+      "address": 15616,
+      "row": 1108,
+      "tile": 6,
+      "actualFloat32TauRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "independentPackedDoubleTauRGBA": [
+        1.457814471302823e-44,
+        1.457814471302823e-44,
+        1.457814471302823e-44,
+        0
+      ],
+      "absoluteTauErrorRGBA": [
+        1.457814471302823e-44,
+        1.457814471302823e-44,
+        1.457814471302823e-44,
+        0
+      ],
+      "matchedExistingFixtureAddress": true,
+      "serialization": {
+        "values": 4,
+        "nonExactTransportDecimals": 0,
+        "maxAbsoluteDecimalToNearestFloat32": 0,
+        "maxFractionOfNearestHalfGap": 0,
+        "wordSHA256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+      }
+    },
+    {
+      "address": 31434,
+      "row": 0,
+      "tile": 13,
+      "actualFloat32TauRGBA": [
+        0.000009049391337612178,
+        0.000009049391337612178,
+        0.000009049391337612178,
+        0
+      ],
+      "independentPackedDoubleTauRGBA": [
+        0.000009049395710386651,
+        0.000009049395710386651,
+        0.000009049395710386651,
+        0
+      ],
+      "absoluteTauErrorRGBA": [
+        4.372774472906154e-12,
+        4.372774472906154e-12,
+        4.372774472906154e-12,
+        0
+      ],
+      "matchedExistingFixtureAddress": false,
+      "serialization": {
+        "values": 4,
+        "nonExactTransportDecimals": 0,
+        "maxAbsoluteDecimalToNearestFloat32": 0,
+        "maxFractionOfNearestHalfGap": 0,
+        "wordSHA256": "c67e31aed6d200ce4ee3c6270191185a0d18e976f148dd2d85339b9ab6f6c7bd"
+      }
+    },
+    {
+      "address": 1,
+      "row": 1,
+      "tile": 0,
+      "actualFloat32TauRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "independentPackedDoubleTauRGBA": [
+        4.93231930967148e-120,
+        4.93231930967148e-120,
+        4.93231930967148e-120,
+        0
+      ],
+      "absoluteTauErrorRGBA": [
+        4.93231930967148e-120,
+        4.93231930967148e-120,
+        4.93231930967148e-120,
+        0
+      ],
+      "matchedExistingFixtureAddress": false,
+      "serialization": {
+        "values": 4,
+        "nonExactTransportDecimals": 0,
+        "maxAbsoluteDecimalToNearestFloat32": 0,
+        "maxFractionOfNearestHalfGap": 0,
+        "wordSHA256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+      }
+    }
+  ],
+  "limits": [
+    "Saved MAIN SourceT numerical output only; mirror and SH remain unsubmitted/pending; no joint/full-frame/FPS/visual approval.",
+    "New CPU work is arithmetic over all saved output rows plus at most512 scalar packet queries for actual partial addresses; no all-pair reference rerun.",
+    "Float32 recovery addresses by-value JSON decimal transport and does not certify exact raw text, signed-zero transport, or universal engine equality.",
+    "State/descriptor/GL health are independently audited saved receipts, not a new live renderer check."
+  ]
+}

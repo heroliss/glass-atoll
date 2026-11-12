@@ -1,0 +1,142 @@
+{
+  "schema": "glass-atoll.r37-emission-cdf-readonly-cpu-probe.v1",
+  "passed": true,
+  "actualGPU": false,
+  "browserUsed": false,
+  "productionChanged": false,
+  "candidateImplemented": false,
+  "engine": {
+    "node": "v24.22.0",
+    "V8": "13.6.233.17-node.57",
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900H"
+  },
+  "sourceSHA256": {
+    "firework-burn-profile.js": "7308fd7a59ac918de80acbf296a0117f2d499e48d8de40bf2880d0b3c90436d7",
+    "firework-layer-profile.js": "411242962dc8681e2eb487acc7f03937ebe32331ec06414f9e78a5674778c537",
+    "fireworks-physics.js": "033d676b8a1fd044f2bfbf4d49689cf7bb61e169f0147ac2e78c972e8d90273b",
+    "fireworks.js": "03fdb7038bffbfc769924ffff6ee57a51b5e9f8b2d3c72169d06e72b9d45c735",
+    "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+  },
+  "dataset": {
+    "origin": "Actual current createFireworkEvent production factory using saved successful R36 seed/angle/origin/orientation/G16 reference profile; Node CPU, not browser replay identity",
+    "recordingSHA256": "105a48495f09650e09cb3de6b6d43811ce794e658f10baeffc89fda779a28cfe",
+    "seed": 341070,
+    "effectProfile": "three-heart-radiant120-v1",
+    "bodies": 192,
+    "tailSamples": 8,
+    "phaseCounts": [
+      {
+        "ageSeconds": 0.7,
+        "physicsParticleSamples": 192,
+        "FWHeadSamples": 192,
+        "FWTailSamples": 1408,
+        "materialInteriorSamples": 1792,
+        "materialEndpointFastPaths": 0,
+        "totalSamples": 1792
+      },
+      {
+        "ageSeconds": 1.7,
+        "physicsParticleSamples": 192,
+        "FWHeadSamples": 192,
+        "FWTailSamples": 1536,
+        "materialInteriorSamples": 1920,
+        "materialEndpointFastPaths": 0,
+        "totalSamples": 1920
+      },
+      {
+        "ageSeconds": 2.5,
+        "physicsParticleSamples": 176,
+        "FWHeadSamples": 192,
+        "FWTailSamples": 1536,
+        "materialInteriorSamples": 1875,
+        "materialEndpointFastPaths": 29,
+        "totalSamples": 1904
+      }
+    ],
+    "totalRows": 5616,
+    "instanceSHA256": "9a7caed10eb02bf2691c190ea11efb92c21aa0ec174e4bb6d4c6aea0d09fd6a7",
+    "materialKnots": [
+      3
+    ],
+    "emissionKnots": [
+      4
+    ],
+    "phaseScope": "Source-derived point-sample workload before contact filtering; physics sea check uses native still-air motion. No actual runtime instrumentation or per-view/adaptive shutter call count is claimed."
+  },
+  "measurement": {
+    "warmupBatchesPerMethod": 3,
+    "measuredBatchesPerMethod": 8,
+    "callsPerBatch": 22464,
+    "repeatsPerBatch": 4,
+    "alternatingMethodOrder": true,
+    "checksum": 104720626.76131792,
+    "results": {
+      "fullBurnProfile": {
+        "batches": 8,
+        "minMs": 9.708700000000022,
+        "medianMs": 10.157849999999982,
+        "maxMs": 10.541799999999995,
+        "allMs": [
+          10.375200000000007,
+          9.897999999999996,
+          10.541799999999995,
+          9.991599999999977,
+          10.324099999999987,
+          10.404299999999978,
+          9.708700000000022,
+          9.927300000000002
+        ],
+        "medianNanosecondsPerCall": 452.18349358974274
+      },
+      "materialCDFOnly": {
+        "batches": 8,
+        "minMs": 4.45859999999999,
+        "medianMs": 4.68565000000001,
+        "maxMs": 4.91070000000002,
+        "allMs": [
+          4.813600000000008,
+          4.45859999999999,
+          4.63979999999998,
+          4.91070000000002,
+          4.770099999999957,
+          4.524699999999996,
+          4.73150000000004,
+          4.5353999999999814
+        ],
+        "medianNanosecondsPerCall": 208.58484686609728
+      },
+      "fullBodyWrapper": {
+        "batches": 8,
+        "minMs": 10.618799999999993,
+        "medianMs": 10.890750000000011,
+        "maxMs": 11.7543,
+        "allMs": [
+          11.061900000000009,
+          10.629199999999997,
+          11.287599999999998,
+          10.618799999999993,
+          11.7543,
+          10.719600000000014,
+          11.203700000000026,
+          10.677200000000028
+        ],
+        "medianNanosecondsPerCall": 484.8090277777783
+      }
+    }
+  },
+  "findings": {
+    "fullSampleAlwaysRequestsMaterialCDF": true,
+    "FWAndPhysicsPointConsumersDoNotReadCDF": true,
+    "positiveShutterBinsAlreadyRGBOnly": true,
+    "profileValidationWeakSetAlreadyExists": true,
+    "materialCDFNoValueCache": true,
+    "oldAPIChangesApproved": false
+  },
+  "limits": [
+    "Isolated warmed Node CPU timings are diagnostic; materialCDF-only time is not a proved whole-frame speedup or a valid subtractive performance bound.",
+    "The observable checksum consumes CDF; optimizing JITs may eliminate unused work differently in real application call sites. Only a future real caller A/B can prove benefit.",
+    "No transformed emission-only function, production edit, shader change, browser, GPU, media recording or full-frame benchmark is performed.",
+    "Point workload reconstruction does not duplicate the already RGB-only positive shutter-bin integration; adaptive spatial/optical work is outside this probe."
+  ],
+  "wallSeconds": 340.0521
+}

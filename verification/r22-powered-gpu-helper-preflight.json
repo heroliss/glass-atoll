@@ -1,0 +1,191 @@
+{
+  "schema": "glass-atoll.r22-powered-gpu-helper-preflight.v1",
+  "dateUTC": "2026-10-29T05:24:43.409Z",
+  "passed": true,
+  "counts": {
+    "checks": 5,
+    "passed": 5
+  },
+  "actualGPU": false,
+  "checks": [
+    {
+      "name": "capture restore and native state comparison are exact sealed R21 source copies",
+      "passed": true,
+      "evidence": {
+        "captureRestoreSameStateExact": true
+      }
+    },
+    {
+      "name": "updated helper retains bounded timing shader FBO link and first-fault stop gates",
+      "passed": true,
+      "evidence": {
+        "maximumDraws": 4,
+        "target": [
+          32,
+          32
+        ],
+        "timingGuardMilliseconds": 25,
+        "realDispatch": false
+      }
+    },
+    {
+      "name": "all four CPU factory selections match unique uploaded rows, positive oracles and actual clip depth",
+      "passed": true,
+      "evidence": [
+        {
+          "reflection": false,
+          "shutter": 0.008333333333333333,
+          "selected": 2,
+          "originalRows": 2144,
+          "cameraDistance": 161.8503761617645,
+          "far": 1000,
+          "oraclePeak": 0.000010992235433238984,
+          "material": "Finite direct effects, manual opaque depth"
+        },
+        {
+          "reflection": false,
+          "shutter": 0,
+          "selected": 1,
+          "originalRows": 2112,
+          "cameraDistance": 161.8503761617645,
+          "far": 1000,
+          "oraclePeak": 0.000010666497980514793,
+          "material": "Finite direct effects, manual opaque depth"
+        },
+        {
+          "reflection": true,
+          "shutter": 0.008333333333333333,
+          "selected": 2,
+          "originalRows": 2144,
+          "cameraDistance": 165.80721569665315,
+          "far": 1000,
+          "oraclePeak": 0.000010467195170493555,
+          "material": "Finite reflected effects, water-hit air"
+        },
+        {
+          "reflection": true,
+          "shutter": 0,
+          "selected": 1,
+          "originalRows": 2112,
+          "cameraDistance": 165.80721569665315,
+          "far": 1000,
+          "oraclePeak": 0.000010163477997394694,
+          "material": "Finite reflected effects, water-hit air"
+        }
+      ]
+    },
+    {
+      "name": "helper row copying stages every selected attribute before overwriting the prefix",
+      "passed": true,
+      "evidence": {
+        "stagedRows": true,
+        "additiveZeroAlphaOracle": true
+      }
+    },
+    {
+      "name": "main hook enforces exclusive existing renderer lock and restores pause on success failure or loss",
+      "passed": true,
+      "evidence": [
+        {
+          "locked": false,
+          "interrupted": false,
+          "paused": false,
+          "throwHelper": false,
+          "loseContext": false
+        },
+        {
+          "locked": false,
+          "interrupted": false,
+          "paused": true,
+          "throwHelper": false,
+          "loseContext": false
+        },
+        {
+          "locked": false,
+          "interrupted": false,
+          "paused": false,
+          "throwHelper": true,
+          "loseContext": false
+        },
+        {
+          "locked": false,
+          "interrupted": false,
+          "paused": false,
+          "throwHelper": false,
+          "loseContext": true
+        },
+        {
+          "locked": true,
+          "interrupted": false,
+          "paused": false,
+          "throwHelper": false,
+          "loseContext": false
+        },
+        {
+          "locked": false,
+          "interrupted": true,
+          "paused": false,
+          "throwHelper": false,
+          "loseContext": false
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "factoryRows": [
+      {
+        "reflection": false,
+        "shutter": 0.008333333333333333,
+        "selected": 2,
+        "originalRows": 2144,
+        "cameraDistance": 161.8503761617645,
+        "far": 1000,
+        "oraclePeak": 0.000010992235433238984,
+        "material": "Finite direct effects, manual opaque depth"
+      },
+      {
+        "reflection": false,
+        "shutter": 0,
+        "selected": 1,
+        "originalRows": 2112,
+        "cameraDistance": 161.8503761617645,
+        "far": 1000,
+        "oraclePeak": 0.000010666497980514793,
+        "material": "Finite direct effects, manual opaque depth"
+      },
+      {
+        "reflection": true,
+        "shutter": 0.008333333333333333,
+        "selected": 2,
+        "originalRows": 2144,
+        "cameraDistance": 165.80721569665315,
+        "far": 1000,
+        "oraclePeak": 0.000010467195170493555,
+        "material": "Finite reflected effects, water-hit air"
+      },
+      {
+        "reflection": true,
+        "shutter": 0,
+        "selected": 1,
+        "originalRows": 2112,
+        "cameraDistance": 165.80721569665315,
+        "far": 1000,
+        "oraclePeak": 0.000010163477997394694,
+        "material": "Finite reflected effects, water-hit air"
+      }
+    ]
+  },
+  "sourceSHA256": {
+    "verification/r22-powered-optics-gpu-check.js": "097e55d874b90a5afbd6533bc01b37a1d1b8138a630594bdb22ec0115e200368",
+    "verification/r21-contact-support-gpu-check.js": "db6398a7ddaa010ab7a7f4f1d95c44a63052c365c97683892f5f67d0f6d9c0b9",
+    "main.js": "c7067c2ceb727b8a3bdcb9619089832d77b3ed872a8c69e30816b220c383284e"
+  },
+  "resolvedBeforeDispatch": [
+    "R21 timer/FBO/link guards restored by root.",
+    "R21 camera far100 excluded the powered head at ~162m; root raised fixture far1000 and added clip-depth assertion."
+  ],
+  "limits": [
+    "Factory preparation and renderer attribute fill used CPU/no-op renderer only; no actual GL calls or GPU helper entry point.",
+    "GPU numeric tolerance, timing and native state restoration still require the bounded root dispatch."
+  ]
+}

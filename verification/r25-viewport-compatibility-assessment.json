@@ -1,0 +1,30 @@
+{
+  "schema": "glass-atoll.r25-historical-viewport-compatibility-assessment.v1",
+  "dateUTC": "2026-10-29T09:36:11.046Z",
+  "diagnosisConfirmed": true,
+  "viewportSuitePassed": false,
+  "historicalAssertionsExecuted": 0,
+  "blockerPreexisting": true,
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "viewportTestModified": false,
+  "prefixInverseEdits": 3,
+  "exactPreR25SourceRestored": true,
+  "baselineError": "Error: resolved renderer scope drift: prepare/bind API",
+  "postPrefixInverseError": "Error: resolved renderer scope drift: prepare/bind API",
+  "preservedFailureLogs": [
+    "verification/r25-viewport-before-prefix-inverse.log",
+    "verification/r25-viewport-pre-r25-baseline-normalizer.log"
+  ],
+  "sourceSHA256": {
+    "candidate": "4f152a1470d8351b997728691bc2e0ec15ee0962b55926179917cb42ce7ee3dd",
+    "baseline": "0221cab9bdd44ed04178fd8d838d5aa31d2521d1d0b5af27a8a228bdc40c2e0e",
+    "inverse": "0221cab9bdd44ed04178fd8d838d5aa31d2521d1d0b5af27a8a228bdc40c2e0e",
+    "historicalViewportTest": "0031851ab053019ff7a8cc183254705341703e5452d5db80f33cc9816c1ba724",
+    "independentFactoryTest": "a33b0f204167f6dbad6c9c12b3135e8a71027a268e23b0f1fcdf42a7da2d4ac9"
+  },
+  "reason": "The pre-R25 renderer already contains a resolved-light prepare/bind API shape that this historical normalizer does not recognize. Prefix inversion cannot resolve that earlier drift. No FBO/viewport assertion or historical normalizer was weakened.",
+  "scope": "Actual active-prefix behavior remains covered separately by r25-smoke-prefix-independent-check; this blocked source-scope suite is not relabeled passed.",
+  "additionalInverseModuleRetained": false
+}

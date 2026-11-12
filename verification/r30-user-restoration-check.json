@@ -1,0 +1,184 @@
+{
+  "schema": "glass-atoll.r30-user-restoration.v1",
+  "passed": true,
+  "counts": {
+    "passed": 29,
+    "total": 29,
+    "exact": 28
+  },
+  "checks": [
+    {
+      "name": "parameters.sun",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.qualityPreset",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.quality",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.paused",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.sound",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.wind",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.current",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.lens",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.weather",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.air",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.graphics (automatic calibration intent)",
+      "passed": true,
+      "exact": false,
+      "derivedPeakNits": {
+        "before": 700,
+        "after": 1270
+      },
+      "note": "Automatic read-only display calibration remains enabled; no OS/display setting was changed."
+    },
+    {
+      "name": "parameters.sea",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.director",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.qualityCustom",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.renderSampling",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "camera",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "target",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.mode",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.utcMs",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.running",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.rate",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.observer",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "localLights.mode",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "localLights.linked",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "localLights.lamps",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "localLights.flashlight",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "fireworks.settings",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "interface.selectedCategoryPanelViews",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "noTransientActiveAndGLFault",
+      "exact": true,
+      "passed": true,
+      "evidence": {
+        "active": 0,
+        "queued": 0,
+        "packets": 0,
+        "gl": {
+          "label": "r30-after",
+          "errors": [],
+          "programLive": true,
+          "programDeletePending": false,
+          "vertexArrayLive": true
+        },
+        "bodyInert": false
+      }
+    }
+  ],
+  "console": {
+    "errors": 0,
+    "warnings": 2,
+    "source": "r30-console-after.json",
+    "scope": "Two retained compiler warnings are distinct from GL/link failure; no console-clean claim."
+  },
+  "limits": [
+    "Normal reload and successful semantic restoration preserve user settings, not the original instantaneous ocean/cloud/physical clock or bitwise histories.",
+    "Automatic peakNits derives from the current display report; it is not a fixed manual user override."
+  ]
+}

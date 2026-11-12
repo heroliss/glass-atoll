@@ -1,0 +1,153 @@
+{
+  "schema": "glass-atoll.r39-user-and-runtime-check.v1",
+  "passed": false,
+  "counts": {
+    "passed": 1,
+    "total": 2
+  },
+  "intentCounts": {
+    "passed": 29,
+    "total": 29
+  },
+  "checks": [
+    {
+      "name": "29 user groups, full parameters, night/lens UI and exact current HDR calibration preserved",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    calibrationSource: 'windows-dxgi',\n    confidence: 'screen-geometry',\n    display: {\n      advancedColorEnabled: true,\n...\n      deviceName: '\\\\\\\\.\\\\DISPLAY6',\n+     foregroundMonitor: false,\n-     foregroundMonitor: true,\n      friendlyName: 'Q27G4XM',\n      greenPrimary: [\n        0.2226524353027344,\n        0.7304744720458984\n      ],\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r39-user-and-runtime-check.mjs:7:366\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r39-user-and-runtime-check.mjs:4:206)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r39-user-and-runtime-check.mjs:7:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "Only the reversible QA main entry differs; fixed GPU job is private and completed once",
+      "passed": true,
+      "evidence": {
+        "unchangedSource": 111,
+        "mainQAOnly": true,
+        "approvedAudioExact": true,
+        "actualGPUSingleCall": true,
+        "publishedToLive": false,
+        "gpuMs": 2.864128,
+        "fullFrameOrFPS": false
+      }
+    }
+  ],
+  "intent": [
+    {
+      "name": "parameters.sun",
+      "passed": true
+    },
+    {
+      "name": "parameters.qualityPreset",
+      "passed": true
+    },
+    {
+      "name": "parameters.quality",
+      "passed": true
+    },
+    {
+      "name": "parameters.paused",
+      "passed": true
+    },
+    {
+      "name": "parameters.sound",
+      "passed": true
+    },
+    {
+      "name": "parameters.wind",
+      "passed": true
+    },
+    {
+      "name": "parameters.current",
+      "passed": true
+    },
+    {
+      "name": "parameters.lens",
+      "passed": true
+    },
+    {
+      "name": "parameters.weather",
+      "passed": true
+    },
+    {
+      "name": "parameters.air",
+      "passed": true
+    },
+    {
+      "name": "parameters.graphics",
+      "passed": true
+    },
+    {
+      "name": "parameters.sea",
+      "passed": true
+    },
+    {
+      "name": "parameters.director",
+      "passed": true
+    },
+    {
+      "name": "parameters.qualityCustom",
+      "passed": true
+    },
+    {
+      "name": "parameters.renderSampling",
+      "passed": true
+    },
+    {
+      "name": "camera",
+      "passed": true
+    },
+    {
+      "name": "target",
+      "passed": true
+    },
+    {
+      "name": "celestial.mode",
+      "passed": true
+    },
+    {
+      "name": "celestial.utcMs",
+      "passed": true
+    },
+    {
+      "name": "celestial.running",
+      "passed": true
+    },
+    {
+      "name": "celestial.rate",
+      "passed": true
+    },
+    {
+      "name": "celestial.observer",
+      "passed": true
+    },
+    {
+      "name": "localLights.mode",
+      "passed": true
+    },
+    {
+      "name": "localLights.linked",
+      "passed": true
+    },
+    {
+      "name": "localLights.lamps",
+      "passed": true
+    },
+    {
+      "name": "localLights.flashlight",
+      "passed": true
+    },
+    {
+      "name": "fireworks.settings",
+      "passed": true
+    },
+    {
+      "name": "interface",
+      "passed": true
+    },
+    {
+      "name": "emptyHealthyRuntime",
+      "passed": true
+    }
+  ],
+  "newGPUCallsByChecker": 0,
+  "scope": "Saved actual browser scene/state/job plus current source pins; does not resubmit GPU.",
+  "goalComplete": false
+}

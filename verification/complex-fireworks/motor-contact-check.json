@@ -1,0 +1,81 @@
+{
+  "schema": "glass-atoll.complex-display-motor-contact-cpu-check.v1",
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "actualGPU": false,
+  "browserUsed": false,
+  "scope": "Actual production event factories, motor samplers and two adapters; QA source clone only exposes closure bounds/captured partitions. Finite sampled checks supplement analytical contracts, not a proof by trajectory sampling. No rendered/pixel/FPS claim.",
+  "sourcePins": {
+    "firework-contact-support.js": "3fcf376a8c2b64bc6cca673c2aa415e198a4d2b39740ff0b43f38d0bafabc885",
+    "firework-tail-field.js": "16007285803d1ed47c2fe2f1116415eaa9a53e5145d7e3af7e063fa0efb94093",
+    "fireworks-physics.js": "ebfa1bf33168b144f056f871f6cfa468e27477e045e9dcefd4a08cb389474b9b",
+    "complex-fireworks-motion.js": "2be614e78310cabb1d13a7a0e5dece14e7b31e6ae973bf2aa4e0dc4f0b63bfe8",
+    "complex-fireworks.js": "fa530dc5dcd3359a0187892ffe47ebe94582521fb4fad1ea0f8d440b7bf1c62f"
+  },
+  "results": [
+    {
+      "name": "Only declared display-motor paths changed; old metadata and operation branches remain in the source",
+      "passed": true,
+      "details": {
+        "strictFullSourceTransforms": 2,
+        "unchangedUnknownMotorRejection": true
+      }
+    },
+    {
+      "name": "Actual helix/vortex motor body speed and displacement samples are enclosed by the analytical adapter bounds",
+      "passed": true,
+      "details": {
+        "motorBodies": 98,
+        "samples": 7644,
+        "maxSpeedRatio": 0.9999161017895202,
+        "maxPositionRatio": 0.9999683331194245,
+        "scope": "Finite sampled witness supplements closed positive-convolution + integrated-acceleration bounds; no sampled-grid certification claim."
+      }
+    },
+    {
+      "name": "Fixed-lag display field uses the current prescribed acceleration and differs from detached ember velocity",
+      "passed": true,
+      "details": {
+        "selectedBodies": 8,
+        "cases": 72,
+        "maxDerivativeError": 6.248441764000745e-10,
+        "maxSpeedRatio": 0.8656628153327984,
+        "minVelocityDifference": 4.707773697170926
+      }
+    },
+    {
+      "name": "Motor cell endpoints and cutoff use right-hand force; tail derivative shifts exactly by its fixed lag",
+      "passed": true,
+      "details": {
+        "cases": 2,
+        "scope": "Represented absolute clocks determine the right-hand source-age lookup; no epsilon snapping to force cells."
+      }
+    },
+    {
+      "name": "Actual display heads/tails use bounded contact solves with complete causal force partitions",
+      "passed": true,
+      "details": {
+        "cases": 4,
+        "distinctForceCuts": 20,
+        "maxUnresolved": 6.8296994726324556e-9,
+        "scope": "Artificial declared planes through actual source trajectories test crossing algebra; not a new terrain/water model."
+      }
+    },
+    {
+      "name": "Ordinary and older finite-thrust body/tail outputs and contact solves stay exact against the archived adapters",
+      "passed": true,
+      "details": {
+        "exactTailCases": 36,
+        "exactContactCases": 18,
+        "oldProfiles": [
+          "legacy",
+          "three-heart-v1",
+          "powered-bees-v1"
+        ]
+      }
+    }
+  ]
+}

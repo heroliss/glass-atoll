@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>空气受光 · 高清对照</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,"Microsoft YaHei",sans-serif;background:#101518;color:#e9eeeb}body{margin:0}main{max-width:1600px;margin:auto;padding:28px}h1{font-size:26px;font-weight:500;letter-spacing:.04em;margin:8px 0 14px}p{color:#b7c5c3;line-height:1.7;max-width:80ch}a{color:#bbdfd5}.controls{display:flex;flex-wrap:wrap;align-items:end;gap:18px;margin:24px 0 14px}fieldset{border:0;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:5px}legend{font-size:12px;color:#9caeac;margin-bottom:8px}button{font:inherit;cursor:pointer;background:#1c282c;border:1px solid #455755;color:#d9e5e0;border-radius:6px;padding:9px 15px}button[aria-pressed=true]{background:#d1e4da;color:#182623;border-color:#d1e4da}button:focus-visible,a:focus-visible{outline:3px solid #f8bf72;outline-offset:4px}.frame{width:100%;height:min(73vh,900px);overflow:auto;border:1px solid #33403f;background:#000;display:flex;align-items:center;justify-content:center}.frame img{max-width:100%;max-height:100%;object-fit:contain;display:block}.frame.native{display:block}.frame.native img{max-width:none;max-height:none;width:1920px;height:1080px}output{display:block;min-height:24px;color:#d3e7df;font-size:14px;margin:12px 0}.small{font-size:13px;color:#91a5a2}header{display:flex;justify-content:space-between;gap:20px;align-items:center}nav{display:flex;gap:16px;font-size:14px}@media(max-width:700px){main{padding:16px}.controls{gap:14px}button{padding:9px 12px}.frame{height:56vh}header{align-items:flex-start;flex-direction:column}}
+</style></head><body><main>
+<header><h1>让烟花的光，留在空气里。</h1><nav><a href="/">返回海岛</a><a href="ember-colour-review.html">余烬颜色对照</a></nav></header>
+<p>同一枚垂柳、爆炸后 1.1 秒，保持轨迹、烟量、天气、机位和摄影曝光一致。A 漏掉天空背景的局部散射；B 补上天空，但固定采样仍会留下分界；C 在光源影响范围内积分，并让海面前方与天空使用同一套局部散射计算。</p>
+<div class="controls">
+<fieldset data-group="mode"><legend>空气受光</legend><button data-value="legacy" aria-pressed="false">A · 原版</button><button data-value="local_sky" aria-pressed="false">B · 补充天空</button><button data-value="support_local_sky" aria-pressed="true">C · 光路积分</button></fieldset>
+<fieldset data-group="photometry"><legend>发光强度</legend><button data-value="thermal-greybody" aria-pressed="true">实验参考面积</button><button data-value="reference" aria-pressed="false">原有强度</button></fieldset>
+<fieldset data-group="zoom"><legend>图像大小</legend><button data-value="fit" aria-pressed="true">适合窗口</button><button data-value="native" aria-pressed="false">原始像素</button></fieldset>
+</div>
+<output id="status" aria-live="polite"></output><div class="frame" id="frame"><img id="photo" width="1920" height="1080" alt="烟花局部空气受光对照"></div>
+<p class="small">原始 1920×1080 SDR 图片，可切到原始像素滚动细看。实验光度使用 2850K、2mm 参考发光面积的近似，尚未以真实烟花测光标定。这里评估的是光路连续性；整体造型、烟气细节、动态表现与性能仍需继续验收。网页默认方案尚未切换。</p>
+</main><script>
+const state={mode:'support_local_sky',photometry:'thermal-greybody',zoom:'fit'},photo=document.getElementById('photo'),status=document.getElementById('status'),frame=document.getElementById('frame'),labels={legacy:'A · 原版',local_sky:'B · 补充天空',support_local_sky:'C · 光路积分'};
+function update(){const label=labels[state.mode]+' · '+(state.photometry==='reference'?'原有强度':'实验参考面积');photo.alt=label;status.textContent=label;photo.src='r12-background-air-support-'+state.photometry+'_'+state.mode+'.png';frame.classList.toggle('native',state.zoom==='native');document.querySelectorAll('fieldset[data-group]').forEach(f=>f.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(state[f.dataset.group]===b.dataset.value))));}
+document.querySelectorAll('fieldset[data-group] button').forEach(b=>b.addEventListener('click',()=>{state[b.parentElement.dataset.group]=b.dataset.value;update();}));photo.addEventListener('error',()=>status.textContent='图片未能加载，请刷新页面。');update();
+</script></body></html>

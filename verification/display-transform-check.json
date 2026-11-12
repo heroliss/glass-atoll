@@ -1,0 +1,179 @@
+{
+  "schema": "glass-atoll.display-transform-policy-CPU.v1",
+  "dateUTC": "2026-10-27T17:14:56.355Z",
+  "passed": true,
+  "counts": {
+    "passed": 19,
+    "total": 19
+  },
+  "checks": [
+    {
+      "name": "default and explicitlegacy are lazy and never allocate or admit targets",
+      "passed": true,
+      "evidence": {
+        "allocations": 0,
+        "prepares": 0,
+        "draws": 0,
+        "newSelectionRequiresEachSurfaceDraw": true
+      }
+    },
+    {
+      "name": "prepared resources never claim a presented surface before an actual draw",
+      "passed": true,
+      "evidence": {
+        "targetAdmissionOrder": [
+          100,
+          700
+        ],
+        "claimsOnlyAfterDraw": true
+      }
+    },
+    {
+      "name": "SDR HDR forward unchanged input exposure and exact single units encoding contract",
+      "passed": true,
+      "evidence": {
+        "SDRTarget": 100,
+        "HDRTarget": 700,
+        "SDRScale": 1,
+        "HDRScale": 0.35714285714285715,
+        "unchangedExposure": 48.64,
+        "drawCalls": 2,
+        "numericalGPU": false
+      }
+    },
+    {
+      "name": "unsupported1200 cannot reuse700 while cached100 remains usable forSDR",
+      "passed": true,
+      "evidence": {
+        "unsupportedTarget": 1200,
+        "noNearest700Substitution": true,
+        "cachedSDR100": true
+      }
+    },
+    {
+      "name": "pending exactHDR keeps SDR cache and does not draw old700 fornew1270",
+      "passed": true,
+      "evidence": {
+        "pendingDoesNotSubstitute": true
+      }
+    },
+    {
+      "name": "mode cancellation rejects delayed firstenable continuation",
+      "passed": true,
+      "evidence": {
+        "noStaleHDRPrepareAfterLegacy": true
+      }
+    },
+    {
+      "name": "latest peak and mode win when olderHDR preparation resolves last",
+      "passed": true,
+      "evidence": {
+        "latestExactPeak": 1270,
+        "oldCompletionCannotRelabel": true
+      }
+    },
+    {
+      "name": "same pending configuration deduplicates controller work",
+      "passed": true,
+      "evidence": {
+        "samePromise": true,
+        "admissions": 2
+      }
+    },
+    {
+      "name": "invalid mode and nonnumeric outofrange peak reject without revision change",
+      "passed": true,
+      "evidence": {
+        "invalidModes": 5,
+        "invalidPeaks": 8,
+        "noAllocation": true
+      }
+    },
+    {
+      "name": "documented calibration rounding is explicit and unsupportedrounded target stays unsupported",
+      "passed": true,
+      "evidence": {
+        "finite40to10000CalibrationRoundsToInteger": true,
+        "notAnArbitraryPeakGPUClaim": true
+      }
+    },
+    {
+      "name": "missing invalid browser white falls back before draw and cannot borrow paperwhite",
+      "passed": true,
+      "evidence": {
+        "invalidWhiteCases": 5,
+        "noCandidateDraw": true
+      }
+    },
+    {
+      "name": "factory exception and failedSDR admission close safely without HDR work",
+      "passed": true,
+      "evidence": {
+        "factoryAndHashAndPrepareThrows": 3,
+        "noFailedCandidateClaims": true
+      }
+    },
+    {
+      "name": "HDR validation failure preserves SDR and explicitretry recovers same target",
+      "passed": true,
+      "evidence": {
+        "noImplicitRetryLoop": true,
+        "explicitRetryRecovers": true
+      }
+    },
+    {
+      "name": "draw exception returns false records fallback and later valid draw clears lastError",
+      "passed": true,
+      "evidence": {
+        "exceptionIsNeverSuccessfulDraw": true
+      }
+    },
+    {
+      "name": "separate SDRexport and bridgefallback never relabel other surface",
+      "passed": true,
+      "evidence": {
+        "surfacesIndependent": true
+      }
+    },
+    {
+      "name": "HDR preparation error survives successful cachedSDR draw",
+      "passed": true,
+      "evidence": {
+        "successfulSDRDoesNotEraseHDRPreparationError": true
+      }
+    },
+    {
+      "name": "surface render errors are independently retained and cleared including noteFallback",
+      "passed": true,
+      "evidence": {
+        "SDRAndHDRSuccessClearOnlyOwnDrawError": true,
+        "noteFallbackClearOnlyOwnSurface": true
+      }
+    },
+    {
+      "name": "explicitlegacy selection clears preparation and bothsurface faults without drawing",
+      "passed": true,
+      "evidence": {
+        "explicitSelectionResetsAllDiagnosticDomains": true
+      }
+    },
+    {
+      "name": "dispose pending invalidates continuations and releases boundary once",
+      "passed": true,
+      "evidence": {
+        "noLateHDRAdmission": true,
+        "disposeCalls": 1
+      }
+    }
+  ],
+  "sourceSHA256": "6d0a33ba6824b49e418332f05ef5ecf9b16a212c8dc51b670ba7ea1fe79f4617",
+  "adapterSourceSHA256": "9958bb923d18625291132e47cc70dfac43a61a3c45af50b24d7e1a2ee4cbbff3",
+  "actualGPU": false,
+  "boundary": "Injected createOutput models only admission/readiness/draw success or exceptions; no GL calls, colour pixels, shader validation or HDR bridge results generated",
+  "limits": [
+    "Actual imported controller is exercised, not a second implementation of its state machine.",
+    "One exposure/unit/OETF forwarding is verified as arguments; shader arithmetic and visible HDR need separate actualGPU evidence.",
+    "40..10000 finite calibration rounds to integer by current policy; arbitrary target resources remain explicit unsupported.",
+    "No UI/native browser acceptance or performance claim."
+  ]
+}

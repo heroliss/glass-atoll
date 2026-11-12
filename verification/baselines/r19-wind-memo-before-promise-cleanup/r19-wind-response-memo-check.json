@@ -1,0 +1,105 @@
+{
+  "schema": "glass-atoll.r19-wind-response-memo-check.v1",
+  "started": "2026-10-28T22:21:39.294Z",
+  "completed": "2026-10-28T22:21:39.910Z",
+  "passed": true,
+  "counts": {
+    "passed": 13,
+    "total": 13
+  },
+  "sourceSHA256": "bd6139448b5a21347184d7fa4bf6782e50c36108d8c44375f3c5a1b0098f34ca",
+  "baselineSHA256": "dfa1ba96c3b8d5fb1d35853392874678c46200ad98ffb8b7306c91cbba71bca1",
+  "checks": [
+    {
+      "name": "Uncached formula body and arithmetic order remain text-exact",
+      "passed": true,
+      "details": {
+        "oldSHA256": "dfa1ba96c3b8d5fb1d35853392874678c46200ad98ffb8b7306c91cbba71bca1",
+        "scope": "Export wrapper only; unchanged raw body, including recursive initial-wind formula."
+      }
+    },
+    {
+      "name": "No scope retains bit-exact Double values, ordinary mutability and existing diagnostics",
+      "passed": true,
+      "details": {
+        "queries": 320
+      }
+    },
+    {
+      "name": "Same scope returns exact shared immutable response; tiny Double change and signed zero do not alias",
+      "passed": true,
+      "details": {
+        "reused": true,
+        "immutable": true,
+        "signedZeroSeparate": true
+      }
+    },
+    {
+      "name": "Scope exit, new scope and callback throw discard memo; no global state leaks",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Nested same/different timelines have independent scopes and restore the outer scope",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Async callbacks rejected before invocation; returned Promise/thenable rejected after finally cleanup",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Explicit historical invalidation disables every matching nested scope and preserves exact edits",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "In-scope append/prune/endpoint replacement safely disables memo without stale hits",
+      "passed": true,
+      "details": {
+        "mutations": 4
+      }
+    },
+    {
+      "name": "4096-entry cap stops retaining new keys but retains already cached values",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Invalid queries retain original exceptions inside and outside scopes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Actual frozen factory scoped update/upload exact: chrysanthemum/legacy",
+      "passed": true,
+      "details": {
+        "frames": 4,
+        "scope": "real Three constructors; original factory and physics formulas; mock renderer uploads only"
+      }
+    },
+    {
+      "name": "Actual frozen factory scoped update/upload exact: chrysanthemum/two-colour-v1",
+      "passed": true,
+      "details": {
+        "frames": 4,
+        "scope": "real Three constructors; original factory and physics formulas; mock renderer uploads only"
+      }
+    },
+    {
+      "name": "Actual frozen factory scoped update/upload exact: crossette/legacy",
+      "passed": true,
+      "details": {
+        "frames": 4,
+        "scope": "real Three constructors; original factory and physics formulas; mock renderer uploads only"
+      }
+    }
+  ],
+  "limits": [
+    "No production FW or physics edits; integration is an in-memory verification transform of frozen source.",
+    "No GPU/browser/native FPS or speedup assertion.",
+    "Historical in-place timeline edits still require invalidateWindResponse; implicit deep mutation detection is deliberately absent.",
+    "Synchronous callback scope only. Promise rejection prevents cache retention, not arbitrary asynchronous side effects already scheduled by a plain callback."
+  ]
+}

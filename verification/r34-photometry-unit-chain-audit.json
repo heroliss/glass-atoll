@@ -1,0 +1,105 @@
+{
+  "schema": "glass-atoll.r34-photometry-chain-readonly-audit.v1",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "checks": [
+    {
+      "name": "Saved normalized colour and reference units",
+      "passed": true
+    },
+    {
+      "name": "Storage P cancels the scene/output scale in the documented linear chain",
+      "passed": true
+    },
+    {
+      "name": "Saved complete per-eye SourceT and resolved SH are enabled, with distinct complete packet/source counts",
+      "passed": true
+    }
+  ],
+  "sourcePins": {
+    "verification/r34-three-layer-bright-state.json": "40789842f5bddefb863acf891e555853ef1c52ddebfd86b540115275b4bd7f63",
+    "scene-radiometry.js": "f942645604dae00fe6ad713c605ad38509bf71cf7fbf10fe5e28b904eb5bf66d",
+    "fireworks-physics.js": "2cdffbced09c8a151f9fb3cb1531a905633af6978c41f9fc3ea2c1a13006419d",
+    "firework-layer-profile.js": "e42e8c9b4405ff32c86bacc4cdfbbb8ed7cbf9d7275860593fc366e5ff9bdf09",
+    "fireworks.js": "f0e3b7db8a268cb02227c81282e85a808158942e2b73656df39fdc752c783463",
+    "local-lights.js": "c3199796173a445a48f0823b9166c1df416cc9ccb899519cd458df4b38ea97d9",
+    "sky.js": "51db558ead3dea10d4c74633c2a8eb5bedf20952c136e0668b97de0a5ffc8eee",
+    "pyro-smoke-renderer.js": "1d48e5bf251ef3f23701e706f4e6c098388b26003d4d2b51c9f1cf4c40ed26cf",
+    "pyro-smoke-light-field.js": "6e37c2cc59c8f32b329840392dfba85a48c16c8beec92623d1e65b6458bffa6c",
+    "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+  },
+  "saved": {
+    "phasePhysicalTime": 62.73190880189797,
+    "camera": [
+      -133.92069377000928,
+      11.999999999999932,
+      -315.6565680242418
+    ],
+    "clusterPosition": [
+      73.30013833453438,
+      149.10736740302863,
+      94.83484619920455
+    ],
+    "clusterRadius": 6.802194393945688,
+    "clusterMaxExtent": 10.787653138686938,
+    "totalReferenceCandela": 1276.1834435874375,
+    "colourY": 0.9999999999999987,
+    "peakReferenceBudget": 1421.2929533421993,
+    "remainingPeakBudgetFraction": 0.8979031666810594,
+    "packetCount": 24,
+    "ledgerSourceCount": 1728,
+    "cameraEV": 14,
+    "storageEV": 11.75,
+    "outputExposureScale": 3.615189629608272
+  },
+  "arithmetic": {
+    "rawRGB": [
+      0.07049595524890465,
+      0.033774600639015925,
+      0.09417686296684728
+    ],
+    "finalGainBeforeDisplayTransform": 0.44826624000000004,
+    "storageScaleCancellationCases": [
+      {
+        "P": -20,
+        "combinedGain": 0.44826624000000004
+      },
+      {
+        "P": 0,
+        "combinedGain": 0.44826624000000004
+      },
+      {
+        "P": 11.75,
+        "combinedGain": 0.44826624000000004
+      },
+      {
+        "P": 19,
+        "combinedGain": 0.44826624000000004
+      }
+    ],
+    "cameraDistanceMetres": 479.8354974420437,
+    "idealIsotropicPoint": {
+      "cameraNormalIlluminanceLux": 0.005542789168707105,
+      "directlyBelowGroundIlluminanceLux": 0.05740039765164312,
+      "islandOriginDistanceMetres": 191.31012871081975,
+      "islandOriginNormalCosine": 0.7794013229086062,
+      "islandOriginIlluminanceBeforeCutoffLux": 0.02717679990913103,
+      "islandOriginCustomCutoffFactor": 0.6116313567824782,
+      "islandOriginIlluminanceAfterCutoffLux": 0.01662218300142774,
+      "minimumCloudLayerDistanceMetres": 663.8490553696746,
+      "nearestCloudLayerIncidentIlluminanceUpperLux": 0.0028958390674685445
+    },
+    "unitAlbedoLambertOrigin": {
+      "noAirNoOcclusionLinearOutputBeforeDisplayTransform": 0.0023717789975500904,
+      "assumptions": "Isotropic aggregate point, horizontal receiver at [0,0,0], unit diffuse albedo, no air/cloud/geometry occlusion; not a sampled pixel or radiometric calibration."
+    }
+  },
+  "limits": [
+    "The cd labels are authored references, not measured shell photometry. SI calculations here are conditional on interpreting those labels as SI.",
+    "No pixel, sensor, monitor-nit, full transport, native surface shading or GPU evaluation was performed.",
+    "Storage cancellation applies before nonlinear display transform and finite-precision effects; it is not a proof of all implementation stages.",
+    "Local point proxy has a finite280m cutoff; cloud and resolved ledger models differ. No runtime change or brightness multiplier is authorized by this report."
+  ]
+}

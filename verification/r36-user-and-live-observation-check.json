@@ -1,0 +1,295 @@
+{
+  "schema": "glass-atoll.r36-user-and-live-observation-check.v1",
+  "passed": true,
+  "counts": {
+    "passed": 7,
+    "total": 7
+  },
+  "intentCounts": {
+    "passed": 29,
+    "total": 29
+  },
+  "checks": [
+    {
+      "name": "29 intent groups and full parameters exactly restored",
+      "passed": true,
+      "evidence": {
+        "counts": {
+          "passed": 29,
+          "total": 29,
+          "exact": 29
+        },
+        "physicalPhaseRestored": false
+      }
+    },
+    {
+      "name": "Original system-derived HDR and production smoke route restored",
+      "passed": true,
+      "evidence": {
+        "systemReportedNits": 1270,
+        "notPhotometerMeasurement": true,
+        "productionSmokeRestored": true
+      }
+    },
+    {
+      "name": "Five saved wide observations and the separately saved normal+2.5 benchmark-before workload retain complete GPU paths",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "r36-radiant-normal-plus0p70-wide.json",
+          "time": 77.8245088019372,
+          "packets": 24,
+          "sourcePairs": 38400,
+          "SHpairs": 38400
+        },
+        {
+          "path": "r36-radiant-normal-plus1p70-wide.json",
+          "time": 78.8245088019372,
+          "packets": 24,
+          "sourcePairs": 41472,
+          "SHpairs": 41472
+        },
+        {
+          "path": "r36-radiant-logical-plus0p70-wide.json",
+          "time": 294.27830880196365,
+          "packets": 396,
+          "sourcePairs": 633600,
+          "SHpairs": 633600
+        },
+        {
+          "path": "r36-radiant-logical-plus1p70-wide.json",
+          "time": 295.27830880196365,
+          "packets": 1051,
+          "sourcePairs": 1816128,
+          "SHpairs": 1816128
+        },
+        {
+          "path": "r36-radiant-logical-plus2p50-wide.json",
+          "time": 296.07830880196366,
+          "packets": 1561,
+          "sourcePairs": 2658383,
+          "SHpairs": 2652139
+        },
+        {
+          "path": "r36-normal-evolving-benchmark.json#before",
+          "time": 79.6245088019372,
+          "packets": 24,
+          "sourcePairs": 40872,
+          "SHpairs": 40776,
+          "scope": "Saved before resuming benchmark; separate schema, not an invented wide-phase receipt"
+        }
+      ]
+    },
+    {
+      "name": "New default user gain1 uses authored gain16 once and retains scale metadata",
+      "passed": true,
+      "evidence": {
+        "native": 1421.2929533421993,
+        "derived": 22740.68725347519,
+        "authorGain": 16,
+        "measuredPhotometry": false
+      }
+    },
+    {
+      "name": "Same-phase native HDR/SDR observation records remain healthy",
+      "passed": true,
+      "evidence": {
+        "samePhysicalTime": true,
+        "HDRScreenshotsAreCompositorCaptures": true,
+        "absoluteNitsCertified": false
+      }
+    },
+    {
+      "name": "Short evolving measurements complete without asserting target or controlled A/B",
+      "passed": true,
+      "evidence": [
+        {
+          "mode": "normal",
+          "FPS": 33.310247023416835,
+          "elapsed": 3.0321000000089406,
+          "physicalSeconds": 3.003600000023823,
+          "GPUmeanMs": 22.891757575757577,
+          "controlledAB": false,
+          "peakGate": false
+        },
+        {
+          "mode": "logical",
+          "FPS": 21.134667459299898,
+          "elapsed": 3.028199999988079,
+          "physicalSeconds": 2.7987999999822364,
+          "GPUmeanMs": 29.145419354838708,
+          "controlledAB": false,
+          "peakGate": false
+        }
+      ]
+    },
+    {
+      "name": "Native SDR movie is recorded, exported and cleaned; approved audio remains byte-identical",
+      "passed": true,
+      "evidence": {
+        "bytes": 2160629,
+        "wallSeconds": 24.00620000000298,
+        "physicalSeconds": 23.829299999997055,
+        "performanceBenchmark": false,
+        "approvedAudioExact": true
+      }
+    }
+  ],
+  "intent": [
+    {
+      "name": "parameters.sun",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.qualityPreset",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.quality",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.paused",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.sound",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.wind",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.current",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.lens",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.weather",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.air",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.graphics",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.sea",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.director",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.qualityCustom",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "parameters.renderSampling",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "camera",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "target",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.mode",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.utcMs",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.running",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.rate",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "celestial.observer",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "localLights.mode",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "localLights.linked",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "localLights.lamps",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "localLights.flashlight",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "fireworks.settings",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "interface",
+      "passed": true,
+      "exact": true
+    },
+    {
+      "name": "emptyHealthyRuntime",
+      "passed": true,
+      "exact": true
+    }
+  ],
+  "actualGPUByChecker": false,
+  "checkedSavedLiveGPUObservations": true,
+  "newBrowserActions": 0,
+  "limits": [
+    "Saved live observations and user-restoration receipts only; no new independent GPU numerical oracle or image parity.",
+    "Normal and logical runs are different absolute phases and evolving workloads; no controlled A/B or peak/sustained performance target.",
+    "Scene settings restore does not rewind wave/cloud/matter phase or history.",
+    "HDR PNG is a browser compositor capture; the motion movie is SDR.",
+    "Overall goal remains active and photorealism is not accepted."
+  ]
+}

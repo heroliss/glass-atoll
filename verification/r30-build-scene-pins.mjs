@@ -1,0 +1,15 @@
+// CPU-only seal of the fixed fresh-scene helper and root's trusted bridge.
+import fs from 'node:fs';import crypto from 'node:crypto';import assert from 'node:assert/strict';
+import {R30_SCENE_SOURCE_PATHS,R30_FRESH_SCENE_GPU_REVISION} from './r30-fresh-scene-gpu-check.js';
+import {createSmokeTransmissionGPU as createTransmission} from '../pyro-smoke-transmission-gpu.js';import {packSmokeTransmissionInputs as packT} from '../pyro-smoke-transmission-pack.js';
+import {packSmokeLightPackets as packLight,createPyroSmokeLightField as createLightField} from '../pyro-smoke-light-field.js';
+import {captureLightNativeState as capture,restoreLightNativeState as restore,sameLightNativeState as sameState} from '../pyro-smoke-light-native-state.js';
+import {replayR30NativePair as replayFunction} from './r30-native-replay.js';import {captureR30CurrentViews as preplanFunction} from './r30-native-preplan.js';import {r30CanonicalJSON as canonical} from './r30-native-replay-fixture.js';
+const read=p=>fs.readFileSync(new URL(p,import.meta.url),'utf8'),sha=s=>crypto.createHash('sha256').update(s).digest('hex'),main=read('../main.js');
+assert.equal(sha(main),'1e6e2f70a42ad38749a88f907e1bd837cb59ab6e51af645dcd87557fd0e035cd','Final reviewed main source');
+const bridgeSource=main.slice(main.indexOf('function createR30SceneBridge(captureViews){'),main.indexOf('\nfunction frame(){')).trim(),bridgeFactory=new Function('return ('+bridgeSource+');')();
+const boundSource=main.match(/replayNativePair:(\(\{yieldControl,signal\}=\{\}\)=>replayR30NativePair\(THREE,renderer,\{createFireworks,createPyroSmoke,terrainHeight,createAirSurface:createAtollAirSurface,yieldControl,signal\}\)),bridge/)[1],boundReplay=new Function('return ('+boundSource+');')();
+const sources=Object.fromEntries(R30_SCENE_SOURCE_PATHS.map(p=>[p,sha(read(p))])),functions=Object.fromEntries(Object.entries({createTransmission,createLightField,packT,packLight,capture,restore,sameState,replayFunction,preplanFunction,canonical,bridgeFactory,boundReplay}).map(([k,fn])=>[k,sha(Function.prototype.toString.call(fn))]));
+const pins={schema:'glass-atoll.r30-fresh-scene-pins.v1',pending:false,revision:R30_FRESH_SCENE_GPU_REVISION,sources,functions},text=JSON.stringify(pins,null,2)+'\n',js="// Fixed reviewed one-scene helper; no caller pin/fixture policy.\nconst freeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v);}return v;};\nexport const R30_SCENE_PINS=freeze("+JSON.stringify(pins)+');\n';
+fs.writeFileSync(new URL('./r30-fresh-scene-pins.json',import.meta.url),text);fs.writeFileSync(new URL('./r30-fresh-scene-pins.js',import.meta.url),js);
+console.log(JSON.stringify({helper:sources['./r30-fresh-scene-gpu-check.js'],pinModule:sha(js),manifest:sha(text),bridgeFactory:functions.bridgeFactory,boundReplay:functions.boundReplay,sources:Object.keys(sources).length,functions:Object.keys(functions).length},null,2));

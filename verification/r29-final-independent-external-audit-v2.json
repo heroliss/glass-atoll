@@ -1,0 +1,134 @@
+{
+  "schema": "glass-atoll.r29-final-independent-external-audit.v2",
+  "dateUTC": "2026-10-29T16:44:55.425879+00:00",
+  "manifestSHA256": "35b47da69cb0e486158048ec802a2d472658e33ca115c4c79f16cf989d0394c7",
+  "actualGPU": false,
+  "browserActions": 0,
+  "frozenArtifactEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 7,
+    "total": 7
+  },
+  "checks": [
+    {
+      "name": "Final manifest identity and all runtime source bytes match; exactly three capacity/main deltas",
+      "passed": true,
+      "evidence": {
+        "runtimePins": 33,
+        "delta": [
+          "main.js",
+          "pyro-smoke-light-tiles.js",
+          "pyro-smoke-transmission-pack.js"
+        ],
+        "unchangedR28Pins": 30
+      }
+    },
+    {
+      "name": "All frozen artifact SHA256 and lengths, including the archived previous manifest, match",
+      "passed": true,
+      "evidence": {
+        "artifacts": 145,
+        "archivedPreviousManifestIncluded": true,
+        "selfHashCycleAvoided": true
+      }
+    },
+    {
+      "name": "Current passing statuses/counts match all 21 saved reports and only three actual GPU receipts",
+      "passed": true,
+      "evidence": {
+        "currentPassingReports": 21,
+        "actualGPUReports": [
+          "r29-source-peak-actual-gpu.json",
+          "r29-light-peak-actual-gpu.json",
+          "r29-joint-peak-actual-gpu.json"
+        ],
+        "CPUReportNotGPUClaim": true
+      }
+    },
+    {
+      "name": "All seven named failed historical receipts remain failed with exact bytes and counts",
+      "passed": true,
+      "evidence": {
+        "retainedFailed": 7,
+        "allExplicitlyFalse": true,
+        "ownGuardFailureRetained": true
+      }
+    },
+    {
+      "name": "Actual receipt metadata and corrected calibrated-promotion status match three exact hardware results",
+      "passed": true,
+      "evidence": {
+        "actualJobs": [
+          {
+            "kind": "source",
+            "draws": 5,
+            "readbackBytes": 21984,
+            "GPUms": 1.912832
+          },
+          {
+            "kind": "light",
+            "draws": 6,
+            "readbackBytes": 110832,
+            "GPUms": 1.584128
+          },
+          {
+            "kind": "joint",
+            "draws": 10,
+            "readbackBytes": 122832,
+            "GPUms": 3.093504
+          }
+        ],
+        "promotionPending": false,
+        "staleScopeCorrected": true,
+        "remainingWholeFrameAdmissionCorrectlyPending": true,
+        "runtimeOrReceiptChangeSinceActual": false
+      }
+    },
+    {
+      "name": "All checkpoint links resolve and material limits distinguish BVH queries, fresh scene work and sampled compute gates",
+      "passed": true,
+      "evidence": {
+        "checkpointLinks": 13,
+        "nextPlans": 2,
+        "noContinuousSmokePerformanceClaim": true,
+        "existingBVHSemanticsDisclosed": true
+      }
+    },
+    {
+      "name": "Restoration/automatic HDR and saved server evidence are qualified without screenshot/FPS or current-mirror GPU claims",
+      "passed": true,
+      "evidence": {
+        "intentRestoration": {
+          "passed": 28,
+          "total": 28,
+          "exact": 27
+        },
+        "automaticDerivedPeakNits": {
+          "before": 700,
+          "after": 1270
+        },
+        "OSSettingsChanged": false,
+        "serverPIDFromSavedEvidence": 23820,
+        "liveStateRequeried": false,
+        "sceneMirrorFPSAccepted": false
+      }
+    }
+  ],
+  "scope": "External read-only post-seal audit v2; intentionally outside the fixed manifest artifact set. All sealed bytes revalidated; original external6/7 wording-fixture failure preserved. No report script reruns, GPU, or frozen artifact edits.",
+  "previousAuditFailure": {
+    "path": "verification/r29-final-independent-external-audit.json",
+    "sha256": "4e2e0d04c6d31a1868bc5184d2b6fb72db0c2d75465cb84e97d605e83e12fe91",
+    "counts": {
+      "passed": 6,
+      "total": 7
+    },
+    "classification": "Independent wording fixture rejected all occurrences of remains pending, including the correct remaining whole-frame limitation. Exact stale numerical-calibration sentence is now checked; no metadata or sealed artifact was changed."
+  },
+  "revalidatedFrozenFiles": {
+    "runtimePins": 33,
+    "artifacts": 145,
+    "validationReports": 21,
+    "archivedFailed": 7
+  }
+}

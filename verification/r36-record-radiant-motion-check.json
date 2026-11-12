@@ -1,0 +1,88 @@
+{
+  "schema": "glass-atoll.r36-recorder-cpu-check.v1",
+  "passed": true,
+  "checks": 9,
+  "total": 9,
+  "actualGPU": false,
+  "browserUsed": false,
+  "actualRecording": false,
+  "sourceSHA256": "3bbe82b19eb901f8302ccf115e191e7fb2a7e4f817b986e048128d646a7c94ea",
+  "results": [
+    {
+      "name": "source is verification-only with fixed one-event and approved audio contracts",
+      "passed": true,
+      "detail": {
+        "audioSHA": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+        "actualGPU": false
+      }
+    },
+    {
+      "name": "actual recorder positive CPU flow preserves source, runs one event and cleans all tracks/tap",
+      "passed": true,
+      "detail": {
+        "wallSeconds": 24,
+        "physicalSeconds": 21.599999999999994,
+        "samples": 98,
+        "actualRecording": false,
+        "media": "CPU stand-ins only"
+      }
+    },
+    {
+      "name": "wrong profile and unavailable codec reject before source fetch, capture or launch",
+      "passed": true,
+      "detail": {
+        "cases": 2
+      }
+    },
+    {
+      "name": "changed served audio hash rejects without recording or app mutation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "recorder constructor failure stops native media stand-ins and leaves scene paused",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "encoder failure stops one launched event capture and pauses without clearing matter",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "250 ms metadata watcher cancels context interruption without a readback or second launch",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "30 second total deadline cancels a stalled source fetch without launching",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "saved actual logical-all admission shape passes every current field precondition without media or launch",
+      "passed": true,
+      "detail": {
+        "savedObservationSHA256": "32c10117416710f3e4e7c7465b368d4eadca6654109718f37d16c06f9ff10f76",
+        "version": "pyro-smoke-logical-events-v1",
+        "strictEmptyKeys": [
+          "pendingEvents",
+          "pendingStreams",
+          "remainingCells",
+          "futureCellArrays",
+          "positionArchives",
+          "releaseErrors",
+          "lastReleaseError",
+          "fault"
+        ],
+        "adversarialMissingOrNonzeroCases": 8,
+        "allOtherActualRawPreconditionsPassed": true,
+        "clock": "Only the unavailable-in-observation celestial.running=false field was supplied; no browser or ephemeris assertion is inferred",
+        "mutations": 0
+      }
+    }
+  ],
+  "limits": [
+    "Static source and CPU-only native-media stand-ins; no browser encoding, real track audio, playback/decode, renderer frame rate or visual acceptance is established."
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "schema": "glass-atoll.near-head-shutter-cpu-check.v1",
+  "passed": true,
+  "summary": {
+    "passed": 6,
+    "total": 6
+  },
+  "productionSHA": "b7580d2e7388a7e95d5e5963a9de0612c65baed69d33b051092dcabbb6c3c9ff",
+  "fixtureSHA": "9b9f84178ad5c3759cc6dd41a04bda1ac353b8b243f328525ef38d92862ede5a",
+  "checks": [
+    {
+      "name": "exact source inverse limits production change to new head vertex selection and head fragment kernel",
+      "passed": true,
+      "evidence": {
+        "oldSHA": "d12f74d5b66b4234dab71220a780e1162aa2e83505d8fe8c0cca6184b5d9796a",
+        "shaderOnly": true,
+        "trailAndVectorBodiesUnchanged": true
+      }
+    },
+    {
+      "name": "distant heads and disabled adaptive preserve original eight-tap arithmetic exactly",
+      "passed": true,
+      "evidence": {
+        "cases": 60,
+        "maximumOldShutterPixels": 4
+      }
+    },
+    {
+      "name": "all positive levels retain each emission bin mean and the complete mean/8 flux",
+      "passed": true,
+      "evidence": {
+        "levels": 64,
+        "maxGlobalSamples": 65536,
+        "maxLocalPerLevel": 128,
+        "overflow": "original-eight-tap fallback"
+      }
+    },
+    {
+      "name": "pixel-local support matches complete levels at four near angles and respects 128 limit",
+      "passed": true,
+      "evidence": {
+        "maximumDifference": 2.254335607076996e-12,
+        "maximumVisited": 14,
+        "flux": [
+          {
+            "name": "axis-constant",
+            "plan": {
+              "adaptive": true,
+              "n0": 64,
+              "n1": 72,
+              "blend": 0,
+              "maxLocal": 18
+            },
+            "expected": 1,
+            "actual": 0.9999999998950063
+          },
+          {
+            "name": "axis-varying",
+            "plan": {
+              "adaptive": true,
+              "n0": 64,
+              "n1": 72,
+              "blend": 0,
+              "maxLocal": 18
+            },
+            "expected": 0.37187499999999996,
+            "actual": 0.3718749999609557
+          },
+          {
+            "name": "diagonal-constant",
+            "plan": {
+              "adaptive": true,
+              "n0": 64,
+              "n1": 72,
+              "blend": 0.47241851561681375,
+              "maxLocal": 18
+            },
+            "expected": 1,
+            "actual": 0.9999999999949392
+          },
+          {
+            "name": "oblique-varying",
+            "plan": {
+              "adaptive": true,
+              "n0": 56,
+              "n1": 64,
+              "blend": 0.9984805410403289,
+              "maxLocal": 17
+            },
+            "expected": 0.43125,
+            "actual": 0.4312499999949265
+          }
+        ]
+      }
+    },
+    {
+      "name": "32px motion forms a continuous constant source instead of eight separated peaks",
+      "passed": true,
+      "evidence": {
+        "oldPeakToTrough": 2157.443478969389,
+        "newPeakToTrough": 1.0000000001045324,
+        "plan": {
+          "adaptive": true,
+          "n0": 64,
+          "n1": 72,
+          "blend": 0,
+          "maxLocal": 18
+        }
+      }
+    },
+    {
+      "name": "actual factory keeps original attributes, ledger, bounds, descriptors and source settings",
+      "passed": true,
+      "evidence": {
+        "actualProducer": "display-saturn",
+        "opticalRows": 759,
+        "sourceBoundUnchanged": true
+      }
+    }
+  ],
+  "scope": "CPU and inert actual producer only; no GPU, visual or performance acceptance"
+}

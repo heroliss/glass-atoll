@@ -1,0 +1,115 @@
+{
+  "schema": "glass-atoll.aces2-output-offline-QA.v1",
+  "dateUTC": "2026-10-27T18:39:27.874Z",
+  "passed": true,
+  "counts": {
+    "passed": 12,
+    "total": 12
+  },
+  "checks": [
+    {
+      "name": "pinned_manifest_all_resources_and_whole_source_inverses",
+      "passed": true,
+      "evidence": {
+        "verifiedFiles": 17,
+        "anchorsPerTarget": 17,
+        "inverseExact": true
+      }
+    },
+    {
+      "name": "manifest_mutation_rejection_does_not_rely_on_untrusted_metadata",
+      "passed": true,
+      "evidence": {
+        "rejectedCases": 12
+      }
+    },
+    {
+      "name": "complete_official_wrapper_is_injected_unchanged_and_units_exposure_OETF_once",
+      "passed": true,
+      "evidence": {
+        "threeSamplerContract": true,
+        "noNewColourTransformOrShaderAlgorithm": true
+      }
+    },
+    {
+      "name": "real_factory_is_lazy_and_unsupported1200_is_explicit_without_fetch_or_GL",
+      "passed": true,
+      "evidence": {
+        "fetches": 0,
+        "GLCalls": 0
+      }
+    },
+    {
+      "name": "invalid_peak_inputs_reject_before_epoch_or_IO",
+      "passed": true,
+      "evidence": {
+        "invalidCases": 7
+      }
+    },
+    {
+      "name": "pinned_manifest_corruption_fails_closed_before_GL",
+      "passed": true,
+      "evidence": {
+        "requests": 1,
+        "noPublishedResource": true
+      }
+    },
+    {
+      "name": "function_corruption_rejects_hash_before_compile_or_publication",
+      "passed": true,
+      "evidence": {
+        "noCompileWithAlteredSource": true
+      }
+    },
+    {
+      "name": "latest_unsupported_request_invalidates_pending_older_epoch",
+      "passed": true,
+      "evidence": {
+        "olderEpoch": 1,
+        "latestEpoch": 2,
+        "noOldCompile": true
+      }
+    },
+    {
+      "name": "dispose_pending_prevents_allocation_and_late_publication",
+      "passed": true,
+      "evidence": {
+        "noLateResource": true
+      }
+    },
+    {
+      "name": "same_target_pending_requests_deduplicate_real_factory_work",
+      "passed": true,
+      "evidence": {
+        "samePromise": true,
+        "completeVerifiedResourcesReachGLBoundaryOnce": true,
+        "numericalGPUNotSimulated": true
+      }
+    },
+    {
+      "name": "cold_render_cannot_claim_success_or_touch_GL",
+      "passed": true,
+      "evidence": {
+        "coldDrawRejected": true
+      }
+    },
+    {
+      "name": "no_production_pipeline_or_verification_dependency_added",
+      "passed": true,
+      "evidence": {
+        "original17SealsUnchanged": true,
+        "publicThreeStateNeverMutated": true,
+        "onlyThreeResidentTextureTargetPropertiesBorrowed": true
+      }
+    }
+  ],
+  "moduleSHA256": "5f0bda4533e08ced7a953a319a01ee318e9b1963092bd3f8d7ad124f8d864354",
+  "manifestSHA256": "52d6fdcb9cf410fe3d92f02277a66dbc046727d25dac48b3733b0919c17629cf",
+  "noGPU": true,
+  "defaultIntegrated": false,
+  "limits": [
+    "No fake WebGL numerical result is treated as GPU validation. Real program/anchors/render/state require the independent root GPU helper.",
+    "Pending invalidation/hash handling is exercised through the real factory with file-backed fetch and a deliberate no-GPU context boundary.",
+    "No HDR canvas/bridge or full-resolution timing claim."
+  ]
+}

@@ -1,0 +1,23 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import * as THREE from '../vendor/three.module.js';
+import {createVegetation} from '../vegetation.js';
+const baseline=fs.readFileSync(new URL('./baselines/vegetation-before-centroid-colour.js',import.meta.url),'utf8');
+const current=fs.readFileSync(new URL('../vegetation.js',import.meta.url),'utf8');
+const grove=createVegetation(THREE),checks=[];
+function build(material){const shader={uniforms:{},vertexShader:THREE.ShaderLib.standard.vertexShader,fragmentShader:THREE.ShaderLib.standard.fragmentShader};material.onBeforeCompile(shader);return shader;}
+const leaves=grove.children.filter(m=>/pinnae|coastal leaves/i.test(m.name));
+const leavesOn=leaves.map(m=>({key:m.material.customProgramCacheKey(),shader:build(m.material),version:m.material.version}));
+checks.push({id:'enabled_by_default',passed:grove.userData.centroidColour===true});
+checks.push({id:'both_leaf_colour_stages_are_centroid',passed:leavesOn.length===2&&leavesOn.every(s=>[s.shader.vertexShader,s.shader.fragmentShader].every(v=>v.includes('centroid varying vec3 vColor;')&&v.includes('centroid varying vec4 vColor;')))});
+checks.push({id:'uv_and_normal_varyings_are_not_centroid',passed:leavesOn.every(s=>![s.shader.vertexShader,s.shader.fragmentShader].some(v=>/centroid\s+(?:varying|in|out)\s+\w+\s+v(?:Uv|Normal|GroveNormal)/.test(v)))});
+grove.userData.setCentroidColour(false);const leavesOff=leaves.map(m=>({key:m.material.customProgramCacheKey(),shader:build(m.material),version:m.material.version}));
+checks.push({id:'qa_switch_restores_stock_colour_chunk',passed:grove.userData.centroidColour===false&&leavesOff.every(s=>s.shader.vertexShader.includes('#include <color_pars_vertex>')&&s.shader.fragmentShader.includes('#include <color_pars_fragment>')&&!s.shader.fragmentShader.includes('centroid varying'))});
+checks.push({id:'switch_changes_program_key_and_requests_recompile',passed:leavesOff.every((s,i)=>s.key!==leavesOn[i].key&&s.version>leavesOn[i].version)});
+const wind=source=>source.match(/export const vegetationWindGLSL = ([\s\S]*?)\nexport function createVegetation/)[1];
+checks.push({id:'wind_position_normal_depth_source_unchanged',passed:wind(baseline)===wind(current)});
+const optics=source=>source.match(/const mappedNormal=([\s\S]*?)\n      }\n    }\n  }/)[1];
+checks.push({id:'normal_variance_and_light_transport_source_unchanged',passed:optics(baseline)===optics(current)});
+grove.userData.setCentroidColour(true);
+const report={date:new Date().toISOString(),status:checks.every(c=>c.passed)?'passed':'failed',summary:{passed:checks.filter(c=>c.passed).length,total:checks.length},baseline:{path:'verification/baselines/vegetation-before-centroid-colour.js',sha256:crypto.createHash('sha256').update(baseline).digest('hex')},candidateSHA256:crypto.createHash('sha256').update(current).digest('hex'),checks,limits:['CPU shader construction and source preservation; actual MSAA reproduction/full-scene RGB range are separate GPU tests']};
+fs.writeFileSync(new URL('./leaf-centroid-check.json',import.meta.url),JSON.stringify(report,null,2));console.log(JSON.stringify(report));grove.userData.dispose();if(report.status!=='passed')process.exitCode=1;

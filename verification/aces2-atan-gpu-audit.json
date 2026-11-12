@@ -1,0 +1,238 @@
+{
+  "schema": "glass-atoll.aces2-atan-actual-GPU-readonly-audit.v1",
+  "dateUTC": "2026-10-27T07:37:15.032Z",
+  "passed": true,
+  "counts": {
+    "passed": 7,
+    "total": 7
+  },
+  "checks": [
+    {
+      "name": "all17_prepared_candidate_files_and_old_official_evidence_seals_unchanged",
+      "passed": true,
+      "evidence": {
+        "candidateFiles": 17,
+        "original52of53Preserved": true,
+        "preparedFreezeSHA256": "8efa4c869bdd761d00e8e95b27a5d893b90c46d3879ba270ea226a0325bfe709"
+      }
+    },
+    {
+      "name": "actual_isolated_77_checks_are_passed_not_only_summary_flag",
+      "passed": true,
+      "evidence": {
+        "atan": 9,
+        "colour": 53,
+        "stages": 15
+      }
+    },
+    {
+      "name": "unaltered_engineering_colour_gate_and_source_hashes",
+      "passed": true,
+      "evidence": {
+        "targets": [
+          100,
+          700,
+          1270
+        ],
+        "samplesPerTarget": 963,
+        "unchangedGate": {
+          "absolute": 0.00002,
+          "relative": 0.0002
+        },
+        "actualResourceBindingsVerified": true
+      }
+    },
+    {
+      "name": "strict_absolute_only_remainder_is_not_misrepresented_as_official_pass",
+      "passed": true,
+      "evidence": [
+        {
+          "peakNits": 100,
+          "newBad": 0,
+          "oldBad": 0,
+          "maximumAbsoluteError": 0.000003933906555175781
+        },
+        {
+          "peakNits": 700,
+          "newBad": 3,
+          "oldBad": 61,
+          "maximumAbsoluteError": 0.00002956390380859375
+        },
+        {
+          "peakNits": 1270,
+          "newBad": 38,
+          "oldBad": 138,
+          "maximumAbsoluteError": 0.0000667572021484375
+        }
+      ]
+    },
+    {
+      "name": "generic_quadrants_and_special_values_meet_original_predeclared_angle_gate",
+      "passed": true,
+      "evidence": {
+        "maximumAbsoluteRadians": 1.7068102042827604e-7,
+        "worst": {
+          "id": "ratio-206",
+          "inputBitsYX": [
+            3201569741,
+            3212836864
+          ],
+          "inputYX": [
+            -0.4142135679721832,
+            -1
+          ],
+          "expectedRadians": -2.7488935671119483,
+          "actualRadians": -2.7488937377929688,
+          "errorRadians": 1.7068102042827604e-7
+        },
+        "axisCases": 60,
+        "subnormalInputs": 184,
+        "nonfiniteInputs": 22
+      }
+    },
+    {
+      "name": "stage_prefix_Float32_bits_equal_legacy_and_candidate_instrumentation_is_exact",
+      "passed": true,
+      "evidence": {
+        "rows": [
+          {
+            "id": "bad-pure-blue-Y1",
+            "oldHue": 275.9652099609375,
+            "newHue": 275.9658203125,
+            "oldRedError": -0.00006791949272155762,
+            "newRedError": -0.000008746981620788574
+          },
+          {
+            "id": "actual-profile-blue-Y1",
+            "oldHue": 280.3170166015625,
+            "newHue": 280.31756591796875,
+            "oldRedError": -0.00006198883056640625,
+            "newRedError": -0.000008106231689453125
+          },
+          {
+            "id": "green-18.28686",
+            "oldHue": 140.1627655029297,
+            "newHue": 140.16342163085938,
+            "oldRedError": 0.000001430511474609375,
+            "newRedError": -0.0000030994415283203125
+          }
+        ],
+        "scope": "Prefix comparison uses Float32 bits; insignificant decimal-serialization differences are not GPU arithmetic differences."
+      }
+    },
+    {
+      "name": "all_child_GL_and_shader_errors_empty_and_full_state_restored",
+      "passed": true,
+      "evidence": [
+        {
+          "key": "atan",
+          "restorationChecks": 1,
+          "nonemptyProgramLogs": [
+            {
+              "check": "generic_ES3_shader_actually_linked",
+              "log": "(205,6-27): warning X3203: signed/unsigned mismatch, unsigned assumed\n\n\n"
+            }
+          ]
+        },
+        {
+          "key": "colour",
+          "restorationChecks": 1,
+          "nonemptyProgramLogs": []
+        },
+        {
+          "key": "stages",
+          "restorationChecks": 1,
+          "nonemptyProgramLogs": []
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "badBlue": {
+      "expectedRed": 0.08631390333175659,
+      "oldActualRed": 0.08624598383903503,
+      "newActualRed": 0.0863051563501358,
+      "oldError": 0.00006791949272155762,
+      "newError": 0.000008746981620788574,
+      "errorReductionPercent": 87.12154453707767,
+      "improvementFactor": 7.764906303236797,
+      "unchangedLimit": 0.000037262780666351316
+    },
+    "targets": [
+      {
+        "peakNits": 100,
+        "maximumAbsoluteError": 0.000003933906555175781,
+        "maximumEngineeringBudgetRatio": 0.04128654227422745,
+        "absoluteOnlyBadChannels": 0,
+        "absoluteOnlyWorst": {
+          "id": "hue-yellow-100",
+          "family": "six-hue-unit-Y-ramp",
+          "channel": 2,
+          "inputFloat32": [
+            107.78185272216797,
+            107.78185272216797,
+            0
+          ],
+          "expected": 0.9802097082138062,
+          "actual": 0.9802136421203613,
+          "absoluteError": 0.000003933906555175781,
+          "limit": 0.00002,
+          "budgetRatio": 0.19669532775878903
+        }
+      },
+      {
+        "peakNits": 700,
+        "maximumAbsoluteError": 0.00002956390380859375,
+        "maximumEngineeringBudgetRatio": 0.07132808765848872,
+        "absoluteOnlyBadChannels": 3,
+        "absoluteOnlyWorst": {
+          "id": "hue-green-165.116290327072",
+          "family": "six-hue-unit-Y-ramp",
+          "channel": 0,
+          "inputFloat32": [
+            0,
+            230.86729431152344,
+            0
+          ],
+          "expected": 6.650680065155029,
+          "actual": 6.650709629058838,
+          "absoluteError": 0.00002956390380859375,
+          "limit": 0.00002,
+          "budgetRatio": 1.4781951904296873
+        }
+      },
+      {
+        "peakNits": 1270,
+        "maximumAbsoluteError": 0.0000667572021484375,
+        "maximumEngineeringBudgetRatio": 0.234737758813775,
+        "absoluteOnlyBadChannels": 38,
+        "absoluteOnlyWorst": {
+          "id": "profile-green-28.3967932089973",
+          "family": "actual-positive-author-profile-ramp",
+          "channel": 0,
+          "inputFloat32": [
+            0,
+            38.942657470703125,
+            7.548526287078857
+          ],
+          "expected": 7.949307441711426,
+          "actual": 7.949374198913574,
+          "absoluteError": 0.0000667572021484375,
+          "limit": 0.00002,
+          "budgetRatio": 3.3378601074218746
+        }
+      }
+    ],
+    "performanceMeasured": false
+  },
+  "evidence": {
+    "actualReport": "aces2-atan-gpu-first.json",
+    "actualReportSHA256": "0c26b5fa7f553c8c03e618ae966f744f356db124d140bc26c843915b1d4daa8c",
+    "actualReportBytes": 253318,
+    "originalFailureSHA256": "682d1c51d227552bee7af07f5b2e0b6c93fbf531b4d3a90b299bb22ae4d3708a",
+    "legacyStageSHA256": "37526b8985b452550f2c7831efdb99b863ab7c8a3baa22d10ceec916185c4796"
+  },
+  "productionChanged": false,
+  "noGPURunByAudit": true,
+  "decision": "Eligible for an explicitly optional runtime candidate and full-resolution performance/appearance evaluation, not for automatic default promotion or official OCIO certification."
+}

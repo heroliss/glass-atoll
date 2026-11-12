@@ -1,0 +1,133 @@
+{
+  "schema": "glass-atoll.r18-legacy-bound-check.v1",
+  "started": "2026-10-28T21:33:41.710Z",
+  "completed": "2026-10-28T21:33:42.806Z",
+  "passed": false,
+  "counts": {
+    "passed": 5,
+    "total": 6
+  },
+  "sourceSHA256": "7126d94808e1cdfc85afd60d60d7e4aad02899657f386d1893477ec5c45e36e7",
+  "frozenFactorySHA256": "3fb39738c83705d77dd5b6c55db8d15f76fbba6ec4e24d17130a9e9a3de477fe",
+  "frozenPhysicsSHA256": "fb6be290ea34ced9a36925c0ec24e2e3745c1108bded80d4a8aee0d72fe63236",
+  "preScalarFactorySHA256": "22881d28ac39ddd5f97903f80b7a16b598db256f40f3d44c8281a452ded26e4f",
+  "metrics": {
+    "factoryBudgets": 222,
+    "sourceBounds": 512,
+    "sourceTraceRows": 75416,
+    "legacyRecordComparisons": 30,
+    "maximumAbsoluteDifference": 0
+  },
+  "checks": [
+    {
+      "name": "Frozen full factory uses exact 3fb source and original fb6 physics; all helper imports resolve",
+      "passed": true,
+      "details": {
+        "factorySHA256": "3fb39738c83705d77dd5b6c55db8d15f76fbba6ec4e24d17130a9e9a3de477fe",
+        "physicsSHA256": "fb6be290ea34ced9a36925c0ec24e2e3745c1108bded80d4a8aee0d72fe63236",
+        "normalizersUsed": false
+      }
+    },
+    {
+      "name": "Scalar public source bounds preserve every output under mutable cameras and optics",
+      "passed": true,
+      "details": {
+        "cases": 512,
+        "includes": "Float32 endpoints, DOF, zero/large shutter, view offset and reused camera object"
+      }
+    },
+    {
+      "name": "All10 native legacy types retain exact records, clusters and camera-free scalar reference",
+      "passed": true,
+      "details": {
+        "types": 10,
+        "phases": 30
+      }
+    },
+    {
+      "name": "Factory scalar budgets and full source traces exactly match frozen R17 across reused mutable view contexts",
+      "passed": true,
+      "details": {
+        "nativeTypes": 4,
+        "clusterModels": 2,
+        "phases": 3,
+        "mutationsPerPhase": 4,
+        "tracedSourceRows": 75416
+      }
+    },
+    {
+      "name": "Published scalar bound results and trace arrays remain independent after another camera query",
+      "passed": true,
+      "details": {
+        "retainedTraceRows": 2112
+      }
+    },
+    {
+      "name": "Historical1.06percent aggregate difference is reproduced and attributed separately from R18 projection regression",
+      "passed": false,
+      "error": "1.2825399918938716 != 1.2962622268729824"
+    }
+  ],
+  "details": {
+    "historical": {
+      "current": {
+        "maximumRawRadiance": 1.2833420877542283,
+        "maxRawRadiance": 1.2833420877542283,
+        "globalFiniteSurfaceCeiling": 6765.43761069894,
+        "globalReferenceOnly": true,
+        "ownSmokeRawBound": 0.0008020958603566998,
+        "maximumEmissionRGBChannel": 1.8277674763872431,
+        "visibleSources": 4224,
+        "nearPlaneFallbackSources": 0,
+        "method": "32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers",
+        "conservative": true
+      },
+      "frozenR17": {
+        "maximumRawRadiance": 1.2833420877542283,
+        "maxRawRadiance": 1.2833420877542283,
+        "globalFiniteSurfaceCeiling": 6765.43761069894,
+        "globalReferenceOnly": true,
+        "ownSmokeRawBound": 0.0008020958603566998,
+        "maximumEmissionRGBChannel": 1.8277674763872431,
+        "visibleSources": 4224,
+        "nearPlaneFallbackSources": 0,
+        "method": "32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers",
+        "conservative": true
+      },
+      "preScalarWithCurrentPhysics": {
+        "maximumRawRadiance": 1.2970643227333392,
+        "maxRawRadiance": 1.2970643227333392,
+        "globalFiniteSurfaceCeiling": 6765.43761069894,
+        "globalReferenceOnly": true,
+        "ownSmokeRawBound": 0.0008020958603566998,
+        "maximumEmissionRGBChannel": 1.8277674763872431,
+        "visibleSources": 4224,
+        "nearPlaneFallbackSources": 0,
+        "method": "32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers",
+        "conservative": true
+      },
+      "oldRowsCurrentBudget": {
+        "maximumRawRadiance": 1.2970643227333392,
+        "maxRawRadiance": 1.2970643227333392,
+        "globalFiniteSurfaceCeiling": 6765.43761069894,
+        "globalReferenceOnly": true,
+        "ownSmokeRawBound": 0.0008020958603566998,
+        "maximumEmissionRGBChannel": 1.8277674763872431,
+        "visibleSources": 4224,
+        "nearPlaneFallbackSources": 0,
+        "method": "32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers",
+        "conservative": true
+      },
+      "relativeDifference": 0.01057945603668568,
+      "changedIntensityRows": 0,
+      "firstChangedRows": [],
+      "sourceBinCurrent": 1.2825399918938716,
+      "sourceBinPreScalar": 1.2962622268729824
+    }
+  },
+  "limits": [
+    "CPU full-factory/public scalar budget/source-trace comparison only; no shader peak, native image, GPU or FPS proof.",
+    "Frozen R17 imports original fb6 physics; pre-scalar factory intentionally imports current physics only to reproduce the old failing test.",
+    "Only in-memory diagnostic record access/injection is added; no production file or source normalizer changed."
+  ]
+}

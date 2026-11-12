@@ -1,0 +1,322 @@
+{
+  "schema": "glass-atoll.fireworks-intensity-scale-check.v1",
+  "dateUTC": "2026-10-27T04:57:16.154Z",
+  "passed": true,
+  "counts": {
+    "checks": 17,
+    "passed": 17
+  },
+  "checks": [
+    {
+      "name": "baseline_is_the_preserved_5a61_physics_and_default_remains1",
+      "passed": true
+    },
+    {
+      "name": "default_and_explicit1_match_every_old_event_field_and_RNG_bitwise",
+      "passed": true,
+      "evidence": {
+        "cases": 99,
+        "comparison": "all pre-existing event fields, including every parent/child body number, palette, events and endTime; only new metadata intensityScale=1 added"
+      }
+    },
+    {
+      "name": "all_10_types_1_4_16_64_keep_entire_non_intensity_event_graph",
+      "passed": true,
+      "evidence": {
+        "eventGraphCases": 40,
+        "includes": [
+          "pose",
+          "velocity",
+          "radius",
+          "birth/life/time",
+          "seed",
+          "palette/RGB",
+          "layout/actual count",
+          "parent links",
+          "audio event positions/times/energy",
+          "visible ground apex"
+        ]
+      }
+    },
+    {
+      "name": "every_parent_child_and_rocket_intensity_is_multiplied_exactly_once",
+      "passed": true,
+      "evidence": {
+        "crossette16": {
+          "parentCandela": 240,
+          "childCandela": 88,
+          "notSquared": 1408
+        }
+      }
+    },
+    {
+      "name": "all_four_smiley_layouts_and_all_colours_keep_source_geometry_and_Y_normalization",
+      "passed": true,
+      "evidence": {
+        "largestBlueRGBChannel": 12.423172957038197,
+        "colourMaximumDoesNotScale": true,
+        "photopicYIsReferenceNotMeasuredSpectrum": true
+      }
+    },
+    {
+      "name": "resolve_wind_and_repeated_sampling_cannot_apply_scale_a_second_time",
+      "passed": true
+    },
+    {
+      "name": "zero_scale_keeps_smoke_events_particles_slots_and_geometry_but_no_light",
+      "passed": true
+    },
+    {
+      "name": "invalid_scales_reject_before_factory_or_configuration_mutation",
+      "passed": true
+    },
+    {
+      "name": "invalid_queued_request_is_rejected_immediately_not_later_during_update",
+      "passed": true
+    },
+    {
+      "name": "negative_zero_normalizes_and_fractional_finite_scale_is_supported",
+      "passed": true
+    },
+    {
+      "name": "configure_only_changes_future_events_and_explicit_queued_scale_survives",
+      "passed": true,
+      "evidence": {
+        "explicitQueuedFixed": 64,
+        "implicitQueuedUsesSettingsWhenEventIsGenerated": 0
+      }
+    },
+    {
+      "name": "configure_echo_does_not_retroactively_rescale_active_sources",
+      "passed": true
+    },
+    {
+      "name": "current_production_clusters_scale_reference_intensity_not_RGB_colour",
+      "passed": true,
+      "evidence": {
+        "types": 10,
+        "scales": [
+          1,
+          4,
+          16,
+          64
+        ],
+        "phases": [
+          0.05,
+          0.3,
+          1.1,
+          2.5
+        ],
+        "boundary": "actual emitting phases above existing getLightClusters1e-6 filter; no claim of exact cardinality across that pre-existing negligible-source threshold"
+      }
+    },
+    {
+      "name": "current_main_mirror_and_fallback_bounds_follow_source_scale",
+      "passed": true,
+      "evidence": {
+        "cases": 160,
+        "colourMaximumAndSourceCountDoNotScale": true,
+        "notGPUOrAbsolutePhotometry": true
+      }
+    },
+    {
+      "name": "zero_source_current_clusters_and_bounds_are_zero_without_deleting_records",
+      "passed": true
+    },
+    {
+      "name": "preburst_rocket_and_tail_share_scale_without_trajectory_change",
+      "passed": true,
+      "evidence": [
+        {
+          "intensityScale": 1,
+          "I": 17.999999999999996,
+          "bound": 0.004704581040340812
+        },
+        {
+          "intensityScale": 4,
+          "I": 71.99999999999999,
+          "bound": 0.018818324161363247
+        },
+        {
+          "intensityScale": 16,
+          "I": 287.99999999999994,
+          "bound": 0.07527329664545299
+        },
+        {
+          "intensityScale": 64,
+          "I": 1151.9999999999998,
+          "bound": 0.30109318658181194
+        }
+      ]
+    },
+    {
+      "name": "physics_30_60_120Hz_is_still_invariant_at_nondefault_scale",
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "bodyCases": 40,
+    "production": [
+      {
+        "type": "peony",
+        "intensityScale": 1,
+        "clusterReferenceCandela": 1277.3908232661379,
+        "mainRawBound": 0.2974402961578687,
+        "mirrorRawBound": 0.12880690202385872,
+        "colourMaximum": 4.632475501753829,
+        "records": 239
+      },
+      {
+        "type": "peony",
+        "intensityScale": 4,
+        "clusterReferenceCandela": 5109.5632930645515,
+        "mainRawBound": 1.1897611846314748,
+        "mirrorRawBound": 0.5152276080954349,
+        "colourMaximum": 4.632475501753829,
+        "records": 239
+      },
+      {
+        "type": "peony",
+        "intensityScale": 16,
+        "clusterReferenceCandela": 20438.253172258206,
+        "mainRawBound": 4.759044738525899,
+        "mirrorRawBound": 2.0609104323817395,
+        "colourMaximum": 4.632475501753829,
+        "records": 239
+      },
+      {
+        "type": "peony",
+        "intensityScale": 64,
+        "clusterReferenceCandela": 81753.01268903282,
+        "mainRawBound": 19.036178954103598,
+        "mirrorRawBound": 8.243641729526958,
+        "colourMaximum": 4.632475501753829,
+        "records": 239
+      },
+      {
+        "type": "ring",
+        "intensityScale": 1,
+        "clusterReferenceCandela": 715.2873281071713,
+        "mainRawBound": 0.05319382965065956,
+        "mirrorRawBound": 0.020776975095564733,
+        "colourMaximum": 2.5592428230357753,
+        "records": 135
+      },
+      {
+        "type": "ring",
+        "intensityScale": 4,
+        "clusterReferenceCandela": 2861.1493124286853,
+        "mainRawBound": 0.21277531860263824,
+        "mirrorRawBound": 0.08310790038225893,
+        "colourMaximum": 2.5592428230357753,
+        "records": 135
+      },
+      {
+        "type": "ring",
+        "intensityScale": 16,
+        "clusterReferenceCandela": 11444.597249714741,
+        "mainRawBound": 0.8511012744105529,
+        "mirrorRawBound": 0.3324316015290357,
+        "colourMaximum": 2.5592428230357753,
+        "records": 135
+      },
+      {
+        "type": "ring",
+        "intensityScale": 64,
+        "clusterReferenceCandela": 45778.388998858965,
+        "mainRawBound": 3.4044050976422118,
+        "mirrorRawBound": 1.329726406116143,
+        "colourMaximum": 2.5592428230357753,
+        "records": 135
+      },
+      {
+        "type": "willow",
+        "intensityScale": 1,
+        "clusterReferenceCandela": 610.5257291639541,
+        "mainRawBound": 0.057137309686103345,
+        "mirrorRawBound": 0.017222917627450617,
+        "colourMaximum": 1.8277674763872431,
+        "records": 1455
+      },
+      {
+        "type": "willow",
+        "intensityScale": 4,
+        "clusterReferenceCandela": 2442.1029166558164,
+        "mainRawBound": 0.22854923874441338,
+        "mirrorRawBound": 0.06889167050980247,
+        "colourMaximum": 1.8277674763872431,
+        "records": 1455
+      },
+      {
+        "type": "willow",
+        "intensityScale": 16,
+        "clusterReferenceCandela": 9768.411666623266,
+        "mainRawBound": 0.9141969549776535,
+        "mirrorRawBound": 0.27556668203920986,
+        "colourMaximum": 1.8277674763872431,
+        "records": 1455
+      },
+      {
+        "type": "willow",
+        "intensityScale": 64,
+        "clusterReferenceCandela": 39073.64666649306,
+        "mainRawBound": 3.656787819910614,
+        "mirrorRawBound": 1.1022667281568395,
+        "colourMaximum": 1.8277674763872431,
+        "records": 1455
+      },
+      {
+        "type": "palm",
+        "intensityScale": 1,
+        "clusterReferenceCandela": 494.15670877751455,
+        "mainRawBound": 0.09746168196296787,
+        "mirrorRawBound": 0.035467404171295555,
+        "colourMaximum": 4.632475501753829,
+        "records": 123
+      },
+      {
+        "type": "palm",
+        "intensityScale": 4,
+        "clusterReferenceCandela": 1976.6268351100582,
+        "mainRawBound": 0.38984672785187147,
+        "mirrorRawBound": 0.14186961668518222,
+        "colourMaximum": 4.632475501753829,
+        "records": 123
+      },
+      {
+        "type": "palm",
+        "intensityScale": 16,
+        "clusterReferenceCandela": 7906.507340440233,
+        "mainRawBound": 1.5593869114074859,
+        "mirrorRawBound": 0.5674784667407289,
+        "colourMaximum": 4.632475501753829,
+        "records": 123
+      },
+      {
+        "type": "palm",
+        "intensityScale": 64,
+        "clusterReferenceCandela": 31626.02936176093,
+        "mainRawBound": 6.2375476456299435,
+        "mirrorRawBound": 2.2699138669629155,
+        "colourMaximum": 4.632475501753829,
+        "records": 123
+      }
+    ]
+  },
+  "sourceSHA256": {
+    "../../fireworks-physics.js": "3bbac1976fccf39dbb9fefdfd04bfdb5ae7fa8e26edbbe1169373d01130486df",
+    "../../fireworks.js": "963bc4fef5167bebebf84f1075072166f222ff4e4e1b8b4384b470ed44bb5310",
+    "../../fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+    "../baselines/fireworks-before-persistent-medium/fireworks-physics.js": "5a61e6b87b233941cba647bfc44599009ee679f2f91172ececac66a045609b41",
+    "./intensity-scale-check.mjs": "0d47c324d7f61515320f4d56a697e1be94f9d0938013a0cbd19d478e0477008e"
+  },
+  "runtimeMainUIWired": false,
+  "noGPUOrBrowser": true,
+  "limits": [
+    "intensityScale is optional author reference0..64 with default1, not measured commercial star/shell photometry",
+    "same-source fixed camera/phase CPU bound checks, not GPU RGB, full-scene energy or scene FPS",
+    "existing1e-6 cluster threshold is unchanged; zero emits no clusters while geometry/slots/smoke/audio events remain",
+    "no cameraP/C changes; colours remain Y-normalized approximate spectral RGB and maximum channel is independent of luminous scale",
+    "no audio gain/file/propagation changes"
+  ]
+}

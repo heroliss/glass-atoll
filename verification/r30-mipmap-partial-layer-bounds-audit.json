@@ -1,0 +1,65 @@
+{
+  "schema": "glass-atoll.r30-mipmap-partial-layer-bounds-audit.v1",
+  "actualGPU": false,
+  "browserActions": 0,
+  "nativeContextCalls": 0,
+  "fixtureReplays": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 3,
+    "total": 3
+  },
+  "checks": [
+    {
+      "name": "Saved v4 receipt is a controlled submitted native-operation stop, not a GL crash or completed timing/image gate",
+      "passed": true,
+      "evidence": {
+        "actualDraws": 51,
+        "renderCalls": 19,
+        "elements": 4007490,
+        "nativeOps": {
+          "blits": 5,
+          "mipmaps": 4,
+          "clears": 4
+        },
+        "noHealthyTiming": true,
+        "noImage": true,
+        "restorationPassed": true
+      }
+    },
+    {
+      "name": "Pinned vendor has one cold reflection allocation mip and one automatic mip after each of four completed writers",
+      "passed": true,
+      "evidence": {
+        "coldAllocation": 1,
+        "reflectionWriters": [
+          "opaque",
+          "transient-cloud",
+          "persistent-volume",
+          "fireworks"
+        ],
+        "coldTotal": 5,
+        "steadyTotal": 4,
+        "vendorSHA256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+        "waterSHA256": "d7d5b76dadf35e2e507b640b8975fb3819821b29d113ceeebf195080fd88b045",
+        "scope": "Source execution/enumeration, not a second actual GPU trace. Existing external mip inputs are reused; unexpected extra work remains guarded."
+      }
+    },
+    {
+      "name": "v5 changes only revision and exact omitted cold-mipmap accounting; all other frame math and guards remain byte-identical",
+      "passed": true,
+      "evidence": {
+        "sourceSHA256": "614604b3bc91df210310b9d11b3a0356626a33a40182b6923d33a1b94f00ebf2",
+        "strictCap": 5,
+        "sixthOperationStillRejected": true,
+        "productionChanges": 0,
+        "unchangedDraws": 143,
+        "unchangedRenderCalls": 41,
+        "unchangedElements": 19279476,
+        "unchangedWholeFrameCeilingMs": 100
+      }
+    }
+  ],
+  "decision": "Minimal v5 pre-GPU source correction is supported. This does not convert the retained v4 submitted fault into a pass, prove an image/timing result, or authorize unbounded retry."
+}

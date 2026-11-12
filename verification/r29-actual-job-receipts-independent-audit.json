@@ -1,0 +1,153 @@
+{
+  "schema": "glass-atoll.r29-actual-job-receipts-independent-audit.v1",
+  "dateUTC": "2026-10-29T16:23:34.293Z",
+  "actualGPUByThisAudit": false,
+  "sourceGPUReceipts": true,
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "runtimeSHA256": "3535ebae18ff359b52daec0a7eedfaca746d2c0ff3703360aeffaa7f9bf3896d",
+  "pinsModuleSHA256": "3e3e36a7822446b9bf8c68bfd1fb0bb45834e40ef177745b653b3def2b96a59d",
+  "pinsManifestSHA256": "f740c21294afd21d5d44ec8c875b55ec3c0d7ec1998db14d07fece9114c01864",
+  "checks": [
+    {
+      "name": "Saved source receipt binds exact frozen production inputs, caps, complete rectangles, freshness and state",
+      "passed": true,
+      "evidence": {
+        "path": "./r29-source-peak-actual-gpu.json",
+        "SHA256": "e81d9057be99403d33e9d31c31cbe563aa9cc597939905babb69d1f65851bbb9",
+        "phase": {
+          "densityRevision": 3463,
+          "densityTime": 161.8,
+          "key": "source-peak",
+          "label": "source-peak",
+          "seconds": 2.681963161603079,
+          "time": 161.80883333333384
+        },
+        "draws": 5,
+        "prepares": 1,
+        "readBytes": 21984,
+        "gpuMs": 1.912832,
+        "coldInstrumentedSubmitMs": 17.099999994039536,
+        "numericBytes": 2707456,
+        "fresh": true,
+        "mirrorSubmitted": false
+      }
+    },
+    {
+      "name": "Saved light receipt binds exact frozen production inputs, caps, complete rectangles, freshness and state",
+      "passed": true,
+      "evidence": {
+        "path": "./r29-light-peak-actual-gpu.json",
+        "SHA256": "9a2db2373112b8d7ba04d0fc16186424a18628508650bff2efb421eba3952302",
+        "phase": {
+          "densityRevision": 4785,
+          "densityTime": 163,
+          "key": "light-peak",
+          "label": "light-peak",
+          "seconds": 3.881963161603096,
+          "time": 163.00883333333385
+        },
+        "draws": 6,
+        "prepares": 1,
+        "readBytes": 110832,
+        "gpuMs": 1.584128,
+        "coldInstrumentedSubmitMs": 11.800000004470348,
+        "numericBytes": 3919872,
+        "fresh": true,
+        "mirrorSubmitted": false
+      }
+    },
+    {
+      "name": "Saved joint receipt binds exact frozen production inputs, caps, complete rectangles, freshness and state",
+      "passed": true,
+      "evidence": {
+        "path": "./r29-joint-peak-actual-gpu.json",
+        "SHA256": "137e5231c3e8a8598a5b4e561fedec0188595f8c8f444036e1dd234e05f15e6d",
+        "phase": {
+          "densityRevision": 4698,
+          "densityTime": 162.95000000000002,
+          "key": "joint-peak",
+          "label": "joint-peak",
+          "seconds": 3.8319631616030847,
+          "time": 162.95883333333384
+        },
+        "draws": 10,
+        "prepares": 2,
+        "readBytes": 122832,
+        "gpuMs": 3.093504,
+        "coldInstrumentedSubmitMs": 34,
+        "numericBytes": 6627328,
+        "fresh": true,
+        "mirrorSubmitted": false
+      }
+    },
+    {
+      "name": "Saved complete final values retain all native rows, finite Float32 words and signed SH; recorded error/bound summaries agree",
+      "passed": true,
+      "evidence": [
+        {
+          "kind": "source",
+          "kernel": "transmission",
+          "rows": 1366,
+          "physical": 9.329530670232344e-8,
+          "quantized": 9.147090251904189e-8
+        },
+        {
+          "kind": "light",
+          "kernel": "light",
+          "rows": 2301,
+          "coefficients": 27612,
+          "e0": 3.82611249377643e-7,
+          "e1": 3.0325058402924584e-7,
+          "negative": 9932,
+          "fourthNegative": 2267,
+          "minAngular": 3.3007656023561717e-10,
+          "maxAngular": 0.000007083630816906252,
+          "maximumOwnGroupRatio": 0.25485097869575446
+        },
+        {
+          "kind": "joint",
+          "kernel": "transmission",
+          "rows": 871,
+          "physical": 1.0025062213703251e-7,
+          "quantized": 9.977936232807849e-8
+        },
+        {
+          "kind": "joint",
+          "kernel": "light",
+          "rows": 2258,
+          "coefficients": 27096,
+          "e0": 4.507914398520969e-7,
+          "e1": 3.2763281135522064e-7,
+          "negative": 9734,
+          "fourthNegative": 2184,
+          "minAngular": 3.8615248936177234e-10,
+          "maxAngular": 0.000007295080963677101,
+          "maximumOwnGroupRatio": 0.25699466734977
+        }
+      ]
+    },
+    {
+      "name": "The joint evidence is one coherent fresh compute job, with no scene/mirror/FPS or accumulated-workload admission",
+      "passed": true,
+      "evidence": {
+        "sameGenerationOwned": true,
+        "Tpairs": 1966718,
+        "SHpairs": 3231198,
+        "totalPairs": 5197916,
+        "wholeGPUms": 3.093504,
+        "coldInstrumentedCPUms": 34,
+        "mirrorRows": 0,
+        "fullFrameAdmitted": false
+      }
+    }
+  ],
+  "limits": [
+    "Saved exact PAGEJSON receipts only; no GPU retry, context, browser or source change. Root owns the actual GPU submissions.",
+    "Final row/error/raw-bound summaries are independently recalculated from the stored offline references. Independent quadrature and partial reconstruction belong to the separate motion-agent numerical audit.",
+    "These fixed zero-mirror numerical compute jobs do not measure a complete normal scene, evolving frame rate or two-event accumulation. Cold instrumented CPU submission and GPU query durations are different scopes."
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "schema": "glass-atoll.homogeneous-clip-budget-check.v1",
+  "dateUTC": "2026-10-27T01:19:33.940Z",
+  "passed": true,
+  "passedCount": 11,
+  "total": 11,
+  "sourceSHA256": "b1b1ac57ede266a64d97c8c1f5c02f4d36c11ba47c3efddd0af7994ba3c1fdeb",
+  "baselineSHA256": "56ae4e5e0ca041041cbd3b09be2b9fad67c257e9c470aaa0ce47237f1f37146c",
+  "checks": [
+    {
+      "name": "three exact authorized clip edits restore the frozen56 trace source byte for byte",
+      "passed": true,
+      "evidence": {
+        "baselineSHA256": "56ae4e5e0ca041041cbd3b09be2b9fad67c257e9c470aaa0ce47237f1f37146c"
+      }
+    },
+    {
+      "name": "clip inverse fails closed for missing or duplicate authorized changes",
+      "passed": true,
+      "evidence": {
+        "edits": 3
+      }
+    },
+    {
+      "name": "actual initial GPU witness8/8 is retained; phantom has no hardware coverage",
+      "passed": true,
+      "evidence": [
+        {
+          "view": "mirror",
+          "bodyId": 97,
+          "peak": 29956.27781624126,
+          "reason": "homogeneous-far",
+          "coverage": 0
+        }
+      ]
+    },
+    {
+      "name": "actual saved main/mirror raw sources: production new bins exactly equal independent interval reconstruction",
+      "passed": true,
+      "evidence": [
+        {
+          "view": "main",
+          "old": 7.18568135610271,
+          "new": 7.18568135610271,
+          "rejected": 0,
+          "exact": true
+        },
+        {
+          "view": "mirror",
+          "old": 35947.533379485154,
+          "new": 0,
+          "rejected": 1,
+          "exact": true
+        }
+      ]
+    },
+    {
+      "name": "raw source/shader/upload blocks are unchanged",
+      "passed": true,
+      "evidence": {
+        "sourceGain": 1,
+        "kernel": "unchanged",
+        "binSize": 32,
+        "safetyFactor": 1.2
+      }
+    },
+    {
+      "name": "prepared matrix is bit-exact to the real combined Float32 upload for oblique/off-axis/mutable cameras",
+      "passed": true,
+      "evidence": {
+        "cameras": 80
+      }
+    },
+    {
+      "name": "12000 world points including Float32 public inputs agree with independent interval classification",
+      "passed": true,
+      "evidence": {
+        "points": 12000,
+        "outside": 4282
+      }
+    },
+    {
+      "name": "near/far and shader-w boundaries retain all uncertain cases",
+      "passed": true,
+      "evidence": {
+        "tested": 30
+      }
+    },
+    {
+      "name": "extreme Float32 overflow/nonfinite inputs retain original conservative budget",
+      "passed": true
+    },
+    {
+      "name": "reused camera context and moving source do not keep stale clip decisions",
+      "passed": true,
+      "evidence": {
+        "cameraMutations": 24
+      }
+    },
+    {
+      "name": "own legacy smoke term and no-camera reference remain unchanged",
+      "passed": true
+    }
+  ],
+  "limits": [
+    "Original GPU evidence is before repair; parent must rerun actual production/GPU bound7 and scene precision/range acceptance.",
+    "Aggregator-only clipping; public per-source raw Gaussian formula and all radiometric/rendering code remain unchanged.",
+    "No source position, intensity, bloom, density, audio or photography changes. No FPS claim."
+  ]
+}

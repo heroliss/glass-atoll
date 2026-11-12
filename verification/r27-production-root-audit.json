@@ -1,0 +1,45 @@
+{
+  "schema": "glass-atoll.r27-production-root-audit.v1",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "Main delta is exactly two locked lazy QA methods and the explicit reviewed normal SourceT policy",
+      "passed": true,
+      "evidence": {
+        "mainSHA256": "713640b631c29b64abe85d5fb6efc5e04e7cdfa5ab0fcf65c03ab3c9f4cfb088",
+        "onlyRuntimeBehaviorDelta": "Normal SourceT explicit1.4m request/1m map/8map allowance; two QA hooks are lazy and locked"
+      }
+    },
+    {
+      "name": "Deployed four modules are reviewed staging bytes with only the renderer import-path relocation",
+      "passed": true,
+      "evidence": {
+        "pyro-smoke-transmission-gpu.js": "16d7546cc73df5d14ab5bed3f07bb5a7f13fbec4638e1e2344e3ebb7d73abcf2",
+        "pyro-smoke-transmission-pack.js": "8ccab09237ad8fc9ca9e23daa377b173278e9e7b4a48a33cb564a43aba4ada8d",
+        "smoke-transmission-layout.js": "79b76d3ece575ab9eb4678e42825ff19b758200627512b0bfed78ab5b81508a5",
+        "smoke-transmission-rectangles.js": "3080bdaf0630010dd0f7e91ff84b050eac889235f7b0a587c831ea4090898832"
+      }
+    },
+    {
+      "name": "Promoted QA hook rejects unsafe states and overrides untrusted factory while finally restoring lock/pause on all paths",
+      "passed": true,
+      "evidence": {
+        "earlyGuards": 4,
+        "finallyCases": 3
+      }
+    },
+    {
+      "name": "Runtime syntax script adds only the new pure planner; approved audio/physical event implementations are unchanged",
+      "passed": true,
+      "evidence": {
+        "audioUnchanged": true,
+        "onlySyntaxListAddition": "smoke-transmission-rectangles.js"
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "glass-atoll.r27-native-hook-root-audit.v1",
+  "actualGPU": false,
+  "phase": "pre-candidate-gate",
+  "passed": true,
+  "counts": {
+    "passed": 3,
+    "total": 3
+  },
+  "checks": [
+    {
+      "name": "Only one exact paused/exclusive/native diagnostic entry was added to the pre-R27 main source",
+      "passed": true,
+      "evidence": {
+        "mainSHA256": "5fcb25b0182ab1d75845373472f5a8fd37e9cf551f31d312e983e1a45a1b3f60",
+        "baselineSHA256": "6eae4cf63a6c975ec271191466c2d058d3a164e46fd8554148563fe6950d2c7c",
+        "newQAMethods": 1
+      }
+    },
+    {
+      "name": "The native QA hook rejects all four unsafe states before imports, overrides untrusted factory/lock and restores on success/import/helper failures",
+      "passed": true,
+      "evidence": {
+        "earlyGuards": 4,
+        "successAndFailureFinallyCases": 3,
+        "untrustedOverridesIgnored": true
+      }
+    },
+    {
+      "name": "Production optical math, volume renderer and approved audio remain untouched before candidate gate",
+      "passed": true,
+      "evidence": {
+        "pyro-smoke-transmission-gpu.js": "235930f8d031c9d922afdeaff506cc62c583bcf68fdfd549b69ab7e4bb719dc8",
+        "pyro-smoke-transmission-pack.js": "c4c64278c6fe994c68ed9727ce82b3396295cbde109d7fb85362d3429e7f0fe8",
+        "smoke-transmission-layout.js": "373739ec71f3505974a5ba5842fbc18f41821df42a6e0730db47fc3b7c72b9da",
+        "pyro-smoke-renderer.js": "4f152a1470d8351b997728691bc2e0ec15ee0962b55926179917cb42ce7ee3dd",
+        "audio": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+      }
+    }
+  ]
+}

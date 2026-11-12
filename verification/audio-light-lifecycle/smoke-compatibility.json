@@ -1,0 +1,3606 @@
+{
+  "schema": "glass-atoll.smoke-current-budget-compatibility.v1",
+  "dateUTC": "2026-10-31T17:26:33.048Z",
+  "sourceHashes": {
+    "main.js": "d40e5284fd7e1dbe417d6a0eac56650131a0e8ce15dc11c8af3d663a7f84c1b5",
+    "local-lights.js": "5c13bcea1183daf7a508f6635f839f32507fbcc14c4854d98d69be9251c67fd7",
+    "firework-receiver-lighting.js": "e0ae63d237b522d0a2a93a0b41d382e9a2b41b286c8f83b007e51a809cb1d251",
+    "fireworks.js": "954a7c8e70557874ca85da7d70e57cb5f73d196a5f40b1a547f1fbd2906820ce",
+    "water.js": "872c60cd379d46c861faeb052c850c4e4fbd05fce616a37b3086601262dee926",
+    "indirect-lighting.js": "4ec4e09ff429323003ea41f55b0ccbdc5446c8b0734342ecfcfb6a1370d09faa",
+    "pyro-smoke.js": "a4e46fa9ac93bdcbafb576cdbd6d71b07e2e4fd252b90ec573ff4f966314caf0",
+    "pyro-smoke-renderer.js": "18f39cc13b0d33a2299ba4896ad348eed53b42086e344cabe323ec4d3a33eda9",
+    "pyro-smoke-light-field.js": "6e37c2cc59c8f32b329840392dfba85a48c16c8beec92623d1e65b6458bffa6c",
+    "pyro-smoke-state.js": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+    "verification/pyro-smoke-local-gpu-check.js": "0ede559b77e2f188a9144c97fe16b1d3a1227f5778d5fefd0dcd89a2d6467d8f",
+    "verification/pyro-smoke-resolved-field-supplement-gpu-check.js": "b57155c4f7b06eb1abf82c6840b22c158bd53609708ac1c97ffdf1eac8007ce1",
+    "verification/pyro-smoke-local-oracle.js": "a41dd46e6f0a636361253abf8b3d17e0d95d0495e237ff1b65d934050ce70c0c",
+    "verification/pyro-smoke-light-field-oracle.js": "232789c50a37cc67edcee17c1ce60b6089cf1042841d0ff4595a51e78ac2f683",
+    "verification/transient-gi-gpu-check.js": "148cb94f97071be062ca91e069b9082aa041a008f22fde0f42e85defe3f8d1fe",
+    "verification/indirect-lighting-gpu-check.js": "439165b5c0255ac99eefa59c61dadce0ae10293b60819c21dd1da2929a1e08b8"
+  },
+  "checks": [
+    {
+      "name": "current twenty/four contract passes independently",
+      "passed": true
+    },
+    {
+      "name": "local smoke GPU fixture passes",
+      "passed": true
+    },
+    {
+      "name": "resolved field supplement GPU fixture passes",
+      "passed": true
+    },
+    {
+      "name": "transient indirect GPU fixture covers last current light slot",
+      "passed": true
+    },
+    {
+      "name": "all wrapper GL error checks clear",
+      "passed": true
+    },
+    {
+      "name": "no browser or shader console errors",
+      "passed": true
+    },
+    {
+      "name": "source and QA receipt unchanged during checks",
+      "passed": true
+    },
+    {
+      "name": "paused healthy page retains all twenty shared source records",
+      "passed": true
+    }
+  ],
+  "browserErrors": [],
+  "consoleErrors": [],
+  "glChecks": [
+    {
+      "label": "smoke-compatibility-entry",
+      "errors": [],
+      "programLive": true,
+      "programDeletePending": false,
+      "vertexArrayLive": true
+    },
+    {
+      "label": "local-compatibility-exit",
+      "errors": [],
+      "programLive": true,
+      "programDeletePending": false,
+      "vertexArrayLive": true
+    },
+    {
+      "label": "resolvedSupplement-compatibility-exit",
+      "errors": [],
+      "programLive": true,
+      "programDeletePending": false,
+      "vertexArrayLive": true
+    },
+    {
+      "label": "transientIndirect-compatibility-exit",
+      "errors": [],
+      "programLive": true,
+      "programDeletePending": false,
+      "vertexArrayLive": true
+    }
+  ],
+  "passed": true,
+  "limits": [
+    "New isolated paused medium-SDR page; local smoke, resolved field and transient indirect GPU fixtures run sequentially on one renderer.",
+    "This report verifies current-budget smoke compatibility; historical frozen byte-exact six-source fixtures are retained as separate evidence.",
+    "Twenty shared receiver-source records do not imply twenty native scene lights; detached PointLight mirrors remain diagnostic records.",
+    "One-pixel isolated volume checks and one-packet 14000-source field supplement do not establish island appearance or performance."
+  ],
+  "currentBudget": {
+    "schema": "glass-atoll.current-smoke-light-budget.v1",
+    "dateUTC": "2026-10-31T17:26:33.092Z",
+    "passed": true,
+    "checks": [
+      {
+        "name": "current budget is four non-pyro plus sixteen firework slots",
+        "passed": true,
+        "evidence": {
+          "shared": 20,
+          "firework": 16,
+          "actualRecords": 20
+        }
+      },
+      {
+        "name": "all actual borrowed vec4 arrays contain twenty entries",
+        "passed": true,
+        "evidence": {
+          "uLocalPosition": 20,
+          "uLocalColour": 20,
+          "uLocalDirection": 20,
+          "uLocalCone": 20
+        }
+      },
+      {
+        "name": "shared localIncident declarations and summation use twenty",
+        "passed": true,
+        "evidence": {
+          "shaderSHA256": "ad1042e95204a740c3cbcc5a895974f006af3a07ced9fd15d2efea0dbc939ea9"
+        }
+      },
+      {
+        "name": "actual default smoke material uses all twenty local sources",
+        "passed": true,
+        "evidence": {
+          "meta": {
+            "packets": 1,
+            "instances": 1,
+            "culled": 0,
+            "fullScreenFallbacks": 0,
+            "projectionMode": "legacy-sphere",
+            "proxyRasterPixelUpperBound": 64,
+            "proxyRasterViewportLayers": 0.25,
+            "reflection": false,
+            "width": 16,
+            "height": 16,
+            "storageEV": 0,
+            "supportSigma": 4,
+            "offProxyOpticalDepthUpperBound": 0.0012843766673387746,
+            "debugMode": 0,
+            "stateRevision": 1,
+            "extraOffscreenTargets": 0,
+            "frontAirEnabled": false,
+            "frontAirCells": 0,
+            "localLightingEnabled": true,
+            "localLightingSources": 20,
+            "legacyClusterSources": 0,
+            "samplerCount": 2,
+            "finiteClusterPhase": false
+          },
+          "fragmentSHA256": "8215dac2b5fbe5b3702619f37fb1c855417b06a1b8613c63b03c57d04bbafbaf"
+        }
+      },
+      {
+        "name": "last firework slot is populated in actual borrowed uniforms",
+        "passed": true,
+        "evidence": {
+          "raw": [
+            0.03654,
+            0.007308,
+            0.003654
+          ],
+          "stored": [
+            0.03654,
+            0.007308,
+            0.003654,
+            1015
+          ]
+        }
+      },
+      {
+        "name": "actual resolved material retains exactly four non-pyro direct sources",
+        "passed": true,
+        "evidence": {
+          "meta": {
+            "packets": 1,
+            "instances": 1,
+            "culled": 0,
+            "fullScreenFallbacks": 0,
+            "projectionMode": "legacy-sphere",
+            "proxyRasterPixelUpperBound": 64,
+            "proxyRasterViewportLayers": 0.25,
+            "reflection": false,
+            "width": 16,
+            "height": 16,
+            "storageEV": 0,
+            "supportSigma": 4,
+            "offProxyOpticalDepthUpperBound": 0.0012843766673387746,
+            "debugMode": 0,
+            "stateRevision": 1,
+            "extraOffscreenTargets": 0,
+            "frontAirEnabled": false,
+            "frontAirCells": 0,
+            "localLightingEnabled": true,
+            "localLightingSources": 4,
+            "legacyClusterSources": 0,
+            "samplerCount": 2,
+            "finiteClusterPhase": false,
+            "resolvedPyroField": true,
+            "resolvedFieldVersion": 1,
+            "vertexSamplers": 3
+          },
+          "fragmentSHA256": "49405d05397b4ce3c30a312bb900bb776d1f9eec0c4bbd1ab0b716604c55e73a"
+        }
+      },
+      {
+        "name": "resolved field disables legacy cluster loop and counts field once",
+        "passed": true,
+        "evidence": {
+          "meta": {
+            "packets": 1,
+            "instances": 1,
+            "culled": 0,
+            "fullScreenFallbacks": 0,
+            "projectionMode": "legacy-sphere",
+            "proxyRasterPixelUpperBound": 64,
+            "proxyRasterViewportLayers": 0.25,
+            "reflection": false,
+            "width": 16,
+            "height": 16,
+            "storageEV": 0,
+            "supportSigma": 4,
+            "offProxyOpticalDepthUpperBound": 0.0012843766673387746,
+            "debugMode": 0,
+            "stateRevision": 1,
+            "extraOffscreenTargets": 0,
+            "frontAirEnabled": false,
+            "frontAirCells": 0,
+            "localLightingEnabled": true,
+            "localLightingSources": 4,
+            "legacyClusterSources": 0,
+            "samplerCount": 2,
+            "finiteClusterPhase": false,
+            "resolvedPyroField": true,
+            "resolvedFieldVersion": 1,
+            "vertexSamplers": 3
+          }
+        }
+      },
+      {
+        "name": "resolved bound excludes every pyro proxy including last slot",
+        "passed": true,
+        "evidence": {
+          "legacy": {
+            "maxRGB": 13.182985670319756,
+            "components": {
+              "smokeSource": 13.182985670319756,
+              "airFront": 0
+            },
+            "airNumericalSafety": 1.00002,
+            "rawBeforeStorageExposure": true,
+            "localLightingEnabled": true,
+            "method": "non-emissive convex-over layer upper bound; passive front-air source plus current raw smoke sources; local records replace legacy clusters when enabled; no factor per historical packet",
+            "limits": "authored raw incident reference, neutral extinction, up to20 shared local lights OR2 legacy clusters; optional four-cell front-air/conditional-mean approximation, small-tau/Float32 safety on air term, not a bound for future joint-media/light transport"
+          },
+          "resolved": {
+            "maxRGB": 2,
+            "components": {
+              "smokeSource": 2,
+              "airFront": 0
+            },
+            "airNumericalSafety": 1.00002,
+            "rawBeforeStorageExposure": true,
+            "resolvedPyroField": true,
+            "resolvedFieldBound": {
+              "maxRGB": 2
+            },
+            "localLightingEnabled": true,
+            "method": "non-emissive convex-over layer upper bound; passive front-air source plus current raw smoke sources; local records replace legacy clusters when enabled; no factor per historical packet",
+            "limits": "authored raw incident reference, neutral extinction, up to20 shared local lights OR2 legacy clusters; optional four-cell front-air/conditional-mean approximation, small-tau/Float32 safety on air term, not a bound for future joint-media/light transport"
+          }
+        }
+      },
+      {
+        "name": "millionfold increase in all pyro proxy records leaves resolved raw bound unchanged",
+        "passed": true,
+        "evidence": {
+          "before": 2,
+          "after": 2,
+          "lastRaw": [
+            36540,
+            7308,
+            3654
+          ]
+        }
+      },
+      {
+        "name": "disabling field restores exact current twenty-source material",
+        "passed": true,
+        "evidence": {
+          "meta": {
+            "packets": 1,
+            "instances": 1,
+            "culled": 0,
+            "fullScreenFallbacks": 0,
+            "projectionMode": "legacy-sphere",
+            "proxyRasterPixelUpperBound": 64,
+            "proxyRasterViewportLayers": 0.25,
+            "reflection": false,
+            "width": 16,
+            "height": 16,
+            "storageEV": 0,
+            "supportSigma": 4,
+            "offProxyOpticalDepthUpperBound": 0.0012843766673387746,
+            "debugMode": 0,
+            "stateRevision": 1,
+            "extraOffscreenTargets": 0,
+            "frontAirEnabled": false,
+            "frontAirCells": 0,
+            "localLightingEnabled": true,
+            "localLightingSources": 20,
+            "legacyClusterSources": 0,
+            "samplerCount": 2,
+            "finiteClusterPhase": false
+          }
+        }
+      }
+    ],
+    "noGPU": true,
+    "sourceHashes": {
+      "local-lights.js": "5c13bcea1183daf7a508f6635f839f32507fbcc14c4854d98d69be9251c67fd7",
+      "firework-receiver-lighting.js": "e0ae63d237b522d0a2a93a0b41d382e9a2b41b286c8f83b007e51a809cb1d251",
+      "pyro-smoke-renderer.js": "18f39cc13b0d33a2299ba4896ad348eed53b42086e344cabe323ec4d3a33eda9",
+      "pyro-smoke-light-field.js": "6e37c2cc59c8f32b329840392dfba85a48c16c8beec92623d1e65b6458bffa6c"
+    },
+    "limits": [
+      "Actual production factories and selected shader materials exercised through a stub render call; no GL execution, pixels, or performance evidence.",
+      "This check verifies the current twenty/four source contract. Historical byte-exact shader snapshots and normalizers are retained and may fail their obsolete six-source baseline."
+    ]
+  },
+  "local": {
+    "schema": "glass-atoll.smoke-local-GPU.v1",
+    "passed": true,
+    "counts": {
+      "checks": 19,
+      "passed": 19
+    },
+    "checks": [
+      {
+        "id": "disabled_local_path_matches_pre_local_module_bit_exact",
+        "passed": true,
+        "gpu": [
+          0.012617895379662514,
+          0.025233983993530273,
+          0.037850379943847656,
+          0.14713585376739502
+        ],
+        "baseline": [
+          0.012617895379662514,
+          0.025233983993530273,
+          0.037850379943847656,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "disabled_local_path_preserves_pre_local_air_and_P_bit_exact",
+        "passed": true,
+        "gpu": [
+          0.3592492938041687,
+          0.273034930229187,
+          0.18877831101417542,
+          0.14713585376739502
+        ],
+        "baseline": [
+          0.3592492938041687,
+          0.273034930229187,
+          0.18877831101417542,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "eight_light_directions_match_3D_volume_incident_phase_without_surface_cosine",
+        "passed": true,
+        "cases": [
+          {
+            "octant": [
+              -1,
+              -1,
+              -1
+            ],
+            "gpu": [
+              0.00006979380123084411,
+              0.000034896900615422055,
+              0.000017448450307711028,
+              0.14713585376739502
+            ],
+            "expected": [
+              0.00006979375945409594,
+              0.00003489687972704797,
+              0.000017448439863523985
+            ],
+            "passed": true
+          },
+          {
+            "octant": [
+              -1,
+              -1,
+              1
+            ],
+            "gpu": [
+              0.00002452228363836184,
+              0.00001226114181918092,
+              0.00000613057090959046,
+              0.14713585376739502
+            ],
+            "expected": [
+              0.000024522269541148976,
+              0.000012261134770574488,
+              0.000006130567385287244
+            ],
+            "passed": true
+          },
+          {
+            "octant": [
+              -1,
+              1,
+              -1
+            ],
+            "gpu": [
+              0.00006979380123084411,
+              0.000034896900615422055,
+              0.000017448450307711028,
+              0.14713585376739502
+            ],
+            "expected": [
+              0.00006979375945409594,
+              0.00003489687972704797,
+              0.000017448439863523985
+            ],
+            "passed": true
+          },
+          {
+            "octant": [
+              -1,
+              1,
+              1
+            ],
+            "gpu": [
+              0.00002452228363836184,
+              0.00001226114181918092,
+              0.00000613057090959046,
+              0.14713585376739502
+            ],
+            "expected": [
+              0.000024522269541148976,
+              0.000012261134770574488,
+              0.000006130567385287244
+            ],
+            "passed": true
+          },
+          {
+            "octant": [
+              1,
+              -1,
+              -1
+            ],
+            "gpu": [
+              0.00006979380123084411,
+              0.000034896900615422055,
+              0.000017448450307711028,
+              0.14713585376739502
+            ],
+            "expected": [
+              0.00006979375945409594,
+              0.00003489687972704797,
+              0.000017448439863523985
+            ],
+            "passed": true
+          },
+          {
+            "octant": [
+              1,
+              -1,
+              1
+            ],
+            "gpu": [
+              0.00002452228363836184,
+              0.00001226114181918092,
+              0.00000613057090959046,
+              0.14713585376739502
+            ],
+            "expected": [
+              0.000024522269541148976,
+              0.000012261134770574488,
+              0.000006130567385287244
+            ],
+            "passed": true
+          },
+          {
+            "octant": [
+              1,
+              1,
+              -1
+            ],
+            "gpu": [
+              0.00006979380123084411,
+              0.000034896900615422055,
+              0.000017448450307711028,
+              0.14713585376739502
+            ],
+            "expected": [
+              0.00006979375945409594,
+              0.00003489687972704797,
+              0.000017448439863523985
+            ],
+            "passed": true
+          },
+          {
+            "octant": [
+              1,
+              1,
+              1
+            ],
+            "gpu": [
+              0.00002452228363836184,
+              0.00001226114181918092,
+              0.00000613057090959046,
+              0.14713585376739502
+            ],
+            "expected": [
+              0.000024522269541148976,
+              0.000012261134770574488,
+              0.000006130567385287244
+            ],
+            "passed": true
+          }
+        ],
+        "physicalConditionalMean": 5.000001486721339
+      },
+      {
+        "id": "ground_lamp_uses_native_near_field_floor_at_close_volume_receiver",
+        "passed": true,
+        "gpu": [
+          0.18159867823123932,
+          0.09079933911561966,
+          0.04539966955780983,
+          0.14713585376739502
+        ],
+        "expected": [
+          0.18159855932765057,
+          0.09079927966382528,
+          0.04539963983191264
+        ],
+        "denominator": 0.01
+      },
+      {
+        "id": "local_light_range_cutoff_is_shared_with_other_receivers",
+        "passed": true,
+        "gpu": [
+          0,
+          0,
+          0,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "torch_front_cone_lights_cold_smoke",
+        "passed": true,
+        "gpu": [
+          0.000057118893892038614,
+          0.000028559446946019307,
+          0.000014279723473009653,
+          0.14713585376739502
+        ],
+        "expected": [
+          0.000057118846601760854,
+          0.000028559423300880427,
+          0.000014279711650440214
+        ]
+      },
+      {
+        "id": "torch_back_cone_is_dark",
+        "passed": true,
+        "gpu": [
+          0,
+          0,
+          0,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "torch_penumbra_uses_continuous_shared_cone",
+        "passed": true,
+        "gpu": [
+          0.00003099459718214348,
+          0.00001549729859107174,
+          0.00000774864929553587,
+          0.14713585376739502
+        ],
+        "expected": [
+          0.00003099452418820594,
+          0.00001549726209410297,
+          0.000007748631047051485
+        ],
+        "coneFactor": 0.5426321789076611
+      },
+      {
+        "id": "existing_nine_tap_torch_PCF_uses_borrowed_independent_shadow_map",
+        "passed": true,
+        "unoccluded": [
+          0.000057118893892038614,
+          0.000028559446946019307,
+          0.000014279723473009653,
+          0.14713585376739502
+        ],
+        "blocked": [
+          0,
+          0,
+          0,
+          0.14713585376739502
+        ],
+        "fixture": "synthetic packed-white/black1x1 maps; no actual geometry shadow capture acceptance"
+      },
+      {
+        "id": "borrowed_local_colours_are_stored_once_not_P_squared",
+        "passed": true,
+        "P0": [
+          0.0002496253000572324,
+          0.0001248126500286162,
+          0.0000624063250143081,
+          0.14713585376739502
+        ],
+        "P2": [
+          0.0009985012002289295,
+          0.0004992506001144648,
+          0.0002496253000572324,
+          0.14713585376739502
+        ],
+        "rawBound0": 0.045433504515852485,
+        "rawBound2": 0.045433504515852485
+      },
+      {
+        "id": "shared_current_light_path_replaces_legacy_pyro_clusters_without_double_count",
+        "passed": true,
+        "local": [
+          0.0008356119506061077,
+          0.00041780597530305386,
+          0.00020890298765152693,
+          0.14713585376739502
+        ],
+        "withHugeLegacyCluster": [
+          0.0008356119506061077,
+          0.00041780597530305386,
+          0.00020890298765152693,
+          0.14713585376739502
+        ],
+        "sourceCount": 20
+      },
+      {
+        "id": "last_current_local_slot_reaches_volume_shader",
+        "passed": true,
+        "slot": 19,
+        "gpu": [
+          0.00043869623914361,
+          0.00027157386648468673,
+          0.0001462320942664519,
+          0.14713585376739502
+        ],
+        "expected": [
+          0.0004386961102877782,
+          0.0002715737825591008,
+          0.00014623203676259274
+        ],
+        "meta": {
+          "packets": 1,
+          "instances": 1,
+          "culled": 0,
+          "fullScreenFallbacks": 1,
+          "projectionMode": "legacy-sphere",
+          "proxyRasterPixelUpperBound": 1,
+          "proxyRasterViewportLayers": 1,
+          "reflection": false,
+          "width": 1,
+          "height": 1,
+          "storageEV": 0,
+          "supportSigma": 4,
+          "offProxyOpticalDepthUpperBound": 0.00009247512004839176,
+          "debugMode": 0,
+          "stateRevision": 1,
+          "extraOffscreenTargets": 0,
+          "frontAirEnabled": false,
+          "frontAirCells": 0,
+          "localLightingEnabled": true,
+          "localLightingSources": 20,
+          "legacyClusterSources": 0,
+          "samplerCount": 2,
+          "finiteClusterPhase": false
+        }
+      },
+      {
+        "id": "all_current_lights_sum_at_actual_world_conditional_mean",
+        "passed": true,
+        "gpu": [
+          0.001625029486604035,
+          0.0004135072813369334,
+          0.0002067536406684667,
+          0.14713585376739502
+        ],
+        "expected": [
+          0.0016250288198221042,
+          0.00041350708587206903,
+          0.00020675354293603451
+        ],
+        "eye": [
+          0,
+          2,
+          0
+        ],
+        "point": [
+          0,
+          2,
+          -5.000001486721339
+        ],
+        "sourceCount": 20
+      },
+      {
+        "id": "current_light_raw_record_bound_is_conservative",
+        "passed": true,
+        "bound": {
+          "maxRGB": 20.59207727041331,
+          "components": {
+            "smokeSource": 20.59207727041331,
+            "airFront": 0
+          },
+          "airNumericalSafety": 1.00002,
+          "rawBeforeStorageExposure": true,
+          "localLightingEnabled": true,
+          "method": "non-emissive convex-over layer upper bound; passive front-air source plus current raw smoke sources; local records replace legacy clusters when enabled; no factor per historical packet",
+          "limits": "authored raw incident reference, neutral extinction, up to20 shared local lights OR2 legacy clusters; optional four-cell front-air/conditional-mean approximation, small-tau/Float32 safety on air term, not a bound for future joint-media/light transport"
+        },
+        "actual": [
+          0.001625029486604035,
+          0.0004135072813369334,
+          0.0002067536406684667,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "local_sources_do_not_modify_finite_smoke_alpha",
+        "passed": true,
+        "expected": 0.1471357577146023,
+        "alphaRange": [
+          0.14713585376739502,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "two_samplers_fit_WebGL2_minimum_texture_units",
+        "passed": true,
+        "samplerCount": 2,
+        "textureUnitLimit": 16
+      },
+      {
+        "id": "null_after_active_local_restores_previous_colour_and_air_bit_exact",
+        "passed": true,
+        "restored": [
+          0.012617895379662514,
+          0.025233983993530273,
+          0.037850379943847656,
+          0.14713585376739502
+        ],
+        "baseline": [
+          0.012617895379662514,
+          0.025233983993530273,
+          0.037850379943847656,
+          0.14713585376739502
+        ],
+        "restoredAir": [
+          0.3592492938041687,
+          0.273034930229187,
+          0.18877831101417542,
+          0.14713585376739502
+        ],
+        "baselineAir": [
+          0.3592492938041687,
+          0.273034930229187,
+          0.18877831101417542,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "local_light_readbacks_are_finite_nonnegative",
+        "passed": true
+      },
+      {
+        "id": "local_fixture_restores_caller_render_state",
+        "passed": true
+      }
+    ],
+    "isolated": true,
+    "limits": [
+      "realGPU evidence only after actual caller execution",
+      "private actual local-light factory uniforms are configured by fixture; no app scene or controls changed",
+      "torch PCF maps and far depth are synthetic; geometry capture is tested separately",
+      "volume source at conditional mean; no source-to-smoke self-extinction or full joint transport",
+      "air optional path inherited; local lights do not add separate air illumination in this module",
+      "one pixel fixtures do not establish performance or near-field area-source correctness"
+    ],
+    "runnerWallMilliseconds": 304
+  },
+  "resolvedSupplement": {
+    "schema": "glass-atoll.resolved-smoke-field-supplement-GPU.v1",
+    "dateUTC": "2026-10-31T17:27:04.970Z",
+    "checks": [
+      {
+        "id": "14000_sources_two_groups_complete_and_two_integral_oracle",
+        "passed": true,
+        "sourceCount": 14000,
+        "integrals": 2
+      },
+      {
+        "id": "maximum_count_accumulation_numeric_error_within_declared_budget",
+        "passed": true,
+        "e0": 0.0000653455120020223,
+        "e1": 0.00011798245337206698,
+        "min": 0.006954168603889099
+      },
+      {
+        "id": "maximum_count_GPU_field_within_group_bound",
+        "passed": true,
+        "actual": 0.059923781416658786,
+        "bound": 0.12200228555252404,
+        "margin": {
+          "sourceCount": 14000,
+          "gammaSum": 0.0008351022360445493,
+          "arithmeticOperations": 96,
+          "arithmeticRelativeError": 0.000005722078640434115,
+          "shaderRelativeError": 0.002,
+          "totalFactor": 1.002842510751392,
+          "groupSumPrecision": "binary64 positive-sum gamma(count-1) applied after uploaded-row verification"
+        }
+      },
+      {
+        "id": "maximum_count_stage_no_GL_error",
+        "passed": true
+      },
+      {
+        "id": "DPR_fixture_really_baked_twice_at_tiny_canvas",
+        "passed": true
+      },
+      {
+        "id": "DPR1_DPR2_identical_raw_coefficients_BITEXACT",
+        "passed": true
+      },
+      {
+        "id": "DPR_stage_no_GL_error",
+        "passed": true
+      },
+      {
+        "id": "only_resolved_blue: borrowed_local_oracle_matches_RGBA16F_source",
+        "passed": true,
+        "error": 0.0005804721186301817,
+        "pixel": [
+          0,
+          0,
+          0.0005359649658203125,
+          0.2724609375
+        ],
+        "expected": [
+          0,
+          0,
+          0.0019659846967552278
+        ]
+      },
+      {
+        "id": "huge_red_all_pyro_slots4_to_last: borrowed_local_oracle_matches_RGBA16F_source",
+        "passed": true,
+        "error": 0.0005804721186301817,
+        "pixel": [
+          0,
+          0,
+          0.0005359649658203125,
+          0.2724609375
+        ],
+        "expected": [
+          0,
+          0,
+          0.0019659846967552278
+        ]
+      },
+      {
+        "id": "resolved_field_REPLACES_all_pyro_slots4_to_last_BITEXACT",
+        "passed": true,
+        "before": [
+          0,
+          0,
+          0.0005359649658203125,
+          0.2724609375
+        ],
+        "after": [
+          0,
+          0,
+          0.0005359649658203125,
+          0.2724609375
+        ],
+        "boundBefore": 0.003907117112886637,
+        "boundAfter": 0.003907117112886637
+      },
+      {
+        "id": "slot0_red_ground_on: borrowed_local_oracle_matches_RGBA16F_source",
+        "passed": true,
+        "error": 0.0005804721186301817,
+        "pixel": [
+          0.00016820430755615234,
+          0,
+          0.0005359649658203125,
+          0.2724609375
+        ],
+        "expected": [
+          0.0006171122578988728,
+          0,
+          0.0019659846967552278
+        ]
+      },
+      {
+        "id": "ground_slot0_retained_and_changes_red_only",
+        "passed": true
+      },
+      {
+        "id": "slot3_green_torch_on: borrowed_local_oracle_matches_RGBA16F_source",
+        "passed": true,
+        "error": 0.0005804721186301817,
+        "pixel": [
+          0.00016820430755615234,
+          0.00046443939208984375,
+          0.0005359649658203125,
+          0.2724609375
+        ],
+        "expected": [
+          0.0006171122578988728,
+          0.0017037564192899474,
+          0.0019659846967552278
+        ]
+      },
+      {
+        "id": "torch_slot3_retained_with_real_cone_phase",
+        "passed": true
+      },
+      {
+        "id": "slot0_off_torch_stays: borrowed_local_oracle_matches_RGBA16F_source",
+        "passed": true,
+        "error": 0.0005804721186301817,
+        "pixel": [
+          0,
+          0.00046443939208984375,
+          0.0005359649658203125,
+          0.2724609375
+        ],
+        "expected": [
+          0,
+          0.0017037564192899474,
+          0.0019659846967552278
+        ]
+      },
+      {
+        "id": "slot0_removal_preserves_slot3_field_and_alpha",
+        "passed": true
+      },
+      {
+        "id": "only_blue_return_red_pyro_still_present: borrowed_local_oracle_matches_RGBA16F_source",
+        "passed": true,
+        "error": 0.0005804721186301817,
+        "pixel": [
+          0,
+          0,
+          0.0005359649658203125,
+          0.2724609375
+        ],
+        "expected": [
+          0,
+          0,
+          0.0019659846967552278
+        ]
+      },
+      {
+        "id": "local_off_return_no_residual_or_pyro_double_count_BITEXACT",
+        "passed": true
+      },
+      {
+        "id": "resolved_path_retains_exactly_four_non_pyro_direct_lights",
+        "passed": true,
+        "sharedLocalCount": 20,
+        "lastExcludedSlot": 19
+      },
+      {
+        "id": "current_local_stage_no_GL_error",
+        "passed": true
+      },
+      {
+        "id": "no_owned_shader_or_GL_errors",
+        "passed": true,
+        "shaderErrors": [],
+        "glErrors": []
+      },
+      {
+        "id": "caller_size_DPR_logical_physical_and_RT_state_restored",
+        "passed": true
+      }
+    ],
+    "shaderErrors": [],
+    "glErrors": [],
+    "isolated": true,
+    "actualGPU": true,
+    "entryGlErrors": [],
+    "maximumSources": {
+      "sources": 14000,
+      "packets": 1,
+      "pairs": 14000,
+      "lastRowSentinel": {
+        "sourceIndex": 13999,
+        "rgb": [
+          0.03,
+          0.08,
+          0.02
+        ],
+        "scope": "Same second position/variance, larger flux makes an omitted final packed row detectable; still exactly two oracle integrations."
+      },
+      "prepare": {
+        "requestedEnabled": true,
+        "enabled": true,
+        "effective": true,
+        "supported": true,
+        "reason": "ready",
+        "requiredPairs": 14000,
+        "maxBakePairs": 1048576,
+        "version": 2,
+        "reused": false,
+        "ledgerVersion": 2,
+        "packetVersion": 1,
+        "rawBound": 0.12200228555252404
+      },
+      "CPUPrepareMs": 5.600000001490116,
+      "GPUms": 11.046912,
+      "ready": true,
+      "disjoint": false,
+      "gpu": [
+        {
+          "C0": [
+            0.03800279274582863,
+            0.01789519004523754,
+            0.012636087834835052
+          ],
+          "C1": [
+            -0.014837001450359821,
+            0.001247171894647181,
+            0.01608843356370926,
+            0.004640033468604088,
+            0.00405301945284009,
+            -0.0005869382875971496,
+            -0.003537142649292946,
+            0.000831397483125329,
+            0.0043682497926056385
+          ]
+        }
+      ],
+      "reference": {
+        "rows": [
+          {
+            "C0": [
+              0.03800030959614183,
+              0.017897007403931076,
+              0.012637981263849032
+            ],
+            "C1": [
+              -0.014836807319197507,
+              0.0012471471480561536,
+              0.01608395446725366,
+              0.004640210153293212,
+              0.004053215238177588,
+              -0.0005869949151156247,
+              -0.0035364676205180737,
+              0.0008314314320374357,
+              0.004367899052555509
+            ],
+            "maximum": [
+              0.059917878319442015,
+              0.024086083834553983,
+              0.018319215600722305
+            ]
+          }
+        ],
+        "distinctPositions": 2,
+        "independentIntegralEvaluations": 2,
+        "groups": [
+          {
+            "position": [
+              -1,
+              2,
+              -5
+            ],
+            "e": 0.000019999999494757503,
+            "sumRGB": [
+              0.6999999823165126,
+              0.13999999646330252,
+              0.20999999469495378
+            ],
+            "count": 7000
+          },
+          {
+            "position": [
+              2,
+              3,
+              -7
+            ],
+            "e": 0.000004999999873689376,
+            "sumRGB": [
+              0.2399699940251594,
+              0.7798999805308995,
+              0.15997999601677293
+            ],
+            "count": 7000
+          }
+        ]
+      },
+      "bound": {
+        "supported": true,
+        "maxRGB": 0.12200228555252404,
+        "maximumRGB": [
+          0.12200228555252404,
+          0.06256086294158353,
+          0.04118829110812883
+        ],
+        "rawBeforeStorageExposure": true,
+        "ledgerVersion": 2,
+        "packetVersion": 1,
+        "anisotropy": 0.32,
+        "margin": {
+          "sourceCount": 14000,
+          "gammaSum": 0.0008351022360445493,
+          "arithmeticOperations": 96,
+          "arithmeticRelativeError": 0.000005722078640434115,
+          "shaderRelativeError": 0.002,
+          "totalFactor": 1.002842510751392,
+          "groupSumPrecision": "binary64 positive-sum gamma(count-1) applied after uploaded-row verification"
+        },
+        "diagnostics": {
+          "sources": 14000,
+          "packets": 1,
+          "groups": 2,
+          "evaluatedGroups": 2,
+          "maximumPacket": 0,
+          "maximumChannel": 0,
+          "packetMassUsed": false,
+          "cameraOrExposureUsed": false
+        },
+        "method": "max over uploaded packets/channels of sum(group RGB)*min(1/b,2/dAABB²)*(1+3|g|)/(4pi), with declared FP32/special-function margin",
+        "limits": "Bound for normalized isotropic Gaussian packet/emitter SH1 model only. No incoming smoke shadow, anisotropic conditional-ray field, scene-wide energy conservation, packet-count multiplier or measured photometry."
+      },
+      "e0": 0.0000653455120020223,
+      "e1": 0.00011798245337206698,
+      "min": 0.006954168603889099,
+      "diagnostics": {
+        "requestedEnabled": true,
+        "enabled": true,
+        "effective": true,
+        "supported": true,
+        "reason": "ready",
+        "requiredPairs": 14000,
+        "maxBakePairs": 1048576,
+        "version": 2,
+        "reused": false,
+        "ledgerVersion": 2,
+        "packetVersion": 1,
+        "rawBound": 0.12200228555252404,
+        "revision": "complete-sync-sh1-v1",
+        "maxRequestPairs": null,
+        "maxMapPairs": 1000000,
+        "maxMapDraws": 64,
+        "contextInvalid": false,
+        "bakeMode": "serial-reference",
+        "bakes": 2,
+        "zeroReuses": 0,
+        "zeroTargetValid": false,
+        "allocated": true,
+        "packetCount": 1,
+        "sourceCount": 14000,
+        "target": {
+          "width": 1,
+          "height": 1,
+          "attachments": 3,
+          "type": "RGBA32F"
+        },
+        "anisotropy": 0.32,
+        "maxPackets": 8,
+        "maxSources": 14000,
+        "vertexTextures": 3,
+        "extraFragmentSamplers": 0,
+        "model": "trace-isotropic normalized Gaussian packet/emitter SH1; raw once; no packet mass",
+        "bound": {
+          "supported": true,
+          "maxRGB": 0.12200228555252404,
+          "maximumRGB": [
+            0.12200228555252404,
+            0.06256086294158353,
+            0.04118829110812883
+          ],
+          "rawBeforeStorageExposure": true,
+          "ledgerVersion": 2,
+          "packetVersion": 1,
+          "anisotropy": 0.32,
+          "margin": {
+            "sourceCount": 14000,
+            "gammaSum": 0.0008351022360445493,
+            "arithmeticOperations": 96,
+            "arithmeticRelativeError": 0.000005722078640434115,
+            "shaderRelativeError": 0.002,
+            "totalFactor": 1.002842510751392,
+            "groupSumPrecision": "binary64 positive-sum gamma(count-1) applied after uploaded-row verification"
+          },
+          "diagnostics": {
+            "sources": 14000,
+            "packets": 1,
+            "groups": 2,
+            "evaluatedGroups": 2,
+            "maximumPacket": 0,
+            "maximumChannel": 0,
+            "packetMassUsed": false,
+            "cameraOrExposureUsed": false
+          },
+          "method": "max over uploaded packets/channels of sum(group RGB)*min(1/b,2/dAABB²)*(1+3|g|)/(4pi), with declared FP32/special-function margin",
+          "limits": "Bound for normalized isotropic Gaussian packet/emitter SH1 model only. No incoming smoke shadow, anisotropic conditional-ray field, scene-wide energy conservation, packet-count multiplier or measured photometry."
+        }
+      }
+    },
+    "DPR": {
+      "cases": [
+        {
+          "dpr": 1,
+          "size": [
+            32,
+            32
+          ],
+          "drawing": [
+            32,
+            32
+          ],
+          "bakesBefore": 2,
+          "bakesAfter": 3,
+          "meta": {
+            "requestedEnabled": true,
+            "enabled": true,
+            "effective": true,
+            "supported": true,
+            "reason": "ready",
+            "requiredPairs": 6,
+            "maxBakePairs": 1048576,
+            "version": 3,
+            "reused": false,
+            "ledgerVersion": 4,
+            "packetVersion": 2,
+            "rawBound": 0.004796323183715298
+          },
+          "packetBytes": [
+            0,
+            2,
+            -5,
+            0.30000001192092896,
+            2,
+            3,
+            -8,
+            0.05000000074505806,
+            -4,
+            2,
+            -10,
+            2
+          ],
+          "rows": [
+            {
+              "C0": [
+                0.0005778533522970974,
+                0.0010447719832882285,
+                0.0015116906724870205
+              ],
+              "C1": [
+                -0.00020354369189590216,
+                0.00002935050542873796,
+                -0.0003062704636249691,
+                -0.0004657883837353438,
+                0.000019567005438148044,
+                -0.000534272869117558,
+                -0.0007280330755747855,
+                0.000009783502719074022,
+                -0.0007622753037139773
+              ]
+            },
+            {
+              "C0": [
+                0.0008668103837408125,
+                0.0006539358291774988,
+                0.0004410612746141851
+              ],
+              "C1": [
+                0.00039731181459501386,
+                0.00042647929512895644,
+                -0.0004118955694139004,
+                0.0002065395237877965,
+                0.00026487454306334257,
+                -0.00023570703342556953,
+                0.000015767252989462577,
+                0.00010326976189389825,
+                -0.00005951849743723869
+              ]
+            },
+            {
+              "C0": [
+                0.00008158218406606466,
+                0.00010172829934163019,
+                0.00012187442189315334
+              ],
+              "C1": [
+                0.00005865579078090377,
+                0.000011550994713616092,
+                0.000030078577765380032,
+                0.00006340693653328344,
+                0.000007700663445575628,
+                0.000052456496632657945,
+                0.00006815808592364192,
+                0.000003850331722787814,
+                0.00007483440276701003
+              ]
+            }
+          ]
+        },
+        {
+          "dpr": 2,
+          "size": [
+            32,
+            32
+          ],
+          "drawing": [
+            64,
+            64
+          ],
+          "bakesBefore": 3,
+          "bakesAfter": 4,
+          "meta": {
+            "requestedEnabled": true,
+            "enabled": true,
+            "effective": true,
+            "supported": true,
+            "reason": "ready",
+            "requiredPairs": 6,
+            "maxBakePairs": 1048576,
+            "version": 4,
+            "reused": false,
+            "ledgerVersion": 5,
+            "packetVersion": 3,
+            "rawBound": 0.004796323183715298
+          },
+          "packetBytes": [
+            0,
+            2,
+            -5,
+            0.30000001192092896,
+            2,
+            3,
+            -8,
+            0.05000000074505806,
+            -4,
+            2,
+            -10,
+            2
+          ],
+          "rows": [
+            {
+              "C0": [
+                0.0005778533522970974,
+                0.0010447719832882285,
+                0.0015116906724870205
+              ],
+              "C1": [
+                -0.00020354369189590216,
+                0.00002935050542873796,
+                -0.0003062704636249691,
+                -0.0004657883837353438,
+                0.000019567005438148044,
+                -0.000534272869117558,
+                -0.0007280330755747855,
+                0.000009783502719074022,
+                -0.0007622753037139773
+              ]
+            },
+            {
+              "C0": [
+                0.0008668103837408125,
+                0.0006539358291774988,
+                0.0004410612746141851
+              ],
+              "C1": [
+                0.00039731181459501386,
+                0.00042647929512895644,
+                -0.0004118955694139004,
+                0.0002065395237877965,
+                0.00026487454306334257,
+                -0.00023570703342556953,
+                0.000015767252989462577,
+                0.00010326976189389825,
+                -0.00005951849743723869
+              ]
+            },
+            {
+              "C0": [
+                0.00008158218406606466,
+                0.00010172829934163019,
+                0.00012187442189315334
+              ],
+              "C1": [
+                0.00005865579078090377,
+                0.000011550994713616092,
+                0.000030078577765380032,
+                0.00006340693653328344,
+                0.000007700663445575628,
+                0.000052456496632657945,
+                0.00006815808592364192,
+                0.000003850331722787814,
+                0.00007483440276701003
+              ]
+            }
+          ]
+        }
+      ],
+      "comparison": "all allocatedRGBA32F texels compared asUint32; same numeric input bytes, forcednewrevision/version per DPR"
+    },
+    "locals": [
+      {
+        "label": "only_resolved_blue",
+        "pixel": [
+          0,
+          0,
+          0.0005359649658203125,
+          0.2724609375
+        ],
+        "expectedSource": [
+          0,
+          0,
+          0.0019659846967552278
+        ],
+        "normal": [
+          0,
+          0,
+          0.001967125896057348
+        ],
+        "error": 0.0005804721186301817,
+        "meta": {
+          "packets": 1,
+          "instances": 1,
+          "culled": 0,
+          "fullScreenFallbacks": 0,
+          "projectionMode": "legacy-sphere",
+          "proxyRasterPixelUpperBound": 1,
+          "proxyRasterViewportLayers": 1,
+          "reflection": false,
+          "width": 1,
+          "height": 1,
+          "storageEV": 0,
+          "supportSigma": 4,
+          "offProxyOpticalDepthUpperBound": 0.00018495024009678352,
+          "debugMode": 0,
+          "stateRevision": 5,
+          "extraOffscreenTargets": 0,
+          "frontAirEnabled": false,
+          "frontAirCells": 0,
+          "localLightingEnabled": true,
+          "localLightingSources": 4,
+          "legacyClusterSources": 0,
+          "samplerCount": 2,
+          "finiteClusterPhase": false,
+          "resolvedPyroField": true,
+          "resolvedFieldVersion": 5,
+          "vertexSamplers": 3
+        },
+        "rawBound": {
+          "maxRGB": 0.003907117112886637,
+          "components": {
+            "smokeSource": 0.003907117112886637,
+            "airFront": 0
+          },
+          "airNumericalSafety": 1.00002,
+          "rawBeforeStorageExposure": true,
+          "resolvedPyroField": true,
+          "resolvedFieldBound": {
+            "supported": true,
+            "maxRGB": 0.003907117112886637,
+            "maximumRGB": [
+              0,
+              0,
+              0.003907117112886637
+            ],
+            "rawBeforeStorageExposure": true,
+            "ledgerVersion": 6,
+            "packetVersion": 4,
+            "anisotropy": 0.32,
+            "margin": {
+              "sourceCount": 1,
+              "gammaSum": 0,
+              "arithmeticOperations": 96,
+              "arithmeticRelativeError": 0.000005722078640434115,
+              "shaderRelativeError": 0.002,
+              "totalFactor": 1.0020057335227976,
+              "groupSumPrecision": "binary64 positive-sum gamma(count-1) applied after uploaded-row verification"
+            },
+            "diagnostics": {
+              "sources": 1,
+              "packets": 1,
+              "groups": 1,
+              "evaluatedGroups": 1,
+              "maximumPacket": 0,
+              "maximumChannel": 2,
+              "packetMassUsed": false,
+              "cameraOrExposureUsed": false
+            },
+            "method": "max over uploaded packets/channels of sum(group RGB)*min(1/b,2/dAABB²)*(1+3|g|)/(4pi), with declared FP32/special-function margin",
+            "limits": "Bound for normalized isotropic Gaussian packet/emitter SH1 model only. No incoming smoke shadow, anisotropic conditional-ray field, scene-wide energy conservation, packet-count multiplier or measured photometry."
+          },
+          "localLightingEnabled": true,
+          "method": "non-emissive convex-over layer upper bound; passive front-air source plus current raw smoke sources; local records replace legacy clusters when enabled; no factor per historical packet",
+          "limits": "authored raw incident reference, neutral extinction, up to20 shared local lights OR2 legacy clusters; optional four-cell front-air/conditional-mean approximation, small-tau/Float32 safety on air term, not a bound for future joint-media/light transport"
+        }
+      },
+      {
+        "label": "huge_red_all_pyro_slots4_to_last",
+        "pixel": [
+          0,
+          0,
+          0.0005359649658203125,
+          0.2724609375
+        ],
+        "expectedSource": [
+          0,
+          0,
+          0.0019659846967552278
+        ],
+        "normal": [
+          0,
+          0,
+          0.001967125896057348
+        ],
+        "error": 0.0005804721186301817,
+        "meta": {
+          "packets": 1,
+          "instances": 1,
+          "culled": 0,
+          "fullScreenFallbacks": 0,
+          "projectionMode": "legacy-sphere",
+          "proxyRasterPixelUpperBound": 1,
+          "proxyRasterViewportLayers": 1,
+          "reflection": false,
+          "width": 1,
+          "height": 1,
+          "storageEV": 0,
+          "supportSigma": 4,
+          "offProxyOpticalDepthUpperBound": 0.00018495024009678352,
+          "debugMode": 0,
+          "stateRevision": 5,
+          "extraOffscreenTargets": 0,
+          "frontAirEnabled": false,
+          "frontAirCells": 0,
+          "localLightingEnabled": true,
+          "localLightingSources": 4,
+          "legacyClusterSources": 0,
+          "samplerCount": 2,
+          "finiteClusterPhase": false,
+          "resolvedPyroField": true,
+          "resolvedFieldVersion": 5,
+          "vertexSamplers": 3
+        },
+        "rawBound": {
+          "maxRGB": 0.003907117112886637,
+          "components": {
+            "smokeSource": 0.003907117112886637,
+            "airFront": 0
+          },
+          "airNumericalSafety": 1.00002,
+          "rawBeforeStorageExposure": true,
+          "resolvedPyroField": true,
+          "resolvedFieldBound": {
+            "supported": true,
+            "maxRGB": 0.003907117112886637,
+            "maximumRGB": [
+              0,
+              0,
+              0.003907117112886637
+            ],
+            "rawBeforeStorageExposure": true,
+            "ledgerVersion": 6,
+            "packetVersion": 4,
+            "anisotropy": 0.32,
+            "margin": {
+              "sourceCount": 1,
+              "gammaSum": 0,
+              "arithmeticOperations": 96,
+              "arithmeticRelativeError": 0.000005722078640434115,
+              "shaderRelativeError": 0.002,
+              "totalFactor": 1.0020057335227976,
+              "groupSumPrecision": "binary64 positive-sum gamma(count-1) applied after uploaded-row verification"
+            },
+            "diagnostics": {
+              "sources": 1,
+              "packets": 1,
+              "groups": 1,
+              "evaluatedGroups": 1,
+              "maximumPacket": 0,
+              "maximumChannel": 2,
+              "packetMassUsed": false,
+              "cameraOrExposureUsed": false
+            },
+            "method": "max over uploaded packets/channels of sum(group RGB)*min(1/b,2/dAABB²)*(1+3|g|)/(4pi), with declared FP32/special-function margin",
+            "limits": "Bound for normalized isotropic Gaussian packet/emitter SH1 model only. No incoming smoke shadow, anisotropic conditional-ray field, scene-wide energy conservation, packet-count multiplier or measured photometry."
+          },
+          "localLightingEnabled": true,
+          "method": "non-emissive convex-over layer upper bound; passive front-air source plus current raw smoke sources; local records replace legacy clusters when enabled; no factor per historical packet",
+          "limits": "authored raw incident reference, neutral extinction, up to20 shared local lights OR2 legacy clusters; optional four-cell front-air/conditional-mean approximation, small-tau/Float32 safety on air term, not a bound for future joint-media/light transport"
+        }
+      },
+      {
+        "label": "slot0_red_ground_on",
+        "pixel": [
+          0.00016820430755615234,
+          0,
+          0.0005359649658203125,
+          0.2724609375
+        ],
+        "expectedSource": [
+          0.0006171122578988728,
+          0,
+          0.0019659846967552278
+        ],
+        "normal": [
+          0.0006173520105286738,
+          0,
+          0.001967125896057348
+        ],
+        "error": 0.0005804721186301817,
+        "meta": {
+          "packets": 1,
+          "instances": 1,
+          "culled": 0,
+          "fullScreenFallbacks": 0,
+          "projectionMode": "legacy-sphere",
+          "proxyRasterPixelUpperBound": 1,
+          "proxyRasterViewportLayers": 1,
+          "reflection": false,
+          "width": 1,
+          "height": 1,
+          "storageEV": 0,
+          "supportSigma": 4,
+          "offProxyOpticalDepthUpperBound": 0.00018495024009678352,
+          "debugMode": 0,
+          "stateRevision": 5,
+          "extraOffscreenTargets": 0,
+          "frontAirEnabled": false,
+          "frontAirCells": 0,
+          "localLightingEnabled": true,
+          "localLightingSources": 4,
+          "legacyClusterSources": 0,
+          "samplerCount": 2,
+          "finiteClusterPhase": false,
+          "resolvedPyroField": true,
+          "resolvedFieldVersion": 5,
+          "vertexSamplers": 3
+        },
+        "rawBound": {
+          "maxRGB": 2.1546055557331223,
+          "components": {
+            "smokeSource": 2.1546055557331223,
+            "airFront": 0
+          },
+          "airNumericalSafety": 1.00002,
+          "rawBeforeStorageExposure": true,
+          "resolvedPyroField": true,
+          "resolvedFieldBound": {
+            "supported": true,
+            "maxRGB": 0.003907117112886637,
+            "maximumRGB": [
+              0,
+              0,
+              0.003907117112886637
+            ],
+            "rawBeforeStorageExposure": true,
+            "ledgerVersion": 6,
+            "packetVersion": 4,
+            "anisotropy": 0.32,
+            "margin": {
+              "sourceCount": 1,
+              "gammaSum": 0,
+              "arithmeticOperations": 96,
+              "arithmeticRelativeError": 0.000005722078640434115,
+              "shaderRelativeError": 0.002,
+              "totalFactor": 1.0020057335227976,
+              "groupSumPrecision": "binary64 positive-sum gamma(count-1) applied after uploaded-row verification"
+            },
+            "diagnostics": {
+              "sources": 1,
+              "packets": 1,
+              "groups": 1,
+              "evaluatedGroups": 1,
+              "maximumPacket": 0,
+              "maximumChannel": 2,
+              "packetMassUsed": false,
+              "cameraOrExposureUsed": false
+            },
+            "method": "max over uploaded packets/channels of sum(group RGB)*min(1/b,2/dAABB²)*(1+3|g|)/(4pi), with declared FP32/special-function margin",
+            "limits": "Bound for normalized isotropic Gaussian packet/emitter SH1 model only. No incoming smoke shadow, anisotropic conditional-ray field, scene-wide energy conservation, packet-count multiplier or measured photometry."
+          },
+          "localLightingEnabled": true,
+          "method": "non-emissive convex-over layer upper bound; passive front-air source plus current raw smoke sources; local records replace legacy clusters when enabled; no factor per historical packet",
+          "limits": "authored raw incident reference, neutral extinction, up to20 shared local lights OR2 legacy clusters; optional four-cell front-air/conditional-mean approximation, small-tau/Float32 safety on air term, not a bound for future joint-media/light transport"
+        }
+      },
+      {
+        "label": "slot3_green_torch_on",
+        "pixel": [
+          0.00016820430755615234,
+          0.00046443939208984375,
+          0.0005359649658203125,
+          0.2724609375
+        ],
+        "expectedSource": [
+          0.0006171122578988728,
+          0.0017037564192899474,
+          0.0019659846967552278
+        ],
+        "normal": [
+          0.0006173520105286738,
+          0.0017046090949820788,
+          0.001967125896057348
+        ],
+        "error": 0.0005804721186301817,
+        "meta": {
+          "packets": 1,
+          "instances": 1,
+          "culled": 0,
+          "fullScreenFallbacks": 0,
+          "projectionMode": "legacy-sphere",
+          "proxyRasterPixelUpperBound": 1,
+          "proxyRasterViewportLayers": 1,
+          "reflection": false,
+          "width": 1,
+          "height": 1,
+          "storageEV": 0,
+          "supportSigma": 4,
+          "offProxyOpticalDepthUpperBound": 0.00018495024009678352,
+          "debugMode": 0,
+          "stateRevision": 5,
+          "extraOffscreenTargets": 0,
+          "frontAirEnabled": false,
+          "frontAirCells": 0,
+          "localLightingEnabled": true,
+          "localLightingSources": 4,
+          "legacyClusterSources": 0,
+          "samplerCount": 2,
+          "finiteClusterPhase": false,
+          "resolvedPyroField": true,
+          "resolvedFieldVersion": 5,
+          "vertexSamplers": 3
+        },
+        "rawBound": {
+          "maxRGB": 13.058646639537715,
+          "components": {
+            "smokeSource": 13.058646639537715,
+            "airFront": 0
+          },
+          "airNumericalSafety": 1.00002,
+          "rawBeforeStorageExposure": true,
+          "resolvedPyroField": true,
+          "resolvedFieldBound": {
+            "supported": true,
+            "maxRGB": 0.003907117112886637,
+            "maximumRGB": [
+              0,
+              0,
+              0.003907117112886637
+            ],
+            "rawBeforeStorageExposure": true,
+            "ledgerVersion": 6,
+            "packetVersion": 4,
+            "anisotropy": 0.32,
+            "margin": {
+              "sourceCount": 1,
+              "gammaSum": 0,
+              "arithmeticOperations": 96,
+              "arithmeticRelativeError": 0.000005722078640434115,
+              "shaderRelativeError": 0.002,
+              "totalFactor": 1.0020057335227976,
+              "groupSumPrecision": "binary64 positive-sum gamma(count-1) applied after uploaded-row verification"
+            },
+            "diagnostics": {
+              "sources": 1,
+              "packets": 1,
+              "groups": 1,
+              "evaluatedGroups": 1,
+              "maximumPacket": 0,
+              "maximumChannel": 2,
+              "packetMassUsed": false,
+              "cameraOrExposureUsed": false
+            },
+            "method": "max over uploaded packets/channels of sum(group RGB)*min(1/b,2/dAABB²)*(1+3|g|)/(4pi), with declared FP32/special-function margin",
+            "limits": "Bound for normalized isotropic Gaussian packet/emitter SH1 model only. No incoming smoke shadow, anisotropic conditional-ray field, scene-wide energy conservation, packet-count multiplier or measured photometry."
+          },
+          "localLightingEnabled": true,
+          "method": "non-emissive convex-over layer upper bound; passive front-air source plus current raw smoke sources; local records replace legacy clusters when enabled; no factor per historical packet",
+          "limits": "authored raw incident reference, neutral extinction, up to20 shared local lights OR2 legacy clusters; optional four-cell front-air/conditional-mean approximation, small-tau/Float32 safety on air term, not a bound for future joint-media/light transport"
+        }
+      },
+      {
+        "label": "slot0_off_torch_stays",
+        "pixel": [
+          0,
+          0.00046443939208984375,
+          0.0005359649658203125,
+          0.2724609375
+        ],
+        "expectedSource": [
+          0,
+          0.0017037564192899474,
+          0.0019659846967552278
+        ],
+        "normal": [
+          0,
+          0.0017046090949820788,
+          0.001967125896057348
+        ],
+        "error": 0.0005804721186301817,
+        "meta": {
+          "packets": 1,
+          "instances": 1,
+          "culled": 0,
+          "fullScreenFallbacks": 0,
+          "projectionMode": "legacy-sphere",
+          "proxyRasterPixelUpperBound": 1,
+          "proxyRasterViewportLayers": 1,
+          "reflection": false,
+          "width": 1,
+          "height": 1,
+          "storageEV": 0,
+          "supportSigma": 4,
+          "offProxyOpticalDepthUpperBound": 0.00018495024009678352,
+          "debugMode": 0,
+          "stateRevision": 5,
+          "extraOffscreenTargets": 0,
+          "frontAirEnabled": false,
+          "frontAirCells": 0,
+          "localLightingEnabled": true,
+          "localLightingSources": 4,
+          "legacyClusterSources": 0,
+          "samplerCount": 2,
+          "finiteClusterPhase": false,
+          "resolvedPyroField": true,
+          "resolvedFieldVersion": 5,
+          "vertexSamplers": 3
+        },
+        "rawBound": {
+          "maxRGB": 10.90794820091748,
+          "components": {
+            "smokeSource": 10.90794820091748,
+            "airFront": 0
+          },
+          "airNumericalSafety": 1.00002,
+          "rawBeforeStorageExposure": true,
+          "resolvedPyroField": true,
+          "resolvedFieldBound": {
+            "supported": true,
+            "maxRGB": 0.003907117112886637,
+            "maximumRGB": [
+              0,
+              0,
+              0.003907117112886637
+            ],
+            "rawBeforeStorageExposure": true,
+            "ledgerVersion": 6,
+            "packetVersion": 4,
+            "anisotropy": 0.32,
+            "margin": {
+              "sourceCount": 1,
+              "gammaSum": 0,
+              "arithmeticOperations": 96,
+              "arithmeticRelativeError": 0.000005722078640434115,
+              "shaderRelativeError": 0.002,
+              "totalFactor": 1.0020057335227976,
+              "groupSumPrecision": "binary64 positive-sum gamma(count-1) applied after uploaded-row verification"
+            },
+            "diagnostics": {
+              "sources": 1,
+              "packets": 1,
+              "groups": 1,
+              "evaluatedGroups": 1,
+              "maximumPacket": 0,
+              "maximumChannel": 2,
+              "packetMassUsed": false,
+              "cameraOrExposureUsed": false
+            },
+            "method": "max over uploaded packets/channels of sum(group RGB)*min(1/b,2/dAABB²)*(1+3|g|)/(4pi), with declared FP32/special-function margin",
+            "limits": "Bound for normalized isotropic Gaussian packet/emitter SH1 model only. No incoming smoke shadow, anisotropic conditional-ray field, scene-wide energy conservation, packet-count multiplier or measured photometry."
+          },
+          "localLightingEnabled": true,
+          "method": "non-emissive convex-over layer upper bound; passive front-air source plus current raw smoke sources; local records replace legacy clusters when enabled; no factor per historical packet",
+          "limits": "authored raw incident reference, neutral extinction, up to20 shared local lights OR2 legacy clusters; optional four-cell front-air/conditional-mean approximation, small-tau/Float32 safety on air term, not a bound for future joint-media/light transport"
+        }
+      },
+      {
+        "label": "only_blue_return_red_pyro_still_present",
+        "pixel": [
+          0,
+          0,
+          0.0005359649658203125,
+          0.2724609375
+        ],
+        "expectedSource": [
+          0,
+          0,
+          0.0019659846967552278
+        ],
+        "normal": [
+          0,
+          0,
+          0.001967125896057348
+        ],
+        "error": 0.0005804721186301817,
+        "meta": {
+          "packets": 1,
+          "instances": 1,
+          "culled": 0,
+          "fullScreenFallbacks": 0,
+          "projectionMode": "legacy-sphere",
+          "proxyRasterPixelUpperBound": 1,
+          "proxyRasterViewportLayers": 1,
+          "reflection": false,
+          "width": 1,
+          "height": 1,
+          "storageEV": 0,
+          "supportSigma": 4,
+          "offProxyOpticalDepthUpperBound": 0.00018495024009678352,
+          "debugMode": 0,
+          "stateRevision": 5,
+          "extraOffscreenTargets": 0,
+          "frontAirEnabled": false,
+          "frontAirCells": 0,
+          "localLightingEnabled": true,
+          "localLightingSources": 4,
+          "legacyClusterSources": 0,
+          "samplerCount": 2,
+          "finiteClusterPhase": false,
+          "resolvedPyroField": true,
+          "resolvedFieldVersion": 5,
+          "vertexSamplers": 3
+        },
+        "rawBound": {
+          "maxRGB": 0.003907117112886637,
+          "components": {
+            "smokeSource": 0.003907117112886637,
+            "airFront": 0
+          },
+          "airNumericalSafety": 1.00002,
+          "rawBeforeStorageExposure": true,
+          "resolvedPyroField": true,
+          "resolvedFieldBound": {
+            "supported": true,
+            "maxRGB": 0.003907117112886637,
+            "maximumRGB": [
+              0,
+              0,
+              0.003907117112886637
+            ],
+            "rawBeforeStorageExposure": true,
+            "ledgerVersion": 6,
+            "packetVersion": 4,
+            "anisotropy": 0.32,
+            "margin": {
+              "sourceCount": 1,
+              "gammaSum": 0,
+              "arithmeticOperations": 96,
+              "arithmeticRelativeError": 0.000005722078640434115,
+              "shaderRelativeError": 0.002,
+              "totalFactor": 1.0020057335227976,
+              "groupSumPrecision": "binary64 positive-sum gamma(count-1) applied after uploaded-row verification"
+            },
+            "diagnostics": {
+              "sources": 1,
+              "packets": 1,
+              "groups": 1,
+              "evaluatedGroups": 1,
+              "maximumPacket": 0,
+              "maximumChannel": 2,
+              "packetMassUsed": false,
+              "cameraOrExposureUsed": false
+            },
+            "method": "max over uploaded packets/channels of sum(group RGB)*min(1/b,2/dAABB²)*(1+3|g|)/(4pi), with declared FP32/special-function margin",
+            "limits": "Bound for normalized isotropic Gaussian packet/emitter SH1 model only. No incoming smoke shadow, anisotropic conditional-ray field, scene-wide energy conservation, packet-count multiplier or measured photometry."
+          },
+          "localLightingEnabled": true,
+          "method": "non-emissive convex-over layer upper bound; passive front-air source plus current raw smoke sources; local records replace legacy clusters when enabled; no factor per historical packet",
+          "limits": "authored raw incident reference, neutral extinction, up to20 shared local lights OR2 legacy clusters; optional four-cell front-air/conditional-mean approximation, small-tau/Float32 safety on air term, not a bound for future joint-media/light transport"
+        }
+      }
+    ],
+    "passed": true,
+    "passedCount": 22,
+    "total": 22,
+    "limits": [
+      "ActualGPU evidence only after execution; new isolated fixtures, not a rerun or alteration of frozen127-helper.",
+      "Maximum-count oracle uses two distinct positions/emitter variances multiplied by uploaded Float32 RGB sums; exactly2 independent Laplace integrations, not14000 duplicate integrations.",
+      "DPR1/2 forces newrevision and newsourceversion; no cached-field fake comparison. Canvas is reduced to32logical pixels before any DPR change. Original size/DPR/state restored, but lost canvas pixels require caller redraw.",
+      "Real production current-budget local-light uniforms/factory and CPU incident/phase oracle are used; every pyro slot4 through last is populated to detect double counting. Fixture shadow is disabled and source-path air/smoke T absent; this tests replacement/retention without claiming real shadow capture acceptance.",
+      "RGBA16F premult sources normalize by actual alpha; .003 tolerance covers field approximation and half-float quantization. Sourcefield staysblue to isolate retained red/green local channels.",
+      "Only14000pairs maxsource stress; if a valid isolated GPU timer exceeds50ms no subsequent GPU fixtures run. No full-island FPS or universal hardware guarantee."
+    ],
+    "runnerWallMilliseconds": 393
+  },
+  "transientIndirect": {
+    "schema": "glass-atoll.transient-GI-GPU.v1",
+    "passed": true,
+    "counts": {
+      "checks": 15,
+      "passed": 15
+    },
+    "checks": [
+      {
+        "id": "default_opt_out_lookup_is_bit_identical_to_frozen_solar_factory",
+        "passed": true,
+        "maximumAbsoluteDifference": 0
+      },
+      {
+        "id": "existing_40_sample_GPU_CPU_lookup_helper_still_passes_default",
+        "passed": true,
+        "samples": 40,
+        "maxError": 7.699093429458514e-8
+      },
+      {
+        "id": "disabled_null_local_increment_restores_old_zero_solar_pixels",
+        "passed": true
+      },
+      {
+        "id": "actual_native_diffuse_receiver_gets_visible_one_hop_without_native_direct_lights",
+        "passed": true,
+        "off": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "on": [
+          0.0065946318209171295,
+          0.0027853641659021378,
+          0.0010951799340546131,
+          1
+        ],
+        "scene": "one native MeshStandardMaterial receiver, no direct/ambient/environment lights; only custom GI hook"
+      },
+      {
+        "id": "enabled_transient_GPU_matches_actual_CPU_lookup",
+        "passed": true,
+        "maximumAbsoluteError": 1.9363926746784887e-9,
+        "samples": 32
+      },
+      {
+        "id": "last_current_local_slot_reaches_transient_bounce_and_native_receiver",
+        "passed": true,
+        "lastIndex": 19,
+        "sourceCount": 20,
+        "maximumLookupDifference": 0,
+        "slot4Patch": [
+          0.0065946318209171295,
+          0.0027853641659021378,
+          0.0010951799340546131,
+          1
+        ],
+        "lastSlotPatch": [
+          0.0065946318209171295,
+          0.0027853641659021378,
+          0.0010951799340546131,
+          1
+        ]
+      },
+      {
+        "id": "GI_stored_P_applies_once_to_native_receiver_and_lookup",
+        "passed": true,
+        "P0": [
+          0.0065946318209171295,
+          0.0027853641659021378,
+          0.0010951799340546131,
+          1
+        ],
+        "P2": [
+          0.026378527283668518,
+          0.011141456663608551,
+          0.0043807197362184525,
+          1
+        ]
+      },
+      {
+        "id": "raw_SH_bound_covers_actual_reflected_receiver_and_lookup",
+        "passed": true,
+        "bound": {
+          "maxRGB": 0.008637592904291717,
+          "maximumRawIrradianceRGB": [
+            0.027135662734508514,
+            0.013098567724227905,
+            0.006008611060678959
+          ],
+          "component": "combined",
+          "rawBeforeStorageExposure": true,
+          "maximumDiffuseAlbedo": 1,
+          "numericalSafety": 1.000005,
+          "method": "maximum over18 SH1 a0+norm(a1) irradiance envelopes; convex spatial interpolation/fade; diffuse albedo/pi once",
+          "limits": [
+            "combined includes base and local one-hop once; do not also budget its components",
+            "raw reference RGB, not absolute spectral/photometric calibration",
+            "SH/proxy geometry and water-interface transport remain approximations"
+          ]
+        },
+        "patch": [
+          0.0065946318209171295,
+          0.0027853641659021378,
+          0.0010951799340546131,
+          1
+        ]
+      },
+      {
+        "id": "same_time_off_is_immediate_no_point18s_afterglow",
+        "passed": true,
+        "off": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "oldOff": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "id": "two_Hz_solar_slots_do_not_filter_or_step_constant_local_envelope",
+        "passed": true,
+        "maximumDifference": 0
+      },
+      {
+        "id": "zero_raw_source_envelope_clears_increment_even_when_enabled",
+        "passed": true
+      },
+      {
+        "id": "capped_near_source_response_stays_passive_and_finite_on_GPU",
+        "passed": true,
+        "capture": {
+          "slot": 4,
+          "safetyScale": 0.17387783949680946,
+          "capCount": 1,
+          "unscaledUnitCapture": 72.27126039019916,
+          "sourceSolidAngle": 12.566370614359172,
+          "minimumReceiverDistance": 0.1080000000000001,
+          "maxUnscaledPatchIncident": 71.25933051386123
+        },
+        "bound": {
+          "maxRGB": 0.8990526575337611,
+          "maximumRawIrradianceRGB": [
+            2.8244431018829346,
+            1.3633778095245361,
+            0.6254124045372009
+          ],
+          "component": "combined",
+          "rawBeforeStorageExposure": true,
+          "maximumDiffuseAlbedo": 1,
+          "numericalSafety": 1.000005,
+          "method": "maximum over18 SH1 a0+norm(a1) irradiance envelopes; convex spatial interpolation/fade; diffuse albedo/pi once",
+          "limits": [
+            "combined includes base and local one-hop once; do not also budget its components",
+            "raw reference RGB, not absolute spectral/photometric calibration",
+            "SH/proxy geometry and water-interface transport remain approximations"
+          ]
+        },
+        "reflectedPowerRGB": [
+          5.840286088150618,
+          2.8191456154832313,
+          1.2932062052333522
+        ]
+      },
+      {
+        "id": "same61_vectors_no_new_GI_sampler_and_WebGL2_budget",
+        "passed": true,
+        "uniformVectors": 61,
+        "newSamplers": 0,
+        "textureUnitLimit": 16
+      },
+      {
+        "id": "all_transient_GI_readbacks_are_finite_nonnegative",
+        "passed": true
+      },
+      {
+        "id": "transient_GI_fixture_restores_parent_render_state",
+        "passed": true
+      }
+    ],
+    "legacyParity": {
+      "passed": true,
+      "samples": 40,
+      "nonFinite": 0,
+      "maxError": 7.699093429458514e-8,
+      "rmsError": 1.1767631915252792e-8,
+      "tolerance": 0.0002,
+      "rows": [
+        {
+          "p": [
+            -20,
+            1,
+            0
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -20,
+            1,
+            0
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -20,
+            1,
+            0
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -20,
+            1,
+            0
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -10,
+            8,
+            -5
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -10,
+            8,
+            -5
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -10,
+            8,
+            -5
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -10,
+            8,
+            -5
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            0,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            0,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            1.1663089861020266,
+            1.1259705111712899,
+            1.033016568742106
+          ],
+          "gpu": [
+            1.1663089990615845,
+            1.125970482826233,
+            1.033016562461853
+          ]
+        },
+        {
+          "p": [
+            0,
+            2,
+            0
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0.46475951633397744,
+            0.4486851077430355,
+            0.4116441421871708
+          ],
+          "gpu": [
+            0.4647595286369324,
+            0.4486851096153259,
+            0.4116441309452057
+          ]
+        },
+        {
+          "p": [
+            0,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0.46475951633397755,
+            0.4486851077430356,
+            0.41164414218717094
+          ],
+          "gpu": [
+            0.4647595286369324,
+            0.4486851096153259,
+            0.4116441309452057
+          ]
+        },
+        {
+          "p": [
+            15,
+            1,
+            8
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            15,
+            1,
+            8
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            15,
+            1,
+            8
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            15,
+            1,
+            8
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            25,
+            5,
+            -12
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            25,
+            5,
+            -12
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            25,
+            5,
+            -12
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            25,
+            5,
+            -12
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            0,
+            15,
+            0
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            0,
+            15,
+            0
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0.2802126773315448,
+            0.2705211167518178,
+            0.24818837911764335
+          ],
+          "gpu": [
+            0.28021273016929626,
+            0.2705211937427521,
+            0.24818842113018036
+          ]
+        },
+        {
+          "p": [
+            0,
+            15,
+            0
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0.10789188546881827,
+            0.1041602829918807,
+            0.09556138342088695
+          ],
+          "gpu": [
+            0.10789190977811813,
+            0.10416031628847122,
+            0.09556140750646591
+          ]
+        },
+        {
+          "p": [
+            0,
+            15,
+            0
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0.1078918854688183,
+            0.10416028299188072,
+            0.09556138342088698
+          ],
+          "gpu": [
+            0.10789190977811813,
+            0.10416031628847122,
+            0.09556140750646591
+          ]
+        },
+        {
+          "p": [
+            -34,
+            0.2,
+            -24
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -34,
+            0.2,
+            -24
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -34,
+            0.2,
+            -24
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -34,
+            0.2,
+            -24
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            34,
+            18,
+            24
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            34,
+            18,
+            24
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            34,
+            18,
+            24
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            34,
+            18,
+            24
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            39,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            39,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            39,
+            2,
+            0
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            39,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            100,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            100,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            100,
+            2,
+            0
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            100,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scope": "actual identical uniform bank and GLSL versus CPU lookup; not a path-traced lighting reference or frame-time benchmark"
+    },
+    "parentLockDeclared": true,
+    "pixelRatio": 1,
+    "limits": [
+      "isolated flat terrain transport and native receiver, not actual island/grove appearance or frame-time acceptance",
+      "shared legacy40 helper isDPR1-only; helper rejects otherDPR before mutation",
+      "source radiometry is authored raw reference; no absolute measured lamp/fireworks calibration",
+      "per-source nonnegative SH cone softens angular response, visibility/rest patches remain coarse",
+      "no main integration, PMREM feedback, full spectral transport, water-interface bounce or smoke self-shadow"
+    ],
+    "runnerWallMilliseconds": 230
+  },
+  "pageState": {
+    "ready": true,
+    "paused": true,
+    "graphicsContextInterrupted": false,
+    "localLightCount": 20,
+    "receiverLighting": {
+      "mode": "night",
+      "linked": false,
+      "lamps": [
+        {
+          "enabled": true,
+          "brightness": 0.45,
+          "color": "#ffdfa5"
+        },
+        {
+          "enabled": true,
+          "brightness": 0.45,
+          "color": "#ffdfa5"
+        },
+        {
+          "enabled": true,
+          "brightness": 0.45,
+          "color": "#ffdfa5"
+        }
+      ],
+      "flashlight": {
+        "enabled": false,
+        "brightness": 0.7
+      },
+      "layout": "triangle around the cay",
+      "fixture": {
+        "heightMetres": 0.173,
+        "diameterMetres": 0.13,
+        "emission": "unshielded spherical diffuser; omnidirectional point-light approximation"
+      },
+      "rawReference": 0.000036,
+      "shadowSize": 1024,
+      "shadowHz": 45,
+      "active": 0,
+      "lights": [
+        {
+          "id": 0,
+          "type": "point",
+          "receiverPath": "native-PBR",
+          "nativeSceneLight": true,
+          "position": [
+            -21,
+            0.709387901912434,
+            5.3
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 0.065
+        },
+        {
+          "id": 1,
+          "type": "point",
+          "receiverPath": "native-PBR",
+          "nativeSceneLight": true,
+          "position": [
+            18,
+            0.7312298412598459,
+            5.3
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 0.065
+        },
+        {
+          "id": 2,
+          "type": "point",
+          "receiverPath": "native-PBR",
+          "nativeSceneLight": true,
+          "position": [
+            -1.5,
+            0.9182470070781804,
+            -13.7
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 0.065
+        },
+        {
+          "id": 3,
+          "type": "spot",
+          "receiverPath": "native-PBR",
+          "nativeSceneLight": true,
+          "position": [
+            -48.04568576392108,
+            11.824968373247001,
+            -39.79074689686386
+          ],
+          "direction": [
+            0.7601006629635662,
+            -0.15044060019926012,
+            0.632150779461699
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 0.025
+        },
+        {
+          "id": 4,
+          "type": "point",
+          "receiverPath": "diffuse-shader",
+          "nativeSceneLight": false,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        },
+        {
+          "id": 5,
+          "type": "point",
+          "receiverPath": "diffuse-shader",
+          "nativeSceneLight": false,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        },
+        {
+          "id": 6,
+          "type": "point",
+          "receiverPath": "diffuse-shader",
+          "nativeSceneLight": false,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        },
+        {
+          "id": 7,
+          "type": "point",
+          "receiverPath": "diffuse-shader",
+          "nativeSceneLight": false,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        },
+        {
+          "id": 8,
+          "type": "point",
+          "receiverPath": "diffuse-shader",
+          "nativeSceneLight": false,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        },
+        {
+          "id": 9,
+          "type": "point",
+          "receiverPath": "diffuse-shader",
+          "nativeSceneLight": false,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        },
+        {
+          "id": 10,
+          "type": "point",
+          "receiverPath": "diffuse-shader",
+          "nativeSceneLight": false,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        },
+        {
+          "id": 11,
+          "type": "point",
+          "receiverPath": "diffuse-shader",
+          "nativeSceneLight": false,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        },
+        {
+          "id": 12,
+          "type": "point",
+          "receiverPath": "diffuse-shader",
+          "nativeSceneLight": false,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        },
+        {
+          "id": 13,
+          "type": "point",
+          "receiverPath": "diffuse-shader",
+          "nativeSceneLight": false,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        },
+        {
+          "id": 14,
+          "type": "point",
+          "receiverPath": "diffuse-shader",
+          "nativeSceneLight": false,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        },
+        {
+          "id": 15,
+          "type": "point",
+          "receiverPath": "diffuse-shader",
+          "nativeSceneLight": false,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        },
+        {
+          "id": 16,
+          "type": "point",
+          "receiverPath": "diffuse-shader",
+          "nativeSceneLight": false,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        },
+        {
+          "id": 17,
+          "type": "point",
+          "receiverPath": "diffuse-shader",
+          "nativeSceneLight": false,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        },
+        {
+          "id": 18,
+          "type": "point",
+          "receiverPath": "diffuse-shader",
+          "nativeSceneLight": false,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        },
+        {
+          "id": 19,
+          "type": "point",
+          "receiverPath": "diffuse-shader",
+          "nativeSceneLight": false,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "candela": 0,
+          "rawRGB": [
+            0,
+            0,
+            0
+          ],
+          "radius": 5
+        }
+      ],
+      "frameStorageEV": -1
+    }
+  },
+  "changedSources": []
+}

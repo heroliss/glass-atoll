@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "count": 7,
+  "checks": [
+    {
+      "name": "Native keyboard invalid minimum rejects and restores input",
+      "passed": true
+    },
+    {
+      "name": "Native keyboard changes independent automatic interval and tilt",
+      "passed": true
+    },
+    {
+      "name": "Live 1–5s automatic schedule with both signed directions and more than four active",
+      "passed": true,
+      "evidence": {
+        "gaps": [
+          1.1304168812930584,
+          4.103606219403446,
+          4.086624411866069,
+          1.443433259613812,
+          3.690730571746826,
+          2.2492087772116065,
+          1.184160040691495,
+          4.9360039019957185,
+          2.8392413146793842,
+          1.093588593415916,
+          2.497727518901229
+        ],
+        "peakActive": 6
+      }
+    },
+    {
+      "name": "Actual automatic zero-degree launch is vertical",
+      "passed": true,
+      "evidence": {
+        "id": "500296504-118.33340",
+        "type": "chrysanthemum",
+        "time": 118.33340000009842,
+        "azimuth": 103.57043438516149,
+        "elevation": 90,
+        "origin": [
+          29,
+          1.4870756417647986,
+          7
+        ],
+        "seed": 500296504,
+        "burstOrientation": {
+          "yawDegrees": 323.7023481912911,
+          "tiltDegrees": -0.2594947312027216,
+          "rollDegrees": -1.2012159079313278
+        },
+        "automatic": true,
+        "signedTiltDegrees": 0
+      }
+    },
+    {
+      "name": "Turning off random modes enables fixed interval and disables random fields",
+      "passed": true
+    },
+    {
+      "name": "Actual dense automatic run reaches 32 complete active events without queuing or GL errors",
+      "passed": true,
+      "evidence": {
+        "peakActive": 32,
+        "peakRecords": 6894,
+        "launches": 48
+      }
+    },
+    {
+      "name": "Performance measurements are valid live rendering; 60 FPS target remains unmet",
+      "passed": true,
+      "performanceTargetMet": false,
+      "evidence": {
+        "denseAverageFps": 12.252756870324225,
+        "recommendedAverageFps": 16.562899105943455
+      }
+    }
+  ],
+  "logs": [
+    {
+      "level": "error",
+      "message": "Atoll firework settings: RangeError: Minimum interval must not exceed maximum interval\n    at validateAutomaticShow (http://127.0.0.1:5186/firework-auto-show.js:8:58)\n    at configureFireworksSettings (http://127.0.0.1:5186/main.js:1245:22)\n    at Object.onFireworksChange (http://127.0.0.1:5186/main.js:133:35)\n    at submitFireworks (http://127.0.0.1:5186/ui.js:219:36)\n    at HTMLInputElement.<anonymous> (http://127.0.0.1:5186/ui.js:284:294)",
+      "timestamp": "2026-10-30T16:36:48.076Z",
+      "url": "http://127.0.0.1:5186/ui.js"
+    }
+  ],
+  "expectedConsoleErrors": "One deliberate reversed interval range; user input was restored. One earlier CDP benchmark attempted while paused and was rejected by the benchmark guard; retained in work history, not an app renderer failure."
+}

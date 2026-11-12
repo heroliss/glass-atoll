@@ -1,0 +1,195 @@
+{
+  "date": "2026-11-12T10:10:02.397Z",
+  "passed": true,
+  "checksPassed": 14,
+  "total": 14,
+  "checks": [
+    {
+      "name": "all actual geometry/index/UV/normal/tangent/anchors unchanged",
+      "passed": true,
+      "evidence": {
+        "meshes": 6,
+        "triangles": 666188
+      }
+    },
+    {
+      "name": "all eight authored texture byte fields unchanged",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "name": "mipmap/trilinear/aniso configurations retained",
+      "passed": true,
+      "evidence": [
+        {
+          "species": "palm",
+          "kind": "albedo",
+          "size": [
+            1024,
+            256
+          ],
+          "requestedMipLevels": 11,
+          "colourSpace": "srgb"
+        },
+        {
+          "species": "palm",
+          "kind": "normal",
+          "size": [
+            1024,
+            256
+          ],
+          "requestedMipLevels": 11,
+          "colourSpace": ""
+        },
+        {
+          "species": "palm",
+          "kind": "roughness",
+          "size": [
+            1024,
+            256
+          ],
+          "requestedMipLevels": 11,
+          "colourSpace": ""
+        },
+        {
+          "species": "palm",
+          "kind": "thickness",
+          "size": [
+            1024,
+            256
+          ],
+          "requestedMipLevels": 11,
+          "colourSpace": ""
+        },
+        {
+          "species": "coastalLeaf",
+          "kind": "albedo",
+          "size": [
+            512,
+            256
+          ],
+          "requestedMipLevels": 10,
+          "colourSpace": "srgb"
+        },
+        {
+          "species": "coastalLeaf",
+          "kind": "normal",
+          "size": [
+            512,
+            256
+          ],
+          "requestedMipLevels": 10,
+          "colourSpace": ""
+        },
+        {
+          "species": "coastalLeaf",
+          "kind": "roughness",
+          "size": [
+            512,
+            256
+          ],
+          "requestedMipLevels": 10,
+          "colourSpace": ""
+        },
+        {
+          "species": "coastalLeaf",
+          "kind": "thickness",
+          "size": [
+            512,
+            256
+          ],
+          "requestedMipLevels": 10,
+          "colourSpace": ""
+        }
+      ]
+    },
+    {
+      "name": "same wind GLSL and debug uniform in colour and depth",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "name": "opaque temporal metadata protocol unchanged",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "name": "tree/cloud visibility injection hook preserved",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "name": "actual normal sampler upgraded to highp",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "name": "shared explicit irradiance replaces legacy sun-strength reconstruction",
+      "passed": true,
+      "evidence": {
+        "defaultIrradiance": 3.6,
+        "defaultGain": 1
+      }
+    },
+    {
+      "name": "Beer RGB transmission bounded and decreases with path/thickness",
+      "passed": true,
+      "evidence": {
+        "budget": 0.24,
+        "normalAtQuarterMillimetre": [
+          0.04725880204900657,
+          0.12846274284455766,
+          0.01970039966973571
+        ]
+      }
+    },
+    {
+      "name": "conservative per-channel slab energy proxy bounded",
+      "passed": true,
+      "evidence": {
+        "maxReflectPlusTransmitProxy": 1,
+        "note": "F0 + (1-F0)*albedo*(1-Tnormal) + (1-F0)*Tpath <= 1; not a proof for the complete multiple-scattering GGX/IBL scene."
+      }
+    },
+    {
+      "name": "thin-layer BTDF angular term reciprocal",
+      "passed": true,
+      "evidence": {
+        "reciprocalError": 0
+      }
+    },
+    {
+      "name": "transmission is continuous across view-side transition",
+      "passed": true,
+      "evidence": {
+        "edgeJump": 3.023693321592413e-8
+      }
+    },
+    {
+      "name": "normal variance broadens GGX only, never sharpens",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "name": "ablation controls reach actual shader/depth/receiver state",
+      "passed": true,
+      "evidence": {
+        "colour": 0,
+        "normal": 0,
+        "roughness": 0,
+        "specular": 0,
+        "transmission": 0,
+        "shadows": 0,
+        "wind": 0,
+        "specularAA": 0,
+        "unlit": 1
+      }
+    }
+  ],
+  "limits": [
+    "CPU geometry/texture byte identity and shader wiring only",
+    "Thickness/absorption are authored effective calibration, not measured leaf specimens",
+    "Actual GPU mip allocation/filter inspection, compilation, finite targets and animated ablation remain required",
+    "Texture/specular filtering cannot solve moving subpixel triangle coverage"
+  ]
+}

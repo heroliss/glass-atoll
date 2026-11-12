@@ -1,0 +1,61 @@
+﻿
+Control exposure | High Definition Render Pipeline | 17.0.4
+Toggle navigation
+docs.unity3d.com
+Search Results for
+Show / Hide Table of Contents
+Control exposure
+To work with physically based lighting and Materials, you need to set up the Scene exposure correctly. The High Definition Render Pipeline (HDRP) includes several methods for calculating exposure to suit most situations. HDRP expresses all exposure values that it uses in
+EV
+100
+.
+Use the exposure volume override
+Exposure
+uses the
+Volume
+framework, so to enable and modify
+Exposure
+properties, you must add an
+Exposure
+override to a
+Volume
+in your Scene. To add
+Exposure
+to a Volume:
+In the Scene or Hierarchy view, select a GameObject that contains a Volume component to view it in the Inspector.
+In the Inspector, go to
+Add Override
+and select
+Exposure
+.
+HDRP applies
+Exposure
+correction to any Camera this Volume affects.
+API
+To access and control this override at runtime, use the
+Volume scripting API
+. Because of how the Volume system works, you edit properties in a different way to standard Unity components. There are also other nuances to be aware of too, such as each property has an
+overrideState
+. This indicates to the Volume system whether to use the property value you set, or use the default value stored in the
+Volume Profile
+. For information on how to use the API correctly, see
+Volume scripting API
+.
+To learn how to use exposure properties, refer to
+exposure volume override reference
+.
+Exposure Debug modes
+HDRP offers several debug modes to help you to set the correct exposure for your scene. You can activate these in the
+Debug window
+. For more information, refer to
+Debug exposure
+.
+In This Article
+Back to top
+Copyright © 2026 Unity Technologies —
+Trademarks and terms of use
+Legal
+Privacy Policy
+Cookie Policy
+Do Not Sell or Share My Personal Information
+Your Privacy Choices (Cookie Settings)

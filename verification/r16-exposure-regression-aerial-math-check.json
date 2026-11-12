@@ -1,0 +1,94 @@
+{
+  "passed": true,
+  "checksPassed": 18,
+  "total": 18,
+  "checks": [
+    {
+      "name": "No medium preserves HDR RGB exactly",
+      "passed": true,
+      "output": [
+        0.0625,
+        0.5,
+        4
+      ]
+    },
+    {
+      "name": "Zero distance gives T=1 and S=0",
+      "passed": true
+    },
+    {
+      "name": "Segment solution agrees with independent Simpson quadrature",
+      "passed": true,
+      "maximumError": 1.8041124150158794e-15
+    },
+    {
+      "name": "Adjacent segments compose to the unsplit transfer solution",
+      "passed": true
+    },
+    {
+      "name": "Zero extinction has a finite linear source limit",
+      "passed": true
+    },
+    {
+      "name": "Optically thin limit avoids subtractive cancellation",
+      "passed": true
+    },
+    {
+      "name": "Absorption alone never creates radiance",
+      "passed": true
+    },
+    {
+      "name": "Optically thick transfer remains finite and bounded",
+      "passed": true
+    },
+    {
+      "name": "Humidity cannot invent aerosol at zero dry concentration",
+      "passed": true
+    },
+    {
+      "name": "Dry particles retain unit hygroscopic radius and area",
+      "passed": true
+    },
+    {
+      "name": "Sub-saturated RH grows existing particles monotonically",
+      "passed": true
+    },
+    {
+      "name": "Kappa water-volume relation and area proxy are explicit",
+      "passed": true
+    },
+    {
+      "name": "Shared sky normalization exactly reconstructs wet Mie",
+      "passed": true,
+      "normalizedMieScale": 20.757203672941724,
+      "wetMie550": 0.00008294578587707514
+    },
+    {
+      "name": "Non-hygroscopic particles do not grow with RH",
+      "passed": true
+    },
+    {
+      "name": "Saturation input is bounded instead of producing infinite fog",
+      "passed": true
+    },
+    {
+      "name": "Scattering albedo is bounded by extinction",
+      "passed": true
+    },
+    {
+      "name": "Rayleigh blue extinction exceeds green and red",
+      "passed": true
+    },
+    {
+      "name": "Rayleigh and HG phase functions conserve angular normalization",
+      "passed": true,
+      "rayleighIntegral": 0.9999999999999989,
+      "mieIntegral": 1.0000000000001317
+    }
+  ],
+  "limits": [
+    "Double-precision numerical/transfer checks; actual GPU shader and scene acceptance are separate",
+    "Kappa bulk growth neglects Kelvin curvature; area scaling assumes near-constant extinction efficiency and fixed dry particle count",
+    "No multiple scattering, full aerosol Mie spectrum or measured aerosol calibration"
+  ]
+}

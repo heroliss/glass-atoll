@@ -1,0 +1,106 @@
+{
+  "schema": "glass-atoll.homogeneous-clip-budget-check.v1",
+  "dateUTC": "2026-10-27T13:38:12.786Z",
+  "passed": false,
+  "passedCount": 10,
+  "total": 11,
+  "sourceSHA256": "df229090f519274c4d4483befa7f49cdbf531cc380cabe1827e16fb64765d96a",
+  "baselineSHA256": "56ae4e5e0ca041041cbd3b09be2b9fad67c257e9c470aaa0ce47237f1f37146c",
+  "checks": [
+    {
+      "name": "three exact clip edits restore frozen56 after separately verified optional ledger layer",
+      "passed": true,
+      "evidence": {
+        "baselineSHA256": "56ae4e5e0ca041041cbd3b09be2b9fad67c257e9c470aaa0ce47237f1f37146c",
+        "laterAuthorizedLayer": "emission-ledger-check.json13/13; two exact edits"
+      }
+    },
+    {
+      "name": "clip inverse fails closed for missing or duplicate authorized changes",
+      "passed": true,
+      "evidence": {
+        "edits": 3
+      }
+    },
+    {
+      "name": "actual initial GPU witness8/8 is retained; phantom has no hardware coverage",
+      "passed": true,
+      "evidence": [
+        {
+          "view": "mirror",
+          "bodyId": 97,
+          "peak": 29956.27781624126,
+          "reason": "homogeneous-far",
+          "coverage": 0
+        }
+      ]
+    },
+    {
+      "name": "actual saved main/mirror raw sources: production new bins exactly equal independent interval reconstruction",
+      "passed": true,
+      "evidence": [
+        {
+          "view": "main",
+          "old": 7.18568135610271,
+          "new": 7.18568135610271,
+          "rejected": 0,
+          "exact": true
+        },
+        {
+          "view": "mirror",
+          "old": 35947.533379485154,
+          "new": 0,
+          "rejected": 1,
+          "exact": true
+        }
+      ]
+    },
+    {
+      "name": "raw source/shader/upload blocks are unchanged",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n  'function fillRecords(camera,air,rawPerCandela,shutter,medium=null,legacySmoke=true,reflection=false,planeY=0){\\n' +\n    \"    camera.updateMatrixWorld();const eye=camera.position.toArray(),ordered=records.filter(p=>legacySmoke||p.kind!=='smoke').map(p=>({p,z:viewPosition.fromArray(p.position).applyMatrix4(camera.matrixWorldInverse).z})).sort((a,b)=>a.z-b.z),clusters=getLightClusters();\\n\" +\n    \"    if(ordered.length>capacity)throw new Error('Finite effects instance capacity exceeded without deleting logical heads.');\\n\" +\n    '    for(let i=0;i<ordered.length;i++){\\n' +\n    \"      const p=ordered[i].p,smoke=p.kind==='smoke',light=smoke?smokeLighting(p,eye,air,rawPerCandela,clusters):[0,0,0];\\n\" +\n    '      arrays.centre.set(p.position,i*3);arrays.velocity.set(p.velocity||[0,0,0],i*3);arrays.stretch.set(p.stretch||[0,0,0],i*3);arrays.colour.set(p.colour,i*3);arrays.smokeLight.set(light,i*3);arrays.shape.set([smoke?1:0,p.radius,p.unmodulatedIntensity??p.intensity??0,p.opticalDepth||0],i*4);\\n' +\n    '      if(medium&&!smoke){const T=medium.transmission(eye,p.position,{reflection,planeY});for(let c=0;c<3;c++)arrays.colour[i*3+c]*=T[c];}\\n' +\n+   \"      for(let k=0;k<8;k++){const age=p.sourceAge+((k+.5)/8-.5)*shutter,body=p.sourceBody;const weight=!body?1:bodyEmissionEnvelope(body,age);arrays[k<4?'temporal0':'temporal1'][i*4+(k%4)]=weight;}\\n\" +\n-   \"      for(let k=0;k<8;k++){const age=p.sourceAge+((k+.5)/8-.5)*shutter,body=p.sourceBody;const weight=!body?1:body.kind==='rocket'?(age>=0&&age<body.life?1:0):starEnvelope(body,age);arrays[k<4?'temporal0':'temporal1'][i*4+(k%4)]=weight;}\\n\" +\n    '    }\\n' +\n    \"    geometry.instanceCount=ordered.length;for(const name of Object.keys(attributes))geometry.getAttribute('a'+name[0].toUpperCase()+name.slice(1)).needsUpdate=true;\\n\" +\n    '    return ordered.length;\\n' +\n    '  }\\n' +\n    '  // Read-only kinematic view for an optional bounded smoke source adapter.\\n' +\n    '  // This never samples a future point, advances simulation/RNG, or reads light I.\\n' +\n    '  const smokeDescriptorCache=new WeakMap();let smokeDescribeCalls=0,smokeSampleCalls=0,smokeReleases=0;\\n' +\n+   '  let smokeCombustionCache;\\n' +\n    '  const smokeVector=value=>Object.freeze(Array.from(value));\\n' +\n    \"  function smokeActiveEvent(id){const event=simulation.active.find(e=>e.id===id);if(!event)throw new RangeError('Smoke source descriptor is no longer active: '+id);const first=simulation.windTimeline[0];if(first&&first.time>event.time+1e-10)throw new RangeError('Smoke source wind history was pruned before its causal launch');return event;}\\n\" +\n    '  const smokeSourceProvider=Object.freeze({\\n' +\n    '    get time(){return simulation.time;},\\n' +\n+   '    describeCombustion(eventId){\\n' +\n+   \"      if(disposed)throw new Error('Cannot query disposed combustion metadata');\\n\" +\n+   '      const event=smokeActiveEvent(eventId);let descriptor=smokeCombustionCache?.get(event);if(descriptor)return descriptor;\\n' +\n+   '      descriptor=describeFireworkCombustion(event);(smokeCombustionCache??=new WeakMap()).set(event,descriptor);return descriptor;\\n' +\n+   '    },\\n' +\n    '    describe(eventId){\\n' +\n    '      const event=smokeActiveEvent(eventId);smokeDescribeCalls++;let descriptor=smokeDescriptorCache.get(event);if(descriptor)return descriptor;\\n' +\n    '      const roots=event.heads.filter(b=>!b.parentBody).map(b=>Object.freeze({id:b.id,birth:b.birth,life:b.life,baseVelocity:smokeVector(b.baseVelocity),patternPart:b.patternPart??null}));\\n' +\n    '      const frame=event.patternFrame?Object.freeze({kind:event.patternFrame.kind,right:smokeVector(event.patternFrame.right),up:smokeVector(event.patternFrame.up),normal:smokeVector(event.patternFrame.normal)}):null;\\n' +\n    \"      descriptor=Object.freeze({schema:'glass-atoll.smoke-kinematic-descriptor.v1',id:event.id,type:event.type,seed:event.seed,ground:!!event.definition.ground,time:event.time,burstTime:event.burstTime,endTime:event.endTime,baselineVelocity:smokeVector(event.baselineBurst.velocity),shapeFrame:frame,roots:Object.freeze(roots),sourceEvents:Object.freeze(event.events.map(e=>Object.freeze({kind:e.kind,time:e.time,seed:e.seed}))) });\\n\" +\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/homogeneous-clip-check.mjs:20:165\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/homogeneous-clip-check.mjs:10:68)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/homogeneous-clip-check.mjs:20:1"
+    },
+    {
+      "name": "prepared matrix is bit-exact to the real combined Float32 upload for oblique/off-axis/mutable cameras",
+      "passed": true,
+      "evidence": {
+        "cameras": 80
+      }
+    },
+    {
+      "name": "12000 world points including Float32 public inputs agree with independent interval classification",
+      "passed": true,
+      "evidence": {
+        "points": 12000,
+        "outside": 4282
+      }
+    },
+    {
+      "name": "near/far and shader-w boundaries retain all uncertain cases",
+      "passed": true,
+      "evidence": {
+        "tested": 30
+      }
+    },
+    {
+      "name": "extreme Float32 overflow/nonfinite inputs retain original conservative budget",
+      "passed": true
+    },
+    {
+      "name": "reused camera context and moving source do not keep stale clip decisions",
+      "passed": true,
+      "evidence": {
+        "cameraMutations": 24
+      }
+    },
+    {
+      "name": "own legacy smoke term and no-camera reference remain unchanged",
+      "passed": true
+    }
+  ],
+  "limits": [
+    "Original GPU evidence is before repair; parent must rerun actual production/GPU bound7 and scene precision/range acceptance.",
+    "Aggregator-only clipping; public per-source raw Gaussian formula and all radiometric/rendering code remain unchanged.",
+    "No source position, intensity, bloom, density, audio or photography changes. No FPS claim."
+  ]
+}

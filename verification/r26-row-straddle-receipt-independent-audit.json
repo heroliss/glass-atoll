@@ -1,0 +1,155 @@
+{
+  "schema": "glass-atoll.r26-row-straddle-receipt-independent-audit.v1",
+  "dateUTC": "2026-10-29T11:40:27.231Z",
+  "actualGPU": false,
+  "auditedReceiptActualGPU": true,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 7,
+    "total": 7
+  },
+  "auditedReceiptSHA256": "0498cdaf09f96fb036bec9a5c66b6b0c44036b0266c5c8e9414e9ae170a659b7",
+  "checks": [
+    {
+      "name": "Preserved actual receipt reports the fixed one-prepare three-draw gate and four checks without GL/shader errors",
+      "passed": true,
+      "evidence": {
+        "receiptSHA256": "0498cdaf09f96fb036bec9a5c66b6b0c44036b0266c5c8e9414e9ae170a659b7",
+        "actualDraws": 3,
+        "prepares": 1,
+        "readbackBytes": 6192
+      }
+    },
+    {
+      "name": "All source/factory/imported math pins and admitted helper revision match current frozen files",
+      "passed": true,
+      "evidence": {
+        "sourceHashes": {
+          "./r26-complete-transmission-candidate.js": "a20a08491c738cd96c525e12743b40532a13c2fe8d095984b1541a79a9ffb4b6",
+          "./r26-transmission-pack-candidate.js": "138f75dd346107023c373e91623c9d2baf8b989b86170e8b89f156aceef280b6",
+          "./r26-transmission-layout-candidate.js": "61a2e73b960a5d555cef3b6611b5aca48cdb3c6fb125db94102f0dd9a0011b86",
+          "./r26-transmission-rectangles.js": "70b1a2c95c86847d2f3b1787bf48721a1d4ed32ff599d1eb79c48f37ea2b9d28",
+          "./r23-transmission-layout-gpu-check.js": "a9a206c84441621aaceb958026082b3c1e3c1b376ddb9b34a503b2233543e6c2",
+          "../pyro-smoke-transmission-gpu.js": "235930f8d031c9d922afdeaff506cc62c583bcf68fdfd549b69ab7e4bb719dc8",
+          "../pyro-smoke-transmission-pack.js": "c4c64278c6fe994c68ed9727ce82b3396295cbde109d7fb85362d3429e7f0fe8",
+          "./r16-smoke-transmission-oracle.js": "210d8830211309432da150a828e0e21a78fde5e85bc4356648e707c66f5439a8"
+        },
+        "functionHashes": {
+          "createField": "07c46a74471a449a86b1608dd8d67b3026183a4f0eff0891d28cc682749d2a03",
+          "candidatePack": "0ee6dd020cfe4b8698edf931774a086fe580ae2fdbb670e6a73433e8c9341d44",
+          "candidatePolicy": "ae350e7078469dd3a939d0fff9f3d9a27861e564f91f89f8a8ab08a6389b7778",
+          "candidateLayout": "0e1b911513644d645dc9c9222d1f2511cf1c7269e3e9afb0f4b17cf6576f9be6",
+          "rectangles": "dd79e7e1cee8bbe361610a24cf9e2d19f3f5db6b6fcfffd05431a7fe33072456",
+          "fixture": "909f524e9d2739fefad76a34734e0be09a0efe0114480ac2c1d2e890ae9da136",
+          "oldPack": "7021e7d499b89adf8ad2f644709ff0475f24ac41caa2e12da9daf07c76e1e009",
+          "oracle": "1898947a69971d588731dbc22facf754a3f4b80a2de2bda7fb5e8db992704f2d",
+          "column": "cb3995def008e30dce34b3967c9b285b8157e67a18702d4d398c7a25fe99aa1f"
+        },
+        "helperSHA256": "5e346e9af8e0d10f14c867f55dcbc396bb3aa2aa9b9324bf7cf16d2ce5b3d949",
+        "scope": "Saved runtime pins linked to admitted helper source/revision; no new driver attestation"
+      }
+    },
+    {
+      "name": "Owned original-double fixture, all physical IDs and independently recomputed oracles match the saved capture",
+      "passed": true,
+      "evidence": {
+        "physicalPackets": 65,
+        "originalSourceRows": 129,
+        "physicalOracleRecomputeDelta": 1.1102230246251565e-16,
+        "quantizedOracleRecomputeDelta": 1.1102230246251565e-16,
+        "doubleRecomputeAllowance": 3.552713678800501e-15,
+        "runtimeFullPaddedPackBitGate": "Successful pinned helper asserts full2048packet+2048source U32 word equality before its first render; the receipt does not separately serialize packed words"
+      }
+    },
+    {
+      "name": "Global rectangle addresses span the physical row boundary without omission, duplication, reordered packet tiles or invalid output reads",
+      "passed": true,
+      "evidence": {
+        "partialAddresses": 258,
+        "map0": "addresses0..128=tile0 source0..128;129..255=tile1 source0..126",
+        "map1": [
+          {
+            "address": 256,
+            "tile": 1,
+            "source": 127
+          },
+          {
+            "address": 257,
+            "tile": 1,
+            "source": 128
+          }
+        ],
+        "logicalPairs": 8385,
+        "conservativeSlots": 16512,
+        "outputViewport": 256,
+        "validReadCount": 129,
+        "readbackBytes": 6192
+      }
+    },
+    {
+      "name": "Every saved Float32 partial matches independent full64 and packet64 subsets, including positive row-straddling final sources",
+      "passed": true,
+      "evidence": {
+        "maximumMap0QuantizedTError": 1.0555931517775008e-7,
+        "maximumMap1QuantizedTError": 2.7822451009740234e-9,
+        "tails": [
+          {
+            "source": 127,
+            "address": 256,
+            "tauRGB": [
+              0.002619710983708501,
+              0.0037424443289637566,
+              0.001496977754868567
+            ],
+            "physicalTChange": 0.0028049052730939605
+          },
+          {
+            "source": 128,
+            "address": 257,
+            "tauRGB": [
+              0.0012250487925484776,
+              0.0017500696703791618,
+              0.0007000278565101326
+            ],
+            "physicalTChange": 0.0011628125586666815
+          }
+        ],
+        "scope": "All258 saved Float32 partials reconstructed from JSON; signed-zero bit provenance is not inferred from JSON"
+      }
+    },
+    {
+      "name": "All129 final rows meet original and quantized optical gates and agree with one increasing-tile reduction; neutral rows remain exact",
+      "passed": true,
+      "evidence": {
+        "maximumPhysicalTError": 1.268724556524603e-7,
+        "maximumQuantizedTError": 1.2825527118121016e-7,
+        "maximumReconstructedTwoTileExpError": 7.944811120097484e-8,
+        "neutralRows": [
+          2,
+          3
+        ],
+        "metadataDoubleRecomputeAllowance": 3.552713678800501e-15,
+        "GPUTolerancesUnchanged": true
+      }
+    },
+    {
+      "name": "One owned completed timer remains a retrospective tiny observation; saved native-state/descriptor restoration stays scoped",
+      "passed": true,
+      "evidence": {
+        "wholeGPUIntervalMs": 0.508928,
+        "cpuSubmitMs": 10.200000002980232,
+        "reportedRestoration": true,
+        "scope": "Saved flags plus pinned source audit, no independent hardware-state replay. Whole interval includes queued3draws/firstuploads; cannot preempt later maps and is not native throughput/FPS/speedup evidence."
+      }
+    }
+  ],
+  "limits": [
+    "CPU-only read-only audit of the preserved root actual GPU receipt; no new GPU/browser submission.",
+    "Reference recomputation uses the previously disclosed16Number.EPSILON comparison allowance only for double reference/metadata equality. Actual original1e-5 and quantized8e-6 GPU optical thresholds remain unchanged.",
+    "Saved native-state/descriptor checks are audited as reported flags linked to reviewed pinned code; hardware state was not independently replayed.",
+    "JSON does not retain negative-zero bits or GPU handles. Full padded input bit equality is a successful runtime assertion in pinned helper source, not independently serialized packed data in this receipt.",
+    "The fixed129x65 gate is not admission of1734x755/natively frozen larger requests, evolving views, aggregate scene work, resolved lighting, live CPU cliff removal, throughput, FPS or production/UI promotion."
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "schema": "glass-atoll.r25-actual-upload-read-audit.v1",
+  "dateUTC": "2026-10-29T10:09:43.975Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "scope": "Independent saved hardware-artifact/Float32-bit/source-scope reconciliation only; no GPU, fixture or benchmark rerun",
+  "passed": true,
+  "counts": {
+    "passed": 7,
+    "total": 7
+  },
+  "checks": [
+    {
+      "name": "current production/factory pins and exact renderer/main change scope match",
+      "passed": true,
+      "evidence": {
+        "rendererSHA256": "4f152a1470d8351b997728691bc2e0ec15ee0962b55926179917cb42ce7ee3dd",
+        "mainSHA256": "b58f81451ff83f57b58e9fb3779ceb2be568fad0721c20a8cfb358724dc894c0",
+        "factorySHA256": "92befc6cafdddbcf1351a77334260c06a942965d1ad2b37a71af9ac82c4f877e",
+        "audioSHA256": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+        "rendererDelta": "Exact helper/comment and two upload-call substitutions only",
+        "mainDelta": "One guarded QA method line only"
+      }
+    },
+    {
+      "name": "saved final hardware receipt is5of5 with exactly two bounded single-pass renders/draws",
+      "passed": true,
+      "evidence": {
+        "checks": 5,
+        "smokeRenders": 2,
+        "actualDraws": 2,
+        "material": "RawShaderMaterial / DoubleSide / forceSinglePass true; one pass each"
+      }
+    },
+    {
+      "name": "all six actual owned VBO prefixes and unchanged inactive suffix independently compare bitwise",
+      "passed": true,
+      "evidence": {
+        "comparedComponents": 288,
+        "comparedBits": 9216,
+        "resolvedIndices": [
+          [
+            2,
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "suffixComparison": "Second GPU capacity beyond each active prefix equals first GPU contents"
+      }
+    },
+    {
+      "name": "upload and readback accounting substantiate576B initial,144B mirror update and1152B owned readback",
+      "passed": true,
+      "evidence": {
+        "ownedCapacity": 8,
+        "componentsPerInstance": 18,
+        "firstOwnedDynamicVBOBytes": 576,
+        "warmMirrorOwnedDynamicVBOBytes": 144,
+        "readbackBytes": 1152,
+        "excluded": "Static geometry/index/textures/framebuffers/pixels and driver traffic are outside these six-attribute totals"
+      }
+    },
+    {
+      "name": "timers are healthy bounded render intervals, not a baseline or frame-rate comparison",
+      "passed": true,
+      "evidence": {
+        "firstMainGPUms": 3.274752,
+        "secondMirrorGPUms": 0.033792,
+        "comparativeFPSClaim": false,
+        "scope": "Different allocation states/views/counts; one renderer interval each, not a matched A/B benchmark"
+      }
+    },
+    {
+      "name": "final helper CPU preflight pins and separate actual-factory CPU coverage remain distinct",
+      "passed": true,
+      "evidence": {
+        "helperSHA256": "6327547bf23ae72233aecd685dfb1746f4e3aee6115f68ea23b63f45246cfc29",
+        "ownerPreflight": 7,
+        "independentPreflight": 8,
+        "actualFactoryCPUChecks": 8,
+        "allCPUOnly": true,
+        "provenance": "Saved runtime receipt declares v2 revision; current helper bytes match both saved preflights. Runtime helper bytes are not separately embedded in the GPU receipt."
+      }
+    },
+    {
+      "name": "first actual wrong-pass-count failure and its complete archive manifest remain preserved as failed evidence",
+      "passed": true,
+      "evidence": {
+        "archiveEntries": 7,
+        "failedReceiptSHA256": "e5c83c25feb54f39060f006850498a8aa267344b519a394f613c4da57ee76fa1",
+        "failedChecks": [
+          2,
+          3
+        ],
+        "actualDrawsBeforeFailure": 1,
+        "readbackBytes": 0,
+        "timingAccepted": false,
+        "finalReceiptSeparate": true
+      }
+    }
+  ],
+  "sourceSHA256": {
+    "renderer": "4f152a1470d8351b997728691bc2e0ec15ee0962b55926179917cb42ce7ee3dd",
+    "main": "b58f81451ff83f57b58e9fb3779ceb2be568fad0721c20a8cfb358724dc894c0",
+    "audio": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+    "helper": "6327547bf23ae72233aecd685dfb1746f4e3aee6115f68ea23b63f45246cfc29",
+    "gpuReceipt": "647547e4980db5c0fbd423b39629fca626ab7c7c9fc0133ce1fd30eeec1a8175",
+    "failedReceipt": "e5c83c25feb54f39060f006850498a8aa267344b519a394f613c4da57ee76fa1"
+  },
+  "limits": [
+    "This reviews recorded root-owned GPU work; reviewer did not observe a new context or independently rerun hardware.",
+    "Six dynamic VBO byte totals are neither total GPU memory nor full-frame transfer measurements.",
+    "Synthetic resolved field/index upload is not a real light-field bake, optical image equality or native-density acceptance.",
+    "First allocation and warm mirror intervals are not a comparative benchmark and do not imply FPS improvement.",
+    "Historical viewport source suite remains blocked before assertions on pre-existing prepare/bind drift, not relabeled passed.",
+    "Main/UI restoration and broader scene/persistent-smoke goals remain separate root acceptance work."
+  ]
+}

@@ -1,0 +1,644 @@
+{
+  "status": "done",
+  "air": {
+    "schema": "glass-atoll.smoke-air-front-GPU.v1",
+    "passed": true,
+    "counts": {
+      "checks": 14,
+      "passed": 14
+    },
+    "checks": [
+      {
+        "id": "air_disabled_matches_accepted_pre_air_module_bit_exact",
+        "passed": true,
+        "legacy": [
+          0.14713585376739502,
+          0.07356792688369751,
+          0.036783963441848755,
+          0.14713585376739502
+        ],
+        "omitted": [
+          0.14713585376739502,
+          0.07356792688369751,
+          0.036783963441848755,
+          0.14713585376739502
+        ],
+        "disabled": [
+          0.14713585376739502,
+          0.07356792688369751,
+          0.036783963441848755,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "homogeneous_front_air_matches_analytic_T_and_S_layer",
+        "passed": true,
+        "gpu": [
+          0.16013072431087494,
+          0.09484183043241501,
+          0.046597231179475784,
+          0.14713585376739502
+        ],
+        "expected": [
+          0.16013068884544604,
+          0.09484182069216203,
+          0.04659722289557978
+        ],
+        "conditionalMean": 5.000001486721339,
+        "T": [
+          0.5220456758632682,
+          0.5488115381824387,
+          0.576949716026499
+        ],
+        "S": [
+          0.5662736513532325,
+          0.3701813942557471,
+          0.17245800668728675
+        ]
+      },
+      {
+        "id": "front_air_does_not_change_smoke_tau_or_alpha",
+        "passed": true,
+        "enabled": 0.14713585376739502,
+        "disabled": 0.14713585376739502,
+        "expected": 0.1471357577146023
+      },
+      {
+        "id": "pure_absorbing_air_only_attenuates_smoke_source",
+        "passed": true,
+        "gpu": [
+          0.08074985444545746,
+          0.04462119936943054,
+          0.02465702034533024,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "air_in_scatter_is_not_multiplied_by_smoke_SSA",
+        "passed": true,
+        "gpu": [
+          0.08331908285617828,
+          0.05446690693497658,
+          0.02537473477423191,
+          0.14713585376739502
+        ],
+        "expected": [
+          0.08331910276567239,
+          0.054466919935667275,
+          0.025374739487883886
+        ]
+      },
+      {
+        "id": "storage_P_applies_once_to_smoke_and_air_source",
+        "passed": true,
+        "P0": [
+          0.16013072431087494,
+          0.09484183043241501,
+          0.046597231179475784,
+          0.14713585376739502
+        ],
+        "P2": [
+          0.6405228972434998,
+          0.37936732172966003,
+          0.18638892471790314,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "zero_air_coefficients_restore_legacy_colour",
+        "passed": true,
+        "gpu": [
+          0.14713585376739502,
+          0.07356792688369751,
+          0.036783963441848755,
+          0.14713585376739502
+        ],
+        "legacy": [
+          0.14713585376739502,
+          0.07356792688369751,
+          0.036783963441848755,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "oblique_mirror_front_air_begins_at_water_hit",
+        "passed": true,
+        "gpu": [
+          0.12113562226295471,
+          0.06116947531700134,
+          0.030826225876808167,
+          0.1363930106163025
+        ],
+        "start": 2.82842712474619,
+        "mean": 4.401931508923212,
+        "air": {
+          "T": [
+            0.8821551252549499,
+            0.8882081025470187,
+            0.8943026128224022
+          ],
+          "S": [
+            0.005981492334815541,
+            0.004375547521551032,
+            0.002434649353893769
+          ]
+        },
+        "staleInverseIntentional": true
+      },
+      {
+        "id": "mirror_fixture_detects_wrong_virtual_eye_air_path",
+        "passed": true,
+        "correct": [
+          0.8821551252549499,
+          0.8882081025470187,
+          0.8943026128224022
+        ],
+        "wrong": [
+          0.614171148442559,
+          0.6355731490001448,
+          0.6577209443236172
+        ]
+      },
+      {
+        "id": "raw_air_bound_uses_air_HG_peak_not_smoke_HG",
+        "passed": true,
+        "bound": {
+          "maxRGB": 2.702107738428931,
+          "components": {
+            "smokeSource": 1,
+            "airFront": 1.702107738428931
+          },
+          "airNumericalSafety": 1.00002,
+          "rawBeforeStorageExposure": true,
+          "method": "non-emissive convex-over layer upper bound; passive front-air source plus current raw smoke sources; no factor per historical packet",
+          "limits": "authored raw incident reference, neutral extinction and at most2 clusters; optional four-cell front-air/conditional-mean approximation, small-tau/Float32 safety on air term, not a bound for future joint-media/light transport"
+        },
+        "gPeak": 2.4315338527928456,
+        "smokePhasePeak": 0.22716752257926243
+      },
+      {
+        "id": "air_HG_forward_lobe_and_sign_match_analytic_ratio",
+        "passed": true,
+        "gpuRatio": 394.37002571751475,
+        "expected": 394.37037037037044
+      },
+      {
+        "id": "diagnostics_identify_opt_in_four_cell_approximation",
+        "passed": true
+      },
+      {
+        "id": "air_readback_channels_are_finite_nonnegative",
+        "passed": true
+      },
+      {
+        "id": "air_fixture_restores_caller_render_state",
+        "passed": true
+      }
+    ],
+    "isolated": true,
+    "limits": [
+      "only actual caller execution is GPU evidence",
+      "whole-space point-ray smoke, no ground folding; synthetic far depth only",
+      "four-cell air at Gaussian optical conditional mean is a layer approximation, not joint overlapping-media RTE",
+      "no source-to-smoke extinction or production clear-air/renderer wiring acceptance"
+    ]
+  },
+  "cloud": {
+    "schema": "glass-atoll.transient-cloud-gpu-check.v1",
+    "dateUTC": "2026-10-26T22:49:49.309Z",
+    "passed": false,
+    "counts": {
+      "checks": 22,
+      "passed": 16
+    },
+    "checks": [
+      {
+        "name": "actual_main_shader_zero_source_base_is_unchanged_after_toggle",
+        "passed": true,
+        "evidence": {
+          "relativeError": 0
+        }
+      },
+      {
+        "name": "actual_main_cloud_march_adds_nonzero_finite_nonnegative_delta",
+        "passed": true,
+        "evidence": {
+          "nonfinite": 0,
+          "negativeRGB": 0,
+          "peakRGB": 0.000008262793016911019,
+          "totalPixelY": 0.010094074997573104,
+          "alphaMin": 0,
+          "alphaMax": 0
+        }
+      },
+      {
+        "name": "actual_mirror_delta_zero_source_returns_without_clear_or_draw",
+        "passed": true,
+        "evidence": {
+          "pass": {
+            "drawn": false,
+            "count": 0
+          },
+          "stats": {
+            "nonfinite": 0,
+            "negativeRGB": 0,
+            "peakRGB": 0,
+            "totalPixelY": 0,
+            "alphaMin": 0,
+            "alphaMax": 0
+          }
+        }
+      },
+      {
+        "name": "actual_mirror_delta_is_current_finite_positive_and_alpha0",
+        "passed": true,
+        "evidence": {
+          "pass": {
+            "drawn": true,
+            "count": 1,
+            "reflection": true,
+            "storageEV": 0,
+            "densityTime": 0,
+            "sourceSelfShadowSamples": 4,
+            "cleanTransmissionSamples": 4,
+            "alpha": 0,
+            "rawRadianceBound": 6.868221659636802
+          },
+          "stats": {
+            "nonfinite": 0,
+            "negativeRGB": 0,
+            "peakRGB": 0.000008262490155175328,
+            "totalPixelY": 0.010023244659341679,
+            "alphaMin": 0,
+            "alphaMax": 0
+          }
+        }
+      },
+      {
+        "name": "premult_cloud_delta_preserves_existing_destination_alpha",
+        "passed": true,
+        "evidence": {
+          "nonfinite": 0,
+          "negativeRGB": 0,
+          "peakRGB": 0.000008262490155175328,
+          "totalPixelY": 0.010023244659341679,
+          "alphaMin": 0.375,
+          "alphaMax": 0.375
+        }
+      },
+      {
+        "name": "invalid_negative_water_hit_is_zero_not_eye_clamped_to2m",
+        "passed": true,
+        "evidence": {
+          "nonfinite": 0,
+          "negativeRGB": 0,
+          "peakRGB": 0,
+          "totalPixelY": 0,
+          "alphaMin": 0,
+          "alphaMax": 0
+        }
+      },
+      {
+        "name": "actual_mirror_far_depth_is_blocked_by_opaque_hardware_depth",
+        "passed": true,
+        "evidence": {
+          "nonfinite": 0,
+          "negativeRGB": 0,
+          "peakRGB": 0,
+          "totalPixelY": 0,
+          "alphaMin": 0,
+          "alphaMax": 0
+        }
+      },
+      {
+        "name": "actual_main_and_mirror_P_plus1_compensates_once",
+        "passed": true,
+        "evidence": {
+          "mainRelativeLinearRGBError": 0,
+          "mirrorRelativeLinearRGBError": 0
+        }
+      },
+      {
+        "name": "current_source_envelope_is_linear_without_cube_update",
+        "passed": true,
+        "evidence": {
+          "relativeError": 0,
+          "sourcePhase": "same source pose/density, half current raw IRGB; no environment capture"
+        }
+      },
+      {
+        "name": "capture_excludes_transient_bound_and_restores_live_uniforms",
+        "passed": true,
+        "evidence": {
+          "captureCount": 0,
+          "innerBound": 0,
+          "restoredCount": 1
+        }
+      },
+      {
+        "name": "actual_capture_shader_pixels_equal_zero_source_base",
+        "passed": true,
+        "evidence": {
+          "relativeError": 0
+        }
+      },
+      {
+        "name": "actual_delta_fits_raw_phase_envelope",
+        "passed": true,
+        "evidence": {
+          "bound": 6.868221659636802,
+          "mainPeak": 0.000008262793016911019,
+          "mirrorPeak": 0.000008262490155175328
+        }
+      },
+      {
+        "name": "actual_finite_cloud_shell_down_to_below_base",
+        "passed": false,
+        "evidence": {
+          "ranges": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "length": 0,
+          "expected": 500
+        }
+      },
+      {
+        "name": "actual_finite_cloud_shell_up_to_above_top",
+        "passed": false,
+        "evidence": {
+          "ranges": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "length": 0,
+          "expected": 500
+        }
+      },
+      {
+        "name": "actual_finite_cloud_shell_source_inside_layer",
+        "passed": false,
+        "evidence": {
+          "ranges": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "length": 0,
+          "expected": 200
+        }
+      },
+      {
+        "name": "actual_finite_cloud_shell_short_down_inside_layer",
+        "passed": false,
+        "evidence": {
+          "ranges": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "length": 0,
+          "expected": 100
+        }
+      },
+      {
+        "name": "actual_water_hit_guard_valid_upward",
+        "passed": false,
+        "evidence": {
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "name": "actual_water_hit_guard_parallel",
+        "passed": true,
+        "evidence": {
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "name": "actual_water_hit_guard_negative_t",
+        "passed": true,
+        "evidence": {
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "name": "actual_normalized_HG_forward_and_backscatter_have_correct_sign",
+        "passed": false,
+        "evidence": {
+          "forwardPhase": null,
+          "backwardPhase": null,
+          "cleanTransmission": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "solar22Used": false
+        }
+      },
+      {
+        "name": "borrowed_live_transient_state_is_restored",
+        "passed": true,
+        "evidence": {
+          "count": 0,
+          "preExposure": 0.5
+        }
+      },
+      {
+        "name": "borrowed_renderer_target_viewport_scissor_colour_and_flags_restored",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "fixture": {
+        "size": 65,
+        "cloudDensityProbe": {
+          "density": 0.7099867517715668,
+          "point": [
+            8000,
+            686.8940717400983,
+            7200
+          ]
+        },
+        "source": {
+          "position": [
+            8000,
+            450,
+            7200
+          ],
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "referenceCandela": 1000000,
+          "radius": 2
+        },
+        "syntheticHighIForFloat32Difference": true,
+        "cloudBase": 600,
+        "cloudTop": 1400,
+        "coverage": 0.9,
+        "mainCamera": [
+          8000,
+          2,
+          7000
+        ],
+        "mirrorCamera": [
+          8000,
+          -2,
+          7000
+        ],
+        "densityTime": 0,
+        "storageEVs": [
+          0,
+          1
+        ],
+        "SSA": 0.999,
+        "smokeSourceAttenuation": false
+      },
+      "mainDelta": {
+        "nonfinite": 0,
+        "negativeRGB": 0,
+        "peakRGB": 0.000008262793016911019,
+        "totalPixelY": 0.010094074997573104,
+        "alphaMin": 0,
+        "alphaMax": 0
+      },
+      "mirrorDelta": {
+        "nonfinite": 0,
+        "negativeRGB": 0,
+        "peakRGB": 0.000008262490155175328,
+        "totalPixelY": 0.010023244659341679,
+        "alphaMin": 0,
+        "alphaMax": 0
+      },
+      "finiteSegments": [
+        {
+          "id": "down_to_below_base",
+          "p": [
+            0,
+            1000,
+            0
+          ],
+          "d": [
+            0,
+            -1,
+            0
+          ],
+          "distance": 900,
+          "expected": 500,
+          "ranges": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "actualLength": 0
+        },
+        {
+          "id": "up_to_above_top",
+          "p": [
+            0,
+            1000,
+            0
+          ],
+          "d": [
+            0,
+            1,
+            0
+          ],
+          "distance": 1000,
+          "expected": 500,
+          "ranges": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "actualLength": 0
+        },
+        {
+          "id": "source_inside_layer",
+          "p": [
+            0,
+            1000,
+            0
+          ],
+          "d": [
+            0,
+            1,
+            0
+          ],
+          "distance": 200,
+          "expected": 200,
+          "ranges": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "actualLength": 0
+        },
+        {
+          "id": "short_down_inside_layer",
+          "p": [
+            0,
+            1000,
+            0
+          ],
+          "d": [
+            0,
+            -1,
+            0
+          ],
+          "distance": 100,
+          "expected": 100,
+          "ranges": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "actualLength": 0
+        }
+      ]
+    },
+    "shader": {
+      "cloudSteps": 64,
+      "fragmentLength": 28463,
+      "sourceSelfShadowSamples": 4,
+      "cleanSamples": 4,
+      "extraSamplers": 0
+    },
+    "limits": [
+      "Synthetic isolated Float32 transport fixture, not actual default fireworks photometry, whole-island images or FPS",
+      "Production atmosphere/shaders/textures and renderTransientClouds method; main/water app wiring remains absent",
+      "Main uses same current cloud field; water base environment is still age-tagged cube outside this fixture",
+      "Finite source self-shadow four-sample quadrature; source-to-cloud smoke T intentionally absent",
+      "Float32 proves shader/linear transport; actual full-chain FP16 scene range and precision need parent integration QA",
+      "Capture exclusion checked via default snapshot+actual shader, not a PMREM/GPU six-face production scheduling test"
+    ]
+  }
+}

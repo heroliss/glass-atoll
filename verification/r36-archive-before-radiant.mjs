@@ -1,0 +1,7 @@
+import fs from 'node:fs';import crypto from 'node:crypto';import assert from 'node:assert/strict';
+const root=new URL('../',import.meta.url),read=p=>fs.readFileSync(new URL(p,root)),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const previous='verification/r35-final-manifest.json';assert.equal(sha(read(previous)),'b1acb0632cfc950dae85fdc432a0a04dba70bc035240044e3d12c1ffb312dfaa');const manifest=JSON.parse(read(previous));
+const files=['firework-layer-profile.js','firework-trail-profile.js','firework-show-envelope.js','fireworks-physics.js','fireworks.js','main.js','ui.js','index.html','package.json'],folder='verification/baselines/r36-before-radiant-profile/';fs.mkdirSync(new URL(folder,root),{recursive:true});const records={};
+for(const p of files){const data=read(p);assert.equal(sha(data),manifest.source[p].sha256,p);const target=new URL(folder+p,root);assert.equal(fs.existsSync(target),false,'Fresh archive required');fs.writeFileSync(target,data);records[p]={sha256:sha(data),bytes:data.length};}
+assert.equal(fs.existsSync(new URL('firework-radiant-profile.js',root)),false);assert.equal(sha(read('fireworks-audio.js')),'4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31');
+const receipt={schema:'glass-atoll.r36-pre-radiant-archive.v1',previous:{path:previous,sha256:sha(read(previous))},files:records,productionEdits:0};fs.writeFileSync(new URL(folder+'manifest.json',root),JSON.stringify(receipt,null,2)+'\n');console.log(JSON.stringify({passed:true,files:files.length,productionEdits:0}));

@@ -1,0 +1,6 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>R13 isolated splash GL verification</title><style>body{font:15px/1.6 system-ui;background:#101c23;color:#d8e8ef;margin:24px}button{padding:10px 18px}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>R13 隔离水花 GL 验证</h1><p>局部水下环境候选已隔离：测试后出现图形上下文中断，不允许在当前会话重试。</p><button id="run">运行原有光学验证</button><button id="local" disabled>局部水下环境验证已隔离</button><pre id="result">局部环境候选已停止。旧光学验证仍须由主代理决定是否运行。</pre><script type="module">
+import {runSplashOpticsGPUCheck} from './r13-splash-gpu-check.js?v=premultiplied-control-3';
+window.runR13SplashCheck=()=>{document.querySelector('#run').disabled=true;try{const result=runSplashOpticsGPUCheck();window.__R13_SPLASH_RESULT__=result;document.querySelector('#result').textContent=JSON.stringify(result,null,2);return result;}catch(error){const result={passed:false,error:String(error.stack||error)};window.__R13_SPLASH_RESULT__=result;document.querySelector('#result').textContent=JSON.stringify(result,null,2);throw error;}finally{document.querySelector('#run').disabled=false;}};
+document.querySelector('#run').onclick=window.runR13SplashCheck;window.__R13_SPLASH_READY__=true;
+window.runR13SplashLocalCheck=()=>{throw new Error('QUARANTINED: no live-session GPU retry is authorized.');};
+</script></html>

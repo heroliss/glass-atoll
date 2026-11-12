@@ -1,0 +1,73 @@
+{
+  "schema": "glass-atoll.r22-native-powered-smoke-cpu.v1",
+  "dateUTC": "2026-10-29T04:36:56.550Z",
+  "passed": false,
+  "counts": {
+    "checks": 4,
+    "passed": 3
+  },
+  "checks": [
+    {
+      "name": "native candidate provider reserves all actual 192 heads and covers every one of 32 motor IDs",
+      "passed": true,
+      "evidence": {
+        "packets": 2634,
+        "actualBodyQueries": 14775,
+        "motorBodies": 32,
+        "logicalBodies": 192,
+        "eventMaterial": 20.35,
+        "sourceConsumeMilliseconds": {
+          "p50": 0.09070000000008349,
+          "p95": 1.2497999999999934,
+          "p99": 1.9932000000000016,
+          "maximum": 9.082999999999998,
+          "total": 208.87459999999848
+        },
+        "frameRateClaim": false
+      }
+    },
+    {
+      "name": "zero optical gain cannot change native smoke material, IDs, timing or actual motor paths",
+      "passed": true,
+      "evidence": {
+        "packets": 2634,
+        "identicalAtGainZero": true
+      }
+    },
+    {
+      "name": "actual 30 and 60 Hz source routes preserve common-end moments and unique emission IDs",
+      "passed": true,
+      "evidence": {
+        "maximumMomentDifference": 1.4210854715202004e-13
+      }
+    },
+    {
+      "name": "actual clear before burst cancels motor material without revived late burst or body reads",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: 0 vs 0.35\n    at near (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r22-native-powered-smoke-check.mjs:12:47)\n    at run (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r22-native-powered-smoke-check.mjs:23:115)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r22-native-powered-smoke-check.mjs:42:11\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r22-native-powered-smoke-check.mjs:12:147)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r22-native-powered-smoke-check.mjs:41:1"
+    }
+  ],
+  "metrics": {
+    "native": {
+      "packets": 2634,
+      "actualBodyQueries": 14775,
+      "motorBodies": 32,
+      "logicalBodies": 192,
+      "eventMaterial": 20.35,
+      "sourceConsumeMilliseconds": {
+        "p50": 0.09070000000008349,
+        "p95": 1.2497999999999934,
+        "p99": 1.9932000000000016,
+        "maximum": 9.082999999999998,
+        "total": 208.87459999999848
+      },
+      "frameRateClaim": false
+    }
+  },
+  "limits": [
+    "Actual native producer/provider and CPU state accepted; no GPU, renderer, browser or visual/performance admission.",
+    "Single-event consumed CPU timings are observations, not a 60 fps guarantee.",
+    "Uniform per-life material allocation; bee-CDF material scheduler is not admitted.",
+    "Fixed downstream capacity 4096 and ordinary 2048-plan cap are unchanged; candidate plan cap is separately bounded at 16384."
+  ]
+}

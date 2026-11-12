@@ -1,0 +1,75 @@
+{
+  "schema": "glass-atoll.display-transform-UI-formatter-CPU.v1",
+  "dateUTC": "2026-10-27T15:57:01.091Z",
+  "passed": true,
+  "counts": {
+    "passed": 9,
+    "total": 9
+  },
+  "checks": [
+    {
+      "name": "ready surface labels are explicitly lastframe with precise independent targets",
+      "passed": true,
+      "evidence": {
+        "targets": [
+          100,
+          700
+        ]
+      }
+    },
+    {
+      "name": "closedHDR cannot mistake a previousACES2 frame for currently enabledHDR",
+      "passed": true
+    },
+    {
+      "name": "HDR target preparation never implies the independentSDR100 result is unsupported",
+      "passed": true,
+      "evidence": {
+        "HDRPreparationBranches": [
+          "unsupported",
+          "pending",
+          "failed"
+        ],
+        "SDRTargetNits": 100,
+        "selectedHDRTargetNits": 1200
+      }
+    },
+    {
+      "name": "none and stale snapshots always wait for actual drawing confirmation",
+      "passed": true
+    },
+    {
+      "name": "fixed known internal reason codes are Chinese without leaking identifiers",
+      "passed": true,
+      "evidence": {
+        "mappedCodes": 27
+      }
+    },
+    {
+      "name": "unknown technical strings and error details use bounded diagnostic wording",
+      "passed": true,
+      "evidence": {
+        "technicalDetailNotRendered": true
+      }
+    },
+    {
+      "name": "realHDR support sync immediately updates closed and reopened colourstatus",
+      "passed": true
+    },
+    {
+      "name": "paperwhite request-disable and manualpeak policy remain unchanged",
+      "passed": true
+    },
+    {
+      "name": "formatter is pure and makes no exposure or controller calls",
+      "passed": true
+    }
+  ],
+  "uiSHA256": "4677599a61001a496a37348a3b3c0a9458a95682b7c103466e100108f5a69275",
+  "actualGPU": false,
+  "actualNativeUI": false,
+  "limits": [
+    "Actual extracted UI logic with small DOM seams only; native layout and interaction are owned by root acceptance.",
+    "No controller, renderer, calibration, paperwhite gain or output pixels altered by formatter."
+  ]
+}

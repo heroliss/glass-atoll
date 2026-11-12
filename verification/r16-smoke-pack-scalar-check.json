@@ -1,0 +1,278 @@
+{
+  "schema": "glass-atoll.r16-source-pack-scalar.v1",
+  "dateUTC": "2026-10-28T18:08:59.411Z",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "checks": [
+    {
+      "name": "native original48packet/3456row main and mirror complete Float32 buffers and all metadata bit-identical",
+      "passed": true,
+      "main": {
+        "packetBytes": 4096,
+        "sourceBytes": 196608,
+        "error": null,
+        "reason": "ready",
+        "packetSHA256": "9b3e204232e4426f7c65a40bff2710ee348290cae2f22a99daf366d504fe5a86",
+        "sourceSHA256": "69981ce4e4fef91687c955750fe471aee0b1af400c3ff745e1e2025c2d6d4683"
+      },
+      "mirror": {
+        "packetBytes": 4096,
+        "sourceBytes": 196608,
+        "error": null,
+        "reason": "ready",
+        "packetSHA256": "431316031e9759abb2a86b1f0768077eb9b76cef49787186716ed4679f336f63",
+        "sourceSHA256": "58612c579d245cf9b5494e4b240cd221f0475b99ad890c1d5d9656f0400b818b"
+      }
+    },
+    {
+      "name": "4096row64packet active prefix in14000row preallocated Double buffers is byte-identical",
+      "passed": true,
+      "packetBytes": 4096,
+      "sourceBytes": 196608,
+      "error": null,
+      "reason": "ready",
+      "packetSHA256": "c3606c15a4a960be4d8ba69a02cd6545a1eb44287d41e8c8cc450c6e6e979dba",
+      "sourceSHA256": "86100a749de99cb9df4aac75cfd73d97d4fb4ecccd14e5b97104ec72f03e1386"
+    },
+    {
+      "name": "negative zero, absent-origin main rays, inactive NaN rows and zero-length rows preserve exact contract",
+      "passed": true,
+      "packetBytes": 4096,
+      "sourceBytes": 196608,
+      "error": null,
+      "reason": "ready",
+      "packetSHA256": "ec89deb82de04d97f563fbc0c60e2f53bdedf3d9083afe2abdd55b2f69c4f9f0",
+      "sourceSHA256": "f05f69b8c0f33ffcbe273a59575afd728adf2ee32837edc422159702868cd16d"
+    },
+    {
+      "name": "source numeric errors retain identical error message and partially written buffers",
+      "passed": true,
+      "cases": [
+        {
+          "packetBytes": 4096,
+          "sourceBytes": 196608,
+          "error": "source coordinates must be finite",
+          "reason": null,
+          "packetSHA256": "8dda178d80bb0357e3593fa6d43dff0da443ef9527150323d4401f75d482aee7",
+          "sourceSHA256": "3381de4ca9f3a477f25989dfc8b744e7916046b7aa369f61a9a2f7dc0963ec9e"
+        },
+        {
+          "packetBytes": 4096,
+          "sourceBytes": 196608,
+          "error": "source coordinates must be finite",
+          "reason": null,
+          "packetSHA256": "8dda178d80bb0357e3593fa6d43dff0da443ef9527150323d4401f75d482aee7",
+          "sourceSHA256": "3381de4ca9f3a477f25989dfc8b744e7916046b7aa369f61a9a2f7dc0963ec9e"
+        },
+        {
+          "packetBytes": 4096,
+          "sourceBytes": 196608,
+          "error": "source ray exceeds finite Float32",
+          "reason": null,
+          "packetSHA256": "8dda178d80bb0357e3593fa6d43dff0da443ef9527150323d4401f75d482aee7",
+          "sourceSHA256": "3381de4ca9f3a477f25989dfc8b744e7916046b7aa369f61a9a2f7dc0963ec9e"
+        },
+        {
+          "packetBytes": 4096,
+          "sourceBytes": 196608,
+          "error": "Nonzero source ray length underflows Float32",
+          "reason": null,
+          "packetSHA256": "8dda178d80bb0357e3593fa6d43dff0da443ef9527150323d4401f75d482aee7",
+          "sourceSHA256": "6a480802026193258632dd25cb812de0994556e0a7fd0e42287ba90cc0504082"
+        }
+      ]
+    },
+    {
+      "name": "invalid masks, unsupported capacities and engineering numeric fallback remain unchanged",
+      "passed": true,
+      "cases": [
+        {
+          "packetBytes": 4096,
+          "sourceBytes": 196608,
+          "error": "active mask must contain0 or1",
+          "reason": null,
+          "packetSHA256": "9b3e204232e4426f7c65a40bff2710ee348290cae2f22a99daf366d504fe5a86",
+          "sourceSHA256": "3381de4ca9f3a477f25989dfc8b744e7916046b7aa369f61a9a2f7dc0963ec9e"
+        },
+        {
+          "packetBytes": 4096,
+          "sourceBytes": 196608,
+          "error": null,
+          "reason": "source-capacity",
+          "packetSHA256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+          "sourceSHA256": "3381de4ca9f3a477f25989dfc8b744e7916046b7aa369f61a9a2f7dc0963ec9e"
+        },
+        {
+          "packetBytes": 4096,
+          "sourceBytes": 196608,
+          "error": null,
+          "reason": "numeric-conditioning-not-admitted",
+          "packetSHA256": "2635888698d9f0ac929cb6e8da3a8520396d9d10f3e7d48da35a39b21a601600",
+          "sourceSHA256": "69981ce4e4fef91687c955750fe471aee0b1af400c3ff745e1e2025c2d6d4683"
+        },
+        {
+          "packetBytes": 4096,
+          "sourceBytes": 196608,
+          "error": "Covariance must be SPD",
+          "reason": null,
+          "packetSHA256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+          "sourceSHA256": "3381de4ca9f3a477f25989dfc8b744e7916046b7aa369f61a9a2f7dc0963ec9e"
+        }
+      ]
+    },
+    {
+      "name": "deterministic rotatedSPD/RGB and mixed invalid/zero prefixes keep complete diagnostics",
+      "passed": true,
+      "snapshots": 16,
+      "sourceRows": 1024
+    }
+  ],
+  "measurements": [
+    {
+      "fixture": "native48-main",
+      "mode": "baseline",
+      "rep": 0,
+      "count": 3456,
+      "packets": 48,
+      "wallMs": 9.014399999999995,
+      "supported": true
+    },
+    {
+      "fixture": "native48-main",
+      "mode": "scalar",
+      "rep": 0,
+      "count": 3456,
+      "packets": 48,
+      "wallMs": 1.801400000000001,
+      "supported": true
+    },
+    {
+      "fixture": "native48-main",
+      "mode": "scalar",
+      "rep": 1,
+      "count": 3456,
+      "packets": 48,
+      "wallMs": 2.2101000000000113,
+      "supported": true
+    },
+    {
+      "fixture": "native48-main",
+      "mode": "baseline",
+      "rep": 1,
+      "count": 3456,
+      "packets": 48,
+      "wallMs": 8.743300000000005,
+      "supported": true
+    },
+    {
+      "fixture": "native48-main",
+      "mode": "baseline",
+      "rep": 2,
+      "count": 3456,
+      "packets": 48,
+      "wallMs": 7.884400000000028,
+      "supported": true
+    },
+    {
+      "fixture": "native48-main",
+      "mode": "scalar",
+      "rep": 2,
+      "count": 3456,
+      "packets": 48,
+      "wallMs": 1.8367000000000075,
+      "supported": true
+    },
+    {
+      "fixture": "4096x64",
+      "mode": "baseline",
+      "rep": 0,
+      "count": 4096,
+      "packets": 64,
+      "wallMs": 11.803899999999999,
+      "supported": true
+    },
+    {
+      "fixture": "4096x64",
+      "mode": "scalar",
+      "rep": 0,
+      "count": 4096,
+      "packets": 64,
+      "wallMs": 0.6605000000000132,
+      "supported": true
+    },
+    {
+      "fixture": "4096x64",
+      "mode": "scalar",
+      "rep": 1,
+      "count": 4096,
+      "packets": 64,
+      "wallMs": 0.6000999999999976,
+      "supported": true
+    },
+    {
+      "fixture": "4096x64",
+      "mode": "baseline",
+      "rep": 1,
+      "count": 4096,
+      "packets": 64,
+      "wallMs": 8.949099999999987,
+      "supported": true
+    },
+    {
+      "fixture": "4096x64",
+      "mode": "baseline",
+      "rep": 2,
+      "count": 4096,
+      "packets": 64,
+      "wallMs": 8.705699999999979,
+      "supported": true
+    },
+    {
+      "fixture": "4096x64",
+      "mode": "scalar",
+      "rep": 2,
+      "count": 4096,
+      "packets": 64,
+      "wallMs": 0.6838000000000193,
+      "supported": true
+    }
+  ],
+  "summary": [
+    {
+      "fixture": "native48-main",
+      "baseline": {
+        "samples": 3,
+        "medianWallMs": 8.743300000000005
+      },
+      "scalar": {
+        "samples": 3,
+        "medianWallMs": 1.8367000000000075
+      }
+    },
+    {
+      "fixture": "4096x64",
+      "baseline": {
+        "samples": 3,
+        "medianWallMs": 8.949099999999987
+      },
+      "scalar": {
+        "samples": 3,
+        "medianWallMs": 0.6605000000000132
+      }
+    }
+  ],
+  "sources": {
+    "pyro-smoke-transmission-pack.js": "f2113d69fc0120c9f88250db32e4a9c5c82ced62babb411b8028e356d9cf5b7d",
+    "verification/r16-smoke-transmission-pack-before-scalar.js": "0530e0ca2b20dc9884f6bd0eb3c821376eee85a494ce25abdbb9a5c1ed0b1a54",
+    "pyro-smoke-transmission-gpu.js": "28b173aa16267c1dc0be96283fea576199f2ea0c0cd9b76e0d6886b519e72369"
+  },
+  "limits": [
+    "Source-level allocation removal and exact byte/metadata equivalence, not a measured total allocation-byte guarantee.",
+    "Bounded Node packing replay; no Gaussian column kernel, GPU draw/context or native frame/FPS claim.",
+    "Preserve/shaders/FW/runtime caps unchanged; root owns native numeric/phase/performance admission."
+  ]
+}

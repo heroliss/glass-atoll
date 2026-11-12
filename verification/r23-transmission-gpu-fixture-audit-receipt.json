@@ -1,0 +1,47 @@
+{
+  "schema": "glass-atoll.r23-transmission-gpu-fixture-audit-receipt.v1",
+  "passed": true,
+  "actualGPU": false,
+  "GPUdispatches": 0,
+  "productionEdits": 0,
+  "authorizedFixtureEdit": "target viewport/scissor sentinel consistency only, prior to peer row-wrap addition",
+  "counts": {
+    "checks": 8,
+    "passed": 8
+  },
+  "firstPhase": {
+    "orderedRows": 5,
+    "packets": 65,
+    "maximumDraws": 4,
+    "constructorCaps": [
+      13,
+      65,
+      845
+    ]
+  },
+  "separateRowWrapPhase": {
+    "orderedRows": 257,
+    "packets": 65,
+    "maximumDraws": 4,
+    "constructorCaps": [
+      513,
+      65,
+      33345
+    ],
+    "requiresSeparateRootDecision": true
+  },
+  "timingGuardUnit": "next prepare; at most two synchronous passes may already be queued before results are readable",
+  "resolvedPredispatchFinding": "Unsupported private viewport-cache desynchronization removed; distinct READ/DRAW/PACK sentinels retained",
+  "SHA256": {
+    "verification/r23-transmission-layout-gpu-check.js": "a9a206c84441621aaceb958026082b3c1e3c1b376ddb9b34a503b2233543e6c2",
+    "verification/r23-legacy-transmission-gpu.js": "3482a295236e5fc110970e7623b69f6d574bb28aff1f93138e7975506f37a1a4",
+    "verification/baselines/r23-before-active-transmission-layout/pyro-smoke-transmission-gpu.js": "2a35974fac7f6d75d6fa128fa04e869160d0ca40c9671569fe356bfef03ee294",
+    "verification/r23-transmission-gpu-fixture-preflight.mjs": "f4c57eab55fc8e7b37256c3bf14724f45c9712958088643893daea19dcea7944",
+    "verification/r23-transmission-gpu-fixture-preflight.json": "a62f10dd93fcb1ccac17b09b5cce507fa6e95a55fce9be57e80af26abd4734e3",
+    "verification/plans/R23-TRANSMISSION-GPU-FIXTURE-INDEPENDENT-AUDIT.md": "cc179c030bf38312680f80eb4fa6a051bd2b0899678988c1878e99334c447830"
+  },
+  "limits": [
+    "No actual GPU pixels/timing/state restoration admission.",
+    "No native performance or whole-show admission; no cap increase or chunking."
+  ]
+}

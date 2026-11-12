@@ -1,0 +1,104 @@
+{
+  "schema": "glass-atoll.r27-deployed-integration-independent-cpu.v1",
+  "dateUTC": "2026-10-29T12:57:56.457Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "productionCopiedByRoot": true,
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "checks": [
+    {
+      "name": "Four deployed modules exactly equal peer-reviewed staging with only the necessary GPU import path replacement",
+      "passed": true,
+      "evidence": {
+        "deployedPins": {
+          "pyro-smoke-transmission-gpu.js": "16d7546cc73df5d14ab5bed3f07bb5a7f13fbec4638e1e2344e3ebb7d73abcf2",
+          "pyro-smoke-transmission-pack.js": "8ccab09237ad8fc9ca9e23daa377b173278e9e7b4a48a33cb564a43aba4ada8d",
+          "smoke-transmission-layout.js": "79b76d3ece575ab9eb4678e42825ff19b758200627512b0bfed78ab5b81508a5",
+          "smoke-transmission-rectangles.js": "3080bdaf0630010dd0f7e91ff84b050eac889235f7b0a587c831ea4090898832"
+        },
+        "deployedFactorySHA256": "5f2f922ca6e7a4818966bcf92fdcb14f2d344b2caada1cbd4f0819ec737d834f",
+        "reviewedStagingCPUChecks": {
+          "passed": 5,
+          "total": 5
+        }
+      }
+    },
+    {
+      "name": "Main promotion delta is one trusted production-QA hook plus explicit normal-field caps; old module APIs/default result fields remain intact",
+      "passed": true,
+      "evidence": {
+        "mainSHA256": "713640b631c29b64abe85d5fb6efc5e04e7cdfa5ab0fcf65c03ab3c9f4cfb088",
+        "onlyReviewedMainDelta": true,
+        "oldPolicyComparisons": 42,
+        "moduleDefaultPairs": 3072,
+        "normalAppExplicitRequestPairs": 1400000
+      }
+    },
+    {
+      "name": "Actual normal configure function passes explicit1.4m/map1m/maps8, preserves synchronous borrowed input association, and retains old QA caps when provided",
+      "passed": true,
+      "evidence": {
+        "normalCaps": {
+          "maxSources": 18000,
+          "maxPackets": 4096,
+          "maxPairs": 1048576,
+          "maxRequestPairs": 1400000,
+          "maxMapPairs": 1000000,
+          "maxMapDraws": 8
+        },
+        "providedQACaps": {
+          "maxSources": 64,
+          "maxPackets": 48,
+          "maxPairs": 3072
+        },
+        "synchronousPrepareAssociation": true,
+        "normalUICallbackAndStartupWired": true,
+        "scope": "Executes actual configure function with constructor spy, not a live renderer"
+      }
+    },
+    {
+      "name": "Unchanged fireworks caller resets prior T, validates count/source/density/camera per ordered fill and consumes the valid gl_InstanceID prefix immediately",
+      "passed": true,
+      "evidence": {
+        "fireworksSHA256": "f0e3b7db8a268cb02227c81282e85a808158942e2b73656df39fdc752c783463",
+        "orderedPrefixPerFill": true,
+        "freshSourceVersion": true,
+        "distinctMainMirrorGeneration": true,
+        "resetBeforePotentialSkip": true,
+        "noStaleBatchFallback": true,
+        "scope": "Exact unchanged caller source contract plus prior native capture; no new live source draw or VTF acceptance claim"
+      }
+    },
+    {
+      "name": "Production helper changes only phase identity and deployed/baseline pins; private input, exact runtime and native-state contracts remain sealed",
+      "passed": true,
+      "evidence": {
+        "helperSHA256": "0cd559395aa464e61ac7629ef32581dc5876d1d14db9934a5aee3c566069cb19",
+        "sameOriginalInputAndOfflineOracles": true,
+        "sameRuntime4DrawCap": true,
+        "same27856ByteReadback": true,
+        "differentPhaseAndCurrentCachedFactoryPins": true
+      }
+    },
+    {
+      "name": "A candidate factory cannot masquerade as promoted production; helper rejects it before context or construction",
+      "passed": true,
+      "evidence": {
+        "wrongCandidateRejected": true,
+        "contextCalls": 0,
+        "actualDraws": 0
+      }
+    }
+  ],
+  "limits": [
+    "CPU-only exact deployed/staging source comparison, old API parity, normal configure-function spy and production helper stale-factory rejection; no GPU/browser operation by this agent.",
+    "Normal caller source and configured backend are verified, but production implementation GPU numerics and a true native scene source draw are separate runtime evidence.",
+    "Main explicit1.4m request policy covers the admitted phase; larger requests still explicitly fall back, and separate SH1304640pair path remains unmodified.",
+    "No total frame-time, steady-state FPS, rich mirror, lifetime/seed-wide performance or full-goal completion claim."
+  ]
+}

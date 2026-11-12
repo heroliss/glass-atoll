@@ -1,0 +1,292 @@
+{
+  "schema": "glass-atoll.r11-tail-cooling-independent.v1",
+  "dateUTC": "2026-10-28T04:16:28.335Z",
+  "actualGPU": false,
+  "sourceSHA256": {
+    "fireworks": "cc864bf4cbfee0739362bc3b3770e0d8a2840238afe989b4c8815170660724e6",
+    "baselineFireworks": "b37ea388471b6f50a307327fab95ccc10d7f9aaa1dc46ed921fc1abd9c890e43",
+    "pureEntry": "0f8f3ac3093367ec7a7588510df611a359f5c1edb1373267c405c434d12c29e0",
+    "helper": "e2385881cf958c4edf69aa417ac4b4aacdb63c374df72b9e40621f7be0aaff4b"
+  },
+  "checks": [
+    {
+      "name": "pure entry endpoint identity finite output fixedY and caller isolation",
+      "passed": true,
+      "evidence": {
+        "points": 54,
+        "maximumYError": 2.220446049250313e-16,
+        "exactLegacyHotIdentity": true,
+        "outputMutationDoesNotPolluteLUT": true
+      }
+    },
+    {
+      "name": "5nm LUT and RGB interpolation agree with independent1nm Planck integration",
+      "passed": true,
+      "evidence": {
+        "points": 10,
+        "maximumAbsoluteChannelError": 0.000030882848119029305,
+        "absoluteChannelTolerance": 0.0005,
+        "rows": [
+          {
+            "fraction": 0,
+            "temperatureKelvin": 2850,
+            "rgb": [
+              1.8277674763872431,
+              0.8316207499306247,
+              0.23049133199015837
+            ],
+            "oracle": [
+              1.8277983592353622,
+              0.8316143106008846,
+              0.23046418123004625
+            ],
+            "error": 0.000030882848119029305
+          },
+          {
+            "fraction": 0.031,
+            "temperatureKelvin": 2820.55,
+            "rgb": [
+              1.8435533377047368,
+              0.8277245309756325,
+              0.22260354363158552
+            ],
+            "oracle": [
+              1.843583451801076,
+              0.8277182294647615,
+              0.22257729132816895
+            ],
+            "error": 0.000030114096339239893
+          },
+          {
+            "fraction": 0.149,
+            "temperatureKelvin": 2708.45,
+            "rgb": [
+              1.9069368169053498,
+              0.8118996895929048,
+              0.19272264167696898
+            ],
+            "oracle": [
+              1.9069648605951999,
+              0.8118936695569373,
+              0.19269969765012274
+            ],
+            "error": 0.000028043689850099085
+          },
+          {
+            "fraction": 0.25,
+            "temperatureKelvin": 2612.5,
+            "rgb": [
+              1.9656912440158665,
+              0.7969903322850123,
+              0.16740382094163447
+            ],
+            "oracle": [
+              1.9657188231884963,
+              0.7969841731816423,
+              0.16738362230768766
+            ],
+            "error": 0.000027579172629854654
+          },
+          {
+            "fraction": 0.371,
+            "temperatureKelvin": 2497.55,
+            "rgb": [
+              2.0422167162802185,
+              0.7772586710376764,
+              0.13752527136674958
+            ],
+            "oracle": [
+              2.0422388836751355,
+              0.7772538509639224,
+              0.13750774406189642
+            ],
+            "error": 0.000022167394917005367
+          },
+          {
+            "fraction": 0.5,
+            "temperatureKelvin": 2375,
+            "rgb": [
+              2.1321069883423363,
+              0.7536786207311506,
+              0.10641419295707107
+            ],
+            "oracle": [
+              2.1321315396562026,
+              0.7536727586294938,
+              0.10639996810633646
+            ],
+            "error": 0.000024551313866361113
+          },
+          {
+            "fraction": 0.719,
+            "temperatureKelvin": 2166.95,
+            "rgb": [
+              2.3079836325991216,
+              0.7064783369179545,
+              0.05608550063304156
+            ],
+            "oracle": [
+              2.3080050152442557,
+              0.7064729853450156,
+              0.056075549034849737
+            ],
+            "error": 0.00002138264513407151
+          },
+          {
+            "fraction": 0.875,
+            "temperatureKelvin": 2018.75,
+            "rgb": [
+              2.454787256179208,
+              0.6661956828120054,
+              0.022840401511830175
+            ],
+            "oracle": [
+              2.454807680691205,
+              0.6661903458865057,
+              0.022833126136026356
+            ],
+            "error": 0.00002042451199679718
+          },
+          {
+            "fraction": 0.999,
+            "temperatureKelvin": 1900.95,
+            "rgb": [
+              2.58439949580025,
+              0.6299729686701159,
+              0
+            ],
+            "oracle": [
+              2.584406645441241,
+              0.6299708433713538,
+              0
+            ],
+            "error": 0.000007149640990800066
+          },
+          {
+            "fraction": 1,
+            "temperatureKelvin": 1900,
+            "rgb": [
+              2.5852230563071164,
+              0.6297281574791765,
+              0
+            ],
+            "oracle": [
+              2.5852334142094646,
+              0.6297250784942224,
+              0
+            ],
+            "error": 0.000010357902348268055
+          }
+        ],
+        "scope": "quadrature and LUT interpolation for authored Planck/CIE-fit model; not measured ember spectral calibration"
+      }
+    },
+    {
+      "name": "invalid pure inputs reject and do not mutate subsequent valid results",
+      "passed": true,
+      "evidence": {
+        "cases": 12
+      }
+    },
+    {
+      "name": "default constant allten full source records events ledger clusters bounds retain R10 behavior",
+      "passed": true,
+      "evidence": {
+        "types": 10,
+        "frames": 60,
+        "recordTolerance": 0,
+        "defaultPromoted": false
+      }
+    },
+    {
+      "name": "cooling changes only detached RGB while source candela motion envelopes and audio events stay exact",
+      "passed": true,
+      "evidence": {
+        "types": 10,
+        "frames": 50,
+        "records": 19142,
+        "changedDetachedRecords": 14679,
+        "affectedTypes": [
+          "peony",
+          "chrysanthemum",
+          "willow",
+          "palm",
+          "ring",
+          "heart",
+          "crossette",
+          "strobe",
+          "fan",
+          "bouquet"
+        ],
+        "maximumYDifference": 3.3306690738754696e-16,
+        "perRecordCandelaUnchanged": true,
+        "noPhysicsOrSoundEventChanges": true
+      }
+    },
+    {
+      "name": "paused mode switch invalidates ledger and light cache while preserving total candela",
+      "passed": true,
+      "evidence": {
+        "pausedTime": 7.075024273694912,
+        "count": 1760,
+        "ledgerGenerationAdvanced": true,
+        "roundtripRGBBitExact": true,
+        "perChannelHDRBoundRecomputed": true,
+        "eventsWereDrainedBeforeSwitch": 2
+      }
+    },
+    {
+      "name": "new invalid modes reject before mixed physics patches or mode cache changes",
+      "passed": true,
+      "evidence": {
+        "invalidModes": 6,
+        "constructorRejectedBeforeTHREEAllocation": true,
+        "mixedPhysicsRejectionDidNotCommitMode": true
+      }
+    },
+    {
+      "name": "singlephysics import rewrite and generic dataURL factory styles remain executable",
+      "passed": true,
+      "evidence": {
+        "existingRewriteIdioms": 2,
+        "newRelativeFactoryImportRequired": false,
+        "pureEntryNeedsNoTHREESceneConstruction": true
+      }
+    },
+    {
+      "name": "main and mirrored render uploads use the same new physical RGB and independent transmission once",
+      "passed": true,
+      "evidence": {
+        "passes": 2,
+        "uploadedComponents": 792,
+        "actualGPU": false,
+        "scope": "real CPU render submission using existing shader source, not GPU image validation"
+      }
+    },
+    {
+      "name": "unrelated runtime audio photometry and reviewedFW source bytes stayed frozen",
+      "passed": true,
+      "evidence": {
+        "fireworks-physics.js": "dc5de6b1a11a3e1a70d7342d3bdacc5813ab0f66e426f622d6e287991b4af87a",
+        "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+        "scene-radiometry.js": "f942645604dae00fe6ad713c605ad38509bf71cf7fbf10fe5e28b904eb5bf66d",
+        "display-transform.js": "6d0a33ba6824b49e418332f05ef5ecf9b16a212c8dc51b670ba7ea1fe79f4617",
+        "pyro-smoke.js": "01c4c66e15579f429e472a0089fda9f5ba1f17d782d3cd63d69a226b30225a89",
+        "pyro-smoke-state.js": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+        "pyro-smoke-logical-events.js": "5f7bf8b0d311f9cdac938b18612b9ff16b5c80fa26330a20d79e9e44661a1837",
+        "pyro-smoke-logical-burn.js": "235dff6244215b5a599d3d80ea93321ccacefb8d690a07813f0c25b827800a15"
+      }
+    }
+  ],
+  "counts": {
+    "passed": 10,
+    "total": 10
+  },
+  "limits": [
+    "Colour-only authored2850to1900K detached-tail proxy normalized to photopicY1. Existing brightness weights/envelope remain, so this is not blackbody radiant-power decay, heat transfer, fuel burn, measured temperature or pyrochemistry.",
+    "Independent1nm integration uses the same analytic CIE-fit scientific input; it checks quadrature/LUT mechanics, not measured real-firework colour calibration.",
+    "Valid finite API paths, CPU records/ledger/clusters/bounds and submit arrays only. No actualGPU, HDR display, visual improvement, image acceptance, FPS or scene exposure calibration claim.",
+    "Default remains constant. Current camera/P may change under legitimate per-channel bound changes when optin is enabled; equal photopic candela does not imply equal maximumRGB channel."
+  ],
+  "passed": true
+}

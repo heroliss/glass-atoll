@@ -1,0 +1,137 @@
+{
+  "schema": "glass-atoll.r15-camera-transition.v1",
+  "dateUTC": "2026-10-28T12:57:21.649Z",
+  "scope": "Pure CPU actual host terrain,100 preset pairs, geometric trajectory/heading bounds and OrbitControls-compatible pose checks. No browser/visual/FPS proof.",
+  "sourceSHA256": "1b77699e5087a0d087f11c903b7b4489532202dc2014a977334e74fa673255ae",
+  "passed": false,
+  "counts": {
+    "passed": 19,
+    "total": 21
+  },
+  "checks": [
+    {
+      "name": "opposite presets avoid old linear target-eye singularity",
+      "passed": true,
+      "durationSeconds": 10.709974955419748,
+      "midpoint": {
+        "position": [
+          7.34788079488412e-15,
+          10.71238898038469,
+          60
+        ],
+        "target": [
+          7.34788079488412e-15,
+          10.71238898038469,
+          1.4210854715202004e-14
+        ],
+        "progress": 0.5,
+        "done": false,
+        "floorLimited": false
+      }
+    },
+    {
+      "name": "valid endpoints are exact and completion clamps without overshoot",
+      "passed": true
+    },
+    {
+      "name": "start and finish have vanishing positional and camera angular velocity",
+      "passed": true,
+      "positionSpeed": 1.8003762156191526e-8,
+      "angularSpeed": 0
+    },
+    {
+      "name": "all100 host preset pairs have exact legal endpoints and finite separated look",
+      "passed": true,
+      "pairs": 100,
+      "samples": 25700,
+      "minimumLookDistanceMetres": 24.303086223770016,
+      "exactGuardSamples": 0
+    },
+    {
+      "name": "all100 actual preset paths satisfy requested heading and planned speed bounds",
+      "passed": true,
+      "steps": 76020,
+      "maxAngularRadiansPerSecond": 0.5499997678598573,
+      "maxSpeedMetresPerSecond": 44.906235301974725,
+      "maxStepDegreesAt120Hz": 0.26258568793498505,
+      "maxDurationSeconds": 16.662465961498352
+    },
+    {
+      "name": "curve retains radial envelope rather than crossing through island centre",
+      "passed": true,
+      "minimumRadiusMetres": 58.36308764964376,
+      "lower": 58.36308764964376
+    },
+    {
+      "name": "yaw wrap359to1takes2degrees rather than358",
+      "passed": true
+    },
+    {
+      "name": "near-antipodal tie chooses same island side under submillimetre perturbations",
+      "passed": true
+    },
+    {
+      "name": "no roll: camera right remains horizontal across all turning paths",
+      "passed": true,
+      "maximumRightAxisVerticalComponent": 1.1102230246251565e-16
+    },
+    {
+      "name": "look distance stays positive in logarithmic near-far interpolation",
+      "passed": true,
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    {
+      "name": "in-place look change leaves eye stationary when terrain safe",
+      "passed": true
+    },
+    {
+      "name": "an interrupted transition starts from the currently displayed pose without teleport",
+      "passed": true
+    },
+    {
+      "name": "reduced motion uses one final safe cut instead of fast180degree flight",
+      "passed": true
+    },
+    {
+      "name": "unchanged preset is an immediate no-motion result",
+      "passed": true
+    },
+    {
+      "name": "terrain hump raises planned route before exact floor guard",
+      "passed": true
+    },
+    {
+      "name": "unsafe endpoint floor is explicitly adjusted and reported",
+      "passed": true
+    },
+    {
+      "name": "zenith and nadir targets respect OrbitControls pole margins explicitly",
+      "passed": true
+    },
+    {
+      "name": "sampling order and frame schedule do not alter pose",
+      "passed": true
+    },
+    {
+      "name": "input mutation and returned arrays cannot mutate frozen path",
+      "passed": false,
+      "error": "DataCloneError: function anonymous(x,z\n) {\n\r\n  const xx=x+1.5, zz=z+1;\r\n  const a=Math.atan2(zz/19,xx/30);\r\n  let r=Math.hypot(...<omitted>...\n} could not be cloned.\n    at new DOMException (node:internal/per_context/domexception:76:18)\n    at structuredClone (node:internal/worker/js_transferable:127:26)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r15-camera-transition-check.mjs:31:86\n    at test (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r15-camera-transition-check.mjs:8:52)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r15-camera-transition-check.mjs:31:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "invalid poses and configuration are rejected before path construction",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Missing expected exception.\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r15-camera-transition-check.mjs:32:417\n    at test (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r15-camera-transition-check.mjs:8:52)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r15-camera-transition-check.mjs:32:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "module has no wallclock renderer randomness or scene mutation dependencies",
+      "passed": true
+    }
+  ],
+  "limits": [
+    "No full tree/prop collision solver. Terrain survey plus point guard handles ground.",
+    "Interrupting an in-progress flight preserves pose and heading (C0), but starts a new ease at rest rather than matching prior velocity (not C1).",
+    "World-up no-roll camera requires host OrbitControls pitch limits and no other simultaneous pose writer.",
+    "No actual native camera switching, performance or subjective nausea acceptance is inferred from these CPU checks."
+  ]
+}

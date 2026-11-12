@@ -1,0 +1,13 @@
+# Scalar source-packing handoff
+
+Only runtime file changed: `pyro-smoke-transmission-pack.js`. GPU shader, factory, generic renderer preservation and FW remain untouched. Preserved baseline `r16-smoke-transmission-pack-before-scalar.js` is SHA0530e0ca2b20dc9884f6bd0eb3c821376eee85a494ce25abdbb9a5c1ed0b1a54. Candidate SHA is f2113d69fc0120c9f88250db32e4a9c5c82ced62babb411b8028e356d9cf5b7d.
+
+Root's limited first3.6s CDP profile attributed635.9ms main plus622.8ms mirror inclusive time to source packing, about35percent of that window; self time was610.9ms and589.1ms. This supports optimizing packing before weakening renderer preservation. The profile's later idle tail must not enter percentages. Source-level inspection found9temporary JS Arrays and2TypedArray subarray views per active row in the original packing loop, plus the `[0,4]` Array literal in its later bounds scan. These are source constructions, not measured allocated heap bytes; V8 may remove some.
+
+The new loop reads original Float64 coordinates into scalar variables, performs the same delta subtraction, both Math.hypot normalizations and all12Math.fround writes in their original order, and writes the existing fixed Float32 buffer directly. The bounds scan is fused using the same already-quantized Float32 values; each axis still visits origin before endpoint. No source, density, interval, field or numeric tolerance changes.
+
+`r16-smoke-pack-scalar-check.json` passes6/6. It compares full packet/source buffer bytes, every metadata/diagnostic value, exception type/message and partial output buffers where applicable. Coverage includes the real native48packet/3456row main and mirror inputs;4096rows/64packets inside14000row preallocated inputs; negative zero, absent-origin main rays, inactive nonfinite rows, zero length, NaN/Inf/Float32 overflow/underflow, invalid masks, caps, invalid SPD, engineering conditioning fallback and16random rotatedSPD/RGB snapshots. The original pack/oracle/capability contract suite also passes8/8.
+
+Bounded interleaved Node packing medians were8.7433→1.8367ms for the native3456row fixture and8.9491→.6605ms for4096rows/64packets. JIT warm-up differs across the fixtures; these are packing-only measurements, not native frame/FPS claims. The test creates no GPU/context and executes no Gaussian ray kernel. Root still owns native numeric7/7, actual profile and FPS admission.
+
+The browser must fully reload the app to replace the static imported pack dependency; importing only a query-suffixed factory URL can retain the old pack module in its module cache. No background CPU benchmark remains running.

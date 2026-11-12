@@ -1,0 +1,99 @@
+{
+  "schema": "glass-atoll.r10-transmission-logical-independent.v1",
+  "actualGPU": false,
+  "productionIntegrated": false,
+  "dateUTC": "2026-10-27T22:00:50.636Z",
+  "sourceSHA256": {
+    "columns": "0c2a14e9b8bd4181c022a70eb0fc34d04b65f25bce8e28d20201eef6c3a11e7d",
+    "fireworks": "b37ea388471b6f50a307327fab95ccc10d7f9aaa1dc46ed921fc1abd9c890e43",
+    "host": "01c4c66e15579f429e472a0089fda9f5ba1f17d782d3cd63d69a226b30225a89",
+    "adapter": "5f7bf8b0d311f9cdac938b18612b9ff16b5c80fa26330a20d79e9e44661a1837"
+  },
+  "checks": [
+    {
+      "name": "frozen reviewed runtime bytes and strict columns inverse",
+      "passed": true,
+      "evidence": {
+        "sourceSHA256": {
+          "columns": "0c2a14e9b8bd4181c022a70eb0fc34d04b65f25bce8e28d20201eef6c3a11e7d",
+          "fireworks": "b37ea388471b6f50a307327fab95ccc10d7f9aaa1dc46ed921fc1abd9c890e43",
+          "host": "01c4c66e15579f429e472a0089fda9f5ba1f17d782d3cd63d69a226b30225a89",
+          "adapter": "5f7bf8b0d311f9cdac938b18612b9ff16b5c80fa26330a20d79e9e44661a1837"
+        },
+        "qualityCuts": false
+      }
+    },
+    {
+      "name": "independent coloured-SPD AABB-edge queries preserve binary64T and nonclock counters",
+      "passed": true,
+      "evidence": {
+        "rays": 147,
+        "bitExact": true,
+        "errorBudgets": [
+          0,
+          0.00001,
+          0.01
+        ]
+      }
+    },
+    {
+      "name": "out aliased to either endpoint and later queries never alias old publicT",
+      "passed": true
+    },
+    {
+      "name": "invalid inherited-readonly Array output must reject before query counters change",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Inherited readonly output reached computation before its write failed\n\n1 !== 0\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r10-transmission-logical-independent-check.mjs:51:9\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r10-transmission-logical-independent-check.mjs:16:68)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r10-transmission-logical-independent-check.mjs:45:1"
+    },
+    {
+      "name": "G1 native child is causal, old root-only entry still rejects, past point stable to1e-9 after later wind",
+      "passed": true,
+      "evidence": {
+        "childId": 1,
+        "oldRootRejects": true,
+        "maximumPositionDifference": 7.105427357601002e-14,
+        "physicalPositionTolerance": 1e-9,
+        "bitExactAcrossRebuiltWindPrefix": false
+      }
+    },
+    {
+      "name": "native-provider G4 prepare failure and actual accepted-prefix clear do not replay oldevent",
+      "passed": true,
+      "evidence": {
+        "acceptedBeforeFault": 3,
+        "cancelledReserve": 20.194444444444443,
+        "oldEventDidNotReplay": true,
+        "sameClockNewEventAccepted": true
+      }
+    },
+    {
+      "name": "independent review left frozen source bytes unchanged",
+      "passed": true
+    }
+  ],
+  "findings": [
+    {
+      "severity": "low API preflight gap; not a production F64 or numerical-quality blocker",
+      "file": "pyro-smoke-columns.js",
+      "lines": [
+        261,
+        300
+      ],
+      "error": "Cannot assign to read only property '0' of object '[object Array]'",
+      "raysBefore": 0,
+      "raysAfter": 1,
+      "kernelsAfter": 16,
+      "globalPrototypeModified": false
+    }
+  ],
+  "counts": {
+    "passed": 6,
+    "total": 7
+  },
+  "limits": [
+    "One invalid sparse-Array preflight finding does not change production Float64Array T, error budget or numerical quality.",
+    "No performance measurement, full application default regression, GPU/visual validation or complete arbitrary-callback atomicity proof.",
+    "G4 callback reads are readonly; fault-injected acceptance is explicit and not rolled back."
+  ],
+  "passed": false
+}

@@ -1,0 +1,75 @@
+{
+  "schema": "glass-atoll.r34-smoke-review-mode-regression.v1",
+  "actualGPU": false,
+  "nativeContextCalls": 0,
+  "rendererCalls": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "mainSHA256": "c731e448fa23b2897ff8f4b811b724da3dac1a39d391f7484faa64eefe2ef922",
+  "baselineMainSHA256": "328f997e0b7595388a4564427c0cb8db10beeedb8f881e0bbec3cbb6af1e232b",
+  "rawStateSHA256": "d1a3690822ae10280c4ffd151cb26a4446144588c8e034d95089316de88638b8",
+  "checks": [
+    {
+      "name": "Current root change is exactly one rendering snapshot and two constructor options; whole oldmain inverse and final pin verified",
+      "passed": true,
+      "entireMainInverse": true,
+      "oldMethodSHA256": "eb06148a9b9484695e0b246e5cc4e9f56f9350d0c25bcdf98c397294253de414",
+      "newMethodSHA256": "177b690f1d4978d4a85301c5a3be98abf18499cceca37c9c9337ed1405d8768f"
+    },
+    {
+      "name": "Actual source-extracted old method reproduces tiled64/ellipsoid loss with daily4m still present; raw1051×1728 diagnosis matches",
+      "passed": true,
+      "requiredPairs": 1816128,
+      "serialLegacyCap": 1048576,
+      "tiledRequestCap": 4000000
+    },
+    {
+      "name": "Actual source-extracted new method preserves both bake/projection modes verbatim across all five QA profiles; swaps/disposes exactly once",
+      "passed": true,
+      "cases": 20
+    },
+    {
+      "name": "Constructor failure retains original host/resources, and existing validation failure disposes only the uninstalled candidate",
+      "passed": true,
+      "cases": 8,
+      "scope": "Constructor throw and explicit pre-swap validation mismatch; no unrelated post-swap photometry failure contract added"
+    },
+    {
+      "name": "Unknown/nonempty/active QA requests reject before construction and leave host untouched",
+      "passed": true,
+      "cases": 5
+    },
+    {
+      "name": "Real production empty host constructors expose the same legacy defaults and honor preserved modes with zero context/render calls",
+      "passed": true,
+      "realConstructorCases": [
+        {
+          "projectionMode": "legacy-sphere",
+          "lightFieldBakeMode": "serial-reference"
+        },
+        {
+          "projectionMode": "ellipsoid",
+          "lightFieldBakeMode": "tiled64"
+        },
+        {
+          "projectionMode": "ellipsoid",
+          "lightFieldBakeMode": "serial-reference"
+        },
+        {
+          "projectionMode": "legacy-sphere",
+          "lightFieldBakeMode": "tiled64"
+        }
+      ],
+      "tiledPolicySupportedForRawCount": true
+    }
+  ],
+  "limits": [
+    "Real host construction is CPU-only and empty; no lighting bake/render/context was requested.",
+    "Source-extracted main method uses an owned factory spy for argument, swap and disposal assertions.",
+    "Runtime visual recovery after the root patch remains a separate root-owned acceptance."
+  ]
+}

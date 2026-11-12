@@ -1,0 +1,194 @@
+{
+  "schema": "glass-atoll.combustion-body-sampler-G1.v1",
+  "dateUTC": "2026-10-27T21:28:42.143Z",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 7,
+    "total": 7
+  },
+  "sourceSHA256": "b37ea388471b6f50a307327fab95ccc10d7f9aaa1dc46ed921fc1abd9c890e43",
+  "baselineSHA256": "36e5a57f0652e2247b606e28b75b41418dd74f873d963409e4fff5f9ab7a944c",
+  "checks": [
+    {
+      "name": "two exact optional G1 sites restore full performance-only source; all malformed inverses reject",
+      "passed": true,
+      "evidence": {
+        "edits": 2,
+        "baselineSHA256": "36e5a57f0652e2247b606e28b75b41418dd74f873d963409e4fff5f9ab7a944c",
+        "composition": "G1two thenperformanceFWtwo restores927"
+      }
+    },
+    {
+      "name": "body index is lazy and graph description does not allocate it",
+      "passed": true,
+      "evidence": {
+        "defaultIndexAllocation": false,
+        "futureRejectedBeforeIndex": true
+      }
+    },
+    {
+      "name": "allten native root child and ground bodies match actual causal physics positions exactly",
+      "passed": true,
+      "evidence": {
+        "sampled": 2646,
+        "roots": 1048,
+        "children": 144,
+        "ground": 113,
+        "types": [
+          {
+            "type": "peony",
+            "bodies": 224,
+            "children": 0
+          },
+          {
+            "type": "chrysanthemum",
+            "bodies": 192,
+            "children": 0
+          },
+          {
+            "type": "willow",
+            "bodies": 160,
+            "children": 0
+          },
+          {
+            "type": "palm",
+            "bodies": 12,
+            "children": 0
+          },
+          {
+            "type": "ring",
+            "bodies": 120,
+            "children": 0
+          },
+          {
+            "type": "heart",
+            "bodies": 144,
+            "children": 0
+          },
+          {
+            "type": "crossette",
+            "bodies": 180,
+            "children": 144
+          },
+          {
+            "type": "strobe",
+            "bodies": 160,
+            "children": 0
+          },
+          {
+            "type": "fan",
+            "bodies": 9,
+            "children": 0
+          },
+          {
+            "type": "bouquet",
+            "bodies": 104,
+            "children": 0
+          }
+        ],
+        "maximumPositionError": 0,
+        "oldCountersAndLightRecordsUnchanged": true
+      }
+    },
+    {
+      "name": "crossette child birth atparent split is causal while old root-only sample remains strict",
+      "passed": true,
+      "evidence": {
+        "splitAge": 0.78,
+        "oldChildRejection": true,
+        "parentPastStillAvailable": true
+      }
+    },
+    {
+      "name": "future invalid unborn exactdeath retired pruned and disposed requests fail explicitly",
+      "passed": true,
+      "evidence": {
+        "rejected": 11,
+        "noFutureXYZFallback": true
+      }
+    },
+    {
+      "name": "oldsample outputs default RNG events geometry ledger and bounds retain baseline values",
+      "passed": true,
+      "evidence": {
+        "types": 3,
+        "frames": 12
+      }
+    },
+    {
+      "name": "accepted audio source hash remains4e5 and physics source remains untouched byG1",
+      "passed": true,
+      "evidence": {
+        "audioSHA256": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+        "physicsSHA256": "dc5de6b1a11a3e1a70d7342d3bdacc5813ab0f66e426f622d6e287991b4af87a",
+        "noPhysicsSourceEdits": true
+      }
+    }
+  ],
+  "metrics": {
+    "coverage": {
+      "sampled": 2646,
+      "roots": 1048,
+      "children": 144,
+      "ground": 113,
+      "types": [
+        {
+          "type": "peony",
+          "bodies": 224,
+          "children": 0
+        },
+        {
+          "type": "chrysanthemum",
+          "bodies": 192,
+          "children": 0
+        },
+        {
+          "type": "willow",
+          "bodies": 160,
+          "children": 0
+        },
+        {
+          "type": "palm",
+          "bodies": 12,
+          "children": 0
+        },
+        {
+          "type": "ring",
+          "bodies": 120,
+          "children": 0
+        },
+        {
+          "type": "heart",
+          "bodies": 144,
+          "children": 0
+        },
+        {
+          "type": "crossette",
+          "bodies": 180,
+          "children": 144
+        },
+        {
+          "type": "strobe",
+          "bodies": 160,
+          "children": 0
+        },
+        {
+          "type": "fan",
+          "bodies": 9,
+          "children": 0
+        },
+        {
+          "type": "bouquet",
+          "bodies": 104,
+          "children": 0
+        }
+      ]
+    }
+  },
+  "limits": [
+    "This adds a read-only active-native-body sampling boundary only, no new source emission, material budget, propulsion or photometry.",
+    "Physics sampleBody is the already-validated kinematic oracle; these tests establish selection/causality/parent routing, not a new independent dynamics solver.",
+    "Internal lazyWeakMap has native body pointers only while its active event key is retained; no strong retired-event archive or future XYZ API."
+  ]
+}

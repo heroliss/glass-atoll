@@ -1,0 +1,65 @@
+{
+  "schema": "glass-atoll.adaptive-tail-recorder-preflight.v1",
+  "dateUTC": "2026-10-27T19:23:52.352Z",
+  "actualBrowser": false,
+  "actualMedia": false,
+  "sourceSHA256": "4bfa1ccef4a1d3519b4bee154a7f5cfd1e9a865b248a41fa452e6b528c5e2ea5",
+  "checks": [
+    {
+      "name": "preserved actual v1 default shape with omitted kernel/dispersion is recognized",
+      "passed": true,
+      "evidence": {
+        "sourceArtifact": "r9-tail-motion-profile-first.json",
+        "actualParameters": {
+          "bouquetLaunchArea": 2,
+          "burstArea": 20,
+          "centralFraction": 0.2,
+          "centrePackets": 3,
+          "fanLaunchArea": 0.1,
+          "launchArea": 0.35,
+          "launchPackets": 9,
+          "releaseAges": [
+            0.35,
+            0.65
+          ],
+          "trajectorySlots": 12
+        }
+      }
+    },
+    {
+      "name": "missing/unknown source or explicitly unknown kernel/dispersion remains rejected",
+      "passed": true,
+      "evidence": {
+        "rejected": 4
+      }
+    },
+    {
+      "name": "every default field is required and unknown future parameters do not silently map to production",
+      "passed": true,
+      "evidence": {
+        "rejected": 13
+      }
+    },
+    {
+      "name": "known explicit QA profile choices remain selectable",
+      "passed": true,
+      "evidence": {
+        "profiles": 3
+      }
+    },
+    {
+      "name": "pre-mutation async rejection test completes",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /unrecognized smoke QA profile/. Input:\n\n'TypeError: Invalid URL'\n\n    at async file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/record-adaptive-tail-motion-check.mjs:16:3"
+    }
+  ],
+  "counts": {
+    "passed": 4,
+    "total": 5
+  },
+  "passed": false,
+  "limits": [
+    "Classifier uses preserved actual production parameter shape. Async boundary is a CPU fake, not browser recording/cleanup acceptance.",
+    "No runtime, audio gain, source model or renderer is changed. Original failed browser evidence remains unchanged."
+  ]
+}

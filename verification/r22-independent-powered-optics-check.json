@@ -1,0 +1,131 @@
+{
+  "schema": "glass-atoll.r22-independent-powered-optics-cpu.v1",
+  "dateUTC": "2026-10-29T05:24:42.748Z",
+  "passed": true,
+  "counts": {
+    "checks": 13,
+    "passed": 13
+  },
+  "checks": [
+    {
+      "name": "short-shutter admission accepts exact endpoint and rejects every longer represented candidate exposure",
+      "passed": true
+    },
+    {
+      "name": "force boundary and source birth cuts preserve exact represented clocks, order, duration and metadata",
+      "passed": true
+    },
+    {
+      "name": "tail cuts are shifted by physical lag once and remain independent of wind update count",
+      "passed": true,
+      "evidence": {
+        "rows": 2,
+        "hostWindRates": [
+          30,
+          60,
+          120,
+          1000
+        ],
+        "policy": "force-only partitions; within-piece wind midpoint approximation"
+      }
+    },
+    {
+      "name": "invalid or unresolved subintervals and explicit partition overflow fail without truncation",
+      "passed": true
+    },
+    {
+      "name": "all 32 native motors retain at most three force portions across admitted short exposures",
+      "passed": true,
+      "evidence": {
+        "motors": 32,
+        "sampledWindows": 2728,
+        "maximumRowsPerWindow": 3
+      }
+    },
+    {
+      "name": "positive head/tail temporal weights conserve reference RGB and query only strict causal midpoints",
+      "passed": true,
+      "evidence": [
+        {
+          "lag": 0,
+          "rows": 2,
+          "weightSum": 1,
+          "allSamplesPast": true
+        },
+        {
+          "lag": 0.2,
+          "rows": 2,
+          "weightSum": 1,
+          "allSamplesPast": true
+        }
+      ]
+    },
+    {
+      "name": "future and prebirth support are rejected before any physical anchor callback",
+      "passed": true
+    },
+    {
+      "name": "source transmission accepts exactly 18000 rows while packet and pair caps remain unchanged",
+      "passed": true,
+      "evidence": {
+        "rows": 18000,
+        "pairCap": 1048576,
+        "packetCap": 4096,
+        "actualGPU": false
+      }
+    },
+    {
+      "name": "CPU-only FW fill admits all 18000 rows and rejects 18001 without clipping or drawing",
+      "passed": true,
+      "evidence": {
+        "acceptedRows": 18000,
+        "rejectedRows": 18001,
+        "actualDraws": 0,
+        "rendererStubCalls": 1
+      }
+    },
+    {
+      "name": "main lens rejects long exposures with configured or active motors before any setting mutation",
+      "passed": true
+    },
+    {
+      "name": "main candidate configuration and launch reject unsupported shutter before effects/UI/state mutate",
+      "passed": true
+    },
+    {
+      "name": "main explicit random+candidate request rejects before resetting the selected profile",
+      "passed": true
+    },
+    {
+      "name": "main native source-transmission allocation changes source count only",
+      "passed": true,
+      "evidence": {
+        "maxSources": 18000,
+        "maxPackets": 4096,
+        "maxPairs": 1048576
+      }
+    }
+  ],
+  "metrics": {
+    "partition": {
+      "motors": 32,
+      "sampledWindows": 2728,
+      "maximumRowsPerWindow": 3
+    }
+  },
+  "sourceSHA256": {
+    "firework-powered-optics.js": "3b815cb64f0341024a545554e866bafcfac68fc5a143f4373b17dbd55934cfd4",
+    "firework-contact-optics.js": "789ed0bfbe1fb81ddcfa8385a297576ebf334211ab3a34ef569ceb7b85f7a8fb",
+    "fireworks.js": "f0e3b7db8a268cb02227c81282e85a808158942e2b73656df39fdc752c783463",
+    "main.js": "c7067c2ceb727b8a3bdcb9619089832d77b3ed872a8c69e30816b220c383284e",
+    "pyro-smoke-transmission-pack.js": "c4c64278c6fe994c68ed9727ce82b3396295cbde109d7fb85362d3429e7f0fe8",
+    "pyro-smoke-transmission-gpu.js": "2a35974fac7f6d75d6fa128fa04e869160d0ca40c9671569fe356bfef03ee294"
+  },
+  "findings": [],
+  "limits": [
+    "No actual WebGL context, browser, GPU compilation, texture sampling or frame-time admission.",
+    "Force-only temporal partition; actual anchors retain committed wind, with within-piece wind derivative jumps approximated at local midpoint.",
+    "Positive source-only subinterval weights do not integrate camera motion or time-varying source transmission T(t).",
+    "Exact main function slices run in isolated CPU stubs; full browser UI binding remains root acceptance."
+  ]
+}

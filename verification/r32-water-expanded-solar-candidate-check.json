@@ -1,0 +1,101 @@
+{
+  "schema": "glass-atoll.r32-actual-expanded-water-zero-solar-adapter-proof.v1",
+  "actualGPU": false,
+  "newNativeContextCalls": 0,
+  "newBrowserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "sourcePins": {
+    "production": "d7d5b76dadf35e2e507b640b8975fb3819821b29d113ceeebf195080fd88b045",
+    "candidate": "a3568265430dbef481f72743485d64a0565e1a8d3f6bd84668f03d4aae98491b",
+    "adapter": "23a6e801b2da9edbfa622492bf91a4257cb2b430ede8bb151d3f9eebf8894e5b",
+    "waves": "af1d6b1559b701b8f1d36c53bbd89dd721e22bb792517a58543473f4629396d4"
+  },
+  "metadata": {
+    "revision": "r32-actual-expanded-water-zero-direct-source-v1",
+    "coefficients": {
+      "swellTemporalSlopeVariance": "0.00000000017320",
+      "windTemporalSlopeVariance": "0.00002361971666"
+    },
+    "substitution": "Only one exact temporal coefficient declaration/assignment line; no regex or arbitrary GLSL substitutions",
+    "actualGPU": false,
+    "productionEdits": false
+  },
+  "checks": [
+    {
+      "name": "Actual full factory-expanded shader adapter equals transformed-factory expansion with and without local lights",
+      "passed": true,
+      "evidence": {
+        "cases": [
+          {
+            "localLights": false,
+            "originalSHA256": "cf66dd590505a59fc9978d41a141fff800a31ff91f0f12fb725fdfd91873025a",
+            "candidateSHA256": "a6162d08ec54d82738d9fa79010814f19777d97cb57e1eb3b630e688912308d3",
+            "originalBytes": 51963,
+            "candidateBytes": 52597
+          },
+          {
+            "localLights": true,
+            "originalSHA256": "6739274b2a3b4e7aaa148806f964005dcbf3f8de5eb757641a4c3a6a86ffd62e",
+            "candidateSHA256": "2c6842ecea9398c7bd8990a55a1ee40fadcdb52af20142d03fef22812743b0e9",
+            "originalBytes": 56000,
+            "candidateBytes": 56634
+          }
+        ],
+        "inertContextAccesses": 4,
+        "actualNativeContextCalls": 0,
+        "renderCalls": 0
+      }
+    },
+    {
+      "name": "Whole expanded source inverse is exact in both LF and CRLF",
+      "passed": true,
+      "evidence": {
+        "expandedNewlineCases": 4,
+        "wholeModuleInverse": true
+      }
+    },
+    {
+      "name": "Only two exact current production own data coefficient strings accepted; getters are never executed",
+      "passed": true,
+      "evidence": {
+        "rejected": 12,
+        "getterCalls": 0,
+        "accepted": {
+          "swellTemporalSlopeVariance": "0.00000000017320",
+          "windTemporalSlopeVariance": "0.00002361971666"
+        }
+      }
+    },
+    {
+      "name": "Missing/duplicate/drifted temporal anchors, repeated candidate and missing solar anchors reject",
+      "passed": true,
+      "evidence": {
+        "negativeCases": 7,
+        "regexSubstitutionUsedByAdapter": false
+      }
+    },
+    {
+      "name": "Original frozen candidate/proof/staged artifacts and production source remain untouched",
+      "passed": true,
+      "evidence": {
+        "frozenPins": {
+          "verification/r32-water-zero-solar-candidate.js": "76e74bd3aad214a8e2e81c5032d914c43d69c4ff99116cc423da4a983dc1783f",
+          "verification/r32-water-zero-solar-candidate-check.mjs": "f3de20deae78c8131f6295237306bda5889900131dbf62ffd52e2665d91977cd",
+          "verification/r32-water-zero-solar-candidate-check.json": "95706b030c6302cc294f9a5a1708cdaf51195411900a12bb97c8ec5479ff975f",
+          "verification/r32-water-candidate-staged.js": "a3568265430dbef481f72743485d64a0565e1a8d3f6bd84668f03d4aae98491b"
+        },
+        "productionSHA256": "d7d5b76dadf35e2e507b640b8975fb3819821b29d113ceeebf195080fd88b045"
+      }
+    }
+  ],
+  "limits": [
+    "Real expanded shaders come from actual full baseline/candidate factories; Node changes only module import resolution.",
+    "No rendering or native GL context is created; compile, pixel, derivative and timing verification remain separate.",
+    "Existing full-source candidate/proof is immutable and unmodified."
+  ]
+}

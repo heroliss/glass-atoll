@@ -1,0 +1,129 @@
+{
+  "schema": "glass-atoll.r30-cold-reflection-mipmap-source-enumeration.v1",
+  "actualGPU": false,
+  "nativeContextCalls": 0,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "budgetProposal": {
+    "coldMipmaps": 5,
+    "steadyMipmaps": 4,
+    "deltaFromPrior": 1,
+    "reason": "Previously uncounted cold setup, not a new render/algorithm/work policy"
+  },
+  "checks": [
+    {
+      "name": "Actual pinned r180 cold setup has a mip generation independent of render-end updates",
+      "passed": true,
+      "evidence": {
+        "vendorSHA256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+        "coldClauseSHA256": "711728a85c0231c4bfd657f10c989d76a5b86e7194848fd38f748098c83be19d",
+        "coldSetupGenerations": 1
+      }
+    },
+    {
+      "name": "Exact reflection writer enumeration yields5 cold and4 steady; fifth is FW as actual stop reported",
+      "passed": true,
+      "evidence": {
+        "coldEvents": [
+          {
+            "phase": "cold-reflection-allocation",
+            "currentTexture": "reflection-colour",
+            "type": 3553
+          },
+          {
+            "phase": "reflection-opaque",
+            "currentTexture": "reflection-colour",
+            "type": 3553
+          },
+          {
+            "phase": "reflection-transient-cloud",
+            "currentTexture": "reflection-colour",
+            "type": 3553
+          },
+          {
+            "phase": "reflection-volume",
+            "currentTexture": "reflection-colour",
+            "type": 3553
+          },
+          {
+            "phase": "reflection-fireworks",
+            "currentTexture": "reflection-colour",
+            "type": 3553
+          }
+        ],
+        "steadyEvents": [
+          {
+            "phase": "reflection-opaque",
+            "currentTexture": "reflection-colour",
+            "type": 3553
+          },
+          {
+            "phase": "reflection-transient-cloud",
+            "currentTexture": "reflection-colour",
+            "type": 3553
+          },
+          {
+            "phase": "reflection-volume",
+            "currentTexture": "reflection-colour",
+            "type": 3553
+          },
+          {
+            "phase": "reflection-fireworks",
+            "currentTexture": "reflection-colour",
+            "type": 3553
+          }
+        ],
+        "actualStoppedBeforeFifth": true,
+        "partialActualDraws": 51
+      }
+    },
+    {
+      "name": "Actual Three defaults prove new nonreflection targets and new DataTextures do not add automatic mip work",
+      "passed": true,
+      "evidence": {
+        "nonreflectionTargetKinds": [
+          "refraction",
+          "lens-MRT4",
+          "lens-colour",
+          "AA",
+          "encoded-output",
+          "temporal-MRT2",
+          "aerial-MRT2",
+          "aerial-composite",
+          "cloud-shadow-near",
+          "cloud-shadow-far",
+          "bloom/downsample",
+          "SMAA/edges",
+          "SMAA/weights",
+          "resolved-depth",
+          "SourceT-partial",
+          "SourceT-output",
+          "SH-partial-MRT3",
+          "SH-output-MRT3"
+        ],
+        "extraAutomaticGenerations": 0,
+        "newOwnedFWAndVolumeDefaultDataTextures": 0
+      }
+    },
+    {
+      "name": "Pinned fixed call graph has four reflection writers; original external mip inputs are not created/updated by frame install",
+      "passed": true,
+      "evidence": {
+        "reflectionWriters": [
+          "opaque",
+          "transient cloud",
+          "persistent volume",
+          "fireworks"
+        ],
+        "noSeparatePostReflectionAirPass": true,
+        "existingInputScope": "Original paused preloaded background maps/no intentional upload update; any unexpected lazy upload still hits exact5 guard",
+        "futureOptimization": "Defer reflection mip generation until all writers complete, separate R31 source/state/visual admission; no production patch here"
+      }
+    }
+  ]
+}

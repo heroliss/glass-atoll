@@ -1,0 +1,83 @@
+{
+  "schema": "glass-atoll.aces2-stage-source-QA.v1",
+  "dateUTC": "2026-10-27T06:15:41.503Z",
+  "passed": true,
+  "counts": {
+    "total": 3,
+    "passed": 3
+  },
+  "checks": [
+    {
+      "name": "first_probe423_original_export_and_first_failure_are_preserved",
+      "passed": true,
+      "evidence": {
+        "firstFailureSHA256": "682d1c51d227552bee7af07f5b2e0b6c93fbf531b4d3a90b299bb22ae4d3708a",
+        "noExistingEvidenceWrites": true
+      }
+    },
+    {
+      "name": "13_assignments_plus_globals_restore_each_entire_official_function_exactly",
+      "passed": true,
+      "evidence": [
+        {
+          "peak": 100,
+          "assignments": 13,
+          "exactSourceSHA256": "38b78efcb0d7d8eace7e906cc19defdf42d72ad54a2f06d2c81d4ce503b16b44",
+          "missingDuplicateNegativeCases": 28
+        },
+        {
+          "peak": 700,
+          "assignments": 13,
+          "exactSourceSHA256": "43d3fa65412f678490a15ae1394adeaf14d32dafd57c5612917a056937256b62",
+          "missingDuplicateNegativeCases": 28
+        },
+        {
+          "peak": 1270,
+          "assignments": 13,
+          "exactSourceSHA256": "36c2cbc64f541577153a33eab0948bd69405b4c71c5bb0229fb391f9e8a56891",
+          "missingDuplicateNegativeCases": 28
+        }
+      ]
+    },
+    {
+      "name": "new_official_CPU_oracle_has_only_the_declared_Float32_triplet",
+      "passed": true,
+      "evidence": {
+        "schema": "glass-atoll.official-aces2-public-stage-cpu.v1",
+        "samples": [
+          {
+            "id": "bad-pure-blue-Y1",
+            "inputFloat32": [
+              0,
+              0,
+              13.850415229797363
+            ]
+          },
+          {
+            "id": "actual-profile-blue-Y1",
+            "inputFloat32": [
+              0.4846985638141632,
+              0,
+              12.423172950744629
+            ]
+          },
+          {
+            "id": "green-18.28686",
+            "inputFloat32": [
+              0,
+              18.2868595123291,
+              0
+            ]
+          }
+        ],
+        "oracleSHA256": "4fb23a9563bb939d4c0e2d50f9431be8c0c2e5abfcb9eef032b48a5691d8ee59",
+        "fullSplitSameFinalRange": true
+      }
+    }
+  ],
+  "sourceSHA256": "725ddf0139306afffc40d4535b293170e7811bb32473300b225288f346667642",
+  "noGPU": true,
+  "limits": [
+    "Only source scope, declared inputs and CPU-export metadata; no shader compile, actual GPU stage values, numerical colour pass or HDR presentation claim."
+  ]
+}

@@ -1,0 +1,900 @@
+{
+  "schema": "glass-atoll.sound-bloom-controls.browser.v1",
+  "date": "2026-10-31T16:12:11.377Z",
+  "checks": [
+    {
+      "name": "sound defaults on without blocking scene readiness",
+      "passed": true,
+      "evidence": {
+        "pressed": "true",
+        "intent": true,
+        "audio": {
+          "enabled": true,
+          "contextState": "running",
+          "loading": true,
+          "loaded": false,
+          "peakGuard": null,
+          "decoded": {},
+          "sources": [
+            "Beach sounds South Carolina — Anthropic42",
+            "Rustling leaves — Gravity Sound"
+          ],
+          "mix": {
+            "sea": 0,
+            "wind": 0,
+            "air": 0,
+            "swell": 0,
+            "shoreDistance": 0,
+            "shorePositions": []
+          },
+          "paused": false,
+          "splashCount": 0,
+          "audibleSplashes": 0,
+          "activeSplashes": 0,
+          "lastSplashResponse": null,
+          "loopSources": 0,
+          "captureActive": false,
+          "fallbacks": [
+            "procedural stone splash",
+            "quiet shaped-noise air bed"
+          ],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "default sound is running and actual recording is nonsilent after ordinary interaction",
+      "passed": true,
+      "evidence": {
+        "bytes": 11888,
+        "seconds": 0.72,
+        "peak": 0.13748601078987122,
+        "rms": 0.01857720072298181,
+        "audio": {
+          "enabled": true,
+          "contextState": "running",
+          "loading": false,
+          "loaded": true,
+          "peakGuard": {
+            "mode": "linked-stereo-lookahead",
+            "ceiling": 0.975,
+            "lookaheadSeconds": 0.005,
+            "releaseSeconds": 0.08
+          },
+          "decoded": {
+            "leaves": {
+              "duration": 17,
+              "sampleRate": 48000,
+              "channels": 1,
+              "sourceName": "Rustling leaves — Gravity Sound",
+              "recorded": true,
+              "file": "leaf-rustle.ogg"
+            },
+            "ocean": {
+              "duration": 48,
+              "sampleRate": 48000,
+              "channels": 2,
+              "sourceName": "Beach sounds South Carolina — Anthropic42",
+              "recorded": true,
+              "file": "ocean-shore.ogg"
+            }
+          },
+          "sources": [
+            "Beach sounds South Carolina — Anthropic42",
+            "Rustling leaves — Gravity Sound"
+          ],
+          "mix": {
+            "sea": 0.9873691679685552,
+            "wind": 0.23,
+            "air": 0.035,
+            "swell": 0.9494766718742208,
+            "swellSource": "scene envelope",
+            "effectiveWind": 1.8,
+            "shoreDistance": 35.47574400709373,
+            "shorePositions": [
+              [
+                -28.700452287383794,
+                0.05,
+                -10.233309371962479
+              ],
+              [
+                -18.46748444570695,
+                0.05,
+                -15.880084495080698
+              ],
+              [
+                -29.03793310509151,
+                0.05,
+                4.477635466676419
+              ]
+            ]
+          },
+          "paused": false,
+          "splashCount": 0,
+          "audibleSplashes": 0,
+          "activeSplashes": 0,
+          "lastSplashResponse": null,
+          "loopSources": 6,
+          "captureActive": false,
+          "fallbacks": [
+            "procedural stone splash",
+            "quiet shaped-noise air bed"
+          ],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "manual mute survives subsequent interaction",
+      "passed": true,
+      "evidence": {
+        "pressed": "false",
+        "intent": false,
+        "audio": {
+          "enabled": false,
+          "contextState": "running",
+          "loading": false,
+          "loaded": true,
+          "peakGuard": {
+            "mode": "linked-stereo-lookahead",
+            "ceiling": 0.975,
+            "lookaheadSeconds": 0.005,
+            "releaseSeconds": 0.08
+          },
+          "decoded": {
+            "leaves": {
+              "duration": 17,
+              "sampleRate": 48000,
+              "channels": 1,
+              "sourceName": "Rustling leaves — Gravity Sound",
+              "recorded": true,
+              "file": "leaf-rustle.ogg"
+            },
+            "ocean": {
+              "duration": 48,
+              "sampleRate": 48000,
+              "channels": 2,
+              "sourceName": "Beach sounds South Carolina — Anthropic42",
+              "recorded": true,
+              "file": "ocean-shore.ogg"
+            }
+          },
+          "sources": [
+            "Beach sounds South Carolina — Anthropic42",
+            "Rustling leaves — Gravity Sound"
+          ],
+          "mix": {
+            "sea": 0.9512889363785877,
+            "wind": 0.23,
+            "air": 0.035,
+            "swell": 0.8051557455143509,
+            "swellSource": "scene envelope",
+            "effectiveWind": 1.8,
+            "shoreDistance": 35.47574400709373,
+            "shorePositions": [
+              [
+                -28.700452287383794,
+                0.05,
+                -10.233309371962479
+              ],
+              [
+                -18.46748444570695,
+                0.05,
+                -15.880084495080698
+              ],
+              [
+                -29.03793310509151,
+                0.05,
+                4.477635466676419
+              ]
+            ]
+          },
+          "paused": false,
+          "splashCount": 0,
+          "audibleSplashes": 0,
+          "activeSplashes": 0,
+          "lastSplashResponse": null,
+          "loopSources": 6,
+          "captureActive": false,
+          "fallbacks": [
+            "procedural stone splash",
+            "quiet shaped-noise air bed"
+          ],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "sound can be enabled again",
+      "passed": true,
+      "evidence": {
+        "pressed": "true",
+        "intent": true,
+        "audio": {
+          "enabled": true,
+          "contextState": "running",
+          "loading": false,
+          "loaded": true,
+          "peakGuard": {
+            "mode": "linked-stereo-lookahead",
+            "ceiling": 0.975,
+            "lookaheadSeconds": 0.005,
+            "releaseSeconds": 0.08
+          },
+          "decoded": {
+            "leaves": {
+              "duration": 17,
+              "sampleRate": 48000,
+              "channels": 1,
+              "sourceName": "Rustling leaves — Gravity Sound",
+              "recorded": true,
+              "file": "leaf-rustle.ogg"
+            },
+            "ocean": {
+              "duration": 48,
+              "sampleRate": 48000,
+              "channels": 2,
+              "sourceName": "Beach sounds South Carolina — Anthropic42",
+              "recorded": true,
+              "file": "ocean-shore.ogg"
+            }
+          },
+          "sources": [
+            "Beach sounds South Carolina — Anthropic42",
+            "Rustling leaves — Gravity Sound"
+          ],
+          "mix": {
+            "sea": 1,
+            "wind": 0.23,
+            "air": 0.035,
+            "swell": 1,
+            "swellSource": "scene envelope",
+            "effectiveWind": 1.8,
+            "shoreDistance": 35.47574400709373,
+            "shorePositions": [
+              [
+                -28.700452287383794,
+                0.05,
+                -10.233309371962479
+              ],
+              [
+                -18.46748444570695,
+                0.05,
+                -15.880084495080698
+              ],
+              [
+                -29.03793310509151,
+                0.05,
+                4.477635466676419
+              ]
+            ]
+          },
+          "paused": false,
+          "splashCount": 0,
+          "audibleSplashes": 0,
+          "activeSplashes": 0,
+          "lastSplashResponse": null,
+          "loopSources": 6,
+          "captureActive": false,
+          "fallbacks": [
+            "procedural stone splash",
+            "quiet shaped-noise air bed"
+          ],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "default bloom is 75 percent of previous full strength",
+      "passed": true,
+      "evidence": {
+        "value": "75",
+        "bloom": {
+          "enabled": true,
+          "bloom": true,
+          "flare": false,
+          "bloomStrength": 0.75,
+          "strength": 0.013499999999999998,
+          "budget": {
+            "direct": 0.9865,
+            "bloom": 0.013499999999999998,
+            "ghost": 0,
+            "veil": 0,
+            "total": 0.013499999999999998
+          },
+          "levels": 4,
+          "quality": "gaussian",
+          "passes": 13,
+          "gaussianKernel": {
+            "sigmaPixels": 2,
+            "radiusPixels": 12,
+            "supportSigma": 6,
+            "discreteTaps": 25,
+            "textureFetchesPerAxis": 13,
+            "passesPerLevel": 2
+          },
+          "operatorPeakBoundRGB": [
+            1,
+            1,
+            1
+          ],
+          "model": "single threshold-free linear HDR PSF with positive6sigma separable Gaussian after each downsample; at most1.8% radiance redistribution",
+          "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+        },
+        "setting": 0.75
+      }
+    },
+    {
+      "name": "slider updates actual lens budget continuously including zero bypass",
+      "passed": true,
+      "evidence": [
+        {
+          "value": 0,
+          "output": "0%",
+          "bloom": {
+            "enabled": false,
+            "bloom": true,
+            "flare": false,
+            "bloomStrength": 0,
+            "strength": 0,
+            "budget": {
+              "direct": 1,
+              "bloom": 0,
+              "ghost": 0,
+              "veil": 0,
+              "total": 0
+            },
+            "levels": 4,
+            "quality": "gaussian",
+            "passes": 0,
+            "gaussianKernel": {
+              "sigmaPixels": 2,
+              "radiusPixels": 12,
+              "supportSigma": 6,
+              "discreteTaps": 25,
+              "textureFetchesPerAxis": 13,
+              "passesPerLevel": 2
+            },
+            "operatorPeakBoundRGB": [
+              1,
+              1,
+              1
+            ],
+            "model": "single threshold-free linear HDR PSF with positive6sigma separable Gaussian after each downsample; at most1.8% radiance redistribution",
+            "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+          },
+          "setting": 0
+        },
+        {
+          "value": 25,
+          "output": "25%",
+          "bloom": {
+            "enabled": true,
+            "bloom": true,
+            "flare": false,
+            "bloomStrength": 0.25,
+            "strength": 0.0045,
+            "budget": {
+              "direct": 0.9955,
+              "bloom": 0.0045,
+              "ghost": 0,
+              "veil": 0,
+              "total": 0.0045
+            },
+            "levels": 4,
+            "quality": "gaussian",
+            "passes": 13,
+            "gaussianKernel": {
+              "sigmaPixels": 2,
+              "radiusPixels": 12,
+              "supportSigma": 6,
+              "discreteTaps": 25,
+              "textureFetchesPerAxis": 13,
+              "passesPerLevel": 2
+            },
+            "operatorPeakBoundRGB": [
+              1,
+              1,
+              1
+            ],
+            "model": "single threshold-free linear HDR PSF with positive6sigma separable Gaussian after each downsample; at most1.8% radiance redistribution",
+            "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+          },
+          "setting": 0.25
+        },
+        {
+          "value": 100,
+          "output": "100%",
+          "bloom": {
+            "enabled": true,
+            "bloom": true,
+            "flare": false,
+            "bloomStrength": 1,
+            "strength": 0.018,
+            "budget": {
+              "direct": 0.982,
+              "bloom": 0.018,
+              "ghost": 0,
+              "veil": 0,
+              "total": 0.018
+            },
+            "levels": 4,
+            "quality": "gaussian",
+            "passes": 13,
+            "gaussianKernel": {
+              "sigmaPixels": 2,
+              "radiusPixels": 12,
+              "supportSigma": 6,
+              "discreteTaps": 25,
+              "textureFetchesPerAxis": 13,
+              "passesPerLevel": 2
+            },
+            "operatorPeakBoundRGB": [
+              1,
+              1,
+              1
+            ],
+            "model": "single threshold-free linear HDR PSF with positive6sigma separable Gaussian after each downsample; at most1.8% radiance redistribution",
+            "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+          },
+          "setting": 1
+        },
+        {
+          "value": 60,
+          "output": "60%",
+          "bloom": {
+            "enabled": true,
+            "bloom": true,
+            "flare": false,
+            "bloomStrength": 0.6,
+            "strength": 0.010799999999999999,
+            "budget": {
+              "direct": 0.9892,
+              "bloom": 0.010799999999999999,
+              "ghost": 0,
+              "veil": 0,
+              "total": 0.010799999999999999
+            },
+            "levels": 4,
+            "quality": "gaussian",
+            "passes": 13,
+            "gaussianKernel": {
+              "sigmaPixels": 2,
+              "radiusPixels": 12,
+              "supportSigma": 6,
+              "discreteTaps": 25,
+              "textureFetchesPerAxis": 13,
+              "passesPerLevel": 2
+            },
+            "operatorPeakBoundRGB": [
+              1,
+              1,
+              1
+            ],
+            "model": "single threshold-free linear HDR PSF with positive6sigma separable Gaussian after each downsample; at most1.8% radiance redistribution",
+            "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+          },
+          "setting": 0.6
+        }
+      ]
+    },
+    {
+      "name": "bloom switch retains chosen intensity",
+      "passed": true,
+      "evidence": {
+        "off": {
+          "disabled": true,
+          "bloom": {
+            "enabled": false,
+            "bloom": false,
+            "flare": false,
+            "bloomStrength": 0.6,
+            "strength": 0,
+            "budget": {
+              "direct": 1,
+              "bloom": 0,
+              "ghost": 0,
+              "veil": 0,
+              "total": 0
+            },
+            "levels": 4,
+            "quality": "gaussian",
+            "passes": 0,
+            "gaussianKernel": {
+              "sigmaPixels": 2,
+              "radiusPixels": 12,
+              "supportSigma": 6,
+              "discreteTaps": 25,
+              "textureFetchesPerAxis": 13,
+              "passesPerLevel": 2
+            },
+            "operatorPeakBoundRGB": [
+              1,
+              1,
+              1
+            ],
+            "model": "single threshold-free linear HDR PSF with positive6sigma separable Gaussian after each downsample; at most1.8% radiance redistribution",
+            "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+          }
+        },
+        "on": {
+          "disabled": false,
+          "bloom": {
+            "enabled": true,
+            "bloom": true,
+            "flare": false,
+            "bloomStrength": 0.6,
+            "strength": 0.010799999999999999,
+            "budget": {
+              "direct": 0.9892,
+              "bloom": 0.010799999999999999,
+              "ghost": 0,
+              "veil": 0,
+              "total": 0.010799999999999999
+            },
+            "levels": 4,
+            "quality": "gaussian",
+            "passes": 13,
+            "gaussianKernel": {
+              "sigmaPixels": 2,
+              "radiusPixels": 12,
+              "supportSigma": 6,
+              "discreteTaps": 25,
+              "textureFetchesPerAxis": 13,
+              "passesPerLevel": 2
+            },
+            "operatorPeakBoundRGB": [
+              1,
+              1,
+              1
+            ],
+            "model": "single threshold-free linear HDR PSF with positive6sigma separable Gaussian after each downsample; at most1.8% radiance redistribution",
+            "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+          }
+        }
+      }
+    },
+    {
+      "name": "slider supports keyboard with accessible percent readout",
+      "passed": true,
+      "evidence": "61%"
+    },
+    {
+      "name": "slider fits 390px viewport",
+      "passed": true,
+      "evidence": {
+        "width": 390,
+        "scroll": 390,
+        "left": 37,
+        "right": 353,
+        "visible": true
+      }
+    },
+    {
+      "name": "existing full strength Gaussian GPU contract still passes",
+      "passed": true,
+      "evidence": {
+        "actualGPU": true,
+        "rows": 4,
+        "gl": [],
+        "restoration": {
+          "passed": true
+        }
+      }
+    },
+    {
+      "name": "production files stable throughout browser run",
+      "passed": true
+    },
+    {
+      "name": "no page or resource errors",
+      "passed": true,
+      "evidence": []
+    }
+  ],
+  "issues": [],
+  "sourceHashes": {
+    "main.js": "6484645d4ab6a294b2d2108df68b8000a0292274918047d893ad612b7d5f3f9a",
+    "ui.js": "2c9190423b7468361698eecfb76aa4551d35cfae35456405d57ae0edd6d08291",
+    "index.html": "c93ae867323d11fa442011e2895d8ae21723f6197e459b4b221b7a9f92454125",
+    "audio.js": "713bcd525c5e8266035a28cbfbbde2068b956beeaf68222fd1048b3f220adab6",
+    "optical-bloom.js": "c6499865f5ad27dfcc07c2dcf6bb814a59a04e6308cf2d34a540a9305299278b",
+    "lens.js": "97855562aa4fdcf76f85e2713137b181a2424677ffb14c1dc10682e1c4d129d2"
+  },
+  "autoplay": {
+    "requestedPolicy": "document-user-activation-required",
+    "initialContext": "running",
+    "limit": "This Chrome may already permit autoplay on localhost. The test does not claim that a browser-enforced initial block occurred."
+  },
+  "gpu": {
+    "schema": "glass-atoll.gaussian-bloom-native.v1",
+    "actualGPU": true,
+    "passed": true,
+    "rows": [
+      {
+        "fixture": "constant",
+        "quality": "legacy",
+        "gpuMs": 0.077824,
+        "disjoint": false,
+        "state": {
+          "enabled": true,
+          "bloom": true,
+          "flare": false,
+          "bloomStrength": 1,
+          "strength": 0.018,
+          "budget": {
+            "direct": 0.982,
+            "bloom": 0.018,
+            "ghost": 0,
+            "veil": 0,
+            "total": 0.018
+          },
+          "levels": 4,
+          "quality": "legacy",
+          "passes": 5,
+          "gaussianKernel": null,
+          "operatorPeakBoundRGB": [
+            1,
+            1,
+            1
+          ],
+          "model": "single threshold-free linear HDR PSF; opt-in affine ghost/veil share at most 1.8% radiance redistribution",
+          "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+        },
+        "stats": {
+          "sum": [
+            262144,
+            8192,
+            4096
+          ],
+          "maximum": [
+            16,
+            0.5,
+            0.25
+          ],
+          "minimum": 0.25,
+          "nonFinite": 0
+        },
+        "maximumRelativeError": 0
+      },
+      {
+        "fixture": "constant",
+        "quality": "gaussian",
+        "gpuMs": 0.113664,
+        "disjoint": false,
+        "state": {
+          "enabled": true,
+          "bloom": true,
+          "flare": false,
+          "bloomStrength": 1,
+          "strength": 0.018,
+          "budget": {
+            "direct": 0.982,
+            "bloom": 0.018,
+            "ghost": 0,
+            "veil": 0,
+            "total": 0.018
+          },
+          "levels": 4,
+          "quality": "gaussian",
+          "passes": 13,
+          "gaussianKernel": {
+            "sigmaPixels": 2,
+            "radiusPixels": 12,
+            "supportSigma": 6,
+            "discreteTaps": 25,
+            "textureFetchesPerAxis": 13,
+            "passesPerLevel": 2
+          },
+          "operatorPeakBoundRGB": [
+            1,
+            1,
+            1
+          ],
+          "model": "single threshold-free linear HDR PSF with positive6sigma separable Gaussian after each downsample; at most1.8% radiance redistribution",
+          "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+        },
+        "stats": {
+          "sum": [
+            262144,
+            8192,
+            4096
+          ],
+          "maximum": [
+            16,
+            0.5,
+            0.25
+          ],
+          "minimum": 0.25,
+          "nonFinite": 0
+        },
+        "maximumRelativeError": 0
+      },
+      {
+        "fixture": "impulse",
+        "quality": "legacy",
+        "gpuMs": 0.852992,
+        "disjoint": false,
+        "state": {
+          "enabled": true,
+          "bloom": true,
+          "flare": false,
+          "bloomStrength": 1,
+          "strength": 0.018,
+          "budget": {
+            "direct": 0.982,
+            "bloom": 0.018,
+            "ghost": 0,
+            "veil": 0,
+            "total": 0.018
+          },
+          "levels": 4,
+          "quality": "legacy",
+          "passes": 5,
+          "gaussianKernel": null,
+          "operatorPeakBoundRGB": [
+            1,
+            1,
+            1
+          ],
+          "model": "single threshold-free linear HDR PSF; opt-in affine ghost/veil share at most 1.8% radiance redistribution",
+          "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+        },
+        "stats": {
+          "sum": [
+            4094.3701053857803,
+            2047.185052394867,
+            1023.5925234556198
+          ],
+          "maximum": [
+            4024,
+            2012,
+            1006
+          ],
+          "minimum": 0,
+          "nonFinite": 0
+        },
+        "fluxRelativeError": [
+          -0.00039792348979972303,
+          -0.0003979236353188753,
+          -0.00039792631287127733
+        ],
+        "angularVariation": [
+          {
+            "radius": 8,
+            "mean": 0.04004478454589844,
+            "coefficientOfVariation": 0.12175332523330033
+          },
+          {
+            "radius": 16,
+            "mean": 0.004247069358825684,
+            "coefficientOfVariation": 0.14601478438021476
+          },
+          {
+            "radius": 24,
+            "mean": 0.0007217004895210266,
+            "coefficientOfVariation": 0.6977695157059767
+          },
+          {
+            "radius": 32,
+            "mean": 0.0000016475096344947815,
+            "coefficientOfVariation": 4.700057060789625
+          },
+          {
+            "radius": 40,
+            "mean": 0,
+            "coefficientOfVariation": null
+          },
+          {
+            "radius": 48,
+            "mean": 0,
+            "coefficientOfVariation": null
+          }
+        ]
+      },
+      {
+        "fixture": "impulse",
+        "quality": "gaussian",
+        "gpuMs": 0.09728,
+        "disjoint": false,
+        "state": {
+          "enabled": true,
+          "bloom": true,
+          "flare": false,
+          "bloomStrength": 1,
+          "strength": 0.018,
+          "budget": {
+            "direct": 0.982,
+            "bloom": 0.018,
+            "ghost": 0,
+            "veil": 0,
+            "total": 0.018
+          },
+          "levels": 4,
+          "quality": "gaussian",
+          "passes": 13,
+          "gaussianKernel": {
+            "sigmaPixels": 2,
+            "radiusPixels": 12,
+            "supportSigma": 6,
+            "discreteTaps": 25,
+            "textureFetchesPerAxis": 13,
+            "passesPerLevel": 2
+          },
+          "operatorPeakBoundRGB": [
+            1,
+            1,
+            1
+          ],
+          "model": "single threshold-free linear HDR PSF with positive6sigma separable Gaussian after each downsample; at most1.8% radiance redistribution",
+          "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+        },
+        "stats": {
+          "sum": [
+            4094.1676260232925,
+            2047.0838032960892,
+            1023.5418528914452
+          ],
+          "maximum": [
+            4022,
+            2011,
+            1005.5
+          ],
+          "minimum": 0.00002372264862060547,
+          "nonFinite": 0
+        },
+        "fluxRelativeError": [
+          -0.00044735692790709436,
+          -0.0004473616718314588,
+          -0.000447409285698086
+        ],
+        "angularVariation": [
+          {
+            "radius": 8,
+            "mean": 0.07701778411865234,
+            "coefficientOfVariation": 0.06671963176836082
+          },
+          {
+            "radius": 16,
+            "mean": 0.014814019203186035,
+            "coefficientOfVariation": 0.032943735558405386
+          },
+          {
+            "radius": 24,
+            "mean": 0.005034267902374268,
+            "coefficientOfVariation": 0.026698686763168916
+          },
+          {
+            "radius": 32,
+            "mean": 0.0022368431091308594,
+            "coefficientOfVariation": 0.0265878692435197
+          },
+          {
+            "radius": 40,
+            "mean": 0.0011990219354629517,
+            "coefficientOfVariation": 0.013890120617918618
+          },
+          {
+            "radius": 48,
+            "mean": 0.0006459951400756836,
+            "coefficientOfVariation": 0.013763705735961366
+          }
+        ]
+      }
+    ],
+    "glErrors": [],
+    "shaderErrors": [],
+    "limits": {
+      "size": 128,
+      "operators": 4,
+      "maximumOperatorGPUms": 25,
+      "maximumFluxRelativeError": 0.02,
+      "maximumConstantRelativeError": 0.005
+    },
+    "scope": "Fixed constant and bright interior impulse; actual shared GPU, finite sensor and FP16 pyramid. Not full-scene performance or unbounded exposure proof.",
+    "restoration": {
+      "passed": true
+    }
+  },
+  "passed": true
+}

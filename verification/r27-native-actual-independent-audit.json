@@ -1,0 +1,228 @@
+{
+  "schema": "glass-atoll.r27-native-actual-independent-artifact-audit.v1",
+  "dateUTC": "2026-10-29T12:35:58.317Z",
+  "actualGPURunByThisAudit": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "sourceReceiptSHA256": "86a90df6d76f2c5e418c2743652561a4003574df5404444005699f6481e8f0e1",
+  "fixtureDigest": "b400c7e03f674a15a1590d92fcc016b91638322e4ebc6b8eca2b2534d5aa860d",
+  "checks": [
+    {
+      "name": "Saved receipt is tied to the exact immutable native artifact and pinned candidate/helper factories",
+      "passed": true,
+      "evidence": {
+        "artifactDigest": "b400c7e03f674a15a1590d92fcc016b91638322e4ebc6b8eca2b2534d5aa860d",
+        "currentMatchingOrExplicitHistoricalPins": 10,
+        "historicalProductionPins": [],
+        "factorySHA256": "07c46a74471a449a86b1608dd8d67b3026183a4f0eff0891d28cc682749d2a03"
+      }
+    },
+    {
+      "name": "Complete ordered native identity and independent mirror/SH accounting exactly match the frozen inputs",
+      "passed": true,
+      "evidence": {
+        "allMainRows": 1734,
+        "allPackets": 755,
+        "mirrorSourceTPrepares": 0,
+        "independentResolvedPotentialPairs": 1304640,
+        "sourceVersion": 1,
+        "densityRevision": 1639
+      }
+    },
+    {
+      "name": "Exactly one complete prepare uses3maps+one reduction with the original global addresses and byte budget",
+      "passed": true,
+      "evidence": {
+        "draws": [
+          {
+            "index": 0,
+            "kind": "map",
+            "rect": [
+              0,
+              0,
+              256,
+              61
+            ],
+            "actualDraws": 1
+          },
+          {
+            "index": 1,
+            "kind": "map",
+            "rect": [
+              0,
+              61,
+              256,
+              20
+            ],
+            "actualDraws": 1
+          },
+          {
+            "index": 2,
+            "kind": "map",
+            "rect": [
+              0,
+              81,
+              72,
+              1
+            ],
+            "actualDraws": 1
+          },
+          {
+            "index": 3,
+            "kind": "reduce",
+            "rect": [
+              0,
+              0,
+              256,
+              7
+            ],
+            "actualDraws": 1
+          }
+        ],
+        "inputUploadBytes": 1126400,
+        "gpuNumericalBytes": 2056192,
+        "readbackBytes": 27856,
+        "scope": "GPU numerical textures only; not total scene VRAM or capture heap"
+      }
+    },
+    {
+      "name": "All1734 saved RGBA outputs independently recompute the exact full physical and packed-reference errors",
+      "passed": true,
+      "evidence": {
+        "allRows": 1734,
+        "physicalError": 1.6361973009804132e-7,
+        "quantizedError": 9.640012998968217e-8,
+        "scope": "Exact saved-array comparison against all offline reference rows; no new hardware work"
+      }
+    },
+    {
+      "name": "Seven saved partial samples use the correct native source/tile and agree with bounded packed-double CPU references",
+      "passed": true,
+      "evidence": {
+        "samples": 7,
+        "maximumTauError": 1.2305995901115696e-9,
+        "rows": [
+          {
+            "address": 0,
+            "source": 0,
+            "tile": 0,
+            "packetRange": [
+              0,
+              64
+            ],
+            "expectedTau": [
+              2.0228263508672397e-13,
+              2.0228263508672397e-13,
+              2.0228263508672397e-13
+            ]
+          },
+          {
+            "address": 15615,
+            "source": 9,
+            "tile": 9,
+            "packetRange": [
+              576,
+              640
+            ],
+            "expectedTau": [
+              0.00551659317812533,
+              0.00551659317812533,
+              0.00551659317812533
+            ]
+          },
+          {
+            "address": 15616,
+            "source": 10,
+            "tile": 9,
+            "packetRange": [
+              576,
+              640
+            ],
+            "expectedTau": [
+              0.00035623035086665026,
+              0.00035623035086665026,
+              0.00035623035086665026
+            ]
+          },
+          {
+            "address": 20735,
+            "source": 1661,
+            "tile": 11,
+            "packetRange": [
+              704,
+              755
+            ],
+            "expectedTau": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "address": 20736,
+            "source": 1662,
+            "tile": 11,
+            "packetRange": [
+              704,
+              755
+            ],
+            "expectedTau": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "address": 20807,
+            "source": 1733,
+            "tile": 11,
+            "packetRange": [
+              704,
+              755
+            ],
+            "expectedTau": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "address": 19074,
+            "source": 0,
+            "tile": 11,
+            "packetRange": [
+              704,
+              755
+            ],
+            "expectedTau": [
+              0.00022861456463545404,
+              0.00022861456463545404,
+              0.00022861456463545404
+            ]
+          }
+        ],
+        "scope": "Fixed tiny packet-tile binary64 reference using accepted pack/column model; no full partial target readback or GPU rerun"
+      }
+    },
+    {
+      "name": "Owned timer, complete named-state restoration and clean-error receipts passed without a throughput/FPS inference",
+      "passed": true,
+      "evidence": {
+        "wholeUnitGPUms": 0.468992,
+        "cpuSubmitMs": 25.19999999552965,
+        "cpuScope": "Includes QA native-state/draw guards, first compilation/upload and packing; not ordinary warm-frame CPU cost",
+        "stateReceipt": "All declared bindings/Three fields and method descriptors; not undocumented cache identity or whole scene state"
+      }
+    }
+  ],
+  "limits": [
+    "This audits a saved root hardware receipt and computes bounded CPU references only.",
+    "Candidate numerical success does not itself promote production, repair the live route, admit resolvedSH or establish a whole-frame budget/60fps.",
+    "A later promoted-factory run using the same immutable input requires its own source/factory pins and hardware receipt."
+  ]
+}

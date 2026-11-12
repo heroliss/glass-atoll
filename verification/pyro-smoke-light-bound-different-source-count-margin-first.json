@@ -1,0 +1,132 @@
+{
+  "schema": "glass-atoll.smoke-light-group-bound-cpu.v1",
+  "dateUTC": "2026-10-27T02:22:15.680Z",
+  "passed": false,
+  "passedCount": 18,
+  "total": 19,
+  "sourceSHA256": "63685694e78e6d5ed223ffdabd777288615153851abf08342d489048a356bca4",
+  "limits": {
+    "sources": 14000,
+    "packets": 4096,
+    "groups": 2,
+    "float32Maximum": 3.4028234663852886e+38,
+    "shaderRelativeError": 0.002,
+    "arithmeticOperations": 96
+  },
+  "checks": [
+    {
+      "name": "single central source analytic envelope and finite emitter bound",
+      "passed": true,
+      "evidence": {
+        "maxRGB": 1.875416186239707,
+        "declaredMargin": {
+          "sourceCount": 1,
+          "gammaSum": 0,
+          "arithmeticOperations": 96,
+          "arithmeticRelativeError": 0.000005722078640434115,
+          "shaderRelativeError": 0.002,
+          "totalFactor": 1.0020057335227976,
+          "groupSumPrecision": "binary64 positive-sum gamma(count-1) applied after uploaded-row verification"
+        }
+      }
+    },
+    {
+      "name": "two separated source groups are summed before packet/channel maximization",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: 0.4688540745058073 != 0.46885404655992674\n    at near (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-bound-check.mjs:3:248)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-bound-check.mjs:12:258\n    at test (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-bound-check.mjs:3:136)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-bound-check.mjs:12:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "independent numerical integral stays under scalar/group envelopes over varied source/packet positions",
+      "passed": true,
+      "evidence": {
+        "integratedPairs": 800,
+        "maximumDirectToEnvelopeRatio": 0.31479940920544525
+      }
+    },
+    {
+      "name": "outside-AABB far envelope uses distance to box rather than group centroid",
+      "passed": true
+    },
+    {
+      "name": "duplicate packets maximize and never multiply lighting by packet count/mass",
+      "passed": true
+    },
+    {
+      "name": "extra mass/P/camera/photographic fields cannot affect raw bound",
+      "passed": true
+    },
+    {
+      "name": "zero sources and complete zero-RGB ledger produce exact0",
+      "passed": true
+    },
+    {
+      "name": "zero packets do not fabricate a contribution",
+      "passed": true
+    },
+    {
+      "name": "translation by exact Float32 offsets preserves distance/AABB envelope",
+      "passed": true
+    },
+    {
+      "name": "larger packet variance never increases the bound",
+      "passed": true
+    },
+    {
+      "name": "14000 sources get explicit positive-sum margin and no silent truncation",
+      "passed": true,
+      "evidence": {
+        "count": 14000,
+        "margin": 1.002842510751392,
+        "gamma": 0.0008351022360445493
+      }
+    },
+    {
+      "name": "count/capacity/stride/data mismatches and unsupported dimensions reject",
+      "passed": true
+    },
+    {
+      "name": "underreported group count/RGB or nonenclosing box reject instead of weakening bound",
+      "passed": true
+    },
+    {
+      "name": "source groupIndex/nonfinite/negative RGB and variance reject",
+      "passed": true
+    },
+    {
+      "name": "zero/negative/subnormal/nonfinite packet variance rejects before GPU undefined arithmetic",
+      "passed": true
+    },
+    {
+      "name": "finite Float32 input may still exceed raw coefficient/squared-distance range and is explicitly rejected",
+      "passed": true
+    },
+    {
+      "name": "SH1 anisotropy domain is explicit and sign reflection leaves angular maximum unchanged",
+      "passed": true
+    },
+    {
+      "name": "shader allowance is declared, bounded and monotone rather than hidden in P",
+      "passed": true
+    },
+    {
+      "name": "bounded CPU4096-packet/240-source sweep is group-linear and returns finite raw bounds",
+      "passed": true,
+      "evidence": {
+        "nodeCpuMilliseconds": [
+          3.8695999999999984,
+          1.1193999999999917,
+          1.2226,
+          1.9882999999999953,
+          1.343900000000005
+        ],
+        "scope": "CPU envelope only, not GPU bake or scene FPS",
+        "rawMaximum": 0.5626328673708803
+      }
+    }
+  ],
+  "metrics": {
+    "integratedPairs": 800,
+    "maximumDirectToEnvelopeRatio": 0.31479940920544525
+  },
+  "scope": "CPU group envelope/validation against uploaded Float32 rows and independent Laplace quadrature; no claim that a particular GPU Dawson approximation fits the declared.002 allowance until its actual GPU oracle passes"
+}

@@ -1,0 +1,84 @@
+{
+  "schema": "glass-atoll.smoke-motion-media.v1",
+  "passed": true,
+  "passedCount": 5,
+  "total": 5,
+  "checks": [
+    {
+      "name": "ascent: full audiovisual decode clean",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "name": "ascent: H2641920x1080 CFR30 and AAC stereo48k",
+      "passed": true
+    },
+    {
+      "name": "ascent: expected actual recorded duration",
+      "passed": true,
+      "encodedSeconds": 20.0,
+      "captureWallSeconds": 20.03939999997616
+    },
+    {
+      "name": "ascent: audio finite nonempty and below sample full scale",
+      "passed": true,
+      "peakStereo": [
+        0.3668784499168396,
+        0.3530343472957611
+      ],
+      "rmsStereo": [
+        0.007919698568398238,
+        0.008194111473708302
+      ],
+      "fullScaleSamples": 0
+    },
+    {
+      "name": "accepted main boom source unchanged",
+      "passed": true,
+      "sha256": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+    }
+  ],
+  "results": {
+    "ascent": {
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "30/1",
+            "avg_frame_rate": "30/1"
+          },
+          {
+            "codec_name": "aac",
+            "sample_rate": "48000",
+            "channels": 2,
+            "r_frame_rate": "0/0",
+            "avg_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "20.000000",
+          "size": "5322806"
+        }
+      },
+      "peakStereo": [
+        0.3668784499168396,
+        0.3530343472957611
+      ],
+      "rmsStereo": [
+        0.007919698568398238,
+        0.008194111473708302
+      ],
+      "sha256": "490a95253893cea9091a3e68dc49003e5a6a53aca64878cc69eb8526f47ab42b",
+      "webmSHA256": "b1f89bf8b188ec7ab50f4092054c4c048c1a8216f3852322c0613e91c4d23a8f"
+    }
+  },
+  "limits": [
+    "Full decode/sample peak checks are technical; no new human listening or intersample true-peak/SPL claim.",
+    "CFR encoding duplicates/drops actual captured VFR frames;30fps encoding is not renderer performance.",
+    "Two real scene episodes, not same-event pixel identity. Ordinary SDR recordings."
+  ]
+}

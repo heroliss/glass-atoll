@@ -1,0 +1,110 @@
+{
+  "schema": "glass-atoll.r28-native-light-independent-cpu.v1",
+  "dateUTC": "2026-10-29T13:54:56.162Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "checks": [
+    {
+      "name": "Frozen module, JSON, generator and complete native physical/source association",
+      "passed": true,
+      "evidence": {
+        "packetCount": 755,
+        "sourceCount": 1728,
+        "densityRevision": 1639,
+        "ledgerVersion": 1,
+        "recordGeneration": 1,
+        "digest": "809b983e5e87f8c112a919e8f718f316f792619e664941972283e584d0bdd22d",
+        "allNativePhysicalAndSourceRowsRetained": true
+      }
+    },
+    {
+      "name": "Unchanged receiver model and full input upload words, independent of packet mass",
+      "passed": true,
+      "evidence": {
+        "uploadedBytes": 516096,
+        "receiverModel": "Float32 mean and trace(Sigma)/3; source variance added in unchanged kernel",
+        "massAffectsIncidentSH": false,
+        "coefficientChannels": "RGBA=(C0,C1x,C1y,C1z), not alpha"
+      }
+    },
+    {
+      "name": "Native exact rectangle coverage visits all ordered pair addresses once under the declared policy",
+      "passed": true,
+      "evidence": {
+        "completeCells": 20385,
+        "logicalPairs": 1304640,
+        "mapSlots": [
+          999424,
+          294912,
+          10304
+        ],
+        "draws": 4,
+        "outputFullRows": 4096,
+        "validCoefficientRows": 755,
+        "numericalBytes": 1966080
+      }
+    },
+    {
+      "name": "Every stored signed coefficient/attachment, angular envelope and raw bound is internally consistent",
+      "passed": true,
+      "evidence": {
+        "coefficients": 9060,
+        "negativeC1": 2973,
+        "negativeFourthChannels": 862,
+        "minimumAngular": 1.2597959365280002e-9,
+        "maximumAngular": 0.00012074628791917971,
+        "rawBound": 0.026685245526492922,
+        "normalizationBudget": 0.002,
+        "scope": "Isotropic average SH1; not anisotropic transport or incoming-path self-shadow"
+      }
+    },
+    {
+      "name": "All 755 by 1728 offline positive-Laplace references replay without production special functions",
+      "passed": true,
+      "evidence": {
+        "receiverRows": 755,
+        "allSourcesPerRow": 1728,
+        "coefficientValues": 9060,
+        "bitExactToFrozenRows": true,
+        "nodes": 256,
+        "cpuMs": 6952.523,
+        "onlineReferenceWork": false
+      }
+    },
+    {
+      "name": "Separately selected 384-node convergence witnesses retain signed coefficients and error budget",
+      "passed": true,
+      "evidence": {
+        "indices": [
+          0,
+          128,
+          377,
+          709,
+          720,
+          754
+        ],
+        "nodes": 384,
+        "maximumNormalizedDifference": 9.212065074337586e-16,
+        "cpuMs": 104.79619999999977,
+        "scope": "Selected numerical falsification, not a universal floating point or quadrature certificate"
+      }
+    }
+  ],
+  "sourcePins": {
+    "./r28-native-light-fixture.js": "38a796ffe384a8b42e56cd5a03c65f58e81426c9483d79158be45c103ec15adf",
+    "./r28-native-light-fixture.json": "1d7954b58eef43c53ada4519ffcf2fb1ef375a31518963390c6d0b1447b2d2e1",
+    "./r28-native-light-fixture.mjs": "6ea1664b9d8b92c24cdea42978bc1b1180a3b36a8e35fe4cda59383d4895f98e"
+  },
+  "limits": [
+    "Complete frozen input and independent numerical recipe review only; no candidate or hardware acceptance here.",
+    "The all-row replay reuses the existing independently derived positive-Laplace oracle, never production Dawson/erf.",
+    "Offline native data is a causal reconstruction with the documented R27 clock/wind/camera contract, not a recording of every browser frame.",
+    "Single SH request work/bytes do not prove whole-frame timing, sustained FPS or multi-firework lifetime coverage."
+  ]
+}

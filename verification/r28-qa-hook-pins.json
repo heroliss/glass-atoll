@@ -1,0 +1,6 @@
+{
+  "schema": "glass-atoll.r28-qa-hook.v1",
+  "mainSHA256": "705a018f27c6cebf2eda8cd1b3558da4f30def3dbe12c9a1ebe134ad81919a4c",
+  "delta": "One exclusive paused lazy QA method only; production light-field unchanged",
+  "hook": "    async runCompleteNativeLightCheck(options={}){if(qaRenderLock||qaFrozenWorkload||graphicsContextInterrupted||!parameters.paused)throw new Error('Pause a healthy scene with no active diagnostic first');qaRenderLock=true;try{const [{runCompleteNativeLightGPUCheck},{createExactSmokeLightFieldCandidate}]=await Promise.all([import('./verification/r28-complete-native-light-gpu-check.js'),import('./verification/r28-exact-light-field-candidate.js')]);return await runCompleteNativeLightGPUCheck(THREE,renderer,{...options,parentLocked:true,createField:createExactSmokeLightFieldCandidate});}finally{clock.getDelta();qaRenderLock=false;lastPausedRenderKey=null;}},"
+}

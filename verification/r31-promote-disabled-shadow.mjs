@@ -1,0 +1,23 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+import {createDisabledSunShadowEarlyReturnCandidate,restoreDisabledSunShadowEarlyReturnCandidate} from './r31-disabled-shadow-candidate.js';
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const main=fs.readFileSync('main.js'),shadow=fs.readFileSync('sun-shadows.js');
+assert.equal(sha(main),'bd51038a3018bbcfea92440f80e824673aa3c00c4711b94b7f8ee8ad0e6dadfa');
+assert.equal(sha(shadow),'82a14b72b003cf4105f6cedb804e9ebd6c4b21da065d6ac51106db66ea2ca0d5');
+const candidate=createDisabledSunShadowEarlyReturnCandidate(shadow.toString('utf8'));
+assert.equal(sha(candidate),'8c7773d93682c0fc8202dab0611c0d7ed4424a42169bc0e7e9bb5662be8bbedd');
+assert.equal(sha(restoreDisabledSunShadowEarlyReturnCandidate(candidate)),sha(shadow));
+assert.equal(fs.readFileSync('verification/r31-disabled-shadow-staged-source.js','utf8'),candidate);
+const source=main.toString('utf8'),nl=source.includes('\r\n')?'\r\n':'\n',importAnchor="import { createShadowQuality } from './shadow-quality.js';",getterAnchor='    shaderSamplers(){';
+const addedImport=nl+"import { sunShadowGLSL } from './sun-shadows.js';",addedGetter='    sunShadowShaderSource(){return sunShadowGLSL;},'+nl;
+assert.equal(source.split(importAnchor).length,2);assert.equal(source.split(getterAnchor).length,2);assert(!source.includes('sunShadowShaderSource'));
+const nextMain=source.replace(importAnchor,importAnchor+addedImport).replace(getterAnchor,addedGetter+getterAnchor);
+assert.equal(sha(nextMain.replace(addedImport,'').replace(addedGetter,'')),sha(main));
+const backup=path.resolve('verification/baselines/r31-before-disabled-shadow-promotion');fs.mkdirSync(backup,{recursive:true});
+for(const [name,bytes] of [['main.js',main],['sun-shadows.js',shadow]]){assert(!fs.existsSync(path.join(backup,name)));fs.writeFileSync(path.join(backup,name),bytes);}
+fs.writeFileSync('sun-shadows.js',candidate);fs.writeFileSync('main.js',nextMain);
+const report={schema:'glass-atoll.r31-disabled-shadow-promotion.v1',passed:true,actualGPU:false,backup:'verification/baselines/r31-before-disabled-shadow-promotion',before:{main:sha(main),sunShadows:sha(shadow)},after:{main:sha(nextMain),sunShadows:sha(candidate)},exactShadowInverse:true,mainChangesOnlyReadOnlySourceGetter:true,enabledShadowTailUnchanged:true,skippedWork:'Disabled-only projection/division/derivative footprint/radius arithmetic; old disabled branch already skipped PCF texture reads',referenceEpochs:'Original native and phase-profile receipts retain their captured5b/bd main sources. The new main source getter also invalidates their old closed main pins before GPU access.',limits:['Source-level equivalence and existing17/17 CPU optics/binding checks do not establish a measured GPU speedup or universal pixel identity.','No solar/water/sky/aerial/physics/capacity/quality/exposure/approved-audio change is included.','Only a normal original empty scene reload/compile/restore check follows; no further experimental native workload after the over-budget phase profile.']};
+fs.writeFileSync('verification/r31-disabled-shadow-promotion.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));

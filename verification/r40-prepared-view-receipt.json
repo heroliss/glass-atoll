@@ -1,0 +1,52 @@
+{
+  "schema": "glass-atoll.r40-prepared-view-owner-receipt.v1",
+  "passed": true,
+  "actualGPU": false,
+  "structuralCPUHandoffOnly": true,
+  "liveMainPreparedIntegrated": false,
+  "productionPolicyChanged": false,
+  "hashes": {
+    "fireworks.js": "50895d4aeba191cd6817f344b3f728a305365e252eeaae7bb9fc96f3187815d8",
+    "main.js": "388afa4fd4d6a4d479860d476ce2c2424b8c70c22439b7f3d3304fe40216674f",
+    "firework-layer-profile.js": "411242962dc8681e2eb487acc7f03937ebe32331ec06414f9e78a5674778c537",
+    "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+    "verification/r40-prepared-view-check.mjs": "0629736075a8aa37ac5f22127f72a178592c256ae5bef93e29e8360fe4accfbc",
+    "verification/r40-prepared-view-check.json": "7d29ea82b2cdd8072d5ce414ab6e0bfe0e955ce608b5df47d16506adc38f0c4d",
+    "verification/baselines/r40-before-prepared-views/fireworks.js": "03fdb7038bffbfc769924ffff6ee57a51b5e9f8b2d3c72169d06e72b9d45c735",
+    "verification/baselines/r40-before-prepared-views/receipt.json": "ddc5e57551311565274bb2211bf651e84d83b6e547848130f18b75303ffd8dfc",
+    "verification/r40-prepared-view-patch.py": "b6c0bc99b5329e91e4059292a02733e67cc3e808465423d2050b08ba40590cc4",
+    "verification/r40-prepared-view-discard-patch.py": "e20a11ee952572ce53e7a8e44e431cd0044cd610dd5b5b65da72aaa8c96a5370"
+  },
+  "shaderSourceExact": true,
+  "shaderBytes": 13063,
+  "API": {
+    "prepare": "prepareSourceView({camera,target?,reflection,planeY,frame,optics,medium,legacySmoke})",
+    "info": "getPreparedSourceViewInfo(handle)",
+    "discard": "discardPreparedSourceView(handle)",
+    "consume": "render({...normal,preparedView:handle})",
+    "maximumOutstandingViews": 4,
+    "requestSequenceDuringPreflight": 0,
+    "strictPreparedUnsupportedCPUFallback": false
+  },
+  "CPUChecks": {
+    "passed": 6,
+    "total": 6
+  },
+  "preservedFailures": [
+    {
+      "path": "baselines/r40-prepared-view-before-effective-camera-test/",
+      "status": "5/6; ineffective inverse-matrix mutation reset by camera.updateMatrixWorld; only test changed to effective world-matrix mutation"
+    },
+    {
+      "path": "baselines/r40-prepared-view-before-discard/",
+      "status": "e872 candidate and6/6 preserved before authorized minimal discard lifecycle delta"
+    }
+  ],
+  "limits": [
+    "No browser, context, shader compile, GPU or live main/preflight transaction was exercised.",
+    "Regular render without a handle retains incumbent CPU fallback; strict prepared unsupported results throw before that fallback.",
+    "Preparation may populate existing optical/contact/projection caches and allocate private CPU buffers; it does not advance physics, allocate a SourceT request version or invoke a GPU prepare.",
+    "Storage EV and sceneScale deliberately remain mutable; current physical generation/time, input frame time/raw, resolved projection/view, medium identity/header/layout and one-use ownership are bound.",
+    "A consumer discards both handles after rejected joint preflight, then prepares new views after an epoch change."
+  ]
+}

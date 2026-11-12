@@ -1,0 +1,84 @@
+{
+  "schema": "glass-atoll.smoke-resolved-light-CPU.v1",
+  "dateUTC": "2026-10-29T14:40:01.779Z",
+  "passed": false,
+  "counts": {
+    "checks": 15,
+    "passed": 13
+  },
+  "checks": [
+    {
+      "id": "complete_legacy_renderer_and_host_inverse_are_byte_exact_fail_closed",
+      "passed": false,
+      "error": "Error: resolved renderer scope drift: prepare/bind API\n    at inverse (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/resolved-light-default-normalize.mjs:40:202)\n    at normalizeResolvedRendererSource (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/resolved-light-default-normalize.mjs:41:54)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:12:380\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:5:69)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:12:1"
+    },
+    {
+      "id": "default_factory_has_original_shaders_uniforms_and_raw_bound_no_extra_attributes",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    anisotropy: 0.32,\n    frontAirOptIn: true,\n    lastRender: {\n      culled: 1,\n...\n      packets: 3,\n+     projectionMode: 'legacy-sphere',\n+     proxyRasterPixelUpperBound: 3640,\n+     proxyRasterViewportLayers: 0.3949652777777778,\n      reflection: false,\n      samplerCount: 2,\n      stateRevision: 7,\n      storageEV: 0,\n      supportSigma: 5,\n      width: 96\n    },\n+   lightFieldBakeMode: 'serial-reference',\n    limits: [\n      'no app/event/source integration',\n      'true finite Gaussian columns withFloat32/erf and finite proxy-tail error; no unbiased-renderer claim',\n      'back-to-front latent-centre order; S at optical conditional mean, overlapping/source-varying scattering is approximate',\n      'optional four-cell front-air T/S restores front in-scatter at a conditional-mean thin layer; overlapping volumes are not a joint RTE integration',\n...\n    packets: 3,\n+   projectionMode: 'legacy-sphere',\n    samplerCount: 2,\n    supportSigma: 5,\n    version: 'pyro-smoke-renderer-stageA-v3-local'\n  }\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:13:543\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:5:69)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:13:1"
+    },
+    {
+      "id": "disabled_light_factory_and_host_allocate_no_numeric_resources_or_GPU_passes",
+      "passed": true
+    },
+    {
+      "id": "actual_upload_pack_is_Float32_world_mean_trace_no_mass_camera_P",
+      "passed": true
+    },
+    {
+      "id": "invalid_or_indefinite_packet_geometry_rejected_not_silently_isotropized",
+      "passed": true
+    },
+    {
+      "id": "work_capacity_unsupported_is_explicit_and_disable_reenable_cannot_publish_stale_cache",
+      "passed": true
+    },
+    {
+      "id": "invalid_source_or_group_is_error_not_resource_unsupported",
+      "passed": true
+    },
+    {
+      "id": "valid_input_without_float_MRT_support_reports_unsupported_no_fake_GPU_success",
+      "passed": true
+    },
+    {
+      "id": "resolved_shader_is_lazy_separate_and_excludes_only_pyro_local4_5",
+      "passed": true
+    },
+    {
+      "id": "camera_sorted_culled_instances_keep_original_snapshot_field_indices",
+      "passed": true
+    },
+    {
+      "id": "resolved_raw_bound_replaces_legacy_cluster_model_and_applies_SSA_once",
+      "passed": true
+    },
+    {
+      "id": "own_raw_field_receives_one_P_and_borrowed_localRGB_is_not_scaled_again",
+      "passed": true
+    },
+    {
+      "id": "stale_or_different_snapshot_layout_refuses_field_before_draw",
+      "passed": true
+    },
+    {
+      "id": "null_disable_restores_original_material_shader_and_bound",
+      "passed": true
+    },
+    {
+      "id": "moments_shader_has_explicit_small_far_stable_forms_and_no_noise_readback",
+      "passed": true
+    }
+  ],
+  "sourceSHA256": {
+    "pyro-smoke-light-field.js": "6e37c2cc59c8f32b329840392dfba85a48c16c8beec92623d1e65b6458bffa6c",
+    "pyro-smoke-renderer.js": "1d48e5bf251ef3f23701e706f4e6c098388b26003d4d2b51c9f1cf4c40ed26cf",
+    "pyro-smoke.js": "e2a5afe8bdc772d77f28cf9e34d24d2eea74f2a228db783145f6ad7831ebb697"
+  },
+  "noGPU": true,
+  "limits": [
+    "True factories/packing/rawbound/shader-selection exercised with stub render calls; no GL pixels, measured cost or actual scene visual acceptance.",
+    "Independent float-field GPU/Laplace oracle and main/mirror sorted-index tests remain required on hardware.",
+    "Trace-isotropic constant SH1 approximation is not conditional-ray anisotropic RTE or smoke self-shadow."
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "schema": "glass-atoll.r31-native-actual-layer-bounds-independent-audit.v1",
+  "actualGPU": false,
+  "browserActions": 0,
+  "nativeContextCalls": 0,
+  "physicalReplays": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "checks": [
+    {
+      "name": "Actual native receipt binds the frozen reviewed helper and every closed source/function pin",
+      "passed": true,
+      "evidence": {
+        "receiptSHA256": "873ecd6a1084655595cd91d82fa2b86003b0a04b5724ffc97a0239922f2682e4",
+        "sources": 34,
+        "cachedFunctions": 12,
+        "actualChecks": "6/6",
+        "GLerrors": 0,
+        "shaderErrors": 0
+      }
+    },
+    {
+      "name": "Complete native work and retrospective whole-query timing match their declared boundary without a FPS conclusion",
+      "passed": true,
+      "evidence": {
+        "draws": 107,
+        "renders": 41,
+        "elements": 10441410,
+        "nativeOps": {
+          "blits": 10,
+          "mipmaps": 4,
+          "clears": 16
+        },
+        "wholeQueryGPUms": 59.307392,
+        "coldInstrumentedCPUms": 313.90000000596046,
+        "above30fpsGPUReference": true,
+        "FPSPassClaim": false,
+        "scope": "One fresh1209x1292 SDR composed frame and capture in existing paused environment; native single-frame timing, not evolving/steady-state FPS"
+      }
+    },
+    {
+      "name": "One fresh complete SH and two native per-eye SourceT jobs retain full ray/packet coverage and immediate consumption order",
+      "passed": true,
+      "evidence": {
+        "packets": 2301,
+        "emissionSources": 1399,
+        "eachEyeRays": 1402,
+        "numericalDraws": 18,
+        "sharedSHbakes": 1,
+        "SourceTprepares": 2,
+        "allDifferentKernelPairs": 9671103,
+        "CPUfallbackQueries": 0,
+        "orderedConsumers": [
+          "sharedSH",
+          "reflection-volume",
+          "reflection-T3",
+          "reflection-FW",
+          "main-volume",
+          "main-T4",
+          "main-FW"
+        ]
+      }
+    },
+    {
+      "name": "Complete anchored physical state and distinct optical/ledger/request namespaces survive actual native rendering",
+      "passed": true,
+      "evidence": {
+        "eventID": "42-153.82550",
+        "roots": 192,
+        "physicalIdentity": "Full public anchored events and smoke state exact; compact receipt relies on pinned runtime for complete original-ray/full-upload/texture-object equality",
+        "densityRevision": 4785,
+        "opticalRecords": 667,
+        "ledgerGeneration": 1,
+        "actualRequestVersions": [
+          3,
+          4
+        ],
+        "nativeReflection": [
+          1209,
+          1292
+        ],
+        "samples": 2
+      }
+    },
+    {
+      "name": "All6248112 raw capture bytes and all native PNG rows match exactly with only the disclosed row flip",
+      "passed": true,
+      "evidence": {
+        "rawBytes": 6248112,
+        "rawSHA256": "dcee8e86f4e6927020e4ca5ed7d61384579c0379be5ebfb968f935b7ba8d85fc",
+        "pngSHA256": "ee74fbcf57ec657e4e1d2c49b5a70708d67ba10920d43b56942a3ddc938716a2",
+        "all1292RowsByteExact": true,
+        "opaquePixels": 1562028,
+        "statistics": {
+          "minimumRGB": 0,
+          "maximumRGB": 1,
+          "meanRGB": 0.0003617820714418532,
+          "nonblackChannels": 15265
+        },
+        "format": "Disclosed8-bit normalized SDR clamp/quantization, not HDR/Float32 preservation",
+        "visualQualification": "Very dark fading phase; image integrity is not photorealism/composition/exposure acceptance"
+      }
+    },
+    {
+      "name": "Inner/native and original semantic restoration are passed and separate from the measured original-scene rebuild",
+      "passed": true,
+      "evidence": {
+        "restorationPassed": true,
+        "originalNativeDimensions": [
+          1209,
+          1292
+        ],
+        "originalPresentationCPUms": 5,
+        "originalPresentationOutsideMeasuredQuery": true,
+        "noBitwiseCacheHistoryClaim": true
+      }
+    }
+  ],
+  "limits": [
+    "Saved actual native single-frame receipt/image audit only; no new GPU workload.",
+    "59.307392ms whole native GPU interval exceeds the30fps GPU reference; it motivates profiling, and is not an observed evolving-frame FPS measurement.313.9ms cold instrumented CPU submission is separate.",
+    "Native encoded8-bit SDR capture is very dark and is not HDR-display or visual-realism acceptance.",
+    "New all-pair numerical outputs were not read in this composed-frame gate; complete current upload/consumption proof and prior kernel numerical admission remain distinct.",
+    "Two-event >4m fallback, sustained motion cost and overall photo-quality goal remain unresolved."
+  ]
+}

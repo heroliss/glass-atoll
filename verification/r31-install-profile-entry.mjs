@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+const sha=s=>crypto.createHash('sha256').update(s).digest('hex'),file=path.resolve('main.js'),bytes=fs.readFileSync(file),source=bytes.toString('utf8');
+assert.equal(sha(bytes),'5b1541d2eddff1fa8a4c26eccd735657dac8b5a5e3c97a25001403cb1b1171f1');
+const backup=path.resolve('verification/baselines/r31-before-phase-profile');fs.mkdirSync(backup,{recursive:true});assert(!fs.existsSync(path.join(backup,'main.js')));fs.writeFileSync(path.join(backup,'main.js'),bytes);
+const start=source.indexOf('    async runR31NativeSceneCheck(options={}){'),end=source.indexOf('    async runR30BrowserFreshSceneCheck(',start);assert(start>0&&end>start);
+const original=source.slice(start,end),entry=original.replaceAll('runR31NativeSceneCheck','runR31NativePhaseProfile').replaceAll('./verification/r31-native-scene-gpu-check.js','./verification/r31-native-phase-profile-check.js').replaceAll('R31 native scene check','R31 native phase profile');
+assert(entry!==original&&!entry.includes('runR31NativeSceneCheck'));
+const next=source.slice(0,start)+entry+source.slice(start);assert.equal(sha(next.replace(entry,'')),sha(bytes));fs.writeFileSync(file,next);
+const report={schema:'glass-atoll.r31-phase-profile-entry-integration.v1',passed:true,beforeSHA256:sha(bytes),afterSHA256:sha(next),backup:'verification/baselines/r31-before-phase-profile/main.js',entry:'runR31NativePhaseProfile',sameBridge:'createR31SceneBridge',inverseRecoversNativeMain:true,oldNativeEntryAndBridgeUnchanged:true,normalProductionFrameUnchanged:true,scope:'Only adds a fixed three-phase QA entry after native59.307392ms established a performance concern; no scene-quality or physical change'};
+fs.writeFileSync('verification/r31-profile-main-integration.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));

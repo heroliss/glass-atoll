@@ -1,0 +1,181 @@
+{
+  "schema": "glass-atoll.complex-fireworks.render-style-cpu.v1",
+  "scope": "original-and-new-collection",
+  "newCollectionAccepted": true,
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "checks": [
+    {
+      "name": "all ten original styles retain exact records, shaders, attributes, ledgers, clusters and descriptors",
+      "passed": true,
+      "evidence": {
+        "styles": 10,
+        "samples": [
+          {
+            "type": "peony",
+            "records": 234
+          },
+          {
+            "type": "chrysanthemum",
+            "records": 1354
+          },
+          {
+            "type": "willow",
+            "records": 971
+          },
+          {
+            "type": "palm",
+            "records": 94
+          },
+          {
+            "type": "ring",
+            "records": 130
+          },
+          {
+            "type": "heart",
+            "records": 154
+          },
+          {
+            "type": "crossette",
+            "records": 262
+          },
+          {
+            "type": "strobe",
+            "records": 170
+          },
+          {
+            "type": "fan",
+            "records": 64
+          },
+          {
+            "type": "bouquet",
+            "records": 735
+          }
+        ]
+      }
+    },
+    {
+      "name": "new collection is actual scalar producer with shared head/tail curves and conservative peak colours",
+      "passed": true,
+      "evidence": {
+        "types": 10,
+        "samples": [
+          {
+            "type": "display-saturn",
+            "heads": 272,
+            "scalarRows": 1088,
+            "drawRows": 1088,
+            "ledger": 1088
+          },
+          {
+            "type": "display-heart",
+            "heads": 272,
+            "scalarRows": 1088,
+            "drawRows": 1088,
+            "ledger": 1088
+          },
+          {
+            "type": "display-flower",
+            "heads": 272,
+            "scalarRows": 1088,
+            "drawRows": 1088,
+            "ledger": 1088
+          },
+          {
+            "type": "display-chase",
+            "heads": 208,
+            "scalarRows": 1168,
+            "drawRows": 1168,
+            "ledger": 1113
+          },
+          {
+            "type": "display-vfan",
+            "heads": 96,
+            "scalarRows": 55,
+            "drawRows": 55,
+            "ledger": 55
+          },
+          {
+            "type": "display-helix",
+            "heads": 192,
+            "scalarRows": 984,
+            "drawRows": 984,
+            "ledger": 984
+          },
+          {
+            "type": "display-vortex",
+            "heads": 192,
+            "scalarRows": 768,
+            "drawRows": 768,
+            "ledger": 768
+          },
+          {
+            "type": "display-waterfall",
+            "heads": 193,
+            "scalarRows": 361,
+            "drawRows": 361,
+            "ledger": 360
+          },
+          {
+            "type": "display-double",
+            "heads": 180,
+            "scalarRows": 417,
+            "drawRows": 422,
+            "ledger": 421
+          },
+          {
+            "type": "display-brocade",
+            "heads": 256,
+            "scalarRows": 1408,
+            "drawRows": 1408,
+            "ledger": 1184
+          }
+        ]
+      }
+    },
+    {
+      "name": "optical flashes contribute to records, ledger and cluster energy without entering matter descriptors",
+      "passed": true,
+      "evidence": {
+        "positiveFlashes": 14,
+        "noMatterInjection": true
+      }
+    },
+    {
+      "name": "new-only continuous forecast uses actual launch and a wind/shutter-keyed event cache",
+      "passed": true,
+      "evidence": {
+        "newType": "display-helix",
+        "continuousCoverage": true,
+        "cacheReusedAcrossTimeBuckets": true,
+        "extendedWindRangeInvalidates": true
+      }
+    },
+    {
+      "name": "fragment and audio remain exact; vertex only adds the explicit opt-in point AA branch",
+      "passed": true,
+      "evidence": {
+        "visualAADefaultPreserved": true,
+        "optInPointAA": true,
+        "audioUnchanged": true
+      }
+    }
+  ],
+  "actualGPU": false,
+  "nativeContextCalls": 0,
+  "recordInjection": false,
+  "sourcePins": {
+    "fireworks.js": "d12f74d5b66b4234dab71220a780e1162aa2e83505d8fe8c0cca6184b5d9796a",
+    "fireworks-physics.js": "cb67cc7cd2bf366ee398e4498af5806ff560f88b5222ba00c466cf78d34209d2",
+    "complex-fireworks-style.js": "23921400961a7594472dcec74e058615c085ecf9df4804b9cbabbc2ea3930a41",
+    "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+  },
+  "scriptSHA256": "b5ab1049da680f878600aa0345324ab30f9801e589578eb5b14a6f651d15980b",
+  "limits": [
+    "Actual CPU producer and inert renderer only; no shader execution, pixel or frame-rate acceptance.",
+    "Scalar colours are instantaneous; existing shutter scalar weights do not integrate RGB colour history."
+  ]
+}

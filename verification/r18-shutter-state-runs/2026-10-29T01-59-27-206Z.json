@@ -1,0 +1,317 @@
+{
+  "schema": "glass-atoll.r18-shutter-state-check.v1",
+  "started": "2026-10-29T01:59:27.206Z",
+  "completed": "2026-10-29T01:59:27.851Z",
+  "passed": true,
+  "counts": {
+    "passed": 10,
+    "total": 10
+  },
+  "sourceSHA256": {
+    "main.js": "2d4a7adbf137ede0c9c75cb4f2dda3fd4129a2211ba87218e98c0b5435b01d04",
+    "lens.js": "54f533c0896267d3267a5c49b37bc71b0026d64d53e69acbc60201430db32f1d",
+    "fireworks.js": "c78afe6600a31d07b27751cec70e21fe28be68e2095bfc613cf071e42f2ae262",
+    "fireworks-physics.js": "35bbded2c937d335890c14a9a33abc0487db93a34b8458042db2720719374291",
+    "firework-layer-profile.js": "40e3ad97b42601fdfe7588a95a9d907002f6dbd57aa714ee69bda3e35ecd9c82"
+  },
+  "checks": [
+    {
+      "name": "Production createLens and main default shutter remain 1/120 second",
+      "passed": true,
+      "details": {
+        "defaultSeconds": 0.008333333333333333,
+        "mainDefault": "omitted setting resolves through lens default"
+      }
+    },
+    {
+      "name": "Direct lens finite0..1 accepts both endpoints and subnormal; invalid values change no state",
+      "passed": true,
+      "details": {
+        "valid": 5,
+        "rejected": 10,
+        "scope": "state getter and configuration side effects, no GL"
+      }
+    },
+    {
+      "name": "UI and QA reject invalid shutter before parameters/director/focal/quality/callback mutation",
+      "passed": true,
+      "details": {
+        "rejections": 12,
+        "entryFunctions": "actual configureLensSettings called by actual UI and QA methods"
+      }
+    },
+    {
+      "name": "Defensive main setLens also rejects an already-invalid setting before camera or exposure mutation",
+      "passed": true,
+      "details": {
+        "cameraFovUnchanged": true,
+        "exposureCallsUnchanged": true
+      }
+    },
+    {
+      "name": "Valid UI/QA updates propagate exact shutter, preserve partial updates, and retain entry-specific quality/sync behavior",
+      "passed": true,
+      "details": {
+        "partialSettingPreserved": true,
+        "explicitUndefinedResetsDefault": true
+      }
+    },
+    {
+      "name": "Actual lens callback and actual main finite-effects route forward configured shutter to main and reflection",
+      "passed": true,
+      "details": {
+        "viewRequests": 8,
+        "scope": "real lens render orchestration with no-context host; no pixel output"
+      }
+    },
+    {
+      "name": "QA framing follows current shutter by default and honors an explicit override",
+      "passed": true,
+      "details": {
+        "calls": [
+          {
+            "shutterSeconds": 0.37
+          },
+          {
+            "shutterSeconds": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Real fireworks candidate main/mirror share represented causal S; legacy main keeps requested S and mirror zero",
+      "passed": true,
+      "details": {
+        "configurations": 12,
+        "output": [
+          {
+            "effectProfile": "legacy",
+            "requestedSeconds": 0,
+            "uniforms": [
+              {
+                "reflection": false,
+                "vectorSeconds": 0,
+                "legacySeconds": 0
+              },
+              {
+                "reflection": true,
+                "vectorSeconds": 0,
+                "legacySeconds": 0
+              }
+            ]
+          },
+          {
+            "effectProfile": "legacy",
+            "requestedSeconds": 0.008333333333333333,
+            "uniforms": [
+              {
+                "reflection": false,
+                "vectorSeconds": 0.008333333333333748,
+                "legacySeconds": 0.008333333333333333
+              },
+              {
+                "reflection": true,
+                "vectorSeconds": 0.008333333333333748,
+                "legacySeconds": 0
+              }
+            ]
+          },
+          {
+            "effectProfile": "legacy",
+            "requestedSeconds": 0.37,
+            "uniforms": [
+              {
+                "reflection": false,
+                "vectorSeconds": 0.3700000000000001,
+                "legacySeconds": 0.37
+              },
+              {
+                "reflection": true,
+                "vectorSeconds": 0.3700000000000001,
+                "legacySeconds": 0
+              }
+            ]
+          },
+          {
+            "effectProfile": "legacy",
+            "requestedSeconds": 1,
+            "uniforms": [
+              {
+                "reflection": false,
+                "vectorSeconds": 1,
+                "legacySeconds": 1
+              },
+              {
+                "reflection": true,
+                "vectorSeconds": 1,
+                "legacySeconds": 0
+              }
+            ]
+          },
+          {
+            "effectProfile": "three-heart-v1",
+            "requestedSeconds": 0,
+            "uniforms": [
+              {
+                "reflection": false,
+                "vectorSeconds": 0,
+                "legacySeconds": 0
+              },
+              {
+                "reflection": true,
+                "vectorSeconds": 0,
+                "legacySeconds": 0
+              }
+            ]
+          },
+          {
+            "effectProfile": "three-heart-v1",
+            "requestedSeconds": 0.008333333333333333,
+            "uniforms": [
+              {
+                "reflection": false,
+                "vectorSeconds": 0.008333333333333748,
+                "legacySeconds": 0.008333333333333333
+              },
+              {
+                "reflection": true,
+                "vectorSeconds": 0.008333333333333748,
+                "legacySeconds": 0
+              }
+            ]
+          },
+          {
+            "effectProfile": "three-heart-v1",
+            "requestedSeconds": 0.37,
+            "uniforms": [
+              {
+                "reflection": false,
+                "vectorSeconds": 0.3700000000000001,
+                "legacySeconds": 0.37
+              },
+              {
+                "reflection": true,
+                "vectorSeconds": 0.3700000000000001,
+                "legacySeconds": 0
+              }
+            ]
+          },
+          {
+            "effectProfile": "three-heart-v1",
+            "requestedSeconds": 1,
+            "uniforms": [
+              {
+                "reflection": false,
+                "vectorSeconds": 1,
+                "legacySeconds": 1
+              },
+              {
+                "reflection": true,
+                "vectorSeconds": 1,
+                "legacySeconds": 0
+              }
+            ]
+          },
+          {
+            "effectProfile": "two-colour-v1",
+            "requestedSeconds": 0,
+            "uniforms": [
+              {
+                "reflection": false,
+                "vectorSeconds": 0,
+                "legacySeconds": 0
+              },
+              {
+                "reflection": true,
+                "vectorSeconds": 0,
+                "legacySeconds": 0
+              }
+            ]
+          },
+          {
+            "effectProfile": "two-colour-v1",
+            "requestedSeconds": 0.008333333333333333,
+            "uniforms": [
+              {
+                "reflection": false,
+                "vectorSeconds": 0.008333333333333748,
+                "legacySeconds": 0.008333333333333333
+              },
+              {
+                "reflection": true,
+                "vectorSeconds": 0.008333333333333748,
+                "legacySeconds": 0
+              }
+            ]
+          },
+          {
+            "effectProfile": "two-colour-v1",
+            "requestedSeconds": 0.37,
+            "uniforms": [
+              {
+                "reflection": false,
+                "vectorSeconds": 0.3700000000000001,
+                "legacySeconds": 0.37
+              },
+              {
+                "reflection": true,
+                "vectorSeconds": 0.3700000000000001,
+                "legacySeconds": 0
+              }
+            ]
+          },
+          {
+            "effectProfile": "two-colour-v1",
+            "requestedSeconds": 1,
+            "uniforms": [
+              {
+                "reflection": false,
+                "vectorSeconds": 1,
+                "legacySeconds": 1
+              },
+              {
+                "reflection": true,
+                "vectorSeconds": 1,
+                "legacySeconds": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ordinary type, automatic mode and random launch explicitly restore legacy before real core validation",
+      "passed": true,
+      "details": [
+        {
+          "transition": "type",
+          "type": "willow",
+          "autoLaunch": false
+        },
+        {
+          "transition": "auto",
+          "type": "chrysanthemum",
+          "autoLaunch": true
+        },
+        {
+          "transition": "random",
+          "type": "chrysanthemum",
+          "autoLaunch": false
+        }
+      ]
+    },
+    {
+      "name": "Explicit unsupported profile combinations and unknown QA profile reject without main/simulation mutation",
+      "passed": true,
+      "details": {
+        "rejected": 3
+      }
+    }
+  ],
+  "limits": [
+    "Actual lens source, actual extracted main functions and real Three constructors; browser/GL/postprocessing hosts are stubs.",
+    "No shader execution, image validation, native HDR or GPU timing. Root owns native acceptance.",
+    "State atomicity tested for invalid shutter only, not arbitrary unrelated configuration errors.",
+    "Candidate temporal width uses represented double endpoints from resolveFireworkExposure; may differ from requested S by ulps."
+  ]
+}

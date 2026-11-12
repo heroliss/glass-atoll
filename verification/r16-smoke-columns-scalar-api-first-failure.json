@@ -1,0 +1,122 @@
+{
+  "schema": "glass-atoll.r16-smoke-scalar-columns.v1",
+  "dateUTC": "2026-10-28T15:57:29.098Z",
+  "actualCPU": true,
+  "actualGPU": false,
+  "passed": false,
+  "counts": {
+    "passed": 4,
+    "total": 5
+  },
+  "checks": [
+    {
+      "name": "384 frozen full-SPD rays have exact public result/counters against preserved module",
+      "passed": true,
+      "comparedRays": 384,
+      "packets": 48
+    },
+    {
+      "name": "zero length, extreme close endpoints and long nearly axial rays remain binary64 identical",
+      "passed": true,
+      "comparedRays": 192
+    },
+    {
+      "name": "coherent refit and empty density preserve exact queries",
+      "passed": true,
+      "refit": "refit",
+      "comparedUpdatedRays": 64
+    },
+    {
+      "name": "invalid kernel option fails before cache build",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /reference or scalar/. Input:\n\n'RangeError: columnKernel requires reference,scalar or bounded-as'\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-columns-scalar-check.mjs:17:67\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-columns-scalar-check.mjs:9:72)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-columns-scalar-check.mjs:17:1"
+    },
+    {
+      "name": "bounded timing workload preserves equal BVH/kernel totals",
+      "passed": true,
+      "totals": {
+        "sourceTime": 4,
+        "sourceRevision": 23,
+        "packetCount": 48,
+        "profileCount": 2,
+        "nodeCount": 15,
+        "leafCount": 8,
+        "leafSize": 8,
+        "kSigma": 5,
+        "errorBudget": 0.00001,
+        "builds": 1,
+        "lastBuildMs": 0.3434000000000026,
+        "totalBuildMs": 0.3434000000000026,
+        "lastUpdateMs": 0.3434000000000026,
+        "refits": 0,
+        "structuralRebuilds": 1,
+        "qualityRebuilds": 0,
+        "lastUpdateKind": "structural-rebuild",
+        "treeQuality": 2.436849813318127,
+        "treeQualityGrowth": 1,
+        "refitRebuildThreshold": 2.5,
+        "lastFallbackGrowth": null,
+        "trackedNewPacketRecords": 48,
+        "trackedNewNodeRecords": 15,
+        "rays": 1184,
+        "zeroLengthRays": 0,
+        "visitedNodes": 17760,
+        "bboxTests": 74592,
+        "kernelsEvaluated": 48902,
+        "omittedPackets": 7930,
+        "skippedNodes": 0,
+        "zeroExtinctionPackets": 0,
+        "totalQueryMs": 13.65090000000015,
+        "maximumQueryMs": 0.3085000000000093,
+        "maximumOmittedBound": 0.000009404773210863714,
+        "mediumDomain": "unbounded full-SPD Gaussian; no halfspace, ground absorption or physical packet deletion",
+        "omissionBound": "Each missed 5-sigma AABB: sum M*trace(invSigma)/(2pi)*max(extinctionRGB)*exp(-12.5); only omitted when cumulative upper bound <= budget.",
+        "numericMethod": "binary64 Cholesky whitening + erf series/continued fraction + close-endpoint four-node quadrature",
+        "errorBoundIncludesRoundoff": false,
+        "units": "metres, relative dry mass, authored m2/reference-mass profiles; tau dimensionless"
+      },
+      "timings": [
+        {
+          "rep": 0,
+          "name": "reference",
+          "wallMs": 5.686199999999985,
+          "queries": 384
+        },
+        {
+          "rep": 0,
+          "name": "scalar",
+          "wallMs": 8.116199999999992,
+          "queries": 384
+        },
+        {
+          "rep": 1,
+          "name": "scalar",
+          "wallMs": 2.907499999999999,
+          "queries": 384
+        },
+        {
+          "rep": 1,
+          "name": "reference",
+          "wallMs": 3.6699999999999875,
+          "queries": 384
+        },
+        {
+          "rep": 2,
+          "name": "reference",
+          "wallMs": 3.0548,
+          "queries": 384
+        },
+        {
+          "rep": 2,
+          "name": "scalar",
+          "wallMs": 2.9238,
+          "queries": 384
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pyro-smoke-columns.js": "9413ab9668c38545f4db27c9455aaa1c8965237d3219fb3d98b2f5b9c5ffc044",
+    "verification/r16-smoke-columns-before-scalar.js": "d44a897ab8c7c9f58e0c7f974d07d1206b374d44dbb228bf05ebbe71131afad6"
+  }
+}

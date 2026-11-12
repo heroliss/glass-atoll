@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-31T09:47:36.824Z",
+  "passed": true,
+  "total": 7,
+  "passedCount": 7,
+  "checks": [
+    {
+      "name": "below_ceiling_audio_is_bit_exact_after_declared_delay",
+      "passed": true,
+      "detail": {
+        "delayFrames": 240
+      }
+    },
+    {
+      "name": "isolated_impulse_and_alternating_full_scale_are_bounded",
+      "passed": true,
+      "detail": {
+        "peak": 0.9750000238418579,
+        "releaseGain": 0.99999999996321
+      }
+    },
+    {
+      "name": "linked_stereo_gain_preserves_pan_balance",
+      "passed": true
+    },
+    {
+      "name": "extreme_random_peaks_and_block_partitions_match",
+      "passed": true
+    },
+    {
+      "name": "non_finite_upstream_is_silenced_without_poisoning_future_audio",
+      "passed": true
+    },
+    {
+      "name": "all_supported_sample_rates_and_monotone_peak_queue_wraps",
+      "passed": true,
+      "detail": [
+        {
+          "sampleRate": 22050,
+          "delayFrames": 111,
+          "peak": 0.9750000238418579
+        },
+        {
+          "sampleRate": 44100,
+          "delayFrames": 221,
+          "peak": 0.9750000238418579
+        },
+        {
+          "sampleRate": 48000,
+          "delayFrames": 240,
+          "peak": 0.9750000238418579
+        },
+        {
+          "sampleRate": 96000,
+          "delayFrames": 480,
+          "peak": 0.9750000238418579
+        }
+      ]
+    },
+    {
+      "name": "compatibility_soft_guard_curve_is_finite_odd_monotone_and_bounded",
+      "passed": true
+    }
+  ],
+  "limits": "CPU kernel correctness; browser AudioWorklet and actual graph are checked separately"
+}

@@ -1,0 +1,68 @@
+{
+  "schema": "glass-atoll.dynamic-local-loop-candidate.v1",
+  "routeResponseBodyOnly": true,
+  "productionChanged": false,
+  "fixedSourceSlots": 20,
+  "fixedFireworkProxySlots": 16,
+  "uniform": {
+    "name": "uLocalSourceCount",
+    "value": 20
+  },
+  "variants": {
+    "native20": {
+      "/water.js": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\audio-light-lifecycle\\dynamic-local-loop\\water.js",
+      "/aerial-perspective.js": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\audio-light-lifecycle\\dynamic-local-loop\\aerial-perspective.js",
+      "/pyro-smoke-renderer.js": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\audio-light-lifecycle\\dynamic-local-loop\\pyro-smoke-renderer.js",
+      "/local-lights.js": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\audio-light-lifecycle\\dynamic-local-loop\\local-lights.js"
+    },
+    "diffuse4": {
+      "/water.js": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\audio-light-lifecycle\\dynamic-local-loop\\water.js",
+      "/aerial-perspective.js": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\audio-light-lifecycle\\dynamic-local-loop\\aerial-perspective.js",
+      "/pyro-smoke-renderer.js": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\audio-light-lifecycle\\dynamic-local-loop\\pyro-smoke-renderer.js",
+      "/local-lights.js": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\audio-light-lifecycle\\dynamic-local-loop\\local-lights-diffuse-chunk.js"
+    }
+  },
+  "files": [
+    {
+      "input": "local-lights.js",
+      "output": "local-lights.js",
+      "sourceSHA256": "55aac00977aa728a97fcb1bd336e78035b047c6f7a10083ae7a15d87bfe987a2",
+      "candidateSHA256": "e21abae760a202ff6d8083fccd54e7dadaa6c85998ec19bdb8f22003c83be0f6",
+      "description": "Native 20 scene lights; only custom GLSL loop upper bounds become a uniform."
+    },
+    {
+      "input": "verification/audio-light-lifecycle/local-lights-diffuse-chunk-candidate.js",
+      "output": "local-lights-diffuse-chunk.js",
+      "sourceSHA256": "caf9444515a858c0ecd6e0a13f6ce878b9f3a91ee7b2c451263ebf0d3c064de2",
+      "candidateSHA256": "22a95cdeab3de041a9f9b2ca2e14f95df8b029f5daeae5b9a78f050045d23180",
+      "description": "Prior diffuse-only candidate with four native scene lights; custom GLSL loop upper bounds become a uniform."
+    },
+    {
+      "input": "water.js",
+      "output": "water.js",
+      "sourceSHA256": "0ad7035ba16e3fc29bcf2c90b5cdf14605a8ab6314ad31401468c4e0da0a98fb",
+      "candidateSHA256": "662cecac47b7de27a4d912a75cc0c2ea88e733a1a05459728c81de9fcb9c7d01",
+      "description": "Only the local-source seabed loop bound changes; Newton and object loops stay unchanged."
+    },
+    {
+      "input": "aerial-perspective.js",
+      "output": "aerial-perspective.js",
+      "sourceSHA256": "3a098341dcabad61a299e56ac02e7857f924012d9cb2d59639554417eb6c2180",
+      "candidateSHA256": "eeba6b8821c4631e5a9a2b3f1fd1480fbabd90f6aedb7614e92ca82258e4cb89",
+      "description": "The three local-source loops use the borrowed shared uniform; eight-cell integration stays unchanged."
+    },
+    {
+      "input": "pyro-smoke-renderer.js",
+      "output": "pyro-smoke-renderer.js",
+      "sourceSHA256": "18f39cc13b0d33a2299ba4896ad348eed53b42086e344cabe323ec4d3a33eda9",
+      "candidateSHA256": "b8ae263336686a3a9b30c52746376aab71b6248335255db0b943489985c5d6ad",
+      "description": "Default smoke borrows count=20; resolved field still replaces the loop with exactly four ordinary local lights."
+    }
+  ],
+  "limits": [
+    "Keep all ./ imports unchanged and route these response bodies at the original production module URLs.",
+    "These are CPU-generated candidates only; no WebGL compilation, performance or pixel result is claimed.",
+    "Uniform count stays 20; there is no activity-based shader permutation or reduction of the 16 receiver proxies.",
+    "The diffuse4 variant has the prior intentional loss of native firework specular; native20 retains it."
+  ]
+}

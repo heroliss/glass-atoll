@@ -1,0 +1,128 @@
+{
+  "schema": "glass-atoll.r23-transmission-layout-independent.v1",
+  "dateUTC": "2026-10-29T07:10:00.551Z",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "sources": {
+    "smoke-transmission-layout.js": "373739ec71f3505974a5ba5842fbc18f41821df42a6e0730db47fc3b7c72b9da",
+    "pyro-smoke-transmission-gpu.js": "235930f8d031c9d922afdeaff506cc62c583bcf68fdfd549b69ab7e4bb719dc8",
+    "pyro-smoke-transmission-pack.js": "c4c64278c6fe994c68ed9727ce82b3396295cbde109d7fb85362d3429e7f0fe8"
+  },
+  "checks": [
+    {
+      "name": "Exhaustive small constructor domains retain the exact whole-request admission and complete allocation enclosures",
+      "passed": true,
+      "evidence": {
+        "cases": 13776,
+        "domains": 3,
+        "includesRejectedBoundary": true
+      }
+    },
+    {
+      "name": "Every packet count in native cap has a bounded compact allocation without raising the pair allowance",
+      "passed": true,
+      "evidence": {
+        "cases": 16384,
+        "enumeratedExactMaximum": 32262,
+        "witness": {
+          "count": 16131,
+          "packets": 65
+        },
+        "conservativeLogicalAllocation": 34384,
+        "allocatedPartialTexels": 34560,
+        "reported755x1734": "still rejected; no pair-work expansion"
+      }
+    },
+    {
+      "name": "Every logical tile/source address round-trips and every reduction reads the freshly rendered prefix",
+      "passed": true,
+      "evidence": {
+        "addresses": 960,
+        "paddingSlots": 2860,
+        "packetSumOrder": "For each source, unchanged tiles in ascending order and unchanged packets tile*64+j, j0..63"
+      }
+    },
+    {
+      "name": "Shrink/empty/regrow decisions never authorize stale generation reuse or output reads beyond count",
+      "passed": true,
+      "evidence": {
+        "sequence": [
+          {
+            "count": 13,
+            "packets": 65,
+            "action": "map-reduce",
+            "mapTexels": 32,
+            "outputTexels": 16,
+            "validOutputCount": 13,
+            "outsideCountMayBeStale": true
+          },
+          {
+            "count": 2,
+            "packets": 1,
+            "action": "map-reduce",
+            "mapTexels": 32,
+            "outputTexels": 16,
+            "validOutputCount": 2,
+            "outsideCountMayBeStale": true
+          },
+          {
+            "count": 0,
+            "packets": 65,
+            "action": "neutral",
+            "mapTexels": 0,
+            "outputTexels": 16,
+            "validOutputCount": 0,
+            "outsideCountMayBeStale": false
+          },
+          {
+            "count": 5,
+            "packets": 0,
+            "action": "neutral",
+            "mapTexels": 0,
+            "outputTexels": 16,
+            "validOutputCount": 5,
+            "outsideCountMayBeStale": false
+          },
+          {
+            "count": 5,
+            "packets": 65,
+            "action": "map-reduce",
+            "mapTexels": 32,
+            "outputTexels": 16,
+            "validOutputCount": 5,
+            "outsideCountMayBeStale": true
+          }
+        ],
+        "scope": "Publication contract only; actual draw/failure/state behavior is owned by the independent factory/GPU gates"
+      }
+    },
+    {
+      "name": "Immutable plans protect nested publication/rectangle data; invalid domains reject",
+      "passed": true,
+      "evidence": {
+        "rejected": 5,
+        "nestedFrozen": true
+      }
+    },
+    {
+      "name": "Production floating kernel/packet order and packet packing stay byte-exact against the R23 baseline",
+      "passed": true,
+      "evidence": {
+        "floatFunctions": 2,
+        "packetLoopExact": true,
+        "reductionLoopExceptIntegerAddressExact": true,
+        "packerExact": true,
+        "scope": "Structural arithmetic identity; no GPU compiler/FMA/driver numerical claim"
+      }
+    }
+  ],
+  "limits": [
+    "Independent integer/source structural audit only; no renderer, new context, native GPU, optical pixel or performance acceptance.",
+    "Compact allocation is a conservative envelope, not the exact integer maximum; the independent enumeration checks safety and reports slack.",
+    "Nonempty padding beyond metadata.count is intentionally unreadable; complete allocated neutral output is required after count0 or packet0."
+  ]
+}

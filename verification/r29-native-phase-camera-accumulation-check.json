@@ -1,0 +1,110 @@
+{
+  "schema": "glass-atoll.r29-native-camera-accumulation-independent-count-audit.v1",
+  "dateUTC": "2026-10-29T16:12:54.345Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "sourceReports": [
+    {
+      "events": 1,
+      "sha256": "c9e8d8d459b4ffa168c7b2da46fb2dfc7e338ca971e487760e1aa2f9a25b23b5"
+    },
+    {
+      "events": 2,
+      "sha256": "768b1f035d7e9818041ce2bd06e30de8226200cd5c56af8f1ba0c3319df635a7"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Both actual native scenarios use the current saved camera/optics, unchanged producer/terrain and pinned audio without a GL result",
+      "passed": true,
+      "evidence": {
+        "camera": [
+          -157.6425659120671,
+          11.999999999999947,
+          -367.0586520111614
+        ],
+        "optics": {
+          "width": 1209,
+          "height": 1292,
+          "focal": 28,
+          "shutter": 0.008333333333333333
+        },
+        "singlePhysicalR27Exact": true,
+        "actualGPU": false
+      }
+    },
+    {
+      "name": "Every complete request retains distinct real per-eye ray associations, water-hit mirror origins and one shared world-light count",
+      "passed": true,
+      "evidence": {
+        "checkpoints": [
+          203,
+          242
+        ],
+        "realNonzeroMirrorCheckpoints": 246,
+        "mainOrigins": "actualcamera",
+        "mirrorOrigins": "per-source actual mean-water hit",
+        "sharedSH": "one current ledger, independent of eye; not doubled into two SH bakes"
+      }
+    },
+    {
+      "name": "Sampled one/twoevent peaks and4m threshold crossings recompute from all complete rows without linear extrapolation",
+      "passed": true,
+      "evidence": {
+        "cases": [
+          {
+            "events": 1,
+            "main": 3226002,
+            "reflection": 3226002,
+            "light": 3219099,
+            "joint": 9671103,
+            "thresholds": {
+              "mainAbove4m": 0,
+              "reflectionAbove4m": 0,
+              "lightAbove4m": 0
+            }
+          },
+          {
+            "events": 2,
+            "main": 10468768,
+            "reflection": 10468768,
+            "light": 10431764,
+            "joint": 31369300,
+            "thresholds": {
+              "mainAbove4m": 82,
+              "reflectionAbove4m": 82,
+              "lightAbove4m": 82
+            }
+          }
+        ],
+        "twoEventPeakBeforeAnyMerge": true,
+        "sampled20HzNotContinuousBound": true
+      }
+    },
+    {
+      "name": "Actual two accepted launches preserve material through existing4096 capacity/merge rules and finish with no reserved/active/luminous work",
+      "passed": true,
+      "evidence": {
+        "singleEmissions": 2645,
+        "twoActualEmissions": 5314,
+        "capacity": 4096,
+        "totalMerges": 1218,
+        "forcedSubset": 875,
+        "finalAirborne": 40.69999999999991,
+        "sourceMassLost": 0,
+        "noGPUAdmission": true
+      }
+    }
+  ],
+  "limits": [
+    "Read-only CPU provenance/count/material/ray-association audit of saved actual producer cases; no new GPU, optical oracle or FPS evidence.",
+    "Equal main/mirror counts do not authorize shared transmission answers or cache identities; incoming SH is the existing view-independent surrogate.",
+    "Two-event matrices above10m exceed current4m perrequest; this report authorizes no multi-event GPU dispatch."
+  ]
+}

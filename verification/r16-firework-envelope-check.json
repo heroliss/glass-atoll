@@ -1,0 +1,247 @@
+{
+  "schema": "glass-atoll.r16-firework-show-envelope.v1",
+  "dateUTC": "2026-10-28T16:11:19.711Z",
+  "passed": true,
+  "passedCount": 6,
+  "total": 6,
+  "tests": [
+    {
+      "name": "analytical cap component extrema enclose actual clamp/jitter directions across30000seededlaunches",
+      "passed": true,
+      "evidence": {
+        "launches": 30006
+      }
+    },
+    {
+      "name": "one explicit maximum-angle witness missing from oldforecast is enclosed",
+      "passed": true,
+      "evidence": {
+        "launch": {
+          "accepted": true,
+          "queued": false,
+          "id": "8-0.00000",
+          "type": "peony",
+          "smileyLayout": null,
+          "intensityScale": 1,
+          "actualStarCount": 224,
+          "burstTime": 4.415006971805566,
+          "azimuth": 144.96389074360215,
+          "elevation": 67.57811666197405,
+          "origin": [
+            29.144521770190575,
+            0.8201042782375749,
+            7.206121875639609
+          ],
+          "burstOrientation": {
+            "yawDegrees": 156.86033019796014,
+            "tiltDegrees": -18.47319254418835,
+            "rollDegrees": -19.71566503867507
+          }
+        },
+        "envelope": {
+          "schema": "glass-atoll.firework-show-envelope.v1",
+          "type": "peony",
+          "min": [
+            -30.39509347491064,
+            0.03,
+            -87.71393806063982
+          ],
+          "max": [
+            210.07169840374314,
+            146.65440385553498,
+            146.17584651327158
+          ],
+          "centre": [
+            89.83830246441624,
+            73.34220192776749,
+            29.23095422631588
+          ],
+          "launchDirectionRanges": [
+            [
+              -0.06511543632456807,
+              0.4425472469534588
+            ],
+            [
+              0.8910065241883678,
+              1
+            ],
+            [
+              -0.18947686740935138,
+              0.3268508119434656
+            ]
+          ],
+          "launchElevationRangeDegrees": [
+            63,
+            90
+          ],
+          "launchPositionRanges": [
+            [
+              28.957023812025785,
+              29.292081182989282
+            ],
+            [
+              0.7980643059643228,
+              0.87
+            ],
+            [
+              6.874945267509828,
+              7.215721535882687
+            ]
+          ],
+          "burstPositionRanges": [
+            [
+              14.583548201337736,
+              130.464295645421
+            ],
+            [
+              84.52216456420275,
+              124.20557692123627
+            ],
+            [
+              -34.94987057067154,
+              80.67485736842617
+            ]
+          ],
+          "burstVelocityRanges": [
+            [
+              -2.6239080879882035,
+              19.2279483084785
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              -7.635207762471573,
+              13.695460504895468
+            ]
+          ],
+          "limits": {
+            "intrinsicSpeedMetresPerSecond": 19,
+            "bodySeconds": 3.4410000000000003,
+            "birthDelaySeconds": 0,
+            "minimumBodyDragPerSecond": 0.545,
+            "maximumBodyDragPerSecond": 0.545,
+            "carrierSeconds": [
+              4.2785366214854745,
+              4.718893464845216
+            ],
+            "muzzleSpeedMetresPerSecond": 55.5425131592243,
+            "tailSeconds": 0,
+            "rocketTailSeconds": 0.5,
+            "tailAnchorPaddingMetres": 11.384286265427278,
+            "compositionPaddingMetres": 0,
+            "arithmeticPaddingMetres": 0.00001,
+            "windRanges": [
+              [
+                0,
+                4.680000000000001
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1.7599999999999998
+              ]
+            ]
+          },
+          "coverage": "All allowed seed-dependent speeds/lives, configured launch cone and arbitrary burst rotations; physical luminous body and detached-tail centres above the renderer floor.",
+          "method": "analytic cone component extrema + positive linear-drag response intervals + generator hard speed/lifetime limits; canonical event only calibrates deterministic muzzle speed and drag classes",
+          "limitations": [
+            "Binary64 conservative analytic derivation with small arithmetic padding, not a formal directed-rounding certificate.",
+            "Source-centre envelope only: camera-dependent Gaussian quad/DOF/shutter/bloom footprint and persistent drifting smoke require their separate framing margins.",
+            "Wind may vary piecewise in time only within supplied component bounds; no prediction of future user settings.",
+            "Current generator contract only; no arbitrary per-launch height, timed-reference flight or external physics modifications."
+          ]
+        }
+      }
+    },
+    {
+      "name": "all allowed type/drag/cone ranges, arbitrary burst rotations and bounded piecewise winds enclose body/tailcentres",
+      "passed": true,
+      "evidence": {
+        "cases": 720,
+        "bodyPoints": 850824,
+        "tailPoints": 1292760,
+        "maximumWorldSpanMetres": 554.2110648735888,
+        "byType": [
+          {
+            "type": "peony",
+            "cases": 72
+          },
+          {
+            "type": "chrysanthemum",
+            "cases": 72
+          },
+          {
+            "type": "willow",
+            "cases": 72
+          },
+          {
+            "type": "palm",
+            "cases": 72
+          },
+          {
+            "type": "ring",
+            "cases": 72
+          },
+          {
+            "type": "heart",
+            "cases": 72
+          },
+          {
+            "type": "crossette",
+            "cases": 72
+          },
+          {
+            "type": "strobe",
+            "cases": 72
+          },
+          {
+            "type": "fan",
+            "cases": 72
+          },
+          {
+            "type": "bouquet",
+            "cases": 72
+          }
+        ],
+        "scope": "Large deterministic CPU counterexample search supports the analytic argument; finite samples do not prove all random inputs."
+      }
+    },
+    {
+      "name": "all RNG lifetime upperlimits are generatorexpressions ratherthan observed seedmaxima",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "windbounds allow signchanging3D histories while preserving conservation of one source model",
+      "passed": true,
+      "evidence": {
+        "min": [
+          -138.58988163371214,
+          0.03,
+          -292.1388444504966
+        ],
+        "max": [
+          154.81158150232415,
+          149.76359232361807,
+          14.254136951235601
+        ]
+      }
+    },
+    {
+      "name": "visiblefloor, compositionpadding and inputdomain explicit; unsupported timedflights failclosed",
+      "passed": true,
+      "evidence": null
+    }
+  ],
+  "sourceSHA256": "d89bb457d79eb9540798dca97565bb6b712fe4be2f6842ad38ecdb3806e9f050",
+  "limits": [
+    "Pure CPU tests and analytic model; no browser/GPU/FPS acceptance.",
+    "Large finite seed/time tests seek counterexamples but are not a universal proof. The derivation and hardgeneratorcontracts are the primary basis.",
+    "Physical body/detached-tail centres; not lens Gaussian/shutter/DOF support or all persistent smoke."
+  ]
+}

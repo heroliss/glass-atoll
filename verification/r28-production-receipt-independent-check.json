@@ -1,0 +1,105 @@
+{
+  "schema": "glass-atoll.r28-production-native-light-receipt-independent-cpu.v1",
+  "dateUTC": "2026-10-29T15:00:07.580Z",
+  "actualGPU": false,
+  "reviewedActualGPUReceipt": true,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "checks": [
+    {
+      "name": "Production helper, all current source/functions and complete canonical native generation are pinned",
+      "passed": true,
+      "evidence": {
+        "helperSHA256": "8249fb55cf13bddf6d2ed8608f82f1c9d1a0e05af58b758c26c40c8b20959261",
+        "sourcePins": 18,
+        "cachedPins": 12,
+        "digest": "809b983e5e87f8c112a919e8f718f316f792619e664941972283e584d0bdd22d",
+        "packets": 755,
+        "sources": 1728,
+        "allNativeIdentitiesSame": true
+      }
+    },
+    {
+      "name": "Exact deployed constructor and four complete draw/read/state counters match the independent admission",
+      "passed": true,
+      "evidence": {
+        "constructor": {
+          "maxPackets": 4096,
+          "maxSources": 14000,
+          "maxBakePairs": 1048576,
+          "maxRequestPairs": 1400000,
+          "maxMapPairs": 1000000,
+          "maxMapDraws": 8,
+          "anisotropy": 0.32,
+          "bakeMode": "tiled64"
+        },
+        "actualDraws": 4,
+        "readBytes": 36624,
+        "gpuMs": 0.786432,
+        "coldInstrumentedCpuSubmitMs": 26.69999999552965,
+        "scope": "Fresh complete production numerical request; not a whole normal frame or FPS benchmark"
+      }
+    },
+    {
+      "name": "Every deployed valid signed coefficient independently meets the all-row physical error and raw bound gates",
+      "passed": true,
+      "evidence": {
+        "e0": 3.5659152071239537e-7,
+        "e1": 5.986491989816579e-7,
+        "minimumAngular": 1.2597993207740322e-9,
+        "maximumAngular": 0.0001207462698800377,
+        "maximumOwnGroupRatio": 0.3844048119467881,
+        "negativeC1": 2973,
+        "negativeFourth": 862,
+        "rawMaximum": 0.026685245526492922,
+        "coefficientValues": 9060,
+        "physicalBudget": 0.002,
+        "statisticRecomputeTolerance": 1e-12,
+        "fourthChannel": "Signed C1z, not alpha/opacity"
+      }
+    },
+    {
+      "name": "All 9060 deployed output words and all 96 selected partial words equal the candidate after guarded Float32 recovery",
+      "passed": true,
+      "evidence": {
+        "fullOutputF32Words": 9060,
+        "selectedPartialF32Words": 96,
+        "nearestF32BitwiseEqual": true,
+        "signedZeroLimit": "Saved candidate JSON is decimal transport; raw original signed-zero bits are not a claim",
+        "partialNumericalReconstruction": "Separately owned by motion reviewer",
+        "firstOwnFixtureFailure": "Archived4/5: all main and partial words already equal, but plain sentinel metadata compared a candidate decimal tail before Float32 recovery"
+      }
+    },
+    {
+      "name": "Production scope stays separate from whole-frame, frozen-cache and later lifetime performance",
+      "passed": true,
+      "evidence": {
+        "deployedIntegration": "6/6",
+        "normalSceneFreshPrepareClaim": false,
+        "frozenBenchmarkFreshBakeClaim": false,
+        "fullSuffixRead": false,
+        "laterRequestCeilingRepairComplete": false,
+        "scope": "Production kernel path is current and numerically hardware-validated for this complete input. Full coherent fresh frame/evolving/accumulated smoke remains next."
+      }
+    }
+  ],
+  "receipt": "./r28-production-native-light-actual-gpu.json",
+  "receiptSHA256": "fe4468ccbfdf3cd101b899afbfd32d63cb532ab5c08c2916d407397124c40152",
+  "candidateReceiptSHA256": "b49cc8fab93bad0fba0e386882acc14652e4a525f002f0f9c8cefb657f698e75",
+  "transport": {
+    "recoveryApplications": 1527,
+    "maximumRelativeDifference": 2.8447743265278496e-16,
+    "maximumAllowed": 8.881784197001252e-16,
+    "scope": "Guarded nearestFloat32 recovery for saved decimal values; original raw signed-zero capture not claimed"
+  },
+  "limits": [
+    "No new browser or GPU work: this is a read-only review of root-owned production actual receipt.",
+    "Complete755×12 valid coefficients and8partial witnesses are checked; full allocated zero suffix is not all read back in this gate.",
+    "Isolated numerical GPU time and cold instrumented CPU submission do not establish whole-frame or advancing FPS; identical-key frozen SH can be reused."
+  ]
+}

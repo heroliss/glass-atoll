@@ -1,0 +1,149 @@
+{
+  "schema": "glass-atoll.r40-dense-calibration-preflight.v1",
+  "passed": true,
+  "counts": {
+    "passed": 8,
+    "total": 8
+  },
+  "checks": [
+    {
+      "name": "Whole R40 runtime reverses to immutable R39 source and uses frozen unchanged QA kernels",
+      "passed": true,
+      "wholeSourceInverse": true,
+      "frozenR39QACopies": 5,
+      "noProductionMutationByBuilder": true
+    },
+    {
+      "name": "All three fixed exported phases validate originals/padding/references/pins before intentional native boundary",
+      "passed": true,
+      "phases": [
+        "mirror",
+        "light",
+        "joint"
+      ],
+      "sourcePins": 23,
+      "cachedFunctionPins": 17,
+      "clockHeadersRetained": true,
+      "noNativeContextCreated": true
+    },
+    {
+      "name": "Fixed draw/prepare/read/field allocations and submitted views match mirror/light/joint contracts",
+      "passed": true,
+      "contracts": {
+        "mirror": [
+          7,
+          1,
+          38816,
+          4706304,
+          [
+            "reflection"
+          ]
+        ],
+        "light": [
+          7,
+          1,
+          80208,
+          9916416,
+          [
+            "light"
+          ]
+        ],
+        "joint": [
+          21,
+          3,
+          157840,
+          19329024,
+          [
+            "main",
+            "reflection",
+            "light"
+          ]
+        ]
+      },
+      "twoJointTFieldsAndTargetsRequired": true,
+      "oneWhole25msRetrospectiveTimerUnchanged": true
+    },
+    {
+      "name": "T partial reads use the exact eight frozen addresses and reject numerical mismatch",
+      "passed": true,
+      "views": 2,
+      "referenceAddresses": [
+        {
+          "kind": "main",
+          "addresses": [
+            0,
+            62867,
+            15616,
+            31232,
+            46848,
+            62464,
+            62720,
+            15615
+          ]
+        },
+        {
+          "kind": "reflection",
+          "addresses": [
+            0,
+            62867,
+            15616,
+            31232,
+            46848,
+            62464,
+            62720,
+            15615
+          ]
+        }
+      ],
+      "absoluteTauTolerance": 0.00001,
+      "scope": "Validator branch exercised with Float32-rounded offline references; not GPU output or a fresh optical oracle."
+    },
+    {
+      "name": "All raw SH partial channels retain signed w and once-only normalization with numerical .002 gate",
+      "passed": true,
+      "partialAddresses": [
+        0,
+        63193,
+        15616,
+        31232,
+        46848,
+        62464,
+        62976,
+        15615
+      ],
+      "allRawCoefficients": 96,
+      "partialC1RelativeTolerance": 0.002,
+      "signedFourthChannel": true,
+      "normalizationAppliedToPartialReference": false,
+      "scope": "Validator branch only on rounded offline references, not hardware/benchmark evidence."
+    },
+    {
+      "name": "Only string enum phases and parent lock accepted; no path/cap/factory injection or active-call leak",
+      "passed": true,
+      "invalidCases": 5,
+      "defaultPhase": "mirror",
+      "repeatLatchReleased": true
+    },
+    {
+      "name": "Tampered current shared GLSL source stops all phase work before native boundary",
+      "passed": true,
+      "beforeAnyNativeFieldAllocation": true
+    },
+    {
+      "name": "Complete original frozen artifact remains canonical-exact and no renderer/context ran",
+      "passed": true,
+      "fixtureDigest": "96780577818e0d25e0b31ba3dc207fec22db86abf66702380431eefe5c416303",
+      "rendererCalls": 0,
+      "nativeContextCreated": false
+    }
+  ],
+  "runtimeRevision": "r40-dense-fixed-mirror-light-joint-v1",
+  "runtimeSHA256": "faefe72b5ef4145f0cdfafb0da994dbcc71894174942d7880c6241b5a742e82a",
+  "fixtureDigest": "96780577818e0d25e0b31ba3dc207fec22db86abf66702380431eefe5c416303",
+  "actualGPU": false,
+  "browserActions": 0,
+  "nativeContextCalls": 0,
+  "contextBoundaryStubCalls": 4,
+  "rendererCalls": 0,
+  "scope": "CPU-only fixed-input/source/pin/validator preflight. Native boundary intentionally throws; no factory GL, fresh physical/oracle replay, GPU or timing pass."
+}

@@ -1,0 +1,95 @@
+{
+  "schema": "glass-atoll.r23-native-transmission-pair-preflight-cpu.v1",
+  "dateUTC": "2026-10-29T07:13:03.401Z",
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "actualGPU": false,
+  "sourceSHA256": "3cd9b8bd44ce87e85ee1a63b7b0904eea001f6940150459c065a682f4885bb64",
+  "checks": [
+    {
+      "name": "Actual complete three-phase tiny receipt is mandatory with no arbitrary boolean override",
+      "passed": true,
+      "evidence": {
+        "required": [
+          "first",
+          "row-wrap",
+          "empty-shrink"
+        ]
+      }
+    },
+    {
+      "name": "Borrowed density/profile/original-double buffers are synchronously deep-copied with exact valid prefixes",
+      "passed": true,
+      "evidence": {
+        "validRows": 65,
+        "packetBufferFloats": 65536,
+        "sourceBufferFloats": 216064,
+        "unusedTexturePaddingRetained": true
+      }
+    },
+    {
+      "name": "Pair/constructor/numeric input gates reject before a field can be allocated",
+      "passed": true,
+      "evidence": {
+        "constructorCaps": {
+          "sources": 18000,
+          "packets": 4096,
+          "pairs": 1048576
+        }
+      }
+    },
+    {
+      "name": "Independent oracle is bounded to16 deterministic source rows and retains every density packet",
+      "passed": true,
+      "evidence": {
+        "sampledRows": [
+          0,
+          4,
+          8,
+          12,
+          17,
+          21,
+          25,
+          29,
+          34,
+          38,
+          42,
+          46,
+          51,
+          55,
+          59,
+          64
+        ],
+        "packets": 3,
+        "scope": "CPU oracle execution only; no shader, draw or GPU query"
+      }
+    },
+    {
+      "name": "Invalid lock/receipt/token calls draw nothing, retain no session, and reset the reentrancy guard",
+      "passed": true,
+      "evidence": {
+        "rejectedCalls": 3,
+        "fields": 0,
+        "contexts": 0,
+        "draws": 0
+      }
+    },
+    {
+      "name": "Bounded phases use supported target metadata and explicit prefix readback without new context/canvas/scene updates",
+      "passed": true,
+      "evidence": {
+        "warmupDraws": 4,
+        "pairDraws": 8,
+        "totalSessionDraws": 12,
+        "expiresMinutes": 5
+      }
+    }
+  ],
+  "limits": [
+    "Pure data copy/oracle/gate and static helper review only; no GL context, field allocation, timer, readback or GPU draw.",
+    "Root must perform separate explicit warmup/pair on its existing healthy renderer after current-context tiny receipts."
+  ]
+}

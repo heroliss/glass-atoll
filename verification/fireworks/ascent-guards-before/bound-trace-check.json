@@ -1,0 +1,60 @@
+{
+  "schema": "glass-atoll.bound-trace-cpu.v1",
+  "dateUTC": "2026-10-27T02:24:44.657Z",
+  "passed": true,
+  "passedCount": 6,
+  "total": 6,
+  "sourceSHA256": "76b87313d4f0532098daeddc9e3bb71cf107bc14fc8307d20db1fa8289656f5a",
+  "baselineSHA256": "6b37e0a635975ede060589c8b42ed0b273a79ed75aa8cbbca36095e3a63e731f",
+  "checks": [
+    {
+      "name": "three exact trace edits restore every pre-hook source byte",
+      "passed": true,
+      "evidence": {
+        "baselineSHA256": "6b37e0a635975ede060589c8b42ed0b273a79ed75aa8cbbca36095e3a63e731f",
+        "sourceSHA256": "76b87313d4f0532098daeddc9e3bb71cf107bc14fc8307d20db1fa8289656f5a"
+      }
+    },
+    {
+      "name": "missing/duplicated trace edits fail closed after exact removal of later authorized clip layer",
+      "passed": true,
+      "evidence": {
+        "edits": 3,
+        "clipLayerSeparatelyVerified": "homogeneous-clip-check.json",
+        "preservedPriorLayerMutationFailure": "bound-trace-layer-order-first.json"
+      }
+    },
+    {
+      "name": "default/null/observed production totals equal frozen baseline for multiple actual record sets",
+      "passed": true,
+      "evidence": {
+        "pairs": 8,
+        "rows": 10936
+      }
+    },
+    {
+      "name": "callback rows and every vector are detached/frozen; attempts cannot alter subsequent result",
+      "passed": true,
+      "evidence": {
+        "rows": 120
+      }
+    },
+    {
+      "name": "invalid callback rejects explicitly and does not change physical event state",
+      "passed": true
+    },
+    {
+      "name": "homogeneous uncertainty covers distinct Float32 dot accumulation orders",
+      "passed": true,
+      "evidence": {
+        "samples": 48000,
+        "maxRatio": 0.4650632404934839,
+        "limit": "CPU Float32 arithmetic witnesses only; actual hardware clipping is separate"
+      }
+    }
+  ],
+  "limits": [
+    "Trace is numerical no-op; later authorized homogeneous-depth bin rejection is exact-normalized and separately verified11/11. Public raw source Gaussian formula/shader remain unchanged.",
+    "CPU arithmetic/compatibility is not hardware-raster proof or a frame-rate measurement."
+  ]
+}

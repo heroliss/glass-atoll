@@ -1,0 +1,116 @@
+{
+  "schema": "glass-atoll.r30-browser-cpu-identity-independent-audit.v1",
+  "passed": false,
+  "actualGPU": false,
+  "browserActions": 0,
+  "replaysRun": 0,
+  "opticalQueries": 0,
+  "productionEdits": 0,
+  "sourceReceipts": {
+    "r30-browser-native-cpu-diagnostic.json": "0ea53891e208738114bbfe45824bd6dc291cae3509c59f66f99f87e707c3f2f6",
+    "r30-native-replay-node-diagnostic.json": "ec52b5ac3427215018dcb39a5bb1568c30ab6e5a20299de67c22c37a359d5939",
+    "r30-native-replay-fixture.json": "29df37fd539d8befbe19289b7dda51ee35c2dfca28b0d3fb106dbea0df058b59"
+  },
+  "summary": {
+    "passed": 4,
+    "total": 5
+  },
+  "checks": [
+    {
+      "name": "First failed strict attempt and diagnostic remain CPU-only, disposed and unpromoted",
+      "passed": false,
+      "error": "'restoration'"
+    },
+    {
+      "name": "Full snapshot raw values independently match every reported hex64 difference",
+      "passed": true,
+      "evidence": {
+        "allFieldsHexVerified": true,
+        "numericFields": 41439,
+        "exactNumericFields": 25107,
+        "differingNumericFields": 16332,
+        "allOtherNumericAndCategoricalFieldsExact": true,
+        "nonfinite": 0,
+        "groups": {
+          "mean": {
+            "differences": 4539,
+            "maxAbsolute": 4.263256414560601e-14,
+            "maxRelative": 1.260809833067388e-14,
+            "maxULP": "96"
+          },
+          "covariance": {
+            "differences": 11791,
+            "maxAbsolute": 2.0872192862952943e-14,
+            "maxRelative": 5.068475581680184e-12,
+            "maxULP": "35180"
+          },
+          "buoyantVelocity": {
+            "differences": 2,
+            "maxAbsolute": 1.1102230246251565e-16,
+            "maxRelative": 1.8577113147624738e-16,
+            "maxULP": "1"
+          }
+        }
+      }
+    },
+    {
+      "name": "All discrete, categorical, clock, ordered metadata, material and original ledger fields remain exact",
+      "passed": true,
+      "evidence": {
+        "packetsAndOrderedIDs": 2301,
+        "validLedgerRows": 1399,
+        "physicalRecords": 1420,
+        "allMaterialFieldsExact": true,
+        "allNonContinuousSnapshotFieldsExact": true,
+        "ledgerNumericFieldsExact": 11208,
+        "independentLedgerGeneration": 1
+      }
+    },
+    {
+      "name": "All captured derived Float32 packets and valid original ledger words equal the exact Node baseline",
+      "passed": true,
+      "evidence": {
+        "derivedInputs": [
+          {
+            "kind": "sourceTDensity-main",
+            "identicalWords": 65536
+          },
+          {
+            "kind": "sourceTDensity-reflection",
+            "identicalWords": 65536
+          },
+          {
+            "kind": "lightPackets",
+            "identicalWords": 9204
+          },
+          {
+            "kind": "fullValidLedger",
+            "identicalWords": 11192
+          }
+        ],
+        "tDensityOnly": true,
+        "sourceRayPackProduced": false,
+        "volumeBufferOrImageIdentityProved": false,
+        "physicalBinary64IdentityProved": false
+      }
+    },
+    {
+      "name": "Both complete covariance sets remain symmetric and numerically positive definite",
+      "passed": true,
+      "evidence": {
+        "matricesCholeskyChecked": 4602,
+        "nonSPD": 0,
+        "symmetryExact": true,
+        "minimumComputedCholeskyPivot": 0.09723485855403818,
+        "maxInfinityNormRelativeMatrixDifference": 1.229909023588474e-14,
+        "scope": "Finite binary64 numerical diagnostics; not an interval certificate or proof of all future simulation branches"
+      }
+    }
+  ],
+  "decision": "Current evidence supports a separately identified SAME-ENGINE exact physical anchor followed by a full exact CPU repeat. The original Node exact failure remains true. No epsilon rule is selected and no composed-frame GPU admission is granted before that repeat and refreshed source/consumer checks.",
+  "limits": [
+    "Tiny absolute drift and matching captured Float32 inputs do not prove its precise engine/libm cause.",
+    "No complete source-ray upload, smoke volume attribute buffer, image or continuous simulation identity follows from density-only T and SH packs.",
+    "Covariance and material agreement are evidence for this fixed one-event recipe, not all runtime profiles or later nonlinear branches."
+  ]
+}

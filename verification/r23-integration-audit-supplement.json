@@ -1,0 +1,467 @@
+{
+  "schema": "glass-atoll.r23-integration-audit-supplement.v1",
+  "passed": true,
+  "reviewerGPUDispatches": 0,
+  "reviewerBrowserActions": 0,
+  "productionEdits": 0,
+  "checks": [
+    {
+      "name": "All four saved blocks are internally valid and raw statistics recompute",
+      "passed": true,
+      "evidence": {
+        "frames": {
+          "A1": 121,
+          "B1": 142,
+          "B2": 142,
+          "A2": 132
+        },
+        "seconds": {
+          "A1": 3.038800000000745,
+          "B1": 3.03160000000149,
+          "B2": 3.036,
+          "A2": 3.0215
+        }
+      }
+    },
+    {
+      "name": "Block summary agrees with original detailed reports",
+      "passed": true,
+      "evidence": {
+        "rows": 4
+      }
+    },
+    {
+      "name": "Cross-block physical workload is frozen; final A block HDR calibration drift is explicitly detected",
+      "passed": true,
+      "evidence": {
+        "differencesFromA1": {
+          "A1": [],
+          "B1": [
+            {
+              "path": ".gpuTransmissionConfiguration.layoutMode",
+              "before": "legacy-max",
+              "after": "active-count"
+            }
+          ],
+          "B2": [
+            {
+              "path": ".gpuTransmissionConfiguration.layoutMode",
+              "before": "legacy-max",
+              "after": "active-count"
+            }
+          ],
+          "A2": [
+            {
+              "path": ".parameters.graphics.peakNits",
+              "before": 700,
+              "after": 1270
+            }
+          ]
+        },
+        "strictLayoutOnlyABBA": false
+      }
+    },
+    {
+      "name": "Whole-frame samples retain admitted GPU main SourceT and zero CPU medium queries",
+      "passed": true,
+      "evidence": {
+        "mainRows": 1740,
+        "packets": 500,
+        "pairsPerMainRequest": 870000,
+        "maxPairs": 1048576,
+        "mirrorRayCountRecordedInTheseBlocks": false
+      }
+    },
+    {
+      "name": "Second-camera both-view integration preserves state, geometry generations and GPU routing",
+      "passed": true,
+      "evidence": {
+        "legacy-max": {
+          "main": {
+            "backend": "gpu",
+            "effective": true,
+            "mediumQueries": 0,
+            "activeRayCount": 1740,
+            "instances": 1740,
+            "cameraKey": "-157.6425659120671,11.999999999999947,-367.0586520111614",
+            "reflection": false,
+            "densityRevision": 1122,
+            "recordsGeneration": 2786,
+            "sourceVersion": 1847
+          },
+          "reflection": {
+            "backend": "gpu",
+            "effective": true,
+            "mediumQueries": 0,
+            "activeRayCount": 1740,
+            "instances": 1740,
+            "cameraKey": "-157.6425659120671,-11.999999999999947,-367.0586520111614",
+            "reflection": true,
+            "densityRevision": 1122,
+            "recordsGeneration": 2786,
+            "sourceVersion": 1846
+          }
+        },
+        "active-count": {
+          "main": {
+            "backend": "gpu",
+            "effective": true,
+            "mediumQueries": 0,
+            "activeRayCount": 1740,
+            "instances": 1740,
+            "cameraKey": "-157.6425659120671,11.999999999999947,-367.0586520111614",
+            "reflection": false,
+            "densityRevision": 1122,
+            "recordsGeneration": 2786,
+            "sourceVersion": 1932
+          },
+          "reflection": {
+            "backend": "gpu",
+            "effective": true,
+            "mediumQueries": 0,
+            "activeRayCount": 1740,
+            "instances": 1740,
+            "cameraKey": "-157.6425659120671,-11.999999999999947,-367.0586520111614",
+            "reflection": true,
+            "densityRevision": 1122,
+            "recordsGeneration": 2786,
+            "sourceVersion": 1931
+          }
+        }
+      }
+    },
+    {
+      "name": "Independent Pillow RGBA decode measures one blue-channel one-code-value pixel difference; exact equality is false",
+      "passed": true,
+      "evidence": {
+        "width": 1209,
+        "height": 1292,
+        "decodedBytes": 6248112,
+        "changedPixels": 1,
+        "bitwiseEqual": false,
+        "maximumAbsoluteChannelDifference": 1,
+        "meanAbsoluteChannelDifference": 1.6004834740478404e-07,
+        "changedRGBBoundingBox": [
+          639,
+          291,
+          640,
+          292
+        ],
+        "channelDifferenceExtrema": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "decodedRGBA_SHA256": {
+          "legacy-max": "47d595707729bf5d430d3d3332529949214b1be0ba20583b67182ce4ab4deb53",
+          "active-count": "e45667774267ca64ef315ca5c6d155b6ce927dd916f6bf330155463126637702"
+        }
+      }
+    },
+    {
+      "name": "Production whole-frame layout setter uses current module; isolated pair baseline remains archived factory",
+      "passed": true,
+      "evidence": {
+        "wholeFrameA": "current module with explicit legacy-max",
+        "wholeFrameB": "current module with active-count",
+        "isolatedPairA": "archived factory",
+        "productionGPU_SHA256": "235930f8d031c9d922afdeaff506cc62c583bcf68fdfd549b69ab7e4bb719dc8"
+      }
+    },
+    {
+      "name": "Chronological original audit and approved firework audio source remain unchanged",
+      "passed": true,
+      "evidence": {
+        "previousAuditFilesChecked": 5,
+        "approvedFireworkAudioSHA256": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+        "audioPlaybackAcceptanceAdded": false
+      }
+    }
+  ],
+  "counts": {
+    "checks": 8,
+    "passed": 8
+  },
+  "wholeFrame": {
+    "blocks": [
+      {
+        "label": "A1",
+        "mode": "legacy-max",
+        "status": "completed",
+        "validity": "valid",
+        "FPS": 39.81834934841725,
+        "frames": 121,
+        "medianCPU": 21.800000000745058,
+        "medianGPU": 12.629,
+        "queries": 0
+      },
+      {
+        "label": "B1",
+        "mode": "active-count",
+        "status": "completed",
+        "validity": "valid",
+        "FPS": 46.839952500306836,
+        "frames": 142,
+        "medianCPU": 20.199999999254942,
+        "medianGPU": 12.346,
+        "queries": 0
+      },
+      {
+        "label": "B2",
+        "mode": "active-count",
+        "status": "completed",
+        "validity": "valid",
+        "FPS": 46.772068511198945,
+        "frames": 142,
+        "medianCPU": 20,
+        "medianGPU": 12.467,
+        "queries": 0
+      },
+      {
+        "label": "A2",
+        "mode": "legacy-max",
+        "status": "completed",
+        "validity": "valid",
+        "FPS": 43.68691047492967,
+        "frames": 132,
+        "medianCPU": 21.399999998509884,
+        "medianGPU": 12.408,
+        "queries": 0
+      }
+    ],
+    "pooled": {
+      "legacy-max": {
+        "labels": [
+          "A1",
+          "A2"
+        ],
+        "frames": 253,
+        "elapsedSeconds": 6.060300000000745,
+        "elapsedFPS": 41.74710822896043,
+        "frameMs": {
+          "count": 253,
+          "minimum": 17.399999998509884,
+          "median": 22.099999997764826,
+          "mean": 23.786166007913973,
+          "p95": 33.80000000074506,
+          "p99": 49.30000000074506,
+          "maximum": 57.5
+        },
+        "cpuMs": {
+          "count": 255,
+          "minimum": 17,
+          "median": 21.599999997764826,
+          "mean": 23.241568627266908,
+          "p95": 33.100000001490116,
+          "p99": 48.899999998509884,
+          "maximum": 57
+        },
+        "gpuMs": {
+          "count": 251,
+          "minimum": 10.62,
+          "median": 12.504,
+          "mean": 12.837988047808764,
+          "p95": 15.023,
+          "p99": 16.306,
+          "maximum": 18.005
+        }
+      },
+      "active-count": {
+        "labels": [
+          "B1",
+          "B2"
+        ],
+        "frames": 284,
+        "elapsedSeconds": 6.06760000000149,
+        "elapsedFPS": 46.805985892268815,
+        "frameMs": {
+          "count": 284,
+          "minimum": 16.199999999254942,
+          "median": 20.5,
+          "mean": 21.143309859152307,
+          "p95": 25,
+          "p99": 34.29999999701977,
+          "maximum": 46.69999999925494
+        },
+        "cpuMs": {
+          "count": 286,
+          "minimum": 15.899999998509884,
+          "median": 20.100000001490116,
+          "mean": 20.76153846161922,
+          "p95": 24.899999998509884,
+          "p99": 34.600000001490116,
+          "maximum": 45.899999998509884
+        },
+        "gpuMs": {
+          "count": 282,
+          "minimum": 10.797,
+          "median": 12.426,
+          "mean": 13.017421985815602,
+          "p95": 16.161,
+          "p99": 17.456,
+          "maximum": 18.974
+        }
+      }
+    },
+    "descriptiveElapsedFPSChangePercent": 12.117911582194306,
+    "strictLayoutOnlyABBA": false,
+    "crossBlockDrift": [
+      {
+        "path": ".parameters.graphics.peakNits",
+        "before": 700,
+        "after": 1270
+      }
+    ],
+    "scope": "Two approximately 3-second samples per layout, one frozen physical phase/camera, actual rendering and HDR bridge; not evolving-simulation performance",
+    "interpretation": "Descriptive throughput improvement only; A2 display peak calibration drift and sample/order variance preclude clean layout-only whole-frame causal attribution. GPU pooled mean is not reduced."
+  },
+  "bothView": {
+    "camera": [
+      -157.6425659120671,
+      11.999999999999947,
+      -367.0586520111614
+    ],
+    "target": [
+      110.01852283013451,
+      0,
+      27.000722993261995
+    ],
+    "packets": 500,
+    "pairsPerView": 870000,
+    "sourceRowsAcrossTwoViews": 3480,
+    "combinedSourceTPairsIfBothPrepared": 1740000,
+    "resolvedLightFieldPairs": 864000,
+    "resolvedLightFieldReused": true,
+    "views": {
+      "legacy-max": {
+        "main": {
+          "backend": "gpu",
+          "effective": true,
+          "mediumQueries": 0,
+          "activeRayCount": 1740,
+          "instances": 1740,
+          "cameraKey": "-157.6425659120671,11.999999999999947,-367.0586520111614",
+          "reflection": false,
+          "densityRevision": 1122,
+          "recordsGeneration": 2786,
+          "sourceVersion": 1847
+        },
+        "reflection": {
+          "backend": "gpu",
+          "effective": true,
+          "mediumQueries": 0,
+          "activeRayCount": 1740,
+          "instances": 1740,
+          "cameraKey": "-157.6425659120671,-11.999999999999947,-367.0586520111614",
+          "reflection": true,
+          "densityRevision": 1122,
+          "recordsGeneration": 2786,
+          "sourceVersion": 1846
+        }
+      },
+      "active-count": {
+        "main": {
+          "backend": "gpu",
+          "effective": true,
+          "mediumQueries": 0,
+          "activeRayCount": 1740,
+          "instances": 1740,
+          "cameraKey": "-157.6425659120671,11.999999999999947,-367.0586520111614",
+          "reflection": false,
+          "densityRevision": 1122,
+          "recordsGeneration": 2786,
+          "sourceVersion": 1932
+        },
+        "reflection": {
+          "backend": "gpu",
+          "effective": true,
+          "mediumQueries": 0,
+          "activeRayCount": 1740,
+          "instances": 1740,
+          "cameraKey": "-157.6425659120671,-11.999999999999947,-367.0586520111614",
+          "reflection": true,
+          "densityRevision": 1122,
+          "recordsGeneration": 2786,
+          "sourceVersion": 1931
+        }
+      }
+    },
+    "image": {
+      "width": 1209,
+      "height": 1292,
+      "decodedBytes": 6248112,
+      "changedPixels": 1,
+      "bitwiseEqual": false,
+      "maximumAbsoluteChannelDifference": 1,
+      "meanAbsoluteChannelDifference": 1.6004834740478404e-07,
+      "changedRGBBoundingBox": [
+        639,
+        291,
+        640,
+        292
+      ],
+      "channelDifferenceExtrema": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "decodedRGBA_SHA256": {
+        "legacy-max": "47d595707729bf5d430d3d3332529949214b1be0ba20583b67182ce4ab4deb53",
+        "active-count": "e45667774267ca64ef315ca5c6d155b6ce927dd916f6bf330155463126637702"
+      }
+    },
+    "scope": "Separate paused second-camera integration/image comparison, not a both-active-view benchmark or direct transmission texture readback"
+  },
+  "unchangedLimits": [
+    "1048576 whole-request SourceT pair gate and resulting over-budget CPU fallback",
+    "Resolved-light-field over-budget rejection",
+    "Late-life, evolving, repeated-show and accumulated-smoke performance",
+    "No 60 FPS or powered-effect UI admission",
+    "PNG equality does not verify HDR canvas output or universal views/phases"
+  ],
+  "sourceSHA256": {
+    "verification\\r23-whole-frame-A1.json": "fa87d36e88357d8793c447b12a18c18926cfd1c2966d8e230dff20b36800db70",
+    "verification\\r23-whole-frame-B1.json": "8bb1ca315edc16eacea81ad56a3ebf877b82fdd24234e27a3149c4e1dba4218d",
+    "verification\\r23-whole-frame-B2.json": "2c063701985dd6e75a720dd10c4c0b1703440e4106df47ae74bb6a0cd47db3ac",
+    "verification\\r23-whole-frame-A2.json": "7a4943f1541f04e9326e20974752b642e38e0b66de21a8277d59441ef03cb1b2",
+    "verification\\r23-whole-frame-block-summary.json": "2dabb24cfe14af29c697c1f6729396e8378d7bf6cbc25ffe34abaeab68e23e9d",
+    "verification\\r23-native-both-view-legacy-max.json": "22d7e6300c71a156b55098ab28ecdc294a885337a54cb0d667e1a907d0136704",
+    "verification\\r23-native-both-view-legacy-max.png": "6549fd69e388d5e246729b763ba9b88d76c3d95696ef5e00532d35a7b287a1a4",
+    "verification\\r23-native-both-view-active-count.json": "5b1b6ed1eb3bf8a7cbdfb3f685f895c7072708914f17ccda11e437f998b07145",
+    "verification\\r23-native-both-view-active-count.png": "b58464e4e9bc04203db3f18b60e377360a3aa9613957122467be43a0348bb966"
+  },
+  "reviewedSourceSHA256": {
+    "main.js": "0890c1efaa4def20d518b79b95d1cf6cf0c4f141da573b2ce68f81004edb3ea6",
+    "render-benchmark.js": "0a2bf5fe92ab322d044ced2a2fa1af66e635c27084d6325af9484d8128b6244e",
+    "pyro-smoke-transmission-gpu.js": "235930f8d031c9d922afdeaff506cc62c583bcf68fdfd549b69ab7e4bb719dc8",
+    "smoke-transmission-layout.js": "373739ec71f3505974a5ba5842fbc18f41821df42a6e0730db47fc3b7c72b9da",
+    "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+    "verification/r23-integration-audit-supplement.py": "3a6d38c81e679a705ee53904403b0bfea2e1c871c312151646b4cd72713b9f5a"
+  }
+}

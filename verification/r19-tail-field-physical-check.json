@@ -1,0 +1,146 @@
+{
+  "schema": "glass-atoll.r19-tail-field-physical-check.v1",
+  "started": "2026-10-29T03:49:25.245Z",
+  "completed": "2026-10-29T03:49:25.545Z",
+  "passed": true,
+  "counts": {
+    "passed": 11,
+    "total": 11
+  },
+  "sources": {
+    "tailField": "4c19f88ad0083e3e0426464a1ee90facc9a107a5577f873ffe1cbc2a68d4977e",
+    "fireworks": "c78afe6600a31d07b27751cec70e21fe28be68e2095bfc613cf071e42f2ae262"
+  },
+  "checks": [
+    {
+      "name": "Factory validates lag/identity and creates immutable finite coefficients",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "A changed source birth rejects stale descriptors before any future/prebirth sampling",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Actual q equals independent sequential ODE; dq matches five-point differences away from wind knots",
+      "passed": true,
+      "details": {
+        "cases": 180,
+        "maxPositionError": 4.263256414560601e-14,
+        "maxDerivativeError": 1.4309975426840538e-10,
+        "minEmberVelocityDifference": 0.9442033172146458,
+        "oracle": "Sequential piecewise-held ODE positions, independent 5-point derivative; does not call sampleBody/windResponse."
+      }
+    },
+    {
+      "name": "Release wind knot uses right-hand derivative, including duplicate knots",
+      "passed": true,
+      "details": {
+        "leftApprox": [
+          13.981400932969734,
+          -5.096070273822306,
+          -0.8227307702046716
+        ],
+        "rightApprox": [
+          13.185594026889902,
+          -5.149494011718048,
+          -1.8834173452297875
+        ],
+        "actual": [
+          13.185594032257185,
+          -5.149494001506989,
+          -1.883417348352943
+        ]
+      }
+    },
+    {
+      "name": "A knot at observation time keeps q derivative continuous; release and observation wind are not interchanged",
+      "passed": true,
+      "details": {
+        "maximumDerivativeError": 7.094048903866224e-8,
+        "scope": "Independent three-point one-sided derivatives agree at the upper convolution endpoint. No relaxed central stencil crossing a second-derivative discontinuity."
+      }
+    },
+    {
+      "name": "Changing source/root parent poses are read live, while static lag coefficients stay unchanged",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Causal exposure anchor queries only past/current field states; prebirth raster anchor is explicitly virtual",
+      "passed": true,
+      "details": {
+        "samples": 36,
+        "virtualBirthAnchors": 18
+      }
+    },
+    {
+      "name": "Actual traced sampler uses exactly causal source release plus actual aged ember query",
+      "passed": true,
+      "details": {
+        "queries": [
+          3.9,
+          4
+        ]
+      }
+    },
+    {
+      "name": "Long finite clocks preserve finite states; expose requested lag versus represented age rounding",
+      "passed": true,
+      "details": {
+        "errors": [
+          {
+            "epoch": 0,
+            "requestedLag": 0.00625,
+            "representedAge": 0.006249999999999645,
+            "ageRounding": -3.5561831257524545e-16
+          },
+          {
+            "epoch": 30000,
+            "requestedLag": 0.00625,
+            "representedAge": 0.0062499999985448085,
+            "ageRounding": -1.4551918697813804e-12
+          },
+          {
+            "epoch": 172800,
+            "requestedLag": 0.00625,
+            "representedAge": 0.006250000005820766,
+            "ageRounding": 5.8207657444020455e-12
+          },
+          {
+            "epoch": 1000000000,
+            "requestedLag": 0.00625,
+            "representedAge": 0.00625002384185791,
+            "ageRounding": 2.3841857909809305e-8
+          }
+        ],
+        "scope": "Finite values and actual represented ember age, not arbitrary-epoch exact differential guarantees."
+      }
+    },
+    {
+      "name": "Actual factory bound scoped/ordinary bulk is exactly equal; no await/GL and trace throws clean the scope",
+      "passed": true,
+      "details": {
+        "shutters": 3,
+        "sourceTracesExact": true
+      }
+    },
+    {
+      "name": "Actual node and optical shutter caches stay bounded; current ledger retains physical ember velocities",
+      "passed": true,
+      "details": {
+        "viewCacheSize": 2,
+        "anchorCacheSize": 2,
+        "nodeCacheSize": 27,
+        "changedBirthRebuilt": true
+      }
+    }
+  ],
+  "limits": [
+    "Actual frozen runtime helper and real Three constructors; no GPU/context/browser/native timing.",
+    "Ground visibility interval, nonlinear spatial-path shutter error, anchor-only T, receiver/depth/camera histories remain explicit unresolved limits.",
+    "Immutable source birth and no motor-force model are current factory assumptions; static lag coefficients are not a motor acceleration solver.",
+    "Independent ODE/finite-difference evidence covers the listed finite ranges, not all IEEE754 clocks or arbitrary forcing."
+  ]
+}

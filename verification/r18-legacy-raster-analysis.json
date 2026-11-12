@@ -1,0 +1,54 @@
+{
+  "schema": "glass-atoll.r18-legacy-raster-cpu-analysis.v1",
+  "date": "2026-10-28T21:59:07.121Z",
+  "actualGPU": false,
+  "native": {
+    "maxAbs": 4.999067315044378e-7,
+    "normalizedByPeak": 0.0005079522165236339,
+    "signedFluxRelative": [
+      -0.0006181700411201829,
+      -0.0006181730116598847,
+      -0.0006181730116598847
+    ],
+    "gpuMs": 0.01024,
+    "glErrors": [],
+    "shaderErrors": []
+  },
+  "model": {
+    "subpixelBits": 8,
+    "physicalExtent": [
+      5.462764150552529,
+      3.7471585160327807
+    ],
+    "snappedExtent": [
+      5.4609375,
+      3.74609375
+    ],
+    "interpolatedOffsetScale": [
+      1.000334493949533,
+      1.0002842336854973
+    ],
+    "continuousAreaRatioMinusOne": -0.0006184400047590799,
+    "maxAbs": 4.998592566287903e-7,
+    "normalizedByPeak": 0.0005079039775886595,
+    "signedFluxRelative": [
+      -0.0006183448133039868,
+      -0.0006183448133040334,
+      -0.0006183448133040334
+    ],
+    "maximumErrorMagnitudeResidual": 4.747487564746647e-11,
+    "maximumSignedFluxResidual": 1.747721838039071e-7
+  },
+  "candidateScope": {
+    "cases": 6,
+    "allSixNumericPassed": true,
+    "maximumCandidatePixelError": 4.592175242498775e-10
+  },
+  "conclusion": "Case7 is quantitatively consistent with the retained legacy interpolated-vOffset raster scaling, with negative area/flux error because both rounded extents shrink. It is not a candidate RGB transport failure. Do not mark the7case report passed or relax its threshold.",
+  "recommendation": "Keep legacy arithmetic unchanged for this stage; record this known ideal-physical-oracle discrepancy separately. Candidate six-case shader gates passed. A future legacy physical-centre correction would need its own opt-in/baseline approval.",
+  "limits": [
+    "Saved native report has aggregate metrics only; no native pixels were re-read.",
+    "CPU8bit raster model, not a new GPU run or universal raster proof.",
+    "Default legacy shader numerical equivalence is covered separately by source/CPU isolation checks, not proven by comparing this GPU report to an old native GPU capture."
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "schema": "glass-atoll.r31-phase-profile-saved-receipt-audit.v1",
+  "auditPassed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "hardwareProfilePassed": false,
+  "sumGatePassed": false,
+  "successfulFrameAdmitted": false,
+  "imageReadbackAdmitted": false,
+  "actualGPUByAuditor": false,
+  "browserActionsByAuditor": 0,
+  "productionEditsByAuditor": 0,
+  "checks": [
+    {
+      "name": "Recorded phase profile matches the frozen helper and closed source/function manifest",
+      "passed": true
+    },
+    {
+      "name": "Hardware outcome remains FAILED solely at unchanged SUM100ms gate with no image readback or final frame admission",
+      "passed": true
+    },
+    {
+      "name": "All three individually valid nonnested query intervals and their real137.605376ms sum are retained",
+      "passed": true
+    },
+    {
+      "name": "Phase draw/element/render/native-operation deltas close exactly to the one actual native scene",
+      "passed": true
+    },
+    {
+      "name": "Fresh optical work was observed before timing failure without promoting withheld post-timer checks",
+      "passed": true
+    },
+    {
+      "name": "GL/shader health and exact/semantic/descriptor cleanup pass; original presentation was intentionally not redrawn",
+      "passed": true
+    }
+  ],
+  "receipt": {
+    "path": "verification/r31-native-phase-profile-actual-gpu.json",
+    "sha256": "ffd2a438d9512de1db641035fdc448a85f69815e6596f76f0bb1b9e2271355b1",
+    "hardwareCounts": {
+      "passed": 4,
+      "total": 5
+    }
+  },
+  "timings": {
+    "aggregation": "sum-of-three-sequential-query-intervals",
+    "continuousWholeQuery": false,
+    "individuallyReadyNonDisjoint": true,
+    "sumGpuMs": 137.605376,
+    "ceilingMs": 100,
+    "previous59msCausalComparisonClaim": false,
+    "steadyStateFPSClaim": false,
+    "totalInstrumentedCPUms": 125.1000000089407,
+    "phases": [
+      {
+        "phase": "photometry",
+        "gpuMs": 1.52064,
+        "cpuWallMs": 27.400000005960464,
+        "actualDraws": 8,
+        "elements": 24,
+        "renderCalls": 8,
+        "nativeOps": {
+          "blits": 0,
+          "mipmaps": 0,
+          "clears": 2
+        }
+      },
+      {
+        "phase": "water",
+        "gpuMs": 53.446976,
+        "cpuWallMs": 58.599999994039536,
+        "actualDraws": 43,
+        "elements": 4007466,
+        "renderCalls": 11,
+        "nativeOps": {
+          "blits": 5,
+          "mipmaps": 4,
+          "clears": 2
+        }
+      },
+      {
+        "phase": "lens",
+        "gpuMs": 82.63776,
+        "cpuWallMs": 37.79999999701977,
+        "actualDraws": 56,
+        "elements": 6433920,
+        "renderCalls": 22,
+        "nativeOps": {
+          "blits": 5,
+          "mipmaps": 0,
+          "clears": 12
+        }
+      }
+    ]
+  },
+  "work": {
+    "actualDraws": 107,
+    "elements": 10441410,
+    "renderCalls": 41,
+    "nativeOps": {
+      "blits": 10,
+      "mipmaps": 4,
+      "clears": 16
+    },
+    "numericalStages": 18,
+    "observedSharedSHBakes": 1,
+    "observedCPUFallbackQueries": 0,
+    "postTimerCompleteConsumerChecksAdmitted": false
+  },
+  "restoration": {
+    "semanticPassed": true,
+    "nativePassed": true,
+    "descriptorsPassed": true,
+    "originalPresentationRebuildAttempted": false
+  },
+  "disposition": "Preserve failure and valid individual phase timings. No rerun, timer relaxation, image readback or physical/performance ABI change by this audit."
+}

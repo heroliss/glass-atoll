@@ -1,0 +1,112 @@
+{
+  "kind": "R13 bounded submerged-prop geometry, snapshot and optical-path CPU checks; actual GPU pending",
+  "passed": true,
+  "count": 6,
+  "checks": [
+    {
+      "name": "Original water baseline sealed; no added render target, sampler or screen-edge bed fallback",
+      "passed": true,
+      "evidence": {
+        "additionalSamplers": 0,
+        "additionalTargets": 0,
+        "maximumBounds": 36
+      }
+    },
+    {
+      "name": "Snapshots preserve real2.5cm radius, copy ownership, freeze inputs and reject malformed batches",
+      "passed": true,
+      "evidence": {
+        "copied": true,
+        "realRadius": 0.0125,
+        "maximum": 36,
+        "rejected": 7
+      }
+    },
+    {
+      "name": "Actual factory setter defaults empty, validates atomically, clears unused slots and avoids unchanged revision churn",
+      "passed": true,
+      "evidence": {
+        "submittedRadius": 0.0125,
+        "atomic": true,
+        "noRevisionChurn": true
+      }
+    },
+    {
+      "name": "Snell-ray bound search recovers the real2.5cm receiver before bed at normal/oblique views",
+      "passed": true,
+      "evidence": [
+        {
+          "degrees": 0,
+          "hitDistance": 0.3883749999999999,
+          "exact": 0.388375,
+          "errorMetres": 8.670408098099712e-19,
+          "depthProbes": 8,
+          "actualDiameter": 0.02325,
+          "boundingDiameter": 0.025
+        },
+        {
+          "degrees": 20,
+          "hitDistance": 0.38837500023872684,
+          "exact": 0.388375,
+          "errorMetres": 0.0000023560471740607515,
+          "depthProbes": 8,
+          "actualDiameter": 0.02325,
+          "boundingDiameter": 0.025
+        },
+        {
+          "degrees": 45,
+          "hitDistance": 0.3883750015486036,
+          "exact": 0.388375,
+          "errorMetres": 0.000006000491450094532,
+          "depthProbes": 8,
+          "actualDiameter": 0.02325,
+          "boundingDiameter": 0.025
+        },
+        {
+          "degrees": 65,
+          "hitDistance": 0.3883750047076905,
+          "exact": 0.388375,
+          "errorMetres": 0.000010462020707375958,
+          "depthProbes": 8,
+          "actualDiameter": 0.02325,
+          "boundingDiameter": 0.025
+        }
+      ]
+    },
+    {
+      "name": "Offscreen, above-water, below-bed and occluded auxiliary geometry cannot produce a coloured proxy",
+      "passed": true,
+      "evidence": {
+        "occluded": false,
+        "aboveWater": false,
+        "belowBed": false,
+        "offscreenDepthReads": 0
+      }
+    },
+    {
+      "name": "Beer length is true receiver distance, never bed distance; no second geometry scale or screen slab",
+      "passed": true,
+      "evidence": {
+        "receiverMetres": 0.3,
+        "bedMetres": 2,
+        "correctTransmission": [
+          0.9519907125149183,
+          0.9868867379336502,
+          0.990445932897216
+        ],
+        "wrongBedTransmission": [
+          0.7203630197053013,
+          0.9157608767233256,
+          0.9380049995307295
+        ]
+      }
+    }
+  ],
+  "runtimeSHA256": "65a597fe6946a23d8bf7599369dc8ca5d7ec6f51cbdb5c199b4f25792865c27a",
+  "baselineSHA256": "7f3ba0f5eaa599ac8cf60dcc299a440d134a708ea336ae7e8999081a883df4c8",
+  "limits": [
+    "Geometry probe model uses independent analytic sphere auxiliary visibility; production triangle/depth rasterization needs GPU fixtures.",
+    "No scene photorealism/FPS/driver/context acceptance.",
+    "Actual captured native RGB has no lighting decomposition; one receiver-depth incoming attenuation remains an explicit approximation."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-26T17:51:58.420Z",
+  "passed": false,
+  "passedCount": 6,
+  "total": 7,
+  "metrics": {
+    "sources": 12491,
+    "maximumAbsoluteError": 0,
+    "maximumRelativeError": 0,
+    "maximumPeakUnderRelative": 0,
+    "visibilityChanges": 0,
+    "nearFallbackChanges": 0
+  },
+  "tests": [
+    {
+      "name": "12000 random camera/source cases preserve peak and every public field",
+      "passed": true
+    },
+    {
+      "name": "exact cull/near-plane boundaries and independent shutter/stretch endpoints",
+      "passed": true
+    },
+    {
+      "name": "Float32 vector map endpoint rounding retained",
+      "passed": true
+    },
+    {
+      "name": "blue overlapping source peak sum is unchanged",
+      "passed": true
+    },
+    {
+      "name": "public outputs retain independent arrays across subsequent calls",
+      "passed": true
+    },
+    {
+      "name": "factory aggregator and mutable camera/optics contexts match old full records",
+      "passed": true
+    },
+    {
+      "name": "render shader/fillRecords/getBounds source text unchanged",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: getBounds(){\n+ actual - expected\n\n  'getBounds(){\\n' +\n    '      if(!simulation.active.length)return{centre:[...base],center:[...base],radius:2,min:base.map(x=>x-1),max:base.map(x=>x+1),active:false};\\n' +\n    \"      const wind=simulation.windTimeline.at(-1).wind,key=Math.floor(simulation.time*2)+'|'+simulation.active.map(e=>e.id).join(',')+'|'+wind.join(',');if(key===boundsKey)return boundsCache;\\n\" +\n    '      const min=[Infinity,Infinity,Infinity],max=[-Infinity,-Infinity,-Infinity],include=(p,pad=8)=>{for(let c=0;c<3;c++){min[c]=Math.min(min[c],p[c]-pad);max[c]=Math.max(max[c],p[c]+pad);}};\\n' +\n+   '      const generation=++boundsSampleGeneration,sameVector=(a,b)=>a===undefined?b===undefined:b!==undefined&&a[0]===b[0]&&a[1]===b[1]&&a[2]===b[2];\\n' +\n+   '      function pastSamples(b){\\n' +\n+   '        let cache=boundsPastSamples.get(b);if(cache?.generation===generation)return cache;\\n' +\n+   '        const parent=b.parentBody?pastSamples(b.parentBody):null,parentVersion=parent?.version||0;\\n' +\n+   '        // resolveBurst can replace a future birth pose on each wind update.\\n' +\n+   '        // Compare its values (and inherited parent version), never array identity.\\n' +\n+   '        if(!cache||cache.birth!==b.birth||cache.life!==b.life||cache.drag!==b.drag||cache.gravity!==b.gravity||cache.parent!==b.parentBody||cache.parentVersion!==parentVersion||!sameVector(cache.position,b.position)||!sameVector(cache.velocity,b.velocity)||!sameVector(cache.velocityDelta,b.velocityDelta)){\\n' +\n+   '          cache={birth:b.birth,life:b.life,drag:b.drag,gravity:b.gravity,parent:b.parentBody,parentVersion,position:b.position.slice(),velocity:b.velocity.slice(),velocityDelta:b.velocityDelta?.slice(),version:(cache?.version||0)+1,positions:new Array(17)};boundsPastSamples.set(b,cache);\\n' +\n+   '        }\\n' +\n+   '        cache.generation=generation;return cache;\\n' +\n+   '      }\\n' +\n+   '      for(const e of simulation.active){include(e.origin,2);for(const b of [...(e.rocket?[e.rocket]:[]),...e.heads]){const cache=pastSamples(b);for(let j=0;j<=16;j++){\\n' +\n+   '          const t=b.birth+b.life*j/16,p=t>=b.birth&&t<=simulation.time?(cache.positions[j]??=sampleBody(b,t,simulation.windTimeline).position):sampleBody(b,t,simulation.windTimeline).position;if(p[1]>0)include(p);\\n' +\n+   '        }}\\n' +\n-   '      for(const e of simulation.active){include(e.origin,2);for(const b of [...(e.rocket?[e.rocket]:[]),...e.heads])for(let j=0;j<=16;j++){const p=sampleBody(b,b.birth+b.life*j/16,simulation.windTimeline).position;if(p[1]>0)include(p);}\\n' +\n    '        include(e.burstPosition,18);include(e.burstPosition.map((v,c)=>v+wind[c]*9.8+(c===1?5:0)),18);\\n' +\n    '      }\\n' +\n    \"      min[1]=Math.max(0,min[1]);boundsKey=key;const centre=min.map((v,c)=>(v+max[c])*.5);return boundsCache={min,max,centre,center:centre,radius:Math.hypot(...max.map((v,c)=>(v-min[c])*.5)),active:true,predicted:true,model:'16-point analytic trajectory forecast at current wind +8m margin; 2Hz cache; smoke envelope'};\\n\" +\n    '    },\\n' +\n    '    '\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/scalar-bound-check.mjs:70:145\n    at test (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/scalar-bound-check.mjs:7:64)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/scalar-bound-check.mjs:68:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    }
+  ],
+  "limits": [
+    "CPU exact old/new projection/budget comparisons, not GPU peak verification or scene FPS",
+    "No reduction of sources, endpoints, frequency, binning or margins. GPU7-case bound fixture must be rerun by root."
+  ]
+}

@@ -1,0 +1,566 @@
+{
+  "actualGPU": true,
+  "checks": [
+    {
+      "name": "native launch reaches one water entry and a real splash",
+      "passed": true
+    },
+    {
+      "name": "stone retained underwater or on seabed at true centimetre size",
+      "passed": true
+    },
+    {
+      "name": "impact locator stays hidden",
+      "passed": true
+    },
+    {
+      "name": "actual scene remains valid",
+      "passed": true
+    }
+  ],
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "dateUTC": "2026-10-28T10:19:11.479Z",
+  "entry": {
+    "gl": {
+      "errors": [],
+      "label": "native stone entry",
+      "programDeletePending": false,
+      "programLive": true,
+      "vertexArrayLive": true
+    },
+    "interactions": {
+      "pending": false,
+      "resting": [
+        {
+          "diameterMetres": 0.025,
+          "enteredAt": 40.13518240887626,
+          "id": 1,
+          "kind": "water",
+          "massKg": 0.021271200258680897,
+          "phase": "resting-water",
+          "position": [
+            43.12060186958513,
+            -0.22605908089283683,
+            7.384568083806109
+          ],
+          "restTime": 40.230851357007566,
+          "rotation": [
+            1.906125300644244,
+            2.5415004008589923,
+            1.0589585003579134,
+            "XYZ"
+          ]
+        }
+      ],
+      "splashes": {
+        "active": 1,
+        "events": [
+          {
+            "age": 0.10999999999999945,
+            "dropCount": 96,
+            "dropDiameterRangeMetres": [
+              0.00038662331685607653,
+              0.003563630545164131
+            ],
+            "id": 1,
+            "impactHeightEstimate": -0.007738008258520618,
+            "maximumCrownRadiusMetres": 0.0961913520812146,
+            "x": 43.12049128454132,
+            "z": 7.552773029280155
+          }
+        ],
+        "gravity": 9.81,
+        "maximumEvents": 4,
+        "representation": "analytic spherical droplets + thin crown; not a fluid solve",
+        "units": "metres/seconds"
+      },
+      "stoneDiagnostics": {
+        "air": 0,
+        "counters": {
+          "bedContacts": 1,
+          "evictedResting": 0,
+          "expiredAir": 0,
+          "expiredWater": 0,
+          "landImpacts": 0,
+          "launched": 1,
+          "waterEntries": 1
+        },
+        "disposed": false,
+        "limits": [
+          "Air collision retains the historical centre-crossing surface event; partial immersion and entry cavity are not solved",
+          "Cd=.47 andrho_water1025kg/m3 are prescribed sphere/seawater proxies, not measured irregular-pebble data",
+          "Still-water quadratic drag and buoyancy; no wave/current advection, rebound, granular contact or bed rolling",
+          "Contacts use a locally planar sphere/heightfield support; fractional-tick previews clamp above bed until the fixed tick commits"
+        ],
+        "maxMoving": 12,
+        "maxResting": 24,
+        "maximumUnderwaterAgeSeconds": 90,
+        "resting": 1,
+        "stepSeconds": 0.004166666666666667,
+        "underwater": 0,
+        "water": {
+          "areaSquareMetres": 0.0004908738521234052,
+          "diameter": 0.025,
+          "dragCoefficient": 0.47,
+          "dragPerMetre": 5.558653846153846,
+          "gravityY": -5.9425961538461545,
+          "massKg": 0.021271200258680893,
+          "radius": 0.0125,
+          "terminalSpeedMetresPerSecond": 1.033958942592146,
+          "volumeCubicMetres": 0.00000818123086872342,
+          "waterDensityKgPerCubicMetre": 1025
+        }
+      },
+      "stones": [],
+      "underwater": []
+    },
+    "splash": {
+      "age": 0.10999999999999945,
+      "dropCount": 96,
+      "dropDiameterRangeMetres": [
+        0.00038662331685607653,
+        0.003563630545164131
+      ],
+      "id": 1,
+      "impactHeightEstimate": -0.007738008258520618,
+      "maximumCrownRadiusMetres": 0.0961913520812146,
+      "x": 43.12049128454132,
+      "z": 7.552773029280155
+    },
+    "state": {
+      "camera": [
+        43,
+        0.8499999999999998,
+        8.3
+      ],
+      "caustics": {
+        "gridSegments": 1280,
+        "maxHz": 24,
+        "quality": "high"
+      },
+      "drawCalls": 9,
+      "fps": 106,
+      "gpuMs": 58.533,
+      "graphicsContextInterrupted": false,
+      "leaves": [],
+      "lens": {
+        "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+        "aperture": 8,
+        "bloom": {
+          "bloom": true,
+          "budget": {
+            "bloom": 0.018,
+            "direct": 0.982,
+            "ghost": 0,
+            "total": 0.018,
+            "veil": 0
+          },
+          "enabled": true,
+          "flare": false,
+          "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference",
+          "levels": 4,
+          "model": "single threshold-free linear HDR PSF; opt-in affine ghost/veil share at most 1.8% radiance redistribution",
+          "operatorPeakBoundRGB": [
+            1,
+            1,
+            1
+          ],
+          "passes": 5,
+          "strength": 0.018
+        },
+        "cameraFocalMm": 27.999999999999993,
+        "depthOfField": false,
+        "displayTransform": {
+          "adapter": {
+            "disposed": false,
+            "fallbackFrames": {
+              "hdr": 2991,
+              "sdr": 96
+            },
+            "frames": {
+              "hdr": 0,
+              "sdr": 0
+            },
+            "hdr": {
+              "effective": "legacy",
+              "error": null,
+              "peakNits": 700,
+              "reason": "selected-legacy"
+            },
+            "lastError": null,
+            "output": null,
+            "preparablePeakRange": {
+              "integerOnly": true,
+              "max": 10000,
+              "min": 100
+            },
+            "preparation": {
+              "error": null,
+              "peakNits": 700,
+              "reason": "selected-legacy",
+              "status": "idle"
+            },
+            "requested": "legacy",
+            "revision": 1,
+            "sdr": {
+              "effective": "legacy",
+              "error": null,
+              "peakNits": 100,
+              "reason": "selected-legacy"
+            },
+            "supportedTargets": [
+              100,
+              700,
+              1270
+            ],
+            "variant": "aces2-ocio26-accurate-atan-v1"
+          },
+          "effective": "legacy",
+          "error": null,
+          "kind": "sdr",
+          "reason": "render-declined",
+          "requested": true
+        },
+        "dynamicLighting": false,
+        "exposureScale": 1.52,
+        "focalMm": 28,
+        "focusMetres": 1.453444185374863,
+        "focusMode": "target",
+        "hdr": {
+          "absoluteNitsCalibrated": false,
+          "apiAvailable": true,
+          "available": true,
+          "calibrationAdjustments": [],
+          "calibrationSource": "windows-dxgi",
+          "displayHDR": true,
+          "displayName": "Q27G4XM",
+          "displayTransform": {
+            "adapter": {
+              "disposed": false,
+              "fallbackFrames": {
+                "hdr": 2991,
+                "sdr": 96
+              },
+              "frames": {
+                "hdr": 0,
+                "sdr": 0
+              },
+              "hdr": {
+                "effective": "legacy",
+                "error": null,
+                "peakNits": 700,
+                "reason": "selected-legacy"
+              },
+              "lastError": null,
+              "output": null,
+              "preparablePeakRange": {
+                "integerOnly": true,
+                "max": 10000,
+                "min": 100
+              },
+              "preparation": {
+                "error": null,
+                "peakNits": 700,
+                "reason": "selected-legacy",
+                "status": "idle"
+              },
+              "requested": "legacy",
+              "revision": 1,
+              "sdr": {
+                "effective": "legacy",
+                "error": null,
+                "peakNits": 100,
+                "reason": "selected-legacy"
+              },
+              "supportedTargets": [
+                100,
+                700,
+                1270
+              ],
+              "variant": "aces2-ocio26-accurate-atan-v1"
+            },
+            "effective": "legacy",
+            "error": null,
+            "kind": "hdr",
+            "reason": "hdr-disabled",
+            "requested": true
+          },
+          "enabled": false,
+          "errors": [],
+          "headroom": 2.5,
+          "height": 1292,
+          "lastPresentCpuMs": 0.20000004768371585,
+          "lastPresentationTimestamp": 47003,
+          "lastUploadCpuMs": 0,
+          "limits": "System-reported luminance is not a photometer measurement and scene lux is not calibrated. This is not an official ACES HDR ODT. Extended sRGB canvas is not a native 80-nit scRGB swap chain. External-image copy is not guaranteed zero-copy. PBO copies pixels through CPU. HDR enlargement is linear, not SDR FSR1.",
+          "maxBridgeWidth": 1440,
+          "maxHz": 120,
+          "mode": "disabled",
+          "noExplicitCPUReadback": false,
+          "output": "sRGB-encoded rgba16float, extended, opaque",
+          "paperWhiteNits": 280,
+          "peakNits": 700,
+          "peakRelativeToBrowserWhite": 2.5,
+          "presentationObserverActive": false,
+          "presentationObserverError": null,
+          "presentedFrames": 2991,
+          "readback": null,
+          "requiresRedraw": true,
+          "sdrWhiteNits": 280,
+          "shoulder": "same fitted SDR ACES anchor through exposed peak 1; C1 bounded highlight extension; nit scale divided by browser/Windows SDR white",
+          "skippedFrames": 74,
+          "source": "pre-OutputPass, scene-linear sRGB floating-point target",
+          "systemReportedCalibration": true,
+          "whiteScale": 1,
+          "width": 1209
+        },
+        "height": 1292,
+        "historyEV": -1,
+        "maxSamples": 8,
+        "motion": {
+          "attachment": "RGBA16F: unjittered UV velocity.xy, previous linear depth, MSAA coverage; R16F: current linear depth; normalize both by coverage",
+          "enabled": true,
+          "extraScenePasses": 0,
+          "frames": 3161,
+          "groups": 1,
+          "hasPrevious": true,
+          "limits": [
+            "analytic rest-mesh wind and camera motion only; no arbitrary model-matrix animation",
+            "missing-coverage bridge retains conservative camera-only fallback"
+          ]
+        },
+        "outputHeight": 1292,
+        "outputWidth": 1209,
+        "sampleSupport": [
+          [
+            8,
+            4,
+            2,
+            1
+          ],
+          [
+            8,
+            4,
+            2,
+            1
+          ],
+          [
+            8,
+            4,
+            2,
+            1
+          ],
+          [
+            8,
+            4,
+            2,
+            1
+          ]
+        ],
+        "samples": 8,
+        "sceneAttachments": [
+          "RGBA16F radiance",
+          "RGBA16F motion/coverage",
+          "R16F foliage depth",
+          "R8 local reactive"
+        ],
+        "sceneStats": {
+          "calls": 9,
+          "triangles": 1459698
+        },
+        "sensorHeightMm": 36,
+        "storageEV": -1,
+        "temporal": {
+          "active": true,
+          "artificialJitter": false,
+          "enabled": true,
+          "frozen": false,
+          "historyBytes": 28116504,
+          "historyFrames": 78,
+          "historyWeight": 0.84,
+          "jitterPixels": [
+            0,
+            0
+          ],
+          "lastResetReason": "diagnostic camera exposure",
+          "maximumMissingCoverageFrames": 2,
+          "metadata": "R8 age; nearest valid depth, bilinear RGB",
+          "scope": "analytic wind/camera foliage motion, MSAA coverage, independent short water radiance history",
+          "stillFrames": 0,
+          "waterEnabled": true
+        },
+        "upscaler": "native resolution",
+        "verticalFovDegrees": 65.4704525442152,
+        "vignette": true,
+        "width": 1209
+      },
+      "parameters": {
+        "air": {
+          "aerosolScale": 8,
+          "enabled": true,
+          "shadows": true
+        },
+        "current": 0.16,
+        "director": {
+          "mode": "off",
+          "periodSeconds": 240
+        },
+        "graphics": {
+          "displayName": "auto",
+          "displayTransform": "legacy",
+          "hdr": false,
+          "hdrMode": "sdr",
+          "indirect": "low",
+          "paperWhiteNits": 280,
+          "peakNits": 700,
+          "shadows": "recommended",
+          "systemCalibration": true,
+          "targetFps": 60,
+          "waveResolution": 512
+        },
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 8,
+          "automatic": false,
+          "dof": false,
+          "exposure": 0,
+          "focal": 28,
+          "focusDistance": 60,
+          "focusMode": "target",
+          "glintAA": true,
+          "opticalBloom": true,
+          "opticalFlare": false,
+          "temporal": true,
+          "vignette": true
+        },
+        "paused": true,
+        "quality": "high",
+        "qualityCustom": false,
+        "qualityPreset": "medium",
+        "renderSampling": {
+          "airShadowTaps": 1,
+          "airSteps": 6,
+          "antialias": "smaa",
+          "atmosphereSteps": 8,
+          "causticsGrid": 1280,
+          "causticsHz": 24,
+          "causticsSize": 1536,
+          "cloudSteps": 64,
+          "dprCap": 1.65,
+          "glintAA": true,
+          "indirect": "low",
+          "msaaSamples": 8,
+          "opticalBloom": true,
+          "reflectionSamples": 2,
+          "reflectionScale": 1,
+          "shadowHz": 45,
+          "shadowSize": 4096,
+          "temporal": true,
+          "waveResolution": 512
+        },
+        "sea": {
+          "swellHeight": 0.16,
+          "windSea": 1
+        },
+        "sound": false,
+        "sun": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "weather": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "wind": 1.8
+      },
+      "pausedRenderCached": false,
+      "pausedSteadyFrames": 0,
+      "performance": {
+        "changes": [],
+        "enabled": false,
+        "lastGpuMs": null,
+        "minimumScale": 0.6,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 1,
+        "slowFrameFraction": 0,
+        "smoothedCostMs": null,
+        "targetFps": 60
+      },
+      "ready": true,
+      "renderScale": 1,
+      "ripples": [
+        [
+          43.12049128454132,
+          7.552773029280155,
+          40.13518240887626,
+          0.0925277621521219
+        ],
+        [
+          0,
+          0,
+          -100,
+          0
+        ],
+        [
+          0,
+          0,
+          -100,
+          0
+        ],
+        [
+          0,
+          0,
+          -100,
+          0
+        ],
+        [
+          0,
+          0,
+          -100,
+          0
+        ],
+        [
+          0,
+          0,
+          -100,
+          0
+        ],
+        [
+          0,
+          0,
+          -100,
+          0
+        ],
+        [
+          0,
+          0,
+          -100,
+          0
+        ]
+      ],
+      "target": [
+        43,
+        -0.1,
+        7.200000000000001
+      ],
+      "time": 40.24518240887626,
+      "triangles": 1459698
+    }
+  },
+  "input": "native pointer press/release supplied by browser controller",
+  "limits": [
+    "Native input and source-state continuity only; retained mesh data alone does not prove through-water pixel visibility.",
+    "Entry image must be inspected; metric splash proxy is not CFD.",
+    "Paused capture is not frame-rate acceptance."
+  ],
+  "passed": true,
+  "schema": "glass-atoll.r13-native-stone-scene.v1"
+}

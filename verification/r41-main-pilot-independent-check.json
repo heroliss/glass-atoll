@@ -1,0 +1,78 @@
+{
+  "schema": "glass-atoll.r41-main-pilot-independent-helper-check.v1",
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "actualGPU": false,
+  "browserUsed": false,
+  "physicalReplay": false,
+  "mainSHA256": "9b59c9266109470c4d6f58b089faf3bc5c118d89deb6d5f9d0da8edc0d1ee4a4",
+  "sourceSHA256": "0036c4c9ca328b069e97de1375e9986aa974e6b356c9c55bb573504fb0afe347",
+  "helpers": [
+    "jointSmokeEligible",
+    "discardJointSmokePlan",
+    "failJointSmokePlan",
+    "jointMediumStamp",
+    "assertJointMediumEpoch",
+    "jointOpticsKey",
+    "expectedJointOptics",
+    "assertJointPlan",
+    "renderSceneFrame"
+  ],
+  "checks": [
+    {
+      "name": "Default-off path preserves water then lens and performs no prepared refresh",
+      "passed": true,
+      "worldOrder": [
+        "water",
+        "lens"
+      ],
+      "preparedRefreshes": 0
+    },
+    {
+      "name": "Same-time host clear invalidates captured density before any world pass",
+      "passed": true,
+      "clearCounterAndRevisionChecked": true,
+      "worldPasses": 0
+    },
+    {
+      "name": "Stale clear plan reparses once before world and releases both generations of handles",
+      "passed": true,
+      "preWorldRefreshes": 1,
+      "discardedHandles": 4
+    },
+    {
+      "name": "Failure latches original cause even when disabling SH throws",
+      "passed": true,
+      "originalCauseRetained": true,
+      "cleanupExceptionContained": true,
+      "worldPasses": 0
+    },
+    {
+      "name": "SH ledger and resolved-field identity are checked independently before world",
+      "passed": true,
+      "independentFieldAndLedgerChecks": true,
+      "worldPasses": 0
+    },
+    {
+      "name": "A real dispatch exception is latched without a world retry, then all handles are released",
+      "passed": true,
+      "worldAttempts": 1,
+      "preWorldRefreshes": 0,
+      "noDispatchRetry": true
+    }
+  ],
+  "sourceReview": {
+    "defaultOffSemanticPathUnchanged": true,
+    "frozenAdapterNowChecksRealHost": true,
+    "strictFWOpticsGuardUnchanged": true,
+    "mainOnlyConservativeMirrorAccountingQualification": true
+  },
+  "limits": [
+    "Actual main helper functions with small injected CPU state only; renderer/host/FW are stubs, so this does not replace owner actual-factory6/6 or actual browser validation.",
+    "Physical numeric identity relies production revision/header/layout contract; not authentication of forged same-header third-party snapshots.",
+    "Main-only screenshot plans conservatively count an unused mirror; complete flag must not be described as three GPU jobs actually completed."
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "schema": "glass-atoll.r31-phase-profile-actual-layer-bounds-independent-audit.v1",
+  "actualGPU": false,
+  "browserActions": 0,
+  "nativeContextCalls": 0,
+  "physicalReplays": 0,
+  "productionEdits": 0,
+  "retainedActualGatePassed": false,
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "Saved timing-failure receipt binds the reviewed profile epoch and preserves original successful native receipt separately",
+      "passed": true,
+      "evidence": {
+        "receiptSHA256": "ffd2a438d9512de1db641035fdc448a85f69815e6596f76f0bb1b9e2271355b1",
+        "profileSourceEpoch": "698825a0",
+        "mainSourceEpoch": "bd51038a",
+        "sourcePins": 34,
+        "functionPins": 12,
+        "retainedStatus": "failed timing gate4/5",
+        "priorSuccessfulNativeReceiptUnchanged": true
+      }
+    },
+    {
+      "name": "All three submitted intervals are complete, ready and nondisjoint; the finite aggregate alone exceeds the fixed100ms ceiling",
+      "passed": true,
+      "evidence": {
+        "phaseGPUms": [
+          1.52064,
+          53.446976,
+          82.63776
+        ],
+        "phaseCPUwallMs": [
+          27.400000005960464,
+          58.599999994039536,
+          37.79999999701977
+        ],
+        "sumGPUms": 137.605376,
+        "failureReasonQualified": "All results valid; finiteSUM137.605376 exceeds100ms",
+        "GLOrShaderCrash": false,
+        "imageReadOrPublished": false,
+        "ownedImageBlitAlreadySubmittedInLens": true,
+        "continuousWholeFrameInterval": false,
+        "causalABagainstEarlier59ms": false
+      }
+    },
+    {
+      "name": "Phase work deltas sum to all107 draws/41 renders and unchanged complete18 numerical source-field passes",
+      "passed": true,
+      "evidence": {
+        "draws": 107,
+        "renders": 41,
+        "elements": 10441410,
+        "phaseDraws": [
+          8,
+          43,
+          56
+        ],
+        "phaseRenders": [
+          8,
+          11,
+          22
+        ],
+        "nativeOps": {
+          "blits": 10,
+          "mipmaps": 4,
+          "clears": 16
+        },
+        "numericalPasses": 18,
+        "physicalInput": {
+          "packets": 2301,
+          "ledgerRows": 1399,
+          "eachEyeRays": 1402
+        },
+        "postTimerFinalPhysicalAssertion": "Not reached afterSUM failure; no claim of independently embedded final full snapshot from this failed receipt"
+      }
+    },
+    {
+      "name": "Restoration and interpretation retain timing failure without new readback, presentation, retry or causal optimization claims",
+      "passed": true,
+      "evidence": {
+        "restorationPassed": true,
+        "restorationDraws": 0,
+        "originalPresentationSkipped": true,
+        "automaticGPUretry": false,
+        "ceilingRelaxed": false,
+        "broadCostInference": "Water53.446976ms and lens82.63776ms dominate this profile. Water includes refraction+mirror scene/effects; lens includes main scene/effects+postprocess+capture, so these are not isolated water-shader or postprocess timings.",
+        "FPSAcceptance": false,
+        "prior59msComparison": "Different instrumentation/query intervals and execution state; not a causal A/B or regression proof"
+      }
+    }
+  ],
+  "scope": "Audit passes mean retained timing-failure evidence is internally consistent. They do not turn the actual137.605376ms timing gate into a pass. No new GPU/image readback, threshold relaxation, model/quality change or optimization acceptance."
+}

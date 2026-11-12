@@ -1,0 +1,121 @@
+{
+  "schema": "glass-atoll.lighting-choreography.review-ui.v1",
+  "date": "2026-10-31T12:59:43.321Z",
+  "checks": [
+    {
+      "name": "review page HTTP",
+      "passed": true,
+      "evidence": 200
+    },
+    {
+      "name": "three seekable 960x720 videos",
+      "passed": true,
+      "evidence": [
+        {
+          "id": "vfan",
+          "duration": 20.04,
+          "width": 960,
+          "height": 720,
+          "error": null
+        },
+        {
+          "id": "waterfall",
+          "duration": 20.48,
+          "width": 960,
+          "height": 720,
+          "error": null
+        },
+        {
+          "id": "flower",
+          "duration": 17.64,
+          "width": 960,
+          "height": 720,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "all three clips actually play in Chrome",
+      "passed": true,
+      "evidence": [
+        {
+          "id": "vfan",
+          "time": 9.272934,
+          "frames": 13,
+          "dropped": 0,
+          "error": null
+        },
+        {
+          "id": "waterfall",
+          "time": 9.47057,
+          "frames": 14,
+          "dropped": 0,
+          "error": null
+        },
+        {
+          "id": "flower",
+          "time": 8.193166,
+          "frames": 14,
+          "dropped": 0,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "vfan 2x crop preserves external controls",
+      "passed": true,
+      "evidence": {
+        "scale": "matrix(2, 0, 0, 2, 0, 0)",
+        "nativeControls": false,
+        "cropped": true
+      }
+    },
+    {
+      "name": "vfan full frame restores",
+      "passed": true
+    },
+    {
+      "name": "waterfall 2x crop preserves external controls",
+      "passed": true,
+      "evidence": {
+        "scale": "matrix(2, 0, 0, 2, 0, 0)",
+        "nativeControls": false,
+        "cropped": true
+      }
+    },
+    {
+      "name": "waterfall full frame restores",
+      "passed": true
+    },
+    {
+      "name": "sequence advances to silver waterfall",
+      "passed": true,
+      "evidence": "正在播放：星河·横空银瀑"
+    },
+    {
+      "name": "stop pauses every video",
+      "passed": true
+    },
+    {
+      "name": "390px layout fits",
+      "passed": true,
+      "evidence": {
+        "width": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "name": "four receiver comparison images load",
+      "passed": true
+    },
+    {
+      "name": "no page console or resource errors",
+      "passed": true,
+      "evidence": []
+    }
+  ],
+  "issues": [],
+  "reviewSha256": "5a7cdd8bf67101a6d0cc756b50af6aafdf53735722ef790d13ed5b02a2f4cd13",
+  "mediaReportSha256": "276692c0a135f982085742afc70aec88a8b7411bc78a42365f6f704d924a3120",
+  "passed": true
+}

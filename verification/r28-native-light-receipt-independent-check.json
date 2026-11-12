@@ -1,0 +1,124 @@
+{
+  "schema": "glass-atoll.r28-native-light-receipt-independent-cpu.v1",
+  "dateUTC": "2026-10-29T14:28:49.998Z",
+  "actualGPU": false,
+  "reviewedActualGPUReceipt": true,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "receipt": "./r28-complete-native-light-actual-gpu.json",
+  "receiptSHA256": "b49cc8fab93bad0fba0e386882acc14652e4a525f002f0f9c8cefb657f698e75",
+  "checks": [
+    {
+      "name": "Canonical full fixture and native generation association match every reported identity",
+      "passed": true,
+      "evidence": {
+        "digest": "809b983e5e87f8c112a919e8f718f316f792619e664941972283e584d0bdd22d",
+        "physicalPackets": 755,
+        "orderedNativeLedgerRows": 1728,
+        "snapshotRevision": 1639,
+        "ledgerVersion": 1,
+        "recordGeneration": 1
+      }
+    },
+    {
+      "name": "Receipt source and cached function pins identify the reviewed candidate and unchanged native dependencies",
+      "passed": true,
+      "evidence": {
+        "helperSHA256": "172cbe4568cf3df6a4962f3c2e4e90daa3dddac68541abb94a865237342b7f07",
+        "sourceModules": 11,
+        "cachedPins": 12,
+        "resolvedSources": {
+          "../pyro-smoke-light-bound.js": "../pyro-smoke-light-bound.js",
+          "../pyro-smoke-light-field.js": "../pyro-smoke-light-field.js",
+          "../pyro-smoke-light-tiles.js": "../pyro-smoke-light-tiles.js",
+          "../smoke-transmission-rectangles.js": "../smoke-transmission-rectangles.js",
+          "./pyro-smoke-light-field-oracle.js": "./pyro-smoke-light-field-oracle.js",
+          "./r28-exact-light-field-candidate.js": "./r28-exact-light-field-candidate.js",
+          "./r28-exact-light-tiles-candidate.js": "./r28-exact-light-tiles-candidate.js",
+          "./r28-light-native-state.js": "./r28-light-native-state.js",
+          "./r28-native-light-fixture.js": "./r28-native-light-fixture.js",
+          "./r28-native-light-fixture.json": "./r28-native-light-fixture.json",
+          "./r28-native-light-fixture.mjs": "./r28-native-light-fixture.mjs"
+        }
+      }
+    },
+    {
+      "name": "Exact complete request, fixed allocations, four draws, bounded readback and healthy timing/state counters agree",
+      "passed": true,
+      "evidence": {
+        "renders": 4,
+        "actualDraws": 4,
+        "readBytes": 36624,
+        "numericalBytes": 1966080,
+        "gpuMs": 0.92672,
+        "qaColdInstrumentedCpuSubmitMs": 26.799999997019768,
+        "scope": "One complete numerical bake; timer is retrospective and QA CPU value includes packing/first-use/instrumentation, not normal frame CPU/FPS"
+      }
+    },
+    {
+      "name": "All 755 by 12 readback values independently meet signed SH and offline all-row error gates",
+      "passed": true,
+      "evidence": {
+        "e0": 3.5659152071239537e-7,
+        "e1": 5.986491989816579e-7,
+        "minimumAngular": 1.2597993207740322e-9,
+        "maximumAngular": 0.0001207462698800377,
+        "maximumOwnGroupRatio": 0.3844048119467881,
+        "signedNegativeC1": 2973,
+        "signedNegativeFourth": 862,
+        "allCoefficients": 9060,
+        "fieldFourthChannel": "C1z, signed; never alpha/opacity",
+        "reportRecomputeTolerance": 1e-12,
+        "physicalKernelBudget": 0.002
+      }
+    },
+    {
+      "name": "All-row angular signal stays inside independently verified raw bound without mass/exposure coupling",
+      "passed": true,
+      "evidence": {
+        "rawMaximum": 0.02668524552649292,
+        "maximumActualAngular": 0.0001207462698800377,
+        "maximumOwnGroupRatio": 0.3844048119467881,
+        "unchangedModel": "Bound for normalized isotropic Gaussian packet/emitter SH1 model only. No incoming smoke shadow, anisotropic conditional-ray field, scene-wide energy conservation, packet-count multiplier or measured photometry."
+      }
+    },
+    {
+      "name": "Bounded partial witnesses remain finite/signed and whole-scene limits are explicit",
+      "passed": true,
+      "evidence": {
+        "partialAddresses": [
+          0,
+          15615,
+          15616,
+          20223,
+          20224,
+          20384,
+          19630,
+          709
+        ],
+        "partialWords": 96,
+        "fullZeroSuffix": "Pinned full-target shader/viewport plus CPU tests; this gate did not read all suffix pixels",
+        "extraGpuWork": 0,
+        "partialMathematicalReconstruction": "Separately owned by motion reviewer"
+      }
+    }
+  ],
+  "transport": {
+    "reencodedWords": 1526,
+    "maximumRelativeDifference": 2.8447743265278496e-16,
+    "guard": 8.881784197001252e-16,
+    "scope": "Saved decimal numbers reencoded to nearestFloat32 after a binary64-scale transport guard; raw signed-zero bits were not captured"
+  },
+  "limits": [
+    "Offline audit of an existing root-owned hardware receipt; no additional GPU/browser action.",
+    "First own3/6 strict-representability fixture failed on decimal transport rounding in saved JSON and is archived before guarded Float32 reencoding. This was not a GPU failure.",
+    "Saved JSON values are recovered to nearestFloat32 after checking their tiny decimal transport difference; this is not a proof of original raw signed-zero bits.",
+    "All valid final SH coefficients are read; full allocated zero suffix coverage follows pinned shader/fullviewport and separate CPU cache tests, not a full-suffix hardware read.",
+    "A passing isolated native numerical gate permits a separately checked promotion decision; it does not demonstrate the live coherent full frame, sustained60fps or later/accumulated lifetime requests."
+  ]
+}

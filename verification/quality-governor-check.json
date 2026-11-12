@@ -1,0 +1,1050 @@
+{
+  "generatedAt": "2026-10-26T11:58:10.200Z",
+  "kind": "deterministic pure-module controller checks",
+  "sourceHashes": {
+    "quality-governor.js": "ab145f335caca2b32f53a29867116928e7fed2dde746e1acffb99bf2a4dd7757",
+    "verification/quality-governor-check.mjs": "dc8a7c3e41cb4d7616c355f7842476182ab0ca7095469fae7f99e425edbf8566"
+  },
+  "passed": true,
+  "passedCount": 45,
+  "total": 45,
+  "closedLoop": [
+    {
+      "nativeCostMs": 20,
+      "finalScale": 0.82,
+      "finalCostMs": 13.447999999999997
+    },
+    {
+      "nativeCostMs": 24,
+      "finalScale": 0.75,
+      "finalCostMs": 13.5
+    },
+    {
+      "nativeCostMs": 32,
+      "finalScale": 0.65,
+      "finalCostMs": 13.520000000000001
+    },
+    {
+      "nativeCostMs": 38,
+      "finalScale": 0.6,
+      "finalCostMs": 13.68
+    }
+  ],
+  "pacingScenarios": [
+    {
+      "name": "GPU 10 ms with 8.33% slow presentation",
+      "events": [
+        {
+          "age": 8.800999999999872,
+          "scale": 0.92
+        },
+        {
+          "age": 13.598999999999776,
+          "scale": 0.85
+        },
+        {
+          "age": 18.397000000000034,
+          "scale": 0.78
+        },
+        {
+          "age": 23.195000000000643,
+          "scale": 0.72
+        },
+        {
+          "age": 27.993000000001253,
+          "scale": 0.66
+        },
+        {
+          "age": 32.79100000000165,
+          "scale": 0.61
+        }
+      ],
+      "final": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 0.61,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 10,
+        "lastGpuMs": 10,
+        "slowFrameFraction": 0.08333333333333333,
+        "changes": [
+          {
+            "seconds": 8.8,
+            "scale": 0.92,
+            "costMs": 10,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 13.6,
+            "scale": 0.85,
+            "costMs": 10,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 18.4,
+            "scale": 0.78,
+            "costMs": 10,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 23.2,
+            "scale": 0.72,
+            "costMs": 10,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 27.99,
+            "scale": 0.66,
+            "costMs": 10,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 32.79,
+            "scale": 0.61,
+            "costMs": 10,
+            "reason": "frame pacing"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GPU 3 ms with 8.33% slow presentation",
+      "events": [],
+      "final": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 1,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 3,
+        "lastGpuMs": 3,
+        "slowFrameFraction": 0.08333333333333333,
+        "changes": []
+      }
+    },
+    {
+      "name": "Pacing downshift then GPU 10 ms with healthy presentation",
+      "events": [
+        {
+          "age": 8.800999999999872,
+          "scale": 0.92
+        },
+        {
+          "age": 61.817666666664294,
+          "scale": 0.945
+        }
+      ],
+      "final": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 0.945,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 10,
+        "lastGpuMs": 10,
+        "slowFrameFraction": 0,
+        "changes": [
+          {
+            "seconds": 8.8,
+            "scale": 0.92,
+            "costMs": 10,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 61.82,
+            "scale": 0.945,
+            "costMs": 10
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "initial_shader_warmup_does_not_reduce_resolution",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 1,
+        "minimumScale": 0.6,
+        "smoothedCostMs": null,
+        "lastGpuMs": null,
+        "slowFrameFraction": 0,
+        "changes": []
+      }
+    },
+    {
+      "id": "warmup_samples_do_not_poison_settled_ewma",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 1,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 8,
+        "lastGpuMs": 8,
+        "slowFrameFraction": 0,
+        "changes": []
+      }
+    },
+    {
+      "id": "isolated_250ms_cpu_stall_does_not_reduce_resolution",
+      "passed": true,
+      "events": [],
+      "finalCostMs": 8.003403030154441
+    },
+    {
+      "id": "isolated_1000ms_cpu_stall_does_not_reduce_resolution",
+      "passed": true,
+      "events": [],
+      "finalCostMs": 8.013949611211592
+    },
+    {
+      "id": "isolated_2000ms_cpu_stall_does_not_reduce_resolution",
+      "passed": true,
+      "events": [],
+      "finalCostMs": 8.028011719287793
+    },
+    {
+      "id": "isolated_5000ms_cpu_stall_does_not_reduce_resolution",
+      "passed": true,
+      "events": [],
+      "finalCostMs": 8.070198043516397
+    },
+    {
+      "id": "isolated_gpu_timer_outlier_does_not_reduce_resolution",
+      "passed": true,
+      "events": []
+    },
+    {
+      "id": "pixel_cost_20ms_settles_within_budget",
+      "passed": true,
+      "finalScale": 0.82,
+      "finalCostMs": 13.447999999999997,
+      "events": [
+        {
+          "age": 7.816666666666644,
+          "scale": 0.82
+        }
+      ]
+    },
+    {
+      "id": "pixel_cost_20ms_has_no_settled_oscillation",
+      "passed": true,
+      "finalScale": 0.82,
+      "eventCount": 1
+    },
+    {
+      "id": "pixel_cost_24ms_settles_within_budget",
+      "passed": true,
+      "finalScale": 0.75,
+      "finalCostMs": 13.5,
+      "events": [
+        {
+          "age": 7.816666666666644,
+          "scale": 0.75
+        }
+      ]
+    },
+    {
+      "id": "pixel_cost_24ms_has_no_settled_oscillation",
+      "passed": true,
+      "finalScale": 0.75,
+      "eventCount": 1
+    },
+    {
+      "id": "pixel_cost_32ms_settles_within_budget",
+      "passed": true,
+      "finalScale": 0.65,
+      "finalCostMs": 13.520000000000001,
+      "events": [
+        {
+          "age": 7.816666666666644,
+          "scale": 0.65
+        }
+      ]
+    },
+    {
+      "id": "pixel_cost_32ms_has_no_settled_oscillation",
+      "passed": true,
+      "finalScale": 0.65,
+      "eventCount": 1
+    },
+    {
+      "id": "pixel_cost_38ms_settles_within_budget",
+      "passed": true,
+      "finalScale": 0.6,
+      "finalCostMs": 13.68,
+      "events": [
+        {
+          "age": 7.816666666666644,
+          "scale": 0.6
+        }
+      ]
+    },
+    {
+      "id": "pixel_cost_38ms_has_no_settled_oscillation",
+      "passed": true,
+      "finalScale": 0.6,
+      "eventCount": 1
+    },
+    {
+      "id": "unsatisfiable_load_stops_at_minimum_scale",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 0.6,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 120,
+        "lastGpuMs": 120,
+        "slowFrameFraction": 0,
+        "changes": [
+          {
+            "seconds": 7.82,
+            "scale": 0.6,
+            "costMs": 120,
+            "reason": "GPU budget"
+          }
+        ]
+      },
+      "events": [
+        {
+          "age": 7.816666666666644,
+          "scale": 0.6
+        }
+      ],
+      "notes": "Resolution alone cannot satisfy this fixed-cost workload; reaching the minimum is not a 60 fps guarantee."
+    },
+    {
+      "id": "configured_minimum_is_respected",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 0.45,
+        "minimumScale": 0.45,
+        "smoothedCostMs": 14.17500000000008,
+        "lastGpuMs": 14.175,
+        "slowFrameFraction": 0,
+        "changes": [
+          {
+            "seconds": 7.82,
+            "scale": 0.45,
+            "costMs": 70,
+            "reason": "GPU budget"
+          }
+        ]
+      }
+    },
+    {
+      "id": "short_overload_does_not_trigger_a_downshift",
+      "passed": true,
+      "events": [
+        {
+          "age": 11.816666666666833,
+          "scale": 0.66
+        }
+      ]
+    },
+    {
+      "id": "sustained_overload_eventually_triggers_a_downshift",
+      "passed": true,
+      "events": [
+        {
+          "age": 11.816666666666833,
+          "scale": 0.66
+        }
+      ]
+    },
+    {
+      "id": "recovery_waits_for_warmup_and_eight_healthy_seconds",
+      "passed": true,
+      "events": [
+        {
+          "age": 14.016666666666943,
+          "scale": 0.725
+        },
+        {
+          "age": 25.033333333333193,
+          "scale": 0.75
+        },
+        {
+          "age": 36.04999999999924,
+          "scale": 0.775
+        },
+        {
+          "age": 47.06666666666528,
+          "scale": 0.8
+        },
+        {
+          "age": 58.08333333333132,
+          "scale": 0.825
+        },
+        {
+          "age": 69.09999999999737,
+          "scale": 0.85
+        },
+        {
+          "age": 80.1166666666634,
+          "scale": 0.875
+        },
+        {
+          "age": 91.13333333332945,
+          "scale": 0.9
+        }
+      ]
+    },
+    {
+      "id": "recovery_begins_after_the_healthy_window",
+      "passed": true,
+      "events": [
+        {
+          "age": 14.016666666666943,
+          "scale": 0.725
+        },
+        {
+          "age": 25.033333333333193,
+          "scale": 0.75
+        },
+        {
+          "age": 36.04999999999924,
+          "scale": 0.775
+        },
+        {
+          "age": 47.06666666666528,
+          "scale": 0.8
+        },
+        {
+          "age": 58.08333333333132,
+          "scale": 0.825
+        },
+        {
+          "age": 69.09999999999737,
+          "scale": 0.85
+        },
+        {
+          "age": 80.1166666666634,
+          "scale": 0.875
+        },
+        {
+          "age": 91.13333333332945,
+          "scale": 0.9
+        }
+      ]
+    },
+    {
+      "id": "recovery_is_gradual_and_does_not_chatter",
+      "passed": true,
+      "events": [
+        {
+          "age": 14.016666666666943,
+          "scale": 0.725
+        },
+        {
+          "age": 25.033333333333193,
+          "scale": 0.75
+        },
+        {
+          "age": 36.04999999999924,
+          "scale": 0.775
+        },
+        {
+          "age": 47.06666666666528,
+          "scale": 0.8
+        },
+        {
+          "age": 58.08333333333132,
+          "scale": 0.825
+        },
+        {
+          "age": 69.09999999999737,
+          "scale": 0.85
+        },
+        {
+          "age": 80.1166666666634,
+          "scale": 0.875
+        },
+        {
+          "age": 91.13333333332945,
+          "scale": 0.9
+        }
+      ]
+    },
+    {
+      "id": "interrupted_health_does_not_reuse_the_old_recovery_window",
+      "passed": true,
+      "events": [
+        {
+          "age": 24.76666666666654,
+          "scale": 0.725
+        }
+      ],
+      "splitTime": 16.000000000000373
+    },
+    {
+      "id": "health_recovers_after_a_new_continuous_window",
+      "passed": true,
+      "events": [
+        {
+          "age": 24.76666666666654,
+          "scale": 0.725
+        }
+      ]
+    },
+    {
+      "id": "disabling_restores_native_resolution_once",
+      "passed": true,
+      "state": {
+        "enabled": false,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 1,
+        "minimumScale": 0.6,
+        "smoothedCostMs": null,
+        "lastGpuMs": null,
+        "slowFrameFraction": 0,
+        "changes": [
+          {
+            "seconds": 7.82,
+            "scale": 0.6,
+            "costMs": 50,
+            "reason": "GPU budget"
+          }
+        ]
+      },
+      "events": [
+        {
+          "age": 7.816666666666644,
+          "scale": 0.6
+        },
+        {
+          "age": 29.999999999999577,
+          "scale": 1
+        }
+      ]
+    },
+    {
+      "id": "disabled_governor_ignores_heavy_load",
+      "passed": true,
+      "state": {
+        "enabled": false,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 1,
+        "minimumScale": 0.6,
+        "smoothedCostMs": null,
+        "lastGpuMs": null,
+        "slowFrameFraction": 0,
+        "changes": [
+          {
+            "seconds": 7.82,
+            "scale": 0.6,
+            "costMs": 50,
+            "reason": "GPU budget"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reenabling_restarts_warmup",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 1,
+        "minimumScale": 0.6,
+        "smoothedCostMs": null,
+        "lastGpuMs": null,
+        "slowFrameFraction": 0,
+        "changes": [
+          {
+            "seconds": 7.82,
+            "scale": 0.6,
+            "costMs": 50,
+            "reason": "GPU budget"
+          }
+        ]
+      }
+    },
+    {
+      "id": "invalid_delta_and_hidden_long_gap_leave_state_unchanged",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 1,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 8,
+        "lastGpuMs": 8,
+        "slowFrameFraction": 0,
+        "changes": []
+      }
+    },
+    {
+      "id": "nan_cost_inputs_do_not_corrupt_future_control",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 1,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 8,
+        "lastGpuMs": 8,
+        "slowFrameFraction": 0,
+        "changes": []
+      }
+    },
+    {
+      "id": "cpu_frame_fallback_operates_without_gpu_timing",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 0.66,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 20,
+        "slowFrameFraction": 1,
+        "changes": [
+          {
+            "seconds": 7.82,
+            "scale": 0.92,
+            "costMs": 20,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 12.63,
+            "scale": 0.85,
+            "costMs": 20,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 17.45,
+            "scale": 0.78,
+            "costMs": 20,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 22.27,
+            "scale": 0.72,
+            "costMs": 20,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 27.08,
+            "scale": 0.66,
+            "costMs": 20,
+            "reason": "frame pacing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "isolated_slow_presentation_frame_does_not_reduce_resolution",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 1,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 10,
+        "lastGpuMs": 10,
+        "slowFrameFraction": 0,
+        "changes": []
+      }
+    },
+    {
+      "id": "isolated_multisecond_stall_is_not_sustained_pacing_pressure",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 1,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 10.000000113646978,
+        "lastGpuMs": 10,
+        "slowFrameFraction": 0,
+        "changes": []
+      },
+      "events": []
+    },
+    {
+      "id": "subthreshold_slow_frame_burst_does_not_reduce_resolution",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 1,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 10,
+        "lastGpuMs": 10,
+        "slowFrameFraction": 0,
+        "changes": []
+      }
+    },
+    {
+      "id": "sustained_eight_percent_slow_frames_with_gpu_10ms_reduce_scale",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 0.61,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 10,
+        "lastGpuMs": 10,
+        "slowFrameFraction": 0.08333333333333333,
+        "changes": [
+          {
+            "seconds": 8.8,
+            "scale": 0.92,
+            "costMs": 10,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 13.6,
+            "scale": 0.85,
+            "costMs": 10,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 18.4,
+            "scale": 0.78,
+            "costMs": 10,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 23.2,
+            "scale": 0.72,
+            "costMs": 10,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 27.99,
+            "scale": 0.66,
+            "costMs": 10,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 32.79,
+            "scale": 0.61,
+            "costMs": 10,
+            "reason": "frame pacing"
+          }
+        ]
+      },
+      "events": [
+        {
+          "age": 8.800999999999872,
+          "scale": 0.92
+        },
+        {
+          "age": 13.598999999999776,
+          "scale": 0.85
+        },
+        {
+          "age": 18.397000000000034,
+          "scale": 0.78
+        },
+        {
+          "age": 23.195000000000643,
+          "scale": 0.72
+        },
+        {
+          "age": 27.993000000001253,
+          "scale": 0.66
+        },
+        {
+          "age": 32.79100000000165,
+          "scale": 0.61
+        }
+      ],
+      "slowFractionInput": 0.08333333333333333
+    },
+    {
+      "id": "pacing_downshifts_remain_bounded_and_separated",
+      "passed": true,
+      "events": [
+        {
+          "age": 8.800999999999872,
+          "scale": 0.92
+        },
+        {
+          "age": 13.598999999999776,
+          "scale": 0.85
+        },
+        {
+          "age": 18.397000000000034,
+          "scale": 0.78
+        },
+        {
+          "age": 23.195000000000643,
+          "scale": 0.72
+        },
+        {
+          "age": 27.993000000001253,
+          "scale": 0.66
+        },
+        {
+          "age": 32.79100000000165,
+          "scale": 0.61
+        }
+      ]
+    },
+    {
+      "id": "os_presentation_stalls_with_gpu_3ms_do_not_blindly_reduce_scale",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 1,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 3,
+        "lastGpuMs": 3,
+        "slowFrameFraction": 0.08333333333333333,
+        "changes": []
+      },
+      "slowFractionInput": 0.08333333333333333
+    },
+    {
+      "id": "pacing_downshift_holds_recovery_for_45_seconds",
+      "passed": true,
+      "events": [
+        {
+          "age": 8.800999999999872,
+          "scale": 0.92
+        },
+        {
+          "age": 61.817666666664294,
+          "scale": 0.945
+        }
+      ],
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 0.92,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 10,
+        "lastGpuMs": 10,
+        "slowFrameFraction": 0,
+        "changes": [
+          {
+            "seconds": 8.8,
+            "scale": 0.92,
+            "costMs": 10,
+            "reason": "frame pacing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pacing_recovery_still_requires_eight_healthy_seconds_after_hold",
+      "passed": true,
+      "events": [
+        {
+          "age": 8.800999999999872,
+          "scale": 0.92
+        },
+        {
+          "age": 61.817666666664294,
+          "scale": 0.945
+        }
+      ]
+    },
+    {
+      "id": "pacing_recovery_is_small_and_has_no_immediate_oscillation",
+      "passed": true,
+      "events": [
+        {
+          "age": 8.800999999999872,
+          "scale": 0.92
+        },
+        {
+          "age": 61.817666666664294,
+          "scale": 0.945
+        }
+      ],
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 0.945,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 10,
+        "lastGpuMs": 10,
+        "slowFrameFraction": 0,
+        "changes": [
+          {
+            "seconds": 8.8,
+            "scale": 0.92,
+            "costMs": 10,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 61.82,
+            "scale": 0.945,
+            "costMs": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "very_low_gpu_load_allows_gradual_recovery_before_45_second_hold",
+      "passed": true,
+      "events": [
+        {
+          "age": 8.800999999999872,
+          "scale": 0.92
+        },
+        {
+          "age": 19.81766666666668,
+          "scale": 0.945
+        }
+      ],
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 0.945,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 3.0001631637080015,
+        "lastGpuMs": 3,
+        "slowFrameFraction": 0,
+        "changes": [
+          {
+            "seconds": 8.8,
+            "scale": 0.92,
+            "costMs": 10,
+            "reason": "frame pacing"
+          },
+          {
+            "seconds": 19.82,
+            "scale": 0.945,
+            "costMs": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "30fps_reference_retains_native_at_24ms",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 30,
+        "referenceBudgetMs": 33.333333333333336,
+        "scale": 1,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 24,
+        "lastGpuMs": 24,
+        "slowFrameFraction": 0,
+        "changes": []
+      }
+    },
+    {
+      "id": "30fps_reference_controls_sustained_46ms_load",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 30,
+        "referenceBudgetMs": 33.333333333333336,
+        "scale": 0.76,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 26.569600001027638,
+        "lastGpuMs": 26.5696,
+        "slowFrameFraction": 0,
+        "changes": [
+          {
+            "seconds": 46.82,
+            "scale": 0.82,
+            "costMs": 39.45,
+            "reason": "GPU budget"
+          },
+          {
+            "seconds": 51.63,
+            "scale": 0.76,
+            "costMs": 31.27,
+            "reason": "GPU budget"
+          }
+        ]
+      }
+    },
+    {
+      "id": "switching_reference_to_60fps_rebalances_load",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 0.76,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 13.862400000000001,
+        "lastGpuMs": 13.862400000000001,
+        "slowFrameFraction": 0,
+        "changes": [
+          {
+            "seconds": 46.82,
+            "scale": 0.82,
+            "costMs": 39.45,
+            "reason": "GPU budget"
+          },
+          {
+            "seconds": 51.63,
+            "scale": 0.76,
+            "costMs": 31.27,
+            "reason": "GPU budget"
+          }
+        ]
+      }
+    },
+    {
+      "id": "lower_reference_immediately_restores_available_pixel_budget",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 30,
+        "referenceBudgetMs": 33.333333333333336,
+        "scale": 1,
+        "minimumScale": 0.6,
+        "smoothedCostMs": null,
+        "lastGpuMs": null,
+        "slowFrameFraction": 0,
+        "changes": []
+      }
+    },
+    {
+      "id": "higher_reference_does_not_guess_a_downshift_before_measurement",
+      "passed": true,
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 1,
+        "minimumScale": 0.6,
+        "smoothedCostMs": null,
+        "lastGpuMs": null,
+        "slowFrameFraction": 0,
+        "changes": []
+      }
+    }
+  ],
+  "limitations": [
+    "No browser, real GPU, compositor or display timing was measured.",
+    "Continuous-load tests deliver fresh timing values each simulation frame; stale asynchronous timing reuse is an integration concern.",
+    "Resolution cannot fix all CPU, fixed-cost GPU or operating-system stalls."
+  ]
+}

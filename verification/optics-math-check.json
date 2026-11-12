@@ -1,0 +1,301 @@
+{
+  "status": "passed",
+  "generatedAt": "2026-10-26T11:58:09.519Z",
+  "method": "CPU double-precision analytic checks of actual GLSL scalar expressions and source wiring. No GPU compilation, image quality, or frame-rate claim.",
+  "sourceSHA256": {
+    "water.js": "13d5661b834af6b6b5be59898ef26272c03034ee644f0a1e7ba912e106eb3f2c",
+    "waves.js": "af1d6b1559b701b8f1d36c53bbd89dd721e22bb792517a58543473f4629396d4",
+    "caustics.js": "cdf04f69066365f1f2ed9a91a0a043748d27f8d2327ca71ab3bb046092b1e461",
+    "main.js": "5b3922bd36de1e448e3100f45c29c2fe9181043d78f6129c72bc0c99ea4a0f47"
+  },
+  "summary": {
+    "passed": 29,
+    "failed": 0,
+    "total": 29,
+    "waveComponents": 256,
+    "rmsSlope": 0.1085800054080905,
+    "rmsHeightMetres": 0.046893434077446686
+  },
+  "checks": [
+    {
+      "id": "fresnel_normal_incidence",
+      "passed": true,
+      "actual": 0.020373187841971414,
+      "expected": 0.020373187841971414,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "fresnel_grazing_limit",
+      "passed": true,
+      "actual": 1,
+      "expected": 1,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "fresnel_energy_and_bounds",
+      "passed": true,
+      "maxEnergyError": 0,
+      "minReflectance": 0.020373187841971414,
+      "maxReflectance": 0.9999999999999994,
+      "notes": "R and T refer to power fractions; radiance and beam area additionally change with IOR."
+    },
+    {
+      "id": "snell_air_60_degrees_to_water",
+      "passed": true,
+      "actual": 40.51759062233142,
+      "expected": 40.517590622331426,
+      "tolerance": 1e-10
+    },
+    {
+      "id": "refracted_ray_unit_length",
+      "passed": true,
+      "actual": 1.0000000000000002,
+      "expected": 1,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "shared_air_water_ior",
+      "passed": true,
+      "ior": 1.333,
+      "notes": "Both observer rays and solar caustic rays use the same air/water IOR."
+    },
+    {
+      "id": "beer_positive_coefficients",
+      "passed": true,
+      "absorption": [
+        0.16,
+        0.035,
+        0.018
+      ],
+      "scattering": [
+        0.004,
+        0.009,
+        0.014
+      ],
+      "extinction": [
+        0.164,
+        0.044000000000000004,
+        0.032
+      ]
+    },
+    {
+      "id": "beer_path_monotonic_and_zero_path",
+      "passed": true,
+      "samples": [
+        {
+          "distance": 0,
+          "transmission": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "distance": 0.25,
+          "transmission": [
+            0.9598291299477989,
+            0.9890602787753687,
+            0.9920319148370607
+          ]
+        },
+        {
+          "distance": 1,
+          "transmission": [
+            0.8487420218802068,
+            0.9569539574730467,
+            0.9685065820791976
+          ]
+        },
+        {
+          "distance": 3,
+          "transmission": [
+            0.6114023658324087,
+            0.8763409950793732,
+            0.9084640160687062
+          ]
+        },
+        {
+          "distance": 10,
+          "transmission": [
+            0.19398004229089189,
+            0.6440364210831413,
+            0.7261490370736909
+          ]
+        },
+        {
+          "distance": 30,
+          "transmission": [
+            0.007299130846788583,
+            0.26713530196585034,
+            0.38289288597511206
+          ]
+        }
+      ]
+    },
+    {
+      "id": "beer_incoming_plus_outgoing_composition",
+      "passed": true,
+      "actual": 1.1102230246251565e-16,
+      "expected": 0,
+      "tolerance": 1e-14
+    },
+    {
+      "id": "red_absorbs_faster_than_blue",
+      "passed": true,
+      "transmissionAt3m": [
+        0.6114023658324087,
+        0.8763409950793732,
+        0.9084640160687062
+      ]
+    },
+    {
+      "id": "spectral_components_match_export",
+      "passed": true,
+      "count": 256
+    },
+    {
+      "id": "gravity_capillary_finite_depth_dispersion",
+      "passed": true,
+      "maximumRelativeError": 0.000335406379186165,
+      "tolerance": 0.0004,
+      "notes": "Actual shader expression compared with the finite-depth gravity-capillary relation; tanh argument cap4 introduces less than0.04percent frequency error."
+    },
+    {
+      "id": "shallow_long_wave_speed_limit",
+      "passed": true,
+      "actual": 5.4249423959994,
+      "expected": 5.424942396007538,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "uniform_current_doppler_shift_from_integrated_offset",
+      "passed": true,
+      "actual": 0.8883035331530563,
+      "expected": 0.88830353315686,
+      "tolerance": 1e-8,
+      "notes": "Tests the actual shader phase expression. Spatially varying tide/wave coupling remains approximate."
+    },
+    {
+      "id": "resolved_hydrodynamic_height_is_wired_into_shared_field",
+      "passed": true,
+      "notes": "Source wiring check only. The following gradient tests cover the analytic fine-wave spectrum, not the GPU-sampled SWE texture."
+    },
+    {
+      "id": "wave_gradient_full_fine_spectrum_only",
+      "passed": true,
+      "actual": 1.1122107207439669e-8,
+      "expected": 0,
+      "tolerance": 0.000001,
+      "notes": "Central differences of the analytic fine-wave height versus its shader gradient; constant pass filter. Excludes the separate GPU SWE texture."
+    },
+    {
+      "id": "wave_gradient_geometry_fine_spectrum_only",
+      "passed": true,
+      "actual": 4.668173486654936e-11,
+      "expected": 0,
+      "tolerance": 0.000001,
+      "notes": "Central differences of the analytic fine-wave height versus its shader gradient; constant pass filter. Excludes the separate GPU SWE texture."
+    },
+    {
+      "id": "wave_gradient_caustic_fine_spectrum_only",
+      "passed": true,
+      "actual": 1.2067165322537932e-10,
+      "expected": 0,
+      "tolerance": 0.000001,
+      "notes": "Central differences of the analytic fine-wave height versus its shader gradient; constant pass filter. Excludes the separate GPU SWE texture."
+    },
+    {
+      "id": "wave_gradient_balanced_fine_spectrum_only",
+      "passed": true,
+      "actual": 6.278377817636738e-11,
+      "expected": 0,
+      "tolerance": 0.000001,
+      "notes": "Central differences of the analytic fine-wave height versus its shader gradient; constant pass filter. Excludes the separate GPU SWE texture."
+    },
+    {
+      "id": "impulse_carrier_uses_gravity_capillary_phase",
+      "passed": true,
+      "actual": 10.39247299,
+      "expected": 10.39247298596441,
+      "tolerance": 1e-7
+    },
+    {
+      "id": "impulse_envelope_uses_distinct_group_velocity",
+      "passed": true,
+      "actual": 0.47320299,
+      "expected": 0.4732029895715566,
+      "tolerance": 1e-7
+    },
+    {
+      "id": "radial_impulse_analytic_derivative",
+      "passed": true,
+      "actual": 4.196015201962666e-10,
+      "expected": 0,
+      "tolerance": 0.000001,
+      "notes": "Checked away from the 1 mm central regularisation."
+    },
+    {
+      "id": "caustic_flat_interface_flat_bed_jacobian",
+      "passed": true,
+      "actual": 1.0000000000002203,
+      "expected": 1,
+      "tolerance": 1e-10
+    },
+    {
+      "id": "caustic_sloped_bed_0.1_0",
+      "passed": true,
+      "actual": 0.9589600153078376,
+      "expected": 0.9589599036618144,
+      "tolerance": 0.003,
+      "notes": "The map measures horizontal-area concentration; a sloped bed has a non-unit baseline even with flat water."
+    },
+    {
+      "id": "caustic_sloped_bed_0.2_0.1",
+      "passed": true,
+      "actual": 0.8769045194818292,
+      "expected": 0.8768797109854432,
+      "tolerance": 0.003,
+      "notes": "The map measures horizontal-area concentration; a sloped bed has a non-unit baseline even with flat water."
+    },
+    {
+      "id": "caustic_sloped_bed_-0.15_0.08",
+      "passed": true,
+      "actual": 1.0287280473075175,
+      "expected": 1.0287280674367298,
+      "tolerance": 0.003,
+      "notes": "The map measures horizontal-area concentration; a sloped bed has a non-unit baseline even with flat water."
+    },
+    {
+      "id": "seabed_flux_uses_entry_cosine_and_receiver_area",
+      "passed": true,
+      "notes": "Required for horizontal photon-footprint Jacobian: Ebed=Esolar*cos(thetaAir)*concentration*Nbed.y; do not multiply refracted receiver cosine again."
+    },
+    {
+      "id": "caustic_retained_band_below_nyquist",
+      "passed": true,
+      "extent": 64,
+      "grid": 1536,
+      "spacingMetres": 0.08333333333333333,
+      "nyquistRadiansPerMetre": 37.69911184307752,
+      "cutoff": 19,
+      "samplesAtCutoff": 3.9683275624292125,
+      "notes": "Nyquist is necessary, not sufficient for high-quality sharp caustics; a finite mesh still approximates curvature."
+    },
+    {
+      "id": "geometry_retained_band_below_nyquist",
+      "passed": true,
+      "spacingMetres": 0.34375,
+      "cutoff": 9,
+      "nyquistRadiansPerMetre": 9.139178628624853,
+      "notes": "Applies to the inner uniform grid, not the distant stretched horizon border."
+    }
+  ],
+  "limits": [
+    "The fine ocean is a finite analytic gravity-capillary spectrum, not a solved fluid volume; its dispersion uses the stated 3 m lagoon reference depth. Separate resolved long waves use their actual bathymetry.",
+    "The radial stone impulse is an analytic moving wave packet rather than a full dispersive point-source solution.",
+    "Caustic ray/heightfield intersection uses a finite sampled bed and three fixed-point refinements; steep/discontinuous receivers can require a more robust intersection method.",
+    "Caustic intensity is capped and band-limited for finite texture resolution; no separate-mesh receiver caustics or volumetric multiple scattering.",
+    "GPU correctness and acceptance still require rendered-frame comparison, interaction tests, and runtime performance measurement.",
+    "The analytic gradient checks exclude the GPU-sampled resolved height field; its finite-difference normals and texture interpolation require GPU/visual acceptance."
+  ]
+}

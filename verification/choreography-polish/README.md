@@ -1,0 +1,21 @@
+# Choreography polish: source and forecast verification
+
+Current CPU suites pass135/135: contracts20, smoke30, envelopes20, automatic/light-smoke53 and all-style GPU-helper CPU preflight12. The GPU helper was not executed here. See verification-summary.json for exact source-hash consistency.
+
+Changed production files in this subtask: pyro-smoke-trajectory-events.js, pyro-smoke-logical-burn.js, pyro-smoke-logical-events.js and pyro-smoke-ring-burn.js. Before copies are retained in before/. The generic continuous forecast required no source change: updated recipe limits provide waterfall's9.1s complete family horizon with.45 minimum drag and Vfan's19.05s delayed birth range. The independent enclosure search checked1,896,537 actual body positions over seeds, launch extremes and wind corners.
+
+128-shot single V sweep uses128 matching lift/comet clocks,1152 ordinary source kernels,12.8 authored reference area (.1 per launch). Its final physical body ends22.65s after first launch and the retained event horizon is25.55s. The24-puff lightweight proxy's final sampled puff fades by24.8s, so the broader event horizon is conservative. Complete logical mode generates2816 kernels; the long waterfall covers all193 actual bodies and produces3942 logical kernels, or retains24/60 kernels with the existing sparse representative modes.
+
+Optional ring-uniform-burn-v1 explicitly admits72-root reference and120-root diagnostic schedules, each with48 spatial representatives and the same19 body/20.35 event material budgets. The120-root pure schedule remains bit-identical to the prior helper. Actual72 reference integration produces614 kernels;120 spaced-mouth produces630. Unsupported or inconsistent counts reject before source writes. Existing exported roots120 remains the native ID cap; new referenceRoots72 and admittedRootCounts metadata make both contracts explicit.
+
+Eight other native types retain exact event construction and sampled kinematics across three seeds and two wind histories. Ordinary sustained scalar photometry intentionally has the newly authorized smooth fade, so it is not claimed unchanged; strobe's full original pulse/envelope samples remain exact. The initial overbroad photometry-equality failure is preserved. A second copied fixture assumed a96-shot Vfan's final proxy was less than.5s before the retained event end;128-shot source selection changed that gap, so the new test derives the actual final proxy time and verifies positive fade after the former prune horizon. Its initial report is also retained.
+
+Full-smoke resource guards were deliberately preserved. Two early128-shot V sweeps require2304 sparse future plans and exceed the default2048-plan guard; the test confirms atomic rejection without queued emission or adapter mutation. The lightweight smoke mode does not use that physical-source queue. These results establish CPU geometry, clocks, bounds and material accounting, not GPU frame rate or subjective appearance.
+
+## Final fade reverification
+
+After the final logarithmic afterglow changes, all five suites were rerun:135/135 pass and every recorded source hash still matches. The previous135-report snapshot is retained under before-final-fade-verification/; the initial v1 and fixture-failure evidence was not replaced. This verification turn made no production edit and ran no browser/GPU work.
+
+Final photometry source hashes: `complex-fireworks-style.js` — `5d1b888f9224dc4a4515f279c6f8f280d16940894ab19b80f6dde48e52838787`; `fireworks-physics.js` — `3b6f283cfb592763b86ad09fb7ff17f70bb7677b65d9b279eec1762badbee7d7`. Explicit flashes retain their separate curves. Ordinary sustained scalar fade is intentionally updated; all other native construction/kinematics and the original strobe samples still meet their stated comparisons.
+
+Root's existing geometry report was read only, not rerun here:4/4 pass. It records an8.135° maximum adjacent sweep step (formerly103.712°),24 maximum simultaneous ground heads (formerly29), a128.94m horizontal waterfall carrier path with78.11–99.83m later child drops, and48 seeded reference-plane stars instead of64. These metrics are copied into verification-summary.json as external read-only evidence and are not counted as additional rerun checks.

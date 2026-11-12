@@ -1,0 +1,81 @@
+{
+  "schema": "glass-atoll.auto-show.fw-capacity-cpu.v1",
+  "passed": false,
+  "counts": {
+    "passed": 5,
+    "total": 6
+  },
+  "checks": [
+    {
+      "name": "actual small two-event producer preserves old attributes, shaders, ledger and proxy values",
+      "passed": true,
+      "evidence": {
+        "instances": 2564,
+        "ledger": 2564,
+        "capacity": 14000,
+        "actualFactory": true,
+        "physicalUpdatesPerFactory": 2
+      }
+    },
+    {
+      "name": "more than 14000 emitted rows grow complete optical and ledger buffers without truncation",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   1.909999966621399,\n+   20.059999465942383,\n+   -102.0999984741211\n-   0,\n-   20,\n-   -100\n  ]\n",
+      "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   1.909999966621399,\n+   20.059999465942383,\n+   -102.0999984741211\n-   0,\n-   20,\n-   -100\n  ]\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/auto-show/fw-capacity-check.mjs:23:622\n    at test (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/auto-show/fw-capacity-check.mjs:11:67)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/auto-show/fw-capacity-check.mjs:23:1"
+    },
+    {
+      "name": "32-way cluster reduction is exactly the old per-event scan, conserving every proxy input",
+      "passed": true,
+      "evidence": {
+        "inputs": 32,
+        "outputs": 2,
+        "exactOldNumericOrder": true
+      }
+    },
+    {
+      "name": "prepared rays own only actual rows and release independently after growth",
+      "passed": true,
+      "evidence": {
+        "rows": 14001,
+        "opticalCapacity": 28000,
+        "privateBytesPerView": 686049,
+        "noSourceRequestAllocated": true
+      }
+    },
+    {
+      "name": "hard limits are explicit and leave published arrays, ledger and request versions unchanged on rejection",
+      "passed": true,
+      "evidence": {
+        "opticalLimit": 262144,
+        "ledgerLimit": 131072,
+        "rejectionsBeforePublication": true
+      }
+    },
+    {
+      "name": "ledger covers 32 ultra chrysanthemum records, shrink keeps correct prefix and powered shutter guard remains before renderer access",
+      "passed": true,
+      "evidence": {
+        "ultraReferenceRows": 104448,
+        "ledgerCapacity": 112000,
+        "shrinkCount": 1,
+        "poweredGuardUnchanged": true
+      }
+    }
+  ],
+  "limits": {
+    "initialRows": 14000,
+    "opticalRows": 262144,
+    "ledgerRows": 131072
+  },
+  "noGPU": true,
+  "noNativeContext": true,
+  "largeRowsArePrivateCapacityFixtures": true,
+  "no32ShowPerformanceClaim": true,
+  "sourceSHA256": "e1b8e6cb6d6deb65fe4737802946814460fb2a122f5e61eaaf0d4a1f796d3a4b",
+  "baselineSHA256": "2986a5e2866e38103fac444a18b4024b61bdd1c35f74f56d4c08656c82730291",
+  "scriptSHA256": "a3ad6523f86eb8f4437fcfa621b1d5eb8c8d163ac694a246fed871b9066c7053",
+  "externalLimits": [
+    "SourceT maxSources18000 and SH maxSources14000 remain unchanged; larger full-source requests are not admitted by this change.",
+    "Pathological contact subdivision may exceed the explicit optical ceiling and is rejected, never silently truncated."
+  ]
+}

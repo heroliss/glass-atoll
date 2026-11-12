@@ -1,0 +1,40 @@
+{
+  "schema": "glass-atoll.r35-physics-scale-integration-check.v1",
+  "scope": "legacy-source-and-behavior-only",
+  "passed": true,
+  "counts": {
+    "passed": 2,
+    "total": 2
+  },
+  "actualGPU": false,
+  "browserActions": 0,
+  "rendererCalls": 0,
+  "sourcePins": {
+    "fireworks-physics.js": "247bdf9de104354258cd7b63a960501fb2295d3fe2372019d77139ac15a384cc",
+    "firework-layer-profile.js": "e42e8c9b4405ff32c86bacc4cdfbbb8ed7cbf9d7275860593fc366e5ff9bdf09"
+  },
+  "checks": [
+    {
+      "name": "Physics whole-file inverse recovers the archived old source exactly; only new profile admission/metadata/reference-bounds seams added",
+      "passed": true,
+      "evidence": {
+        "currentSHA256": "247bdf9de104354258cd7b63a960501fb2295d3fe2372019d77139ac15a384cc",
+        "archivedSHA256": "2cdffbced09c8a151f9fb3cb1531a905633af6978c41f9fc3ea2c1a13006419d",
+        "CRLFPreserved": true
+      }
+    },
+    {
+      "name": "All original type/profile event, sampler and legacy eventBounds outputs remain exact against import-relocated archived physics/layer code",
+      "passed": true,
+      "evidence": {
+        "cases": 117,
+        "oldProfilesUnchanged": true,
+        "archivedImportsOnlyRelocated": true
+      }
+    }
+  ],
+  "limits": [
+    "Archived physics/layer modules relocated imports only; original owner tests/reports are not executed or rewritten.",
+    "Source/CPU integration does not admit GPU imagery, FPS, terrain safety, exact optical raster support or measured supplier/combustion behavior."
+  ]
+}

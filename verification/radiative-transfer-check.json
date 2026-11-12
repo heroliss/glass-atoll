@@ -1,0 +1,397 @@
+{
+  "date": "2026-10-27T01:34:35.311Z",
+  "sourceSHA256": "5f286c608529efac5cc3fe69821dd3837081ebdfdb48fc4095c73662e3e78e4e",
+  "passed": true,
+  "passedCount": 33,
+  "total": 33,
+  "runtimeIntegrated": false,
+  "gpuExecuted": false,
+  "conventions": {
+    "front": "nearest eye",
+    "T": "dimensionless RGB transmittance",
+    "S": "RGB radiance added by segment",
+    "beta": "inverse metres",
+    "j": "radiance per metre, including normalized per-steradian phase",
+    "direction": "source->sample dot sample->eye (propagation vectors)",
+    "preExposure": "explicit scale of S and input/background radiance once; T unchanged"
+  },
+  "independentOracles": [
+    "RK4 integration of dT/ds=-beta*T, dS/ds=j*T",
+    "Simpson quadrature of attenuated source along ray",
+    "Solid-angle Simpson quadrature of actual HG g=.32/.76 and Rayleigh"
+  ],
+  "limits": [
+    "Homogeneous segment/source coefficients; no heterogeneous quadrature policy or production ray partition yet.",
+    "Single-scattering source algebra, not multiple scattering or a full volumetric solver.",
+    "No inversion/division of an already rendered air background, no Gaussian state/column duplicate.",
+    "GLSL is shared source with validated-input contract; actual WebGL compilation/precision/FP16 overflow need separate GPU checks.",
+    "No production visuals, cloud illumination, persistent-smoke integration or performance acceptance implied."
+  ],
+  "checks": [
+    {
+      "name": "zero geometric length is exact identity even with finite nonzero beta/j",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "vacuum and black source preserve any nonnegative background",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "zero extinction has stable j*length without an artificial epsilon",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "pure absorption agrees with Beer transmittance and cannot create light",
+      "passed": true,
+      "detail": {
+        "result": [
+          66.15673071546898,
+          11.310508773990742,
+          0.011185385928082795
+        ]
+      }
+    },
+    {
+      "name": "tiny optical depths and both sides of polynomial boundary retain double precision",
+      "passed": true,
+      "detail": {
+        "sampleCount": 16,
+        "maxRelativeError": 5.019109197170166e-16,
+        "polynomialFirstOmittedTermAtBoundary": 4.977406737296128e-16
+      }
+    },
+    {
+      "name": "strong extinction including finite-input optical-depth overflow stays finite",
+      "passed": true,
+      "detail": {
+        "T": [
+          0,
+          0,
+          0
+        ],
+        "S": [
+          0.9999999999999999,
+          3e-100,
+          2e+100
+        ]
+      }
+    },
+    {
+      "name": "subnormal beta does not erase a representable integrated source",
+      "passed": true,
+      "detail": {
+        "T": [
+          1,
+          1,
+          0.999999999
+        ],
+        "S": [
+          1,
+          2,
+          0.9999999995
+        ]
+      }
+    },
+    {
+      "name": "48 seeded RGB spectra agree with independent RK4 transport ODE",
+      "passed": true,
+      "detail": {
+        "cases": 48,
+        "stepsPerSegment": 4096,
+        "maxAbsoluteError": 1.5631940186722204e-13,
+        "maxRelativeError": 9.50676533649529e-13
+      }
+    },
+    {
+      "name": "source integral independently agrees with Simpson quadrature",
+      "passed": true,
+      "detail": {
+        "maximumAbsoluteError": 2.842170943040401e-14,
+        "expected": [
+          12.490468174866978,
+          191.78639462132207,
+          0.014285713900990418
+        ]
+      }
+    },
+    {
+      "name": "nonuniform geometric subdivision is invariant at fixed coefficients",
+      "passed": true,
+      "detail": {
+        "maximumAbsoluteError": 2.2737367544323206e-13,
+        "parts": 7
+      }
+    },
+    {
+      "name": "front/back ordering matches the independently integrated piecewise ray",
+      "passed": true,
+      "detail": {
+        "maximumAbsoluteError": 8.881784197001252e-14,
+        "composed": {
+          "T": [
+            0.26289514881581166,
+            0.04550195440462154,
+            0.23930892224375455
+          ],
+          "S": [
+            13.638477018320408,
+            14.871943311722216,
+            18.01990378657456
+          ]
+        }
+      }
+    },
+    {
+      "name": "serial composition is not commutative for different illuminated layers",
+      "passed": true,
+      "detail": {
+        "frontThenBack": [
+          0.9976293525066807,
+          1.86114293715912,
+          5.602214139309156
+        ],
+        "backThenFront": [
+          0.7390620018238534,
+          2.273205116776469,
+          8.357521414496532
+        ]
+      }
+    },
+    {
+      "name": "composition is associative, including a zero-transmission foreground",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "co-spatial air+smoke adds beta and source before one integration",
+      "passed": true,
+      "detail": {
+        "correctSharedSegment": [
+          23.610782436218642,
+          6.97393734823363,
+          2.2936015380494674
+        ],
+        "incorrectAdjacentLayers": [
+          23.556490865872725,
+          7.832077386005119,
+          2.952199446194184
+        ]
+      }
+    },
+    {
+      "name": "co-spatial addition is order invariant and zero media is neutral",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "multiple lamps add j without adding the same medium extinction twice",
+      "passed": true,
+      "detail": {
+        "correct": [
+          0.10951899528291044,
+          0.08640045533084505,
+          0.06574307649703534
+        ],
+        "negativeControlDuplicatedExtinction": [
+          0.08195225941320224,
+          0.058317618095749944,
+          0.04097755978069252
+        ]
+      }
+    },
+    {
+      "name": "SSA zero/one and RGB fractions constrain scattering by extinction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "HG actual g=.32 and .76 integrate to one over solid angle",
+      "passed": true,
+      "detail": [
+        {
+          "g": 0.32,
+          "solidAngleIntegral": 1.0000000000000002,
+          "phaseMaxPerSteradian": 0.22716752257926243,
+          "forwardBackRatio": 7.314675351109305
+        },
+        {
+          "g": 0.76,
+          "solidAngleIntegral": 1.000000000000001,
+          "phaseMaxPerSteradian": 2.4315338527928456,
+          "forwardBackRatio": 394.3703703703704
+        }
+      ]
+    },
+    {
+      "name": "HG isotropic and negative-g profiles are normalized, not clamped to forward",
+      "passed": true,
+      "detail": [
+        {
+          "g": 0,
+          "integral": 1
+        },
+        {
+          "g": -0.32,
+          "integral": 1.0000000000000002
+        },
+        {
+          "g": -0.76,
+          "integral": 1.000000000000001
+        }
+      ]
+    },
+    {
+      "name": "HG phaseMax is an all-direction bound for actual and strongly anisotropic g",
+      "passed": true,
+      "detail": [
+        {
+          "g": -0.999,
+          "bound": 159075.3656203491,
+          "measured": 159075.3656203491
+        },
+        {
+          "g": -0.76,
+          "bound": 2.4315338527928456,
+          "measured": 2.4315338527928456
+        },
+        {
+          "g": -0.32,
+          "bound": 0.22716752257926243,
+          "measured": 0.22716752257926245
+        },
+        {
+          "g": 0,
+          "bound": 0.07957747154594767,
+          "measured": 0.07957747154594767
+        },
+        {
+          "g": 0.32,
+          "bound": 0.22716752257926243,
+          "measured": 0.22716752257926245
+        },
+        {
+          "g": 0.76,
+          "bound": 2.4315338527928456,
+          "measured": 2.4315338527928456
+        },
+        {
+          "g": 0.999,
+          "bound": 159075.3656203491,
+          "measured": 159075.3656203491
+        }
+      ]
+    },
+    {
+      "name": "HG forward/back ratio independently matches (1+g)^3/(1-g)^3",
+      "passed": true,
+      "detail": [
+        {
+          "g": 0.32,
+          "ratio": 7.314675351109305,
+          "expected": 7.314675351109305
+        },
+        {
+          "g": 0.76,
+          "ratio": 394.3703703703704,
+          "expected": 394.37037037037044
+        }
+      ]
+    },
+    {
+      "name": "Rayleigh phase integrates to one and has its correct endpoint maximum",
+      "passed": true,
+      "detail": {
+        "solidAngleIntegral": 1
+      }
+    },
+    {
+      "name": "propagation convention distinguishes physical forward and back scattering",
+      "passed": true,
+      "detail": {
+        "forward": 1,
+        "back": -1
+      }
+    },
+    {
+      "name": "source units contain sigma_s*irradiance*phase and no extra Lambert factor",
+      "passed": true,
+      "detail": {
+        "sourcePerMetrePerSteradian": [
+          0.00825695094074996,
+          0.0025802971689843626,
+          0.0018578139616687408
+        ]
+      }
+    },
+    {
+      "name": "integrated scattering obeys SSA/phaseMax/incident bound without summing puffs blindly",
+      "passed": true,
+      "detail": {
+        "maximumSourceToAllDirectionBoundRatio": 0.8704781430001272
+      }
+    },
+    {
+      "name": "storage P scales S and background once while T stays dimensionless",
+      "passed": true,
+      "detail": {
+        "P": 18,
+        "scaledResult": [
+          2753654.3825397836,
+          8858590.89364263,
+          6124944.263476267
+        ],
+        "doublePRejectedByNegativeControl": true
+      }
+    },
+    {
+      "name": "serial and co-spatial composition commute with a consistent single storage scale",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "public inputs reject NaN/Infinity/negative beta,j,length and malformed RGB",
+      "passed": true,
+      "detail": {
+        "invalidCases": 16
+      }
+    },
+    {
+      "name": "SSA/g/cosine domains and zero direction fail instead of being silently sanitized",
+      "passed": true,
+      "detail": {
+        "invalidCases": 10,
+        "permittedDotRoundoff": 1e-12
+      }
+    },
+    {
+      "name": "invalid transfer coefficients and unrepresentable radiance throw, never clamp",
+      "passed": true,
+      "detail": {
+        "invalidCases": 6
+      }
+    },
+    {
+      "name": "functions accept typed RGB arrays without mutating inputs or aliasing outputs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "RGB T stays in [0,1], S>=0, and total intensity is monotone in independent sources",
+      "passed": true,
+      "detail": {
+        "cases": 128
+      }
+    },
+    {
+      "name": "shared GLSL exposes homologous highp segment/phase/algebra without samplers or automatic exposure",
+      "passed": true,
+      "detail": {
+        "glslCharacterCount": 2411,
+        "scope": "structural CPU/GLSL contract only; not a shader compile or GPU precision claim"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1101 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-26T07:01:52.897581+00:00",
+  "kind": "Independent audit of the final AIR renderer: complete continuous one-second rAF windows and raw timing statistics",
+  "method": {
+    "event": "render-loop rAF callback frameStart, not hardware presentation timestamp",
+    "reconstruction": "N raw intervals -> N+1 known event times, t0=0, ti=cumulative sum; absolute t0=raw.previous-sum(intervals).",
+    "window": "All complete (s,s+1000ms] within t0..tN; left excluded/right included; callback count divided by exactly 1 second.",
+    "minimum": "Evaluate every valid left-exit event plus domain endpoints; independently direct-count every left-exit/right-entry breakpoint and all adjacent midpoints.",
+    "edges": "Do not extrapolate or zero-pad unknown head/tail; 1 FPS integer quantization.",
+    "quantile": "Sorted original values at floor(p*(N-1)), including GPU samples.",
+    "slow": "Strictly >1000/60 ms; 16.667 is only a rounded label.",
+    "average": "len(raw.frameIntervals)/recording elapsedSeconds, matching source; known-interval-span alternative retained.",
+    "gpu": "Stats recomputed from raw.gpuTimes; queries cover samples, are not hardware present/cadence, and are fewer than rAF callbacks."
+  },
+  "syntheticBoundaryChecks": [
+    {
+      "name": "uniform 100Hz",
+      "minimum": 100,
+      "expected": 100
+    },
+    {
+      "name": "1100ms gap",
+      "minimum": 0,
+      "expected": 0
+    },
+    {
+      "name": "right boundary included",
+      "minimum": 1,
+      "expected": 1
+    }
+  ],
+  "datasets": [
+    {
+      "label": "正午海岛（保留声源加载尖峰）",
+      "versionScope": "final",
+      "sourceFile": "render-benchmark-air-noon-final.json",
+      "sourceSha256": "78302e38b9ed24dfbfff82a4ddc5bb38b35216c4dcaa6208d91e2f3eccc2fd97",
+      "sourceDate": "2026-10-26T06:53:07.905Z",
+      "recordingElapsedSeconds": 10.001200000047684,
+      "frameIntervalCount": 1374,
+      "averageFps": 137.38351397766758,
+      "averageFpsOverKnownIntervals": 137.50175129563092,
+      "rafMs": {
+        "count": 1374,
+        "mean": 7.272634643394354,
+        "median": 7,
+        "p95": 9.199999928474426,
+        "p99": 12.600000023841858,
+        "maximum": 89.30000007152557,
+        "minimum": 3.299999952316284
+      },
+      "gpuMs": {
+        "count": 1370,
+        "mean": 6.628405839416057,
+        "median": 6.492,
+        "p95": 7.996,
+        "p99": 8.618,
+        "maximum": 11.355,
+        "minimum": 5.493
+      },
+      "slowFrameThresholdMs": 16.666666666666668,
+      "slowFrameCount": 2,
+      "slowFrameFraction": 0.001455604075691412,
+      "slowFramePercent": 0.1455604075691412,
+      "rollingOneSecond": {
+        "minimumFps": 128,
+        "firstWorstWindowMs": [
+          0,
+          1000
+        ],
+        "observedSpanMs": 9992.600000023842,
+        "eventCount": 1375,
+        "candidateCount": 1235,
+        "audit": {
+          "breakpoints": 2443,
+          "positions": 4885,
+          "minimumFps": 128,
+          "agrees": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 17891.499999999996,
+        "lastKnownFramePerformanceNowMs": 27884.10000002384,
+        "unknownHeadMs": 3.499999999996362,
+        "unknownTailMs": 5.100000023845496
+      },
+      "initial": {
+        "viewport": [
+          1209,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1209,
+          1292
+        ],
+        "internalSize": [
+          1209,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -48,
+          12.000000000000004,
+          -40.00000000000001
+        ],
+        "target": [
+          0,
+          2.5,
+          0
+        ],
+        "sun": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "windTarget": 1.8,
+        "effectiveWind": null,
+        "airParameters": {
+          "aerosolScale": 8,
+          "enabled": true,
+          "shadows": true
+        },
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "weatherCurrent": {
+          "automaticCloudBase": true,
+          "cloudBase": 812.9564227727033,
+          "cloudTop": 1762.9564227727033,
+          "coverage": 0.35,
+          "dewPoint": 22.496348617818377,
+          "humidity": 0.68,
+          "liftedCondensationLevel": 812.9564227727033,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+          "moisture": 0.984,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950,
+          "windDirection": null
+        },
+        "weatherPhysicalTarget": {
+          "automaticCloudBase": true,
+          "cloudBase": 812.9564227727033,
+          "cloudTop": 1762.9564227727033,
+          "coverage": 0.35,
+          "dewPoint": 22.496348617818377,
+          "humidity": 0.68,
+          "liftedCondensationLevel": 812.9564227727033,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+          "moisture": 0.984,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950,
+          "windDirection": null
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 1,
+        "cloudOffsetMetres": [
+          40.30769433580737,
+          15.158449151927368
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 8,
+          "automatic": true,
+          "dof": false,
+          "exposure": 0,
+          "focal": 28,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 63.20007911387454,
+        "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "uiParameter": false,
+          "enabled": true,
+          "loaded": false,
+          "loading": true,
+          "contextState": "running",
+          "decoded": {
+            "leaves": {
+              "channels": 1,
+              "duration": 17,
+              "file": "leaf-rustle.ogg",
+              "recorded": true,
+              "sampleRate": 48000,
+              "sourceName": "Rustling leaves — Gravity Sound"
+            }
+          },
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [],
+          "enabled": true,
+          "lastGpuMs": 6.616,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0.008333333333333333,
+          "smoothedCostMs": 7.010027519413435
+        }
+      },
+      "final": {
+        "viewport": [
+          1209,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1209,
+          1292
+        ],
+        "internalSize": [
+          1209,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -48,
+          12.000000000000004,
+          -40.00000000000001
+        ],
+        "target": [
+          0,
+          2.5,
+          0
+        ],
+        "sun": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "windTarget": 1.8,
+        "effectiveWind": 1.8,
+        "airParameters": {
+          "aerosolScale": 8,
+          "enabled": true,
+          "shadows": true
+        },
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "weatherCurrent": {
+          "automaticCloudBase": true,
+          "cloudBase": 812.9564227727033,
+          "cloudTop": 1762.9564227727033,
+          "coverage": 0.35,
+          "dewPoint": 22.496348617818377,
+          "humidity": 0.68,
+          "liftedCondensationLevel": 812.9564227727033,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+          "moisture": 0.984,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950,
+          "windDirection": null
+        },
+        "weatherPhysicalTarget": {
+          "automaticCloudBase": true,
+          "cloudBase": 812.9564227727033,
+          "cloudTop": 1762.9564227727033,
+          "coverage": 0.35,
+          "dewPoint": 22.496348617818377,
+          "humidity": 0.68,
+          "liftedCondensationLevel": 812.9564227727033,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+          "moisture": 0.984,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950,
+          "windDirection": null
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 1,
+        "cloudOffsetMetres": [
+          67.17095423967989,
+          25.260871679879823
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 8,
+          "automatic": true,
+          "dof": false,
+          "exposure": 0,
+          "focal": 28,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 63.20007911387454,
+        "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "uiParameter": true,
+          "enabled": true,
+          "loaded": true,
+          "loading": false,
+          "contextState": "running",
+          "decoded": {
+            "leaves": {
+              "channels": 1,
+              "duration": 17,
+              "file": "leaf-rustle.ogg",
+              "recorded": true,
+              "sampleRate": 48000,
+              "sourceName": "Rustling leaves — Gravity Sound"
+            },
+            "ocean": {
+              "channels": 2,
+              "duration": 48,
+              "file": "ocean-shore.ogg",
+              "recorded": true,
+              "sampleRate": 48000,
+              "sourceName": "Beach sounds South Carolina — Anthropic42"
+            }
+          },
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [],
+          "enabled": true,
+          "lastGpuMs": 6.295,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": 6.6797883955401485
+        }
+      },
+      "consistency": {
+        "count": true,
+        "average": true,
+        "p95": true,
+        "p99": true,
+        "slowCount": true,
+        "gpuMean": true,
+        "gpuP95": true,
+        "gpuP99": true,
+        "rollingAudit": true,
+        "knownTimelineInsideRecording": true,
+        "frameIntervalsFinitePositive": true,
+        "gpuTimesFiniteNonnegative": true,
+        "gpuReportedCountMatchesRaw": true,
+        "unchangedSourceHashAtWrite": true
+      },
+      "recordingNotes": {
+        "audio": "Audio engine was enabled and loading at the initial snapshot, with UI sound=false; the final snapshot is sound=true, loaded=true with 48s ocean and 17s leaves recordings.",
+        "retainedOutlier": {
+          "intervalIndexZeroBased": 6,
+          "intervalOrdinal": 7,
+          "milliseconds": 89.30000007152557,
+          "excluded": false
+        },
+        "attribution": "Root observed asynchronous initial audio/UI loading; raw timing statistics alone cannot attribute all of this interval to a specific task."
+      }
+    },
+    {
+      "label": "用户远景（风速趋近5 m/s）",
+      "versionScope": "final",
+      "sourceFile": "render-benchmark-air-far-final.json",
+      "sourceSha256": "497bf85bf3171e85f993ff57fe05cf5f0dd1d9d4ab586e3b185fae284cccd06a",
+      "sourceDate": "2026-10-26T06:56:59.531Z",
+      "recordingElapsedSeconds": 10.008899999976158,
+      "frameIntervalCount": 912,
+      "averageFps": 91.11890417550104,
+      "averageFpsOverKnownIntervals": 91.14895658518157,
+      "rafMs": {
+        "count": 912,
+        "mean": 10.971052631474377,
+        "median": 10.899999976158142,
+        "p95": 19.5,
+        "p99": 21.700000047683716,
+        "maximum": 28.300000071525577,
+        "minimum": 2.100000023841858
+      },
+      "gpuMs": {
+        "count": 907,
+        "mean": 10.379048511576627,
+        "median": 10.346,
+        "p95": 11.356,
+        "p99": 11.866,
+        "maximum": 13.494,
+        "minimum": 9
+      },
+      "slowFrameThresholdMs": 16.666666666666668,
+      "slowFrameCount": 71,
+      "slowFrameFraction": 0.07785087719298246,
+      "slowFramePercent": 7.785087719298247,
+      "rollingOneSecond": {
+        "minimumFps": 88,
+        "firstWorstWindowMs": [
+          7191.099999904633,
+          8191.099999904633
+        ],
+        "observedSpanMs": 10005.599999904633,
+        "eventCount": 913,
+        "candidateCount": 822,
+        "audit": {
+          "breakpoints": 1634,
+          "positions": 3267,
+          "minimumFps": 88,
+          "agrees": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 249507.90000009537,
+        "lastKnownFramePerformanceNowMs": 259513.5,
+        "unknownHeadMs": 1.8000000715255737,
+        "unknownTailMs": 1.5
+      },
+      "initial": {
+        "viewport": [
+          1209,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1209,
+          1292
+        ],
+        "internalSize": [
+          1209,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -203.8835761680253,
+          98.74855091481356,
+          11.266633642271932
+        ],
+        "target": [
+          -2.4671,
+          -12.0603,
+          4.0006
+        ],
+        "sun": {
+          "azimuth": 95,
+          "elevation": 8,
+          "intensity": 0.4
+        },
+        "windTarget": 5,
+        "effectiveWind": 2.466556660332777,
+        "airParameters": {
+          "aerosolScale": 8,
+          "enabled": true,
+          "shadows": true
+        },
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "weatherCurrent": {
+          "automaticCloudBase": true,
+          "cloudBase": 812.9564227727033,
+          "cloudTop": 1762.9564227727033,
+          "coverage": 0.35,
+          "dewPoint": 22.496348617818377,
+          "humidity": 0.68,
+          "liftedCondensationLevel": 812.9564227727033,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+          "moisture": 0.984,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950,
+          "windDirection": null
+        },
+        "weatherPhysicalTarget": {
+          "automaticCloudBase": true,
+          "cloudBase": 812.9564227727033,
+          "cloudTop": 1762.9564227727033,
+          "coverage": 0.35,
+          "dewPoint": 22.496348617818377,
+          "humidity": 0.68,
+          "liftedCondensationLevel": 812.9564227727033,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+          "moisture": 0.984,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950,
+          "windDirection": null
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 0.00037301958669529856,
+        "cloudOffsetMetres": [
+          490.42984528594303,
+          184.43515549216187
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": false,
+          "dof": true,
+          "exposure": 0,
+          "focal": 35,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 229.9999859954272,
+        "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "uiParameter": true,
+          "enabled": true,
+          "loaded": true,
+          "loading": false,
+          "contextState": "running",
+          "decoded": {
+            "leaves": {
+              "channels": 1,
+              "duration": 17,
+              "file": "leaf-rustle.ogg",
+              "recorded": true,
+              "sampleRate": 48000,
+              "sourceName": "Rustling leaves — Gravity Sound"
+            },
+            "ocean": {
+              "channels": 2,
+              "duration": 48,
+              "file": "ocean-shore.ogg",
+              "recorded": true,
+              "sampleRate": 48000,
+              "sourceName": "Beach sounds South Carolina — Anthropic42"
+            }
+          },
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [],
+          "enabled": false,
+          "lastGpuMs": null,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": null
+        }
+      },
+      "final": {
+        "viewport": [
+          1209,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1209,
+          1292
+        ],
+        "internalSize": [
+          1209,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -203.8835761680253,
+          98.74855091481356,
+          11.266633642271932
+        ],
+        "target": [
+          -2.4671,
+          -12.0603,
+          4.0006
+        ],
+        "sun": {
+          "azimuth": 95,
+          "elevation": 8,
+          "intensity": 0.4
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.998112076557569,
+        "airParameters": {
+          "aerosolScale": 8,
+          "enabled": true,
+          "shadows": true
+        },
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "weatherCurrent": {
+          "automaticCloudBase": true,
+          "cloudBase": 812.9564227727033,
+          "cloudTop": 1762.9564227727033,
+          "coverage": 0.35,
+          "dewPoint": 22.496348617818377,
+          "humidity": 0.68,
+          "liftedCondensationLevel": 812.9564227727033,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+          "moisture": 0.984,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950,
+          "windDirection": null
+        },
+        "weatherPhysicalTarget": {
+          "automaticCloudBase": true,
+          "cloudBase": 812.9564227727033,
+          "cloudTop": 1762.9564227727033,
+          "coverage": 0.35,
+          "dewPoint": 22.496348617818377,
+          "humidity": 0.68,
+          "liftedCondensationLevel": 812.9564227727033,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+          "moisture": 0.984,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950,
+          "windDirection": null
+        },
+        "actualCloudCoverage": 0.35,
+        "cloudTransmissionAtIsland": 0.0005552667802633036,
+        "cloudOffsetMetres": [
+          560.3938628376897,
+          210.7464099560669
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": false,
+          "dof": true,
+          "exposure": 0,
+          "focal": 35,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 229.9999859954272,
+        "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "uiParameter": true,
+          "enabled": true,
+          "loaded": true,
+          "loading": false,
+          "contextState": "running",
+          "decoded": {
+            "leaves": {
+              "channels": 1,
+              "duration": 17,
+              "file": "leaf-rustle.ogg",
+              "recorded": true,
+              "sampleRate": 48000,
+              "sourceName": "Rustling leaves — Gravity Sound"
+            },
+            "ocean": {
+              "channels": 2,
+              "duration": 48,
+              "file": "ocean-shore.ogg",
+              "recorded": true,
+              "sampleRate": 48000,
+              "sourceName": "Beach sounds South Carolina — Anthropic42"
+            }
+          },
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [],
+          "enabled": false,
+          "lastGpuMs": null,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": null
+        }
+      },
+      "consistency": {
+        "count": true,
+        "average": true,
+        "p95": true,
+        "p99": true,
+        "slowCount": true,
+        "gpuMean": true,
+        "gpuP95": true,
+        "gpuP99": true,
+        "rollingAudit": true,
+        "knownTimelineInsideRecording": true,
+        "frameIntervalsFinitePositive": true,
+        "gpuTimesFiniteNonnegative": true,
+        "gpuReportedCountMatchesRaw": true,
+        "unchangedSourceHashAtWrite": true
+      },
+      "recordingNotes": {
+        "effectiveWindMetresPerSecond": [
+          2.466556660332777,
+          4.998112076557569
+        ],
+        "settledWindClaim": false,
+        "audio": "Enabled and fully loaded at both endpoints.",
+        "optics": "35mm, f/2.8 depth of field enabled, focus approximately230m, sun elevation8degrees and intensity.4."
+      }
+    },
+    {
+      "label": "高湿厚云（已即时应用）",
+      "versionScope": "final",
+      "sourceFile": "render-benchmark-air-dense-final.json",
+      "sourceSha256": "2cbd9f54f048f0270ad1bfe41ae895cb725cce38ff0bab63e026a2b7dd5b6399",
+      "sourceDate": "2026-10-26T06:58:02.511Z",
+      "recordingElapsedSeconds": 10.002299999952315,
+      "frameIntervalCount": 1199,
+      "averageFps": 119.872429341823,
+      "averageFpsOverKnownIntervals": 119.96118020218911,
+      "rafMs": {
+        "count": 1199,
+        "mean": 8.336030025000966,
+        "median": 8,
+        "p95": 12.200000047683716,
+        "p99": 15.299999952316284,
+        "maximum": 23.299999952316284,
+        "minimum": 2.399999976158142
+      },
+      "gpuMs": {
+        "count": 1194,
+        "mean": 7.711127303182579,
+        "median": 7.453,
+        "p95": 9.379,
+        "p99": 10.068,
+        "maximum": 10.596,
+        "minimum": 6.397
+      },
+      "slowFrameThresholdMs": 16.666666666666668,
+      "slowFrameCount": 4,
+      "slowFrameFraction": 0.003336113427856547,
+      "slowFramePercent": 0.3336113427856547,
+      "rollingOneSecond": {
+        "minimumFps": 118,
+        "firstWorstWindowMs": [
+          71.5,
+          1071.5
+        ],
+        "observedSpanMs": 9994.899999976158,
+        "eventCount": 1200,
+        "candidateCount": 1081,
+        "audit": {
+          "breakpoints": 2153,
+          "positions": 4305,
+          "minimumFps": 118,
+          "agrees": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 312499.3000000715,
+        "lastKnownFramePerformanceNowMs": 322494.2000000477,
+        "unknownHeadMs": 6,
+        "unknownTailMs": 1.399999976158142
+      },
+      "initial": {
+        "viewport": [
+          1209,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1209,
+          1292
+        ],
+        "internalSize": [
+          1209,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -47.99999999999999,
+          12.000000000000002,
+          -40
+        ],
+        "target": [
+          0,
+          2.5,
+          0
+        ],
+        "sun": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.9999999999999725,
+        "airParameters": {
+          "aerosolScale": 8,
+          "enabled": true,
+          "shadows": true
+        },
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.9,
+          "humidity": 0.95,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 1800
+        },
+        "weatherCurrent": {
+          "automaticCloudBase": true,
+          "cloudBase": 110.4121418301416,
+          "cloudTop": 1910.4121418301415,
+          "coverage": 0.9,
+          "dewPoint": 28.116702865358867,
+          "humidity": 0.95,
+          "liftedCondensationLevel": 110.4121418301416,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+          "moisture": 1.2,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 1800,
+          "windDirection": null
+        },
+        "weatherPhysicalTarget": {
+          "automaticCloudBase": true,
+          "cloudBase": 110.4121418301416,
+          "cloudTop": 1910.4121418301415,
+          "coverage": 0.9,
+          "dewPoint": 28.116702865358867,
+          "humidity": 0.95,
+          "liftedCondensationLevel": 110.4121418301416,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+          "moisture": 1.2,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 1800,
+          "windDirection": null
+        },
+        "actualCloudCoverage": 0.9,
+        "cloudTransmissionAtIsland": 1,
+        "cloudOffsetMetres": [
+          954.7042709318216,
+          359.0340847949007
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": false,
+          "dof": false,
+          "exposure": 0,
+          "focal": 28,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 63.20007911387453,
+        "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "uiParameter": true,
+          "enabled": true,
+          "loaded": true,
+          "loading": false,
+          "contextState": "running",
+          "decoded": {
+            "leaves": {
+              "channels": 1,
+              "duration": 17,
+              "file": "leaf-rustle.ogg",
+              "recorded": true,
+              "sampleRate": 48000,
+              "sourceName": "Rustling leaves — Gravity Sound"
+            },
+            "ocean": {
+              "channels": 2,
+              "duration": 48,
+              "file": "ocean-shore.ogg",
+              "recorded": true,
+              "sampleRate": 48000,
+              "sourceName": "Beach sounds South Carolina — Anthropic42"
+            }
+          },
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [],
+          "enabled": false,
+          "lastGpuMs": null,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": null
+        }
+      },
+      "final": {
+        "viewport": [
+          1209,
+          1292
+        ],
+        "dpr": 1,
+        "output": [
+          1209,
+          1292
+        ],
+        "internalSize": [
+          1209,
+          1292
+        ],
+        "renderScale": 1,
+        "camera": [
+          -47.99999999999999,
+          12.000000000000002,
+          -40
+        ],
+        "target": [
+          0,
+          2.5,
+          0
+        ],
+        "sun": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "windTarget": 5,
+        "effectiveWind": 4.999999999999973,
+        "airParameters": {
+          "aerosolScale": 8,
+          "enabled": true,
+          "shadows": true
+        },
+        "weatherTarget": {
+          "cloudBase": "auto",
+          "coverage": 0.9,
+          "humidity": 0.95,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 1800
+        },
+        "weatherCurrent": {
+          "automaticCloudBase": true,
+          "cloudBase": 110.4121418301416,
+          "cloudTop": 1910.4121418301415,
+          "coverage": 0.9,
+          "dewPoint": 28.116702865358867,
+          "humidity": 0.95,
+          "liftedCondensationLevel": 110.4121418301416,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+          "moisture": 1.2,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 1800,
+          "windDirection": null
+        },
+        "weatherPhysicalTarget": {
+          "automaticCloudBase": true,
+          "cloudBase": 110.4121418301416,
+          "cloudTop": 1910.4121418301415,
+          "coverage": 0.9,
+          "dewPoint": 28.116702865358867,
+          "humidity": 0.95,
+          "liftedCondensationLevel": 110.4121418301416,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+          "moisture": 1.2,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 1800,
+          "windDirection": null
+        },
+        "actualCloudCoverage": 0.9,
+        "cloudTransmissionAtIsland": 1,
+        "cloudOffsetMetres": [
+          1029.6059861316282,
+          387.2022511948364
+        ],
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 2.8,
+          "automatic": false,
+          "dof": false,
+          "exposure": 0,
+          "focal": 28,
+          "glintAA": true,
+          "temporal": true,
+          "vignette": true
+        },
+        "focusMetres": 63.20007911387453,
+        "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+        "samples": 4,
+        "upscaler": "native resolution",
+        "audio": {
+          "uiParameter": true,
+          "enabled": true,
+          "loaded": true,
+          "loading": false,
+          "contextState": "running",
+          "decoded": {
+            "leaves": {
+              "channels": 1,
+              "duration": 17,
+              "file": "leaf-rustle.ogg",
+              "recorded": true,
+              "sampleRate": 48000,
+              "sourceName": "Rustling leaves — Gravity Sound"
+            },
+            "ocean": {
+              "channels": 2,
+              "duration": 48,
+              "file": "ocean-shore.ogg",
+              "recorded": true,
+              "sampleRate": 48000,
+              "sourceName": "Beach sounds South Carolina — Anthropic42"
+            }
+          },
+          "captureActive": false,
+          "splashCount": 0
+        },
+        "governor": {
+          "changes": [],
+          "enabled": false,
+          "lastGpuMs": null,
+          "minimumScale": 0.6,
+          "scale": 1,
+          "slowFrameFraction": 0,
+          "smoothedCostMs": null
+        }
+      },
+      "consistency": {
+        "count": true,
+        "average": true,
+        "p95": true,
+        "p99": true,
+        "slowCount": true,
+        "gpuMean": true,
+        "gpuP95": true,
+        "gpuP99": true,
+        "rollingAudit": true,
+        "knownTimelineInsideRecording": true,
+        "frameIntervalsFinitePositive": true,
+        "gpuTimesFiniteNonnegative": true,
+        "gpuReportedCountMatchesRaw": true,
+        "unchangedSourceHashAtWrite": true
+      },
+      "recordingNotes": {
+        "appliedBeforeMeasurement": "Root applied dense conditions immediately while paused, then resumed; both endpoint current/target states agree.",
+        "relativeHumidity": 0.95,
+        "coverage": 0.9,
+        "cloudThicknessMetres": 1800,
+        "effectiveWindMetresPerSecond": [
+          4.9999999999999725,
+          4.999999999999973
+        ],
+        "audio": "Enabled and fully loaded at both endpoints."
+      }
+    }
+  ],
+  "pending": [],
+  "limits": [
+    "The event stream records rAF render-loop callback frameStart timestamps, not hardware display presentation; rolling FPS is a callback-count measure.",
+    "Only complete one-second windows inside the reconstructed first-to-last known events are eligible; short unknown recording head/tail spans are not extrapolated or zero-padded.",
+    "One-second callback counts above 60 and high average FPS do not imply that every frame interval is at most 16.667ms. The far view retains 71 such slow intervals.",
+    "GPU queries cover 1370/907/1194 samples, fewer than rAF intervals; their durations are not complete CPU or presentation pacing measurements.",
+    "Noon includes audio enable/load work: initial UI sound=false while audio.enabled=true and loading=true; final UI sound=true and loaded=true. The seventh interval of 89.3ms remains included. Its detailed CPU cause is not established by the timing arrays alone.",
+    "Far-view wind target is 5m/s but the recorded effective wind ramps from about 2.4666 to 4.9981m/s during the run; this is not a fully settled 5m/s-only measurement.",
+    "Dense weather is already RH=.95, coverage=.9, thickness=1800m in both saved endpoint states. The root agent applied it immediately while paused before resuming; the run is not labeled as an all-run parameter transition. Cloud position and illumination can still evolve.",
+    "These approximately ten-second measurements on one local laptop do not guarantee 60fps on every frame, arbitrary hardware, OS load, view, display or real phone."
+  ],
+  "context": {
+    "device": "RTX 4060 Laptop GPU, as identified by the root agent for these local runs; the benchmark JSON does not embed an adapter fingerprint.",
+    "version": "Final AIR iteration; atmosphere/air perspective, updated leaf SSS, leaf temporal AA and water temporal AA. Runtime is frozen for this audit.",
+    "resolution": {
+      "viewport": [
+        1209,
+        1292
+      ],
+      "devicePixelRatio": 1,
+      "output": [
+        1209,
+        1292
+      ],
+      "initialRenderScale": 1,
+      "finalRenderScale": 1,
+      "governorChanges": []
+    },
+    "antialias": "4x offscreen MSAA + leaf temporal + water temporal + SMAA; native output (FSR inactive at q=1).",
+    "selection": "All three final raw records are included in full. No warmup frames, audio loading stalls, outliers or slow intervals were removed.",
+    "comparison": "No controlled speedup against prior 1270x1292 runs is inferred: viewport, source iteration, weather and camera conditions differ.",
+    "evidenceScope": "Statistics are independently recomputed from the saved raw JSON. No new benchmark, runtime change or hardware-present trace was performed."
+  }
+}

@@ -1,0 +1,669 @@
+{
+  "schema": "glass-atoll.official-aces2-export.v1",
+  "dateUTC": "2026-10-27T05:36:17.344799+00:00",
+  "passed": true,
+  "counts": {
+    "total": 12,
+    "passed": 12
+  },
+  "checks": [
+    {
+      "name": "isolated pinned CPU native module and NumPy import successfully",
+      "passed": true,
+      "evidence": {
+        "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+        "executable": "E:\\GPT-Projects\\\u4e2a\u4eba\u7f51\u7ad9\\glass-atoll\\.tools\\aces2-oracle\\Scripts\\python.exe",
+        "OCIO": "E:\\GPT-Projects\\\u4e2a\u4eba\u7f51\u7ad9\\glass-atoll\\.tools\\aces2-oracle\\Lib\\site-packages\\PyOpenColorIO\\__init__.py",
+        "NumPy": "2.3.4"
+      }
+    },
+    {
+      "name": "custom7001270 and100 validate while fractional peak and wrong parameter count reject",
+      "passed": true,
+      "evidence": {
+        "peaks": [
+          100,
+          700,
+          1270
+        ],
+        "params": [
+          700,
+          0.64,
+          0.33,
+          0.3,
+          0.6,
+          0.15,
+          0.06,
+          0.3127,
+          0.329
+        ],
+        "fractionalPeakRejected": true,
+        "wrongCountRejected": true
+      }
+    },
+    {
+      "name": "correct Bradford direction passes white and nonneutral inverse roundtrips",
+      "passed": true,
+      "evidence": {
+        "white": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "maxAbsoluteRoundtripError": 4.76837158203125e-07,
+        "nonNeutralRoundtrips": 6,
+        "709D65toAP1D60_matrixRows": [
+          [
+            0.6130974292755127,
+            0.3395231366157532,
+            0.04737945273518562
+          ],
+          [
+            0.07019372284412384,
+            0.9163538813591003,
+            0.013452398590743542
+          ],
+          [
+            0.0206155925989151,
+            0.10956977307796478,
+            0.8698146343231201
+          ]
+        ],
+        "source": "UTILITY - ACES-AP1_to_LINEAR-REC709_BFD inverse"
+      }
+    },
+    {
+      "name": "declared complete wrapper outputs remain finite nonnegative within target peak",
+      "passed": true,
+      "evidence": {
+        "fullWrapperMaximumNormalized100Nit": {
+          "100": 1.0,
+          "700": 7.0,
+          "1270": 12.699999809265137
+        },
+        "notABareFunctionProof": true
+      }
+    },
+    {
+      "name": "negative and outofdomain raw FF intermediates are retained rather than hidden by range clamps",
+      "passed": true,
+      "evidence": [
+        {
+          "peak": 100,
+          "bareNonFiniteChannels": 0,
+          "bareNegativeChannels": 91,
+          "domainChangedSamples": 213
+        },
+        {
+          "peak": 700,
+          "bareNonFiniteChannels": 0,
+          "bareNegativeChannels": 325,
+          "domainChangedSamples": 170
+        },
+        {
+          "peak": 1270,
+          "bareNonFiniteChannels": 0,
+          "bareNegativeChannels": 322,
+          "domainChangedSamples": 165
+        }
+      ]
+    },
+    {
+      "name": "actual profiles are captured and all runtime source hashes remain unchanged",
+      "passed": true,
+      "evidence": {
+        "fireworks-physics.js": "3bbac1976fccf39dbb9fefdfd04bfdb5ae7fa8e26edbbe1169373d01130486df",
+        "fireworks.js": "963bc4fef5167bebebf84f1075072166f222ff4e4e1b8b4384b470ed44bb5310",
+        "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+        "hdr-output.js": "4ce6ba6f2ed991e885aba586efd5ec9c08b6146c9d73664e611e00e477e6b6f9",
+        "lens.js": "23432072ea53e6db8139d279fd69e5372962a8371f12515fd3a07d8d995582eb",
+        "scene-radiometry.js": "f942645604dae00fe6ad713c605ad38509bf71cf7fbf10fe5e28b904eb5bf66d"
+      }
+    },
+    {
+      "name": "datasets cover six hues actual5profiles grey blackwhite negative and domain limits",
+      "passed": true,
+      "evidence": {
+        "sampleCounts": {
+          "100": 963,
+          "700": 963,
+          "1270": 963
+        },
+        "sixHuesEachAtLeast64Levels": true,
+        "actualProfiles": [
+          "red",
+          "green",
+          "blue",
+          "yellow",
+          "thermal"
+        ]
+      }
+    },
+    {
+      "name": "neutral18percent units are100nitnormalized and custom peaks give distinct expected rendering",
+      "passed": true,
+      "evidence": {
+        "inputExposed709": [
+          0.18,
+          0.18,
+          0.18
+        ],
+        "actualNits": {
+          "100": [
+            9.999912232160568,
+            9.999942779541016,
+            9.999929368495941
+          ],
+          "700": [
+            13.840246200561523,
+            13.840299844741821,
+            13.840274512767792
+          ],
+          "1270": [
+            14.949752390384674,
+            14.949822425842285,
+            14.949795603752136
+          ]
+        },
+        "white280IsUnitConversionNotAnExtraExposure": true
+      }
+    },
+    {
+      "name": "official GPU shader uses two small nearest float tables and no arbitrary3Dlut",
+      "passed": true,
+      "evidence": [
+        {
+          "peak": 100,
+          "shaderCharacters": 15238,
+          "tables": 2,
+          "tableRawBytes": 5808
+        },
+        {
+          "peak": 700,
+          "shaderCharacters": 15364,
+          "tables": 2,
+          "tableRawBytes": 5808
+        },
+        {
+          "peak": 1270,
+          "shaderCharacters": 15435,
+          "tables": 2,
+          "tableRawBytes": 5808
+        }
+      ]
+    },
+    {
+      "name": "browser linear units invert normalized100nit scale exactly without extra80nit or paperwhite factor",
+      "passed": true,
+      "evidence": {
+        "browserWhite": 280,
+        "peakBrowserLinear": {
+          "100": 0.35714285714285715,
+          "700": 2.5,
+          "1270": 4.535714285714286
+        },
+        "native80nitFactorNotApplied": true
+      }
+    },
+    {
+      "name": "custom wrapper matches independently registered official100 and1000nit highlevel builtins",
+      "passed": true,
+      "evidence": [
+        {
+          "peak": 100,
+          "registeredBuiltin": "ACES-OUTPUT - ACES2065-1_to_CIE-XYZ-D65 - SDR-100nit-REC709_2.0",
+          "samples": 7,
+          "maximumXYZAbsoluteError": 9.708622832060865e-08
+        },
+        {
+          "peak": 1000,
+          "registeredBuiltin": "ACES-OUTPUT - ACES2065-1_to_CIE-XYZ-D65 - HDR-1000nit-P3-D65_2.0",
+          "samples": 7,
+          "maximumXYZAbsoluteError": 5.893329095840727e-07
+        }
+      ]
+    },
+    {
+      "name": "nonfinite input is explicitly rejected rather than fed into C++ gamut traversal",
+      "passed": true,
+      "evidence": null
+    }
+  ],
+  "OCIOVersion": "2.6.0",
+  "NumPyVersion": "2.3.4",
+  "pythonExecutable": "E:\\GPT-Projects\\\u4e2a\u4eba\u7f51\u7ad9\\glass-atoll\\.tools\\aces2-oracle\\Scripts\\python.exe",
+  "targets": [
+    {
+      "peakNits": 100,
+      "style": "FIXED_FUNCTION_ACES_OUTPUT_TRANSFORM_20",
+      "params": [
+        100,
+        0.64,
+        0.33,
+        0.3,
+        0.6,
+        0.15,
+        0.06,
+        0.3127,
+        0.329
+      ],
+      "function": "aces2Display100",
+      "functionFile": "aces2-100-official.glsl",
+      "functionSHA256": "38b78efcb0d7d8eace7e906cc19defdf42d72ad54a2f06d2c81d4ce503b16b44",
+      "functionCharacters": 15238,
+      "probeFragmentFile": "aces2-100-probe.frag",
+      "probeFragmentSHA256": "2781ece7a6f9240dbd2133f61016ac5cf2d76dcd2e2276be7a418941a084075d",
+      "gpuProcessorCacheID": "GPU Processor: oFlags 263995331 ops :  <MatrixOffsetOp forward 6029f4db276df0d8cd3b39e51dc9813c > <RangeOp forward [0, 1024, 0, 1024] > <MatrixOffsetOp forward ebc7826755abfbb7ccdfa7fead1134ec > <FixedFunctionOp ACES_OutputTransform20 (Forward) 100 0.64 0.33 0.3 0.6 0.15 0.06 0.3127 0.329> <RangeOp forward [0, 1, 0, 1] >",
+      "processorCacheID": "baff1ba1-69a5-4b91-e17b-d34e19647727",
+      "language": "GLSL ES3.0",
+      "textures2D": [
+        {
+          "index": 0,
+          "textureName": "aces2_100_reach_m_table_0",
+          "samplerName": "aces2_100_reach_m_table_0Sampler",
+          "bindingIndex": 1,
+          "width": 363,
+          "height": 1,
+          "dimensions": "TextureDimensions.TEXTURE_2D",
+          "originalChannels": 1,
+          "channel": "TextureType.TEXTURE_RED_CHANNEL",
+          "interpolation": "Interpolation.INTERP_NEAREST",
+          "dataType": "IEEE754 float32 little-endian",
+          "shaderPrecision": "highp sampler2D inherited from probe header; official function text unchanged",
+          "rawFile": "aces2-100-table-0-raw.f32",
+          "rawBytes": 1452,
+          "rawSHA256": "0b1df450119d7e1875bd72edb598769998cd19836d6bd34520078a33bb5cbd31",
+          "rgbaUploadFile": "aces2-100-table-0-rgba.f32",
+          "rgbaBytes": 5808,
+          "rgbaSHA256": "6d78d188ad593cc15112478abea090c405b2b3de4ae3f0d502a2a8589a9b3de4",
+          "minimum": 72.4853515625,
+          "maximum": 194.366455078125,
+          "upload": {
+            "internalFormat": "RGBA32F",
+            "format": "RGBA",
+            "type": "FLOAT",
+            "minFilter": "NEAREST",
+            "magFilter": "NEAREST",
+            "wrapS": "CLAMP_TO_EDGE",
+            "wrapT": "CLAMP_TO_EDGE",
+            "generateMipmaps": false,
+            "flipY": false,
+            "unpackAlignment": 1,
+            "colorSpace": "NoColorSpace"
+          }
+        },
+        {
+          "index": 1,
+          "textureName": "aces2_100_gamut_cusp_table_0",
+          "samplerName": "aces2_100_gamut_cusp_table_0Sampler",
+          "bindingIndex": 2,
+          "width": 363,
+          "height": 1,
+          "dimensions": "TextureDimensions.TEXTURE_2D",
+          "originalChannels": 3,
+          "channel": "TextureType.TEXTURE_RGB_CHANNEL",
+          "interpolation": "Interpolation.INTERP_NEAREST",
+          "dataType": "IEEE754 float32 little-endian",
+          "shaderPrecision": "highp sampler2D inherited from probe header; official function text unchanged",
+          "rawFile": "aces2-100-table-1-raw.f32",
+          "rawBytes": 4356,
+          "rawSHA256": "e8f3f5a37545cc79815db9d2345ffa10b65c699c9b1d23d1713f2078be7ad202",
+          "rgbaUploadFile": "aces2-100-table-1-rgba.f32",
+          "rgbaBytes": 5808,
+          "rgbaSHA256": "17d6f284107072d824e69101210971fff5fb0f0b019ca560a8551598290003d2",
+          "minimum": 1.0096068382263184,
+          "maximum": 91.50909423828125,
+          "upload": {
+            "internalFormat": "RGBA32F",
+            "format": "RGBA",
+            "type": "FLOAT",
+            "minFilter": "NEAREST",
+            "magFilter": "NEAREST",
+            "wrapS": "CLAMP_TO_EDGE",
+            "wrapT": "CLAMP_TO_EDGE",
+            "generateMipmaps": false,
+            "flipY": false,
+            "unpackAlignment": 1,
+            "colorSpace": "NoColorSpace"
+          }
+        }
+      ],
+      "textures3D": 0,
+      "officialDynamicUniforms": 0,
+      "algorithm": "official analytic CAM/tone/chroma/gamut with two small hue lookup tables; not an arbitrary 3D LUT",
+      "input": "already exposed scene-linear sRGB/Rec709 D65, no P/exposure factor in function",
+      "output": "display-linear Rec709 D65; numeric1 =100nit; official AP1 pre-domain and display range policies included",
+      "probeUniforms": {
+        "uNitsToLinear": "1 for CPU normalized100nit comparison;100/browserSDRWhiteNits for absolute browser-linear units",
+        "uEncodeSRGB": "0 for linear RT/srgb-linear canvas;1 only for declared srgb canvas"
+      },
+      "notYetValidated": [
+        "actual WebGL shader compile",
+        "GPU numerical parity",
+        "GPU cost",
+        "browser color copy/visible HDR",
+        "panel nits"
+      ],
+      "cpuOracleFile": "aces2-100-cpu.json",
+      "gpuPattern": {
+        "width": 64,
+        "height": 16,
+        "samples": 963,
+        "paddedPixels": 61,
+        "stride": 4,
+        "dtype": "float32 little-endian RGBA",
+        "inputFile": "aces2-100-gpu-input.f32",
+        "inputSHA256": "d75cbc8521de579b90ec858266657c730329af469598ab4e3911383cba6d3643",
+        "expectedFile": "aces2-100-cpu-expected.f32",
+        "expectedSHA256": "b2c18a44462975bda8e8216a86564ea2e40c75c70f1d2c7dc8b54e72b8b26742",
+        "inputRounding": "every CPU call explicitly receives float32-rounded RGB, same values as uploaded pattern",
+        "layout": "row-major, flipY false; readPixels bottom-row order equals exported texture row0; padded pixels opaque black"
+      }
+    },
+    {
+      "peakNits": 700,
+      "style": "FIXED_FUNCTION_ACES_OUTPUT_TRANSFORM_20",
+      "params": [
+        700,
+        0.64,
+        0.33,
+        0.3,
+        0.6,
+        0.15,
+        0.06,
+        0.3127,
+        0.329
+      ],
+      "function": "aces2Display700",
+      "functionFile": "aces2-700-official.glsl",
+      "functionSHA256": "43d3fa65412f678490a15ae1394adeaf14d32dafd57c5612917a056937256b62",
+      "functionCharacters": 15364,
+      "probeFragmentFile": "aces2-700-probe.frag",
+      "probeFragmentSHA256": "fe91af6416826ca94d371caaf3e31bf312bab644984db622099204c0bce86932",
+      "gpuProcessorCacheID": "GPU Processor: oFlags 263995331 ops :  <MatrixOffsetOp forward 6029f4db276df0d8cd3b39e51dc9813c > <RangeOp forward [0, 3620.141, 0, 3620.141] > <MatrixOffsetOp forward ebc7826755abfbb7ccdfa7fead1134ec > <FixedFunctionOp ACES_OutputTransform20 (Forward) 700 0.64 0.33 0.3 0.6 0.15 0.06 0.3127 0.329> <RangeOp forward [0, 7, 0, 7] >",
+      "processorCacheID": "1c30bf15-6602-bebe-521d-49ebd03c3625",
+      "language": "GLSL ES3.0",
+      "textures2D": [
+        {
+          "index": 0,
+          "textureName": "aces2_700_reach_m_table_0",
+          "samplerName": "aces2_700_reach_m_table_0Sampler",
+          "bindingIndex": 1,
+          "width": 363,
+          "height": 1,
+          "dimensions": "TextureDimensions.TEXTURE_2D",
+          "originalChannels": 1,
+          "channel": "TextureType.TEXTURE_RED_CHANNEL",
+          "interpolation": "Interpolation.INTERP_NEAREST",
+          "dataType": "IEEE754 float32 little-endian",
+          "shaderPrecision": "highp sampler2D inherited from probe header; official function text unchanged",
+          "rawFile": "aces2-700-table-0-raw.f32",
+          "rawBytes": 1452,
+          "rawSHA256": "66306e8b43f467af0e669f673f2cd40f54681068d535f87115475775f2e5c718",
+          "rgbaUploadFile": "aces2-700-table-0-rgba.f32",
+          "rgbaBytes": 5808,
+          "rgbaSHA256": "afd69bc2ba8313cbd1d45c2b8afd4cfec6aa319b76f276dd2810f14957012e61",
+          "minimum": 151.123046875,
+          "maximum": 408.160400390625,
+          "upload": {
+            "internalFormat": "RGBA32F",
+            "format": "RGBA",
+            "type": "FLOAT",
+            "minFilter": "NEAREST",
+            "magFilter": "NEAREST",
+            "wrapS": "CLAMP_TO_EDGE",
+            "wrapT": "CLAMP_TO_EDGE",
+            "generateMipmaps": false,
+            "flipY": false,
+            "unpackAlignment": 1,
+            "colorSpace": "NoColorSpace"
+          }
+        },
+        {
+          "index": 1,
+          "textureName": "aces2_700_gamut_cusp_table_0",
+          "samplerName": "aces2_700_gamut_cusp_table_0Sampler",
+          "bindingIndex": 2,
+          "width": 363,
+          "height": 1,
+          "dimensions": "TextureDimensions.TEXTURE_2D",
+          "originalChannels": 3,
+          "channel": "TextureType.TEXTURE_RGB_CHANNEL",
+          "interpolation": "Interpolation.INTERP_NEAREST",
+          "dataType": "IEEE754 float32 little-endian",
+          "shaderPrecision": "highp sampler2D inherited from probe header; official function text unchanged",
+          "rawFile": "aces2-700-table-1-raw.f32",
+          "rawBytes": 4356,
+          "rawSHA256": "38ba363959ba38989d1fae4400f6627c48268d19e4832be9dc995ba24570e62b",
+          "rgbaUploadFile": "aces2-700-table-1-rgba.f32",
+          "rgbaBytes": 5808,
+          "rgbaSHA256": "ca6efd3e030afb28918522c3b4447e3bf484cd4645c35ddaefdd1ac5ffc69746",
+          "minimum": 1.0096317529678345,
+          "maximum": 222.14410400390625,
+          "upload": {
+            "internalFormat": "RGBA32F",
+            "format": "RGBA",
+            "type": "FLOAT",
+            "minFilter": "NEAREST",
+            "magFilter": "NEAREST",
+            "wrapS": "CLAMP_TO_EDGE",
+            "wrapT": "CLAMP_TO_EDGE",
+            "generateMipmaps": false,
+            "flipY": false,
+            "unpackAlignment": 1,
+            "colorSpace": "NoColorSpace"
+          }
+        }
+      ],
+      "textures3D": 0,
+      "officialDynamicUniforms": 0,
+      "algorithm": "official analytic CAM/tone/chroma/gamut with two small hue lookup tables; not an arbitrary 3D LUT",
+      "input": "already exposed scene-linear sRGB/Rec709 D65, no P/exposure factor in function",
+      "output": "display-linear Rec709 D65; numeric1 =100nit; official AP1 pre-domain and display range policies included",
+      "probeUniforms": {
+        "uNitsToLinear": "1 for CPU normalized100nit comparison;100/browserSDRWhiteNits for absolute browser-linear units",
+        "uEncodeSRGB": "0 for linear RT/srgb-linear canvas;1 only for declared srgb canvas"
+      },
+      "notYetValidated": [
+        "actual WebGL shader compile",
+        "GPU numerical parity",
+        "GPU cost",
+        "browser color copy/visible HDR",
+        "panel nits"
+      ],
+      "cpuOracleFile": "aces2-700-cpu.json",
+      "gpuPattern": {
+        "width": 64,
+        "height": 16,
+        "samples": 963,
+        "paddedPixels": 61,
+        "stride": 4,
+        "dtype": "float32 little-endian RGBA",
+        "inputFile": "aces2-700-gpu-input.f32",
+        "inputSHA256": "0a43d6c685f0a5a54f245f5477f6289878957e45eff7ab120350934366c7ff75",
+        "expectedFile": "aces2-700-cpu-expected.f32",
+        "expectedSHA256": "4bd2d648c57f9f5bddb1f1a48d2d439e145c0385f58f12f169414a560c4f70bc",
+        "inputRounding": "every CPU call explicitly receives float32-rounded RGB, same values as uploaded pattern",
+        "layout": "row-major, flipY false; readPixels bottom-row order equals exported texture row0; padded pixels opaque black"
+      }
+    },
+    {
+      "peakNits": 1270,
+      "style": "FIXED_FUNCTION_ACES_OUTPUT_TRANSFORM_20",
+      "params": [
+        1270,
+        0.64,
+        0.33,
+        0.3,
+        0.6,
+        0.15,
+        0.06,
+        0.3127,
+        0.329
+      ],
+      "function": "aces2Display1270",
+      "functionFile": "aces2-1270-official.glsl",
+      "functionSHA256": "36c2cbc64f541577153a33eab0948bd69405b4c71c5bb0229fb391f9e8a56891",
+      "functionCharacters": 15435,
+      "probeFragmentFile": "aces2-1270-probe.frag",
+      "probeFragmentSHA256": "9c945841c535856cab72aa62723f3c8aaf88288e547c624dae255234b80c1231",
+      "gpuProcessorCacheID": "GPU Processor: oFlags 263995331 ops :  <MatrixOffsetOp forward 6029f4db276df0d8cd3b39e51dc9813c > <RangeOp forward [0, 4414.885, 0, 4414.885] > <MatrixOffsetOp forward ebc7826755abfbb7ccdfa7fead1134ec > <FixedFunctionOp ACES_OutputTransform20 (Forward) 1270 0.64 0.33 0.3 0.6 0.15 0.06 0.3127 0.329> <RangeOp forward [0, 12.7, 0, 12.7] >",
+      "processorCacheID": "1340a2b8-7c43-d7ce-d293-7e0f41cecf12",
+      "language": "GLSL ES3.0",
+      "textures2D": [
+        {
+          "index": 0,
+          "textureName": "aces2_1270_reach_m_table_0",
+          "samplerName": "aces2_1270_reach_m_table_0Sampler",
+          "bindingIndex": 1,
+          "width": 363,
+          "height": 1,
+          "dimensions": "TextureDimensions.TEXTURE_2D",
+          "originalChannels": 1,
+          "channel": "TextureType.TEXTURE_RED_CHANNEL",
+          "interpolation": "Interpolation.INTERP_NEAREST",
+          "dataType": "IEEE754 float32 little-endian",
+          "shaderPrecision": "highp sampler2D inherited from probe header; official function text unchanged",
+          "rawFile": "aces2-1270-table-0-raw.f32",
+          "rawBytes": 1452,
+          "rawSHA256": "3846ec8dce508e3bc7a7867c6323760611918dc932a118d26d00becb692d4bb9",
+          "rgbaUploadFile": "aces2-1270-table-0-rgba.f32",
+          "rgbaBytes": 5808,
+          "rgbaSHA256": "127ae937e9fc63994a51ac0fbd66c6acb096fb0575370496acde6f595f630b34",
+          "minimum": 186.334228515625,
+          "maximum": 506.45751953125,
+          "upload": {
+            "internalFormat": "RGBA32F",
+            "format": "RGBA",
+            "type": "FLOAT",
+            "minFilter": "NEAREST",
+            "magFilter": "NEAREST",
+            "wrapS": "CLAMP_TO_EDGE",
+            "wrapT": "CLAMP_TO_EDGE",
+            "generateMipmaps": false,
+            "flipY": false,
+            "unpackAlignment": 1,
+            "colorSpace": "NoColorSpace"
+          }
+        },
+        {
+          "index": 1,
+          "textureName": "aces2_1270_gamut_cusp_table_0",
+          "samplerName": "aces2_1270_gamut_cusp_table_0Sampler",
+          "bindingIndex": 2,
+          "width": 363,
+          "height": 1,
+          "dimensions": "TextureDimensions.TEXTURE_2D",
+          "originalChannels": 3,
+          "channel": "TextureType.TEXTURE_RGB_CHANNEL",
+          "interpolation": "Interpolation.INTERP_NEAREST",
+          "dataType": "IEEE754 float32 little-endian",
+          "shaderPrecision": "highp sampler2D inherited from probe header; official function text unchanged",
+          "rawFile": "aces2-1270-table-1-raw.f32",
+          "rawBytes": 4356,
+          "rawSHA256": "9cfa21af5f80657b95095339125d8b991c658e8217ce44194b08ce8edb3edeec",
+          "rgbaUploadFile": "aces2-1270-table-1-rgba.f32",
+          "rgbaBytes": 5808,
+          "rgbaSHA256": "dd9c55727247a7f604cc6e2066c3ca18dbf1c8704001581bc9007cf65a521970",
+          "minimum": 1.0095570087432861,
+          "maximum": 289.11138916015625,
+          "upload": {
+            "internalFormat": "RGBA32F",
+            "format": "RGBA",
+            "type": "FLOAT",
+            "minFilter": "NEAREST",
+            "magFilter": "NEAREST",
+            "wrapS": "CLAMP_TO_EDGE",
+            "wrapT": "CLAMP_TO_EDGE",
+            "generateMipmaps": false,
+            "flipY": false,
+            "unpackAlignment": 1,
+            "colorSpace": "NoColorSpace"
+          }
+        }
+      ],
+      "textures3D": 0,
+      "officialDynamicUniforms": 0,
+      "algorithm": "official analytic CAM/tone/chroma/gamut with two small hue lookup tables; not an arbitrary 3D LUT",
+      "input": "already exposed scene-linear sRGB/Rec709 D65, no P/exposure factor in function",
+      "output": "display-linear Rec709 D65; numeric1 =100nit; official AP1 pre-domain and display range policies included",
+      "probeUniforms": {
+        "uNitsToLinear": "1 for CPU normalized100nit comparison;100/browserSDRWhiteNits for absolute browser-linear units",
+        "uEncodeSRGB": "0 for linear RT/srgb-linear canvas;1 only for declared srgb canvas"
+      },
+      "notYetValidated": [
+        "actual WebGL shader compile",
+        "GPU numerical parity",
+        "GPU cost",
+        "browser color copy/visible HDR",
+        "panel nits"
+      ],
+      "cpuOracleFile": "aces2-1270-cpu.json",
+      "gpuPattern": {
+        "width": 64,
+        "height": 16,
+        "samples": 963,
+        "paddedPixels": 61,
+        "stride": 4,
+        "dtype": "float32 little-endian RGBA",
+        "inputFile": "aces2-1270-gpu-input.f32",
+        "inputSHA256": "2808fb6eb42db078093d849090faf4a7b03d7faeb76f4eea3a267fa860130b51",
+        "expectedFile": "aces2-1270-cpu-expected.f32",
+        "expectedSHA256": "7cb01e6c08a51b664f398a172869fdf4279623cdf4933531debe4adbcd0160c4",
+        "inputRounding": "every CPU call explicitly receives float32-rounded RGB, same values as uploaded pattern",
+        "layout": "row-major, flipY false; readPixels bottom-row order equals exported texture row0; padded pixels opaque black"
+      }
+    }
+  ],
+  "sourceSnapshot": {
+    "schema": "glass-atoll.aces2-source-inputs.v1",
+    "dateUTC": "2026-10-27T05:36:16.586Z",
+    "sourceSHA256": {
+      "fireworks-physics.js": "3bbac1976fccf39dbb9fefdfd04bfdb5ae7fa8e26edbbe1169373d01130486df",
+      "fireworks.js": "963bc4fef5167bebebf84f1075072166f222ff4e4e1b8b4384b470ed44bb5310",
+      "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+      "hdr-output.js": "4ce6ba6f2ed991e885aba586efd5ec9c08b6146c9d73664e611e00e477e6b6f9",
+      "lens.js": "23432072ea53e6db8139d279fd69e5372962a8371f12515fd3a07d8d995582eb",
+      "scene-radiometry.js": "f942645604dae00fe6ad713c605ad38509bf71cf7fbf10fe5e28b904eb5bf66d"
+    },
+    "profiles": {
+      "red": [
+        4.632475501753829,
+        0,
+        0.2096358494063112
+      ],
+      "green": [
+        0,
+        1.371375230432449,
+        0.26582320214283367
+      ],
+      "blue": [
+        0.48469855363048964,
+        0,
+        12.423172957038197
+      ],
+      "yellow": [
+        2.5592428230357753,
+        0.6374510288347236,
+        0
+      ],
+      "thermal": [
+        1.8277674763872431,
+        0.8316207499306247,
+        0.23049133199015837
+      ]
+    },
+    "profileUnits": "authored positive linear-sRGB/D65, normalized to709 Y=1; approximate author spectra, not measured SPD",
+    "inputPolicy": "oracle takes already exposed scene-linear RGB; no new source intensity/camera gain/P factor",
+    "runtimeModified": false
+  },
+  "scriptSHA256": "0e1fa4af2c8e478a375b9a1a1ae26883777e379bd09c7f4ced64a40b2320fee1",
+  "sourceInputSHA256": "fa82b382df34da9b22805bb823c446dd56f6f9e4cd06d02b77d6286ad3184474",
+  "limitations": [
+    "CPU native DLL import/algorithm and resource export only; no actual WebGL compile/GPU parity/cost/HDR visual claim.",
+    "All generated shader functions include the explicitly declared official highlevel AP1 input-domain and display-range policies; bare FF before these clamps is retained in CPU files.",
+    "Exposed linear709 input is author-relative scene light; outputnits are rendering target units, not measured panel luminance or incident physical calibration.",
+    "Browser white conversion/OETF is separate from official function; peak is baked into processor/tables, white/encoding may be wrapper-only uniforms.",
+    "No source/camera/light/material/physics/audio/smoke or default display chain changed."
+  ]
+}

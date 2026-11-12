@@ -1,0 +1,5 @@
+Initial public-pair CPU probe stopped before replay with:
+RangeError: Trajectory source provider has not reached the requested physical time
+at createPyroSmokeTrajectoryEvents.prepare -> createPyroSmoke.update.
+
+Even an empty source event array requires provider.time >= throughTime. The caller initially advanced the smoke host's empty clock before the firework provider. The replay caller is corrected to update the real firework provider first on every empty catchup step; no source event or body exists before the fixed manual launch. The production validation remains unchanged.

@@ -1,0 +1,111 @@
+{
+  "schema": "glass-atoll.r23-transmission-GPU-helper-preflight.v1",
+  "dateUTC": "2026-10-29T07:10:01.358Z",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "helperSHA256": "a9a206c84441621aaceb958026082b3c1e3c1b376ddb9b34a503b2233543e6c2",
+  "checks": [
+    {
+      "name": "Unauthorized/invalid/asynchronous preflights reject before even reading the renderer context",
+      "passed": true,
+      "evidence": {
+        "rejections": 4,
+        "contextReads": 0,
+        "factoryCalls": 0
+      }
+    },
+    {
+      "name": "Missing current WebGL2 context returns a failed zero-draw report without creating any field",
+      "passed": true,
+      "evidence": {
+        "actualGPU": false,
+        "actualDraws": 0,
+        "factoryCalls": 0
+      }
+    },
+    {
+      "name": "Row-wrap fixture remains bounded, includes all intended row crossings and keeps the final row active",
+      "passed": true,
+      "evidence": {
+        "sources": 257,
+        "packets": 65,
+        "pairs": 16705,
+        "inactiveRows": 29,
+        "zeroLengthRows": 15,
+        "activeSourceStraddles": [
+          85,
+          170
+        ],
+        "activeLastRow": 256,
+        "partialStrides": [
+          513,
+          257
+        ],
+        "partialDrawHeights": [
+          5,
+          3
+        ],
+        "outputDrawHeights": [
+          3,
+          2
+        ],
+        "readbackTexelsPerField": 768,
+        "columnWitnesses": [
+          {
+            "row": 85,
+            "T": [
+              0.9772665458716489,
+              0.9676825353393816,
+              0.9869454772633179
+            ]
+          },
+          {
+            "row": 170,
+            "T": [
+              0.9914051032264595,
+              0.9877442271394397,
+              0.9950795476172529
+            ]
+          },
+          {
+            "row": 256,
+            "T": [
+              0.8106779523287191,
+              0.7409405682314203,
+              0.8869790244588416
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Explicit row-wrap phase has a four-draw ceiling and does not auto-dispatch the first phase",
+      "passed": true,
+      "evidence": {
+        "drawBudget": 4,
+        "maxReadbackTexels": 768,
+        "actualGPU": false,
+        "rootOwnsPriorFirstPhaseAdmission": true
+      }
+    },
+    {
+      "name": "Complete capture/restore/equality functions are identical to the established R21 full guard",
+      "passed": true,
+      "evidence": {
+        "identicalFunctions": [
+          "capture",
+          "restore",
+          "sameState"
+        ],
+        "covers": "logical/physical target, READ/DRAW buffer choices, PACK, viewport/scissor, XR, shadows, tone/exposure and clear state"
+      }
+    }
+  ],
+  "limits": [
+    "Preflight, bounded fixture integer/packing and source guard identity only; no GL renderer substitute, framebuffer, shader, pixel, timer or native performance is exercised."
+  ]
+}

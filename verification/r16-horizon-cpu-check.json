@@ -1,0 +1,167 @@
+{
+  "schema": "glass-atoll.r16-horizon-cpu.v1",
+  "actualGPU": false,
+  "checks": [
+    {
+      "name": "nearfield XZ remains exactly unchanged and outer coordinates strictly ordered",
+      "passed": true,
+      "evidence": {
+        "nearHalfExtent": 96,
+        "farHalfExtent": 65536,
+        "vertices": 410881
+      }
+    },
+    {
+      "name": "legacy coordinate mode exactly reproduces original stretched edge grid",
+      "passed": true
+    },
+    {
+      "name": "ocean datum is spherical and stable at tiny nearfield coordinates",
+      "passed": true
+    },
+    {
+      "name": "float32 shader-form datum retains submillimetre near and far accuracy",
+      "passed": true,
+      "evidence": {
+        "maximumErrorMetres": 0.00008515611250459187
+      }
+    },
+    {
+      "name": "axis and diagonal tessellated sea horizons approach the analytic spherical horizon",
+      "passed": true,
+      "evidence": [
+        {
+          "height": 0.42,
+          "diagonal": false,
+          "maximumHorizonErrorDegrees": 0.00013409686732372187,
+          "physicalDistanceMetres": 2311.363272270285
+        },
+        {
+          "height": 0.42,
+          "diagonal": true,
+          "maximumHorizonErrorDegrees": 0.00003543126860349537,
+          "physicalDistanceMetres": 2311.363272270285
+        },
+        {
+          "height": 1.25,
+          "diagonal": false,
+          "maximumHorizonErrorDegrees": 0.00016956243413840275,
+          "physicalDistanceMetres": 3987.4806034011
+        },
+        {
+          "height": 1.25,
+          "diagonal": true,
+          "maximumHorizonErrorDegrees": 0.00013082518632068885,
+          "physicalDistanceMetres": 3987.4806034011
+        },
+        {
+          "height": 2.5,
+          "diagonal": false,
+          "maximumHorizonErrorDegrees": 0.000007918977278189452,
+          "physicalDistanceMetres": 5639.149426110289
+        },
+        {
+          "height": 2.5,
+          "diagonal": true,
+          "maximumHorizonErrorDegrees": 0.00023979823747022176,
+          "physicalDistanceMetres": 5639.149426110289
+        },
+        {
+          "height": 12,
+          "diagonal": false,
+          "maximumHorizonErrorDegrees": 0.00009303652426471089,
+          "physicalDistanceMetres": 12354.7619968982
+        },
+        {
+          "height": 12,
+          "diagonal": true,
+          "maximumHorizonErrorDegrees": 0.0007691248244585558,
+          "physicalDistanceMetres": 12354.7619968982
+        },
+        {
+          "height": 35,
+          "diagonal": false,
+          "maximumHorizonErrorDegrees": 0.00021094293495298224,
+          "physicalDistanceMetres": 21099.79206058676
+        },
+        {
+          "height": 35,
+          "diagonal": true,
+          "maximumHorizonErrorDegrees": 0.0014338848459438684,
+          "physicalDistanceMetres": 21099.79206058676
+        },
+        {
+          "height": 84,
+          "diagonal": false,
+          "maximumHorizonErrorDegrees": 0.0021006410932060964,
+          "physicalDistanceMetres": 32687.720263120216
+        },
+        {
+          "height": 84,
+          "diagonal": true,
+          "maximumHorizonErrorDegrees": 0.0002857211682558245,
+          "physicalDistanceMetres": 32687.720263120216
+        },
+        {
+          "height": 230,
+          "diagonal": false,
+          "maximumHorizonErrorDegrees": 0.0015530719917184607,
+          "physicalDistanceMetres": 54089.304857799754
+        },
+        {
+          "height": 230,
+          "diagonal": true,
+          "maximumHorizonErrorDegrees": 0.000005904406254015426,
+          "physicalDistanceMetres": 54089.304857799754
+        }
+      ]
+    },
+    {
+      "name": "supported default orbit heights have no finite-ocean edge or far-plane cut before horizon",
+      "passed": true,
+      "evidence": {
+        "requiredCameraFarMetres": 120000,
+        "maxOrbitHeightMetres": 230,
+        "scope": "default orbit+target envelope, not arbitrary kilometre-high debug cameras"
+      }
+    },
+    {
+      "name": "curving analytic seabed along with sea preserves water depth instead of inventing far shore foam",
+      "passed": true
+    },
+    {
+      "name": "same geometry size and sampler RT scene-pass budgets remain",
+      "passed": true,
+      "evidence": {
+        "newVertices": 0,
+        "newSamplers": 0,
+        "newTargets": 0,
+        "newScenePasses": 0,
+        "axisBytes": 5128
+      }
+    },
+    {
+      "name": "air raw reference is scaled by current storage P exactly once across huge cuts",
+      "passed": true
+    },
+    {
+      "name": "aerial main integrator is untouched and no withdrawn support quadrature is introduced",
+      "passed": true,
+      "evidence": {
+        "sameShaderIntegrator": true,
+        "extraShaderLoops": 0
+      }
+    }
+  ],
+  "passed": true,
+  "counts": {
+    "passed": 10,
+    "total": 10
+  },
+  "limits": [
+    "CPU geometry/light-reference evidence, not a live GPU or seam appearance acceptance.",
+    "The host must use camera far120000; the old24000 clipping distance cannot show84m spherical horizon.",
+    "Global-air source reference change requires same-scene airon/off photos; no claim of exact multiple scattering or spatial cubemap lighting.",
+    "Existing local bathymetry/native prop rendering remain a local tangent approximation; spherical datum at96m radius is below1mm."
+  ]
+}

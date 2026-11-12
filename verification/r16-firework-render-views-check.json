@@ -1,0 +1,143 @@
+{
+  "schema": "glass-atoll.r16-firework-render-views.v1",
+  "dateUTC": "2026-10-28T17:10:56.864Z",
+  "passed": true,
+  "passedCount": 4,
+  "total": 4,
+  "sourceSHA256": "3fb39738c83705d77dd5b6c55db8d15f76fbba6ec4e24d17130a9e9a3de477fe",
+  "baselineSHA256": "b8f681b24b0353f3e19f568dbd1589f262543e1a856297c957aaf76caf626877",
+  "checks": [
+    {
+      "name": "only authorized metadata edits invert byteexactly to frozenb8 source; no shader/optics changes",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "independent main/mirror lastGPU metadata both show0 CPUqueries and retain lastRender compatibility",
+      "passed": true,
+      "evidence": {
+        "main": {
+          "instances": 1,
+          "reflection": false,
+          "time": 0,
+          "rendered": true,
+          "skipped": false,
+          "storageEV": 0,
+          "rawPerCandela": 0.000036,
+          "width": 1200,
+          "height": 800,
+          "mediumQueries": 0,
+          "sourceTransmission": {
+            "backend": "gpu",
+            "requested": true,
+            "effective": true,
+            "reason": "view-fixture-ready",
+            "mediumQueries": 0,
+            "instances": 1,
+            "activeRayCount": 1,
+            "sourceVersion": 1,
+            "recordsGeneration": 0,
+            "densityRevision": 7,
+            "cameraKey": "0,3,7",
+            "reflection": false
+          },
+          "sourceVisibility": {
+            "mode": "conservative",
+            "inputRecords": 1,
+            "luminousSources": 1,
+            "depthCulled": 0,
+            "quadCulled": 0,
+            "conservativeRetained": 0,
+            "mediumQueries": 0,
+            "renderedRecords": 1
+          }
+        },
+        "reflection": {
+          "instances": 1,
+          "reflection": true,
+          "time": 0,
+          "rendered": true,
+          "skipped": false,
+          "storageEV": 0,
+          "rawPerCandela": 0.000036,
+          "width": 1200,
+          "height": 800,
+          "mediumQueries": 0,
+          "sourceTransmission": {
+            "backend": "gpu",
+            "requested": true,
+            "effective": true,
+            "reason": "view-fixture-ready",
+            "mediumQueries": 0,
+            "instances": 1,
+            "activeRayCount": 1,
+            "sourceVersion": 2,
+            "recordsGeneration": 0,
+            "densityRevision": 7,
+            "cameraKey": "0,-3,7",
+            "reflection": true
+          },
+          "sourceVisibility": {
+            "mode": "conservative",
+            "inputRecords": 1,
+            "luminousSources": 1,
+            "depthCulled": 0,
+            "quadCulled": 0,
+            "conservativeRetained": 0,
+            "mediumQueries": 0,
+            "renderedRecords": 1
+          }
+        }
+      }
+    },
+    {
+      "name": "a view culled to0 refreshes that view instead of retaining priorGPU metadata",
+      "passed": true,
+      "evidence": {
+        "instances": 0,
+        "reflection": true,
+        "time": 0,
+        "rendered": true,
+        "skipped": false,
+        "storageEV": 0,
+        "rawPerCandela": 0.000036,
+        "width": 1200,
+        "height": 800,
+        "mediumQueries": 0,
+        "sourceTransmission": {
+          "backend": "cpu",
+          "requested": true,
+          "effective": false,
+          "reason": "no-active-source-rays",
+          "mediumQueries": 0,
+          "instances": 0,
+          "activeRayCount": 0,
+          "sourceVersion": null,
+          "recordsGeneration": 0,
+          "densityRevision": null,
+          "cameraKey": "0,-3,7",
+          "reflection": true
+        },
+        "sourceVisibility": {
+          "mode": "conservative",
+          "inputRecords": 1,
+          "luminousSources": 1,
+          "depthCulled": 1,
+          "quadCulled": 0,
+          "conservativeRetained": 0,
+          "mediumQueries": 0,
+          "renderedRecords": 0
+        }
+      }
+    },
+    {
+      "name": "empty logical records refresh eachview to bounded explicit skippedmetadata without renderer work",
+      "passed": true,
+      "evidence": null
+    }
+  ],
+  "limits": [
+    "CPU metadata/mockGPU fixture only; native main/mirror readback/performance belongs to parent.",
+    "Only two latest view entries retained; no per-frame/history allocation archive."
+  ]
+}

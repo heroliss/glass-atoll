@@ -1,0 +1,174 @@
+{
+  "schema": "glass-atoll.r26-complete-candidate-independent-cpu.v1",
+  "dateUTC": "2026-10-29T11:33:11.696Z",
+  "actualGPU": false,
+  "productionEdits": 0,
+  "browserActions": 0,
+  "passed": true,
+  "counts": {
+    "passed": 7,
+    "total": 7
+  },
+  "checks": [
+    {
+      "name": "Frozen candidate/dependency identities match the independently reviewed map-cap revision",
+      "passed": true,
+      "evidence": {
+        "pins": {
+          "r26-complete-transmission-candidate.js": "a20a08491c738cd96c525e12743b40532a13c2fe8d095984b1541a79a9ffb4b6",
+          "r26-transmission-pack-candidate.js": "138f75dd346107023c373e91623c9d2baf8b989b86170e8b89f156aceef280b6",
+          "r26-transmission-layout-candidate.js": "61a2e73b960a5d555cef3b6611b5aca48cdb3c6fb125db94102f0dd9a0011b86",
+          "r26-transmission-rectangles.js": "70b1a2c95c86847d2f3b1787bf48721a1d4ed32ff599d1eb79c48f37ea2b9d28"
+        },
+        "factory": "07c46a74471a449a86b1608dd8d67b3026183a4f0eff0891d28cc682749d2a03"
+      }
+    },
+    {
+      "name": "Asymmetric physical rows and reflected water-hit origins retain full incumbent packing, shader bytes and ordered output",
+      "passed": true,
+      "evidence": {
+        "cases": 5,
+        "rows": 469,
+        "physicalPackets": 389,
+        "physicalWordComparisons": 17696,
+        "evidence": [
+          {
+            "n": 1,
+            "p": 1,
+            "reflection": false,
+            "maps": 1
+          },
+          {
+            "n": 17,
+            "p": 65,
+            "reflection": true,
+            "maps": 3
+          },
+          {
+            "n": 65,
+            "p": 129,
+            "reflection": false,
+            "maps": 4
+          },
+          {
+            "n": 129,
+            "p": 65,
+            "reflection": true,
+            "maps": 2
+          },
+          {
+            "n": 257,
+            "p": 129,
+            "reflection": false,
+            "maps": 2
+          }
+        ],
+        "scope": "Actual factories with shared synthetic tag renderer; no GPU optical computation"
+      }
+    },
+    {
+      "name": "Exact rectangles cover all logical tiles once for active-count and every padded legacy stride cell, without slicing original packet intervals",
+      "passed": true,
+      "evidence": {
+        "results": [
+          {
+            "mode": "active-count",
+            "stride": 5,
+            "cells": 10,
+            "logicalPairs": 325,
+            "conservativeSlots": 640,
+            "maps": 1
+          },
+          {
+            "mode": "legacy-max",
+            "stride": 257,
+            "cells": 514,
+            "logicalPairs": 325,
+            "conservativeSlots": 32896,
+            "maps": 5
+          }
+        ]
+      }
+    },
+    {
+      "name": "Default policy and per-map/draw policies reject before context access; explicit larger complete request retains every physical packet and source",
+      "passed": true,
+      "evidence": {
+        "rejected": [
+          "pair-work-capacity",
+          "map-draw-capacity",
+          "pair-work-capacity"
+        ],
+        "logicalPairs": 1309170,
+        "conservativeSlots": 1331712,
+        "actualFactoryRenders": 4,
+        "productionAdmitted": false
+      }
+    },
+    {
+      "name": "Prior success cannot remain effective during a new prepare or fault; complete retry replaces source/density generation atomically",
+      "passed": true,
+      "evidence": {
+        "outcomes": [
+          {
+            "failedPass": 1,
+            "completeRetryPasses": 5
+          },
+          {
+            "failedPass": 2,
+            "completeRetryPasses": 5
+          },
+          {
+            "failedPass": 3,
+            "completeRetryPasses": 5
+          },
+          {
+            "failedPass": 4,
+            "completeRetryPasses": 5
+          },
+          {
+            "failedPass": 5,
+            "completeRetryPasses": 5
+          }
+        ],
+        "scope": "Serialized synchronous caller contract; arbitrary reentrant renderer callbacks are outside this audit"
+      }
+    },
+    {
+      "name": "Context replacement/loss after success retires publication before any later render and permanently rejects reuse",
+      "passed": true,
+      "evidence": {
+        "outcomes": [
+          {
+            "mode": "replace",
+            "noNewDraws": true,
+            "contextInvalid": true
+          },
+          {
+            "mode": "lose",
+            "noNewDraws": true,
+            "contextInvalid": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Compact higher-cap allocation covers the independent request envelope and bounded geometry for every legal packet count",
+      "passed": true,
+      "evidence": {
+        "packetCounts": 4096,
+        "partialLogicalCapacity": 39875,
+        "partialTexelCapacity": 39936,
+        "peakActiveCells": 36000,
+        "maxMapCount": 4
+      }
+    }
+  ],
+  "limits": [
+    "Actual verification factories execute against an owner-provided synthetic Float32-tag renderer; this independently checks packing/order/routing/publication and modeled native-state restoration, not hardware or Gaussian optical values.",
+    "Immutable original input/IDs and full packed data are retained; no packet aggregation or source slicing.",
+    "No native screenshot, larger GPU dispatch, frame-time, total-scene budget, throughput, production integration or UI promotion is admitted.",
+    "A returned texture is borrowed for matching ordered-source immediate consumption before any next prepare; previously returned JavaScript texture handles cannot be retroactively revoked.",
+    "Fresh complete synchronous publication assumes caller serialization. Arbitrary reentrant renderer callbacks are not an audited supported contract."
+  ]
+}

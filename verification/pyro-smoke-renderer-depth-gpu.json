@@ -1,0 +1,392 @@
+{
+  "status": "done",
+  "smoke": {
+    "schema": "glass-atoll.smoke-Gaussian-GPU-oracle.v2",
+    "passed": true,
+    "counts": {
+      "checks": 18,
+      "passed": 18
+    },
+    "checks": [
+      {
+        "id": "opaque_white_transmission_witness_is_actually_initialized",
+        "passed": true,
+        "gpu": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "single3D_Gaussian_finite_tau_matches_CPU_state",
+        "passed": true,
+        "gpu": [
+          0.852864146232605,
+          0.852864146232605,
+          0.852864146232605,
+          1
+        ],
+        "cpu": {
+          "columnMass": 0.15915489739771327,
+          "opticalDepthRGB": [
+            0.15915489739771327,
+            0.15915489739771327,
+            0.15915489739771327
+          ],
+          "transmissionRGB": [
+            0.8528642422853977,
+            0.8528642422853977,
+            0.8528642422853977
+          ],
+          "units": "relative mass/m2 and reference dimensionless optical depth; numerical erf approximation, not an unbiased renderer"
+        }
+      },
+      {
+        "id": "transparent_black_independently_measures_one_minus_T",
+        "passed": true,
+        "gpu": [
+          0,
+          0,
+          0,
+          0.14713585376739502
+        ],
+        "cpu": {
+          "columnMass": 0.15915489739771327,
+          "opticalDepthRGB": [
+            0.15915489739771327,
+            0.15915489739771327,
+            0.15915489739771327
+          ],
+          "transmissionRGB": [
+            0.8528642422853977,
+            0.8528642422853977,
+            0.8528642422853977
+          ],
+          "units": "relative mass/m2 and reference dimensionless optical depth; numerical erf approximation, not an unbiased renderer"
+        }
+      },
+      {
+        "id": "optical_conditional_mean_matches_independent_RK_density_integral",
+        "passed": true,
+        "gpu": [
+          0.15915490686893463,
+          5.000001430511475,
+          0,
+          1
+        ],
+        "mean": 5.000001486721339
+      },
+      {
+        "id": "synthetic_encoded_opaque_depth_clips_volume_not_proxy_centre",
+        "passed": true,
+        "gpu": [
+          0.9963858127593994,
+          0.9963858127593994,
+          0.9963858127593994,
+          1
+        ],
+        "cpu": {
+          "columnMass": 0.0036207392699762844,
+          "opticalDepthRGB": [
+            0.0036207392699762844,
+            0.0036207392699762844,
+            0.0036207392699762844
+          ],
+          "transmissionRGB": [
+            0.996385807702444,
+            0.996385807702444,
+            0.996385807702444
+          ],
+          "units": "relative mass/m2 and reference dimensionless optical depth; numerical erf approximation, not an unbiased renderer"
+        },
+        "depthFixture": "1x1 synthetic projection-encoded depth, not an actual opaque draw"
+      },
+      {
+        "id": "camera_inside_support_uses_fullscreen_fallback_and_forward_half_column",
+        "passed": true,
+        "gpu": [
+          0.923506498336792,
+          0.923506498336792,
+          0.923506498336792,
+          1
+        ],
+        "cpu": {
+          "columnMass": 0.07957747146637019,
+          "opticalDepthRGB": [
+            0.07957747146637019,
+            0.07957747146637019,
+            0.07957747146637019
+          ],
+          "transmissionRGB": [
+            0.9235064717965988,
+            0.9235064717965988,
+            0.9235064717965988
+          ],
+          "units": "relative mass/m2 and reference dimensionless optical depth; numerical erf approximation, not an unbiased renderer"
+        }
+      },
+      {
+        "id": "medium_between_lens_and_near_plane_is_not_centre_depth_culled",
+        "passed": true,
+        "gpu": [
+          0.9984118342399597,
+          0.9984118342399597,
+          0.9984118342399597,
+          1
+        ],
+        "cpu": {
+          "columnMass": 0.0015894008912606173,
+          "opticalDepthRGB": [
+            0.0015894008912606173,
+            0.0015894008912606173,
+            0.0015894008912606173
+          ],
+          "transmissionRGB": [
+            0.9984118615374122,
+            0.9984118615374122,
+            0.9984118615374122
+          ],
+          "units": "relative mass/m2 and reference dimensionless optical depth; numerical erf approximation, not an unbiased renderer"
+        }
+      },
+      {
+        "id": "general_SPD_correlated_Gaussian_column_is_not_diagonalized",
+        "passed": true,
+        "gpu": [
+          0.8311594724655151,
+          0.8311594724655151,
+          0.8311594724655151,
+          1
+        ],
+        "cpu": {
+          "columnMass": 0.1849335562804231,
+          "opticalDepthRGB": [
+            0.1849335562804231,
+            0.1849335562804231,
+            0.1849335562804231
+          ],
+          "transmissionRGB": [
+            0.831159507346708,
+            0.831159507346708,
+            0.831159507346708
+          ],
+          "units": "relative mass/m2 and reference dimensionless optical depth; numerical erf approximation, not an unbiased renderer"
+        }
+      },
+      {
+        "id": "oblique_mirror_uses_actual_projection_and_water_hit_origin",
+        "passed": true,
+        "gpu": [
+          0.5298661589622498,
+          0.5298661589622498,
+          0.5298661589622498,
+          1
+        ],
+        "cpu": {
+          "columnMass": 0.6351307631500954,
+          "opticalDepthRGB": [
+            0.6351307631500954,
+            0.6351307631500954,
+            0.6351307631500954
+          ],
+          "transmissionRGB": [
+            0.5298661968142551,
+            0.5298661968142551,
+            0.5298661968142551
+          ],
+          "units": "relative mass/m2 and reference dimensionless optical depth; numerical erf approximation, not an unbiased renderer"
+        },
+        "waterHitDistance": 2.82842712474619
+      },
+      {
+        "id": "independent_synthetic_oblique_reflection_depth_truncates_volume",
+        "passed": true,
+        "gpu": [
+          0.980206310749054,
+          0.980206310749054,
+          0.980206310749054,
+          1
+        ],
+        "cpu": {
+          "columnMass": 0.019992247771013556,
+          "opticalDepthRGB": [
+            0.019992247771013556,
+            0.019992247771013556,
+            0.019992247771013556
+          ],
+          "transmissionRGB": [
+            0.9802062720607766,
+            0.9802062720607766,
+            0.9802062720607766
+          ],
+          "units": "relative mass/m2 and reference dimensionless optical depth; numerical erf approximation, not an unbiased renderer"
+        },
+        "depthFixture": "1x1 synthetic oblique projection-encoded depth; no production resolve/copy-chain acceptance"
+      },
+      {
+        "id": "attached_depth_feedback_is_rejected_before_draw",
+        "passed": true
+      },
+      {
+        "id": "multiple_packet_premult_blend_encodes_product_transmittance",
+        "passed": true,
+        "gpu": [
+          0.7273772954940796,
+          0.7273772954940796,
+          0.7273772954940796,
+          1
+        ],
+        "cpu": {
+          "columnMass": 0.3183098861837906,
+          "opticalDepthRGB": [
+            0.3183098861837906,
+            0.3183098861837906,
+            0.3183098861837906
+          ],
+          "transmissionRGB": [
+            0.7273773492952166,
+            0.7273773492952166,
+            0.7273773492952166
+          ],
+          "units": "relative mass/m2 and reference dimensionless optical depth; numerical erf approximation, not an unbiased renderer"
+        }
+      },
+      {
+        "id": "multiple_packet_transparent_alpha_encodes_one_minus_product_T",
+        "passed": true,
+        "gpu": [
+          0,
+          0,
+          0,
+          0.2726227045059204
+        ],
+        "cpu": {
+          "columnMass": 0.3183098861837906,
+          "opticalDepthRGB": [
+            0.3183098861837906,
+            0.3183098861837906,
+            0.3183098861837906
+          ],
+          "transmissionRGB": [
+            0.7273773492952166,
+            0.7273773492952166,
+            0.7273773492952166
+          ],
+          "units": "relative mass/m2 and reference dimensionless optical depth; numerical erf approximation, not an unbiased renderer"
+        }
+      },
+      {
+        "id": "storage_exposure_applies_once_to_S_not_tau_or_alpha",
+        "passed": true,
+        "P0": [
+          0.14713585376739502,
+          0.07356792688369751,
+          0.036783963441848755,
+          0.14713585376739502
+        ],
+        "P2": [
+          0.5885434150695801,
+          0.29427170753479004,
+          0.14713585376739502,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "minus_HG_photon_forward_and_back_direction_are_correct",
+        "passed": true,
+        "forward": 0.033424507826566696,
+        "back": 0.004569509532302618,
+        "ratio": 7.314675351109305,
+        "actualRatio": 7.3146817159004325
+      },
+      {
+        "id": "non_emissive_source_function_bound_is_conservative_for_fixture",
+        "passed": true,
+        "bound": 22.71675225792624,
+        "actual": 0.033424507826566696
+      },
+      {
+        "id": "all_readback_channels_are_finite_nonnegative",
+        "passed": true
+      },
+      {
+        "id": "caller_target_viewport_scissor_and_clear_state_are_restored",
+        "passed": true
+      }
+    ],
+    "isolated": true,
+    "fixtureCorrection": {
+      "firstReport": "pyro-smoke-renderer-gpu-first.json retained as failed7/15",
+      "cause": "premultiplied renderer clears RGB*alpha; old white/alpha0 witness was black. v2 uses white/alpha1 for T and independent black/alpha0 for1-T; shader and tolerances unchanged",
+      "syntheticDepth": true
+    },
+    "limits": [
+      "realGPU only when this helper is actually run; source creation is not a pass",
+      "Float32 isolated1pixel queries; no app integration/performance/edge coverage acceptance",
+      "opaque depth fixtures are synthetic projection-encoded DataTextures, not actual geometry/depth capture or production resolve",
+      "S is conditional-mean single-scatter source and latent-centre order, not exact overlapping-volume transport",
+      "air disabled, no light-to-smoke attenuation, no volumeDOF, no emitter-smoke app wiring",
+      "full whole-space Gaussian; no implicit reflecting-ground kernel"
+    ]
+  },
+  "depth": {
+    "date": "2026-10-26T22:39:11.104Z",
+    "passed": false,
+    "passedCount": 9,
+    "total": 10,
+    "checks": [
+      {
+        "name": "perspective depth blit restores caller draw/read bindings and rectangles",
+        "passed": true
+      },
+      {
+        "name": "perspective actual opaque/sky depth values copy without reconstruction",
+        "passed": true,
+        "maximumError": 0,
+        "minimum": 0.9547739028930664,
+        "maximum": 1
+      },
+      {
+        "name": "perspective independent image is not the attached source",
+        "passed": true
+      },
+      {
+        "name": "oblique depth blit restores caller draw/read bindings and rectangles",
+        "passed": false
+      },
+      {
+        "name": "oblique actual opaque/sky depth values copy without reconstruction",
+        "passed": true,
+        "maximumError": 0,
+        "minimum": 0.8487605452537537,
+        "maximum": 1
+      },
+      {
+        "name": "oblique independent image is not the attached source",
+        "passed": true
+      },
+      {
+        "name": "resizing retains depth storage type and dimensions",
+        "passed": true
+      },
+      {
+        "name": "unresolved multisample input is explicitly rejected",
+        "passed": true
+      },
+      {
+        "name": "no WebGL errors from copy or sampling",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "name": "outer renderer target and basic flags restored",
+        "passed": true
+      }
+    ],
+    "limits": [
+      "Actual isolated GPU depth snapshot test; not production smoke composition or FPS.",
+      "Single-sample 2D depth only. Custom oblique depth is copied in its stored representation."
+    ]
+  }
+}

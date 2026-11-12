@@ -1,0 +1,184 @@
+{
+  "schema": "glass-atoll.r17-sky-irradiance-cache-cpu.v1",
+  "date": "2026-11-05T03:28:27.855Z",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 13,
+    "total": 13
+  },
+  "sourceSHA256": "358346c6aed9eb8495056b597296d4e6405840a5e3e926d7ff3b29b35f1e37cc",
+  "baselineSHA256": "75c6e44b4f78764e54016adfe8b427a003f13104f36aeb06b109203ca049bac3",
+  "dependencies": [
+    "sunDirection.x",
+    "sunDirection.y",
+    "sunDirection.z",
+    "skyIntensity",
+    "solarDistanceGain",
+    "airMieScale",
+    "moonDirection.x",
+    "moonDirection.y",
+    "moonDirection.z",
+    "moonSourceRatio",
+    "stellarMean.r",
+    "stellarMean.g",
+    "stellarMean.b"
+  ],
+  "checks": [
+    {
+      "name": "cold constructor computes two physical integrals once, equal to saved formula",
+      "passed": true,
+      "evidence": {
+        "clearSkyCalls": 3,
+        "physicalCacheMisses": 1
+      }
+    },
+    {
+      "name": "repeated lighting reads return every field bit-for-bit without reintegration",
+      "passed": true,
+      "evidence": {
+        "lightingReads": 32,
+        "additionalIntegralCalls": 0
+      }
+    },
+    {
+      "name": "same celestial values in distinct snapshot objects skip 120 former integral calls",
+      "passed": true,
+      "evidence": {
+        "setCelestialCalls": 60,
+        "candidateIntegralCalls": 0,
+        "savedBaselineIntegralCalls": 120,
+        "scope": "Same input, as in paused rAF; not measured frame time"
+      }
+    },
+    {
+      "name": "each mutable numeric dependency is compared by value, including old 7-digit collisions",
+      "passed": true,
+      "evidence": {
+        "dependencies": [
+          "sun.x",
+          "sun.y",
+          "sun.z",
+          "intensity",
+          "solarDistanceGain",
+          "mieScale",
+          "moon.x",
+          "moon.y",
+          "moon.z",
+          "moonSourceRatio",
+          "stellarMean.0",
+          "stellarMean.1",
+          "stellarMean.2"
+        ],
+        "oldRoundedKeysCollide": true,
+        "additionalCallsPerMutation": 2
+      }
+    },
+    {
+      "name": "tiny intensity mutation updates actual irradiance rather than returning rounded-key stale RGB",
+      "passed": true,
+      "evidence": {
+        "intensityBefore": 1,
+        "intensityAfter": 1.0000000000009095,
+        "physicalBefore": [
+          0.4974131301681252,
+          0.9549903000271203,
+          1.8387991617845396
+        ],
+        "physicalAfter": [
+          0.49741313016857763,
+          0.9549903000279888,
+          1.838799161786212
+        ],
+        "savedRoundedKeyReturnsStale": true
+      }
+    },
+    {
+      "name": "normal public sun moon air and stellar setters match the uncached baseline exactly",
+      "passed": true,
+      "evidence": {
+        "changedSetters": 4,
+        "repeatedSameSettingsAdditionalCalls": 0
+      }
+    },
+    {
+      "name": "celestial distance and normalized direction tiny changes are not hidden by setCelestial",
+      "passed": true,
+      "evidence": {
+        "changes": [
+          "solar distance",
+          "normalized solar direction",
+          "lunar direction"
+        ]
+      }
+    },
+    {
+      "name": "storageP changes never invalidate raw irradiance and still rescale all stored fields",
+      "passed": true,
+      "evidence": {
+        "storageEVs": [
+          -24,
+          -1,
+          0,
+          12.5,
+          24
+        ],
+        "additionalIntegralCalls": 0
+      }
+    },
+    {
+      "name": "cloud and diffuse-air controls preserve cache while updating their own uniforms and outputs",
+      "passed": true,
+      "evidence": {
+        "additionalIntegralCalls": 0,
+        "reason": "These controls do not enter existing clear-sky irradiance formula"
+      }
+    },
+    {
+      "name": "stellar mean becoming available and same-array element mutation both invalidate exactly",
+      "passed": true,
+      "evidence": {
+        "asyncContentChangeAdditionalCalls": 2,
+        "inPlaceMutationAdditionalCalls": 2,
+        "equalNewArrayAdditionalCalls": 0,
+        "scope": "CPU injected mean availability, no asset or GPU load"
+      }
+    },
+    {
+      "name": "snapshot cache tuple and values restore on normal, nested and throwing paths",
+      "passed": true,
+      "evidence": {
+        "nestedCacheMisses": 2,
+        "restoredLiveReintegration": 0,
+        "exceptionAndAsyncRestored": true
+      }
+    },
+    {
+      "name": "initially empty cache and signed-zero dependencies are conservative and recoverable",
+      "passed": true,
+      "evidence": {
+        "initialNullReintegrations": 2,
+        "signedZeroComparison": "Object.is keeps +0 and -0 distinct; conservative extra misses are permitted"
+      }
+    },
+    {
+      "name": "CPU physical formulas, all actual material shaders and sampler/pass budgets stay unchanged",
+      "passed": true,
+      "evidence": {
+        "changedPhysicalFormulas": 0,
+        "changedGPUShaders": 0,
+        "newSamplers": 0,
+        "newPasses": 0,
+        "newRenderTargets": 0
+      }
+    }
+  ],
+  "observations": [],
+  "limits": [
+    "Source instrumentation only counts existing CPU integration calls; no GPU/browser execution.",
+    "The saved baseline oracle disables its cache decision, preserving integration and physical combination formulas.",
+    "Star mean availability uses a CPU injection; actual catalogue GPU loading is not tested.",
+    "Same-input work reduction is proven, but actual native frame-time/FPS benefit is not measured.",
+    "Continuously changing astronomical directions still require the unchanged integrals."
+  ]
+}

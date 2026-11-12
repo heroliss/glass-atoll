@@ -1,0 +1,141 @@
+{
+  "kind": "Independent CPU review of optional support local-air integration",
+  "passed": false,
+  "count": 7,
+  "checks": [
+    {
+      "name": "Height integral matches independent stable endpoint formula over fixed and logarithmic extremes",
+      "passed": true,
+      "evidence": {
+        "cases": 12844,
+        "maximumRatio": 0.014745021826288314,
+        "worst": {
+          "y": 54.63478123298946,
+          "dy": 6.354670091738837e-9,
+          "s": 1304219.8517378205,
+          "H": 5.178572440638386,
+          "actual": 34.12918598796044,
+          "expected": 34.1291859879489,
+          "tolerance": 7.825837197589779e-10
+        }
+      }
+    },
+    {
+      "name": "Height integral matches piecewise adaptive quadrature across ground and near-horizontal cases",
+      "passed": true,
+      "evidence": {
+        "cases": 609,
+        "maximumRatio": 0.003702101203446686,
+        "worst": {
+          "y": -17.428599996492267,
+          "dy": 0.9118631714954972,
+          "s": 6212.033858522773,
+          "H": 100.98098640090964,
+          "actual": 129.85455504602163,
+          "expected": 129.85455504611778,
+          "tolerance": 2.5971911009223557e-8
+        }
+      }
+    },
+    {
+      "name": "Actual Gauss arrays have positive used weights, unit panel measure, and 12/16 node budgets",
+      "passed": true,
+      "evidence": [
+        {
+          "nodesPerPanel": 6,
+          "maximumNodesPerLight": 12,
+          "weightSum": 2,
+          "minimumWeight": 0.17132449237917
+        },
+        {
+          "nodesPerPanel": 8,
+          "maximumNodesPerLight": 16,
+          "weightSum": 1.9999999999999982,
+          "minimumWeight": 0.101228536290376
+        }
+      ]
+    },
+    {
+      "name": "Independent Jacobian/denominator inequality and positive quadrature obey source bound",
+      "passed": true,
+      "evidence": {
+        "trials": 30000,
+        "maximumJacobianRatio": 0.999106005504957,
+        "maximumQuadratureRatio": 0.6208406852178094,
+        "proof": "h=perp>=r: J/den=1/h. h=r>=perp: max_t J/den=(2-perp^2/r^2)/r<=2/h. Positive angular quadrature measure <=pi."
+      }
+    },
+    {
+      "name": "Support raw bound matches independent RGB formula, effective ground radii, and source admission",
+      "passed": true,
+      "evidence": {
+        "cases": 81,
+        "effectiveRadii": [
+          0.1,
+          0.1,
+          12,
+          0.025,
+          0.1,
+          12
+        ],
+        "invalidSources": 5,
+        "overflowBoundFinite": true
+      }
+    },
+    {
+      "name": "Actual module defaults quadratic, rejects mixed invalid patches atomically, persists opt-in and budgets",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 16\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-background-air-support-independent-check.mjs:138:260\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-background-air-support-independent-check.mjs:9:78)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-background-air-support-independent-check.mjs:127:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "Support shader consumes shared E once and leaves legacy integration functions unchanged",
+      "passed": true,
+      "evidence": {
+        "legacyFunctionsUnchanged": [
+          "vec3 sourceAt(",
+          "void integrateAir(",
+          "void coefficientsAt(",
+          "vec3 segmentIntegral("
+        ],
+        "additionalStorageExposureApplications": 0,
+        "sourceUnits": "stored local incident RGB / m^2; beta in1/m; theta Jacobian in m; phase in1/sr; result stored local scattered radiance"
+      }
+    }
+  ],
+  "findings": [
+    {
+      "severity": "Requires GPU fixture or stable geometry change",
+      "location": "integrateSupportLocalAir perp2=dot(centre,centre)-closest*closest",
+      "kind": "Independent IEEE FP32 arithmetic counterexample, not actual GPU execution",
+      "direction": [
+        0.27724868059158325,
+        0.09560299664735794,
+        -0.9560299515724182
+      ],
+      "centre": [
+        2772.48681640625,
+        956.0299682617188,
+        -9560.2998046875
+      ],
+      "closest": 10000,
+      "naivePerpendicularSquared": 16,
+      "stablePerpendicularSquared": 0,
+      "naiveH": 4,
+      "actualDeltaAtClosest": [
+        0,
+        0,
+        0
+      ],
+      "claimedJacobianOverDenominatorBound": 0.5,
+      "actualJacobianOverDenominatorAtThetaZero": 399.99999999999994,
+      "boundProofRatio": 799.9999999999999,
+      "recommendation": "Compute centre-direction*closest before dotting the perpendicular residual; verify far collinear lights in actual GPU fixtures. Do not treat the exact-arithmetic bound proof as a float geometry proof."
+    }
+  ],
+  "runtimeSHA256": "9bb603255184a1159f6aed338182c0f5f6981a86a343355c77174de5970c9a73",
+  "limits": [
+    "CPU arithmetic, module state, bound proof and shader-source review only; no GPU or scene acceptance claimed.",
+    "GLSL float perpendicular-distance cancellation and analytic-height float errors require actual GPU cases.",
+    "Source-to-sample extinction remains intentionally omitted; finite quadrature is not exact radiative transfer."
+  ]
+}

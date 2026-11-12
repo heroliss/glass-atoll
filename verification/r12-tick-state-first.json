@@ -1,0 +1,179 @@
+{
+  "schema": "glass-atoll.r12-tick-state-cpu.v1",
+  "dateUTC": "2026-10-28T06:19:22.299Z",
+  "actualGPU": false,
+  "checks": [
+    {
+      "name": "legacy67fa remains exact and production modules have no verification/eval imports",
+      "passed": true,
+      "evidence": {
+        "state": "131de6ed505b89c26f0604bd66ea378bf7acf21d704f5aef9230284b0071b6a0",
+        "math": "9330bcd98fc38a1f30a494979887eecdeb946e7b373aa9534b4b5c9c14cddad2",
+        "graph": "99f0fb2650a6279125271ac3bfc7e176a602a74a28aa7b4b1235f5a1eb0ce174",
+        "legacy": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172"
+      }
+    },
+    {
+      "name": "sameclock inputs remain pending and cloned until explicit fence, never exceed publiccapacity",
+      "passed": true,
+      "evidence": {
+        "version": "pyro-smoke-tick-state-v1",
+        "stateModel": "tick-graph-v1",
+        "time": 0,
+        "requestedTime": 0,
+        "revision": 3,
+        "packetCount": 1,
+        "capacity": 1,
+        "peakPacketCount": 1,
+        "stagingPeakPacketCount": 2,
+        "maxStagingPackets": 8193,
+        "pendingEmissions": 0,
+        "pendingWindEvents": 0,
+        "pendingSameClockEmissions": 0,
+        "profileCount": 1,
+        "acceptedSources": 2,
+        "lastEmissionId": 1,
+        "totalTickSteps": 0,
+        "lastAdvanceSteps": 0,
+        "lastAdvanceFences": 0,
+        "fixedStep": 0.05,
+        "maxStepsPerAdvance": 200,
+        "ledger": {
+          "emitted": 0.023,
+          "airborne": 0.023,
+          "pendingMass": 0,
+          "residual": 0,
+          "deposited": 0,
+          "escaped": 0,
+          "explicitlyCleared": 0
+        },
+        "merges": 1,
+        "forcedMerges": 1,
+        "preferredSameSourceMerges": 0,
+        "preferredSameProfileMerges": 0,
+        "maximumMergeDistanceMetres": 1.4282856857085704,
+        "maximumMergeNormalizedDistance": 0.7088812050083361,
+        "maximumSampledMergePeakRelativeError": 0.08997956493889299,
+        "maximumSampledMergeColumnRelativeError": 0.08737257289063727,
+        "maximumSampledMergeOpticalDepthError": 0.00017018655618714009,
+        "diagnosticCacheHits": 0,
+        "diagnosticCacheMisses": 1,
+        "recentMerges": [
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 1.4282856857085704,
+            "normalizedDistance": 0.7088812050083361,
+            "differentialThermalTravelBoundMetres": 3.5391999999999997,
+            "normalizedThermalTravelBound": 1.7695999999999998,
+            "sampledPeakAbsoluteError": 0.00003875075043827022,
+            "sampledPeakRelativeError": 0.08997956493889299,
+            "maximumSampledNewDensity": 0.00042894641464802277,
+            "sampledColumnAbsoluteError": 0.00017018655618714009,
+            "sampledColumnRelativeError": 0.08737257289063727,
+            "maximumPerRaySymmetricRelativeError": 0.09724269333150318,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00017018655618714009,
+              0.00017018655618714009,
+              0.00017018655618714009
+            ],
+            "sampledMaximumOpticalDepthError": 0.00017018655618714009,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          }
+        ],
+        "units": "relative dry mass; metres; physical seconds; authored m2/reference-mass optical profiles. NOT calibrated kg/PM.",
+        "limits": [
+          "Explicit tick-graph-v1; same-clock inputs remain pending until an advance fence.",
+          "Fences and causal input availability are part of deterministic replay; arbitrary fence partitions are not equivalent.",
+          "Public density is committed only; capacity+maxPending bounds private staging.",
+          "Source transport/thermal model and sampled merge quality remain approximations; no CFD, deposition or global optical compression bound.",
+          "Graph and diagnostic caches live for one common-time commit only."
+        ]
+      }
+    },
+    {
+      "name": "same-fence full snapshots and physical diagnostics match naivebatch across24 BrownianTaylor origins/caps",
+      "passed": true,
+      "evidence": {
+        "cases": 24,
+        "merges": 1368
+      }
+    },
+    {
+      "name": "invalid inputs and queue limits reject atomically including hostile getter/reentrant mutations",
+      "passed": true,
+      "evidence": {
+        "cases": 16
+      }
+    },
+    {
+      "name": "clone: failed commit rolls back all public state except requested target and retries exactly",
+      "passed": true,
+      "evidence": {
+        "site": "clone",
+        "pendingRetained": 8
+      }
+    },
+    {
+      "name": "transport: failed commit rolls back all public state except requested target and retries exactly",
+      "passed": true,
+      "evidence": {
+        "site": "transport",
+        "pendingRetained": 8
+      }
+    },
+    {
+      "name": "merge: failed commit rolls back all public state except requested target and retries exactly",
+      "passed": true,
+      "evidence": {
+        "site": "merge",
+        "pendingRetained": 8
+      }
+    },
+    {
+      "name": "publish: failed commit rolls back all public state except requested target and retries exactly",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    d: {\n+     acceptedSources: 10,\n-     acceptedSources: 2,\n      capacity: 2,\n+     diagnosticCacheHits: 25,\n+     diagnosticCacheMisses: 37,\n-     diagnosticCacheHits: 0,\n-     diagnosticCacheMisses: 0,\n      fixedStep: 0.05,\n+     forcedMerges: 6,\n-     forcedMerges: 0,\n      lastAdvanceFences: 1,\n      lastAdvanceSteps: 0,\n      lastEmissionId: 9,\n      ledger: {\n+       airborne: 0.127,\n-       airborne: 0.023,\n        deposited: 0,\n+       emitted: 0.127,\n-       emitted: 0.023,\n        escaped: 0,\n        explicitlyCleared: 0,\n+       pendingMass: 0,\n-       pendingMass: 0.104,\n        residual: 0\n      },\n      limits: [\n        'Explicit tick-graph-v1; same-clock inputs remain pending until an advance fence.',\n        'Fences and causal input availability are part of deterministic replay; arbitrary fence partitions are not equivalent.',\n...\n      maxStepsPerAdvance: 200,\n+     maximumMergeDistanceMetres: 2.340817955341492,\n+     maximumMergeNormalizedDistance: 1.084276021210618,\n+     maximumSampledMergeColumnRelativeError: 0.06069725383861243,\n+     maximumSampledMergeOpticalDepthError: 0.0004189619365757907,\n+     maximumSampledMergePeakRelativeError: 0.0698622814157482,\n+     merges: 8,\n-     maximumMergeDistanceMetres: 0,\n-     maximumMergeNormalizedDistance: 0,\n-     maximumSampledMergeColumnRelativeError: 0,\n-     maximumSampledMergeOpticalDepthError: 0,\n-     maximumSampledMergePeakRelativeError: 0,\n-     merges: 0,\n      packetCount: 2,\n      peakPacketCount: 2,\n+     pendingEmissions: 0,\n-     pendingEmissions: 8,\n      pendingSameClockEmissions: 0,\n      pendingWindEvents: 0,\n+     preferredSameProfileMerges: 2,\n-     preferredSameProfileMerges: 0,\n      preferredSameSourceMerges: 0,\n      profileCount: 1,\n+     recentMerges: [\n+       {\n+         classification: 'preferred-profile-overlap',\n+         columnRays: 36,\n+         differentialThermalTravelBoundMetres: 0.39528512389790954,\n+         distanceMetres: 1.2835754873867031,\n+         limits: '15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution.',\n+         maximumPerRaySymmetricRelativeError: 0.022577505392567747,\n+         maximumSampledNewDensity: 0.0004295894995687944,\n+         normalizedDistance: 0.5590637088892899,\n+         normalizedThermalTravelBound: 0.19712872565854547,\n+         peakSamples: 15,\n+         profileId: 'reference',\n+         sampledColumnAbsoluteError: 0.00003736392499147025,\n+         sampledColumnRelativeError: 0.019001112662173768,\n+         sampledMaximumOpticalDepthError: 0.00003736392499147025,\n+         sampledOpticalDepthRGBAbsoluteError: [\n+           0.00003736392499147025,\n+           0.00003736392499147025,\n+           0.00003736392499147025\n+         ],\n+         sampledPeakAbsoluteError: 0.000010679685036785256,\n+         sampledPeakRelativeError: 0.024684978977123434\n+       },\n+       {\n+         classification: 'preferred-profile-overlap',\n+         columnRays: 36,\n+         differentialThermalTravelBoundMetres: 0.39404320281080524,\n+         distanceMetres: 1.2843544522192725,\n+         limits: '15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution.',\n+         maximumPerRaySymmetricRelativeError: 0.023426282919959865,\n+         maximumSampledNewDensity: 0.00043097346571555073,\n+         normalizedDistance: 0.560012666725532,\n+         normalizedThermalTravelBound: 0.1965974086372233,\n+         peakSamples: 15,\n+         profileId: 'reference',\n+         sampledColumnAbsoluteError: 0.0000387949296979293,\n+         sampledColumnRelativeError: 0.019683274766924146,\n+         sampledMaximumOpticalDepthError: 0.0000387949296979293,\n+         sampledOpticalDepthRGBAbsoluteError: [\n+           0.0000387949296979293,\n+           0.0000387949296979293,\n+           0.0000387949296979293\n+         ],\n+         sampledPeakAbsoluteError: 0.000011037245870549733,\n+         sampledPeakRelativeError: 0.025418765738550356\n+       },\n+       {\n+         classification: 'forced-profile-approximation',\n+         columnRays: 36,\n+         differentialThermalTravelBoundMetres: 3.1373754972181067,\n+         distanceMetres: 1.1652527303002185,\n+         limits: '15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution.',\n+         maximumPerRaySymmetricRelativeError: 0.004669494010282597,\n+         maximumSampledNewDensity: 0.0008047293465675764,\n+         normalizedDistance: 0.5358582840291573,\n+         normalizedThermalTravelBound: 1.506043653772769,\n+         peakSamples: 15,\n+         profileId: 'reference',\n+         sampledColumnAbsoluteError: 0.00001695365106646517,\n+         sampledColumnRelativeError: 0.004680421610620792,\n+         sampledMaximumOpticalDepthError: 0.00001695365106646517,\n+         sampledOpticalDepthRGBAbsoluteError: [\n+           0.00001695365106646517,\n+           0.00001695365106646517,\n+           0.00001695365106646517\n+         ],\n+         sampledPeakAbsoluteError: 0.0000037777789174339715,\n+         sampledPeakRelativeError: 0.004716613425849632\n+       },\n+       {\n+         classification: 'forced-profile-approximation',\n+         columnRays: 36,\n+         differentialThermalTravelBoundMetres: 4.883788638195091,\n+         distanceMetres: 1.6551078871840654,\n+         limits: '15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution.',\n+         maximumPerRaySymmetricRelativeError: 0.023584863447203414,\n+         maximumSampledNewDensity: 0.0009610771642927954,\n+         normalizedDistance: 0.701427153027718,\n+         normalizedThermalTravelBound: 2.363737019663499,\n+         peakSamples: 15,\n+         profileId: 'reference',\n+         sampledColumnAbsoluteError: 0.0000734681513947762,\n+         sampledColumnRelativeError: 0.01671979652040614,\n+         sampledMaximumOpticalDepthError: 0.0000734681513947762,\n+         sampledOpticalDepthRGBAbsoluteError: [\n+           0.0000734681513947762,\n+           0.0000734681513947762,\n+           0.0000734681513947762\n+         ],\n+         sampledPeakAbsoluteError: 0.000017153313458821945,\n+         sampledPeakRelativeError: 0.01786019737858543\n+       },\n+       {\n+         classification: 'forced-profile-approximation',\n+         columnRays: 36,\n+         differentialThermalTravelBoundMetres: 3.1390721671986532,\n+         distanceMetres: 1.16612461468731,\n+         limits: '15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution.',\n+         maximumPerRaySymmetricRelativeError: 0.018785323075278457,\n+         maximumSampledNewDensity: 0.00044194608925490834,\n+         normalizedDistance: 0.7743741920207863,\n+         normalizedThermalTravelBound: 1.5660165015561478,\n+         peakSamples: 15,\n+         profileId: 'reference',\n+         sampledColumnAbsoluteError: 0.00003594769697678785,\n+         sampledColumnRelativeError: 0.018963440251146723,\n+         sampledMaximumOpticalDepthError: 0.00003594769697678785,\n+         sampledOpticalDepthRGBAbsoluteError: [\n+           0.00003594769697678785,\n+           0.00003594769697678785,\n+           0.00003594769697678785\n+         ],\n+         sampledPeakAbsoluteError: 0.000008229673968224605,\n+         sampledPeakRelativeError: 0.018974780935567873\n+       },\n+       {\n+         classification: 'forced-profile-approximation',\n+         columnRays: 36,\n+         differentialThermalTravelBoundMetres: 7.046801109627747,\n+         distanceMetres: 2.340817955341492,\n+         limits: '15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution.',\n+         maximumPerRaySymmetricRelativeError: 0.03264648981306466,\n+         maximumSampledNewDensity: 0.0010561757871162495,\n+         normalizedDistance: 1.0294229514150308,\n+         normalizedThermalTravelBound: 3.4131505567085934,\n+         peakSamples: 15,\n+         profileId: 'reference',\n+         sampledColumnAbsoluteError: 0.00011806679991335431,\n+         sampledColumnRelativeError: 0.02323281927468748,\n+         sampledMaximumOpticalDepthError: 0.00011806679991335431,\n+         sampledOpticalDepthRGBAbsoluteError: [\n+           0.00011806679991335431,\n+           0.00011806679991335431,\n+           0.00011806679991335431\n+         ],\n+         sampledPeakAbsoluteError: 0.000041016698248665107,\n+         sampledPeakRelativeError: 0.03967452526301255\n+       },\n+       {\n+         classification: 'forced-profile-approximation',\n+         columnRays: 36,\n+         differentialThermalTravelBoundMetres: 4.708638513494487,\n+         distanceMetres: 1.7492024898129914,\n+         limits: '15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution.',\n+         maximumPerRaySymmetricRelativeError: 0.0576831532694569,\n+         maximumSampledNewDensity: 0.0005639232210073179,\n+         normalizedDistance: 1.084276021210618,\n+         normalizedThermalTravelBound: 2.3234817008300857,\n+         peakSamples: 15,\n+         profileId: 'reference',\n+         sampledColumnAbsoluteError: 0.00013814986457116266,\n+         sampledColumnRelativeError: 0.0593962343132158,\n+         sampledMaximumOpticalDepthError: 0.00013814986457116266,\n+         sampledOpticalDepthRGBAbsoluteError: [\n+           0.00013814986457116266,\n+           0.00013814986457116266,\n+           0.00013814986457116266\n+         ],\n+         sampledPeakAbsoluteError: 0.00003166665478520833,\n+         sampledPeakRelativeError: 0.059495094649511374\n+       },\n+       {\n+         classification: 'forced-profile-approximation',\n+         columnRays: 36,\n+         differentialThermalTravelBoundMetres: 3.263830436991344,\n+         distanceMetres: 1.7912577823628066,\n+         limits: '15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution.',\n+         maximumPerRaySymmetricRelativeError: 0.08331284399882484,\n+         maximumSampledNewDensity: 0.00141442351725959,\n+         normalizedDistance: 0.7345944415760023,\n+         normalizedThermalTravelBound: 1.5373327197214661,\n+         peakSamples: 15,\n+         profileId: 'reference',\n+         sampledColumnAbsoluteError: 0.0004189619365757907,\n+         sampledColumnRelativeError: 0.06069725383861243,\n+         sampledMaximumOpticalDepthError: 0.0004189619365757907,\n+         sampledOpticalDepthRGBAbsoluteError: [\n+           0.0004189619365757907,\n+           0.0004189619365757907,\n+           0.0004189619365757907\n+         ],\n+         sampledPeakAbsoluteError: 0.00009885448349704709,\n+         sampledPeakRelativeError: 0.0698622814157482\n+       }\n+     ],\n-     recentMerges: [],\n      requestedTime: 0,\n+     revision: 27,\n+     stagingPeakPacketCount: 10,\n-     revision: 2,\n-     stagingPeakPacketCount: 2,\n      stateModel: 'tick-graph-v1',\n+     time: 0.05,\n+     totalTickSteps: 1,\n-     time: 0,\n-     totalTickSteps: 0,\n      units: 'relative dry mass; metres; physical seconds; authored m2/reference-mass optical profiles. NOT calibrated kg/PM.',\n      version: 'pyro-smoke-tick-state-v1'\n    },\n    s: {\n      currentWind: [\n...\n      ledger: {\n+       airborne: 0.127,\n-       airborne: 0.023,\n        deposited: 0,\n+       emitted: 0.127,\n-       emitted: 0.023,\n        escaped: 0,\n        explicitlyCleared: 0,\n+       pendingMass: 0\n-       pendingMass: 0.104\n      },\n      packets: [\n        {\n          birthTime: 0,\n          buoyantVelocity: 0,\n          covariance: [\n+           1.0600000000000007,\n-           1,\n            0.1,\n            0,\n            0.1,\n+           2.0119999999999987,\n-           2,\n            0.1,\n            0,\n            0.1,\n+           3.059999999999999\n-           3\n          ],\n          id: 0,\n          mass: 0.01,\n          mean: [\n            0,\n...\n          birthTime: 0,\n+         buoyantVelocity: 0.23315988350700959,\n-         buoyantVelocity: 0.2,\n          covariance: [\n+           3.320876762363942,\n+           -0.0006981977850239914,\n+           -0.31295200525969763,\n+           -0.0006981977850239914,\n+           2.2708919940519747,\n+           0.0557336011588278,\n+           -0.31295200525969763,\n+           0.0557336011588278,\n+           3.6886903353057194\n-           2,\n-           0.1,\n-           0,\n-           0.1,\n-           2,\n-           0.1,\n-           0,\n-           0.1,\n-           3\n          ],\n+         id: -8,\n+         mass: 0.117,\n-         id: 1,\n-         mass: 0.013000000000000001,\n          mean: [\n+           1.3675213675213675,\n+           100.9934667591784,\n+           1.1538461538461537\n-           1,\n-           100.2,\n-           1\n          ],\n          profileId: 'reference',\n+         sourceCount: 9,\n+         sourceId: null,\n+         temperatureExcessK: 5.452714572992503\n-         sourceCount: 1,\n-         sourceId: 's1',\n-         temperatureExcessK: 4\n        }\n      ],\n+     pendingEmissions: 0,\n-     pendingEmissions: 8,\n      pendingWindEvents: 0,\n      profiles: [\n        {\n          extinctionPerMassRGB: [\n            1,\n...\n      requestedTime: 0,\n+     revision: 27,\n-     revision: 2,\n      schema: 'glass-atoll.pyro-smoke-state.v1',\n      stateModel: 'tick-graph-v1',\n+     tick: 1,\n+     time: 0.05\n-     tick: 0,\n-     time: 0\n    }\n  }\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-state-check.mjs:31:660\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-state-check.mjs:23:558)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-state-check.mjs:31:3"
+    },
+    {
+      "name": "reentrant stage observations see committed density only and reject nested mutation",
+      "passed": true,
+      "evidence": {
+        "privatePeak": 8,
+        "publicPeak": 1
+      }
+    },
+    {
+      "name": "bounded catchup publishes only whole ticks and repeated same target never repeats mass or IDs",
+      "passed": true,
+      "evidence": {
+        "completedTime": 0.30000000000000004,
+        "totalTickSteps": 6
+      }
+    },
+    {
+      "name": "legacy source still exact67fa after all tests",
+      "passed": true,
+      "evidence": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172"
+    }
+  ],
+  "runs": [],
+  "sourceSHA256": {
+    "state": "131de6ed505b89c26f0604bd66ea378bf7acf21d704f5aef9230284b0071b6a0",
+    "math": "9330bcd98fc38a1f30a494979887eecdeb946e7b373aa9534b4b5c9c14cddad2",
+    "graph": "99f0fb2650a6279125271ac3bfc7e176a602a74a28aa7b4b1235f5a1eb0ce174",
+    "legacy": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172"
+  },
+  "limits": [
+    "Newfactory only; host/default integration untouched.",
+    "Same causal fence protocol is required for parity; arbitrary same-clock fence partitions differ.",
+    "No GPU/FPS or photographic acceptance from CPU checks."
+  ],
+  "counts": {
+    "passed": 10,
+    "total": 11
+  },
+  "passed": false
+}

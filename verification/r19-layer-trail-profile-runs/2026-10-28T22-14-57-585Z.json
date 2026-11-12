@@ -1,0 +1,128 @@
+{
+  "schema": "glass-atoll.r19-layer-trail-profile-check.v1",
+  "started": "2026-10-28T22:14:57.585Z",
+  "completed": "2026-10-28T22:14:57.833Z",
+  "passed": true,
+  "counts": {
+    "passed": 11,
+    "total": 11
+  },
+  "sourceSHA256": {
+    "firework-trail-profile.js": "f6a8037ceed6568da548061a27138e9fa32d6ed862a402e3ea0cb6f55a522a18",
+    "firework-layer-profile.js": "40e3ad97b42601fdfe7588a95a9d907002f6dbd57aa714ee69bda3e35ecd9c82",
+    "fireworks-physics.js": "35bbded2c937d335890c14a9a33abc0487db93a34b8458042db2720719374291",
+    "firework-burn-profile.js": "7308fd7a59ac918de80acbf296a0117f2d499e48d8de40bf2880d0b3c90436d7"
+  },
+  "checks": [
+    {
+      "name": "R18 pure compiler/physics/burn baselines are pinned independently and production physics has only authorized metadata addition",
+      "passed": true,
+      "details": {
+        "scope": "Only conditional public layerProfile.trailRecipeId copied; all physics/source/RNG expressions unchanged"
+      }
+    },
+    {
+      "name": "Candidate recipes have9 immutable nodes, exact thermal first RGB and independently validated all-phase endpoint bounds",
+      "passed": true,
+      "details": [
+        {
+          "id": "outer",
+          "f": 0.06,
+          "D": 0.1,
+          "maximumRGB": [
+            2.5852230563071164,
+            0.8316207499306247,
+            0.23049133199015837
+          ]
+        },
+        {
+          "id": "middle",
+          "f": 0.14,
+          "D": 0.2,
+          "maximumRGB": [
+            2.5852230563071164,
+            0.8316207499306247,
+            0.23049133199015837
+          ]
+        },
+        {
+          "id": "inner",
+          "f": 0.24,
+          "D": 0.32,
+          "maximumRGB": [
+            2.5852230563071164,
+            0.8316207499306247,
+            0.23049133199015837
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Trail constructor copies source data, rejects mutation and validates a deeply frozen structural copy",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Invalid identity/allocation/duration/colour domains and sparse or accessor arrays reject",
+      "passed": true,
+      "details": {
+        "rejections": 30
+      }
+    },
+    {
+      "name": "Forged or mutable profile metadata cannot bypass derived fraction/segments/bound validation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Uniform-age sampler returns linear unit-Y chromaticity, bounded channels and endpoint-only extension",
+      "passed": true,
+      "details": {
+        "samples": 3075,
+        "extension": "chromaticity only; caller still clips intensity at0..D"
+      }
+    },
+    {
+      "name": "Head/tail fractions sum to1 and discrete release amplitudes stay within named I0 peak, includingf0/f1",
+      "passed": true,
+      "details": {
+        "cases": 45,
+        "scope": "instantaneous named reference peak allocation only; no claim of conserved time integral/physical energy"
+      }
+    },
+    {
+      "name": "Compiler adds only immutable trailProfile/recipe metadata to three-heart and does not mutate native inputs",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Legacy/two-colour compiler and events stay exactly equal to imported pre-R19 implementation with no added undefined fields",
+      "passed": true,
+      "details": {
+        "exactEvents": 22
+      }
+    },
+    {
+      "name": "Three-heart source/matter curves, windows, paths, RNG, I0, bodycount/life and retired event time remain exact",
+      "passed": true,
+      "details": {
+        "poses": 2304,
+        "emissions": 2304,
+        "cdfs": 2304,
+        "smokeSamples": 18
+      }
+    },
+    {
+      "name": "Pure module cannot circularly import FW/physics and approved audio remains untouched",
+      "passed": true,
+      "details": {
+        "audioSHA256": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+      }
+    }
+  ],
+  "limits": [
+    "Pure immutable optical recipe/compiler and unchanged source/matter/trajectory contracts only. Root owns FW current/window/ledger integration.",
+    "No GPU/native image, source temporal-release history reconstruction or measured firework photometry/energy verification.",
+    "Colour endpoints may be sampled outside0..D; caller owns luminous cutoff, not the chromaticity helper."
+  ]
+}

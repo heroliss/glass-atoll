@@ -1,0 +1,95 @@
+{
+  "schema": "glass-atoll.r28-legacy-light-assessment.v1",
+  "dateUTC": "2026-10-29T14:49:44.448Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "All current failed reports/logs and original test sources remain intact; replay changes are reversible routing only",
+      "passed": true,
+      "evidence": {
+        "preservedCurrentArtifacts": 4,
+        "unmodifiedOriginalTests": 2,
+        "importOnlyBaselineModules": 5,
+        "allAllowedEditsReversible": true
+      }
+    },
+    {
+      "name": "Legacy field suite remains13/15 with the same two failures already present before R28",
+      "passed": true,
+      "evidence": {
+        "baseline": "13/15",
+        "deployed": "13/15",
+        "inheritedFailures": [
+          "complete_legacy_renderer_and_host_inverse_are_byte_exact_fail_closed",
+          "default_factory_has_original_shaders_uniforms_and_raw_bound_no_extra_attributes"
+        ],
+        "classification": [
+          "Old inverse normalizer does not understand the pre-existing current prepare/bind API; R28 adds options outside its enumerated exact substitutions too.",
+          "Old default diagnostics equality predates projection/bake-mode/proxy-raster metadata. Shader/uniform/bound checks execute before that stale diagnostics-shape assertion."
+        ],
+        "newFailures": 0
+      }
+    },
+    {
+      "name": "Legacy tile suite was7/8 before R28; four new failures are obsolete fake-GL coverage, one source fixture failure is inherited",
+      "passed": true,
+      "evidence": {
+        "baseline": "7/8",
+        "deployed": "3/8",
+        "newFailures": [
+          {
+            "name": "fixedcapacity tiles allocate only after supported actualprepare and needtwo draws",
+            "reason": "The legacy fake GL omits real WebGL2 isContextLost, so it stops before the new full native state guard/render path."
+          },
+          {
+            "name": "moving sourcecount/density reuses fixedcapacity numerictextures and target",
+            "reason": "The legacy fake GL omits real WebGL2 isContextLost, so it stops before the new full native state guard/render path."
+          },
+          {
+            "name": "identicalkey cache and zero retirement preserve committedlayout withoutrebaking",
+            "reason": "The legacy fake GL omits real WebGL2 isContextLost, so it stops before the new full native state guard/render path."
+          },
+          {
+            "name": "modevalidation isatomic and switch invalidates prior currentfield",
+            "reason": "The legacy fake GL omits real WebGL2 isContextLost, so it stops before the new full native state guard/render path."
+          }
+        ],
+        "inheritedFailures": [
+          "serialreference shadergenerator unchanged and bounded tiled loops separate"
+        ],
+        "inheritedReason": "Historical R16 ensureResources source fixture uses old2-component triangle and LF; the archived pre-R28 implementation already has3-component triangle/CRLF. Current serial shader generator is text-identical to pre-R28 after line-ending normalization."
+      }
+    },
+    {
+      "name": "Scoped modern CPU and root hardware evidence remains explicit without relabeling the legacy suites green",
+      "passed": true,
+      "evidence": {
+        "modernReports": [
+          "r28-light-candidate-independent-check.json",
+          "r28-deployed-integration-independent-check.json",
+          "r28-native-light-independent-check.json",
+          "r28-native-light-receipt-independent-check.json"
+        ],
+        "rootCandidateHardware": "4/4",
+        "legacyOverallPassed": false,
+        "originalAssertionsWeakened": false,
+        "productionIssueFoundByLegacyDelta": false,
+        "scope": "Modern complete fakes/full hardware checks cover the revised binding contract; they do not rewrite or make the old fixture suites pass."
+      }
+    }
+  ],
+  "legacySuitesPassed": false,
+  "limits": [
+    "This passing classification report does not mean the legacy suites pass. Field remains13/15 and tiles3/8 on deployed code.",
+    "Baseline source replay intentionally preserves original assertions and their inherited failures; only imports/source reads/output paths are routed.",
+    "Original historical JSON reports were overwritten by the root legacy runs before this audit. The current failed outputs/logs are now preserved; no pre-run report backup is claimed.",
+    "No real GL/browser/GPU action is performed here."
+  ]
+}

@@ -1,0 +1,528 @@
+{
+  "schema": "glass-atoll.official-aces2-public-stage-cpu.v1",
+  "dateUTC": "2026-10-27T06:13:03.076377+00:00",
+  "peakNits": 1270,
+  "passed": true,
+  "counts": {
+    "total": 6,
+    "passed": 6
+  },
+  "checks": [
+    {
+      "name": "original official oracle shader texture and report bytes remain frozen",
+      "passed": true,
+      "evidence": {
+        "manifestSHA256": "6ea3aa46ed7a8afbcef9fb8a3e8168ff540f227421720f8e32823a7baf86da2a",
+        "files": 46,
+        "allUnchanged": true
+      }
+    },
+    {
+      "name": "same Float32 blue samples prefix and fullCPU exactly reproduce frozen oracle",
+      "passed": true,
+      "evidence": [
+        {
+          "sample": "bad-pure-blue-Y1",
+          "oldCase": "hue-blue-1",
+          "exactInputPrefixAndFullOutput": true
+        },
+        {
+          "sample": "actual-profile-blue-Y1",
+          "oldCase": "profile-blue-1",
+          "exactInputPrefixAndFullOutput": true
+        }
+      ]
+    },
+    {
+      "name": "available public stages are finite and use declared hue display and JMh units",
+      "passed": true,
+      "evidence": {
+        "displayRGBUnits": "numeric1=100nit",
+        "hue": "degrees (not radians or turns)",
+        "J_and_M": "official JMh correlates; not display nits",
+        "allThreeSamplesFinite": true
+      }
+    },
+    {
+      "name": "split uses four separate public FFs and preserves combined versus serial deltas",
+      "passed": true,
+      "evidence": {
+        "publicSplitFixedFunctions": [
+          "FixedFunctionStyle.FIXED_FUNCTION_ACES_RGB_TO_JMH_20",
+          "FixedFunctionStyle.FIXED_FUNCTION_ACES_TONESCALE_COMPRESS_20",
+          "FixedFunctionStyle.FIXED_FUNCTION_ACES_GAMUT_COMPRESS_20",
+          "FixedFunctionStyle.FIXED_FUNCTION_ACES_RGB_TO_JMH_20"
+        ],
+        "combinedProcessorOperators": 8,
+        "deltasAreDiagnosticsNotGate": [
+          {
+            "sample": "bad-pure-blue-Y1",
+            "splitMinusFull": [
+              -4.172325134277344e-07,
+              -2.384185791015625e-06,
+              0.0
+            ],
+            "splitSerialMinusCombined": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "fullSerialMinusCombined": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "sample": "actual-profile-blue-Y1",
+            "splitMinusFull": [
+              -2.86102294921875e-06,
+              0.0,
+              0.0
+            ],
+            "splitSerialMinusCombined": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "fullSerialMinusCombined": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "sample": "green-18.28686",
+            "splitMinusFull": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "splitSerialMinusCombined": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "fullSerialMinusCombined": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "existing isolated official environment reused with no new dependency or runtime edits",
+      "passed": true,
+      "evidence": {
+        "OCIO": "2.6.0",
+        "NumPy": "2.3.4",
+        "executable": "E:\\GPT-Projects\\\u4e2a\u4eba\u7f51\u7ad9\\glass-atoll\\.tools\\aces2-oracle\\Scripts\\python.exe"
+      }
+    },
+    {
+      "name": "original asset seal still valid after all stage queries",
+      "passed": true,
+      "evidence": {
+        "manifestSHA256": "6ea3aa46ed7a8afbcef9fb8a3e8168ff540f227421720f8e32823a7baf86da2a",
+        "files": 46,
+        "allUnchanged": true
+      }
+    }
+  ],
+  "samples": [
+    {
+      "id": "bad-pure-blue-Y1",
+      "input": [
+        0.0,
+        0.0,
+        13.850415229797363
+      ],
+      "frozenCaseID": "hue-blue-1",
+      "definition": "exact supplied diagnostic Float32 pure-blue Y1 literal",
+      "inputFloat32": [
+        0.0,
+        0.0,
+        13.850415229797363
+      ],
+      "fullCPU": [
+        0.08631390333175659,
+        0.09359931945800781,
+        12.699999809265137
+      ],
+      "splitCPU": [
+        0.08631348609924316,
+        0.0935969352722168,
+        12.699999809265137
+      ],
+      "fullSerialCPU": [
+        0.08631390333175659,
+        0.09359931945800781,
+        12.699999809265137
+      ],
+      "splitSerialCPU": [
+        0.08631348609924316,
+        0.0935969352722168,
+        12.699999809265137
+      ],
+      "fullFFAfterSerialPrefixBeforeOutputRange": [
+        0.08631390333175659,
+        0.09359931945800781,
+        13.429527282714844
+      ],
+      "splitMinusFull": [
+        -4.172325134277344e-07,
+        -2.384185791015625e-06,
+        0.0
+      ],
+      "splitSerialMinusCombined": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fullSerialMinusCombined": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": {
+        "AP1": [
+          0.6562250852584839,
+          0.18632130324840546,
+          12.047293663024902
+        ],
+        "AP1Range": [
+          0.6562250852584839,
+          0.18632130324840546,
+          12.047293663024902
+        ],
+        "AP0": [
+          2.456763505935669,
+          1.3405002355575562,
+          12.06249713897705
+        ],
+        "JMh": [
+          141.8010711669922,
+          144.21209716796875,
+          275.9658508300781
+        ],
+        "Jts": [
+          148.06527709960938,
+          0.0,
+          0.0
+        ],
+        "toneJMh": [
+          148.06527709960938,
+          149.53146362304688,
+          275.9658508300781
+        ],
+        "gamutJMh": [
+          145.89981079101562,
+          137.59408569335938,
+          275.9658508300781
+        ],
+        "inverseRGB": [
+          0.08631348609924316,
+          0.0935969352722168,
+          13.429537773132324
+        ],
+        "Aab": null,
+        "inverseLMS": null,
+        "reach": null,
+        "reachLookup": null,
+        "cusp": null,
+        "cuspLookup": null
+      }
+    },
+    {
+      "id": "actual-profile-blue-Y1",
+      "input": [
+        0.48469855363048964,
+        0,
+        12.423172957038197
+      ],
+      "frozenCaseID": "profile-blue-1",
+      "definition": "frozen source-inputs production positive author blue profile at level1",
+      "inputFloat32": [
+        0.4846985638141632,
+        0.0,
+        12.423172950744629
+      ],
+      "fullCPU": [
+        0.5114984512329102,
+        0.0,
+        12.699999809265137
+      ],
+      "splitCPU": [
+        0.5114955902099609,
+        0.0,
+        12.699999809265137
+      ],
+      "fullSerialCPU": [
+        0.5114984512329102,
+        0.0,
+        12.699999809265137
+      ],
+      "splitSerialCPU": [
+        0.5114955902099609,
+        0.0,
+        12.699999809265137
+      ],
+      "fullFFAfterSerialPrefixBeforeOutputRange": [
+        0.5114984512329102,
+        -0.05080676078796387,
+        13.002655982971191
+      ],
+      "splitMinusFull": [
+        -2.86102294921875e-06,
+        0.0,
+        0.0
+      ],
+      "splitSerialMinusCombined": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fullSerialMinusCombined": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": {
+        "AP1": [
+          0.8857705593109131,
+          0.2011442631483078,
+          10.815850257873535
+        ],
+        "AP1Range": [
+          0.8857705593109131,
+          0.2011442631483078,
+          10.815850257873535
+        ],
+        "AP0": [
+          2.4166910648345947,
+          1.2458804845809937,
+          10.827997207641602
+        ],
+        "JMh": [
+          138.64053344726562,
+          137.01620483398438,
+          280.317626953125
+        ],
+        "Jts": [
+          145.08094787597656,
+          0.0,
+          0.0
+        ],
+        "toneJMh": [
+          145.08094787597656,
+          142.40380859375,
+          280.317626953125
+        ],
+        "gamutJMh": [
+          144.21290588378906,
+          137.3232879638672,
+          280.317626953125
+        ],
+        "inverseRGB": [
+          0.5114955902099609,
+          -0.05080533027648926,
+          13.002655029296875
+        ],
+        "Aab": null,
+        "inverseLMS": null,
+        "reach": null,
+        "reachLookup": null,
+        "cusp": null,
+        "cuspLookup": null
+      }
+    },
+    {
+      "id": "green-18.28686",
+      "input": [
+        0.0,
+        18.28686,
+        0.0
+      ],
+      "frozenCaseID": null,
+      "definition": "supplied diagnostic literal [0,Math.fround(18.28686),0]; not claimed to be an extracted old source pixel",
+      "inputFloat32": [
+        0.0,
+        18.2868595123291,
+        0.0
+      ],
+      "fullCPU": [
+        3.9550304412841797,
+        9.650508880615234,
+        3.1541738510131836
+      ],
+      "splitCPU": [
+        3.9550304412841797,
+        9.650508880615234,
+        3.1541738510131836
+      ],
+      "fullSerialCPU": [
+        3.9550304412841797,
+        9.650508880615234,
+        3.1541738510131836
+      ],
+      "splitSerialCPU": [
+        3.9550304412841797,
+        9.650508880615234,
+        3.1541738510131836
+      ],
+      "fullFFAfterSerialPrefixBeforeOutputRange": [
+        3.9550304412841797,
+        9.650508880615234,
+        3.1541738510131836
+      ],
+      "splitMinusFull": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "splitSerialMinusCombined": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fullSerialMinusCombined": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "stages": {
+        "AP1": [
+          6.2088117599487305,
+          16.757234573364258,
+          2.0036871433258057
+        ],
+        "AP1Range": [
+          6.2088117599487305,
+          16.757234573364258,
+          2.0036871433258057
+        ],
+        "AP0": [
+          7.003660202026367,
+          14.875251770019531,
+          2.0398364067077637
+        ],
+        "JMh": [
+          295.22491455078125,
+          205.12998962402344,
+          140.16343688964844
+        ],
+        "Jts": [
+          245.4781036376953,
+          0.0,
+          0.0
+        ],
+        "toneJMh": [
+          245.4781036376953,
+          81.29049682617188,
+          140.16343688964844
+        ],
+        "gamutJMh": [
+          245.47811889648438,
+          81.29049682617188,
+          140.16343688964844
+        ],
+        "inverseRGB": [
+          3.9550304412841797,
+          9.650508880615234,
+          3.1541738510131836
+        ],
+        "Aab": null,
+        "inverseLMS": null,
+        "reach": null,
+        "reachLookup": null,
+        "cusp": null,
+        "cuspLookup": null
+      }
+    }
+  ],
+  "AP1UpperFloat32": 4414.884765625,
+  "fixedFunctionContracts": {
+    "RGB_TO_JMH": {
+      "style": "FIXED_FUNCTION_ACES_RGB_TO_JMH_20",
+      "params": [
+        0.7347,
+        0.2653,
+        0.0,
+        1.0,
+        0.0001,
+        -0.077,
+        0.32168,
+        0.33767
+      ],
+      "direction": "forward",
+      "input": "AP0 scene-linear RGB",
+      "output": "JMh with h in degrees"
+    },
+    "TONESCALE_CHROMA": {
+      "style": "FIXED_FUNCTION_ACES_TONESCALE_COMPRESS_20",
+      "params": [
+        1270
+      ],
+      "input": "JMh, h degrees",
+      "output": "tone-mapped/chroma-compressed JMh; includes both tone and chroma"
+    },
+    "GAMUT": {
+      "style": "FIXED_FUNCTION_ACES_GAMUT_COMPRESS_20",
+      "params": [
+        1270,
+        0.64,
+        0.33,
+        0.3,
+        0.6,
+        0.15,
+        0.06,
+        0.3127,
+        0.329
+      ],
+      "input": "toneJMh, h degrees",
+      "output": "compressed JMh"
+    },
+    "INVERSE_CAM": {
+      "style": "FIXED_FUNCTION_ACES_RGB_TO_JMH_20",
+      "params": [
+        0.64,
+        0.33,
+        0.3,
+        0.6,
+        0.15,
+        0.06,
+        0.3127,
+        0.329
+      ],
+      "direction": "inverse",
+      "input": "compressed JMh, h degrees",
+      "output": "linear limiting709 RGB, numeric1=100nit"
+    }
+  },
+  "frozenInputs": {
+    "exportReportSHA256": "dc28a8de0cb7bb582c07ade5690c913d67b7f1df220f135b8f2fd3c28b24d1c9",
+    "CPUOracleSHA256": "193c7290dec57891234476467b9b6e88b4b46ca4df0c4a015f69bf4f9b9363db",
+    "assetSealSHA256": "6ea3aa46ed7a8afbcef9fb8a3e8168ff540f227421720f8e32823a7baf86da2a"
+  },
+  "scriptSHA256": "0a8ffb0cc2ab6231b0a952f48820044547301d5d7631efcc16f0f11860201c21",
+  "stageOracleScope": {
+    "AP1_AP1Range_AP0": "separate official builtin/range CPU calls, exact frozen-prefix parity checked for two original blue cases",
+    "JMh_toneJMh_gamutJMh_inverseRGB": "public split FF serial applyRGB calls; not private fullCPU internal stages",
+    "Jts": "toneJMh[0] from public tonescale/chroma FF, vec3[Jts,0,0]; full CPU direct-A internal Jts unavailable",
+    "Aab_inverseLMS_reach_cusp": "null: no matching public stage API; GPU-only diagnostic values must not be called CPU oracle"
+  },
+  "notes": [
+    "FullCPU is one original full output processor; splitCPU is one processor containing four public FF blocks plus same prefix and finalRange[0,12.7].",
+    "Serial stage calls make additional Float32 API boundaries; fullSerialCPU/splitSerialCPU preserve their endpoint effects separately.",
+    "Official full forward CPU applies tone directly from Aab[0]; public tonescale FF consumes JMh and follows a J route. Closeness alone does not uniquely prove the GPU mismatch cause.",
+    "Public h is degrees throughout; no manual degree/radian conversion occurs at FF boundaries. GPU-internal cosine/sine conversions remain official shader implementation details.",
+    "No private Aab/LMS reimplementation or self-authored ACES approximation is provided.",
+    "No original423 shader assets or52/53 evidence changed, no GPU/browser run or tolerance modification here."
+  ],
+  "primarySources": [
+    "https://github.com/AcademySoftwareFoundation/OpenColorIO/blob/v2.6.0/src/OpenColorIO/ops/fixedfunction/FixedFunctionOpCPU.cpp#L991",
+    "https://github.com/AcademySoftwareFoundation/OpenColorIO/blob/v2.6.0/src/OpenColorIO/ops/fixedfunction/FixedFunctionOpData.cpp#L655"
+  ]
+}

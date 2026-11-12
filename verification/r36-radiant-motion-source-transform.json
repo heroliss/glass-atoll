@@ -1,0 +1,99 @@
+{
+  "schema": "glass-atoll.r36-radiant-motion-source-transform.v1",
+  "changes": [
+    {
+      "file": "fireworks.js",
+      "old": "const motionDescriptor=body=>",
+      "new": "const RADIANT_PROFILE_ID='three-heart-radiant120-v1';\r\nconst motionDescriptor=body=>"
+    },
+    {
+      "file": "fireworks.js",
+      "old": "materialTimeProfile:body.thrustProfile?'uniform-per-life material; force-knot quadrature at common cell end':'descriptor available; existing smoke source scheduler unchanged'}:{}),combustion:",
+      "new": "materialTimeProfile:body.thrustProfile?'uniform-per-life material; force-knot quadrature at common cell end':'descriptor available; existing smoke source scheduler unchanged'}:{}),...(body.effectProfile===RADIANT_PROFILE_ID?{radianceProfile:body.radianceProfile,nativeReferenceI0:body.intensity,derivedReferenceI0:body.emissionReferenceI0,referenceIntensityBasis:'derived emissionReferenceI0; authored gain applied once in immutable burn profile'}:{}),combustion:"
+    },
+    {
+      "file": "fireworks.js",
+      "old": "return frozen({schema:'glass-atoll.combustion-metadata.v1',id,type:event.type,seed:event.seed,ground,",
+      "new": "return frozen({schema:'glass-atoll.combustion-metadata.v1',id,type:event.type,seed:event.seed,...(event.effectProfile===RADIANT_PROFILE_ID?{effectProfile:event.effectProfile,radianceProfile:event.layerProfile.radianceProfile,nativeReferencePeakBudget:event.layerProfile.nativeReferencePeakBudget,referencePeakBudget:event.layerProfile.referencePeakBudget}:{}),ground,"
+    },
+    {
+      "file": "fireworks.js",
+      "old": "unmodulatedIntensity:body.intensity*share,sourceBody:body,",
+      "new": "unmodulatedIntensity:(body.effectProfile===RADIANT_PROFILE_ID?body.emissionReferenceI0:body.intensity)*share,sourceBody:body,"
+    },
+    {
+      "file": "fireworks.js",
+      "old": "unmodulatedIntensity:body.intensity*fraction/sum,sourceBody:body,",
+      "new": "unmodulatedIntensity:(body.effectProfile===RADIANT_PROFILE_ID?body.emissionReferenceI0:body.intensity)*fraction/sum,sourceBody:body,"
+    },
+    {
+      "file": "fireworks.js",
+      "old": "baseVelocity:smokeVector(b.baseVelocity),patternPart:b.patternPart??null,...(b.thrustProfile?{motionProfile:motionDescriptor(b)}:{})",
+      "new": "baseVelocity:smokeVector(b.baseVelocity),patternPart:b.patternPart??null,...(b.effectProfile===RADIANT_PROFILE_ID?{radianceProfile:b.radianceProfile,nativeReferenceI0:b.intensity,derivedReferenceI0:b.emissionReferenceI0,trailRecipeId:b.trailProfile.recipeId,trailDurationSeconds:b.trailProfile.durationSeconds}:{}),...(b.thrustProfile?{motionProfile:motionDescriptor(b)}:{})"
+    },
+    {
+      "file": "fireworks.js",
+      "old": "...(event.effectProfile==='three-heart-scale120-v1'?{effectProfile:event.effectProfile,radialScale:event.layerProfile.radialScale}:{}),ground:",
+      "new": "...(event.effectProfile==='three-heart-scale120-v1'?{effectProfile:event.effectProfile,radialScale:event.layerProfile.radialScale}:{}),...(event.effectProfile===RADIANT_PROFILE_ID?{effectProfile:event.effectProfile,radialScale:event.layerProfile.radialScale,radianceProfile:event.layerProfile.radianceProfile,nativeReferencePeakBudget:event.layerProfile.nativeReferencePeakBudget,referencePeakBudget:event.layerProfile.referencePeakBudget}:{}),ground:"
+    },
+    {
+      "file": "fireworks.js",
+      "old": "const scaledEvents=simulation.active.filter(e=>e.effectProfile==='three-heart-scale120-v1');",
+      "new": "const scaledEvents=simulation.active.filter(e=>e.effectProfile==='three-heart-scale120-v1'||e.effectProfile===RADIANT_PROFILE_ID);"
+    },
+    {
+      "file": "fireworks.js",
+      "old": "scaledEvents.map(e=>e.layerProfile.radialScale.alpha).join(',')",
+      "new": "scaledEvents.map(e=>e.effectProfile===RADIANT_PROFILE_ID?RADIANT_PROFILE_ID+':'+e.layerProfile.radialScale.alpha:e.layerProfile.radialScale.alpha).join(',')"
+    },
+    {
+      "file": "firework-show-envelope.js",
+      "old": "const G=9.81,DEG=Math.PI/180,SCALED_PROFILE='three-heart-scale120-v1';",
+      "new": "const G=9.81,DEG=Math.PI/180,SCALED_PROFILE='three-heart-scale120-v1',RADIANT_PROFILE='three-heart-radiant120-v1';"
+    },
+    {
+      "file": "firework-show-envelope.js",
+      "old": "function validateScaledLimits(limits,model){\n  if(!limits||",
+      "new": "function validateScaledLimits(limits,model,profile=SCALED_PROFILE){\n  const radiant=profile===RADIANT_PROFILE;if(radiant&&limits?.authorGain!==16)throw new RangeError('Unsupported radiant authored-gain envelope contract');\n  if(!limits||"
+    },
+    {
+      "file": "firework-show-envelope.js",
+      "old": "limits.tailDurationSeconds!==.35||limits.propulsionKind",
+      "new": "limits.tailDurationSeconds!==(radiant?.88:.35)||limits.propulsionKind"
+    },
+    {
+      "file": "firework-show-envelope.js",
+      "old": "  if(event?.effectProfile!==SCALED_PROFILE)throw new RangeError('Scaled live enclosure requires its explicit profile');\n  const limits=getFireworkEffectProfileLimits(SCALED_PROFILE);validateScaledLimits(limits,event.aerodynamics?.starDragModel);",
+      "new": "  const radiant=event?.effectProfile===RADIANT_PROFILE;\n  if(event?.effectProfile!==SCALED_PROFILE&&!radiant)throw new RangeError('Scaled live enclosure requires its explicit profile');\n  const limits=getFireworkEffectProfileLimits(radiant?RADIANT_PROFILE:SCALED_PROFILE);validateScaledLimits(limits,event.aerodynamics?.starDragModel,radiant?RADIANT_PROFILE:SCALED_PROFILE);"
+    },
+    {
+      "file": "firework-show-envelope.js",
+      "old": "body.trailProfile?.recipeId!=='layered-gold-v1')",
+      "new": "(radiant?(body.trailProfile?.recipeId!=='radiant-layered-gold-v1'||body.trailProfile?.schema!=='glass-atoll.radiant-layer-trail-profile.v1'):body.trailProfile?.recipeId!=='layered-gold-v1'))"
+    },
+    {
+      "file": "firework-show-envelope.js",
+      "old": "duration=finite(body.trailProfile.durationSeconds,'Scaled root tail duration',0,.35)",
+      "new": "duration=finite(body.trailProfile.durationSeconds,'Scaled root tail duration',0,radiant?.88:.35)"
+    },
+    {
+      "file": "firework-show-envelope.js",
+      "old": "eventId:event.id,effectProfile:SCALED_PROFILE,min,max,",
+      "new": "eventId:event.id,effectProfile:radiant?RADIANT_PROFILE:SCALED_PROFILE,min,max,"
+    },
+    {
+      "file": "firework-show-envelope.js",
+      "old": "bodyCount:192,bodyMaximumSeconds:4.876,windRanges:wind,",
+      "new": "bodyCount:192,bodyMaximumSeconds:4.876,...(radiant?{tailMaximumSeconds:.88,trailRecipeId:'radiant-layered-gold-v1',radianceProfile:event.layerProfile.radianceProfile}:{}),windRanges:wind,"
+    },
+    {
+      "file": "firework-show-envelope.js",
+      "old": "powered=effectProfile==='powered-bees-v1',scaled=effectProfile===SCALED_PROFILE;\n  if(scaled)validateScaledLimits(profileLimits,pick('starDragModel','bounded-descent'));",
+      "new": "powered=effectProfile==='powered-bees-v1',scaled=effectProfile===SCALED_PROFILE||effectProfile===RADIANT_PROFILE;\n  if(scaled)validateScaledLimits(profileLimits,pick('starDragModel','bounded-descent'),effectProfile);"
+    }
+  ],
+  "sourceSHA256": {
+    "fireworks.js": "03fdb7038bffbfc769924ffff6ee57a51b5e9f8b2d3c72169d06e72b9d45c735",
+    "firework-show-envelope.js": "1c0c374b07f74b81356981bcee26ad030358a85acad96c7af25aaf687354297a"
+  }
+}

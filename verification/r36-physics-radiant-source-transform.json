@@ -1,0 +1,41 @@
+{
+  "schema": "r36-physics-radiant-source-transform.v1",
+  "source": "fireworks-physics.js",
+  "oldSHA256": "247bdf9de104354258cd7b63a960501fb2295d3fe2372019d77139ac15a384cc",
+  "newSHA256": "033d676b8a1fd044f2bfbf4d49689cf7bb61e169f0147ac2e78c972e8d90273b",
+  "changes": [
+    {
+      "old": "  if(effectProfile==='three-heart-scale120-v1'&&starDragModel!=='bounded-descent')throw new RangeError('three-heart-scale120-v1 requires bounded-descent');",
+      "new": "  if(effectProfile==='three-heart-scale120-v1'&&starDragModel!=='bounded-descent')throw new RangeError('three-heart-scale120-v1 requires bounded-descent');\r\n  if(effectProfile==='three-heart-radiant120-v1'&&starDragModel!=='bounded-descent')throw new RangeError('three-heart-radiant120-v1 requires bounded-descent');"
+    },
+    {
+      "old": "const powered=effectProfile==='powered-bees-v1',poweredRight=",
+      "new": "const powered=effectProfile==='powered-bees-v1',radiant=effectProfile==='three-heart-radiant120-v1',poweredRight="
+    },
+    {
+      "old": "const endTime=powered?Math.max(baseEndTime,",
+      "new": "const endTime=(powered||radiant)?Math.max(baseEndTime,"
+    },
+    {
+      "old": "limits:layered.limits,...(layered.radialScale?{radialScale:layered.radialScale}:{}),photometry:",
+      "new": "limits:layered.limits,...(layered.radialScale?{radialScale:layered.radialScale}:{}),...(layered.radianceProfile?{radianceProfile:layered.radianceProfile,nativeReferencePeakBudget:layered.nativeReferencePeakBudget}:{}),photometry:"
+    },
+    {
+      "old": "if(!Number.isFinite(duration)||duration<0||duration>.5)throw new RangeError('Scaled event tail duration exceeds reference contract');",
+      "new": "if(!Number.isFinite(duration)||duration<0||duration>(event.effectProfile==='three-heart-radiant120-v1'?.88:.5))throw new RangeError('Scaled event tail duration exceeds reference contract');"
+    },
+    {
+      "old": "  if(event.effectProfile==='three-heart-scale120-v1')return scaledEventReferenceBounds(event,options);",
+      "new": "  if(event.effectProfile==='three-heart-scale120-v1')return scaledEventReferenceBounds(event,options);\r\n  if(event.effectProfile==='three-heart-radiant120-v1')return scaledEventReferenceBounds(event,options);"
+    },
+    {
+      "old": "  if(next.effectProfile==='three-heart-scale120-v1'&&next.starDragModel!=='bounded-descent')throw new RangeError('three-heart-scale120-v1 requires bounded-descent');",
+      "new": "  if(next.effectProfile==='three-heart-scale120-v1'&&next.starDragModel!=='bounded-descent')throw new RangeError('three-heart-scale120-v1 requires bounded-descent');\r\n  if(next.effectProfile==='three-heart-radiant120-v1'&&next.starDragModel!=='bounded-descent')throw new RangeError('three-heart-radiant120-v1 requires bounded-descent');"
+    },
+    {
+      "old": "    if(profile==='three-heart-scale120-v1'&&(next.starDragModel??settings.starDragModel)!=='bounded-descent')throw new RangeError('three-heart-scale120-v1 requires bounded-descent');",
+      "new": "    if(profile==='three-heart-scale120-v1'&&(next.starDragModel??settings.starDragModel)!=='bounded-descent')throw new RangeError('three-heart-scale120-v1 requires bounded-descent');\r\n    if(profile==='three-heart-radiant120-v1'&&(next.starDragModel??settings.starDragModel)!=='bounded-descent')throw new RangeError('three-heart-radiant120-v1 requires bounded-descent');"
+    }
+  ],
+  "oldBranchLineEndingsPreserved": true
+}

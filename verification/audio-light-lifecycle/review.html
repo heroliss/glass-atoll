@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,"><title>玻璃海 · 听见焰火，看见岛上的光</title>
+  <style>
+    :root{color-scheme:dark;--bg:#091b20;--ink:#e5eee9;--muted:#adc5c3;--line:#34504f;--accent:#a3dfd5}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.8 "Microsoft YaHei",sans-serif}
+    main{max-width:1240px;margin:auto;padding:48px 24px 72px}h1{font-size:31px;line-height:1.4;font-weight:500;letter-spacing:.03em}h2{font-size:22px;font-weight:500;margin:0 0 12px}h3{font-size:17px;font-weight:500;margin:0}
+    p{margin:12px 0}.intro{max-width:900px;color:var(--muted)}a{color:var(--accent);text-underline-offset:4px}.eyebrow{font-size:12px;letter-spacing:.14em;color:var(--accent)}
+    section{margin-top:48px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}article{border-top:1px solid var(--line);padding-top:20px;min-width:0}.meta,figcaption{font-size:13px;color:var(--muted)}
+    video{display:block;width:100%;aspect-ratio:4/3;background:#000;border-radius:4px}audio{display:block;width:100%;margin:8px 0 0}.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:14px}
+    button{font:inherit;color:inherit;background:#14383b;border:1px solid #597e7c;border-radius:6px;padding:8px 14px;cursor:pointer}button:hover{border-color:var(--accent)}button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #c1eec5;outline-offset:4px}
+    .audio-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}.tag{font-size:13px;color:#c4ded7}.sound{margin-top:24px}figure{margin:0;min-width:0}img{width:100%;display:block;background:#000}figcaption{margin-top:6px}.comparison{margin-top:24px}.comparison .grid{gap:16px}
+    details{margin-top:20px}summary{cursor:pointer;color:var(--muted)}#status{color:var(--muted)}footer{margin-top:44px;max-width:960px;font-size:13px;color:var(--muted)}.sr-only{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap}
+    @media(max-width:640px){main{padding:28px 16px 48px}h1{font-size:26px}.grid,.audio-pair{grid-template-columns:1fr}.grid{gap:28px}.audio-pair{gap:14px}section{margin-top:36px}}
+  </style>
+</head>
+<body><main>
+  <p class="eyebrow">玻璃海 · 2026.11.01</p>
+  <h1>听见不同的焰火<br>看见光落在岛上</h1>
+  <p class="intro">这次先听四种主爆音色和渐散的裂响，再看多发烟花如何一同照亮沙滩、棕榈与近海。这里的音轨与画面来自本轮更新，旧回放仍保留原来的声音。</p>
+  <p><a href="../../">进入玻璃海</a> · <a href="ACCEPTANCE.md">本轮验证记录</a> · <a href="../lighting-choreography/review.html">金羽与银瀑回放</a></p>
+  <div class="actions"><button type="button" id="stop">停止所有播放</button><span id="status" role="status" aria-live="polite">点击任一音频或视频开始；一次只播放一段。</span></div>
+
+  <section aria-labelledby="audio-title">
+    <h2 id="audio-title">同一发烟花，听新旧混音</h2>
+    <p class="intro">之前每次主爆都以同一段重爆录音为主，其他音色很轻，容易被盖住。现在四种录音分别承担主爆，低频厚度与延迟裂响再叠入。以下各组保持相同种子、距离、海浪背景和总音量设置，便于直接对照。</p>
+    <div id="sounds"></div>
+    <div class="grid sound">
+      <article><h3>发射与上升</h3><p class="meta">留意点火的短促冲击和随后向上延续的气流声。</p><p class="tag">近景 · 距发射口约 30 米</p><audio controls preload="none" src="current-launch-ascent.wav" aria-label="当前近景发射与上升声试听"></audio><p class="tag">岛边视角 · 距发射口约 109 米</p><audio controls preload="none" src="current-launch-ascent-island-edge.wav" aria-label="当前岛边视角发射与上升声试听"></audio></article>
+      <article><h3>连续小爆</h3><p class="meta">多次较轻的爆裂采用两种短爆录音与错开的到达时间。</p><audio controls preload="none" src="current-twelve-subbursts.wav" aria-label="当前连续小爆声试听"></audio></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="video-title">
+    <h2 id="video-title">多发烟花，从发射看到余烬熄灭</h2>
+    <p class="intro">两段采用同一组错开发射、不同方位的烟花。近景看岛上持续变化的明暗与颜色；远景看烟花、岛屿和海面之间的关系。视频带本轮混音。</p>
+    <div class="grid">
+      <article><h3>岛屿近景</h3><p class="meta" id="island-meta">观察沙滩、棕榈和近岸水面。</p><video controls playsinline preload="none" poster="island-light-phase-2.png" src="island-light.webm" aria-label="多发烟花照亮岛屿的完整实景回放"></video><div class="actions"><a href="island-light.webm" target="_blank" rel="noopener">打开原视频</a></div></article>
+      <article><h3>烟花与小岛同框</h3><p class="meta" id="wide-meta">观察多处焰光的空间位置与渐弱过程。</p><video controls playsinline preload="none" poster="multi-fireworks-phase-2.png" src="multi-fireworks.webm" aria-label="多发烟花与小岛同框的完整实景回放"></video><div class="actions"><a href="multi-fireworks.webm" target="_blank" rel="noopener">打开原视频</a></div></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="light-title">
+    <h2 id="light-title">同一时刻，比较环境受光</h2>
+    <p class="intro">保持烟花、镜头和时间一致，只切换岛屿接收的烟花光。这里已过主爆瞬闪，看到的是持续燃烧的焰光。</p>
+    <div class="comparison grid">
+      <figure><a href="overlap-on.png" target="_blank" rel="noopener"><img loading="lazy" src="overlap-on.png" alt="多发烟花持续燃烧时，开启环境受光的岛屿画面"></a><figcaption>烟花接收光开启</figcaption></figure>
+      <figure><a href="overlap-off.png" target="_blank" rel="noopener"><img loading="lazy" src="overlap-off.png" alt="同一时刻关闭烟花接收光的岛屿画面"></a><figcaption>烟花接收光关闭</figcaption></figure>
+    </div>
+    <details><summary>查看验证数据</summary><p><a href="audio-layer-check.json">实际混音输出</a> · <a href="multi-receiver-scene.json">多源环境受光</a> · <a href="natural-multi-lifecycle.json">正常播放全过程</a> · <a href="multi-previews.json">录像采集记录</a> · <a href="media-check.json">媒体文件检查</a></p></details>
+  </section>
+  <footer><p>试听用同一条实际 WebAudio 混音链生成；发射与上升声为合成音，主爆与裂响使用已记录来源的录音素材。技术检查覆盖实际波形差异、声音层次、峰值和播放调度；最终听感仍以你的耳机或音箱试听为准。</p><p>录像保留网页实际画面节奏，未补帧或改变播放速度；独立采集的声音为近似同步。多源受光采用有限数量的空间代理近似，精度范围和本机测试条件见验证记录。</p></footer>
+</main>
+<script>
+  const variants=[['firecracker','清脆爆裂'],['bang','明亮轰响'],['boom-a','低沉重爆 A'],['boom-b','低沉重爆 B'],['willow-crackle-tail','持续裂响与余韵']];
+  const sounds=document.querySelector('#sounds');
+  for(const [id,label]of variants){const key=id==='willow-crackle-tail'?id:'main-'+id;const article=document.createElement('article');article.className='sound';const h=document.createElement('h3');h.textContent=label;article.append(h);const pair=document.createElement('div');pair.className='audio-pair';for(const [arm,text]of [['before','原混音'],['current','当前混音']]){const div=document.createElement('div'),tag=document.createElement('span'),audio=document.createElement('audio');tag.className='tag';tag.textContent=text;audio.controls=true;audio.preload='none';audio.src=arm+'-'+key+'.wav';audio.setAttribute('aria-label',label+'，'+text);div.append(tag,audio);pair.append(div);}article.append(pair);sounds.append(article);}
+  const media=[...document.querySelectorAll('audio,video')],status=document.querySelector('#status');
+  media.forEach(item=>{item.addEventListener('play',()=>{media.forEach(other=>{if(other!==item)other.pause();});status.textContent='正在播放：'+item.getAttribute('aria-label');});item.addEventListener('error',()=>{status.textContent='这段媒体暂时无法载入，请刷新后重试。';});});
+  document.querySelector('#stop').addEventListener('click',()=>{media.forEach(item=>{item.pause();if(item.readyState)item.currentTime=0;});status.textContent='已停止所有播放。';});
+  fetch('media-check.json').then(r=>{if(!r.ok)throw Error();return r.json();}).then(r=>{for(const clip of r.clips??[]){const node=document.querySelector(clip.id==='island-light'?'#island-meta':'#wide-meta'),video=clip.metadata?.streams?.find(s=>s.codec_type==='video'),seconds=Number(clip.metadata?.format?.duration);if(node&&video&&Number.isFinite(seconds))node.textContent='完整实景 · '+seconds.toFixed(1)+' 秒 · '+video.width+' × '+video.height;}}).catch(()=>{});
+</script>
+</body></html>

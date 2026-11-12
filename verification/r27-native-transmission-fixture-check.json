@@ -1,0 +1,125 @@
+{
+  "schema": "glass-atoll.r27-native-fixture-cpu-acceptance.v1",
+  "dateUTC": "2026-10-29T12:25:09.098Z",
+  "actualGPU": false,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 8,
+    "total": 8
+  },
+  "fixtureDigest": "b400c7e03f674a15a1590d92fcc016b91638322e4ebc6b8eca2b2534d5aa860d",
+  "fixtureModuleSHA256": "b0f38c4ecf01f5d906dbc39b8b824262dd42220761b2256ae175e05eeadf44c3",
+  "fixtureJSONSHA256": "15cf305aa046bc5a20438d8e7ddffbafc9ce5b6bbdf3a79ae309b556b33be429",
+  "checks": [
+    {
+      "name": "Static lazy module is deeply frozen exact canonical native JSON with cached-object digest and signed-zero preservation",
+      "passed": true,
+      "evidence": {
+        "digest": "b400c7e03f674a15a1590d92fcc016b91638322e4ebc6b8eca2b2534d5aa860d",
+        "frozenNodes": 28113,
+        "negativeZeros": 0,
+        "jsonBytes": 5470922,
+        "moduleBytes": 5472021
+      }
+    },
+    {
+      "name": "Capture-time generator and numerical/physics sources are pinned, approved audio unchanged",
+      "passed": true,
+      "evidence": {
+        "verifiedFullSourcePins": 28,
+        "captureMainSHA256": "5fcb25b0182ab1d75845373472f5a8fd37e9cf551f31d312e983e1a45a1b3f60",
+        "currentMainSHA256": "5fcb25b0182ab1d75845373472f5a8fd37e9cf551f31d312e983e1a45a1b3f60",
+        "mainScope": "Full main hash is capture-time provenance; actual terrain function is separately exact-pinned so later QA-only hooks do not masquerade as physics changes"
+      }
+    },
+    {
+      "name": "All755 committed density packets retain unique identity/full SPD covariance/profile fields and conserved material",
+      "passed": true,
+      "evidence": {
+        "packets": 755,
+        "profiles": 1,
+        "airborneReferenceMass": 9.246653760231856,
+        "pendingReferenceMass": 0.04586361867581987,
+        "requestedTime": 160.30687017173076,
+        "committedTime": 160.3,
+        "sourceLossOrThinning": false
+      }
+    },
+    {
+      "name": "Native source order/rays/visibility and unsubmitted empty reflection match the complete captured phase",
+      "passed": true,
+      "evidence": {
+        "mainRows": 1734,
+        "reflectionRows": 0,
+        "reflectionSourceTPrepares": 0,
+        "sourceVersions": {
+          "reconstructed": 1,
+          "historical": 809
+        },
+        "renderedGPU": false
+      }
+    },
+    {
+      "name": "Full prospective global-cap upload words and exact complete3map+reduce policy remain associated with all native rows",
+      "passed": true,
+      "evidence": {
+        "logicalPairs": 1309170,
+        "conservativeSlots": 1331712,
+        "fullInputBytes": 1126400,
+        "partialAllocation": {
+          "height": 156,
+          "logicalCapacity": 39875,
+          "texelCapacity": 39936,
+          "width": 256
+        },
+        "outputAllocation": {
+          "height": 71,
+          "logicalCapacity": 18000,
+          "texelCapacity": 18176,
+          "width": 256
+        }
+      }
+    },
+    {
+      "name": "Whole-request all1734 original/packed-double oracle replay matches offline32-row chunks exactly",
+      "passed": true,
+      "evidence": {
+        "allRows": 1734,
+        "physicalAndQuantizedChannels": 13872,
+        "bitExactWholeVsChunk": true,
+        "maximumOriginalVsPackedDoubleT": 1.6398788615923365e-7,
+        "cpuMs": 5125.66,
+        "scope": "Same accepted zero-budget CPU reference with different source batching; not GPU or universal Float32 certification"
+      }
+    },
+    {
+      "name": "All1728 independent current emitters and their original Float32 ledger rows are preserved; SH is separately costed",
+      "passed": true,
+      "evidence": {
+        "emissionSources": 1728,
+        "sourceTOpticalRows": 1734,
+        "independentResolvedPairs": 1304640,
+        "legacyLimit": 1048576,
+        "allRowsRetained": true,
+        "noSHGPUDispatch": true
+      }
+    },
+    {
+      "name": "Second causal native reconstruction reproduces full committed density, emission sources and ordered inputs without forced counts",
+      "passed": true,
+      "evidence": {
+        "replayedPackets": 755,
+        "mainRows": 1734,
+        "reflectionRows": 0,
+        "fullOriginalSources": 761,
+        "exactCanonicalPhysicalInputs": true
+      }
+    }
+  ],
+  "limits": [
+    "CPU native producer/provider and inert sorted-source capture only; no actual render/context/browser.",
+    "All-row offline original/packed-double oracle replay is not a GPU throughput/error bound or native scene FPS result.",
+    "Potential SH1 work is recorded independently; it is not submitted or admitted by this SourceT fixture."
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "schema": "glass-atoll.adaptive-tail-recorder-preflight.v1",
+  "dateUTC": "2026-10-27T20:27:56.579Z",
+  "actualBrowser": false,
+  "actualMedia": false,
+  "sourceSHA256": "4bfa1ccef4a1d3519b4bee154a7f5cfd1e9a865b248a41fa452e6b528c5e2ea5",
+  "checks": [
+    {
+      "name": "preserved actual v1 default shape with omitted kernel/dispersion is recognized",
+      "passed": true,
+      "evidence": {
+        "sourceArtifact": "r9-tail-motion-profile-first.json",
+        "actualParameters": {
+          "bouquetLaunchArea": 2,
+          "burstArea": 20,
+          "centralFraction": 0.2,
+          "centrePackets": 3,
+          "fanLaunchArea": 0.1,
+          "launchArea": 0.35,
+          "launchPackets": 9,
+          "releaseAges": [
+            0.35,
+            0.65
+          ],
+          "trajectorySlots": 12
+        }
+      }
+    },
+    {
+      "name": "missing/unknown source or explicitly unknown kernel/dispersion remains rejected",
+      "passed": true,
+      "evidence": {
+        "rejected": 4
+      }
+    },
+    {
+      "name": "every default field is required and unknown future parameters do not silently map to production",
+      "passed": true,
+      "evidence": {
+        "rejected": 13
+      }
+    },
+    {
+      "name": "known explicit QA profile choices remain selectable",
+      "passed": true,
+      "evidence": {
+        "profiles": 3
+      }
+    },
+    {
+      "name": "unrecognized future profile rejects before any scene mutation or capture",
+      "passed": true,
+      "evidence": {
+        "mutations": 0,
+        "captureStarted": false
+      }
+    }
+  ],
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "passed": true,
+  "limits": [
+    "Classifier uses preserved actual production parameter shape. Async boundary is a CPU fake, not browser recording/cleanup acceptance.",
+    "No runtime, audio gain, source model or renderer is changed. Original failed browser evidence remains unchanged."
+  ]
+}

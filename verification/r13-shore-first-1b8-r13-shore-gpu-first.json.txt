@@ -1,0 +1,109 @@
+{
+  "actualGPU": true,
+  "checks": [
+    {
+      "elapsedWallMs": 56.29999995231629,
+      "evidence": {
+        "cells": 256,
+        "detachedReadback": true,
+        "passes": {
+          "lastAdvance": 5,
+          "reductionLevels": 4,
+          "total": 5,
+          "validationReads": 1
+        }
+      },
+      "name": "RGBA32F initialization is read back, finite, complete and unchanged by detached query mutation",
+      "passed": true
+    },
+    {
+      "elapsedWallMs": 56.29999995231629,
+      "error": "RangeError: Shoreline GPU private commit failed validity/CFL/volume validation\n    at commitOne (http://127.0.0.1:5186/shoreline-dynamics.js:227:119)\n    at Object.advanceFence (http://127.0.0.1:5186/shoreline-dynamics.js:231:254)\n    at gpuAdvance (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:10:63)\n    at http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:43:40\n    at check (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:32:158)\n    at runR13ShoreGPU (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:41:11)\n    at async run (http://127.0.0.1:5186/verification/r13-shore-gpu-review.html:13:14)",
+      "name": "well-balanced stepped sloping partly dry lake agrees with CPU over thirty physical ticks",
+      "passed": false
+    },
+    {
+      "elapsedWallMs": 12.200000047683716,
+      "error": "RangeError: Shoreline GPU private commit failed validity/CFL/volume validation\n    at commitOne (http://127.0.0.1:5186/shoreline-dynamics.js:227:119)\n    at Object.advanceFence (http://127.0.0.1:5186/shoreline-dynamics.js:231:254)\n    at gpuAdvance (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:10:63)\n    at http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:48:37\n    at check (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:32:158)\n    at runR13ShoreGPU (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:45:11)\n    at async run (http://127.0.0.1:5186/verification/r13-shore-gpu-review.html:13:14)",
+      "name": "2D diagonal wet outflow remains positive at safe allocation and agrees with CPU",
+      "passed": false
+    },
+    {
+      "elapsedWallMs": 13,
+      "evidence": {
+        "lastFailure": {
+          "committedTime": 0,
+          "completedTicks": 0,
+          "failedCommitEndTime": 0.016666666666666666,
+          "message": "Shoreline GPU private commit failed validity/CFL/volume validation",
+          "requestedTime": 0.1
+        },
+        "ledger": {
+          "boundaryVolume": 0,
+          "initialVolume": 16,
+          "residual": 0,
+          "volume": 16
+        }
+      },
+      "name": "unsafe actual CFL rejects the private commit with committed texture fields clock and revision intact",
+      "passed": true
+    },
+    {
+      "elapsedWallMs": 15.099999904632568,
+      "error": "RangeError: Shoreline GPU private commit failed validity/CFL/volume validation\n    at commitOne (http://127.0.0.1:5186/shoreline-dynamics.js:227:119)\n    at Object.advanceFence (http://127.0.0.1:5186/shoreline-dynamics.js:231:254)\n    at http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:56:141\n    at check (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:32:158)\n    at runR13ShoreGPU (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:55:11)\n    at async run (http://127.0.0.1:5186/verification/r13-shore-gpu-review.html:13:14)",
+      "name": "render exception after one committed tick preserves prefix, restores renderer, and retries exactly",
+      "passed": false
+    },
+    {
+      "elapsedWallMs": 5.399999976158142,
+      "error": "RangeError: Shoreline GPU private commit failed validity/CFL/volume validation\n    at commitOne (http://127.0.0.1:5186/shoreline-dynamics.js:227:119)\n    at Object.advanceFence (http://127.0.0.1:5186/shoreline-dynamics.js:231:254)\n    at http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:64:155\n    at check (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:32:158)\n    at runR13ShoreGPU (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:63:11)\n    at async run (http://127.0.0.1:5186/verification/r13-shore-gpu-review.html:13:14)",
+      "name": "30Hz and120Hz fences use identical complete-clock native64 boundary states at origin4000",
+      "passed": false
+    },
+    {
+      "elapsedWallMs": 8.600000023841858,
+      "error": "Error: Mutation entered a busy GPU transaction\n    at assert (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:5:56)\n    at http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:69:7\n    at async check (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:32:152)\n    at async runR13ShoreGPU (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:67:5)\n    at async run (http://127.0.0.1:5186/verification/r13-shore-gpu-review.html:13:14)",
+      "name": "reentrant advance or dispose is rejected while a complete commit is pending",
+      "passed": false
+    },
+    {
+      "elapsedWallMs": 6.5,
+      "error": "RangeError: Shoreline GPU private commit failed validity/CFL/volume validation\n    at commitOne (http://127.0.0.1:5186/shoreline-dynamics.js:227:119)\n    at Object.advanceFence (http://127.0.0.1:5186/shoreline-dynamics.js:231:254)\n    at http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:73:121\n    at check (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:32:158)\n    at runR13ShoreGPU (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:71:11)\n    at async run (http://127.0.0.1:5186/verification/r13-shore-gpu-review.html:13:14)",
+      "name": "caller offscreen target viewport scissor FBO and flags survive creation advance and readback",
+      "passed": false
+    },
+    {
+      "elapsedWallMs": 0.2999999523162842,
+      "error": "Error: GLSL shader errors occurred\n    at assert (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:5:56)\n    at http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:80:66\n    at check (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:32:158)\n    at runR13ShoreGPU (http://127.0.0.1:5186/verification/r13-shore-gpu-check.js:80:11)\n    at async run (http://127.0.0.1:5186/verification/r13-shore-gpu-review.html:13:14)",
+      "name": "shader diagnostics and GL error gate",
+      "passed": false
+    }
+  ],
+  "counts": {
+    "passed": 2,
+    "total": 9
+  },
+  "dateUTC": "2026-10-28T10:41:41.844Z",
+  "defaultHostImported": false,
+  "elapsedWallMs": 196.60000002384183,
+  "limits": [
+    "Synchronous1x1 validation per physical tick; no60fps or final visual acceptance.",
+    "No full192/256/384 runup grid-convergence study here.",
+    "Boundary is a shared native64-mode long-wave characteristic approximation, not a full dispersive offshore solver.",
+    "No production host/water/foam/wet-sand/caustic integration."
+  ],
+  "passed": false,
+  "renderer": {
+    "renderer": "WebKit WebGL",
+    "vendor": "WebKit",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+  },
+  "schema": "glass-atoll.r13-shore-gpu-check.v1",
+  "shaderErrors": [
+    {
+      "fragment": "ERROR: 0:37: '?:' : ternary operator is not allowed for structures in ESSL 1.0 and webgl\nERROR: 0:38: '?:' : ternary operator is not allowed for structures in ESSL 1.0 and webgl\nERROR: 0:39: '?:' : ternary operator is not allowed for structures in ESSL 1.0 and webgl\nERROR: 0:40: '?:' : ternary operator is not allowed for structures in ESSL 1.0 and webgl\n",
+      "program": "Fragment shader is not compiled.\n",
+      "vertex": ""
+    }
+  ]
+}

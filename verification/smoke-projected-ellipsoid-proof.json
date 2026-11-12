@@ -1,0 +1,126 @@
+{
+  "schema": "glass-atoll.smoke-projected-ellipsoid-proof.v1",
+  "dateUTC": "2026-10-27T00:46:07.158Z",
+  "passed": true,
+  "counts": {
+    "checks": 7,
+    "passed": 7
+  },
+  "checks": [
+    {
+      "id": "sampled_support_is_conservatively_inside_projected_ellipse_AABB",
+      "passed": true,
+      "tested": 65536,
+      "visible": 65527,
+      "exactCases": 64,
+      "maximumOutside": 0
+    },
+    {
+      "id": "camera_inside_or_camera_plane_crossing_falls_back_to_full_viewport",
+      "passed": true,
+      "inside": "full-w-crossing",
+      "outsideCameraButCrossingPlane": "full-w-crossing"
+    },
+    {
+      "id": "near_plane_is_not_misused_as_optical_medium_start",
+      "passed": true,
+      "near": 0.1,
+      "supportDepth": [
+        0.045,
+        0.055
+      ],
+      "mode": "exact-unclipped-5sigma-AABB"
+    },
+    {
+      "id": "oblique_clip_z_changes_do_not_change_xy_fractional_support_bound",
+      "passed": true
+    },
+    {
+      "id": "complete_behind_support_culls_only_support_not_physical_Gaussian_mass",
+      "passed": true,
+      "limit": "forward Gaussian tail remains physical; only support culling is described, with separate optical-depth tail bound"
+    },
+    {
+      "id": "elongated_examples_can_reduce_quad_area_without_more_source_packets",
+      "passed": true,
+      "examples": [
+        {
+          "name": "long_axis_across_view",
+          "worldSigma": [
+            0.2,
+            0.2,
+            8
+          ],
+          "oldSphereQuadPixels": 1296000,
+          "ellipseAABBpixels": 15189.873417721523,
+          "areaRatio": 85.31999999999998
+        },
+        {
+          "name": "long_axis_along_view",
+          "worldSigma": [
+            0.2,
+            0.2,
+            8
+          ],
+          "oldSphereQuadPixels": 1296000,
+          "ellipseAABBpixels": 506.2500000000002,
+          "areaRatio": 2559.9999999999986
+        }
+      ],
+      "limit": "area not a GPU timing claim; actual camera/view/shape can give less benefit"
+    },
+    {
+      "id": "existing_Gaussian_tail_budget_is_finite_but_not_automatically_negligible_at4320",
+      "passed": true,
+      "sigma": 5,
+      "massPerPacket": 1.5833333333333333,
+      "perRayPerPacketOpticalDepthBound": 0.00003320217327059728,
+      "packets4320WorstSum": 0.14343338852898024,
+      "limitation": "uniform conservative sum can be large; tighter proxy is not zero-error, CPU ray field must remain authoritative and actual error tested"
+    }
+  ],
+  "metrics": {
+    "areaExamples": [
+      {
+        "name": "long_axis_across_view",
+        "worldSigma": [
+          0.2,
+          0.2,
+          8
+        ],
+        "oldSphereQuadPixels": 1296000,
+        "ellipseAABBpixels": 15189.873417721523,
+        "areaRatio": 85.31999999999998
+      },
+      {
+        "name": "long_axis_along_view",
+        "worldSigma": [
+          0.2,
+          0.2,
+          8
+        ],
+        "oldSphereQuadPixels": 1296000,
+        "ellipseAABBpixels": 506.2500000000002,
+        "areaRatio": 2559.9999999999986
+      }
+    ],
+    "tailExample": {
+      "sigma": 5,
+      "massPerPacket": 1.5833333333333333,
+      "perRayPerPacketOpticalDepthBound": 0.00003320217327059728,
+      "packets4320WorstSum": 0.14343338852898024,
+      "limitation": "uniform conservative sum can be large; tighter proxy is not zero-error, CPU ray field must remain authoritative and actual error tested"
+    }
+  },
+  "noGPU": true,
+  "noRuntimeEdits": true,
+  "metricSourceSHA256": "d2bfe2a754f3d5fd99d2384ef70d95f2cdd7a6d5502e48474b85fc0ed36cc03b",
+  "derivation": "n=n0+u.y,w=d0+v.y for|y|<=1. Positive-w extrema solve A*t^2-2B*t+C=0; A=d0^2-v.v,B=n0*d0-u.v,C=n0^2-u.u. u=5L^T*a,v=5L^T*b from actualP*V rows.",
+  "limits": [
+    "random support samples plus algebra, not floating-point certified interval arithmetic",
+    "numeric/camera-plane degeneracy must full-screen fallback; production would require outward pixel padding and actualGPU A/B",
+    "no shader, density, source, CPU ray field or runtime culling implementation changed",
+    "existing5sigma Gaussian-tail error bound is retained, not a claim of identical infinite-support images",
+    "matrix includes actual orientation/viewoffset/oblique projection; near plane never replaces real optical ray origin"
+  ]
+}

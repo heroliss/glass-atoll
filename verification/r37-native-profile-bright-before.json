@@ -1,0 +1,2503 @@
+{
+  "state": {
+    "ready": true,
+    "time": 5.946208801924882,
+    "fps": 0,
+    "gpuMs": 10.623,
+    "renderScale": 1,
+    "graphicsContextInterrupted": false,
+    "pausedRenderCached": true,
+    "pausedSteadyFrames": 2415,
+    "parameters": {
+      "sun": {
+        "azimuth": 100,
+        "elevation": 48,
+        "intensity": 1
+      },
+      "quality": "high",
+      "paused": true,
+      "sound": false,
+      "wind": 1.8,
+      "current": 0.16,
+      "lens": {
+        "focal": 28,
+        "aperture": 8,
+        "exposure": 0,
+        "dof": false,
+        "vignette": true,
+        "antialias": "smaa",
+        "automatic": false,
+        "manualExposureEV": 0,
+        "temporal": true,
+        "glintAA": true,
+        "opticalBloom": true,
+        "opticalFlare": false,
+        "focusMode": "target",
+        "focusDistance": 60
+      },
+      "weather": {
+        "humidity": 0.68,
+        "temperature": 29,
+        "cloudBase": "auto",
+        "thickness": 950,
+        "coverage": 0.35,
+        "shear": 1.1
+      },
+      "air": {
+        "enabled": true,
+        "aerosolScale": 8,
+        "shadows": true
+      },
+      "graphics": {
+        "indirect": "low",
+        "shadows": "recommended",
+        "targetFps": 60,
+        "hdr": true,
+        "hdrMode": "auto",
+        "displayName": "auto",
+        "systemCalibration": true,
+        "peakNits": 1270,
+        "paperWhiteNits": 280,
+        "displayTransform": "legacy",
+        "waveResolution": 512,
+        "hdrHeadroom": 4
+      },
+      "sea": {
+        "swellHeight": 0.16,
+        "windSea": 1,
+        "clarity": 0.9
+      },
+      "director": {
+        "mode": "off",
+        "periodSeconds": 240
+      },
+      "qualityPreset": "medium",
+      "renderSampling": {
+        "indirect": "low",
+        "antialias": "smaa",
+        "temporal": true,
+        "glintAA": true,
+        "opticalBloom": true,
+        "dprCap": 1.65,
+        "msaaSamples": 8,
+        "shadowSize": 4096,
+        "shadowHz": 45,
+        "waveResolution": 512,
+        "cloudSteps": 64,
+        "atmosphereSteps": 8,
+        "airSteps": 6,
+        "airShadowTaps": 1,
+        "causticsGrid": 1280,
+        "causticsSize": 1536,
+        "causticsHz": 24,
+        "reflectionScale": 1,
+        "reflectionSamples": 2
+      },
+      "qualityCustom": false
+    },
+    "lens": {
+      "displayTransform": {
+        "kind": "hdr",
+        "requested": true,
+        "effective": "legacy",
+        "reason": "render-declined",
+        "error": null,
+        "adapter": {
+          "requested": "legacy",
+          "preparation": {
+            "status": "idle",
+            "reason": "selected-legacy",
+            "peakNits": 1270,
+            "error": null
+          },
+          "sdr": {
+            "effective": "none",
+            "peakNits": 100,
+            "reason": "awaiting-render",
+            "error": null
+          },
+          "hdr": {
+            "effective": "legacy",
+            "peakNits": 1270,
+            "reason": "selected-legacy",
+            "error": null
+          },
+          "variant": "aces2-ocio26-accurate-atan-v1",
+          "supportedTargets": [
+            100,
+            700,
+            1270
+          ],
+          "preparablePeakRange": {
+            "min": 100,
+            "max": 10000,
+            "integerOnly": true
+          },
+          "lastError": null,
+          "revision": 1,
+          "disposed": false,
+          "frames": {
+            "sdr": 0,
+            "hdr": 0
+          },
+          "fallbackFrames": {
+            "sdr": 0,
+            "hdr": 518
+          },
+          "output": null
+        }
+      },
+      "storageEV": 10.75,
+      "historyEV": 10.75,
+      "dynamicLighting": false,
+      "sceneAttachments": [
+        "RGBA16F radiance",
+        "RGBA16F motion/coverage",
+        "R16F foliage depth",
+        "R8 local reactive"
+      ],
+      "motion": {
+        "enabled": true,
+        "frames": 522,
+        "groups": 1,
+        "hasPrevious": true,
+        "extraScenePasses": 0,
+        "attachment": "RGBA16F: unjittered UV velocity.xy, previous linear depth, MSAA coverage; R16F: current linear depth; normalize both by coverage",
+        "limits": [
+          "analytic rest-mesh wind and camera motion only; no arbitrary model-matrix animation",
+          "missing-coverage bridge retains conservative camera-only fallback"
+        ]
+      },
+      "bloom": {
+        "enabled": true,
+        "bloom": true,
+        "flare": false,
+        "strength": 0.018,
+        "budget": {
+          "direct": 0.982,
+          "bloom": 0.018,
+          "ghost": 0,
+          "veil": 0,
+          "total": 0.018
+        },
+        "levels": 4,
+        "passes": 5,
+        "operatorPeakBoundRGB": [
+          1,
+          1,
+          1
+        ],
+        "model": "single threshold-free linear HDR PSF; opt-in affine ghost/veil share at most 1.8% radiance redistribution",
+        "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+      },
+      "hdr": {
+        "enabled": true,
+        "available": true,
+        "apiAvailable": true,
+        "displayHDR": true,
+        "mode": "float-canvas-external-copy",
+        "width": 1209,
+        "height": 1292,
+        "maxHz": 120,
+        "maxBridgeWidth": 1440,
+        "paperWhiteNits": 280,
+        "peakNits": 1270,
+        "sdrWhiteNits": 280,
+        "headroom": 4.535714285714286,
+        "whiteScale": 1,
+        "calibrationSource": "windows-dxgi",
+        "displayName": "Q27G4XM",
+        "calibrationAdjustments": [],
+        "presentedFrames": 518,
+        "skippedFrames": 4,
+        "lastPresentCpuMs": 0,
+        "lastUploadCpuMs": 0,
+        "lastPresentationTimestamp": 46356.70000000298,
+        "errors": [],
+        "requiresRedraw": false,
+        "readback": null,
+        "presentationObserverActive": false,
+        "presentationObserverError": null,
+        "displayTransform": {
+          "kind": "hdr",
+          "requested": true,
+          "effective": "legacy",
+          "reason": "render-declined",
+          "error": null,
+          "adapter": {
+            "requested": "legacy",
+            "preparation": {
+              "status": "idle",
+              "reason": "selected-legacy",
+              "peakNits": 1270,
+              "error": null
+            },
+            "sdr": {
+              "effective": "none",
+              "peakNits": 100,
+              "reason": "awaiting-render",
+              "error": null
+            },
+            "hdr": {
+              "effective": "legacy",
+              "peakNits": 1270,
+              "reason": "selected-legacy",
+              "error": null
+            },
+            "variant": "aces2-ocio26-accurate-atan-v1",
+            "supportedTargets": [
+              100,
+              700,
+              1270
+            ],
+            "preparablePeakRange": {
+              "min": 100,
+              "max": 10000,
+              "integerOnly": true
+            },
+            "lastError": null,
+            "revision": 1,
+            "disposed": false,
+            "frames": {
+              "sdr": 0,
+              "hdr": 0
+            },
+            "fallbackFrames": {
+              "sdr": 0,
+              "hdr": 518
+            },
+            "output": null
+          }
+        },
+        "source": "pre-OutputPass, scene-linear sRGB floating-point target",
+        "output": "sRGB-encoded rgba16float, extended, opaque",
+        "noExplicitCPUReadback": true,
+        "absoluteNitsCalibrated": false,
+        "systemReportedCalibration": true,
+        "peakRelativeToBrowserWhite": 4.535714285714286,
+        "shoulder": "same fitted SDR ACES anchor through exposed peak 1; C1 bounded highlight extension; nit scale divided by browser/Windows SDR white",
+        "limits": "System-reported luminance is not a photometer measurement and scene lux is not calibrated. This is not an official ACES HDR ODT. Extended sRGB canvas is not a native 80-nit scRGB swap chain. External-image copy is not guaranteed zero-copy. PBO copies pixels through CPU. HDR enlargement is linear, not SDR FSR1."
+      },
+      "width": 1209,
+      "height": 1292,
+      "outputWidth": 1209,
+      "outputHeight": 1292,
+      "upscaler": "native resolution",
+      "samples": 8,
+      "maxSamples": 8,
+      "sampleSupport": [
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ]
+      ],
+      "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+      "temporal": {
+        "enabled": true,
+        "active": true,
+        "waterEnabled": true,
+        "stillFrames": 41,
+        "frozen": true,
+        "historyFrames": 477,
+        "historyWeight": 0.84,
+        "artificialJitter": false,
+        "jitterPixels": [
+          0,
+          0
+        ],
+        "lastResetReason": "firework illumination",
+        "scope": "analytic wind/camera foliage motion, MSAA coverage, independent short water radiance history",
+        "maximumMissingCoverageFrames": 2,
+        "metadata": "R8 age; nearest valid depth, bilinear RGB",
+        "historyBytes": 28116504
+      },
+      "shutterSeconds": 0.008333333333333333,
+      "focalMm": 28,
+      "cameraFocalMm": 27.999999999999993,
+      "verticalFovDegrees": 65.4704525442152,
+      "exposureScale": 7.230379259216544,
+      "aperture": 8,
+      "focusMode": "target",
+      "focusMetres": 554.9042321386725,
+      "sensorHeightMm": 36,
+      "depthOfField": false,
+      "vignette": true,
+      "sceneStats": {
+        "triangles": 2137210,
+        "calls": 35
+      }
+    },
+    "caustics": {
+      "quality": "high",
+      "gridSegments": 1280,
+      "maxHz": 24
+    },
+    "performance": {
+      "enabled": false,
+      "targetFps": 60,
+      "referenceBudgetMs": 16.666666666666668,
+      "scale": 1,
+      "minimumScale": 0.6,
+      "smoothedCostMs": null,
+      "lastGpuMs": null,
+      "slowFrameFraction": 0,
+      "changes": []
+    },
+    "camera": [
+      -174.16262343853828,
+      11.999999999999963,
+      -400.21246542619997
+    ],
+    "target": [
+      73.25868066753974,
+      0,
+      96.3330059254753
+    ],
+    "ripples": [
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ]
+    ],
+    "triangles": 2137210,
+    "drawCalls": 35,
+    "leaves": []
+  },
+  "fireworks": {
+    "time": 5.946208801924882,
+    "active": 1,
+    "queued": 0,
+    "launches": 1,
+    "rejected": 0,
+    "skippedAutomatic": 0,
+    "maxActive": 4,
+    "maxQueued": 16,
+    "launchPolicy": "immediate",
+    "lastLaunch": {
+      "id": "341070-0.07860",
+      "type": "chrysanthemum",
+      "time": 0.07859999999403953,
+      "azimuth": 154.13832682910112,
+      "elevation": 71.51131703174929,
+      "origin": [
+        29.091295534175146,
+        1.453010606729798,
+        7.188336255335875
+      ],
+      "seed": 341070,
+      "burstOrientation": {
+        "yawDegrees": 113.51804684847593,
+        "tiltDegrees": -4.212760556023568,
+        "rollDegrees": -6.308773774653673
+      },
+      "effectProfile": "three-heart-radiant120-v1"
+    },
+    "settings": {
+      "type": "chrysanthemum",
+      "autoLaunch": false,
+      "autoDirection": true,
+      "azimuth": 110,
+      "elevation": 78,
+      "autoFrame": false,
+      "persistentSmoke": true,
+      "cloudIllumination": true,
+      "resolvedSmokeLighting": true,
+      "intensityScale": 1,
+      "intervalSeconds": 7.5,
+      "launchSpreadDegrees": 15,
+      "burstTiltDegrees": 27,
+      "burstRollDegrees": 20,
+      "starDragModel": "bounded-descent",
+      "clusterModel": "moments",
+      "finiteClusterPhase": true,
+      "effectProfile": "three-heart-radiant120-v1"
+    },
+    "windSegments": 2,
+    "activeEvents": [
+      {
+        "id": "341070-0.07860",
+        "type": "chrysanthemum",
+        "pattern": "chrysanthemum",
+        "smileyLayout": null,
+        "intensityScale": 1,
+        "actualStarCount": 192,
+        "calibreMm": 120,
+        "heightInfo": {
+          "inputMode": "definition-rise",
+          "referenceRiseMetres": 160,
+          "referenceElevationDegrees": 80,
+          "explicitWorldHeight": null,
+          "calibratedRiseMetres": 160,
+          "actualBurstWorldY": 151.1342526352546,
+          "actualBurstRiseMetres": 149.6812420285248,
+          "productReference": {
+            "calibreMm": 120,
+            "riseMetres": 160,
+            "referenceWidthMetres": 120,
+            "source": "https://ojiyaenka.base.shop/items/34029650",
+            "evidence": "supplier product-scale example",
+            "widthCalibrated": false
+          },
+          "widthCalibrated": false,
+          "widthReferenceCalibration": {
+            "schema": "glass-atoll.three-heart-radial-scale-calibration.v1",
+            "alpha": 2.5647249747773015,
+            "calibrationAgeSeconds": 2.5,
+            "targetOuterHorizontalWidthMetres": 120,
+            "unscaledOuterHorizontalWidthMetres": 46.7886425172819,
+            "solvedOuterHorizontalWidthMetres": 120,
+            "minimumOwnPeakPhotopicFraction": 0.1,
+            "eligibleOuterBodyIds": [
+              0,
+              3,
+              6,
+              9,
+              12,
+              15,
+              18,
+              21,
+              24,
+              27,
+              30,
+              33,
+              36,
+              39,
+              42,
+              45,
+              48,
+              51,
+              54,
+              57,
+              60,
+              63,
+              66,
+              69,
+              72,
+              75,
+              78,
+              81,
+              84,
+              87,
+              90,
+              93,
+              96,
+              99,
+              102,
+              105,
+              108,
+              111,
+              114,
+              117,
+              120,
+              123,
+              126,
+              129,
+              132,
+              135,
+              138,
+              141,
+              144,
+              147,
+              150,
+              153,
+              156,
+              159,
+              162,
+              165,
+              168,
+              171,
+              174,
+              177,
+              180,
+              183,
+              186,
+              189
+            ],
+            "widthWitnessBodyIds": [
+              63,
+              114
+            ],
+            "dragPerSecond": 0.613125,
+            "sharedTravelFactorSeconds": 1.2788134289666273,
+            "sharedBirth": 5.246208801924882,
+            "sharedPosition": [
+              67.78124095895507,
+              151.1342526352546,
+              87.00296800362213
+            ],
+            "sharedGravity": 9.81,
+            "shellCarrierVelocity": [
+              6.129623839372197,
+              0,
+              12.644982155536121
+            ],
+            "maximumActualIntrinsicSpeedMetresPerSecond": 48.59845364981418,
+            "maximumRadialScale": 4,
+            "preGainReferenceSeed": 341070,
+            "actualSourcePeakBudget": 1421.2929533421993,
+            "zeroActualSourceBudget": false,
+            "sourceGainIndependent": true,
+            "referenceBasis": "pre-I0/global-gain instanced burn curve",
+            "widthStatistic": "maximum pairwise horizontal separation of eligible outer burning heads in shared free flight",
+            "frame": "shell-COM/carrier reference; finite-star arithmetic or mass-weighted centroid is not constrained",
+            "contactPolicy": "Free-flight pre-contact calibration only; existing physical/optical contact clipping may reduce actual burning width at any launch angle",
+            "windPolicy": "Common uniform-in-space piecewise-held wind/drag/gravity translation cancels pairwise; no wind callback or future sample queried",
+            "physicalCalibration": "Authored120m at2.5s/10% source gate; not a supplier measured expansion/photometry curve",
+            "photometryAndMatter": "I0, emission/material profiles, IDs, birth, lifetimes and tail recipes are not patched",
+            "visibility": "Source-relative reference geometry, not camera visibility; at0x this is explicitly nonvisible geometry"
+          },
+          "visibleApex": null
+        },
+        "paletteMode": "effect-profile",
+        "effectProfile": "three-heart-radiant120-v1",
+        "layerProfile": {
+          "schema": "glass-atoll.compiled-layer-profile.v1",
+          "layerCounts": {
+            "outer": 64,
+            "middle": 64,
+            "inner": 64
+          },
+          "referencePeakBudget": 22740.68725347519,
+          "maximumLife": 4.870042435837909,
+          "limits": {
+            "maximumBodySeconds": 4.876,
+            "intrinsicSpeed": 76,
+            "unscaledIntrinsicSpeed": 19,
+            "maximumRadialScale": 4,
+            "maximumIgnitionDelaySeconds": 0,
+            "tailDurationSeconds": 0.88,
+            "propulsionKind": "none",
+            "bodyCount": 192,
+            "layerCount": 3,
+            "lifeVariationFraction": 0.06,
+            "intensityVariationFraction": 0,
+            "requiredStarDragModel": "bounded-descent",
+            "requiredBodyDragPerSecond": 0.613125,
+            "authorGain": 16
+          },
+          "radialScale": {
+            "schema": "glass-atoll.three-heart-radial-scale-calibration.v1",
+            "alpha": 2.5647249747773015,
+            "calibrationAgeSeconds": 2.5,
+            "targetOuterHorizontalWidthMetres": 120,
+            "unscaledOuterHorizontalWidthMetres": 46.7886425172819,
+            "solvedOuterHorizontalWidthMetres": 120,
+            "minimumOwnPeakPhotopicFraction": 0.1,
+            "eligibleOuterBodyIds": [
+              0,
+              3,
+              6,
+              9,
+              12,
+              15,
+              18,
+              21,
+              24,
+              27,
+              30,
+              33,
+              36,
+              39,
+              42,
+              45,
+              48,
+              51,
+              54,
+              57,
+              60,
+              63,
+              66,
+              69,
+              72,
+              75,
+              78,
+              81,
+              84,
+              87,
+              90,
+              93,
+              96,
+              99,
+              102,
+              105,
+              108,
+              111,
+              114,
+              117,
+              120,
+              123,
+              126,
+              129,
+              132,
+              135,
+              138,
+              141,
+              144,
+              147,
+              150,
+              153,
+              156,
+              159,
+              162,
+              165,
+              168,
+              171,
+              174,
+              177,
+              180,
+              183,
+              186,
+              189
+            ],
+            "widthWitnessBodyIds": [
+              63,
+              114
+            ],
+            "dragPerSecond": 0.613125,
+            "sharedTravelFactorSeconds": 1.2788134289666273,
+            "sharedBirth": 5.246208801924882,
+            "sharedPosition": [
+              67.78124095895507,
+              151.1342526352546,
+              87.00296800362213
+            ],
+            "sharedGravity": 9.81,
+            "shellCarrierVelocity": [
+              6.129623839372197,
+              0,
+              12.644982155536121
+            ],
+            "maximumActualIntrinsicSpeedMetresPerSecond": 48.59845364981418,
+            "maximumRadialScale": 4,
+            "preGainReferenceSeed": 341070,
+            "actualSourcePeakBudget": 1421.2929533421993,
+            "zeroActualSourceBudget": false,
+            "sourceGainIndependent": true,
+            "referenceBasis": "pre-I0/global-gain instanced burn curve",
+            "widthStatistic": "maximum pairwise horizontal separation of eligible outer burning heads in shared free flight",
+            "frame": "shell-COM/carrier reference; finite-star arithmetic or mass-weighted centroid is not constrained",
+            "contactPolicy": "Free-flight pre-contact calibration only; existing physical/optical contact clipping may reduce actual burning width at any launch angle",
+            "windPolicy": "Common uniform-in-space piecewise-held wind/drag/gravity translation cancels pairwise; no wind callback or future sample queried",
+            "physicalCalibration": "Authored120m at2.5s/10% source gate; not a supplier measured expansion/photometry curve",
+            "photometryAndMatter": "I0, emission/material profiles, IDs, birth, lifetimes and tail recipes are not patched",
+            "visibility": "Source-relative reference geometry, not camera visibility; at0x this is explicitly nonvisible geometry"
+          },
+          "radianceProfile": {
+            "schema": "glass-atoll.radiant-three-heart-reference.v1",
+            "effectProfile": "three-heart-radiant120-v1",
+            "baseEffectProfile": "three-heart-scale120-v1",
+            "authorGain": 16,
+            "nativeReferencePeakBudget": 1421.2929533421993,
+            "referencePeakBudget": 22740.68725347519,
+            "normalization": "Existing native I0 already includes user intensityScale; authored gain16 applied exactly once to emission RGB and emissionReferenceI0",
+            "calibration": "authored reference brightness and optical allocation; no measured candela, nits, radiated energy or fuel calibration"
+          },
+          "nativeReferencePeakBudget": 1421.2929533421993,
+          "photometry": "Authored gain16 of each R35 source reference exactly once, including all-phase RGB; user gain already included; no measured photometry. Original material and geometry retained.",
+          "material": "No CDF scheduler or material allocation changed; downstream original model remains",
+          "trailRecipeId": "radiant-layered-gold-v1"
+        },
+        "aerodynamics": {
+          "model": "effective-linear-drag-matched-terminal",
+          "starDragModel": "bounded-descent",
+          "terminalSpeedMetresPerSecond": 16,
+          "dragPerSecond": 0.613125,
+          "childTerminalSpeedMetresPerSecond": 16,
+          "gravityMetresPerSecondSquared": 9.81,
+          "buoyancy": "dense burning body; no invented hot-gas lift",
+          "calibration": "authored terminal-speed reference, not measured particle properties"
+        },
+        "burstOrientation": {
+          "yawDegrees": 113.51804684847593,
+          "tiltDegrees": -4.212760556023568,
+          "rollDegrees": -6.308773774653673
+        }
+      }
+    ],
+    "model": "analytic linear-drag segments; deterministic world-space events; authored reference photometry, not CFD",
+    "capacityPolicy": "complete events, immediate acceptance or explicit rejection; automatic full slots skip without queue",
+    "clusterModel": "moments",
+    "clusterIlluminationModel": "spatial-moment finite-radius point proxy; not exact area emission",
+    "records": 1610,
+    "contactSupport": {
+      "currentQueries": 1600,
+      "surfaceQueries": 0,
+      "viewQueries": 1600,
+      "fastAbove": 1600,
+      "planeSolves": 0,
+      "boundedSolves": 0,
+      "partialRows": 0,
+      "emptyRows": 0,
+      "maximumIntervals": 0,
+      "maximumUnresolvedSeconds": 0,
+      "evaluations": 0,
+      "surface": "glass-atoll.atoll-air-surface.v1",
+      "clearanceMetres": 0.03,
+      "scope": "air-source centre support over static terrain/mean sea; finite root brackets; smoke and material unchanged"
+    },
+    "lastRender": {
+      "instances": 1600,
+      "reflection": false,
+      "time": 5.946208801924882,
+      "rendered": true,
+      "skipped": false,
+      "storageEV": 10.75,
+      "rawPerCandela": 0.000036,
+      "width": 1209,
+      "height": 1292,
+      "mediumQueries": 0,
+      "sourceTransmission": {
+        "backend": "gpu",
+        "requested": true,
+        "effective": true,
+        "reason": "experimental-ready",
+        "mediumQueries": 0,
+        "instances": 1600,
+        "activeRayCount": 1600,
+        "sourceVersion": 940,
+        "recordsGeneration": 435,
+        "densityRevision": 154,
+        "cameraKey": "-174.16262343853825,11.999999999999963,-400.2124654261999",
+        "reflection": false,
+        "vectorSources": 1600,
+        "transmissionTimePolicy": "one T per source optical midpoint anchor; T(t) is not shutter-integrated"
+      },
+      "sourceVisibility": {
+        "mode": "conservative",
+        "inputRecords": 1600,
+        "luminousSources": 1600,
+        "depthCulled": 0,
+        "quadCulled": 0,
+        "conservativeRetained": 0,
+        "mediumQueries": 0,
+        "renderedRecords": 1600
+      },
+      "vectorExposure": {
+        "physicalNow": 5.946208801924882,
+        "shutterSeconds": 0.008333333333333333,
+        "from": 5.937875468591549,
+        "to": 5.946208801924882,
+        "anchor": 5.942042135258216,
+        "durationSeconds": 0.008333333333333748,
+        "mode": "causal-end",
+        "units": "physical seconds; requested shutter may differ from represented endpoint width"
+      },
+      "legacyShutterSeconds": 0.008333333333333333,
+      "temporalModel": "8 referenceRGB bin means with joint motion kernel; Eulerian replenished tail field; midpoint T approximation"
+    },
+    "lastRenderByView": {
+      "main": {
+        "instances": 1600,
+        "reflection": false,
+        "time": 5.946208801924882,
+        "rendered": true,
+        "skipped": false,
+        "storageEV": 10.75,
+        "rawPerCandela": 0.000036,
+        "width": 1209,
+        "height": 1292,
+        "mediumQueries": 0,
+        "sourceTransmission": {
+          "backend": "gpu",
+          "requested": true,
+          "effective": true,
+          "reason": "experimental-ready",
+          "mediumQueries": 0,
+          "instances": 1600,
+          "activeRayCount": 1600,
+          "sourceVersion": 940,
+          "recordsGeneration": 435,
+          "densityRevision": 154,
+          "cameraKey": "-174.16262343853825,11.999999999999963,-400.2124654261999",
+          "reflection": false,
+          "vectorSources": 1600,
+          "transmissionTimePolicy": "one T per source optical midpoint anchor; T(t) is not shutter-integrated"
+        },
+        "sourceVisibility": {
+          "mode": "conservative",
+          "inputRecords": 1600,
+          "luminousSources": 1600,
+          "depthCulled": 0,
+          "quadCulled": 0,
+          "conservativeRetained": 0,
+          "mediumQueries": 0,
+          "renderedRecords": 1600
+        },
+        "vectorExposure": {
+          "physicalNow": 5.946208801924882,
+          "shutterSeconds": 0.008333333333333333,
+          "from": 5.937875468591549,
+          "to": 5.946208801924882,
+          "anchor": 5.942042135258216,
+          "durationSeconds": 0.008333333333333748,
+          "mode": "causal-end",
+          "units": "physical seconds; requested shutter may differ from represented endpoint width"
+        },
+        "legacyShutterSeconds": 0.008333333333333333,
+        "temporalModel": "8 referenceRGB bin means with joint motion kernel; Eulerian replenished tail field; midpoint T approximation"
+      },
+      "reflection": {
+        "instances": 1600,
+        "reflection": true,
+        "time": 5.946208801924882,
+        "rendered": true,
+        "skipped": false,
+        "storageEV": 10.75,
+        "rawPerCandela": 0.000036,
+        "width": 1209,
+        "height": 1292,
+        "mediumQueries": 0,
+        "sourceTransmission": {
+          "backend": "gpu",
+          "requested": true,
+          "effective": true,
+          "reason": "experimental-ready",
+          "mediumQueries": 0,
+          "instances": 1600,
+          "activeRayCount": 1600,
+          "sourceVersion": 939,
+          "recordsGeneration": 435,
+          "densityRevision": 154,
+          "cameraKey": "-174.16262343853825,-11.999999999999963,-400.2124654261999",
+          "reflection": true,
+          "vectorSources": 1600,
+          "transmissionTimePolicy": "one T per source optical midpoint anchor; T(t) is not shutter-integrated"
+        },
+        "sourceVisibility": {
+          "mode": "conservative",
+          "inputRecords": 1600,
+          "luminousSources": 1600,
+          "depthCulled": 0,
+          "quadCulled": 0,
+          "conservativeRetained": 0,
+          "mediumQueries": 0,
+          "renderedRecords": 1600
+        },
+        "vectorExposure": {
+          "physicalNow": 5.946208801924882,
+          "shutterSeconds": 0.008333333333333333,
+          "from": 5.937875468591549,
+          "to": 5.946208801924882,
+          "anchor": 5.942042135258216,
+          "durationSeconds": 0.008333333333333748,
+          "mode": "causal-end",
+          "units": "physical seconds; requested shutter may differ from represented endpoint width"
+        },
+        "legacyShutterSeconds": 0,
+        "temporalModel": "8 referenceRGB bin means with joint motion kernel; Eulerian replenished tail field; midpoint T approximation"
+      }
+    },
+    "quality": {
+      "trailSegments": 8
+    },
+    "opticalCapacity": 14000,
+    "physicalLedgerCapacity": 14000,
+    "radianceBound": {
+      "maximumRawRadiance": 4.8594451382673,
+      "maxRawRadiance": 4.8594451382673,
+      "globalFiniteSurfaceCeiling": 118508.37017915657,
+      "globalReferenceOnly": true,
+      "ownSmokeRawBound": 0.00147671703307358,
+      "maximumEmissionRGBChannel": 6.434468159034316,
+      "visibleSources": 1600,
+      "nearPlaneFallbackSources": 0,
+      "method": "32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers",
+      "conservative": true
+    },
+    "warnings": [],
+    "units": "reference cd + approximate emission RGB, linear scene reference once *2^storageEV; not measured pyrotechnic photometry",
+    "renderer": "independent instanced premult effects, four-segment finite air; water-hit reflection origin; sorted short segments",
+    "tailIntegration": {
+      "spatialSamples": "positive adaptive N/N+1",
+      "requested": "adaptive",
+      "effective": "adaptive-with-legacy8-budget-fallback",
+      "mode": "adaptive",
+      "estimates": {
+        "scope": "CPU projected estimates; GPU branch validated by independent fixtures, not runtime readback",
+        "tails": 1408,
+        "clipped": 0,
+        "adaptive": 1408,
+        "legacyFallback": 0,
+        "reasons": {
+          "degenerate": 0,
+          "globalBudget": 0,
+          "localBudget": 0
+        },
+        "maximumN": 16,
+        "maximumLocalBound": 16,
+        "minimumStepPixels": 0.5,
+        "maximumStepSigma": 0.5,
+        "supportSigma": 6,
+        "maxLocalSamplesPerLevel": 128,
+        "maxGlobalSamples": 65536,
+        "vectorTails": 1408,
+        "vectorTemporalBins": 8,
+        "vectorJointKernel": "8 time-bin colour means, each with its shifted positive spatial kernel; not a separable mean-colour approximation"
+      },
+      "shutter": "<=1px: trace-preserving isotropic variance; >1px:3-point independent quadrature",
+      "kernelEvaluations": "candidate: up to8 temporal bins times2 spatial levels times128 local samples =2048 Gaussian evaluations; zero motion shortcuts once",
+      "extraPasses": 0
+    },
+    "profileOptics": {
+      "model": "causal8-bin referenceRGB shutter, actual past midpoint, fixed-lag optical tail field with detached-age spectrum",
+      "properties": "source colour/I shared by current ledger, local/cloud/smoke/GI proxies; candidate reflection uses same shutter as main",
+      "attributes": 13,
+      "estimatedVaryingComponents": 54,
+      "limits": [
+        "finite8-bin joint spatial-time quadrature; first-order midpoint motion proxy",
+        "one optical-anchor smoke T, not T(t)",
+        "N-lag tail-field quadrature; bin-integrated instantaneous field, not continuous material-particle history",
+        "receiver lighting instantaneous; depth/occlusion and camera history not integrated",
+        "candidate air-centre support clips causal history at bounded static terrain/mean sea; legacy scalar shutter, spatial kernel crossing, wave contact and chemical extinction remain approximations"
+      ]
+    },
+    "limits": [
+      "linear drag/burn model; no chemical or shock/fluid solve",
+      "grey smoke thin sprites; centre-depth sorting and shared near-air visibility approximation",
+      "resolved opaque depth/defocus occlusion approximation; root owns one shared bloom/vignette",
+      "subpixel tail shutter variance is a bounded angular approximation, not exact time-space convolution",
+      "star/cross-spectrum RGB is approximate CIE fit + authored bands and gamut compression"
+    ],
+    "lightingField": {
+      "requestedEnabled": true,
+      "effective": true,
+      "supported": true,
+      "reason": "ready",
+      "requiredPairs": 38400,
+      "maxBakePairs": 1048576,
+      "version": 428,
+      "reused": true,
+      "hidden": false,
+      "awaitingSmoke": false
+    },
+    "bounds": {
+      "min": [
+        -15.887420254201377,
+        0,
+        -1.1393347891060994
+      ],
+      "max": [
+        185.51736133507944,
+        227.02169103632758,
+        219.66601185095064
+      ],
+      "centre": [
+        84.81497054043903,
+        113.51084551816379,
+        109.26333853092227
+      ],
+      "center": [
+        84.81497054043903,
+        113.51084551816379,
+        109.26333853092227
+      ],
+      "radius": 187.65509275853356,
+      "active": true,
+      "predicted": true,
+      "model": "Native sampled/smoke forecast union continuous scaled actual-launch/fuse/source/tail/stretch/shutter enclosure; full committed wind ranges and compiled19*alpha relation",
+      "scaledAnalytic": [
+        {
+          "eventId": "341070-0.07860",
+          "effectProfile": "three-heart-radiant120-v1",
+          "min": [
+            -15.887420254201377,
+            0,
+            -1.1393347891060994
+          ],
+          "max": [
+            185.51736133507944,
+            227.02169103632758,
+            219.66601185095064
+          ],
+          "limits": {
+            "familyIntrinsicSpeedMetresPerSecond": 76,
+            "knownSourceIntrinsicSpeedMetresPerSecond": 48.72977452076873,
+            "sourceRadialScaleAlpha": 2.5647249747773015,
+            "scaleBasis": "19*compiled alpha hard-input relation; per-body actual kick components, not sampled trajectory maxima",
+            "bodyCount": 192,
+            "bodyMaximumSeconds": 4.876,
+            "tailMaximumSeconds": 0.88,
+            "trailRecipeId": "radiant-layered-gold-v1",
+            "radianceProfile": {
+              "schema": "glass-atoll.radiant-three-heart-reference.v1",
+              "effectProfile": "three-heart-radiant120-v1",
+              "baseEffectProfile": "three-heart-scale120-v1",
+              "authorGain": 16,
+              "nativeReferencePeakBudget": 1421.2929533421993,
+              "referencePeakBudget": 22740.68725347519,
+              "normalization": "Existing native I0 already includes user intensityScale; authored gain16 applied exactly once to emission RGB and emissionReferenceI0",
+              "calibration": "authored reference brightness and optical allocation; no measured candela, nits, radiated energy or fuel calibration"
+            },
+            "windRanges": [
+              [
+                0,
+                1.6848
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0.6335999999999999
+              ]
+            ],
+            "opticalShutterSeconds": 0.008333333333333333,
+            "opticalMaximumShutterSeconds": 1,
+            "maximumComponentPaddingMetres": [
+              38.52890516252028,
+              59.36643521027122,
+              44.01830136800505
+            ],
+            "maximumOpticalComponentPaddingMetres": [
+              31.30681789321159,
+              43.86984123307517,
+              36.07307009581974
+            ],
+            "arithmeticPaddingMetres": 0.00001
+          },
+          "coverage": "All actual event roots, rocket, detached-tail centres and bounded causal midpoint/linear shutter/lag stretch proxy endpoints above worldY0; every held-wind history within supplied ranges, fixed actual launch and fuse",
+          "limitations": [
+            "Binary64 conservative interval derivation with arithmetic padding, not a formal directed-rounding certificate.",
+            "Camera Gaussian quad, DOF, bloom and persistent smoke have separate framing margins; this is not curved-path or time-varying transmission integration accuracy.",
+            "No prediction beyond supplied wind ranges, no terrain safety or post-contact120m visible-width guarantee."
+          ]
+        }
+      ]
+    },
+    "audio": {
+      "scheduled": 0,
+      "discarded": 2,
+      "recordedPlays": 0,
+      "synthesizedPlays": 0,
+      "activeVoices": 0,
+      "outputReady": false,
+      "recordingLoaded": false,
+      "recordingDuration": 0,
+      "relativeBurstGain": 12,
+      "postCompressorHeadroomGain": 0.7,
+      "compressorAttackSeconds": 0.0005,
+      "source": {
+        "title": "Single Firework",
+        "author": "richwise",
+        "source": "https://freesound.org/people/richwise/sounds/455453/",
+        "license": "CC0 1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "file": "./assets/audio/fireworks/burst-richwise-preview-mono.ogg",
+        "kind": "real recording, trimmed mono from compressed public HQ preview",
+        "subjectiveReview": "not performed by agent; listening acceptance pending"
+      },
+      "loadError": null,
+      "lastArrival": null,
+      "spatial": "HRTF; inverse pressure-distance once in PannerNode; temperature-dependent propagation delay",
+      "limits": [
+        "real compressed preview recording; subjective background/timbre listening pending",
+        "launch/crackle and failed-load burst explicitly synthesized",
+        "fixed listener at emission scheduling; moving receiver sound-cone not solved",
+        "distance lowpass is an approximation; no absolute sound-pressure calibration",
+        "linear post-compressor headroom lowers all pyro SFX3.10dB; not an arbitrary-source peak limiter"
+      ]
+    }
+  },
+  "smoke": {
+    "requestedPhysicalTime": 5.946208801924882,
+    "committedPhysicalTime": 5.9,
+    "behindSeconds": 0.04620880192488208,
+    "state": {
+      "version": "pyro-smoke-state-v1",
+      "time": 5.9,
+      "requestedTime": 5.946208801924882,
+      "revision": 154,
+      "packetCount": 24,
+      "capacity": 4096,
+      "peakPacketCount": 24,
+      "pendingEmissions": 0,
+      "pendingWindEvents": 0,
+      "profileCount": 1,
+      "acceptedSources": 24,
+      "lastEmissionId": 23,
+      "totalTickSteps": 118,
+      "lastAdvanceSteps": 0,
+      "fixedStep": 0.05,
+      "maxStepsPerAdvance": 200,
+      "ledger": {
+        "emitted": 20.35,
+        "airborne": 20.35,
+        "pendingMass": 0,
+        "residual": 0,
+        "deposited": 0,
+        "escaped": 0,
+        "explicitlyCleared": 0
+      },
+      "merges": 0,
+      "forcedMerges": 0,
+      "preferredSameSourceMerges": 0,
+      "preferredSameProfileMerges": 0,
+      "maximumMergeDistanceMetres": 0,
+      "maximumMergeNormalizedDistance": 0,
+      "maximumSampledMergePeakRelativeError": 0,
+      "maximumSampledMergeColumnRelativeError": 0,
+      "maximumSampledMergeOpticalDepthError": 0,
+      "recentMerges": [],
+      "units": "relative dry mass; metres; physical seconds; authored m2/reference-mass optical profiles. NOT calibrated kg/PM.",
+      "limits": [
+        "no age deletion; no deposition/domain/RH chemistry implemented",
+        "uniform piecewise-held wind and prescribed thermal/diffusion surrogate; no Navier-Stokes or shear",
+        "same-profile capacity merges conserve instantaneous spatial moments; no velocity/thermal variance or position-velocity cross covariance, so future heterogeneous thermal separation is not preserved",
+        "sampled peak/column diagnostics are not global optical bounds; differential-thermal-travel gate only limits preferred merges",
+        "forcedMerges signal visual approximation, not an accepted appearance",
+        "no camera/P/C/UTC or renderer dependency",
+        "erf columns have finite numerical approximation error; not an unbiased ray renderer",
+        "pending queues, profiles and recent merge log are bounded; no retained old source/active-event archive"
+      ]
+    },
+    "events": {
+      "version": "pyro-smoke-trajectory-v1",
+      "releaseErrors": 0,
+      "lastReleaseError": null,
+      "sourceModel": "trajectory-v1",
+      "revision": 7091,
+      "epoch": 0,
+      "closedThrough": 5.946208801924882,
+      "nextEmissionId": 24,
+      "nextSerial": 1,
+      "registeredEvents": 1,
+      "emissionsLifetime": 24,
+      "materializedArea": 20.35,
+      "allocatedArea": 20.35,
+      "reservedArea": 0,
+      "cancelledReservedArea": 0,
+      "accountingResidual": 0,
+      "pendingEvents": 0,
+      "pendingPlans": 0,
+      "rememberedEventKeys": 0,
+      "tombstones": 0,
+      "duplicates": 0,
+      "staleEvents": 0,
+      "clears": 0,
+      "clearedEventRecords": 0,
+      "queueCapacity": 8192,
+      "maxPendingEvents": 128,
+      "maxPendingPlans": 2048,
+      "maxRememberedEvents": 2048,
+      "fault": null,
+      "recentSources": [
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"launch\",0.07859999999403953,0]",
+          "eventId": "341070-0.07860",
+          "component": "launch",
+          "bodyId": null,
+          "time": 0.07859999999403953,
+          "emissionId": 0,
+          "mass": 0.03888888888888889,
+          "position": [
+            29.091295534175146,
+            1.703010606729798,
+            7.188336255335875
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"launch\",0.15359999999403953,1]",
+          "eventId": "341070-0.07860",
+          "component": "launch",
+          "bodyId": null,
+          "time": 0.15359999999403953,
+          "emissionId": 1,
+          "mass": 0.03888888888888889,
+          "position": [
+            29.04277312984775,
+            1.7583405615049945,
+            7.227844140621415
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"launch\",0.22859999999403952,2]",
+          "eventId": "341070-0.07860",
+          "component": "launch",
+          "bodyId": null,
+          "time": 0.22859999999403952,
+          "emissionId": 2,
+          "mass": 0.03888888888888889,
+          "position": [
+            29.139817938502542,
+            1.6476806519546017,
+            7.148828370050334
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"launch\",0.3035999999940395,3]",
+          "eventId": "341070-0.07860",
+          "component": "launch",
+          "bodyId": null,
+          "time": 0.3035999999940395,
+          "emissionId": 3,
+          "mass": 0.03888888888888889,
+          "position": [
+            29.175658036177186,
+            1.6965165067357804,
+            7.352033833816946
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"launch\",0.37859999999403954,4]",
+          "eventId": "341070-0.07860",
+          "component": "launch",
+          "bodyId": null,
+          "time": 0.37859999999403954,
+          "emissionId": 4,
+          "mass": 0.03888888888888889,
+          "position": [
+            29.006933032173105,
+            1.7095047067238158,
+            7.024638676854804
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"launch\",0.45359999999403955,5]",
+          "eventId": "341070-0.07860",
+          "component": "launch",
+          "bodyId": null,
+          "time": 0.45359999999403955,
+          "emissionId": 5,
+          "mass": 0.03888888888888889,
+          "position": [
+            29.19758649338069,
+            1.7443159284299077,
+            7.041483181952744
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"launch\",0.5285999999940395,6]",
+          "eventId": "341070-0.07860",
+          "component": "launch",
+          "bodyId": null,
+          "time": 0.5285999999940395,
+          "emissionId": 6,
+          "mass": 0.03888888888888889,
+          "position": [
+            28.9850045749696,
+            1.6617052850296885,
+            7.3351893287190055
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"launch\",0.6035999999940396,7]",
+          "eventId": "341070-0.07860",
+          "component": "launch",
+          "bodyId": null,
+          "time": 0.6035999999940396,
+          "emissionId": 7,
+          "mass": 0.03888888888888889,
+          "position": [
+            28.934781763976286,
+            1.690048144540378,
+            7.2273323367664295
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"launch\",0.6785999999940395,8]",
+          "eventId": "341070-0.07860",
+          "component": "launch",
+          "bodyId": null,
+          "time": 0.6785999999940395,
+          "emissionId": 8,
+          "mass": 0.03888888888888886,
+          "position": [
+            29.247809304374005,
+            1.715973068919218,
+            7.14934017390532
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"central\",5.246208801924882,0]",
+          "eventId": "341070-0.07860",
+          "component": "central",
+          "bodyId": null,
+          "time": 5.246208801924882,
+          "emissionId": 9,
+          "mass": 1.3333333333333333,
+          "position": [
+            69.27002762942276,
+            151.1342526352546,
+            87.56285358909716
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"central\",5.321208801924882,1]",
+          "eventId": "341070-0.07860",
+          "component": "central",
+          "bodyId": null,
+          "time": 5.321208801924882,
+          "emissionId": 10,
+          "mass": 1.3333333333333333,
+          "position": [
+            69.49002531786957,
+            149.28418715191304,
+            88.04723653981702
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"central\",5.396208801924883,2]",
+          "eventId": "341070-0.07860",
+          "component": "central",
+          "bodyId": null,
+          "time": 5.396208801924883,
+          "emissionId": 11,
+          "mass": 1.3333333333333335,
+          "position": [
+            69.05002994097595,
+            152.98431811859615,
+            87.0784706383773
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"root\",5.596208801924882,0]",
+          "eventId": "341070-0.07860",
+          "component": "root",
+          "bodyId": 0,
+          "time": 5.596208801924882,
+          "emissionId": 12,
+          "mass": 1,
+          "position": [
+            70.44246125838384,
+            163.67446513241686,
+            88.66846092960364
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"root\",5.596208801924882,108]",
+          "eventId": "341070-0.07860",
+          "component": "root",
+          "bodyId": 108,
+          "time": 5.596208801924882,
+          "emissionId": 13,
+          "mass": 0.9166666666666666,
+          "position": [
+            85.49533695410325,
+            148.3525273839997,
+            86.01251566090784
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"root\",5.596208801924882,114]",
+          "eventId": "341070-0.07860",
+          "component": "root",
+          "bodyId": 114,
+          "time": 5.596208801924882,
+          "emissionId": 14,
+          "mass": 0.8333333333333334,
+          "position": [
+            72.84413312197294,
+            149.6229081507367,
+            106.45975842876776
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"root\",5.596208801924882,174]",
+          "eventId": "341070-0.07860",
+          "component": "root",
+          "bodyId": 174,
+          "time": 5.596208801924882,
+          "emissionId": 15,
+          "mass": 0.6666666666666666,
+          "position": [
+            76.82883436419951,
+            139.6803663843198,
+            99.95767001008
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"root\",5.596208801924882,33]",
+          "eventId": "341070-0.07860",
+          "component": "root",
+          "bodyId": 33,
+          "time": 5.596208801924882,
+          "emissionId": 16,
+          "mass": 0.8333333333333334,
+          "position": [
+            68.15035754093839,
+            161.55720658942067,
+            101.3271855090529
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"root\",5.596208801924882,39]",
+          "eventId": "341070-0.07860",
+          "component": "root",
+          "bodyId": 39,
+          "time": 5.596208801924882,
+          "emissionId": 17,
+          "mass": 0.6666666666666666,
+          "position": [
+            61.06617419679615,
+            158.00140394272768,
+            84.24955395147326
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"root\",5.896208801924883,123]",
+          "eventId": "341070-0.07860",
+          "component": "root",
+          "bodyId": 123,
+          "time": 5.896208801924883,
+          "emissionId": 18,
+          "mass": 0.6666666666666666,
+          "position": [
+            60.922714030461286,
+            138.79826291296612,
+            74.22829548625297
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"root\",5.896208801924883,186]",
+          "eventId": "341070-0.07860",
+          "component": "root",
+          "bodyId": 186,
+          "time": 5.896208801924883,
+          "emissionId": 19,
+          "mass": 1,
+          "position": [
+            72.87433619242073,
+            123.92063255055442,
+            89.10623011161566
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"root\",5.896208801924883,27]",
+          "eventId": "341070-0.07860",
+          "component": "root",
+          "bodyId": 27,
+          "time": 5.896208801924883,
+          "emissionId": 20,
+          "mass": 0.5000000000000018,
+          "position": [
+            89.65597909988031,
+            167.40115614504919,
+            92.5776942639251
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"root\",5.896208801924883,63]",
+          "eventId": "341070-0.07860",
+          "component": "root",
+          "bodyId": 63,
+          "time": 5.896208801924883,
+          "emissionId": 21,
+          "mass": 0.8333333333333334,
+          "position": [
+            73.06581659938743,
+            154.85954455393474,
+            69.50894113541563
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"root\",5.896208801924883,77]",
+          "eventId": "341070-0.07860",
+          "component": "root",
+          "bodyId": 77,
+          "time": 5.896208801924883,
+          "emissionId": 22,
+          "mass": 6.833333333333333,
+          "position": [
+            78.80076121507841,
+            151.50368895837056,
+            98.70252401608182
+          ]
+        },
+        {
+          "key": "[\"341070-0.07860\",\"trajectory-v1\",\"root\",5.896208801924883,99]",
+          "eventId": "341070-0.07860",
+          "component": "root",
+          "bodyId": 99,
+          "time": 5.896208801924883,
+          "emissionId": 23,
+          "mass": 1.25,
+          "position": [
+            49.33144188799775,
+            147.51169967886264,
+            93.99576362189117
+          ]
+        }
+      ],
+      "parameters": {
+        "burstArea": 20,
+        "launchArea": 0.35,
+        "fanLaunchArea": 0.1,
+        "bouquetLaunchArea": 2,
+        "centralFraction": 0.2,
+        "trajectorySlots": 12,
+        "releaseAges": [
+          0.35,
+          0.65
+        ],
+        "centrePackets": 3,
+        "launchPackets": 9
+      },
+      "limits": [
+        "authored reference material, not measured kg/PM or per-star yield",
+        "3centre+12root+9launch=24 aerial kernels; fan retains81 and bouquet9",
+        "root-only sparse deposition0.35/0.65s; no child/long-burn continuous source solve",
+        "all future reservations have clocks/matter/IDs of logical roots but no world positions or emission IDs",
+        "future source model changes require a fresh host/explicit epoch protocol; legacy9 is a separate unchanged branch",
+        "provider must retain active descriptor and causal wind until due; absent/pruned sources reject without retiming",
+        "predictable input/provider/capacity failures are pre-commit; unexpected queue failures fault-lock and disclose partial acceptance"
+      ]
+    },
+    "sourceModel": "trajectory-v1",
+    "cancelledReservedArea": 0,
+    "columns": {
+      "sourceTime": 5.9,
+      "sourceRevision": 154,
+      "columnKernel": "scalar",
+      "columnOriginCache": false,
+      "packetCount": 24,
+      "profileCount": 1,
+      "nodeCount": 7,
+      "leafCount": 4,
+      "leafSize": 8,
+      "kSigma": 5,
+      "errorBudget": 0.00001,
+      "builds": 117,
+      "lastBuildMs": 0.09999999403953552,
+      "totalBuildMs": 4.399999976158142,
+      "lastUpdateMs": 0.09999999403953552,
+      "refits": 102,
+      "structuralRebuilds": 15,
+      "qualityRebuilds": 0,
+      "lastUpdateKind": "structural-rebuild",
+      "treeQuality": 1.706689520109833,
+      "treeQualityGrowth": 1,
+      "refitRebuildThreshold": 2.5,
+      "lastFallbackGrowth": null,
+      "trackedNewPacketRecords": 24,
+      "trackedNewNodeRecords": 7,
+      "rays": 0,
+      "zeroLengthRays": 0,
+      "visitedNodes": 0,
+      "bboxTests": 0,
+      "kernelsEvaluated": 0,
+      "omittedPackets": 0,
+      "skippedNodes": 0,
+      "zeroExtinctionPackets": 0,
+      "approximateKernels": 0,
+      "exactFallbackKernels": 0,
+      "maximumApproximationBound": 0,
+      "maximumCombinedErrorBound": 0,
+      "originWhitenHits": 0,
+      "originWhitenMisses": 0,
+      "totalQueryMs": 0,
+      "maximumQueryMs": 0,
+      "maximumOmittedBound": 0,
+      "mediumDomain": "unbounded full-SPD Gaussian; no halfspace, ground absorption or physical packet deletion",
+      "omissionBound": "Each missed 5-sigma AABB: sum M*trace(invSigma)/(2pi)*max(extinctionRGB)*exp(-12.5); only omitted when cumulative upper bound <= budget.",
+      "numericMethod": "binary64 Cholesky whitening + erf series/continued fraction + close-endpoint four-node quadrature",
+      "errorBoundIncludesRoundoff": false,
+      "units": "metres, relative dry mass, authored m2/reference-mass profiles; tau dimensionless"
+    },
+    "rendering": {
+      "version": "pyro-smoke-renderer-stageA-v3-local",
+      "lastRender": {
+        "packets": 24,
+        "instances": 24,
+        "culled": 0,
+        "fullScreenFallbacks": 0,
+        "projectionMode": "ellipsoid",
+        "proxyRasterPixelUpperBound": 29324,
+        "proxyRasterViewportLayers": 0.018773030957191548,
+        "reflection": false,
+        "width": 1209,
+        "height": 1292,
+        "storageEV": 10.75,
+        "supportSigma": 5,
+        "offProxyOpticalDepthUpperBound": 0.00001139203395211648,
+        "debugMode": 0,
+        "stateRevision": 154,
+        "extraOffscreenTargets": 0,
+        "frontAirEnabled": true,
+        "frontAirCells": 4,
+        "localLightingEnabled": true,
+        "localLightingSources": 4,
+        "legacyClusterSources": 0,
+        "samplerCount": 2,
+        "finiteClusterPhase": true,
+        "resolvedPyroField": true,
+        "resolvedFieldVersion": 428,
+        "vertexSamplers": 3
+      },
+      "projectionMode": "ellipsoid",
+      "lightFieldBakeMode": "tiled64",
+      "maxPackets": 4096,
+      "packets": 24,
+      "supportSigma": 5,
+      "anisotropy": 0.32,
+      "resolvedLighting": {
+        "requestedEnabled": true,
+        "enabled": true,
+        "effective": true,
+        "supported": true,
+        "reason": "ready",
+        "requiredPairs": 38400,
+        "maxBakePairs": 1048576,
+        "version": 428,
+        "reused": true,
+        "ledgerVersion": 428,
+        "packetVersion": 116,
+        "rawBound": 0.11169240288413133,
+        "bakeMode": "tiled64",
+        "maxRequestPairs": 4000000,
+        "effectiveMaxPairs": 4000000,
+        "tileCount": 25,
+        "tileSources": 64,
+        "partialTexels": 600,
+        "partialCapacityTexels": 66596,
+        "packetCapacity": 4096,
+        "sourceCapacity": 14000,
+        "maxReductionIterations": 219,
+        "partialWidth": 256,
+        "neutral": false,
+        "mapRects": [
+          {
+            "x": 0,
+            "y": 0,
+            "width": 256,
+            "height": 2,
+            "begin": 0,
+            "end": 512,
+            "texels": 512,
+            "index": 0,
+            "conservativePairs": 32768
+          },
+          {
+            "x": 0,
+            "y": 2,
+            "width": 88,
+            "height": 1,
+            "begin": 512,
+            "end": 600,
+            "texels": 88,
+            "index": 1,
+            "conservativePairs": 5632
+          }
+        ],
+        "mapDraws": 2,
+        "bakePasses": 3,
+        "maxMapPairs": 1000000,
+        "maxMapDraws": 8,
+        "conservativePairs": 38400,
+        "fullFinalWrite": true,
+        "allocatedBytes": 3919872,
+        "sourceTextureBytes": 450560,
+        "packetTextureBytes": 65536,
+        "partialTargetBytes": 3207168,
+        "finalTargetBytes": 196608,
+        "fixedCapacityTargets": true,
+        "field": {
+          "requestedEnabled": true,
+          "enabled": true,
+          "effective": true,
+          "supported": true,
+          "reason": "ready",
+          "requiredPairs": 38400,
+          "maxBakePairs": 1048576,
+          "version": 428,
+          "reused": true,
+          "ledgerVersion": 428,
+          "packetVersion": 116,
+          "rawBound": 0.11169240288413133,
+          "bakeMode": "tiled64",
+          "maxRequestPairs": 4000000,
+          "effectiveMaxPairs": 4000000,
+          "tileCount": 25,
+          "tileSources": 64,
+          "partialTexels": 600,
+          "partialCapacityTexels": 66596,
+          "packetCapacity": 4096,
+          "sourceCapacity": 14000,
+          "maxReductionIterations": 219,
+          "partialWidth": 256,
+          "neutral": false,
+          "mapRects": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 256,
+              "height": 2,
+              "begin": 0,
+              "end": 512,
+              "texels": 512,
+              "index": 0,
+              "conservativePairs": 32768
+            },
+            {
+              "x": 0,
+              "y": 2,
+              "width": 88,
+              "height": 1,
+              "begin": 512,
+              "end": 600,
+              "texels": 88,
+              "index": 1,
+              "conservativePairs": 5632
+            }
+          ],
+          "mapDraws": 2,
+          "bakePasses": 3,
+          "maxMapPairs": 1000000,
+          "maxMapDraws": 8,
+          "conservativePairs": 38400,
+          "fullFinalWrite": true,
+          "allocatedBytes": 3919872,
+          "sourceTextureBytes": 450560,
+          "packetTextureBytes": 65536,
+          "partialTargetBytes": 3207168,
+          "finalTargetBytes": 196608,
+          "fixedCapacityTargets": true,
+          "revision": "complete-sync-sh1-v1",
+          "contextInvalid": false,
+          "tiled": {
+            "allocated": true,
+            "bakes": 428,
+            "tileSources": 64,
+            "lastPlan": {
+              "supported": true,
+              "requiredPairs": 38400,
+              "maxBakePairs": 1048576,
+              "maxRequestPairs": 4000000,
+              "effectiveMaxPairs": 4000000,
+              "tileCount": 25,
+              "tileSources": 64,
+              "partialTexels": 600,
+              "partialCapacityTexels": 66596,
+              "packetCapacity": 4096,
+              "sourceCapacity": 14000,
+              "maxReductionIterations": 219,
+              "partialWidth": 256,
+              "neutral": false,
+              "mapRects": [
+                {
+                  "x": 0,
+                  "y": 0,
+                  "width": 256,
+                  "height": 2,
+                  "begin": 0,
+                  "end": 512,
+                  "texels": 512,
+                  "index": 0,
+                  "conservativePairs": 32768
+                },
+                {
+                  "x": 0,
+                  "y": 2,
+                  "width": 88,
+                  "height": 1,
+                  "begin": 512,
+                  "end": 600,
+                  "texels": 88,
+                  "index": 1,
+                  "conservativePairs": 5632
+                }
+              ],
+              "mapDraws": 2,
+              "bakePasses": 3,
+              "maxMapPairs": 1000000,
+              "maxMapDraws": 8,
+              "conservativePairs": 38400,
+              "fullFinalWrite": true
+            },
+            "allocatedBytes": 3919872,
+            "fixedCapacityTargets": true,
+            "model": "complete-source64wide map/reduce; same isotropic Gaussian SH1; FP32summation order differs"
+          },
+          "bakes": 428,
+          "zeroReuses": 0,
+          "zeroTargetValid": false,
+          "allocated": true,
+          "packetCount": 24,
+          "sourceCount": 1600,
+          "target": {
+            "width": 256,
+            "height": 16,
+            "attachments": 3,
+            "type": "RGBA32F"
+          },
+          "anisotropy": 0.32,
+          "maxPackets": 4096,
+          "maxSources": 14000,
+          "vertexTextures": 3,
+          "extraFragmentSamplers": 0,
+          "model": "trace-isotropic normalized Gaussian packet/emitter SH1; raw once; no packet mass",
+          "bound": {
+            "supported": true,
+            "maxRGB": 0.11169240288413133,
+            "maximumRGB": [
+              0.11169240288413133,
+              0.03916715914931077,
+              0.038075770888194894
+            ],
+            "rawBeforeStorageExposure": true,
+            "ledgerVersion": 428,
+            "packetVersion": 116,
+            "anisotropy": 0.32,
+            "margin": {
+              "sourceCount": 1600,
+              "gammaSum": 0.00009531691144355525,
+              "arithmeticOperations": 96,
+              "arithmeticRelativeError": 0.000005722078640434115,
+              "shaderRelativeError": 0.002,
+              "totalFactor": 1.0021012416145658,
+              "groupSumPrecision": "binary64 positive-sum gamma(count-1) applied after uploaded-row verification"
+            },
+            "diagnostics": {
+              "sources": 1600,
+              "packets": 24,
+              "groups": 1,
+              "evaluatedGroups": 24,
+              "maximumPacket": 18,
+              "maximumChannel": 0,
+              "packetMassUsed": false,
+              "cameraOrExposureUsed": false
+            },
+            "method": "max over uploaded packets/channels of sum(group RGB)*min(1/b,2/dAABB²)*(1+3|g|)/(4pi), with declared FP32/special-function margin",
+            "limits": "Bound for normalized isotropic Gaussian packet/emitter SH1 model only. No incoming smoke shadow, anisotropic conditional-ray field, scene-wide energy conservation, packet-count multiplier or measured photometry."
+          }
+        }
+      },
+      "neutralExtinctionOnly": true,
+      "frontAirOptIn": true,
+      "localLightingOptIn": true,
+      "samplerCount": 2,
+      "limits": [
+        "no app/event/source integration",
+        "true finite Gaussian columns withFloat32/erf and finite proxy-tail error; no unbiased-renderer claim",
+        "back-to-front latent-centre order; S at optical conditional mean, overlapping/source-varying scattering is approximate",
+        "optional four-cell front-air T/S restores front in-scatter at a conditional-mean thin layer; overlapping volumes are not a joint RTE integration",
+        "optional shared6 localIncident sources replace legacy2 clusters; borrowed stored RGB is not multiplied by P again",
+        "no smoke self-shadow, smoke source-path attenuation or multiple scattering; shared torch scene-shadow PCF is reused when active",
+        "air is sun/key-only, exponential height, flat local worldY clamped at0; no smoke/local-light sourced air illumination added by this module",
+        "opaque depth must be independently resolved; no centre-depth discard",
+        "whole-space Gaussian matches state; no ground-fold/deposition model implicitly applied",
+        "no density/P/C coupling; P applied once to own raw lighting including air, borrowed local uniforms must already match this frame P",
+        "proxy culling affects rendering only; physical state mass is never deleted",
+        "far/subpixel footprint filtering and volumeDOF are not solved; per-source PSF remains caller-owned"
+      ]
+    },
+    "explicitlyCleared": 0,
+    "clears": 0,
+    "lastUpdateMs": 0.09999999403953552,
+    "limits": [
+      "Physical transport uses fixed20Hz state commits; it is not a fluid/turbulence/settling solver.",
+      "Source-path extinction is queried at emitter/tail anchors; it is not exact per-pixel convolution through a varying medium.",
+      "Whole-space neutral Gaussian medium; scattering, overlap order and clear-air folding retain the renderer StageA approximations."
+    ]
+  },
+  "sourceT": {
+    "count": 1600,
+    "densityRevision": 154,
+    "sourceVersion": 940,
+    "cameraKey": "-174.16262343853825,11.999999999999963,-400.2124654261999",
+    "width": 256,
+    "height": 71,
+    "pairs": 38400,
+    "tileCount": 1,
+    "opticallyAdmitted": false,
+    "policy": {
+      "maxPairs": 1048576,
+      "maxRequestPairs": 4000000,
+      "maxMapPairs": 1000000,
+      "maxMapDraws": 8,
+      "legacyComparator": false,
+      "mapDraws": 2,
+      "conservativeMapPairs": 102400
+    },
+    "layout": {
+      "mode": "active-count",
+      "partialStride": 1600,
+      "mapDraw": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 7,
+        "rasterTexels": 1792,
+        "paddingTexels": 192
+      },
+      "outputDraw": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 7,
+        "rasterTexels": 1792,
+        "paddingTexels": 192
+      },
+      "activePartialTexels": 1600,
+      "neutralOutput": false,
+      "validOutputCount": 1600,
+      "outsideCountMayBeStale": true
+    },
+    "effective": true,
+    "supported": true,
+    "reason": "experimental-ready",
+    "prepares": 940,
+    "draws": 2004,
+    "allocated": true,
+    "bytes": {
+      "packetInput": 262144,
+      "sourceInput": 864256,
+      "partialTarget": 1290240,
+      "transmissionTarget": 290816,
+      "total": 2707456
+    },
+    "gpuNumericalBytes": 2707456,
+    "cpuInputBufferBytes": 1126400,
+    "caps": {
+      "maxSources": 18000,
+      "maxPackets": 4096,
+      "maxPairs": 1048576,
+      "maxRequestPairs": 4000000,
+      "maxMapPairs": 1000000,
+      "maxMapDraws": 8
+    },
+    "layoutMode": "active-count",
+    "mapPlan": {
+      "schema": "glass-atoll.exact-transmission-rectangles.v1",
+      "sourceCount": 1600,
+      "packetCount": 24,
+      "partialWidth": 256,
+      "partialStride": 1600,
+      "tileCount": 1,
+      "neutral": false,
+      "completeCells": 1600,
+      "logicalPairs": 38400,
+      "conservativePairs": 102400,
+      "maxMapPairs": 1000000,
+      "maxCellsPerMap": 15625,
+      "maxDraws": 9,
+      "reduceDraws": 1,
+      "reductionReadTexels": 1600,
+      "requiredAfterAllMaps": true,
+      "borrowedOutputPolicy": "Synchronous complete prepare; draw matching ordered view before any next prepare replaces its borrowed output",
+      "scope": "Exact viewport geometry and conservative64-slot work only; no complete-request policy, allocation, aggregate frame, GL or numerical admission",
+      "supported": true,
+      "reason": "ready",
+      "mapRects": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 256,
+          "height": 6,
+          "begin": 0,
+          "end": 1536,
+          "texels": 1536,
+          "index": 0,
+          "logicalPairs": 36864,
+          "conservativePairs": 98304
+        },
+        {
+          "x": 0,
+          "y": 6,
+          "width": 64,
+          "height": 1,
+          "begin": 1536,
+          "end": 1600,
+          "texels": 64,
+          "index": 1,
+          "logicalPairs": 1536,
+          "conservativePairs": 4096
+        }
+      ],
+      "mapDraws": 2,
+      "totalDraws": 3,
+      "coveredCells": 1600
+    },
+    "layoutPlan": {
+      "schema": "glass-atoll.smoke-transmission-layout.v1",
+      "supported": true,
+      "reason": "ready",
+      "count": 1600,
+      "packets": 24,
+      "pairs": 38400,
+      "maxPairs": 4000000,
+      "tileCount": 1,
+      "maxTiles": 64,
+      "maxSources": 18000,
+      "maxPackets": 4096,
+      "tilePackets": 64,
+      "layoutMode": "active-count",
+      "action": "map-reduce",
+      "allocation": {
+        "packet": {
+          "width": 256,
+          "height": 64,
+          "logicalCapacity": 16384,
+          "texelCapacity": 16384
+        },
+        "source": {
+          "width": 256,
+          "height": 211,
+          "logicalCapacity": 54000,
+          "texelCapacity": 54016
+        },
+        "partial": {
+          "width": 256,
+          "height": 315,
+          "logicalCapacity": 80500,
+          "texelCapacity": 80640
+        },
+        "output": {
+          "width": 256,
+          "height": 71,
+          "logicalCapacity": 18000,
+          "texelCapacity": 18176
+        }
+      },
+      "partialCapacityTexels": 80500,
+      "partialCapacityBound": {
+        "rectangular": 1152000,
+        "pairEnvelope": 80500,
+        "compactCapacity": 80500
+      },
+      "partialStride": 1600,
+      "activePartialTexels": 1600,
+      "mapDomainTexels": 1600,
+      "mapDraw": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 7,
+        "rasterTexels": 1792,
+        "paddingTexels": 192
+      },
+      "outputDraw": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 7,
+        "rasterTexels": 1792,
+        "paddingTexels": 192
+      },
+      "mapRequired": true,
+      "reduceRequired": true,
+      "reduceTileCount": 1,
+      "neutralOutput": false,
+      "fullOutputWrite": false,
+      "validOutputCount": 1600,
+      "outsideCountMayBeStale": true,
+      "freshGenerationRequired": true,
+      "publishAfter": "completed-map-and-reduction",
+      "publication": {
+        "orderedCount": 1600,
+        "inactiveRowsNeutral": true,
+        "neutralRGB": [
+          1,
+          1,
+          1
+        ],
+        "allAllocatedOutputsNeutral": false,
+        "validReadExtent": "metadata.count only",
+        "staleGenerationAllowed": false,
+        "partialResultAllowed": false
+      },
+      "limits": [
+        "Exact numerical layout only: no packet/source reduction, implicit pair allowance or frame-time admission.",
+        "For nonempty active-count output, texels beyond metadata.count may retain old values and are not valid reads.",
+        "Zero count or zero density requires one fresh full allocated neutral-output pass; no previous texture may substitute for that pass."
+      ]
+    },
+    "allocationPlan": {
+      "schema": "glass-atoll.smoke-transmission-layout.v1",
+      "supported": true,
+      "reason": "ready",
+      "count": 0,
+      "packets": 0,
+      "pairs": 0,
+      "maxPairs": 4000000,
+      "tileCount": 0,
+      "maxTiles": 64,
+      "maxSources": 18000,
+      "maxPackets": 4096,
+      "tilePackets": 64,
+      "layoutMode": "active-count",
+      "action": "neutral",
+      "allocation": {
+        "packet": {
+          "width": 256,
+          "height": 64,
+          "logicalCapacity": 16384,
+          "texelCapacity": 16384
+        },
+        "source": {
+          "width": 256,
+          "height": 211,
+          "logicalCapacity": 54000,
+          "texelCapacity": 54016
+        },
+        "partial": {
+          "width": 256,
+          "height": 315,
+          "logicalCapacity": 80500,
+          "texelCapacity": 80640
+        },
+        "output": {
+          "width": 256,
+          "height": 71,
+          "logicalCapacity": 18000,
+          "texelCapacity": 18176
+        }
+      },
+      "partialCapacityTexels": 80500,
+      "partialCapacityBound": {
+        "rectangular": 1152000,
+        "pairEnvelope": 80500,
+        "compactCapacity": 80500
+      },
+      "partialStride": 1,
+      "activePartialTexels": 0,
+      "mapDomainTexels": 0,
+      "mapDraw": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 0,
+        "rasterTexels": 0,
+        "paddingTexels": 0
+      },
+      "outputDraw": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 71,
+        "rasterTexels": 18176,
+        "paddingTexels": 18176
+      },
+      "mapRequired": false,
+      "reduceRequired": true,
+      "reduceTileCount": 0,
+      "neutralOutput": true,
+      "fullOutputWrite": true,
+      "validOutputCount": 0,
+      "outsideCountMayBeStale": false,
+      "freshGenerationRequired": true,
+      "publishAfter": "completed-neutral-output-pass",
+      "publication": {
+        "orderedCount": 0,
+        "inactiveRowsNeutral": true,
+        "neutralRGB": [
+          1,
+          1,
+          1
+        ],
+        "allAllocatedOutputsNeutral": true,
+        "validReadExtent": "metadata.count only",
+        "staleGenerationAllowed": false,
+        "partialResultAllowed": false
+      },
+      "limits": [
+        "Exact numerical layout only: no packet/source reduction, implicit pair allowance or frame-time admission.",
+        "For nonempty active-count output, texels beyond metadata.count may retain old values and are not valid reads.",
+        "Zero count or zero density requires one fresh full allocated neutral-output pass; no previous texture may substitute for that pass."
+      ]
+    },
+    "capabilityCache": {
+      "probes": 1,
+      "cached": true,
+      "contextInvalid": false
+    },
+    "packing": {
+      "maximumMeanQuantizationMetres": 0.000014974608575357706,
+      "maximumEndpointQuantizationMetres": 0.000029774515724056982,
+      "maximumOriginQuantizationMetres": 0,
+      "maximumDirectionQuantization": 2.9787942557035763e-8,
+      "maximumLengthQuantizationMetres": 0.000030498509431708953,
+      "maximumCholeskyRelativeQuantization": 4.8477034419091946e-8,
+      "maximumNormalizationRelativeQuantization": 4.596898391326402e-8,
+      "activeRays": 1600,
+      "zeroLengthRays": 0,
+      "inactiveRows": 0,
+      "maximumWhitenedCoordinateBound": 735.167940441598,
+      "maximumWhitenedDirectionBound": 1.2671579376393727,
+      "originalDoubleReflectionOrigins": true
+    },
+    "revision": "complete-sync-v1",
+    "model": "full-SPD finite Gaussian extinction; unchanged64packet sums in exact rectangles then one complete increasing-tile reduction; no SH1/SSA/P/C",
+    "prototype": true,
+    "limits": [
+      "No universalCPU1e-5 error guarantee; Float32 input/kernel/summation/exp require separate oracle admission.",
+      "Original-double reflection water-hit origins supplied by caller; normalised per-source ray, nearer endpoint reversal and cross-product perpendicular distance.",
+      "Each prepare replaces the borrowed T texture; sorted FW row ordering/sourceVersion must match and draw immediately. Only metadata.count output rows are valid; nonempty active-count requests may leave unused capacity texels stale.",
+      "Explicit complete-request and per-map policies; unsupported dispatch requires caller CPU fallback. Legacy-max is an incumbent two-pass QA comparator restricted to the old complete-request ceiling.",
+      "Fixed capabilities are cached for one live context; observed loss/replacement requires a new field before GPU reuse."
+    ]
+  },
+  "photometry": {
+    "storageEV": 10.75,
+    "cameraEV": 14,
+    "sceneScale": 1722.1558584396073,
+    "outputExposureScale": 7.230379259216544,
+    "rawPerCandela": 0.000036,
+    "maxRawRGB": 8.284027831889547,
+    "storedBound": 14266.387062165342,
+    "safeMaximum": 16376,
+    "targetEV": 10.75,
+    "storageEpoch": 14,
+    "lastStorageDeltaEV": 0,
+    "components": {
+      "sky": 0.02118493272348749,
+      "locals": 2.520005313774294,
+      "indirect": 0.0000016859661651396317,
+      "fireworks": 4.8594451382673,
+      "medium": 0.8833907611583014
+    },
+    "reference": "3.6 relative directional irradiance per100000 reference lux; effective, not measured",
+    "limits": [
+      "Source bounds must cover all participating RGB channels and worst relevant overlap.",
+      "Finite FP16 storage and final display dynamic range are different constraints.",
+      "A changed storage exposure does not change photographic exposure."
+    ],
+    "frame": {
+      "time": 5.946208801924882,
+      "dt": 0,
+      "utcMs": 1786629600000,
+      "storageEV": 10.75,
+      "sceneScale": 1722.1558584396073,
+      "rawPerCandela": 0.000036,
+      "cameraEV": 14,
+      "outputExposureScale": 7.230379259216544,
+      "maxRawRGB": 8.284027831889547,
+      "storedBound": 14266.387062165342,
+      "safeMaximum": 16376,
+      "targetEV": 10.75,
+      "storageEpoch": 14,
+      "lastStorageDeltaEV": 0,
+      "components": {
+        "sky": 0.02118493272348749,
+        "locals": 2.520005313774294,
+        "indirect": 0.0000016859661651396317,
+        "fireworks": 4.8594451382673,
+        "medium": 0.8833907611583014
+      },
+      "reference": "3.6 relative directional irradiance per100000 reference lux; effective, not measured",
+      "limits": [
+        "Source bounds must cover all participating RGB channels and worst relevant overlap.",
+        "Finite FP16 storage and final display dynamic range are different constraints.",
+        "A changed storage exposure does not change photographic exposure."
+      ],
+      "adaptationDelta": 0.007800000011920929,
+      "observer": {
+        "latitudeDeg": 4.5,
+        "longitudeDeg": 118.6,
+        "heightM": 2,
+        "northYawDeg": 0
+      },
+      "windVector": [
+        1.6848,
+        0,
+        0.6335999999999999
+      ],
+      "weather": {
+        "temperature": 29,
+        "humidity": 0.68,
+        "dewPoint": 22.496348617818374,
+        "liftedCondensationLevel": 812.9564227727033,
+        "automaticCloudBase": true,
+        "cloudBase": 812.9564227727033,
+        "thickness": 950,
+        "cloudTop": 1762.9564227727033,
+        "coverage": 0.35,
+        "moisture": 0.984,
+        "shear": 1.1,
+        "windDirection": null,
+        "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve"
+      }
+    },
+    "environment": {
+      "initialized": true,
+      "disposed": false,
+      "revision": 16,
+      "pmremRevision": 7,
+      "cubeSize": 256,
+      "faceRate": 12,
+      "pmremInterval": 2,
+      "totalFaces": 102,
+      "fullRefreshes": 4,
+      "cancelledJobs": 1,
+      "cubeCaptureEV": 19,
+      "environmentCaptureEV": 19,
+      "sceneEV": 10.75,
+      "cubeRatio": 0.0032847516220848223,
+      "environmentRatio": 0.0032847516220848223,
+      "cubeTag": {
+        "time": 5.1819999999850985,
+        "utcMs": 1786629600000,
+        "physicalRevision": 3,
+        "captureEV": 19,
+        "exposure": {
+          "captureEV": 19,
+          "safeEV": 19,
+          "recommendedEV": 21,
+          "preferredEV": 21,
+          "maxRGB": 0.016489367949547418,
+          "maximumStoredRGB": 16376,
+          "storedBound": 8645.177743532317
+        },
+        "sunDirection": [
+          -0.5249567118995889,
+          -0.7901894077745367,
+          -0.31626120608209124
+        ],
+        "position": [
+          0,
+          2,
+          0
+        ]
+      },
+      "environmentTag": {
+        "time": 4.1790999999791385,
+        "utcMs": 1786629600000,
+        "physicalRevision": 3,
+        "captureEV": 19,
+        "exposure": {
+          "captureEV": 19,
+          "safeEV": 19,
+          "recommendedEV": 21,
+          "preferredEV": 21,
+          "maxRGB": 0.016489367949547418,
+          "maximumStoredRGB": 16376,
+          "storedBound": 8645.177743532317
+        },
+        "sunDirection": [
+          -0.5249567118995889,
+          -0.7901894077745367,
+          -0.31626120608209124
+        ],
+        "position": [
+          0,
+          2,
+          0
+        ]
+      },
+      "cube": {
+        "captureAge": 0.7642088019397839,
+        "utcSecondsAge": 0,
+        "utcSignedSecondsAge": 0
+      },
+      "environment": {
+        "captureAge": 1.767108801945744,
+        "utcSecondsAge": 0,
+        "utcSignedSecondsAge": 0
+      },
+      "pendingReason": null,
+      "job": {
+        "face": 4,
+        "tag": {
+          "time": 5.697199999973177,
+          "utcMs": 1786629600000,
+          "physicalRevision": 3,
+          "captureEV": 19,
+          "exposure": {
+            "captureEV": 19,
+            "safeEV": 19,
+            "recommendedEV": 21,
+            "preferredEV": 21,
+            "maxRGB": 0.016489367949547418,
+            "maximumStoredRGB": 16376,
+            "storedBound": 8645.177743532317
+          },
+          "sunDirection": [
+            -0.5249567118995889,
+            -0.7901894077745367,
+            -0.31626120608209124
+          ],
+          "position": [
+            0,
+            2,
+            0
+          ]
+        },
+        "wallAge": 18.99620000000298
+      },
+      "allocated": {
+        "cubes": 2,
+        "pmrems": 2
+      },
+      "lastReason": "scheduled capture",
+      "errors": [],
+      "limits": [
+        "Snapshot coherence, not instantaneous sky; cube/PMREM age are explicit",
+        "Sky cubemap is captured at one fixed point per round, not a spatial radiance field",
+        "Source bound is atmosphere analytic envelope; not photometer calibration",
+        "Explicit initialize/refresh draws six faces synchronously; scheduled work is face-budgeted",
+        "No CPU/GPU timing or FPS claim"
+      ]
+    }
+  },
+  "gl": {
+    "label": "r37-bright-profile-entry",
+    "errors": [],
+    "programLive": true,
+    "programDeletePending": false,
+    "vertexArrayLive": true
+  }
+}

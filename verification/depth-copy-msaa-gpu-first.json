@@ -1,0 +1,811 @@
+{
+  "status": "done",
+  "result": {
+    "schema": "glass-atoll.depth-copy-gpu-check.v3",
+    "date": "2026-10-26T23:09:49.769Z",
+    "passed": false,
+    "passedCount": 36,
+    "total": 40,
+    "checks": [
+      {
+        "name": "samples0/renderer-native/perspective: actual complete source and sample count",
+        "passed": true,
+        "requested": 0,
+        "actualSamples": 0,
+        "status": 36053,
+        "path": "single-sample"
+      },
+      {
+        "name": "samples0/renderer-native/perspective: real opaque and sky geometry matches analytic projection",
+        "passed": true,
+        "maximumInteriorError": 3.3546332711686944e-8,
+        "interiorPixels": 288,
+        "skyPixels": 336,
+        "maximumSkyError": 0
+      },
+      {
+        "name": "samples0/renderer-native/perspective: restores raw READ/DRAW plus public/physical rectangles",
+        "passed": true,
+        "before": {
+          "viewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "scissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "test": true,
+          "actualViewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "actualScissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "actualTest": true
+        },
+        "after": {
+          "viewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "scissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "test": true,
+          "actualViewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "actualScissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "actualTest": true
+        },
+        "readWasSentinel": true
+      },
+      {
+        "name": "samples0/renderer-native/perspective: depth resolves to independent matching storage",
+        "passed": true,
+        "maximumError": 0,
+        "copyState": {
+          "copies": 2,
+          "width": 32,
+          "height": 24,
+          "samples": 0,
+          "lastSource": {
+            "requestedSamples": 0,
+            "actualSamples": 0,
+            "destinationSamples": 0,
+            "sourceStatus": 36053,
+            "destinationStatus": 36053,
+            "depthType": 1014,
+            "depthFormat": 1026
+          },
+          "method": "WebGL2 same-size NEAREST depth blit/resolve from the actual draw framebuffer into an independent single-sample depth attachment",
+          "limits": [
+            "2D depth targets only; matching depth type/format and dimensions are retained. Multisample sample selection follows the implementation depth resolve.",
+            "Caller supplies the actual matching camera/projection. Depth storage is copied without reconstruction or a near/far approximation."
+          ]
+        }
+      },
+      {
+        "name": "samples0/renderer-native/perspective: copy changes neither source color/depth nor destination color",
+        "passed": true,
+        "sourceColorError": 0,
+        "sourceDepthError": 0,
+        "destinationColorError": 0
+      },
+      {
+        "name": "samples0/renderer-native/perspective: original MSAA target still draws depthWrite=false finite effect",
+        "passed": true,
+        "finite": true,
+        "occludedPixels": 192,
+        "openPixels": 192,
+        "occludedError": 0,
+        "skyGain": 0.25,
+        "continuedDepthError": 0
+      },
+      {
+        "name": "samples0/renderer-native/oblique: actual complete source and sample count",
+        "passed": true,
+        "requested": 0,
+        "actualSamples": 0,
+        "status": 36053,
+        "path": "single-sample"
+      },
+      {
+        "name": "samples0/renderer-native/oblique: real opaque and sky geometry matches analytic projection",
+        "passed": false,
+        "maximumInteriorError": 0.00000656453604697127,
+        "interiorPixels": 288,
+        "skyPixels": 336,
+        "maximumSkyError": 0
+      },
+      {
+        "name": "samples0/renderer-native/oblique: restores raw READ/DRAW plus public/physical rectangles",
+        "passed": true,
+        "before": {
+          "viewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "scissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "test": true,
+          "actualViewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "actualScissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "actualTest": true
+        },
+        "after": {
+          "viewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "scissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "test": true,
+          "actualViewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "actualScissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "actualTest": true
+        },
+        "readWasSentinel": true
+      },
+      {
+        "name": "samples0/renderer-native/oblique: depth resolves to independent matching storage",
+        "passed": true,
+        "maximumError": 0,
+        "copyState": {
+          "copies": 4,
+          "width": 32,
+          "height": 24,
+          "samples": 0,
+          "lastSource": {
+            "requestedSamples": 0,
+            "actualSamples": 0,
+            "destinationSamples": 0,
+            "sourceStatus": 36053,
+            "destinationStatus": 36053,
+            "depthType": 1014,
+            "depthFormat": 1026
+          },
+          "method": "WebGL2 same-size NEAREST depth blit/resolve from the actual draw framebuffer into an independent single-sample depth attachment",
+          "limits": [
+            "2D depth targets only; matching depth type/format and dimensions are retained. Multisample sample selection follows the implementation depth resolve.",
+            "Caller supplies the actual matching camera/projection. Depth storage is copied without reconstruction or a near/far approximation."
+          ]
+        }
+      },
+      {
+        "name": "samples0/renderer-native/oblique: copy changes neither source color/depth nor destination color",
+        "passed": true,
+        "sourceColorError": 0,
+        "sourceDepthError": 0,
+        "destinationColorError": 0
+      },
+      {
+        "name": "samples0/renderer-native/oblique: original MSAA target still draws depthWrite=false finite effect",
+        "passed": true,
+        "finite": true,
+        "occludedPixels": 192,
+        "openPixels": 192,
+        "occludedError": 0,
+        "skyGain": 0.25,
+        "continuedDepthError": 0
+      },
+      {
+        "name": "samples2/renderer-native/perspective: actual complete source and sample count",
+        "passed": true,
+        "requested": 2,
+        "actualSamples": 2,
+        "status": 36053,
+        "path": "explicit-multisample-renderbuffer"
+      },
+      {
+        "name": "samples2/renderer-native/perspective: real opaque and sky geometry matches analytic projection",
+        "passed": true,
+        "maximumInteriorError": 3.3546332711686944e-8,
+        "interiorPixels": 288,
+        "skyPixels": 336,
+        "maximumSkyError": 0
+      },
+      {
+        "name": "samples2/renderer-native/perspective: restores raw READ/DRAW plus public/physical rectangles",
+        "passed": true,
+        "before": {
+          "viewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "scissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "test": true,
+          "actualViewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "actualScissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "actualTest": true
+        },
+        "after": {
+          "viewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "scissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "test": true,
+          "actualViewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "actualScissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "actualTest": true
+        },
+        "readWasSentinel": true
+      },
+      {
+        "name": "samples2/renderer-native/perspective: depth resolves to independent matching storage",
+        "passed": true,
+        "maximumError": 0,
+        "copyState": {
+          "copies": 6,
+          "width": 32,
+          "height": 24,
+          "samples": 0,
+          "lastSource": {
+            "requestedSamples": 2,
+            "actualSamples": 2,
+            "destinationSamples": 0,
+            "sourceStatus": 36053,
+            "destinationStatus": 36053,
+            "depthType": 1014,
+            "depthFormat": 1026
+          },
+          "method": "WebGL2 same-size NEAREST depth blit/resolve from the actual draw framebuffer into an independent single-sample depth attachment",
+          "limits": [
+            "2D depth targets only; matching depth type/format and dimensions are retained. Multisample sample selection follows the implementation depth resolve.",
+            "Caller supplies the actual matching camera/projection. Depth storage is copied without reconstruction or a near/far approximation."
+          ]
+        }
+      },
+      {
+        "name": "samples2/renderer-native/perspective: copy changes neither source color/depth nor destination color",
+        "passed": true,
+        "sourceColorError": 0,
+        "sourceDepthError": 0,
+        "destinationColorError": 0
+      },
+      {
+        "name": "samples2/renderer-native/perspective: original MSAA target still draws depthWrite=false finite effect",
+        "passed": true,
+        "finite": true,
+        "occludedPixels": 192,
+        "openPixels": 192,
+        "occludedError": 0,
+        "skyGain": 0.25,
+        "continuedDepthError": 0
+      },
+      {
+        "name": "samples2/renderer-native/oblique: actual complete source and sample count",
+        "passed": true,
+        "requested": 2,
+        "actualSamples": 2,
+        "status": 36053,
+        "path": "explicit-multisample-renderbuffer"
+      },
+      {
+        "name": "samples2/renderer-native/oblique: real opaque and sky geometry matches analytic projection",
+        "passed": false,
+        "maximumInteriorError": 0.00024415637645236465,
+        "interiorPixels": 288,
+        "skyPixels": 336,
+        "maximumSkyError": 0
+      },
+      {
+        "name": "samples2/renderer-native/oblique: restores raw READ/DRAW plus public/physical rectangles",
+        "passed": true,
+        "before": {
+          "viewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "scissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "test": true,
+          "actualViewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "actualScissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "actualTest": true
+        },
+        "after": {
+          "viewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "scissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "test": true,
+          "actualViewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "actualScissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "actualTest": true
+        },
+        "readWasSentinel": true
+      },
+      {
+        "name": "samples2/renderer-native/oblique: depth resolves to independent matching storage",
+        "passed": true,
+        "maximumError": 0,
+        "copyState": {
+          "copies": 8,
+          "width": 32,
+          "height": 24,
+          "samples": 0,
+          "lastSource": {
+            "requestedSamples": 2,
+            "actualSamples": 2,
+            "destinationSamples": 0,
+            "sourceStatus": 36053,
+            "destinationStatus": 36053,
+            "depthType": 1014,
+            "depthFormat": 1026
+          },
+          "method": "WebGL2 same-size NEAREST depth blit/resolve from the actual draw framebuffer into an independent single-sample depth attachment",
+          "limits": [
+            "2D depth targets only; matching depth type/format and dimensions are retained. Multisample sample selection follows the implementation depth resolve.",
+            "Caller supplies the actual matching camera/projection. Depth storage is copied without reconstruction or a near/far approximation."
+          ]
+        }
+      },
+      {
+        "name": "samples2/renderer-native/oblique: copy changes neither source color/depth nor destination color",
+        "passed": true,
+        "sourceColorError": 0,
+        "sourceDepthError": 0,
+        "destinationColorError": 0
+      },
+      {
+        "name": "samples2/renderer-native/oblique: original MSAA target still draws depthWrite=false finite effect",
+        "passed": true,
+        "finite": true,
+        "occludedPixels": 192,
+        "openPixels": 192,
+        "occludedError": 0,
+        "skyGain": 0.25,
+        "continuedDepthError": 0
+      },
+      {
+        "name": "samples4/renderer-native/perspective: actual complete source and sample count",
+        "passed": true,
+        "requested": 4,
+        "actualSamples": 4,
+        "status": 36053,
+        "path": "explicit-multisample-renderbuffer"
+      },
+      {
+        "name": "samples4/renderer-native/perspective: real opaque and sky geometry matches analytic projection",
+        "passed": true,
+        "maximumInteriorError": 3.3546332711686944e-8,
+        "interiorPixels": 288,
+        "skyPixels": 336,
+        "maximumSkyError": 0
+      },
+      {
+        "name": "samples4/renderer-native/perspective: restores raw READ/DRAW plus public/physical rectangles",
+        "passed": true,
+        "before": {
+          "viewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "scissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "test": true,
+          "actualViewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "actualScissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "actualTest": true
+        },
+        "after": {
+          "viewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "scissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "test": true,
+          "actualViewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "actualScissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "actualTest": true
+        },
+        "readWasSentinel": true
+      },
+      {
+        "name": "samples4/renderer-native/perspective: depth resolves to independent matching storage",
+        "passed": true,
+        "maximumError": 0,
+        "copyState": {
+          "copies": 10,
+          "width": 32,
+          "height": 24,
+          "samples": 0,
+          "lastSource": {
+            "requestedSamples": 4,
+            "actualSamples": 4,
+            "destinationSamples": 0,
+            "sourceStatus": 36053,
+            "destinationStatus": 36053,
+            "depthType": 1014,
+            "depthFormat": 1026
+          },
+          "method": "WebGL2 same-size NEAREST depth blit/resolve from the actual draw framebuffer into an independent single-sample depth attachment",
+          "limits": [
+            "2D depth targets only; matching depth type/format and dimensions are retained. Multisample sample selection follows the implementation depth resolve.",
+            "Caller supplies the actual matching camera/projection. Depth storage is copied without reconstruction or a near/far approximation."
+          ]
+        }
+      },
+      {
+        "name": "samples4/renderer-native/perspective: copy changes neither source color/depth nor destination color",
+        "passed": true,
+        "sourceColorError": 0,
+        "sourceDepthError": 0,
+        "destinationColorError": 0
+      },
+      {
+        "name": "samples4/renderer-native/perspective: original MSAA target still draws depthWrite=false finite effect",
+        "passed": true,
+        "finite": true,
+        "occludedPixels": 192,
+        "openPixels": 192,
+        "occludedError": 0,
+        "skyGain": 0.25,
+        "continuedDepthError": 0
+      },
+      {
+        "name": "samples4/renderer-native/oblique: actual complete source and sample count",
+        "passed": true,
+        "requested": 4,
+        "actualSamples": 4,
+        "status": 36053,
+        "path": "explicit-multisample-renderbuffer"
+      },
+      {
+        "name": "samples4/renderer-native/oblique: real opaque and sky geometry matches analytic projection",
+        "passed": false,
+        "maximumInteriorError": 0.0007882794522762193,
+        "interiorPixels": 288,
+        "skyPixels": 336,
+        "maximumSkyError": 0
+      },
+      {
+        "name": "samples4/renderer-native/oblique: restores raw READ/DRAW plus public/physical rectangles",
+        "passed": true,
+        "before": {
+          "viewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "scissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "test": true,
+          "actualViewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "actualScissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "actualTest": true
+        },
+        "after": {
+          "viewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "scissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "test": true,
+          "actualViewport": [
+            1,
+            2,
+            29,
+            19
+          ],
+          "actualScissor": [
+            2,
+            1,
+            26,
+            20
+          ],
+          "actualTest": true
+        },
+        "readWasSentinel": true
+      },
+      {
+        "name": "samples4/renderer-native/oblique: depth resolves to independent matching storage",
+        "passed": true,
+        "maximumError": 0,
+        "copyState": {
+          "copies": 12,
+          "width": 32,
+          "height": 24,
+          "samples": 0,
+          "lastSource": {
+            "requestedSamples": 4,
+            "actualSamples": 4,
+            "destinationSamples": 0,
+            "sourceStatus": 36053,
+            "destinationStatus": 36053,
+            "depthType": 1014,
+            "depthFormat": 1026
+          },
+          "method": "WebGL2 same-size NEAREST depth blit/resolve from the actual draw framebuffer into an independent single-sample depth attachment",
+          "limits": [
+            "2D depth targets only; matching depth type/format and dimensions are retained. Multisample sample selection follows the implementation depth resolve.",
+            "Caller supplies the actual matching camera/projection. Depth storage is copied without reconstruction or a near/far approximation."
+          ]
+        }
+      },
+      {
+        "name": "samples4/renderer-native/oblique: copy changes neither source color/depth nor destination color",
+        "passed": true,
+        "sourceColorError": 0,
+        "sourceDepthError": 0,
+        "destinationColorError": 0
+      },
+      {
+        "name": "samples4/renderer-native/oblique: original MSAA target still draws depthWrite=false finite effect",
+        "passed": true,
+        "finite": true,
+        "occludedPixels": 192,
+        "openPixels": 192,
+        "occludedError": 0,
+        "skyGain": 0.25,
+        "continuedDepthError": 0
+      },
+      {
+        "name": "resizing retains matching depth type and dimensions",
+        "passed": true
+      },
+      {
+        "name": "missing depth input is explicitly rejected",
+        "passed": true
+      },
+      {
+        "name": "no WebGL errors from MSAA resolve, continuation or sampling",
+        "passed": false,
+        "errors": [
+          1282
+        ]
+      },
+      {
+        "name": "outer renderer target, raw framebuffer bindings and flags restored",
+        "passed": true
+      }
+    ],
+    "cases": [
+      {
+        "label": "samples0/renderer-native/perspective",
+        "requestedSamples": 0,
+        "actualSamples": 0,
+        "path": "single-sample",
+        "oblique": false,
+        "depthError": 0
+      },
+      {
+        "label": "samples0/renderer-native/oblique",
+        "requestedSamples": 0,
+        "actualSamples": 0,
+        "path": "single-sample",
+        "oblique": true,
+        "depthError": 0
+      },
+      {
+        "label": "samples2/renderer-native/perspective",
+        "requestedSamples": 2,
+        "actualSamples": 2,
+        "path": "explicit-multisample-renderbuffer",
+        "oblique": false,
+        "depthError": 0
+      },
+      {
+        "label": "samples2/renderer-native/oblique",
+        "requestedSamples": 2,
+        "actualSamples": 2,
+        "path": "explicit-multisample-renderbuffer",
+        "oblique": true,
+        "depthError": 0
+      },
+      {
+        "label": "samples4/renderer-native/perspective",
+        "requestedSamples": 4,
+        "actualSamples": 4,
+        "path": "explicit-multisample-renderbuffer",
+        "oblique": false,
+        "depthError": 0
+      },
+      {
+        "label": "samples4/renderer-native/oblique",
+        "requestedSamples": 4,
+        "actualSamples": 4,
+        "path": "explicit-multisample-renderbuffer",
+        "oblique": true,
+        "depthError": 0
+      }
+    ],
+    "coverage": {
+      "automaticRTT": false,
+      "maxSamples": 8,
+      "requested": [
+        0,
+        2,
+        4
+      ],
+      "skipped": [],
+      "pixelRatio": 1
+    },
+    "limits": [
+      "Actual isolated GPU resolve and original-target continuation, not production smoke composition or FPS.",
+      "Samples2 may allocate a higher supported count; actual gl.SAMPLES is recorded. Extension-managed and explicit paths both run when the extension exists.",
+      "MSAA edge sample choice is implementation-defined. Compare the same source resolved by Three, plus an independent analytic oracle away from edges."
+    ]
+  }
+}

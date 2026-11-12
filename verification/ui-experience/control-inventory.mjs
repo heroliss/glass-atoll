@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const original=fs.readFileSync(new URL('./before/index.html',import.meta.url),'utf8');
+const current=fs.readFileSync(new URL('../../index.html',import.meta.url),'utf8');
+const ids=text=>[...text.matchAll(/\bid="([^"]+)"/g)].map(x=>x[1]);
+const before=ids(original),after=ids(current),missing=before.filter(id=>!after.includes(id));
+assert.equal(after.length,new Set(after).size,'Duplicate DOM IDs');
+assert.deepEqual(missing,[],'An original setting/control was removed');
+const result={passed:true,originalIDs:before.length,newIDs:after.length,allOriginalControlsRetained:true,duplicates:0,missing};
+fs.writeFileSync(new URL('./control-inventory.json',import.meta.url),JSON.stringify(result,null,2)+'\n');
+console.log(result);

@@ -1,0 +1,53 @@
+{
+  "schema": "glass-atoll.r19-overlap-hoist-independent.v1",
+  "dateUTC": "2026-10-29T02:17:33.318Z",
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "exactWindows": 20088,
+  "channelEntries": 482112,
+  "sourceSHA256": "fa076d1197f80182d84c82bd841615754417512533e092c31f6cb92764200646",
+  "baselineSHA256": "40e3ad97b42601fdfe7588a95a9d907002f6dbd57aa714ee69bda3e35ecd9c82",
+  "checks": [
+    {
+      "name": "Frozen baseline hash and current production imports are distinct and pinned",
+      "passed": true,
+      "evidence": {
+        "baselineSHA256": "40e3ad97b42601fdfe7588a95a9d907002f6dbd57aa714ee69bda3e35ecd9c82",
+        "currentSHA256": "fa076d1197f80182d84c82bd841615754417512533e092c31f6cb92764200646",
+        "baselinePath": "/E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/baselines/r19-before-overlap-hoist/firework-layer-profile.js"
+      }
+    },
+    {
+      "name": "Exact full-window result parity at all knots, boundaries, zero widths and overlapping exposure intervals",
+      "passed": true,
+      "evidence": {
+        "cases": 17505,
+        "profileCount": 23,
+        "comparison": "deepStrictEqual on full return object and trailing caller-buffer sentinel; no tolerance"
+      }
+    },
+    {
+      "name": "Seeded broad/narrow positive-width window and Float64/Float32 output parity",
+      "passed": true,
+      "evidence": {
+        "cases": 2760,
+        "seed": "0x62a13d07",
+        "comparison": "exact binary64 objects and typed-buffer values; matching nonrepresentable-bin errors retained"
+      }
+    },
+    {
+      "name": "Invalid inputs retain exact error type/message and caller buffer mutation parity",
+      "passed": true,
+      "evidence": {
+        "cases": 10
+      }
+    }
+  ],
+  "limits": [
+    "Direct independent frozen implementation parity, not a timing benchmark or GPU/image test.",
+    "Public output parity for the listed finite profiles/windows; does not prove every possible IEEE754 input."
+  ]
+}

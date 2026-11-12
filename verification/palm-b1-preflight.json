@@ -1,0 +1,3184 @@
+{
+  "schema": "glass-atoll.palm-B1-CPU-preflight.v1",
+  "dateUTC": "2026-10-26T20:32:09.300Z",
+  "runtimeEdits": false,
+  "noGPUOrBrowser": true,
+  "sourceHashes": {
+    "vegetation": "a5f38eb00d66a86d26b923905240ae755adcb95e125f371f6089c2b2f8e37c4e",
+    "palmFrame": "df9471498cdd88c35e76c5d8855f2eec5ad401cb98856c4a9aadb63dc5dacf8a"
+  },
+  "checkpoint": "baselines/b4-production-20261027-040831/sha256.json",
+  "adapter": {
+    "method": "Read production source as data; insert no-RNG latent collectors in memory; import data URL with absolute palm-frame import; verify all six B0 mesh attributes/index bytes before experiment",
+    "hash": "bbccc7d6e7784d6dc120a208a5aa1368821c6715d0b1dce11896a20bb7dd033b",
+    "midribReconstructionMaxErrorMetres": 0
+  },
+  "definition": {
+    "health": "exclude 9 young and 14 dead fronds; change 175 healthy mature fronds only",
+    "bareEndpoint": "fixed earliest original pinna root; never recompute from a candidate",
+    "arcCoordinate": "s = original analytic rachis arclength from original model root; theta=A*smoothstep((s-(bare+(total-bare)/2))/((total-bare)/2))",
+    "signedTorsion": "positive right-hand angle about original local rachis tangent, same sign on both pinna ranks; not camera-dependent",
+    "natural": "rotate initial F, original curl and ridge vectors by Q; leave -worldY*droop*s_leaf² unchanged; rotate original B0 edge offsets by Q",
+    "constrained": "separate geometric experiment, not a physics solve: normalize each natural target midrib segment and use its original uploaded B0 segment length; root fixed; do not rotate gravity into a local axis; each B0 section receives SO(3) Q plus minimal tangent alignment. Sag magnitude is allowed to respond to the geometric constraint; no claim of elastic equilibrium or exact original pointwise sag.",
+    "significanceThreshold": "any active pinna actual uploaded midrib polyline arc changes by more than 1%; test constrained independently if so",
+    "zero": "return B0 buffer object, not regenerated trigonometry"
+  },
+  "counts": {
+    "fronds": 198,
+    "healthyFronds": 175,
+    "leaflets": 31162,
+    "healthyLeaflets": 28168,
+    "activeLeaflets": 9992,
+    "vertices": 505992,
+    "triangles": 425288
+  },
+  "B0": {
+    "positionHash": "0c1a58d7fa1a07e6364fd9852f3c131f3d835d334beec89e49044aa9f9953e74",
+    "axisHash": "81ba7163ff6d4739c8211c517331e477f213e723986581f5e2dd1b7c2739ca56",
+    "areaMetres2": 881.9663722763069,
+    "midribArcMetres": {
+      "count": 28168,
+      "min": 0.435448640681253,
+      "p05": 0.6666062489437803,
+      "median": 1.1227167663099893,
+      "p95": 1.4328635279722672,
+      "max": 1.602687084606201,
+      "mean": 1.0922450915446777
+    },
+    "maximumSectionWidthMetres": {
+      "count": 28168,
+      "min": 0.026027128151612716,
+      "p05": 0.03096783848120355,
+      "median": 0.03821507314527805,
+      "p95": 0.04591576149948255,
+      "max": 0.049073265957185114,
+      "mean": 0.03830881163840627
+    },
+    "bareArcMetres": {
+      "count": 175,
+      "min": 0.36375362445815745,
+      "p05": 0.3890756587225402,
+      "median": 0.48648548828498434,
+      "p95": 0.6070892541860061,
+      "max": 0.6970652396598429,
+      "mean": 0.4923541131361851
+    },
+    "wholeRachisArcMetres": {
+      "count": 175,
+      "min": 4.221284790875912,
+      "p05": 4.714121191558272,
+      "median": 5.614738833877927,
+      "p95": 6.4682522516526975,
+      "max": 6.911573319101812,
+      "mean": 5.644044432173657
+    }
+  },
+  "originalFrondCoordinates": [
+    {
+      "tree": 0,
+      "frond": 1,
+      "bareEndParameter": 0.0966679997316096,
+      "bareArcMetres": 0.5666006934918728,
+      "wholeArcMetres": 5.133768566975918,
+      "torsionStartsAtArcMetres": 2.850184630233895,
+      "healthyLeaflets": 154
+    },
+    {
+      "tree": 0,
+      "frond": 2,
+      "bareEndParameter": 0.09672067986964249,
+      "bareArcMetres": 0.5531129258069607,
+      "wholeArcMetres": 4.982889730045107,
+      "torsionStartsAtArcMetres": 2.768001327926034,
+      "healthyLeaflets": 155
+    },
+    {
+      "tree": 0,
+      "frond": 3,
+      "bareEndParameter": 0.09684764957684093,
+      "bareArcMetres": 0.6325947821636791,
+      "wholeArcMetres": 5.6052169404911405,
+      "torsionStartsAtArcMetres": 3.11890586132741,
+      "healthyLeaflets": 163
+    },
+    {
+      "tree": 0,
+      "frond": 4,
+      "bareEndParameter": 0.09678519111988135,
+      "bareArcMetres": 0.5897360654943891,
+      "wholeArcMetres": 5.373665253631857,
+      "torsionStartsAtArcMetres": 2.9817006595631232,
+      "healthyLeaflets": 162
+    },
+    {
+      "tree": 0,
+      "frond": 5,
+      "bareEndParameter": 0.09706122319377028,
+      "bareArcMetres": 0.46737446525505394,
+      "wholeArcMetres": 4.9892806018765965,
+      "torsionStartsAtArcMetres": 2.7283275335658255,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 0,
+      "frond": 6,
+      "bareEndParameter": 0.09910887194029055,
+      "bareArcMetres": 0.6173273954686577,
+      "wholeArcMetres": 5.858133358505864,
+      "torsionStartsAtArcMetres": 3.237730376987261,
+      "healthyLeaflets": 163
+    },
+    {
+      "tree": 0,
+      "frond": 7,
+      "bareEndParameter": 0.09904078183975071,
+      "bareArcMetres": 0.42220116534090607,
+      "wholeArcMetres": 4.721295922468131,
+      "torsionStartsAtArcMetres": 2.5717485439045187,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 0,
+      "frond": 8,
+      "bareEndParameter": 0.0982702548375819,
+      "bareArcMetres": 0.45473417193300186,
+      "wholeArcMetres": 5.057958779310775,
+      "torsionStartsAtArcMetres": 2.7563464756218883,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 0,
+      "frond": 9,
+      "bareEndParameter": 0.09570708174770698,
+      "bareArcMetres": 0.5155324301635484,
+      "wholeArcMetres": 5.923936223384975,
+      "torsionStartsAtArcMetres": 3.2197343267742617,
+      "healthyLeaflets": 163
+    },
+    {
+      "tree": 0,
+      "frond": 10,
+      "bareEndParameter": 0.09635022229677997,
+      "bareArcMetres": 0.5558434184129196,
+      "wholeArcMetres": 5.9775305289668585,
+      "torsionStartsAtArcMetres": 3.266686973689889,
+      "healthyLeaflets": 156
+    },
+    {
+      "tree": 0,
+      "frond": 11,
+      "bareEndParameter": 0.09912341361911968,
+      "bareArcMetres": 0.5463757811779575,
+      "wholeArcMetres": 6.016437530754717,
+      "torsionStartsAtArcMetres": 3.2814066559663377,
+      "healthyLeaflets": 163
+    },
+    {
+      "tree": 0,
+      "frond": 12,
+      "bareEndParameter": 0.09658669125684537,
+      "bareArcMetres": 0.41489762912473127,
+      "wholeArcMetres": 5.556838910581128,
+      "torsionStartsAtArcMetres": 2.9858682698529297,
+      "healthyLeaflets": 164
+    },
+    {
+      "tree": 0,
+      "frond": 13,
+      "bareEndParameter": 0.09764927198691294,
+      "bareArcMetres": 0.5146953332341412,
+      "wholeArcMetres": 6.173403325522522,
+      "torsionStartsAtArcMetres": 3.3440493293783318,
+      "healthyLeaflets": 163
+    },
+    {
+      "tree": 0,
+      "frond": 14,
+      "bareEndParameter": 0.09554597511119209,
+      "bareArcMetres": 0.5020360566717369,
+      "wholeArcMetres": 6.4682522516526975,
+      "torsionStartsAtArcMetres": 3.4851441541622172,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 0,
+      "frond": 15,
+      "bareEndParameter": 0.09621898217406125,
+      "bareArcMetres": 0.3822734277574573,
+      "wholeArcMetres": 5.644564838236182,
+      "torsionStartsAtArcMetres": 3.0134191329968196,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 0,
+      "frond": 16,
+      "bareEndParameter": 0.09605154120526277,
+      "bareArcMetres": 0.43071742619118764,
+      "wholeArcMetres": 6.1921654550488165,
+      "torsionStartsAtArcMetres": 3.311441440620002,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 0,
+      "frond": 17,
+      "bareEndParameter": 0.09552278542355634,
+      "bareArcMetres": 0.5318226551110344,
+      "wholeArcMetres": 6.791434486952085,
+      "torsionStartsAtArcMetres": 3.6616285710315593,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 0,
+      "frond": 18,
+      "bareEndParameter": 0.0981393830832094,
+      "bareArcMetres": 0.3869366235820006,
+      "wholeArcMetres": 6.051060589637573,
+      "torsionStartsAtArcMetres": 3.218998606609787,
+      "healthyLeaflets": 163
+    },
+    {
+      "tree": 1,
+      "frond": 1,
+      "bareEndParameter": 0.09512098934315145,
+      "bareArcMetres": 0.4281589191279385,
+      "wholeArcMetres": 4.221284790875912,
+      "torsionStartsAtArcMetres": 2.3247218550019255,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 1,
+      "frond": 2,
+      "bareEndParameter": 0.09672322479821742,
+      "bareArcMetres": 0.48297590542575075,
+      "wholeArcMetres": 4.726163779034163,
+      "torsionStartsAtArcMetres": 2.6045698422299566,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 1,
+      "frond": 3,
+      "bareEndParameter": 0.09541188339982182,
+      "bareArcMetres": 0.5811488013187671,
+      "wholeArcMetres": 5.488786036266674,
+      "torsionStartsAtArcMetres": 3.034967418792721,
+      "healthyLeaflets": 163
+    },
+    {
+      "tree": 1,
+      "frond": 4,
+      "bareEndParameter": 0.09525390266254545,
+      "bareArcMetres": 0.4853439877416632,
+      "wholeArcMetres": 4.890297377201891,
+      "torsionStartsAtArcMetres": 2.687820682471777,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 1,
+      "frond": 5,
+      "bareEndParameter": 0.09912875873432495,
+      "bareArcMetres": 0.6128783359129243,
+      "wholeArcMetres": 5.577612256440067,
+      "torsionStartsAtArcMetres": 3.0952452961764956,
+      "healthyLeaflets": 158
+    },
+    {
+      "tree": 1,
+      "frond": 6,
+      "bareEndParameter": 0.0994524330580607,
+      "bareArcMetres": 0.5769191960984626,
+      "wholeArcMetres": 5.668155140619194,
+      "torsionStartsAtArcMetres": 3.122537168358828,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 1,
+      "frond": 7,
+      "bareEndParameter": 0.09645789225050248,
+      "bareArcMetres": 0.5623900067516111,
+      "wholeArcMetres": 5.554647451952725,
+      "torsionStartsAtArcMetres": 3.058518729352168,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 1,
+      "frond": 8,
+      "bareEndParameter": 0.09761063777189702,
+      "bareArcMetres": 0.5135310354915716,
+      "wholeArcMetres": 5.480109416992701,
+      "torsionStartsAtArcMetres": 2.9968202262421366,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 1,
+      "frond": 9,
+      "bareEndParameter": 0.09477375375851989,
+      "bareArcMetres": 0.39313896016092453,
+      "wholeArcMetres": 5.023454660305194,
+      "torsionStartsAtArcMetres": 2.708296810233059,
+      "healthyLeaflets": 163
+    },
+    {
+      "tree": 1,
+      "frond": 10,
+      "bareEndParameter": 0.0958492207834497,
+      "bareArcMetres": 0.5484975790788622,
+      "wholeArcMetres": 5.688781139570274,
+      "torsionStartsAtArcMetres": 3.1186393593245683,
+      "healthyLeaflets": 166
+    },
+    {
+      "tree": 1,
+      "frond": 11,
+      "bareEndParameter": 0.09911476299911738,
+      "bareArcMetres": 0.4493328819738264,
+      "wholeArcMetres": 5.617304538311351,
+      "torsionStartsAtArcMetres": 3.0333187101425887,
+      "healthyLeaflets": 162
+    },
+    {
+      "tree": 1,
+      "frond": 12,
+      "bareEndParameter": 0.09536306802346371,
+      "bareArcMetres": 0.4532478112356848,
+      "wholeArcMetres": 5.468843178583305,
+      "torsionStartsAtArcMetres": 2.961045494909495,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 1,
+      "frond": 13,
+      "bareEndParameter": 0.09529336375929416,
+      "bareArcMetres": 0.4806346619048312,
+      "wholeArcMetres": 6.108508166941086,
+      "torsionStartsAtArcMetres": 3.294571414422959,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 1,
+      "frond": 14,
+      "bareEndParameter": 0.0992298697079532,
+      "bareArcMetres": 0.3697115469283967,
+      "wholeArcMetres": 5.242576759780969,
+      "torsionStartsAtArcMetres": 2.8061441533546834,
+      "healthyLeaflets": 163
+    },
+    {
+      "tree": 1,
+      "frond": 15,
+      "bareEndParameter": 0.09650210570706987,
+      "bareArcMetres": 0.39690914907074265,
+      "wholeArcMetres": 5.561973564836109,
+      "torsionStartsAtArcMetres": 2.979441356953426,
+      "healthyLeaflets": 161
+    },
+    {
+      "tree": 1,
+      "frond": 16,
+      "bareEndParameter": 0.0947961910679005,
+      "bareArcMetres": 0.5049843778558077,
+      "wholeArcMetres": 6.456152446492978,
+      "torsionStartsAtArcMetres": 3.480568412174393,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 1,
+      "frond": 17,
+      "bareEndParameter": 0.09797791814943776,
+      "bareArcMetres": 0.40245290782488996,
+      "wholeArcMetres": 6.083182548944785,
+      "torsionStartsAtArcMetres": 3.2428177283848374,
+      "healthyLeaflets": 163
+    },
+    {
+      "tree": 1,
+      "frond": 18,
+      "bareEndParameter": 0.09463337308075279,
+      "bareArcMetres": 0.4378229085111222,
+      "wholeArcMetres": 6.310921398065221,
+      "torsionStartsAtArcMetres": 3.3743721532881716,
+      "healthyLeaflets": 150
+    },
+    {
+      "tree": 1,
+      "frond": 19,
+      "bareEndParameter": 0.09571203428017908,
+      "bareArcMetres": 0.4332585139365909,
+      "wholeArcMetres": 6.465394250724778,
+      "torsionStartsAtArcMetres": 3.4493263823306846,
+      "healthyLeaflets": 167
+    },
+    {
+      "tree": 1,
+      "frond": 20,
+      "bareEndParameter": 0.09589873104984872,
+      "bareArcMetres": 0.4438176614357121,
+      "wholeArcMetres": 6.66361668373115,
+      "torsionStartsAtArcMetres": 3.5537171725834313,
+      "healthyLeaflets": 163
+    },
+    {
+      "tree": 2,
+      "frond": 1,
+      "bareEndParameter": 0.0965943613559939,
+      "bareArcMetres": 0.4431161936980941,
+      "wholeArcMetres": 4.432880545780065,
+      "torsionStartsAtArcMetres": 2.4379983697390797,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 2,
+      "frond": 2,
+      "bareEndParameter": 0.09839608430094086,
+      "bareArcMetres": 0.5503006385940348,
+      "wholeArcMetres": 5.068183055937389,
+      "torsionStartsAtArcMetres": 2.809241847265712,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 2,
+      "frond": 3,
+      "bareEndParameter": 0.09607386011793279,
+      "bareArcMetres": 0.5786742406285686,
+      "wholeArcMetres": 5.546806492779389,
+      "torsionStartsAtArcMetres": 3.0627403667039785,
+      "healthyLeaflets": 162
+    },
+    {
+      "tree": 2,
+      "frond": 4,
+      "bareEndParameter": 0.09807291537337005,
+      "bareArcMetres": 0.5504346264951945,
+      "wholeArcMetres": 5.011259933982226,
+      "torsionStartsAtArcMetres": 2.78084728023871,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 2,
+      "frond": 5,
+      "bareEndParameter": 0.09613648517685942,
+      "bareArcMetres": 0.4194296957734427,
+      "wholeArcMetres": 4.57211806061773,
+      "torsionStartsAtArcMetres": 2.4957738781955863,
+      "healthyLeaflets": 158
+    },
+    {
+      "tree": 2,
+      "frond": 6,
+      "bareEndParameter": 0.09731577067798935,
+      "bareArcMetres": 0.5802680051760266,
+      "wholeArcMetres": 5.623990155503204,
+      "torsionStartsAtArcMetres": 3.102129080339615,
+      "healthyLeaflets": 164
+    },
+    {
+      "tree": 2,
+      "frond": 7,
+      "bareEndParameter": 0.10114062442397699,
+      "bareArcMetres": 0.4682693547465802,
+      "wholeArcMetres": 5.103662207860035,
+      "torsionStartsAtArcMetres": 2.785965781303308,
+      "healthyLeaflets": 161
+    },
+    {
+      "tree": 2,
+      "frond": 8,
+      "bareEndParameter": 0.09875325682386757,
+      "bareArcMetres": 0.6186592467893964,
+      "wholeArcMetres": 6.197510434649804,
+      "torsionStartsAtArcMetres": 3.4080848407196003,
+      "healthyLeaflets": 164
+    },
+    {
+      "tree": 2,
+      "frond": 9,
+      "bareEndParameter": 0.09454219045629725,
+      "bareArcMetres": 0.42252326257859824,
+      "wholeArcMetres": 5.0501773154986145,
+      "torsionStartsAtArcMetres": 2.7363502890386067,
+      "healthyLeaflets": 154
+    },
+    {
+      "tree": 2,
+      "frond": 10,
+      "bareEndParameter": 0.09826378533081152,
+      "bareArcMetres": 0.5566397269715591,
+      "wholeArcMetres": 5.786460175107721,
+      "torsionStartsAtArcMetres": 3.17154995103964,
+      "healthyLeaflets": 153
+    },
+    {
+      "tree": 2,
+      "frond": 11,
+      "bareEndParameter": 0.0988016476999037,
+      "bareArcMetres": 0.4355566326406512,
+      "wholeArcMetres": 5.195284002674826,
+      "torsionStartsAtArcMetres": 2.8154203176577384,
+      "healthyLeaflets": 166
+    },
+    {
+      "tree": 2,
+      "frond": 12,
+      "bareEndParameter": 0.0982244448834099,
+      "bareArcMetres": 0.4038585012862104,
+      "wholeArcMetres": 5.14526393642974,
+      "torsionStartsAtArcMetres": 2.774561218857975,
+      "healthyLeaflets": 156
+    },
+    {
+      "tree": 2,
+      "frond": 13,
+      "bareEndParameter": 0.0987723234568257,
+      "bareArcMetres": 0.5052851255487791,
+      "wholeArcMetres": 5.946719189229655,
+      "torsionStartsAtArcMetres": 3.226002157389217,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 2,
+      "frond": 14,
+      "bareEndParameter": 0.09606285591539927,
+      "bareArcMetres": 0.3919456383222964,
+      "wholeArcMetres": 5.6072463870591855,
+      "torsionStartsAtArcMetres": 2.9995960126907413,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 2,
+      "frond": 15,
+      "bareEndParameter": 0.09680243211146444,
+      "bareArcMetres": 0.39290764736703654,
+      "wholeArcMetres": 5.463311178416386,
+      "torsionStartsAtArcMetres": 2.928109412891711,
+      "healthyLeaflets": 157
+    },
+    {
+      "tree": 2,
+      "frond": 16,
+      "bareEndParameter": 0.09751027374924161,
+      "bareArcMetres": 0.49473895195648027,
+      "wholeArcMetres": 6.394271818279331,
+      "torsionStartsAtArcMetres": 3.4445053851179055,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 2,
+      "frond": 17,
+      "bareEndParameter": 0.09606576684676112,
+      "bareArcMetres": 0.4432518514274093,
+      "wholeArcMetres": 6.31589249130156,
+      "torsionStartsAtArcMetres": 3.379572171364485,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 2,
+      "frond": 18,
+      "bareEndParameter": 0.09593899021670223,
+      "bareArcMetres": 0.4346738460595665,
+      "wholeArcMetres": 6.249948158792609,
+      "torsionStartsAtArcMetres": 3.342311002426088,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 2,
+      "frond": 19,
+      "bareEndParameter": 0.09904472091631032,
+      "bareArcMetres": 0.49391958618525567,
+      "wholeArcMetres": 6.816729127435654,
+      "torsionStartsAtArcMetres": 3.6553243568104543,
+      "healthyLeaflets": 155
+    },
+    {
+      "tree": 2,
+      "frond": 20,
+      "bareEndParameter": 0.09922363257780671,
+      "bareArcMetres": 0.4015381523655222,
+      "wholeArcMetres": 6.367840373516554,
+      "torsionStartsAtArcMetres": 3.384689262941038,
+      "healthyLeaflets": 162
+    },
+    {
+      "tree": 3,
+      "frond": 1,
+      "bareEndParameter": 0.09544991821213626,
+      "bareArcMetres": 0.521903864068954,
+      "wholeArcMetres": 4.723872939753408,
+      "torsionStartsAtArcMetres": 2.6228884019111804,
+      "healthyLeaflets": 156
+    },
+    {
+      "tree": 3,
+      "frond": 2,
+      "bareEndParameter": 0.0991171034220606,
+      "bareArcMetres": 0.4706453955054917,
+      "wholeArcMetres": 4.614268527723947,
+      "torsionStartsAtArcMetres": 2.5424569616147195,
+      "healthyLeaflets": 161
+    },
+    {
+      "tree": 3,
+      "frond": 3,
+      "bareEndParameter": 0.09865906983194873,
+      "bareArcMetres": 0.5963558254598876,
+      "wholeArcMetres": 5.499189013533356,
+      "torsionStartsAtArcMetres": 3.0477724194966216,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 3,
+      "frond": 4,
+      "bareEndParameter": 0.09887054741894827,
+      "bareArcMetres": 0.5703080359127771,
+      "wholeArcMetres": 5.188819366386062,
+      "torsionStartsAtArcMetres": 2.879563701149419,
+      "healthyLeaflets": 157
+    },
+    {
+      "tree": 3,
+      "frond": 5,
+      "bareEndParameter": 0.09930113519239239,
+      "bareArcMetres": 0.612618270298633,
+      "wholeArcMetres": 5.614738833877927,
+      "torsionStartsAtArcMetres": 3.11367855208828,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 3,
+      "frond": 6,
+      "bareEndParameter": 0.09627129150601105,
+      "bareArcMetres": 0.4996460882814226,
+      "wholeArcMetres": 5.1560863738033325,
+      "torsionStartsAtArcMetres": 2.8278662310423774,
+      "healthyLeaflets": 162
+    },
+    {
+      "tree": 3,
+      "frond": 7,
+      "bareEndParameter": 0.09809836306190119,
+      "bareArcMetres": 0.5448607695508748,
+      "wholeArcMetres": 5.51911111492712,
+      "torsionStartsAtArcMetres": 3.0319859422389976,
+      "healthyLeaflets": 161
+    },
+    {
+      "tree": 3,
+      "frond": 8,
+      "bareEndParameter": 0.09749201872316189,
+      "bareArcMetres": 0.5221530061294024,
+      "wholeArcMetres": 5.4882790250732585,
+      "torsionStartsAtArcMetres": 3.005216015601331,
+      "healthyLeaflets": 154
+    },
+    {
+      "tree": 3,
+      "frond": 9,
+      "bareEndParameter": 0.09867095539509319,
+      "bareArcMetres": 0.4552947655259683,
+      "wholeArcMetres": 5.283624152766385,
+      "torsionStartsAtArcMetres": 2.8694594591461766,
+      "healthyLeaflets": 164
+    },
+    {
+      "tree": 3,
+      "frond": 10,
+      "bareEndParameter": 0.09637848524190486,
+      "bareArcMetres": 0.46323591079624854,
+      "wholeArcMetres": 5.275402724905516,
+      "torsionStartsAtArcMetres": 2.8693193178508825,
+      "healthyLeaflets": 164
+    },
+    {
+      "tree": 3,
+      "frond": 11,
+      "bareEndParameter": 0.09791754291206599,
+      "bareArcMetres": 0.42897666743374746,
+      "wholeArcMetres": 5.3854797052051095,
+      "torsionStartsAtArcMetres": 2.9072281863194283,
+      "healthyLeaflets": 168
+    },
+    {
+      "tree": 3,
+      "frond": 12,
+      "bareEndParameter": 0.09567506104288623,
+      "bareArcMetres": 0.45907962742341546,
+      "wholeArcMetres": 5.7395475201394826,
+      "torsionStartsAtArcMetres": 3.099313573781449,
+      "healthyLeaflets": 162
+    },
+    {
+      "tree": 3,
+      "frond": 13,
+      "bareEndParameter": 0.09786438124068082,
+      "bareArcMetres": 0.3787291611589702,
+      "wholeArcMetres": 5.462854278159203,
+      "torsionStartsAtArcMetres": 2.9207917196590865,
+      "healthyLeaflets": 162
+    },
+    {
+      "tree": 3,
+      "frond": 14,
+      "bareEndParameter": 0.0954018787567038,
+      "bareArcMetres": 0.5041258003158219,
+      "wholeArcMetres": 6.210971222978504,
+      "torsionStartsAtArcMetres": 3.357548511647163,
+      "healthyLeaflets": 161
+    },
+    {
+      "tree": 3,
+      "frond": 15,
+      "bareEndParameter": 0.09494345241039992,
+      "bareArcMetres": 0.39564034171333123,
+      "wholeArcMetres": 5.780272465292906,
+      "torsionStartsAtArcMetres": 3.087956403503118,
+      "healthyLeaflets": 161
+    },
+    {
+      "tree": 3,
+      "frond": 16,
+      "bareEndParameter": 0.09507568215066567,
+      "bareArcMetres": 0.4807772509088122,
+      "wholeArcMetres": 6.404183172550623,
+      "torsionStartsAtArcMetres": 3.4424802117297175,
+      "healthyLeaflets": 164
+    },
+    {
+      "tree": 3,
+      "frond": 17,
+      "bareEndParameter": 0.09925791680859403,
+      "bareArcMetres": 0.40213592113746427,
+      "wholeArcMetres": 5.975841775914682,
+      "torsionStartsAtArcMetres": 3.188988848526073,
+      "healthyLeaflets": 162
+    },
+    {
+      "tree": 3,
+      "frond": 18,
+      "bareEndParameter": 0.09939441433222965,
+      "bareArcMetres": 0.4005993602279936,
+      "wholeArcMetres": 6.197606837211893,
+      "torsionStartsAtArcMetres": 3.299103098719943,
+      "healthyLeaflets": 154
+    },
+    {
+      "tree": 3,
+      "frond": 19,
+      "bareEndParameter": 0.09584661379270255,
+      "bareArcMetres": 0.45833752117733534,
+      "wholeArcMetres": 6.73663576678313,
+      "torsionStartsAtArcMetres": 3.5974866439802327,
+      "healthyLeaflets": 167
+    },
+    {
+      "tree": 4,
+      "frond": 1,
+      "bareEndParameter": 0.09801467449450865,
+      "bareArcMetres": 0.4910086519531341,
+      "wholeArcMetres": 4.574921937783437,
+      "torsionStartsAtArcMetres": 2.5329652948682857,
+      "healthyLeaflets": 157
+    },
+    {
+      "tree": 4,
+      "frond": 2,
+      "bareEndParameter": 0.0955661835060455,
+      "bareArcMetres": 0.6288255731970435,
+      "wholeArcMetres": 5.515430728274961,
+      "torsionStartsAtArcMetres": 3.072128150736002,
+      "healthyLeaflets": 166
+    },
+    {
+      "tree": 4,
+      "frond": 3,
+      "bareEndParameter": 0.09522008881834336,
+      "bareArcMetres": 0.4955570646315881,
+      "wholeArcMetres": 4.942501787059137,
+      "torsionStartsAtArcMetres": 2.7190294258453624,
+      "healthyLeaflets": 164
+    },
+    {
+      "tree": 4,
+      "frond": 4,
+      "bareEndParameter": 0.09515804939251393,
+      "bareArcMetres": 0.4885366510392268,
+      "wholeArcMetres": 4.8865774297602576,
+      "torsionStartsAtArcMetres": 2.687557040399742,
+      "healthyLeaflets": 166
+    },
+    {
+      "tree": 4,
+      "frond": 5,
+      "bareEndParameter": 0.09717808702075854,
+      "bareArcMetres": 0.5695968334676904,
+      "wholeArcMetres": 5.4816930389306116,
+      "torsionStartsAtArcMetres": 3.025644936199151,
+      "healthyLeaflets": 161
+    },
+    {
+      "tree": 4,
+      "frond": 6,
+      "bareEndParameter": 0.09680878151254729,
+      "bareArcMetres": 0.5565048702445192,
+      "wholeArcMetres": 5.343766014182264,
+      "torsionStartsAtArcMetres": 2.9501354422133916,
+      "healthyLeaflets": 164
+    },
+    {
+      "tree": 4,
+      "frond": 7,
+      "bareEndParameter": 0.09816496747825296,
+      "bareArcMetres": 0.5598414500504574,
+      "wholeArcMetres": 5.727785561080485,
+      "torsionStartsAtArcMetres": 3.1438135055654715,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 4,
+      "frond": 8,
+      "bareEndParameter": 0.09784827401209623,
+      "bareArcMetres": 0.55315262458772,
+      "wholeArcMetres": 5.537524096787208,
+      "torsionStartsAtArcMetres": 3.045338360687464,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 4,
+      "frond": 9,
+      "bareEndParameter": 0.09524663551524282,
+      "bareArcMetres": 0.4372064059260264,
+      "wholeArcMetres": 5.154829262633096,
+      "torsionStartsAtArcMetres": 2.796017834279561,
+      "healthyLeaflets": 157
+    },
+    {
+      "tree": 4,
+      "frond": 10,
+      "bareEndParameter": 0.09909890466649085,
+      "bareArcMetres": 0.4866556621947908,
+      "wholeArcMetres": 5.502629116037499,
+      "torsionStartsAtArcMetres": 2.9946423891161453,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 4,
+      "frond": 11,
+      "bareEndParameter": 0.09513905360875652,
+      "bareArcMetres": 0.48307201357700386,
+      "wholeArcMetres": 5.65749998118651,
+      "torsionStartsAtArcMetres": 3.0702859973817573,
+      "healthyLeaflets": 163
+    },
+    {
+      "tree": 4,
+      "frond": 12,
+      "bareEndParameter": 0.09930089639429934,
+      "bareArcMetres": 0.43164542365330466,
+      "wholeArcMetres": 5.423321727256744,
+      "torsionStartsAtArcMetres": 2.927483575455024,
+      "healthyLeaflets": 161
+    },
+    {
+      "tree": 4,
+      "frond": 13,
+      "bareEndParameter": 0.09813368771737442,
+      "bareArcMetres": 0.4210587383146312,
+      "wholeArcMetres": 5.5120576397415455,
+      "torsionStartsAtArcMetres": 2.9665581890280883,
+      "healthyLeaflets": 164
+    },
+    {
+      "tree": 4,
+      "frond": 14,
+      "bareEndParameter": 0.0987493305890821,
+      "bareArcMetres": 0.4994318971363763,
+      "wholeArcMetres": 5.976816713126244,
+      "torsionStartsAtArcMetres": 3.23812430513131,
+      "healthyLeaflets": 164
+    },
+    {
+      "tree": 4,
+      "frond": 15,
+      "bareEndParameter": 0.09600662313681096,
+      "bareArcMetres": 0.37320173750415436,
+      "wholeArcMetres": 5.439172870975065,
+      "torsionStartsAtArcMetres": 2.9061873042396096,
+      "healthyLeaflets": 157
+    },
+    {
+      "tree": 4,
+      "frond": 16,
+      "bareEndParameter": 0.09881378131499514,
+      "bareArcMetres": 0.5416339557571349,
+      "wholeArcMetres": 6.679125768811257,
+      "torsionStartsAtArcMetres": 3.610379862284196,
+      "healthyLeaflets": 156
+    },
+    {
+      "tree": 4,
+      "frond": 17,
+      "bareEndParameter": 0.09726956023997628,
+      "bareArcMetres": 0.4409526086003171,
+      "wholeArcMetres": 6.1159525213619945,
+      "torsionStartsAtArcMetres": 3.278452564981156,
+      "healthyLeaflets": 155
+    },
+    {
+      "tree": 4,
+      "frond": 18,
+      "bareEndParameter": 0.09725813125772402,
+      "bareArcMetres": 0.39719043841140317,
+      "wholeArcMetres": 6.109107532191593,
+      "torsionStartsAtArcMetres": 3.253148985301498,
+      "healthyLeaflets": 167
+    },
+    {
+      "tree": 4,
+      "frond": 19,
+      "bareEndParameter": 0.09615260191541165,
+      "bareArcMetres": 0.43728646030679696,
+      "wholeArcMetres": 6.266185126171877,
+      "torsionStartsAtArcMetres": 3.3517357932393366,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 5,
+      "frond": 1,
+      "bareEndParameter": 0.09742101828265004,
+      "bareArcMetres": 0.6970652396598429,
+      "wholeArcMetres": 5.856179840119247,
+      "torsionStartsAtArcMetres": 3.2766225398895448,
+      "healthyLeaflets": 161
+    },
+    {
+      "tree": 5,
+      "frond": 2,
+      "bareEndParameter": 0.10184249095455744,
+      "bareArcMetres": 0.5880341367082559,
+      "wholeArcMetres": 5.08106917052282,
+      "torsionStartsAtArcMetres": 2.834551653615538,
+      "healthyLeaflets": 156
+    },
+    {
+      "tree": 5,
+      "frond": 3,
+      "bareEndParameter": 0.09459612484020181,
+      "bareArcMetres": 0.5848905693886138,
+      "wholeArcMetres": 5.359851166669113,
+      "torsionStartsAtArcMetres": 2.972370868028863,
+      "healthyLeaflets": 168
+    },
+    {
+      "tree": 5,
+      "frond": 4,
+      "bareEndParameter": 0.09612975984276273,
+      "bareArcMetres": 0.6608479866167357,
+      "wholeArcMetres": 5.935019915957658,
+      "torsionStartsAtArcMetres": 3.297933951287197,
+      "healthyLeaflets": 161
+    },
+    {
+      "tree": 5,
+      "frond": 5,
+      "bareEndParameter": 0.09534638748085127,
+      "bareArcMetres": 0.43572992502842367,
+      "wholeArcMetres": 4.714121191558272,
+      "torsionStartsAtArcMetres": 2.574925558293348,
+      "healthyLeaflets": 156
+    },
+    {
+      "tree": 5,
+      "frond": 6,
+      "bareEndParameter": 0.09877163534914143,
+      "bareArcMetres": 0.44248993368017125,
+      "wholeArcMetres": 4.784052061643205,
+      "torsionStartsAtArcMetres": 2.613270997661688,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 5,
+      "frond": 7,
+      "bareEndParameter": 0.09460037885280326,
+      "bareArcMetres": 0.49467129797650045,
+      "wholeArcMetres": 5.057375514506507,
+      "torsionStartsAtArcMetres": 2.776023406241504,
+      "healthyLeaflets": 155
+    },
+    {
+      "tree": 5,
+      "frond": 8,
+      "bareEndParameter": 0.0975848169210367,
+      "bareArcMetres": 0.5608361633724256,
+      "wholeArcMetres": 5.678105616684629,
+      "torsionStartsAtArcMetres": 3.119470890028527,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 5,
+      "frond": 9,
+      "bareEndParameter": 0.09576705616596155,
+      "bareArcMetres": 0.5324579620858697,
+      "wholeArcMetres": 5.69660357052173,
+      "torsionStartsAtArcMetres": 3.1145307663037998,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 5,
+      "frond": 10,
+      "bareEndParameter": 0.09664717023540288,
+      "bareArcMetres": 0.5280867652522376,
+      "wholeArcMetres": 5.626678125340253,
+      "torsionStartsAtArcMetres": 3.0773824452962453,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 5,
+      "frond": 11,
+      "bareEndParameter": 0.09496044040820562,
+      "bareArcMetres": 0.517086004967932,
+      "wholeArcMetres": 5.885302258769761,
+      "torsionStartsAtArcMetres": 3.2011941318688466,
+      "healthyLeaflets": 158
+    },
+    {
+      "tree": 5,
+      "frond": 12,
+      "bareEndParameter": 0.09770101990830153,
+      "bareArcMetres": 0.5841337803479955,
+      "wholeArcMetres": 6.353069041540828,
+      "torsionStartsAtArcMetres": 3.468601410944412,
+      "healthyLeaflets": 156
+    },
+    {
+      "tree": 5,
+      "frond": 13,
+      "bareEndParameter": 0.09629154541343452,
+      "bareArcMetres": 0.45057949824079807,
+      "wholeArcMetres": 5.604656553927842,
+      "torsionStartsAtArcMetres": 3.02761802608432,
+      "healthyLeaflets": 166
+    },
+    {
+      "tree": 5,
+      "frond": 14,
+      "bareEndParameter": 0.09941840231814422,
+      "bareArcMetres": 0.47861271627228547,
+      "wholeArcMetres": 5.991302806225579,
+      "torsionStartsAtArcMetres": 3.2349577612489324,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 5,
+      "frond": 15,
+      "bareEndParameter": 0.09829911931115203,
+      "bareArcMetres": 0.5218506134793721,
+      "wholeArcMetres": 6.354017963818021,
+      "torsionStartsAtArcMetres": 3.4379342886486963,
+      "healthyLeaflets": 152
+    },
+    {
+      "tree": 5,
+      "frond": 16,
+      "bareEndParameter": 0.09524089020607061,
+      "bareArcMetres": 0.5344451904717461,
+      "wholeArcMetres": 6.427966156108204,
+      "torsionStartsAtArcMetres": 3.4812056732899754,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 5,
+      "frond": 17,
+      "bareEndParameter": 0.09500123120425269,
+      "bareArcMetres": 0.40709729012924095,
+      "wholeArcMetres": 5.861888245430785,
+      "torsionStartsAtArcMetres": 3.1344927677800127,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 5,
+      "frond": 18,
+      "bareEndParameter": 0.09850978082907387,
+      "bareArcMetres": 0.48648548828498434,
+      "wholeArcMetres": 6.411581892292147,
+      "torsionStartsAtArcMetres": 3.449033690288566,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 5,
+      "frond": 19,
+      "bareEndParameter": 0.09533828391740098,
+      "bareArcMetres": 0.44158556869693183,
+      "wholeArcMetres": 6.392064198251101,
+      "torsionStartsAtArcMetres": 3.4168248834740163,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 5,
+      "frond": 20,
+      "bareEndParameter": 0.09670681632403284,
+      "bareArcMetres": 0.37925941916041106,
+      "wholeArcMetres": 6.30906323666795,
+      "torsionStartsAtArcMetres": 3.3441613279141804,
+      "healthyLeaflets": 162
+    },
+    {
+      "tree": 5,
+      "frond": 21,
+      "bareEndParameter": 0.09871539996983483,
+      "bareArcMetres": 0.475358231537441,
+      "wholeArcMetres": 6.739185742632066,
+      "torsionStartsAtArcMetres": 3.607271987084754,
+      "healthyLeaflets": 156
+    },
+    {
+      "tree": 6,
+      "frond": 1,
+      "bareEndParameter": 0.09834470758726821,
+      "bareArcMetres": 0.6031193586046852,
+      "wholeArcMetres": 5.13255574892677,
+      "torsionStartsAtArcMetres": 2.867837553765728,
+      "healthyLeaflets": 153
+    },
+    {
+      "tree": 6,
+      "frond": 2,
+      "bareEndParameter": 0.09474364616139792,
+      "bareArcMetres": 0.5253629119458655,
+      "wholeArcMetres": 4.8148304047914126,
+      "torsionStartsAtArcMetres": 2.6700966583686387,
+      "healthyLeaflets": 164
+    },
+    {
+      "tree": 6,
+      "frond": 3,
+      "bareEndParameter": 0.09454486870020629,
+      "bareArcMetres": 0.44401883784365515,
+      "wholeArcMetres": 4.371735587430771,
+      "torsionStartsAtArcMetres": 2.4078772126372128,
+      "healthyLeaflets": 158
+    },
+    {
+      "tree": 6,
+      "frond": 4,
+      "bareEndParameter": 0.09675097507238388,
+      "bareArcMetres": 0.502894140620805,
+      "wholeArcMetres": 5.036241683591354,
+      "torsionStartsAtArcMetres": 2.769567912106079,
+      "healthyLeaflets": 156
+    },
+    {
+      "tree": 6,
+      "frond": 5,
+      "bareEndParameter": 0.09562777916598134,
+      "bareArcMetres": 0.528199021998411,
+      "wholeArcMetres": 5.188642604543959,
+      "torsionStartsAtArcMetres": 2.858420813271185,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 6,
+      "frond": 6,
+      "bareEndParameter": 0.09539510312653147,
+      "bareArcMetres": 0.469287975713337,
+      "wholeArcMetres": 5.128797308244246,
+      "torsionStartsAtArcMetres": 2.799042641978791,
+      "healthyLeaflets": 161
+    },
+    {
+      "tree": 6,
+      "frond": 7,
+      "bareEndParameter": 0.0966986411313992,
+      "bareArcMetres": 0.4615857789904645,
+      "wholeArcMetres": 5.03482347664603,
+      "torsionStartsAtArcMetres": 2.748204627818247,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 6,
+      "frond": 8,
+      "bareEndParameter": 0.09849746958748437,
+      "bareArcMetres": 0.45677392675694534,
+      "wholeArcMetres": 5.297940216907199,
+      "torsionStartsAtArcMetres": 2.8773570718320727,
+      "healthyLeaflets": 157
+    },
+    {
+      "tree": 6,
+      "frond": 9,
+      "bareEndParameter": 0.0965862004335504,
+      "bareArcMetres": 0.48730835182452553,
+      "wholeArcMetres": 5.345343594661922,
+      "torsionStartsAtArcMetres": 2.916325973243224,
+      "healthyLeaflets": 157
+    },
+    {
+      "tree": 6,
+      "frond": 10,
+      "bareEndParameter": 0.09884401908772998,
+      "bareArcMetres": 0.5706909637336306,
+      "wholeArcMetres": 6.083856399324983,
+      "torsionStartsAtArcMetres": 3.3272736815293067,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 6,
+      "frond": 11,
+      "bareEndParameter": 0.0960733436960727,
+      "bareArcMetres": 0.4591585462910308,
+      "wholeArcMetres": 5.58793870806722,
+      "torsionStartsAtArcMetres": 3.0235486271791254,
+      "healthyLeaflets": 166
+    },
+    {
+      "tree": 6,
+      "frond": 12,
+      "bareEndParameter": 0.0982118986074347,
+      "bareArcMetres": 0.5364575974948113,
+      "wholeArcMetres": 5.8429433967580975,
+      "torsionStartsAtArcMetres": 3.1897004971264544,
+      "healthyLeaflets": 167
+    },
+    {
+      "tree": 6,
+      "frond": 13,
+      "bareEndParameter": 0.09899256127234549,
+      "bareArcMetres": 0.4323048899245006,
+      "wholeArcMetres": 5.522841424859351,
+      "torsionStartsAtArcMetres": 2.9775731573919257,
+      "healthyLeaflets": 166
+    },
+    {
+      "tree": 6,
+      "frond": 14,
+      "bareEndParameter": 0.09515705930581317,
+      "bareArcMetres": 0.43049320582297784,
+      "wholeArcMetres": 5.7815311723625165,
+      "torsionStartsAtArcMetres": 3.1060121890927475,
+      "healthyLeaflets": 166
+    },
+    {
+      "tree": 6,
+      "frond": 15,
+      "bareEndParameter": 0.09634672000585125,
+      "bareArcMetres": 0.3890756587225402,
+      "wholeArcMetres": 5.687398298395997,
+      "torsionStartsAtArcMetres": 3.038236978559268,
+      "healthyLeaflets": 162
+    },
+    {
+      "tree": 6,
+      "frond": 16,
+      "bareEndParameter": 0.0970259688764345,
+      "bareArcMetres": 0.44654871940486385,
+      "wholeArcMetres": 6.253517632568349,
+      "torsionStartsAtArcMetres": 3.3500331759866064,
+      "healthyLeaflets": 161
+    },
+    {
+      "tree": 6,
+      "frond": 17,
+      "bareEndParameter": 0.0967164632147178,
+      "bareArcMetres": 0.39511424282221214,
+      "wholeArcMetres": 5.942184493232369,
+      "torsionStartsAtArcMetres": 3.1686493680272902,
+      "healthyLeaflets": 157
+    },
+    {
+      "tree": 6,
+      "frond": 18,
+      "bareEndParameter": 0.09608572149462999,
+      "bareArcMetres": 0.42262916624188324,
+      "wholeArcMetres": 6.38448458443404,
+      "torsionStartsAtArcMetres": 3.4035568753379617,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 7,
+      "frond": 1,
+      "bareEndParameter": 0.09574198666890152,
+      "bareArcMetres": 0.5527711693957169,
+      "wholeArcMetres": 5.0302961596774844,
+      "torsionStartsAtArcMetres": 2.7915336645366007,
+      "healthyLeaflets": 166
+    },
+    {
+      "tree": 7,
+      "frond": 2,
+      "bareEndParameter": 0.09731014504493214,
+      "bareArcMetres": 0.470670954389181,
+      "wholeArcMetres": 4.728812169863275,
+      "torsionStartsAtArcMetres": 2.599741562126228,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 7,
+      "frond": 3,
+      "bareEndParameter": 0.09937682840554043,
+      "bareArcMetres": 0.5741893065874681,
+      "wholeArcMetres": 5.132311787394577,
+      "torsionStartsAtArcMetres": 2.8532505469910223,
+      "healthyLeaflets": 163
+    },
+    {
+      "tree": 7,
+      "frond": 4,
+      "bareEndParameter": 0.09791302455286496,
+      "bareArcMetres": 0.6687005385051602,
+      "wholeArcMetres": 5.979928143145493,
+      "torsionStartsAtArcMetres": 3.324314340825327,
+      "healthyLeaflets": 155
+    },
+    {
+      "tree": 7,
+      "frond": 5,
+      "bareEndParameter": 0.09892442400148138,
+      "bareArcMetres": 0.5961414187516236,
+      "wholeArcMetres": 5.545566808382034,
+      "torsionStartsAtArcMetres": 3.0708541135668286,
+      "healthyLeaflets": 155
+    },
+    {
+      "tree": 7,
+      "frond": 6,
+      "bareEndParameter": 0.09717953453003429,
+      "bareArcMetres": 0.5834488989691172,
+      "wholeArcMetres": 5.672560112585315,
+      "torsionStartsAtArcMetres": 3.128004505777216,
+      "healthyLeaflets": 166
+    },
+    {
+      "tree": 7,
+      "frond": 7,
+      "bareEndParameter": 0.09623894616542385,
+      "bareArcMetres": 0.5740941421584845,
+      "wholeArcMetres": 5.777091082227153,
+      "torsionStartsAtArcMetres": 3.1755926121928186,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 7,
+      "frond": 8,
+      "bareEndParameter": 0.09744424797873945,
+      "bareArcMetres": 0.47785531709671103,
+      "wholeArcMetres": 5.267843608699325,
+      "torsionStartsAtArcMetres": 2.8728494628980177,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 7,
+      "frond": 9,
+      "bareEndParameter": 0.09796559550845996,
+      "bareArcMetres": 0.4876158518058434,
+      "wholeArcMetres": 5.25146643362742,
+      "torsionStartsAtArcMetres": 2.8695411427166317,
+      "healthyLeaflets": 161
+    },
+    {
+      "tree": 7,
+      "frond": 10,
+      "bareEndParameter": 0.09716483290703036,
+      "bareArcMetres": 0.4820123310517464,
+      "wholeArcMetres": 5.638988958173795,
+      "torsionStartsAtArcMetres": 3.060500644612771,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 7,
+      "frond": 11,
+      "bareEndParameter": 0.09812583243986592,
+      "bareArcMetres": 0.6070892541860061,
+      "wholeArcMetres": 6.256957419919741,
+      "torsionStartsAtArcMetres": 3.4320233370528737,
+      "healthyLeaflets": 156
+    },
+    {
+      "tree": 7,
+      "frond": 12,
+      "bareEndParameter": 0.0983173734897282,
+      "bareArcMetres": 0.5687677987039998,
+      "wholeArcMetres": 6.114468026105217,
+      "torsionStartsAtArcMetres": 3.341617912404608,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 7,
+      "frond": 13,
+      "bareEndParameter": 0.0985688616852276,
+      "bareArcMetres": 0.4413005175534282,
+      "wholeArcMetres": 5.853128910763975,
+      "torsionStartsAtArcMetres": 3.1472147141587015,
+      "healthyLeaflets": 161
+    },
+    {
+      "tree": 7,
+      "frond": 14,
+      "bareEndParameter": 0.09830412718164735,
+      "bareArcMetres": 0.4456010552006331,
+      "wholeArcMetres": 5.752295294899024,
+      "torsionStartsAtArcMetres": 3.098948175049828,
+      "healthyLeaflets": 162
+    },
+    {
+      "tree": 7,
+      "frond": 15,
+      "bareEndParameter": 0.09875104279886,
+      "bareArcMetres": 0.4290352586588186,
+      "wholeArcMetres": 5.786390354090069,
+      "torsionStartsAtArcMetres": 3.107712806374444,
+      "healthyLeaflets": 155
+    },
+    {
+      "tree": 7,
+      "frond": 16,
+      "bareEndParameter": 0.09844839185755701,
+      "bareArcMetres": 0.4086384827409712,
+      "wholeArcMetres": 5.896923167746055,
+      "torsionStartsAtArcMetres": 3.152780825243513,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 7,
+      "frond": 17,
+      "bareEndParameter": 0.09518779804394581,
+      "bareArcMetres": 0.4031335351753416,
+      "wholeArcMetres": 6.190905412197924,
+      "torsionStartsAtArcMetres": 3.2970194736866327,
+      "healthyLeaflets": 163
+    },
+    {
+      "tree": 7,
+      "frond": 18,
+      "bareEndParameter": 0.09715468673664146,
+      "bareArcMetres": 0.5062457841058218,
+      "wholeArcMetres": 6.811271446280077,
+      "torsionStartsAtArcMetres": 3.6587586151929496,
+      "healthyLeaflets": 161
+    },
+    {
+      "tree": 7,
+      "frond": 19,
+      "bareEndParameter": 0.09949775471398607,
+      "bareArcMetres": 0.5078992352538823,
+      "wholeArcMetres": 6.729540189007195,
+      "torsionStartsAtArcMetres": 3.6187197121305386,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 7,
+      "frond": 20,
+      "bareEndParameter": 0.09494201485114172,
+      "bareArcMetres": 0.36375362445815745,
+      "wholeArcMetres": 6.122044488851551,
+      "torsionStartsAtArcMetres": 3.2428990566548546,
+      "healthyLeaflets": 163
+    },
+    {
+      "tree": 8,
+      "frond": 1,
+      "bareEndParameter": 0.09836192430742086,
+      "bareArcMetres": 0.5195523658301461,
+      "wholeArcMetres": 4.668842685281358,
+      "torsionStartsAtArcMetres": 2.594197525555752,
+      "healthyLeaflets": 158
+    },
+    {
+      "tree": 8,
+      "frond": 2,
+      "bareEndParameter": 0.0994718313862104,
+      "bareArcMetres": 0.45212836160664766,
+      "wholeArcMetres": 4.4613591558360275,
+      "torsionStartsAtArcMetres": 2.4567437587213377,
+      "healthyLeaflets": 166
+    },
+    {
+      "tree": 8,
+      "frond": 3,
+      "bareEndParameter": 0.09893687671795488,
+      "bareArcMetres": 0.5696335817811125,
+      "wholeArcMetres": 5.114923975811303,
+      "torsionStartsAtArcMetres": 2.8422787787962074,
+      "healthyLeaflets": 163
+    },
+    {
+      "tree": 8,
+      "frond": 4,
+      "bareEndParameter": 0.09676583392242902,
+      "bareArcMetres": 0.59187354831695,
+      "wholeArcMetres": 5.565907970884173,
+      "torsionStartsAtArcMetres": 3.078890759600562,
+      "healthyLeaflets": 164
+    },
+    {
+      "tree": 8,
+      "frond": 5,
+      "bareEndParameter": 0.09948956891126,
+      "bareArcMetres": 0.5672599243090521,
+      "wholeArcMetres": 5.25830664412343,
+      "torsionStartsAtArcMetres": 2.912783284216241,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 8,
+      "frond": 6,
+      "bareEndParameter": 0.09513639228581451,
+      "bareArcMetres": 0.4421421055202903,
+      "wholeArcMetres": 4.872918741135249,
+      "torsionStartsAtArcMetres": 2.6575304233277692,
+      "healthyLeaflets": 166
+    },
+    {
+      "tree": 8,
+      "frond": 7,
+      "bareEndParameter": 0.09532031476311385,
+      "bareArcMetres": 0.5466022995552189,
+      "wholeArcMetres": 5.4762216335170555,
+      "torsionStartsAtArcMetres": 3.011411966536137,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 8,
+      "frond": 8,
+      "bareEndParameter": 0.09890749120665715,
+      "bareArcMetres": 0.5732873614025653,
+      "wholeArcMetres": 5.657535497730657,
+      "torsionStartsAtArcMetres": 3.115411429566611,
+      "healthyLeaflets": 160
+    },
+    {
+      "tree": 8,
+      "frond": 9,
+      "bareEndParameter": 0.09587290220125579,
+      "bareArcMetres": 0.46190437839419984,
+      "wholeArcMetres": 5.228352751309989,
+      "torsionStartsAtArcMetres": 2.8451285648520948,
+      "healthyLeaflets": 154
+    },
+    {
+      "tree": 8,
+      "frond": 10,
+      "bareEndParameter": 0.09854941673390567,
+      "bareArcMetres": 0.4578458572589779,
+      "wholeArcMetres": 5.453079565869473,
+      "torsionStartsAtArcMetres": 2.955462711564225,
+      "healthyLeaflets": 159
+    },
+    {
+      "tree": 8,
+      "frond": 11,
+      "bareEndParameter": 0.09847423080867157,
+      "bareArcMetres": 0.5634193010375418,
+      "wholeArcMetres": 6.093977541593421,
+      "torsionStartsAtArcMetres": 3.3286984213154813,
+      "healthyLeaflets": 155
+    },
+    {
+      "tree": 8,
+      "frond": 12,
+      "bareEndParameter": 0.09824531931593083,
+      "bareArcMetres": 0.4344774849775321,
+      "wholeArcMetres": 5.495451754520121,
+      "torsionStartsAtArcMetres": 2.9649646197488266,
+      "healthyLeaflets": 165
+    },
+    {
+      "tree": 8,
+      "frond": 13,
+      "bareEndParameter": 0.0949610600322485,
+      "bareArcMetres": 0.5346360347079283,
+      "wholeArcMetres": 6.0734487645276936,
+      "torsionStartsAtArcMetres": 3.304042399617811,
+      "healthyLeaflets": 164
+    },
+    {
+      "tree": 8,
+      "frond": 14,
+      "bareEndParameter": 0.10303022583201528,
+      "bareArcMetres": 0.5729476025103054,
+      "wholeArcMetres": 6.2133698934764245,
+      "torsionStartsAtArcMetres": 3.3931587479933647,
+      "healthyLeaflets": 158
+    },
+    {
+      "tree": 8,
+      "frond": 15,
+      "bareEndParameter": 0.09542128551215864,
+      "bareArcMetres": 0.40331774196786646,
+      "wholeArcMetres": 5.609297660941274,
+      "torsionStartsAtArcMetres": 3.0063077014545705,
+      "healthyLeaflets": 167
+    },
+    {
+      "tree": 8,
+      "frond": 16,
+      "bareEndParameter": 0.09523908744379879,
+      "bareArcMetres": 0.5225273840269652,
+      "wholeArcMetres": 6.32017414765525,
+      "torsionStartsAtArcMetres": 3.4213507658411078,
+      "healthyLeaflets": 162
+    },
+    {
+      "tree": 8,
+      "frond": 17,
+      "bareEndParameter": 0.09786296231602319,
+      "bareArcMetres": 0.4143726031447423,
+      "wholeArcMetres": 5.896635526615923,
+      "torsionStartsAtArcMetres": 3.1555040648803327,
+      "healthyLeaflets": 154
+    },
+    {
+      "tree": 8,
+      "frond": 18,
+      "bareEndParameter": 0.09862974128266797,
+      "bareArcMetres": 0.38299230127965433,
+      "wholeArcMetres": 5.999995693739261,
+      "torsionStartsAtArcMetres": 3.1914939975094576,
+      "healthyLeaflets": 166
+    },
+    {
+      "tree": 8,
+      "frond": 19,
+      "bareEndParameter": 0.09850699149467983,
+      "bareArcMetres": 0.4511192509266601,
+      "wholeArcMetres": 6.426014137246264,
+      "torsionStartsAtArcMetres": 3.438566694086462,
+      "healthyLeaflets": 162
+    },
+    {
+      "tree": 8,
+      "frond": 20,
+      "bareEndParameter": 0.09472848899126984,
+      "bareArcMetres": 0.5025975970566094,
+      "wholeArcMetres": 6.911573319101812,
+      "torsionStartsAtArcMetres": 3.707085458079211,
+      "healthyLeaflets": 164
+    }
+  ],
+  "results": [
+    {
+      "method": "natural",
+      "amplitudeDegrees": 45,
+      "preQuantizationSegmentMaxErrorMetres": 0,
+      "worldDownSagConstructionMaxErrorMetres": 3.5477499863369604e-15,
+      "sectionQuaternionUnitMaxError": 0,
+      "maximumSectionDeterminantError": 4.440892098500626e-16,
+      "antiparallelAlignmentCases": 0,
+      "alignmentFromPureTorsionDegrees": {
+        "count": 0,
+        "mean": null
+      },
+      "sectionAdjacentRowRotationDegrees": {
+        "count": 41173,
+        "min": 0,
+        "p05": 0,
+        "median": 0,
+        "p95": 0.0000017075472925031877,
+        "max": 0.0000024148365394514667,
+        "mean": 3.891336182975688e-7
+      },
+      "constraintCorrectionFromNaturalMetres": {
+        "count": 0,
+        "mean": null
+      },
+      "constraintHorizontalCorrectionFromNaturalMetres": {
+        "count": 0,
+        "mean": null
+      },
+      "identity": false,
+      "positionHash": "f61a216b5a8446668343e998a64e9d123781570f3448409ee528aca441b61029",
+      "axisHash": "0a9da28943306125bb74e5f91b6e37ad1672df17b8a6921eb5c40a5659601f78",
+      "changedLeaflets": 9992,
+      "actualUploadedMidribArcChangePercent": {
+        "count": 9992,
+        "min": -8.822657939003442,
+        "p05": -4.085404705178341,
+        "median": 0.0009983205717656318,
+        "p95": 4.090432031727387,
+        "max": 8.640774201406586,
+        "mean": 0.017186210876607433
+      },
+      "actualUploadedSegmentLengthChangePercent": {
+        "count": 41173,
+        "min": -11.339651167006293,
+        "p05": -4.430555943134696,
+        "median": 0.0007822955321756808,
+        "p95": 4.425419397850283,
+        "max": 12.092754621270775,
+        "mean": 0.018998757420307655
+      },
+      "arcChangedOver1Percent": 6056,
+      "arcChangedOver5Percent": 330,
+      "actualSectionWidthChangePercent": {
+        "count": 31181,
+        "min": -0.006183479137533698,
+        "p05": -0.0017776718410300596,
+        "median": 5.50164602763914e-7,
+        "p95": 0.0017669938026765308,
+        "max": 0.006417424382454406,
+        "mean": 0.000003416759097873978
+      },
+      "leafTriangleAreaChangePercent": {
+        "count": 9992,
+        "min": -10.595937941041722,
+        "p05": -5.355791911564134,
+        "median": 0.0010867073306330965,
+        "p95": 5.310238695531755,
+        "max": 12.425268912890841,
+        "mean": 0.012613944707262625
+      },
+      "wholePinnaMeshAreaMetres2": 881.9873556345149,
+      "wholePinnaMeshAreaChangePercent": 0.0023791562657748955,
+      "tipDisplacementMetres": {
+        "count": 9992,
+        "min": 0,
+        "p05": 0.0027719992608476614,
+        "median": 0.20263288794293652,
+        "p95": 0.3149274257214381,
+        "max": 0.37603328449693674,
+        "mean": 0.17336628392314976
+      },
+      "maximumRootDisplacementMetres": 0,
+      "maximumCollapsedEndpointSeparationMetres": 0,
+      "untargetedPositionWordMismatches": 0,
+      "axisDirectionChangeDegrees": {
+        "count": 9992,
+        "min": 0,
+        "p05": 0.14572187806398776,
+        "median": 13.75014478268624,
+        "p95": 32.81347734338546,
+        "max": 36.49301286927357,
+        "mean": 15.081015982166432
+      },
+      "axisVsActualRootTipChordDegrees": {
+        "count": 9992,
+        "min": 3.0183731599726205,
+        "p05": 5.241618385038839,
+        "median": 8.609059099718356,
+        "p95": 15.896613729266347,
+        "max": 25.95791398582725,
+        "mean": 9.259262566068722
+      },
+      "B0axisVsActualRootTipChordDegrees": {
+        "count": 9992,
+        "min": 3.120229567784629,
+        "p05": 5.450010203984157,
+        "median": 8.901361049490127,
+        "p95": 15.21111738481848,
+        "max": 22.6191718929206,
+        "mean": 9.414275382881561
+      },
+      "TBN": {
+        "nonFinite": 0,
+        "maxNormalError": 5.0374300730737787e-8,
+        "maxTangentError": 4.887300764089275e-8,
+        "maxDot": 4.772567052668819e-8,
+        "maxAxisError": 4.9165485349611515e-8,
+        "handednessChanges": 0,
+        "negativeHandedness": 0,
+        "sampledNormalChangeDegrees": {
+          "count": 29765,
+          "min": 0,
+          "p05": 0,
+          "median": 0,
+          "p95": 37.25631772272128,
+          "max": 50.457105315286135,
+          "mean": 5.003763569175037
+        },
+        "sampledTangentChangeDegrees": {
+          "count": 29765,
+          "min": 0,
+          "p05": 0,
+          "median": 0,
+          "p95": 24.149544288407185,
+          "max": 69.72754326909613,
+          "mean": 3.9213656083591233
+        }
+      },
+      "degenerateIndexedTriangles": 0,
+      "lockedAttributeMismatches": [],
+      "indexByteIdentical": true,
+      "unoccludedProjectedTriangleArea12Directions": [
+        {
+          "azimuth": 0,
+          "elevation": 5,
+          "B0Metres2": 396.43834856194457,
+          "candidateMetres2": 396.24037294718795,
+          "ratio": 0.9995006143692335
+        },
+        {
+          "azimuth": 90,
+          "elevation": 5,
+          "B0Metres2": 393.1907853236722,
+          "candidateMetres2": 393.6206861391239,
+          "ratio": 1.0010933644212894
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "B0Metres2": 392.2286330708099,
+          "candidateMetres2": 392.4379407854724,
+          "ratio": 1.0005336370091693
+        },
+        {
+          "azimuth": 270,
+          "elevation": 5,
+          "B0Metres2": 387.9426986970618,
+          "candidateMetres2": 388.07871535847454,
+          "ratio": 1.000350610185137
+        },
+        {
+          "azimuth": 0,
+          "elevation": 25,
+          "B0Metres2": 426.5382773387601,
+          "candidateMetres2": 425.50590571169636,
+          "ratio": 0.9975796506857371
+        },
+        {
+          "azimuth": 90,
+          "elevation": 25,
+          "B0Metres2": 426.1120344092803,
+          "candidateMetres2": 427.0412981676892,
+          "ratio": 1.0021807967937286
+        },
+        {
+          "azimuth": 180,
+          "elevation": 25,
+          "B0Metres2": 409.78788225792124,
+          "candidateMetres2": 410.7957981310728,
+          "ratio": 1.0024596038994564
+        },
+        {
+          "azimuth": 270,
+          "elevation": 25,
+          "B0Metres2": 403.17040550151097,
+          "candidateMetres2": 402.9085698255651,
+          "ratio": 0.9993505582940292
+        },
+        {
+          "azimuth": 0,
+          "elevation": 65,
+          "B0Metres2": 524.8647978146907,
+          "candidateMetres2": 522.3544152408854,
+          "ratio": 0.9952170871731968
+        },
+        {
+          "azimuth": 90,
+          "elevation": 65,
+          "B0Metres2": 527.0095095518853,
+          "candidateMetres2": 526.8176912743104,
+          "ratio": 0.9996360250164403
+        },
+        {
+          "azimuth": 180,
+          "elevation": 65,
+          "B0Metres2": 510.88732394900256,
+          "candidateMetres2": 511.38722622908455,
+          "ratio": 1.0009784981083851
+        },
+        {
+          "azimuth": 270,
+          "elevation": 65,
+          "B0Metres2": 507.24872818295006,
+          "candidateMetres2": 505.7738591579644,
+          "ratio": 0.9970924145433171
+        }
+      ],
+      "bounds": {
+        "min": [
+          -26.421545028686523,
+          2.6297621726989746,
+          -17.644258499145508
+        ],
+        "max": [
+          11.50299072265625,
+          18.87786102294922,
+          7.804296493530273
+        ],
+        "sphereRadiusIncludingExistingWindMargin": 22.284164932114653
+      },
+      "imposedTorsionAngleDegrees": {
+        "count": 9992,
+        "min": 5.687075874750287e-7,
+        "p05": 0.18335998827347802,
+        "median": 17.905749485811885,
+        "p95": 44.271551932128524,
+        "max": 44.96702078321537,
+        "mean": 19.95721487335319
+      },
+      "conservationAssessment": {
+        "passesOnePercentActualArcGate": false,
+        "meaning": "A valid finite mesh is not the same as a shape-only / inextensible experiment; natural candidates fail this separate gate, despite near-zero whole-crown mean."
+      },
+      "representativeFrond": {
+        "selection": "median original whole-rachis arclength among 175 healthy fronds; chosen before comparing candidate projections",
+        "tree": 3,
+        "frond": 5,
+        "wholeRachisArcMetres": 5.614738833877927,
+        "projected12Directions": [
+          {
+            "azimuth": 0,
+            "elevation": 5,
+            "B0Metres2": 1.0974101206750955,
+            "candidateMetres2": 1.284344855096453,
+            "ratio": 1.170341726305896
+          },
+          {
+            "azimuth": 90,
+            "elevation": 5,
+            "B0Metres2": 2.7112630688397577,
+            "candidateMetres2": 2.5936674845966654,
+            "ratio": 0.9566270106377337
+          },
+          {
+            "azimuth": 180,
+            "elevation": 5,
+            "B0Metres2": 0.8660594688199211,
+            "candidateMetres2": 1.089583526374707,
+            "ratio": 1.2580931975252878
+          },
+          {
+            "azimuth": 270,
+            "elevation": 5,
+            "B0Metres2": 2.650004176758784,
+            "candidateMetres2": 2.530785543954233,
+            "ratio": 0.9550119075848525
+          },
+          {
+            "azimuth": 0,
+            "elevation": 25,
+            "B0Metres2": 1.7944272832062484,
+            "candidateMetres2": 1.898628009613837,
+            "ratio": 1.058069071610082
+          },
+          {
+            "azimuth": 90,
+            "elevation": 25,
+            "B0Metres2": 2.8326670861299976,
+            "candidateMetres2": 2.7288789641653146,
+            "ratio": 0.9633602824444581
+          },
+          {
+            "azimuth": 180,
+            "elevation": 25,
+            "B0Metres2": 1.0273444858169727,
+            "candidateMetres2": 1.2930521969827558,
+            "ratio": 1.2586354575646406
+          },
+          {
+            "azimuth": 270,
+            "elevation": 25,
+            "B0Metres2": 2.503295010976311,
+            "candidateMetres2": 2.3916367253236936,
+            "ratio": 0.9553954746991369
+          },
+          {
+            "azimuth": 0,
+            "elevation": 65,
+            "B0Metres2": 2.9149417601662897,
+            "candidateMetres2": 2.8459475964392205,
+            "ratio": 0.9763308603040037
+          },
+          {
+            "azimuth": 90,
+            "elevation": 65,
+            "B0Metres2": 3.1581836913924155,
+            "candidateMetres2": 3.116390346742611,
+            "ratio": 0.986766651742357
+          },
+          {
+            "azimuth": 180,
+            "elevation": 65,
+            "B0Metres2": 2.5050754739082564,
+            "candidateMetres2": 2.638489206133396,
+            "ratio": 1.0532573703326376
+          },
+          {
+            "azimuth": 270,
+            "elevation": 65,
+            "B0Metres2": 2.5490434952414525,
+            "candidateMetres2": 2.5484029900079435,
+            "ratio": 0.999748727224661
+          }
+        ]
+      }
+    },
+    {
+      "method": "natural",
+      "amplitudeDegrees": 75,
+      "preQuantizationSegmentMaxErrorMetres": 0,
+      "worldDownSagConstructionMaxErrorMetres": 3.5100418132309236e-15,
+      "sectionQuaternionUnitMaxError": 0,
+      "maximumSectionDeterminantError": 4.440892098500626e-16,
+      "antiparallelAlignmentCases": 0,
+      "alignmentFromPureTorsionDegrees": {
+        "count": 0,
+        "mean": null
+      },
+      "sectionAdjacentRowRotationDegrees": {
+        "count": 41173,
+        "min": 0,
+        "p05": 0,
+        "median": 0,
+        "p95": 0.0000017075472925031877,
+        "max": 0.0000034150945850063755,
+        "mean": 4.005749564169455e-7
+      },
+      "constraintCorrectionFromNaturalMetres": {
+        "count": 0,
+        "mean": null
+      },
+      "constraintHorizontalCorrectionFromNaturalMetres": {
+        "count": 0,
+        "mean": null
+      },
+      "identity": false,
+      "positionHash": "276a0fe092435be8d37e775d7edc1beadbcb7bb8286d8fb124b74102890fb408",
+      "axisHash": "a3a2220d77ce7e48fa8e9a5fda937586c6319fcd52928ce22d0e5e13cd4c2a29",
+      "changedLeaflets": 9992,
+      "actualUploadedMidribArcChangePercent": {
+        "count": 9992,
+        "min": -14.16219199206532,
+        "p05": -6.156188534210772,
+        "median": 0.0016984792027718854,
+        "p95": 6.013137300010829,
+        "max": 13.428266737638106,
+        "mean": 0.0031296990246509893
+      },
+      "actualUploadedSegmentLengthChangePercent": {
+        "count": 41173,
+        "min": -18.576643447348562,
+        "p05": -6.641503026790496,
+        "median": 0.0012564953541627233,
+        "p95": 6.535386850323732,
+        "max": 18.43038206597423,
+        "mean": 0.008757041549345423
+      },
+      "arcChangedOver1Percent": 6974,
+      "arcChangedOver5Percent": 1916,
+      "actualSectionWidthChangePercent": {
+        "count": 31181,
+        "min": -0.006351604152066148,
+        "p05": -0.0018140604229333057,
+        "median": -0.000015458670477030978,
+        "p95": 0.001788312603667741,
+        "max": 0.007086177921200587,
+        "mean": -0.00001452231196408249
+      },
+      "leafTriangleAreaChangePercent": {
+        "count": 9992,
+        "min": -17.935253350470358,
+        "p05": -8.058211962615546,
+        "median": 0.001831355455150785,
+        "p95": 7.738294088316167,
+        "max": 19.217624656445874,
+        "mean": -0.02077072803375879
+      },
+      "wholePinnaMeshAreaMetres2": 881.9170865228524,
+      "wholePinnaMeshAreaChangePercent": -0.005588166964598518,
+      "tipDisplacementMetres": {
+        "count": 9992,
+        "min": 0,
+        "p05": 0.004620903919983381,
+        "median": 0.3311861821497404,
+        "p95": 0.5095420220492778,
+        "max": 0.6075495605982407,
+        "mean": 0.28257151325825997
+      },
+      "maximumRootDisplacementMetres": 0,
+      "maximumCollapsedEndpointSeparationMetres": 0,
+      "untargetedPositionWordMismatches": 0,
+      "axisDirectionChangeDegrees": {
+        "count": 9992,
+        "min": 0,
+        "p05": 0.24286960488251408,
+        "median": 22.845651114200155,
+        "p95": 53.57386244062017,
+        "max": 59.75939248471335,
+        "mean": 24.826705976752947
+      },
+      "axisVsActualRootTipChordDegrees": {
+        "count": 9992,
+        "min": 2.4556354088627472,
+        "p05": 4.768003498587566,
+        "median": 8.27308947622394,
+        "p95": 16.732147257515464,
+        "max": 27.186319977746383,
+        "mean": 9.057791452724516
+      },
+      "B0axisVsActualRootTipChordDegrees": {
+        "count": 9992,
+        "min": 3.120229567784629,
+        "p05": 5.450010203984157,
+        "median": 8.901361049490127,
+        "p95": 15.21111738481848,
+        "max": 22.6191718929206,
+        "mean": 9.414275382881561
+      },
+      "TBN": {
+        "nonFinite": 0,
+        "maxNormalError": 5.091741117624338e-8,
+        "maxTangentError": 4.887300764089275e-8,
+        "maxDot": 4.772567052668819e-8,
+        "maxAxisError": 4.9165485349611515e-8,
+        "handednessChanges": 0,
+        "negativeHandedness": 0,
+        "sampledNormalChangeDegrees": {
+          "count": 29765,
+          "min": 0,
+          "p05": 0,
+          "median": 0,
+          "p95": 61.805530517071794,
+          "max": 85.14588681045129,
+          "mean": 8.342464284199814
+        },
+        "sampledTangentChangeDegrees": {
+          "count": 29765,
+          "min": 0,
+          "p05": 0,
+          "median": 0,
+          "p95": 39.602238476035225,
+          "max": 118.39897822026958,
+          "mean": 6.502953260651301
+        }
+      },
+      "degenerateIndexedTriangles": 0,
+      "lockedAttributeMismatches": [],
+      "indexByteIdentical": true,
+      "unoccludedProjectedTriangleArea12Directions": [
+        {
+          "azimuth": 0,
+          "elevation": 5,
+          "B0Metres2": 396.43834856194457,
+          "candidateMetres2": 396.6898122688168,
+          "ratio": 1.0006343072202384
+        },
+        {
+          "azimuth": 90,
+          "elevation": 5,
+          "B0Metres2": 393.1907853236722,
+          "candidateMetres2": 395.05149173205393,
+          "ratio": 1.0047323245554955
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "B0Metres2": 392.2286330708099,
+          "candidateMetres2": 393.1473325881426,
+          "ratio": 1.0023422551029486
+        },
+        {
+          "azimuth": 270,
+          "elevation": 5,
+          "B0Metres2": 387.9426986970618,
+          "candidateMetres2": 389.6537082203747,
+          "ratio": 1.0044104697138507
+        },
+        {
+          "azimuth": 0,
+          "elevation": 25,
+          "B0Metres2": 426.5382773387601,
+          "candidateMetres2": 425.2435881717046,
+          "ratio": 0.9969646588926713
+        },
+        {
+          "azimuth": 90,
+          "elevation": 25,
+          "B0Metres2": 426.1120344092803,
+          "candidateMetres2": 427.8480802595345,
+          "ratio": 1.0040741535325584
+        },
+        {
+          "azimuth": 180,
+          "elevation": 25,
+          "B0Metres2": 409.78788225792124,
+          "candidateMetres2": 411.764340597458,
+          "ratio": 1.0048231253902544
+        },
+        {
+          "azimuth": 270,
+          "elevation": 25,
+          "B0Metres2": 403.17040550151097,
+          "candidateMetres2": 404.4270290308592,
+          "ratio": 1.0031168545910136
+        },
+        {
+          "azimuth": 0,
+          "elevation": 65,
+          "B0Metres2": 524.8647978146907,
+          "candidateMetres2": 519.5546494810986,
+          "ratio": 0.9898828262903109
+        },
+        {
+          "azimuth": 90,
+          "elevation": 65,
+          "B0Metres2": 527.0095095518853,
+          "candidateMetres2": 524.5969055865793,
+          "ratio": 0.9954220864679321
+        },
+        {
+          "azimuth": 180,
+          "elevation": 65,
+          "B0Metres2": 510.88732394900256,
+          "candidateMetres2": 510.3930985681012,
+          "ratio": 0.999032613733531
+        },
+        {
+          "azimuth": 270,
+          "elevation": 65,
+          "B0Metres2": 507.24872818295006,
+          "candidateMetres2": 504.53088631860436,
+          "ratio": 0.9946419937333674
+        }
+      ],
+      "bounds": {
+        "min": [
+          -26.46693229675293,
+          2.6297621726989746,
+          -17.653797149658203
+        ],
+        "max": [
+          11.545690536499023,
+          18.87786102294922,
+          7.804296493530273
+        ],
+        "sphereRadiusIncludingExistingWindMargin": 22.266464581480236
+      },
+      "imposedTorsionAngleDegrees": {
+        "count": 9992,
+        "min": 9.478459791250478e-7,
+        "p05": 0.30559998045579667,
+        "median": 29.842915809686474,
+        "p95": 73.78591988688088,
+        "max": 74.94503463869228,
+        "mean": 33.26202478892214
+      },
+      "conservationAssessment": {
+        "passesOnePercentActualArcGate": false,
+        "meaning": "A valid finite mesh is not the same as a shape-only / inextensible experiment; natural candidates fail this separate gate, despite near-zero whole-crown mean."
+      },
+      "representativeFrond": {
+        "selection": "median original whole-rachis arclength among 175 healthy fronds; chosen before comparing candidate projections",
+        "tree": 3,
+        "frond": 5,
+        "wholeRachisArcMetres": 5.614738833877927,
+        "projected12Directions": [
+          {
+            "azimuth": 0,
+            "elevation": 5,
+            "B0Metres2": 1.0974101206750955,
+            "candidateMetres2": 1.4301718385506688,
+            "ratio": 1.3032245753947191
+          },
+          {
+            "azimuth": 90,
+            "elevation": 5,
+            "B0Metres2": 2.7112630688397577,
+            "candidateMetres2": 2.4477068081294093,
+            "ratio": 0.9027920736503326
+          },
+          {
+            "azimuth": 180,
+            "elevation": 5,
+            "B0Metres2": 0.8660594688199211,
+            "candidateMetres2": 1.2378218191710393,
+            "ratio": 1.4292573013001932
+          },
+          {
+            "azimuth": 270,
+            "elevation": 5,
+            "B0Metres2": 2.650004176758784,
+            "candidateMetres2": 2.3919412665529407,
+            "ratio": 0.9026179232209816
+          },
+          {
+            "azimuth": 0,
+            "elevation": 25,
+            "B0Metres2": 1.7944272832062484,
+            "candidateMetres2": 2.0119586309094064,
+            "ratio": 1.1212260589988785
+          },
+          {
+            "azimuth": 90,
+            "elevation": 25,
+            "B0Metres2": 2.8326670861299976,
+            "candidateMetres2": 2.5838785101045745,
+            "ratio": 0.912171614785372
+          },
+          {
+            "azimuth": 180,
+            "elevation": 25,
+            "B0Metres2": 1.0273444858169727,
+            "candidateMetres2": 1.4271443001558588,
+            "ratio": 1.389158475913709
+          },
+          {
+            "azimuth": 270,
+            "elevation": 25,
+            "B0Metres2": 2.503295010976311,
+            "candidateMetres2": 2.28126464762466,
+            "ratio": 0.9113047553811658
+          },
+          {
+            "azimuth": 0,
+            "elevation": 65,
+            "B0Metres2": 2.9149417601662897,
+            "candidateMetres2": 2.8460197644762077,
+            "ratio": 0.9763556182727472
+          },
+          {
+            "azimuth": 90,
+            "elevation": 65,
+            "B0Metres2": 3.1581836913924155,
+            "candidateMetres2": 3.030187275688414,
+            "ratio": 0.9594715101427274
+          },
+          {
+            "azimuth": 180,
+            "elevation": 65,
+            "B0Metres2": 2.5050754739082564,
+            "candidateMetres2": 2.682833461082727,
+            "ratio": 1.0709591343757576
+          },
+          {
+            "azimuth": 270,
+            "elevation": 65,
+            "B0Metres2": 2.5490434952414525,
+            "candidateMetres2": 2.5583688030625766,
+            "ratio": 1.0036583557081442
+          }
+        ]
+      }
+    },
+    {
+      "method": "segment-constrained",
+      "amplitudeDegrees": 45,
+      "preQuantizationSegmentMaxErrorMetres": 1.9984014443252818e-15,
+      "worldDownSagConstructionMaxErrorMetres": 3.5477499863369604e-15,
+      "sectionQuaternionUnitMaxError": 4.440892098500626e-16,
+      "maximumSectionDeterminantError": 6.661338147750939e-16,
+      "antiparallelAlignmentCases": 0,
+      "alignmentFromPureTorsionDegrees": {
+        "count": 51165,
+        "min": 0.00000426886823125797,
+        "p05": 0.006390371641998822,
+        "median": 0.7646542106062417,
+        "p95": 5.4289285651307395,
+        "max": 11.845659687504101,
+        "mean": 1.490610852686451
+      },
+      "sectionAdjacentRowRotationDegrees": {
+        "count": 41173,
+        "min": 0.0000029575586669421963,
+        "p05": 0.0029157288781249263,
+        "median": 0.3505149930862226,
+        "p95": 1.6825032622563536,
+        "max": 3.7271707197694792,
+        "mean": 0.5274176683340789
+      },
+      "constraintCorrectionFromNaturalMetres": {
+        "count": 51165,
+        "min": 0,
+        "p05": 0,
+        "median": 0.0018332579305425744,
+        "p95": 0.02234845677976824,
+        "max": 0.046111308048143985,
+        "mean": 0.0054387650075040555
+      },
+      "constraintHorizontalCorrectionFromNaturalMetres": {
+        "count": 51165,
+        "min": 0,
+        "p05": 0,
+        "median": 0.001379236010583485,
+        "p95": 0.014486066505313722,
+        "max": 0.037790502520246454,
+        "mean": 0.0036760913134726097
+      },
+      "identity": false,
+      "positionHash": "cec1f91a6a3ca716923f94f87806a7846d1288b33177e4eb35578d7495a44a11",
+      "axisHash": "0a9da28943306125bb74e5f91b6e37ad1672df17b8a6921eb5c40a5659601f78",
+      "changedLeaflets": 9992,
+      "actualUploadedMidribArcChangePercent": {
+        "count": 9992,
+        "min": -0.0001440320928858263,
+        "p05": -0.00004548635285095415,
+        "median": -4.6531265507354647e-7,
+        "p95": 0.000044520873743181255,
+        "max": 0.0001657403267074642,
+        "mean": -4.5516624913588544e-7
+      },
+      "actualUploadedSegmentLengthChangePercent": {
+        "count": 41173,
+        "min": -0.0011373096118871828,
+        "p05": -0.00023492986351847378,
+        "median": -9.005796552941092e-7,
+        "p95": 0.00023643539746043274,
+        "max": 0.0009805593566669657,
+        "mean": -4.1236813963507757e-7
+      },
+      "arcChangedOver1Percent": 0,
+      "arcChangedOver5Percent": 0,
+      "actualSectionWidthChangePercent": {
+        "count": 31181,
+        "min": -0.0065003377454964095,
+        "p05": -0.001787580312073711,
+        "median": -0.0000011327472959621332,
+        "p95": 0.0018095826758601774,
+        "max": 0.00612369253107925,
+        "mean": 0.000003035857099042971
+      },
+      "leafTriangleAreaChangePercent": {
+        "count": 9992,
+        "min": -0.1853769824246121,
+        "p05": -0.06294368616382995,
+        "median": 0.00009562023601805691,
+        "p95": 0.06631949732345266,
+        "max": 0.2059879363155881,
+        "mean": 0.0011325919198501566
+      },
+      "wholePinnaMeshAreaMetres2": 881.9679771813622,
+      "wholePinnaMeshAreaChangePercent": 0.00018196896229838444,
+      "tipDisplacementMetres": {
+        "count": 9992,
+        "min": 0,
+        "p05": 0.00276140778825809,
+        "median": 0.2007418464111229,
+        "p95": 0.3134413122038899,
+        "max": 0.3696838404553824,
+        "mean": 0.17242783869221034
+      },
+      "maximumRootDisplacementMetres": 0,
+      "maximumCollapsedEndpointSeparationMetres": 0,
+      "untargetedPositionWordMismatches": 0,
+      "axisDirectionChangeDegrees": {
+        "count": 9992,
+        "min": 0,
+        "p05": 0.14572187806398776,
+        "median": 13.75014478268624,
+        "p95": 32.81347734338546,
+        "max": 36.49301286927357,
+        "mean": 15.081015982166432
+      },
+      "axisVsActualRootTipChordDegrees": {
+        "count": 9992,
+        "min": 3.007659721998769,
+        "p05": 5.240124670342814,
+        "median": 8.604561342048418,
+        "p95": 15.992672596501396,
+        "max": 26.102420011918397,
+        "mean": 9.267005921133984
+      },
+      "B0axisVsActualRootTipChordDegrees": {
+        "count": 9992,
+        "min": 3.120229567784629,
+        "p05": 5.450010203984157,
+        "median": 8.901361049490127,
+        "p95": 15.21111738481848,
+        "max": 22.6191718929206,
+        "mean": 9.414275382881561
+      },
+      "TBN": {
+        "nonFinite": 0,
+        "maxNormalError": 5.0374300730737787e-8,
+        "maxTangentError": 4.887300764089275e-8,
+        "maxDot": 4.772567052668819e-8,
+        "maxAxisError": 4.9165485349611515e-8,
+        "handednessChanges": 0,
+        "negativeHandedness": 0,
+        "sampledNormalChangeDegrees": {
+          "count": 29765,
+          "min": 0,
+          "p05": 0,
+          "median": 0,
+          "p95": 37.260060101357155,
+          "max": 47.50385880646295,
+          "mean": 4.997674634804097
+        },
+        "sampledTangentChangeDegrees": {
+          "count": 29765,
+          "min": 0,
+          "p05": 0,
+          "median": 0,
+          "p95": 24.154746979355448,
+          "max": 69.72754326909613,
+          "mean": 3.9209249104729036
+        }
+      },
+      "degenerateIndexedTriangles": 0,
+      "lockedAttributeMismatches": [],
+      "indexByteIdentical": true,
+      "unoccludedProjectedTriangleArea12Directions": [
+        {
+          "azimuth": 0,
+          "elevation": 5,
+          "B0Metres2": 396.43834856194457,
+          "candidateMetres2": 396.18565857161985,
+          "ratio": 0.9993625995284227
+        },
+        {
+          "azimuth": 90,
+          "elevation": 5,
+          "B0Metres2": 393.1907853236722,
+          "candidateMetres2": 393.55766669552816,
+          "ratio": 1.000933087410871
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "B0Metres2": 392.2286330708099,
+          "candidateMetres2": 392.3784203843303,
+          "ratio": 1.0003818877585444
+        },
+        {
+          "azimuth": 270,
+          "elevation": 5,
+          "B0Metres2": 387.9426986970618,
+          "candidateMetres2": 388.010992066648,
+          "ratio": 1.0001760398373665
+        },
+        {
+          "azimuth": 0,
+          "elevation": 25,
+          "B0Metres2": 426.5382773387601,
+          "candidateMetres2": 425.4794736216586,
+          "ratio": 0.9975176818275078
+        },
+        {
+          "azimuth": 90,
+          "elevation": 25,
+          "B0Metres2": 426.1120344092803,
+          "candidateMetres2": 427.00482650961544,
+          "ratio": 1.0020952050827967
+        },
+        {
+          "azimuth": 180,
+          "elevation": 25,
+          "B0Metres2": 409.78788225792124,
+          "candidateMetres2": 410.746202041748,
+          "ratio": 1.0023385752124891
+        },
+        {
+          "azimuth": 270,
+          "elevation": 25,
+          "B0Metres2": 403.17040550151097,
+          "candidateMetres2": 402.852718708979,
+          "ratio": 0.9992120284916826
+        },
+        {
+          "azimuth": 0,
+          "elevation": 65,
+          "B0Metres2": 524.8647978146907,
+          "candidateMetres2": 522.469087430048,
+          "ratio": 0.9954355666552274
+        },
+        {
+          "azimuth": 90,
+          "elevation": 65,
+          "B0Metres2": 527.0095095518853,
+          "candidateMetres2": 526.9206792833227,
+          "ratio": 0.9998314446571596
+        },
+        {
+          "azimuth": 180,
+          "elevation": 65,
+          "B0Metres2": 510.88732394900256,
+          "candidateMetres2": 511.46505831249544,
+          "ratio": 1.0011308449758103
+        },
+        {
+          "azimuth": 270,
+          "elevation": 65,
+          "B0Metres2": 507.24872818295006,
+          "candidateMetres2": 505.8587737747826,
+          "ratio": 0.9972598168690407
+        }
+      ],
+      "bounds": {
+        "min": [
+          -26.433252334594727,
+          2.6297621726989746,
+          -17.661943435668945
+        ],
+        "max": [
+          11.522712707519531,
+          18.87786102294922,
+          7.804296493530273
+        ],
+        "sphereRadiusIncludingExistingWindMargin": 22.30512353429717
+      },
+      "imposedTorsionAngleDegrees": {
+        "count": 9992,
+        "min": 5.687075874750287e-7,
+        "p05": 0.18335998827347802,
+        "median": 17.905749485811885,
+        "p95": 44.271551932128524,
+        "max": 44.96702078321537,
+        "mean": 19.95721487335319
+      },
+      "conservationAssessment": {
+        "passesOnePercentActualArcGate": true,
+        "meaning": "A valid finite mesh is not the same as a shape-only / inextensible experiment; natural candidates fail this separate gate, despite near-zero whole-crown mean."
+      },
+      "representativeFrond": {
+        "selection": "median original whole-rachis arclength among 175 healthy fronds; chosen before comparing candidate projections",
+        "tree": 3,
+        "frond": 5,
+        "wholeRachisArcMetres": 5.614738833877927,
+        "projected12Directions": [
+          {
+            "azimuth": 0,
+            "elevation": 5,
+            "B0Metres2": 1.0974101206750955,
+            "candidateMetres2": 1.2829716614448405,
+            "ratio": 1.1690904223259695
+          },
+          {
+            "azimuth": 90,
+            "elevation": 5,
+            "B0Metres2": 2.7112630688397577,
+            "candidateMetres2": 2.594368899078119,
+            "ratio": 0.9568857145936555
+          },
+          {
+            "azimuth": 180,
+            "elevation": 5,
+            "B0Metres2": 0.8660594688199211,
+            "candidateMetres2": 1.088519184179025,
+            "ratio": 1.2568642493594855
+          },
+          {
+            "azimuth": 270,
+            "elevation": 5,
+            "B0Metres2": 2.650004176758784,
+            "candidateMetres2": 2.5310364318665988,
+            "ratio": 0.9551065821195442
+          },
+          {
+            "azimuth": 0,
+            "elevation": 25,
+            "B0Metres2": 1.7944272832062484,
+            "candidateMetres2": 1.8972501138960374,
+            "ratio": 1.057301196683806
+          },
+          {
+            "azimuth": 90,
+            "elevation": 25,
+            "B0Metres2": 2.8326670861299976,
+            "candidateMetres2": 2.7304044539489603,
+            "ratio": 0.963898817237733
+          },
+          {
+            "azimuth": 180,
+            "elevation": 25,
+            "B0Metres2": 1.0273444858169727,
+            "candidateMetres2": 1.2928519709527089,
+            "ratio": 1.2584405608841103
+          },
+          {
+            "azimuth": 270,
+            "elevation": 25,
+            "B0Metres2": 2.503295010976311,
+            "candidateMetres2": 2.390977611437039,
+            "ratio": 0.9551321761730884
+          },
+          {
+            "azimuth": 0,
+            "elevation": 65,
+            "B0Metres2": 2.9149417601662897,
+            "candidateMetres2": 2.847754089985846,
+            "ratio": 0.9769505960295376
+          },
+          {
+            "azimuth": 90,
+            "elevation": 65,
+            "B0Metres2": 3.1581836913924155,
+            "candidateMetres2": 3.118934794445176,
+            "ratio": 0.9875723197943769
+          },
+          {
+            "azimuth": 180,
+            "elevation": 65,
+            "B0Metres2": 2.5050754739082564,
+            "candidateMetres2": 2.640245447820995,
+            "ratio": 1.0539584436958522
+          },
+          {
+            "azimuth": 270,
+            "elevation": 65,
+            "B0Metres2": 2.5490434952414525,
+            "candidateMetres2": 2.5481653273521863,
+            "ratio": 0.9996554912103676
+          }
+        ]
+      }
+    },
+    {
+      "method": "segment-constrained",
+      "amplitudeDegrees": 75,
+      "preQuantizationSegmentMaxErrorMetres": 2.0261570199409107e-15,
+      "worldDownSagConstructionMaxErrorMetres": 3.5100418132309236e-15,
+      "sectionQuaternionUnitMaxError": 4.440892098500626e-16,
+      "maximumSectionDeterminantError": 1.3322676295501878e-15,
+      "antiparallelAlignmentCases": 0,
+      "alignmentFromPureTorsionDegrees": {
+        "count": 51165,
+        "min": 0.000003306651113363206,
+        "p05": 0.010636238530746836,
+        "median": 1.2829894058602815,
+        "p95": 8.922702165815561,
+        "max": 19.698989175403483,
+        "mean": 2.4707250567658563
+      },
+      "sectionAdjacentRowRotationDegrees": {
+        "count": 41173,
+        "min": 0.000007040397847728099,
+        "p05": 0.004861004173419825,
+        "median": 0.581595319519455,
+        "p95": 2.7521493478831878,
+        "max": 6.204538482493954,
+        "mean": 0.8671373066187873
+      },
+      "constraintCorrectionFromNaturalMetres": {
+        "count": 51165,
+        "min": 0,
+        "p05": 0,
+        "median": 0.0028457560329592296,
+        "p95": 0.03400888898070504,
+        "max": 0.07700017106687665,
+        "mean": 0.008306162345225623
+      },
+      "constraintHorizontalCorrectionFromNaturalMetres": {
+        "count": 51165,
+        "min": 0,
+        "p05": 0,
+        "median": 0.002064076387271715,
+        "p95": 0.0219858686506626,
+        "max": 0.06578022445208516,
+        "mean": 0.005489671886767785
+      },
+      "identity": false,
+      "positionHash": "7ff46a4bfaff4407b547aeb3c6ed4f5662056d8242377829a418b1bbabe92186",
+      "axisHash": "a3a2220d77ce7e48fa8e9a5fda937586c6319fcd52928ce22d0e5e13cd4c2a29",
+      "changedLeaflets": 9992,
+      "actualUploadedMidribArcChangePercent": {
+        "count": 9992,
+        "min": -0.00018380790867134067,
+        "p05": -0.000044627257023144296,
+        "median": 1.875822386310233e-7,
+        "p95": 0.00004565918509946698,
+        "max": 0.00014404855692706775,
+        "mean": 4.842874989918755e-8
+      },
+      "actualUploadedSegmentLengthChangePercent": {
+        "count": 41173,
+        "min": -0.0009949059813441075,
+        "p05": -0.0002376397490455595,
+        "median": 6.228438209632259e-7,
+        "p95": 0.00023885816893276512,
+        "max": 0.0012486072257456016,
+        "mean": 3.794184966210423e-8
+      },
+      "arcChangedOver1Percent": 0,
+      "arcChangedOver5Percent": 0,
+      "actualSectionWidthChangePercent": {
+        "count": 31181,
+        "min": -0.006413909863933753,
+        "p05": -0.0017868384577179874,
+        "median": 0,
+        "p95": 0.001786367196832117,
+        "max": 0.006050418221370535,
+        "mean": -8.635225867692498e-7
+      },
+      "leafTriangleAreaChangePercent": {
+        "count": 9992,
+        "min": -0.26290905324199976,
+        "p05": -0.09139882270157162,
+        "median": 0.00026746889305595545,
+        "p95": 0.10220876213280494,
+        "max": 0.3206875630341166,
+        "mean": 0.003268883502194342
+      },
+      "wholePinnaMeshAreaMetres2": 881.970858973927,
+      "wholePinnaMeshAreaChangePercent": 0.0005087152709082332,
+      "tipDisplacementMetres": {
+        "count": 9992,
+        "min": 0,
+        "p05": 0.004600175292496849,
+        "median": 0.32868070027512886,
+        "p95": 0.5089282745068873,
+        "max": 0.6055810636600473,
+        "mean": 0.2813535028028602
+      },
+      "maximumRootDisplacementMetres": 0,
+      "maximumCollapsedEndpointSeparationMetres": 0,
+      "untargetedPositionWordMismatches": 0,
+      "axisDirectionChangeDegrees": {
+        "count": 9992,
+        "min": 0,
+        "p05": 0.24286960488251408,
+        "median": 22.845651114200155,
+        "p95": 53.57386244062017,
+        "max": 59.75939248471335,
+        "mean": 24.826705976752947
+      },
+      "axisVsActualRootTipChordDegrees": {
+        "count": 9992,
+        "min": 2.4470867083030075,
+        "p05": 4.754865692115238,
+        "median": 8.255581098739793,
+        "p95": 16.89470278580337,
+        "max": 27.40949152465883,
+        "mean": 9.076516254356017
+      },
+      "B0axisVsActualRootTipChordDegrees": {
+        "count": 9992,
+        "min": 3.120229567784629,
+        "p05": 5.450010203984157,
+        "median": 8.901361049490127,
+        "p95": 15.21111738481848,
+        "max": 22.6191718929206,
+        "mean": 9.414275382881561
+      },
+      "TBN": {
+        "nonFinite": 0,
+        "maxNormalError": 5.0374300730737787e-8,
+        "maxTangentError": 4.967464883876005e-8,
+        "maxDot": 4.772567052668819e-8,
+        "maxAxisError": 4.9165485349611515e-8,
+        "handednessChanges": 0,
+        "negativeHandedness": 0,
+        "sampledNormalChangeDegrees": {
+          "count": 29765,
+          "min": 0,
+          "p05": 0,
+          "median": 0,
+          "p95": 61.84876412699539,
+          "max": 80.0609300811322,
+          "mean": 8.329247096848169
+        },
+        "sampledTangentChangeDegrees": {
+          "count": 29765,
+          "min": 0,
+          "p05": 0,
+          "median": 0,
+          "p95": 39.59729488462844,
+          "max": 118.39897822026958,
+          "mean": 6.503181965758115
+        }
+      },
+      "degenerateIndexedTriangles": 0,
+      "lockedAttributeMismatches": [],
+      "indexByteIdentical": true,
+      "unoccludedProjectedTriangleArea12Directions": [
+        {
+          "azimuth": 0,
+          "elevation": 5,
+          "B0Metres2": 396.43834856194457,
+          "candidateMetres2": 396.6433847548795,
+          "ratio": 1.0005171956589938
+        },
+        {
+          "azimuth": 90,
+          "elevation": 5,
+          "B0Metres2": 393.1907853236722,
+          "candidateMetres2": 394.9941151574828,
+          "ratio": 1.0045863990233803
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "B0Metres2": 392.2286330708099,
+          "candidateMetres2": 393.10298179841135,
+          "ratio": 1.0022291812832633
+        },
+        {
+          "azimuth": 270,
+          "elevation": 5,
+          "B0Metres2": 387.9426986970618,
+          "candidateMetres2": 389.5887570747473,
+          "ratio": 1.0042430451280921
+        },
+        {
+          "azimuth": 0,
+          "elevation": 25,
+          "B0Metres2": 426.5382773387601,
+          "candidateMetres2": 425.22170669751233,
+          "ratio": 0.9969133587506799
+        },
+        {
+          "azimuth": 90,
+          "elevation": 25,
+          "B0Metres2": 426.1120344092803,
+          "candidateMetres2": 427.83419851458865,
+          "ratio": 1.0040415758444743
+        },
+        {
+          "azimuth": 180,
+          "elevation": 25,
+          "B0Metres2": 409.78788225792124,
+          "candidateMetres2": 411.74821601120425,
+          "ratio": 1.004783776773685
+        },
+        {
+          "azimuth": 270,
+          "elevation": 25,
+          "B0Metres2": 403.17040550151097,
+          "candidateMetres2": 404.37673992566835,
+          "ratio": 1.0029921204723764
+        },
+        {
+          "azimuth": 0,
+          "elevation": 65,
+          "B0Metres2": 524.8647978146907,
+          "candidateMetres2": 519.7661698936482,
+          "ratio": 0.990285826097938
+        },
+        {
+          "azimuth": 90,
+          "elevation": 65,
+          "B0Metres2": 527.0095095518853,
+          "candidateMetres2": 524.8224342953833,
+          "ratio": 0.9958500269599277
+        },
+        {
+          "azimuth": 180,
+          "elevation": 65,
+          "B0Metres2": 510.88732394900256,
+          "candidateMetres2": 510.5810484483837,
+          "ratio": 0.9994005028383726
+        },
+        {
+          "azimuth": 270,
+          "elevation": 65,
+          "B0Metres2": 507.24872818295006,
+          "candidateMetres2": 504.69425357299923,
+          "ratio": 0.9949640591133636
+        }
+      ],
+      "bounds": {
+        "min": [
+          -26.484010696411133,
+          2.6297621726989746,
+          -17.69795036315918
+        ],
+        "max": [
+          11.576327323913574,
+          18.87786102294922,
+          7.804296493530273
+        ],
+        "sphereRadiusIncludingExistingWindMargin": 22.292275560338375
+      },
+      "imposedTorsionAngleDegrees": {
+        "count": 9992,
+        "min": 9.478459791250478e-7,
+        "p05": 0.30559998045579667,
+        "median": 29.842915809686474,
+        "p95": 73.78591988688088,
+        "max": 74.94503463869228,
+        "mean": 33.26202478892214
+      },
+      "conservationAssessment": {
+        "passesOnePercentActualArcGate": true,
+        "meaning": "A valid finite mesh is not the same as a shape-only / inextensible experiment; natural candidates fail this separate gate, despite near-zero whole-crown mean."
+      },
+      "representativeFrond": {
+        "selection": "median original whole-rachis arclength among 175 healthy fronds; chosen before comparing candidate projections",
+        "tree": 3,
+        "frond": 5,
+        "wholeRachisArcMetres": 5.614738833877927,
+        "projected12Directions": [
+          {
+            "azimuth": 0,
+            "elevation": 5,
+            "B0Metres2": 1.0974101206750955,
+            "candidateMetres2": 1.4291252454528942,
+            "ratio": 1.3022708817135176
+          },
+          {
+            "azimuth": 90,
+            "elevation": 5,
+            "B0Metres2": 2.7112630688397577,
+            "candidateMetres2": 2.448775108226623,
+            "ratio": 0.9031860966831735
+          },
+          {
+            "azimuth": 180,
+            "elevation": 5,
+            "B0Metres2": 0.8660594688199211,
+            "candidateMetres2": 1.237509234664437,
+            "ratio": 1.4288963739991751
+          },
+          {
+            "azimuth": 270,
+            "elevation": 5,
+            "B0Metres2": 2.650004176758784,
+            "candidateMetres2": 2.3920142080673616,
+            "ratio": 0.9026454482773799
+          },
+          {
+            "azimuth": 0,
+            "elevation": 25,
+            "B0Metres2": 1.7944272832062484,
+            "candidateMetres2": 2.009855596454868,
+            "ratio": 1.1200540781255268
+          },
+          {
+            "azimuth": 90,
+            "elevation": 25,
+            "B0Metres2": 2.8326670861299976,
+            "candidateMetres2": 2.5867429974644103,
+            "ratio": 0.9131828481116819
+          },
+          {
+            "azimuth": 180,
+            "elevation": 25,
+            "B0Metres2": 1.0273444858169727,
+            "candidateMetres2": 1.4285370381445353,
+            "ratio": 1.3905141438594701
+          },
+          {
+            "azimuth": 270,
+            "elevation": 25,
+            "B0Metres2": 2.503295010976311,
+            "candidateMetres2": 2.2795986336924745,
+            "ratio": 0.9106392269776495
+          },
+          {
+            "azimuth": 0,
+            "elevation": 65,
+            "B0Metres2": 2.9149417601662897,
+            "candidateMetres2": 2.846685629505407,
+            "ratio": 0.9765840499478833
+          },
+          {
+            "azimuth": 90,
+            "elevation": 65,
+            "B0Metres2": 3.1581836913924155,
+            "candidateMetres2": 3.0350745492911897,
+            "ratio": 0.9610190051842906
+          },
+          {
+            "azimuth": 180,
+            "elevation": 65,
+            "B0Metres2": 2.5050754739082564,
+            "candidateMetres2": 2.687169592377415,
+            "ratio": 1.0726900727605893
+          },
+          {
+            "azimuth": 270,
+            "elevation": 65,
+            "B0Metres2": 2.5490434952414525,
+            "candidateMetres2": 2.5591422955825895,
+            "ratio": 1.003961799930048
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "runtime_sources_match_sealed_B4",
+      "passed": true
+    },
+    {
+      "id": "instrumented_adapter_B0_all_six_mesh_buffers_byte_identical",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "latent_formula_reconstructs_every_uploaded_B0_midrib_byte",
+      "passed": true,
+      "mismatchRows": 0,
+      "maxErrorMetres": 0
+    },
+    {
+      "id": "scope_is_exactly_175_healthy_mature_fronds",
+      "passed": true,
+      "fronds": 198,
+      "healthyFronds": 175,
+      "leaflets": 31162,
+      "healthyLeaflets": 28168,
+      "nonzeroTorsionLeaflets": 9992
+    },
+    {
+      "id": "torsion_arc_half_support_is_fixed_monotone_and_C1_at_start",
+      "passed": true,
+      "arcMidpointEquivalentFormulaRoundoffMetres": 4.440892098500626e-16
+    },
+    {
+      "id": "zero_degrees_restores_all_B0_buffer_bytes",
+      "passed": true
+    },
+    {
+      "id": "constrained_zero_uses_identical_B0_objects_too",
+      "passed": true
+    },
+    {
+      "id": "natural_45_finite_no_degenerate_TBN",
+      "passed": true
+    },
+    {
+      "id": "natural_45_scope_topology_roots_width_endpoints",
+      "passed": true
+    },
+    {
+      "id": "natural_45_world_gravity_target_and_proper_section_rotation",
+      "passed": true
+    },
+    {
+      "id": "natural_75_finite_no_degenerate_TBN",
+      "passed": true
+    },
+    {
+      "id": "natural_75_scope_topology_roots_width_endpoints",
+      "passed": true
+    },
+    {
+      "id": "natural_75_world_gravity_target_and_proper_section_rotation",
+      "passed": true
+    },
+    {
+      "id": "segment-constrained_45_finite_no_degenerate_TBN",
+      "passed": true
+    },
+    {
+      "id": "segment-constrained_45_scope_topology_roots_width_endpoints",
+      "passed": true
+    },
+    {
+      "id": "segment-constrained_45_world_gravity_target_and_proper_section_rotation",
+      "passed": true
+    },
+    {
+      "id": "constrained_45_uploaded_segments_preserved_to_float_precision",
+      "passed": true
+    },
+    {
+      "id": "segment-constrained_75_finite_no_degenerate_TBN",
+      "passed": true
+    },
+    {
+      "id": "segment-constrained_75_scope_topology_roots_width_endpoints",
+      "passed": true
+    },
+    {
+      "id": "segment-constrained_75_world_gravity_target_and_proper_section_rotation",
+      "passed": true
+    },
+    {
+      "id": "constrained_75_uploaded_segments_preserved_to_float_precision",
+      "passed": true
+    },
+    {
+      "id": "runtime_sources_unchanged_at_end",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "elapsedSeconds": 6.438195299999999,
+  "retainedCandidateBytesIfOneAdditionalVariant": 26311584,
+  "limits": [
+    "No GPU, rasterized coverage, occlusion, shadows, optical response, dynamic motion or timing measurement",
+    "Projected triangle area is unoccluded geometry only; not screen pixel coverage or a quality score",
+    "Reported arclength is actual uploaded discrete midrib polyline, not an unrepresented anatomical smooth curve",
+    "All nominal length/width controls and leaf count stay fixed; this alone does not imply arc or surface-area conservation",
+    "Segment constraint preserves discrete lengths, not triangle surface area, physical beam equilibrium or exact pointwise sag",
+    "Both candidates need aLeafAxis, TBN, bounds, shadow, GI and history updates; 0 reuses exact B0",
+    "0/45/75 are experiments, not a universal botanical torsion prescription"
+  ]
+}

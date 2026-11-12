@@ -1,0 +1,540 @@
+{
+  "schema": "glass-atoll.pyro-smoke-reservoir-research.v1",
+  "dateUTC": "2026-10-26T21:11:50.529Z",
+  "productionRuntimeEdits": false,
+  "noGPUOrBrowser": true,
+  "units": "relative dry mass; metres; physical seconds; covariance m2; prescribed thermal surrogate K. NOT calibrated kg or measured emission.",
+  "definition": {
+    "density": "normalized full 3D Gaussian",
+    "motion": "exact piecewise uniform mean-wind integral per physical interval plus analytic decaying buoyancy/cooling",
+    "thermal": "Tdot=-T/tauCool; wdot=g*T/ambientK-w/tauDrag; exact affine step; no conserved gas-enthalpy claim",
+    "diffusion": "diagonal covariance increment 2*K*dt; no random display-frame jump",
+    "merge": "mass/first/second moments; scalar thermal/velocity moments only",
+    "clock": "integer fixed20Hz physical tick with source-time subdivisions; display frames only request complete ticks",
+    "capacity": "spatial bin compaction, grows bin when necessary; does not preserve local optical quality and is NOT proposed as an accepted production merge policy",
+    "lifetime": "no age deletion, no old active-event/life imports",
+    "sourceDriver": "external finite QA schedule, streamed to current ticks; driver input memory is not reservoir state"
+  },
+  "checks": [
+    {
+      "id": "normalized_general_SPD_Gaussian_integrates_to_relative_mass",
+      "passed": true,
+      "mass": 2.75,
+      "numericalMassInWhitenedSixSigmaBox": 2.7499999835999893,
+      "relativeError": -5.963640248296542e-9
+    },
+    {
+      "id": "density_peak_has_analytic_normalization",
+      "passed": true
+    },
+    {
+      "id": "world_zero_wind_cold_no_diffusion_stays_static_after_1800s",
+      "passed": true
+    },
+    {
+      "id": "no_uniform_30minute_age_deletion",
+      "passed": true
+    },
+    {
+      "id": "zero_mean_wind_diffusion_reduces_peak_without_mass_loss",
+      "passed": true,
+      "peakBefore": 0.01296058416274439,
+      "peakAfter": 0.0000014087322103724481,
+      "finalCovariance": [
+        2164.0000000000387,
+        0,
+        0,
+        0,
+        434.00000000028376,
+        0,
+        0,
+        0,
+        2163.000000000036
+      ]
+    },
+    {
+      "id": "constant_1p8mps_wind_displaces_3240m_in_1800s",
+      "passed": true,
+      "finalMean": [
+        3240.000000002118,
+        100,
+        629.9999999998026
+      ]
+    },
+    {
+      "id": "off_tick_variable_wind_accumulates_each_past_segment",
+      "passed": true,
+      "expectedTravel": [
+        263.74413999999996,
+        0,
+        385.62460500000003
+      ],
+      "finalMean": [
+        263.7441399999924,
+        100,
+        385.6246049998548
+      ]
+    },
+    {
+      "id": "variable_wind_is_not_final_wind_times_age",
+      "passed": true
+    },
+    {
+      "id": "world_down_gravity_buoyancy_is_vertical_and_decays",
+      "passed": true,
+      "expectedFiniteRiseMetres": 9.4176,
+      "finalPacket": {
+        "id": "warm",
+        "birth": 0,
+        "mass": 1,
+        "mean": [
+          0,
+          109.41759999999897,
+          0
+        ],
+        "cov": [
+          4,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          3
+        ],
+        "temperatureExcess": 8.610115167798756e-65,
+        "buoyantVelocity": 6.757218383688464e-66,
+        "sourceCount": 1
+      }
+    },
+    {
+      "id": "equal_cooling_drag_rate_limit_is_finite_and_correct",
+      "passed": true
+    },
+    {
+      "id": "merge_preserves_relative_mass",
+      "passed": true,
+      "mass": 0,
+      "first": 5.684341886080802e-14,
+      "second": 1.4551915228366852e-11,
+      "thermal": 0,
+      "vertical": 0
+    },
+    {
+      "id": "merge_preserves_first_and_second_raw_spatial_moments",
+      "passed": true,
+      "mass": 0,
+      "first": 5.684341886080802e-14,
+      "second": 1.4551915228366852e-11,
+      "thermal": 0,
+      "vertical": 0
+    },
+    {
+      "id": "merge_preserves_mass_weighted_thermal_surrogate_not_enthalpy",
+      "passed": true
+    },
+    {
+      "id": "sequential_merge_is_associative_within_float_precision",
+      "passed": true,
+      "error": {
+        "mass": 0,
+        "first": 2.220446049250313e-16,
+        "second": 2.842170943040401e-14,
+        "thermal": 0,
+        "vertical": 0
+      }
+    },
+    {
+      "id": "general_and_evolved_covariances_are_finite_positive_definite",
+      "passed": true
+    },
+    {
+      "id": "non_positive_definite_covariance_rejected",
+      "passed": true
+    },
+    {
+      "id": "negative_diffusivity_rejected",
+      "passed": true
+    },
+    {
+      "id": "nonfinite_thermal_source_is_rejected_before_state_mutation",
+      "passed": true
+    },
+    {
+      "id": "nonfinite_physical_step_is_rejected",
+      "passed": true
+    },
+    {
+      "id": "nonfinite_wind_timeline_is_rejected",
+      "passed": true
+    },
+    {
+      "id": "1800s_30_60_120Hz_states_are_byte_reproducible",
+      "passed": true,
+      "hashes": [
+        {
+          "fps": 30,
+          "hash": "62c047ef369d5df4a5d394e9a9dda1c5af119ad139c7b34e18928f228f21dcab"
+        },
+        {
+          "fps": 60,
+          "hash": "62c047ef369d5df4a5d394e9a9dda1c5af119ad139c7b34e18928f228f21dcab"
+        },
+        {
+          "fps": 120,
+          "hash": "62c047ef369d5df4a5d394e9a9dda1c5af119ad139c7b34e18928f228f21dcab"
+        }
+      ]
+    },
+    {
+      "id": "subtick_sources_inject_once_at_physical_birth",
+      "passed": true
+    },
+    {
+      "id": "pause_same_physical_time_does_not_advance_state",
+      "passed": true
+    },
+    {
+      "id": "backward_physical_clock_requires_explicit_restore",
+      "passed": true
+    },
+    {
+      "id": "recent_duplicate_source_does_not_double_mass",
+      "passed": true
+    },
+    {
+      "id": "camera_storage_camera_exposure_and_UTC_metadata_are_not_physical_inputs",
+      "passed": true,
+      "limit": "CPU API exclusion / non-mutating query only; not a production/GPU exposure integration test"
+    },
+    {
+      "id": "finite_Gaussian_column_agrees_with_independent_quadrature",
+      "passed": true,
+      "analytic": 0.07445021539557671,
+      "numeric": 0.07445021539557668,
+      "absoluteError": 2.7755575615628914e-17
+    },
+    {
+      "id": "camera_inside_Gaussian_integrates_forward_half_segment",
+      "passed": true,
+      "analytic": 0.03722510766056325,
+      "numeric": 0.037225107697788216
+    },
+    {
+      "id": "moment_conservation_is_not_mistaken_for_column_conservation",
+      "passed": true,
+      "rays": [
+        {
+          "x": -12,
+          "columnBefore": 0.021539279301848627,
+          "columnAfter": 0.015527208118849146,
+          "delta": -0.006012071182999481
+        },
+        {
+          "x": -10,
+          "columnBefore": 0.15915494309189532,
+          "columnAfter": 0.019305994233978014,
+          "delta": -0.1398489488579173
+        },
+        {
+          "x": -8,
+          "columnBefore": 0.021539279301848627,
+          "columnAfter": 0.023072315868022743,
+          "delta": 0.001533036566174116
+        },
+        {
+          "x": -4,
+          "columnBefore": 2.423926559560457e-9,
+          "columnAfter": 0.029261048063048554,
+          "delta": 0.029261045639121994
+        },
+        {
+          "x": 0,
+          "columnBefore": 6.139401445823981e-23,
+          "columnAfter": 0.03167301747643805,
+          "delta": 0.03167301747643805
+        },
+        {
+          "x": 4,
+          "columnBefore": 2.423926559560457e-9,
+          "columnAfter": 0.029261048063048554,
+          "delta": 0.029261045639121994
+        },
+        {
+          "x": 8,
+          "columnBefore": 0.021539279301848627,
+          "columnAfter": 0.023072315868022743,
+          "delta": 0.001533036566174116
+        },
+        {
+          "x": 10,
+          "columnBefore": 0.15915494309189532,
+          "columnAfter": 0.019305994233978014,
+          "delta": -0.1398489488579173
+        },
+        {
+          "x": 12,
+          "columnBefore": 0.021539279301848627,
+          "columnAfter": 0.015527208118849146,
+          "delta": -0.006012071182999481
+        }
+      ],
+      "interpretation": "This wide merge is a deliberately unacceptable optical counterexample; production needs local/tau-error gates."
+    },
+    {
+      "id": "equal_total_tau_does_not_make_different_source_terms_commute",
+      "passed": true,
+      "frontA": 1.0196999786791776,
+      "frontB": 0.7717957369523794,
+      "transmission": 0.36787944117144233,
+      "limit": "algebraic warning, not an implemented renderer"
+    },
+    {
+      "id": "4320_sources_1800s_state_is_bounded_without_age_deletion",
+      "passed": true,
+      "tick": 36000,
+      "time": 1800,
+      "packetCount": 64,
+      "capacity": 64,
+      "peakPacketCount": 64,
+      "recentIdCount": 256,
+      "merges": 3980,
+      "acceptedSources": 4320,
+      "maxMergeMassError": 0,
+      "maxMergeFirstMomentError": 9.094947017729282e-13,
+      "maxMergeSecondMomentError": 4.656612873077393e-10,
+      "units": "relative dry mass, metres, physical seconds; NOT measured kg",
+      "limits": [
+        "no render/GPU/photometry",
+        "isotropic-axis diffusion only; no resolved shear/turbulent eddies",
+        "thermal state is a prescribed linear surrogate, not gas enthalpy",
+        "spatial capacity compaction may smear optical structure; no acceptance of its image quality",
+        "sourceDriver is external QA schedule, not retained live event history",
+        "recent-ID guard only covers last256 source IDs; production needs monotonic source contract",
+        "no sinks enabled; no deposition / precipitation / domain model claimed"
+      ]
+    },
+    {
+      "id": "stress_relative_mass_ledger_has_no_unexplained_loss",
+      "passed": true,
+      "ledger": {
+        "emitted": 43.199999999999974,
+        "airborne": 43.199999999999925,
+        "deposited": 0,
+        "escaped": 0,
+        "removed": 0
+      },
+      "residual": 4.973799150320701e-14
+    },
+    {
+      "id": "stress_covariances_and_thermal_means_remain_finite_SPD",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "counts": {
+    "checks": 33,
+    "passed": 33
+  },
+  "normalization": {
+    "numericalMass": 2.7499999835999893,
+    "targetMass": 2.75
+  },
+  "replay": [
+    {
+      "fps": 30,
+      "nodeMilliseconds": 8.307400000000001,
+      "hash": "62c047ef369d5df4a5d394e9a9dda1c5af119ad139c7b34e18928f228f21dcab",
+      "diagnostics": {
+        "tick": 36000,
+        "time": 1800,
+        "packetCount": 4,
+        "capacity": 64,
+        "peakPacketCount": 4,
+        "recentIdCount": 4,
+        "merges": 0,
+        "acceptedSources": 4,
+        "maxMergeMassError": 0,
+        "maxMergeFirstMomentError": 0,
+        "maxMergeSecondMomentError": 0,
+        "units": "relative dry mass, metres, physical seconds; NOT measured kg",
+        "limits": [
+          "no render/GPU/photometry",
+          "isotropic-axis diffusion only; no resolved shear/turbulent eddies",
+          "thermal state is a prescribed linear surrogate, not gas enthalpy",
+          "spatial capacity compaction may smear optical structure; no acceptance of its image quality",
+          "sourceDriver is external QA schedule, not retained live event history",
+          "recent-ID guard only covers last256 source IDs; production needs monotonic source contract",
+          "no sinks enabled; no deposition / precipitation / domain model claimed"
+        ]
+      }
+    },
+    {
+      "fps": 60,
+      "nodeMilliseconds": 6.227000000000004,
+      "hash": "62c047ef369d5df4a5d394e9a9dda1c5af119ad139c7b34e18928f228f21dcab",
+      "diagnostics": {
+        "tick": 36000,
+        "time": 1800,
+        "packetCount": 4,
+        "capacity": 64,
+        "peakPacketCount": 4,
+        "recentIdCount": 4,
+        "merges": 0,
+        "acceptedSources": 4,
+        "maxMergeMassError": 0,
+        "maxMergeFirstMomentError": 0,
+        "maxMergeSecondMomentError": 0,
+        "units": "relative dry mass, metres, physical seconds; NOT measured kg",
+        "limits": [
+          "no render/GPU/photometry",
+          "isotropic-axis diffusion only; no resolved shear/turbulent eddies",
+          "thermal state is a prescribed linear surrogate, not gas enthalpy",
+          "spatial capacity compaction may smear optical structure; no acceptance of its image quality",
+          "sourceDriver is external QA schedule, not retained live event history",
+          "recent-ID guard only covers last256 source IDs; production needs monotonic source contract",
+          "no sinks enabled; no deposition / precipitation / domain model claimed"
+        ]
+      }
+    },
+    {
+      "fps": 120,
+      "nodeMilliseconds": 5.744,
+      "hash": "62c047ef369d5df4a5d394e9a9dda1c5af119ad139c7b34e18928f228f21dcab",
+      "diagnostics": {
+        "tick": 36000,
+        "time": 1800,
+        "packetCount": 4,
+        "capacity": 64,
+        "peakPacketCount": 4,
+        "recentIdCount": 4,
+        "merges": 0,
+        "acceptedSources": 4,
+        "maxMergeMassError": 0,
+        "maxMergeFirstMomentError": 0,
+        "maxMergeSecondMomentError": 0,
+        "units": "relative dry mass, metres, physical seconds; NOT measured kg",
+        "limits": [
+          "no render/GPU/photometry",
+          "isotropic-axis diffusion only; no resolved shear/turbulent eddies",
+          "thermal state is a prescribed linear surrogate, not gas enthalpy",
+          "spatial capacity compaction may smear optical structure; no acceptance of its image quality",
+          "sourceDriver is external QA schedule, not retained live event history",
+          "recent-ID guard only covers last256 source IDs; production needs monotonic source contract",
+          "no sinks enabled; no deposition / precipitation / domain model claimed"
+        ]
+      }
+    }
+  ],
+  "mergeError": {
+    "mass": 0,
+    "first": 5.684341886080802e-14,
+    "second": 1.4551915228366852e-11,
+    "thermal": 0,
+    "vertical": 0
+  },
+  "opticalCounterexample": [
+    {
+      "x": -12,
+      "columnBefore": 0.021539279301848627,
+      "columnAfter": 0.015527208118849146,
+      "delta": -0.006012071182999481
+    },
+    {
+      "x": -10,
+      "columnBefore": 0.15915494309189532,
+      "columnAfter": 0.019305994233978014,
+      "delta": -0.1398489488579173
+    },
+    {
+      "x": -8,
+      "columnBefore": 0.021539279301848627,
+      "columnAfter": 0.023072315868022743,
+      "delta": 0.001533036566174116
+    },
+    {
+      "x": -4,
+      "columnBefore": 2.423926559560457e-9,
+      "columnAfter": 0.029261048063048554,
+      "delta": 0.029261045639121994
+    },
+    {
+      "x": 0,
+      "columnBefore": 6.139401445823981e-23,
+      "columnAfter": 0.03167301747643805,
+      "delta": 0.03167301747643805
+    },
+    {
+      "x": 4,
+      "columnBefore": 2.423926559560457e-9,
+      "columnAfter": 0.029261048063048554,
+      "delta": 0.029261045639121994
+    },
+    {
+      "x": 8,
+      "columnBefore": 0.021539279301848627,
+      "columnAfter": 0.023072315868022743,
+      "delta": 0.001533036566174116
+    },
+    {
+      "x": 10,
+      "columnBefore": 0.15915494309189532,
+      "columnAfter": 0.019305994233978014,
+      "delta": -0.1398489488579173
+    },
+    {
+      "x": 12,
+      "columnBefore": 0.021539279301848627,
+      "columnAfter": 0.015527208118849146,
+      "delta": -0.006012071182999481
+    }
+  ],
+  "stress": {
+    "sourceInputCount": 4320,
+    "simulationSeconds": 1800,
+    "nodeMilliseconds": 104.8853,
+    "diagnostics": {
+      "tick": 36000,
+      "time": 1800,
+      "packetCount": 64,
+      "capacity": 64,
+      "peakPacketCount": 64,
+      "recentIdCount": 256,
+      "merges": 3980,
+      "acceptedSources": 4320,
+      "maxMergeMassError": 0,
+      "maxMergeFirstMomentError": 9.094947017729282e-13,
+      "maxMergeSecondMomentError": 4.656612873077393e-10,
+      "units": "relative dry mass, metres, physical seconds; NOT measured kg",
+      "limits": [
+        "no render/GPU/photometry",
+        "isotropic-axis diffusion only; no resolved shear/turbulent eddies",
+        "thermal state is a prescribed linear surrogate, not gas enthalpy",
+        "spatial capacity compaction may smear optical structure; no acceptance of its image quality",
+        "sourceDriver is external QA schedule, not retained live event history",
+        "recent-ID guard only covers last256 source IDs; production needs monotonic source contract",
+        "no sinks enabled; no deposition / precipitation / domain model claimed"
+      ]
+    },
+    "ledger": {
+      "emitted": 43.199999999999974,
+      "airborne": 43.199999999999925,
+      "deposited": 0,
+      "escaped": 0,
+      "removed": 0
+    },
+    "stateHash": "e7731df466f236498dfe7ceda786b980594966bd81e7f87618ce8e9783f595e7",
+    "driverInputMemoryExcluded": true
+  },
+  "elapsedNodeMilliseconds": 216.7837,
+  "limits": [
+    "No GPU/visual/performance acceptance, no source radiometry/physical kg calibration",
+    "No Navier-Stokes, resolved turbulence/shear/entrainment/inversion, aerosol chemistry, humidity/Mie/deposition or domain outflow implemented",
+    "No production emitter queue, finite-air/sky/water/DOF/light integration",
+    "No claim local opacity/source illumination is conserved by moment merges; counterexample deliberately retained",
+    "No claim CPU metadata exclusion proves correct production camera/P/UTC wiring",
+    "No guaranteed recent-ID idempotence for arbitrarily old/reordered IDs",
+    "Node timings are one local CPU observation, not GPU budget or production-frame cost"
+  ]
+}

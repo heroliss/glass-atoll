@@ -1,0 +1,138 @@
+{
+  "schema": "glass-atoll.aces2-optional-display-wiring-offline-QA.v1",
+  "dateUTC": "2026-10-27T10:15:19.495Z",
+  "passed": false,
+  "counts": {
+    "passed": 11,
+    "total": 12
+  },
+  "checks": [
+    {
+      "name": "both_entire_sources_invert_byte_exact_to_original_default",
+      "passed": true,
+      "evidence": [
+        {
+          "file": "lens.js",
+          "baselineSHA256": "23432072ea53e6db8139d279fd69e5372962a8371f12515fd3a07d8d995582eb",
+          "authorizedEdits": 6
+        },
+        {
+          "file": "hdr-output.js",
+          "baselineSHA256": "4ce6ba6f2ed991e885aba586efd5ec9c08b6146c9d73664e611e00e477e6b6f9",
+          "authorizedEdits": 6
+        }
+      ]
+    },
+    {
+      "name": "missing_duplicate_or_unrelated_source_mutation_fails_closed",
+      "passed": true,
+      "evidence": {
+        "negativeCases": 26
+      }
+    },
+    {
+      "name": "null_adapter_is_noop_and_no_callback_or_renderer_dependency",
+      "passed": true,
+      "evidence": {
+        "kind": "sdr",
+        "requested": false,
+        "effective": "legacy",
+        "reason": "disabled",
+        "error": null
+      }
+    },
+    {
+      "name": "strict_true_is_only_success_payload_is_forwarded_once_unchanged",
+      "passed": true,
+      "evidence": {
+        "calls": 1,
+        "noImplicitExposureOrUnitsMutation": true
+      }
+    },
+    {
+      "name": "false_partial_or_throwing_candidate_always_selects_legacy",
+      "passed": true,
+      "evidence": {
+        "notices": [
+          {
+            "kind": "sdr",
+            "reason": "render-declined"
+          },
+          {
+            "kind": "sdr",
+            "reason": "adapter-error",
+            "error": "partial draw then error"
+          }
+        ],
+        "fullCoverStillRequiresActualIntegrationGPU": true
+      }
+    },
+    {
+      "name": "nonboolean_or_Promise_is_never_truthy_success_and_async_adapters_reject",
+      "passed": true,
+      "evidence": {
+        "strictReturnCases": 6,
+        "invalidAdapterCases": 6,
+        "noAwaitInDisplayAttempt": true
+      }
+    },
+    {
+      "name": "PBO_explicit_fallback_never_executes_candidate_render",
+      "passed": true,
+      "evidence": {
+        "draws": 0,
+        "reason": "pbo-legacy-only"
+      }
+    },
+    {
+      "name": "fallback_notification_and_state_getter_failures_cannot_block_legacy",
+      "passed": true,
+      "evidence": {
+        "legacySelected": true,
+        "errorsCapturedWithoutRendererMutation": true
+      }
+    },
+    {
+      "name": "SDR100_bypasses_outputpass_only_on_success_and_keeps_existing_FSR",
+      "passed": true,
+      "evidence": {
+        "legacyCoveredWhenDeclined": true,
+        "FSRKept": true,
+        "encodedTargetResidentBeforeAdapter": true
+      }
+    },
+    {
+      "name": "native_HDR_attempt_is_after_float_confirmation_before_same_task_copy",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(!body.includes('await '))\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/aces2-display-wiring-check.mjs:17:702\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/aces2-display-wiring-check.mjs:7:227)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/aces2-display-wiring-check.mjs:17:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "legacy_WGSL_PBO_scheduling_calibration_and_AA_history_source_unchanged",
+      "passed": true,
+      "evidence": {
+        "fullLegacyAlgorithmBytesRecovered": true,
+        "noSourceIntensityOrCPPolicyChange": true,
+        "HDRToggleForcesNextPresent": true
+      }
+    },
+    {
+      "name": "new_diagnostics_report_actual_used_path_without_auto_preparation",
+      "passed": true,
+      "evidence": {
+        "callerOwnsResourcesAndEpochs": true,
+        "settersIndependent": true
+      }
+    }
+  ],
+  "sources": {
+    "lens.js": "a3897b76115dc202e670545ee6da65eb07d95429babd5f2297143421d87ceebe",
+    "hdr-output.js": "437b4c330bafbe1433b6be69294ae1648948a53637c70fd4d372f9f326b404fb"
+  },
+  "noGPU": true,
+  "noDefaultActivation": true,
+  "limits": [
+    "Actual pure adapter protocol is unit-tested. Source inverse guards preserve all old algorithms; neither substitutes for integrated GPU render/fallback/native bridge checks.",
+    "Controller and resource preparation are owned by root and are not implemented by these setters.",
+    "Same-task copy ordering is a source assertion, not an HDR-surface photometric or appearance certification."
+  ]
+}

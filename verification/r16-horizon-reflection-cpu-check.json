@@ -1,0 +1,89 @@
+{
+  "schema": "glass-atoll.r16-horizon-reflection-cpu.v1",
+  "actualGPU": false,
+  "checks": [
+    {
+      "name": "legacy directions reproduce old fixed worldY floors",
+      "passed": true
+    },
+    {
+      "name": "visible spherical macro reflection obeys equal angles and stays outside the local ocean",
+      "passed": true
+    },
+    {
+      "name": "actual curved horizon can legitimately have negative worldY without entering sea",
+      "passed": true,
+      "evidence": {
+        "observerHeight": 12,
+        "horizonDistanceMetres": 12354.7619968982,
+        "geometricWorldElevationDeg": -0.11130107372678522,
+        "legacyWorldElevationDeg": 0.6875176517152527,
+        "directionErrorDegrees": 0.7988187254430559
+      }
+    },
+    {
+      "name": "near view directions stay unchanged when the old upward floors are inactive",
+      "passed": true,
+      "evidence": {
+        "maximumDirectionErrorDegrees": 0.0000019090959104164224,
+        "maximumAbsoluteVisibilityDifference": 0.0010637600476974818,
+        "scope": "Representative near views cosV>=.35, slopes<=.03, alpha=.02; rough/grazing views intentionally differ"
+      }
+    },
+    {
+      "name": "incoming self-occlusion rejects inside-water facet rays without an angular lift",
+      "passed": true
+    },
+    {
+      "name": "incoming masking tends continuously to zero from the valid hemisphere",
+      "passed": true
+    },
+    {
+      "name": "all sampled outputs are finite normalized outward and convexly weighted",
+      "passed": true,
+      "evidence": {
+        "count": 5000
+      }
+    },
+    {
+      "name": "degenerate back-facing macro rays use a finite local tangent",
+      "passed": true
+    },
+    {
+      "name": "invalid mode directions and roughness are rejected",
+      "passed": true
+    },
+    {
+      "name": "same texture samples geometry render targets and scene pass budget",
+      "passed": true,
+      "evidence": {
+        "newTextureSamples": 0,
+        "newSamplers": 0,
+        "newLoops": 0,
+        "newTargets": 0,
+        "newScenePasses": 0,
+        "newVertices": 0,
+        "newUniformBytes": 4
+      }
+    },
+    {
+      "name": "uniform-only switch keeps legacy floors and reports fixed2m limitation",
+      "passed": true
+    },
+    {
+      "name": "reflection sky transport exposure mip and missing-energy mix remain unchanged",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "counts": {
+    "passed": 12,
+    "total": 12
+  },
+  "limits": [
+    "This removes the two authored upward angle thresholds in geometric mode and adds incoming continuous Smith masking; not a full environment-BRDF integration.",
+    "The cubemap remains at2m. Its spatial sky/ground radiance reference is not solved by this direction candidate.",
+    "Unresolved skyLOD3.5 and missing-energy approximation remain unchanged.",
+    "CPU geometry and source-structure evidence cannot accept actual seam appearance, GPU compilation or performance."
+  ]
+}

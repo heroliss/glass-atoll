@@ -1,0 +1,117 @@
+{
+  "schema": "glass-atoll.r11-reflection-independent.v2",
+  "actualGPU": false,
+  "dateUTC": "2026-10-28T04:48:41.997Z",
+  "sourceSHA256": "31f49459f24ee57821873d0bb2471a763efe082920221800b8606797fbe96d1f",
+  "checks": [
+    {
+      "name": "virtual image and real water hit obey reflection and share perspectiveXY",
+      "passed": true,
+      "evidence": {
+        "rays": 6,
+        "maximumDirectionError": 5.438959822042073e-16,
+        "maximumProjectedXYError": 1.354472090042691e-14,
+        "scope": "ideal horizontal mirror, not perturbed waves/occlusion"
+      }
+    },
+    {
+      "name": "portrait wide and offaxis perspective fits preserve input ownership",
+      "passed": true,
+      "evidence": {
+        "configurations": [
+          {
+            "fov": 50,
+            "aspect": 1.6,
+            "plane": 0,
+            "eye": 8,
+            "maxXY": 0.8779690854346425,
+            "minZ": 0.9993261236511151,
+            "maxZ": 0.9994893996567288
+          },
+          {
+            "fov": 65,
+            "aspect": 0.6,
+            "plane": 4.5,
+            "eye": 12,
+            "maxXY": 0.8778504865360648,
+            "minZ": 0.9990492429914731,
+            "maxZ": 0.9993444723033642
+          },
+          {
+            "fov": 45,
+            "aspect": 2,
+            "plane": -2,
+            "eye": 2.5,
+            "maxXY": 0.8782157994716334,
+            "minZ": 0.9995501523558028,
+            "maxZ": 0.9996288152978323
+          }
+        ],
+        "cornerProjections": 48,
+        "includesOffAxisView": true
+      }
+    },
+    {
+      "name": "known finite validfar interval now fits despite initial diagonal beyondfar",
+      "passed": true,
+      "evidence": {
+        "fov": 120,
+        "aspect": 1,
+        "near": 0.15,
+        "far": 125,
+        "sourceBounds": {
+          "min": [
+            -20,
+            0,
+            -20
+          ],
+          "max": [
+            20,
+            80,
+            20
+          ]
+        },
+        "manualDistance80": {
+          "maxXY": 0.8529038067574017,
+          "minZ": 0.9966858664368149,
+          "maxZ": 0.9996284487282384
+        },
+        "fittedDistance": 77.58803242602721,
+        "actual": {
+          "maxXY": 0.8970026158799645,
+          "minZ": 0.9963835949101477,
+          "maxZ": 0.9995719410522375
+        },
+        "first69e35IncorrectRejectionPreserved": true
+      }
+    },
+    {
+      "name": "impossible clipping volume and invalid plane reject without touching inputs",
+      "passed": true,
+      "evidence": {
+        "cases": 2,
+        "far3CannotContainSuppliedBox": true
+      }
+    },
+    {
+      "name": "legacy defaults remain exact and main causality needs only one option",
+      "passed": true,
+      "evidence": {
+        "defaultNumericAndReturnShapeExact": true,
+        "currentMainCall": "fitPerspectiveBounds(THREE,camera,box,{eyeHeight:THREE.MathUtils.clamp(camera.position.y,2.5,12)});\r",
+        "wiringPresent": false,
+        "sourceCausality": "Existing physical forecast and island bounds remain input; mirror is virtual framing geometry, not a new emitter, source mass, flight path or exposure. Existing caller terrain clamp remains separate."
+      }
+    }
+  ],
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "limits": [
+    "Narrow read-only actual THREE projection and geometric ray review; root actual scene evidence remains separate.",
+    "Fixed original far125 counterexample and impossiblefar3 are checked, not a universal proof of every arbitrary camera/custom clipping projection.",
+    "Ideal virtual planar source coverage only; wave perturbations, finite ocean extent, terrain occlusion, bloom and composition/photo quality are not established."
+  ],
+  "passed": true
+}

@@ -1,0 +1,17 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>烟体近场光照 · 原尺寸对照</title>
+<style>
+:root{color-scheme:dark;font:15px/1.6 system-ui,sans-serif;background:#09151b;color:#e2edf0}body{margin:0}header{padding:18px 24px;border-bottom:1px solid #29404b}h1{font-size:20px;margin:0 0 4px}p{margin:4px 0;color:#a8bdc7}.tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}button,select,a{font:inherit}button,select{padding:8px 12px;border:1px solid #405863;border-radius:6px;background:#162a34;color:inherit}button[aria-pressed=true]{border-color:#7fd7c7;background:#204741}label{margin-left:8px}.viewport{overflow:auto;max-height:calc(100vh - 240px);min-height:420px;background:#050c10}img{display:block;height:auto;margin:0 auto;max-width:none}.fit img{width:min(100%,1209px)}.actual img{width:1209px}.zoom150 img{width:1813.5px}.zoom200 img{width:2418px}footer{padding:12px 24px;font-size:13px;color:#a8bdc7}a{color:#9edccd}#status{font-variant-numeric:tabular-nums}
+</style>
+<header><h1>烟体照明：同一时刻，原尺寸查看</h1><p>固定同一烟花、烟密度、相机和摄影曝光。只比较光簇半径与近场角分布近似。</p>
+<div class="tools" id="models">
+<button data-model="legacy-point" aria-pressed="true">旧半径 · 点方向</button><button data-model="legacy-finite" aria-pressed="false">旧半径 · 分散角度</button><button data-model="moments-point" aria-pressed="false">分布半径 · 点方向</button><button data-model="moments-finite" aria-pressed="false">分布半径 · 分散角度</button>
+<label for="zoom">查看比例</label><select id="zoom"><option value="fit">适应窗口</option><option value="actual" selected>100% · 原尺寸</option><option value="zoom150">150%</option><option value="zoom200">200%</option></select></div>
+<p id="status">载入实际记录…</p></header><main class="viewport actual" id="viewport"><img id="view" alt="烟体照明实际截图" src="pyro-smoke-light-model-legacy-point.png"></main>
+<footer><a id="original" href="pyro-smoke-light-model-legacy-point.png" target="_blank" rel="noopener">打开当前原图</a> · 可水平、垂直滚动。分布半径使用实际火星的加权RMS；分散角度是近场球对称近似，两者都不是精确面积光或流体解。</footer>
+<script type="module">
+let report=null,selected='legacy-point';const view=document.querySelector('#view'),status=document.querySelector('#status');
+function update(){const c=report?.cases.find(c=>c.name===selected);status.textContent=c?`原图 ${c.smoke.rendering.lastRender.width} × ${c.smoke.rendering.lastRender.height} · 物理时间 ${c.time.toFixed(6)}s · 摄影 C ${c.photometry.cameraEV.toFixed(4)} EV · 存储 P ${c.photometry.storageEV} EV · 同源光度、未增烟量`:'等待对应的实际画面记录。';}
+for(const b of document.querySelectorAll('[data-model]'))b.addEventListener('click',()=>{selected=b.dataset.model;view.src=`pyro-smoke-light-model-${selected}.png`;document.querySelector('#original').href=view.src;for(const other of document.querySelectorAll('[data-model]'))other.setAttribute('aria-pressed',String(other===b));update();});
+document.querySelector('#zoom').addEventListener('change',e=>{document.querySelector('#viewport').className='viewport '+e.target.value;});
+try{report=await(await fetch('pyro-smoke-light-model-check.json')).json();update();}catch{status.textContent='实际记录尚未保存。';}
+</script></html>

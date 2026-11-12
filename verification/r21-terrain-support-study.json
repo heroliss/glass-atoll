@@ -1,0 +1,96 @@
+{
+  "schema": "glass-atoll.r21-terrain-air-surface-study.v1",
+  "dateUTC": "2026-10-29T05:20:23.014Z",
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "sourceSHA256": "cd460b293b929a21b41d2b89bbb629253e29cb8c8bac1499aa6a3143f230aeaf",
+  "terrainFormulaNormalizedSHA256": "4f880aba8bc75fc727e4a45538e27ff6b5208a25b0c94372f0e02ef11f7d4562",
+  "checks": [
+    {
+      "name": "Actual main terrain formula and pure contract source are pinned",
+      "passed": true,
+      "evidence": {
+        "terrainFormulaNormalizedSHA256": "4f880aba8bc75fc727e4a45538e27ff6b5208a25b0c94372f0e02ef11f7d4562",
+        "surfaceSHA256": "cd460b293b929a21b41d2b89bbb629253e29cb8c8bac1499aa6a3143f230aeaf",
+        "callback": "extracted exact actual main.js terrain function, without executing browser main"
+      }
+    },
+    {
+      "name": "Analytic upper-height positive-support and clipped-surface slope bounds have outward margin",
+      "passed": true,
+      "evidence": {
+        "upperHeight": 1.327,
+        "positiveCoreRadius": 1.0091780808028532,
+        "angularModulationMinimum": 0.9099999999999999,
+        "angularModulationMaximum": 1.0899999999999999,
+        "angularDerivativeBound": 0.42800000000000005,
+        "rSlope": 0.06163254527535848,
+        "roughSlope": 0.054796904621705625,
+        "corePlusRoughSlopeBound": 0.24137821425165867,
+        "spitPlusRoughSlopeBound": 0.24873274739222373,
+        "acceptedMaximumSlope": 0.26,
+        "method": "analytic triangle/chain-rule bounds, not fitted to finite samples"
+      }
+    },
+    {
+      "name": "Finite dense height and local-slope witnesses agree with exact callback and global bounds",
+      "passed": true,
+      "evidence": {
+        "points": 269861,
+        "centralDifferenceSlopeWitnesses": 17066,
+        "minimumHeight": 0,
+        "maximumHeight": 1.3247538542063595,
+        "maximumSampledGradient": 0.20825769332749836,
+        "scope": "Finite witnesses only; global analytic inequalities are the certificate"
+      }
+    },
+    {
+      "name": "Whole-rectangle padded-ellipse sea tests enclose interior and never certify endpoint-only island crossings",
+      "passed": true,
+      "evidence": {
+        "rectangles": 8000,
+        "seaRectangles": 6592,
+        "witnesses": 164800,
+        "endpointOnlyTestWouldMissIsland": true,
+        "certificate": "Rectangle minimum quadratic coordinate excludes BOTH outward-padded ellipses"
+      }
+    },
+    {
+      "name": "Centimetre ridge and underwater terrain branch step remain handled by the clipped-surface contract",
+      "passed": true,
+      "evidence": {
+        "ridge": {
+          "x": 40.5,
+          "fromZ": 0,
+          "toZ": 14,
+          "peakMetres": 0.01010949846297157,
+          "peakZ": 6.6620000000005595,
+          "finiteEstimatedPositiveWidthMetres": 1.9259999999998987
+        },
+        "submergedBranch": {
+          "rawLeft": -0.8455546648458554,
+          "rawRight": -0.847769368088547,
+          "jumpMetres": 0.0022147032426915736,
+          "clippedLeft": 0,
+          "clippedRight": 0
+        },
+        "scope": "Actual narrow-ridge finite witness and branch asymptote; surface certificate never relies on endpoint samples"
+      }
+    },
+    {
+      "name": "Invalid regions callbacks clocks and height-bound violations fail closed",
+      "passed": true,
+      "evidence": {
+        "rejections": 9
+      }
+    }
+  ],
+  "limits": [
+    "Only the pinned current static main.js terrain and mean-sea zero surface. Arbitrary callbacks need a separate explicit contract.",
+    "Does not include animated wave crests, firework quenching, terrain collision response, smoke/material changes, renderer or GPU acceptance.",
+    "Region classification requires a conservative complete horizontal trajectory enclosure; endpoints alone are insufficient."
+  ]
+}

@@ -1,0 +1,63 @@
+// Headless geometry/transport/location checks. Not a shader compile or visual QA.
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath,pathToFileURL} from 'node:url';
+import * as THREE from '../../vendor/three.module.js';
+import {createSplash} from '../../splash.js';
+
+const directory=path.dirname(fileURLToPath(import.meta.url));
+const root=path.resolve(directory,'../..');
+const fileURL=name=>pathToFileURL(path.join(root,name)).href;
+let source=fs.readFileSync(path.join(root,'floating-leaves.js'),'utf8');
+source=source.replace("from 'three'",`from '${fileURL('vendor/three.module.js')}'`).replace("from './waves.js'",`from '${fileURL('waves.js')}'`);
+const {createFloatingLeaves}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
+const context={createLinearGradient:()=>({addColorStop(){}}),fillRect(){},beginPath(){},moveTo(){},quadraticCurveTo(){},stroke(){},ellipse(){},fill(){},lineTo(){}};
+globalThis.document={createElement:()=>({width:1,height:1,getContext:()=>context})};
+const main=fs.readFileSync(path.join(root,'main.js'),'utf8');
+const terrainBody=main.match(/export function terrainHeight\(x,z\)\{([\s\S]*?)\n\}/)?.[1];
+if(!terrainBody)throw new Error('Actual terrain function not found');
+const actualTerrain=new Function('x','z',terrainBody);
+const checks=[];
+const add=(name,passed,data={})=>checks.push({name,passed:!!passed,...data});
+const uniforms={uWind:{value:0},uSwell:{value:0},uWindSea:{value:1},uTime:{value:0},uCurrentOffset:{value:new THREE.Vector2()},uWave0:{value:null},uWave1:{value:null},uWave2:{value:null},uWave3:{value:null}};
+const scene=new THREE.Scene();
+const leaf=createFloatingLeaves(scene,{uniforms,terrainHeight:actualTerrain,hydrodynamics:{sampleFlow:()=>({x:.12,z:0})}});
+add('Reject island and nonfinite birth points',!leaf.spawn(0,0)&&!leaf.spawn(NaN,20));
+const camera=new THREE.PerspectiveCamera(50.23,1440/900,.05,2000);camera.position.set(-44,13,-37);camera.lookAt(0,2,0);camera.updateMatrixWorld();
+const suggestion=leaf.suggestSpawn(camera,{viewportHeight:900});
+add('Choose an on-screen wet point with clear terrain sightline',suggestion&&suggestion.depth>.1&&suggestion.distance<140,{suggestion});
+if(!suggestion)throw new Error('No candidate in actual default scene');
+leaf.spawn(suggestion.x,suggestion.z);
+const mesh=scene.children.find(m=>m.isMesh);mesh.geometry.computeBoundingBox();
+const size=mesh.geometry.boundingBox.getSize(new THREE.Vector3());
+add('Actual leaf geometry is 22cm × 8.2cm',Math.abs(size.x-.22)<1e-6&&Math.abs(size.z-.082)<1e-6&&size.y<.006,{sizeMetres:size.toArray()});
+const location=leaf.locate(camera,{viewportWidth:1440,viewportHeight:900});
+add('Born leaf locator is inside viewport',location.visible&&location.screen.every(Number.isFinite),{location});
+const focus=suggestion.focus;const close=new THREE.PerspectiveCamera(50.23,1.6,.05,2000);
+close.position.fromArray(focus.position);close.lookAt(new THREE.Vector3(...focus.target));close.updateMatrixWorld();
+const nearLocation=leaf.locate(close,{viewportWidth:1440,viewportHeight:900});
+add('Suggested close view reveals real size without scaling',nearLocation.visible&&nearLocation.projectedPixels>30&&mesh.scale.equals(new THREE.Vector3(1,1,1)),{projectedPixels:nearLocation.projectedPixels});
+const shader={uniforms:{},vertexShader:'#include <beginnormal_vertex>\n#include <begin_vertex>'};leaf.material.onBeforeCompile(shader);
+add('Share spectral textures and use baked-wave branch',shader.uniforms.uWave3===uniforms.uWave3&&leaf.material.defines.BAKED_WAVE_TEXTURES===1);
+add('Surface keeps depth occlusion and follows water normal',mesh.renderOrder===3&&leaf.material.depthTest&&shader.vertexShader.includes('waveSlope')&&shader.vertexShader.includes('+0.0040'));
+leaf.dispose();
+
+const flowScene=new THREE.Scene(),flow=createFloatingLeaves(flowScene,{uniforms,terrainHeight:()=>-1,hydrodynamics:{sampleFlow:()=>({x:.12,z:-.04})}});
+flow.spawn(0,0);for(let i=1;i<=1800;i++)flow.update(1/60,i/60);
+const anchor=flow.state[0].anchor;
+add('Constant mean flow transports leaf 3.6m / −1.2m in 30s',Math.hypot(anchor[0]-3.6,anchor[1]+1.2)<1e-8,{anchor});flow.dispose();
+
+const splash=createSplash(THREE,{scene,uniforms});const event=splash.spawn(22,20,10,1);
+let state=splash.state;
+add('Default droplet diameters are 0.4–4mm',state.events[0].dropDiameterRangeMetres[0]>=.0004&&state.events[0].dropDiameterRangeMetres[1]<=.004,{diameterRangeMetres:state.events[0].dropDiameterRangeMetres,event});
+add('No coarse Points primitive',splash.root.children.every(g=>g.children.every(o=>o.isMesh&&!o.isPoints)));
+splash.update(.1,10.1,camera,675);const age=splash.state.events[0].age;splash.update(.1,10.1,camera,675);
+add('Scene time pause freezes splash',splash.state.events[0].age===age);
+for(let i=0;i<12;i++)splash.spawn(22,20,10.1,1);
+add('Repeated interactions are bounded to four live splashes',splash.state.active===4&&splash.root.children.length===4);
+splash.update(1,12,camera,675);add('Finished splash frees event objects',splash.state.active===0&&splash.root.children.length===0);splash.dispose();
+add('Dispose removes all interaction scene objects',scene.children.length===0);
+const report={kind:'Headless metric, location and transport checks; GPU compilation and visual inspection pending',checks,passed:checks.every(c=>c.passed)};
+fs.writeFileSync(path.join(directory,'metric-check.json'),JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify(report,null,2));if(!report.passed)process.exitCode=1;
+

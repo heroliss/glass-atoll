@@ -1,0 +1,135 @@
+{
+  "schema": "glass-atoll.r15-camera-transition.v1",
+  "dateUTC": "2026-10-28T13:02:38.037Z",
+  "scope": "Pure CPU actual host terrain,100 preset pairs, geometric trajectory/heading bounds and OrbitControls-compatible pose checks. No browser/visual/FPS proof.",
+  "sourceSHA256": "af3dd620a51ca1f17d66dccde0c43510989cbdf73ad75a9526cd4d17aafd4041",
+  "passed": true,
+  "counts": {
+    "passed": 21,
+    "total": 21
+  },
+  "checks": [
+    {
+      "name": "opposite presets avoid old linear target-eye singularity",
+      "passed": true,
+      "durationSeconds": 10.709974955419748,
+      "midpoint": {
+        "position": [
+          7.34788079488412e-15,
+          10.71238898038469,
+          60
+        ],
+        "target": [
+          7.34788079488412e-15,
+          10.71238898038469,
+          1.4210854715202004e-14
+        ],
+        "progress": 0.5,
+        "done": false,
+        "floorLimited": false
+      }
+    },
+    {
+      "name": "valid endpoints are exact and completion clamps without overshoot",
+      "passed": true
+    },
+    {
+      "name": "start and finish have vanishing positional and camera angular velocity",
+      "passed": true,
+      "positionSpeed": 1.8003762156191526e-8,
+      "angularSpeed": 0
+    },
+    {
+      "name": "all100 host preset pairs have exact legal endpoints and finite separated look",
+      "passed": true,
+      "pairs": 100,
+      "samples": 25700,
+      "minimumLookDistanceMetres": 24.303086223770016,
+      "exactGuardSamples": 0
+    },
+    {
+      "name": "all100 actual preset paths satisfy requested heading and planned speed bounds",
+      "passed": true,
+      "steps": 76020,
+      "maxAngularRadiansPerSecond": 0.5499997678598573,
+      "maxSpeedMetresPerSecond": 44.906235301974725,
+      "maxStepDegreesAt120Hz": 0.26258568793498505,
+      "maxDurationSeconds": 16.662465961498352
+    },
+    {
+      "name": "curve retains radial envelope rather than crossing through island centre",
+      "passed": true,
+      "minimumRadiusMetres": 58.36308764964376,
+      "lower": 58.36308764964376
+    },
+    {
+      "name": "yaw wrap179to-179takes2degrees rather than358",
+      "passed": true
+    },
+    {
+      "name": "near-antipodal tie chooses same island side under submillimetre perturbations",
+      "passed": true
+    },
+    {
+      "name": "no roll: camera right remains horizontal across all turning paths",
+      "passed": true,
+      "maximumRightAxisVerticalComponent": 1.1102230246251565e-16
+    },
+    {
+      "name": "look distance stays positive in logarithmic near-far interpolation",
+      "passed": true,
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    {
+      "name": "in-place look change leaves eye stationary when terrain safe",
+      "passed": true
+    },
+    {
+      "name": "an interrupted transition starts from the currently displayed pose without teleport",
+      "passed": true
+    },
+    {
+      "name": "reduced motion uses one final safe cut instead of fast180degree flight",
+      "passed": true
+    },
+    {
+      "name": "unchanged preset is an immediate no-motion result",
+      "passed": true
+    },
+    {
+      "name": "terrain hump raises planned route before exact floor guard",
+      "passed": true
+    },
+    {
+      "name": "unsafe endpoint floor is explicitly adjusted and reported",
+      "passed": true
+    },
+    {
+      "name": "zenith and nadir targets respect OrbitControls pole margins explicitly",
+      "passed": true
+    },
+    {
+      "name": "sampling order and frame schedule do not alter pose",
+      "passed": true
+    },
+    {
+      "name": "input mutation and returned arrays cannot mutate frozen path",
+      "passed": true
+    },
+    {
+      "name": "invalid poses and configuration are rejected before path construction",
+      "passed": true
+    },
+    {
+      "name": "module has no wallclock renderer randomness or scene mutation dependencies",
+      "passed": true
+    }
+  ],
+  "limits": [
+    "No full tree/prop collision solver. Terrain survey plus point guard handles ground.",
+    "Interrupting an in-progress flight preserves pose and heading (C0), but starts a new ease at rest rather than matching prior velocity (not C1).",
+    "World-up no-roll camera requires host OrbitControls pitch limits and no other simultaneous pose writer.",
+    "No actual native camera switching, performance or subjective nausea acceptance is inferred from these CPU checks."
+  ]
+}

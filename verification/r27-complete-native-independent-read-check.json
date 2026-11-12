@@ -1,0 +1,105 @@
+{
+  "schema": "glass-atoll.r27-native-helper-independent-cpu-read.v1",
+  "dateUTC": "2026-10-29T12:27:22.124Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "checks": [
+    {
+      "name": "Frozen native helper and artifact are exactly the reviewed versions; all-row fixture acceptance remains current",
+      "passed": true,
+      "evidence": {
+        "helperSHA256": "991bae4f1bf56a081ce179b58ba86530f7738b0aee9689201c28f5ed79695021",
+        "artifactDigest": "b400c7e03f674a15a1590d92fcc016b91638322e4ebc6b8eca2b2534d5aa860d",
+        "nativeCPUAcceptance": {
+          "passed": 8,
+          "total": 8
+        }
+      }
+    },
+    {
+      "name": "Actual ownNative CPU preflight owns every physical ray, padded word and offline oracle; selected mutations cannot affect cached artifact",
+      "passed": true,
+      "evidence": {
+        "declaredReservation": 33473274,
+        "maxDeclaredBytes": 67108864,
+        "scope": "Declared numeric/UTF16 payload plus16MiB reserve, not heap/driver usage",
+        "privateOracleChannels": 13872,
+        "ownedBytesToRead": 27856,
+        "partialSamples": [
+          0,
+          15615,
+          15616,
+          20735,
+          20736,
+          20807,
+          19074
+        ]
+      }
+    },
+    {
+      "name": "Exact map addressing/read samples are bounded and cover each tile/source domain without changing packet iteration",
+      "passed": true,
+      "evidence": {
+        "completeCells": 20808,
+        "conservative64Slots": 1331712,
+        "mapDraws": 3,
+        "outputValidRows": 1734,
+        "outputRasterTexels": 1792,
+        "otherConsumers": [
+          {
+            "kind": "main",
+            "requested": true,
+            "submitted": true,
+            "count": 1734,
+            "logicalPairs": 1309170
+          },
+          {
+            "kind": "reflection",
+            "requested": true,
+            "submitted": false,
+            "count": 0,
+            "logicalPairs": 0
+          }
+        ],
+        "resolvedPotentialPairs": 1304640
+      }
+    },
+    {
+      "name": "State guard text exactly reuses prior hardware-tested row-straddle contract after line-ending normalization",
+      "passed": true,
+      "evidence": {
+        "guardTextExact": true,
+        "scope": "Full declared READ/DRAW/MRT/PACK/UNPACK/PBO/COPY_READ/Three state; no undocumented driver cache identity assertion"
+      }
+    },
+    {
+      "name": "Strict option/lock/source/cache admission rejects before numerical context or factory work and releases exclusive guard",
+      "passed": true,
+      "evidence": {
+        "strictEarlyCases": 5,
+        "validAllPinsReachesExistingContextBoundaryOnce": true,
+        "numericalFactoriesCalled": 0,
+        "actualGPU": false
+      }
+    }
+  ],
+  "manualReview": [
+    "Private whole artifact canonical string and selected original/packed/oracle copies precede first await; source and cached function/math pins precede GL.",
+    "One complete synchronous prepare queues3maps+reduce;4actualdraw/oneprepare caps; no effective T inside any render.",
+    "One owned25ms timer is retrospective; full state restored before each timer yield; shader/GL/context/FBO fault forbids subsequent draws.",
+    "All1734 outputs use offline physical1e-5/quantized8e-6 references;7bounded partials and full valid output prefix total27856B.",
+    "Reflection0 is unsubmitted; independent1728source SH ledger/potential1304640pairs are disclosed without extra rendering.",
+    "Only declared bindings/descriptors and owned resources are restored/disposed; no new context/live scene/VTF/clear or runtime promotion."
+  ],
+  "limits": [
+    "CPU/source review only; no native hardware run or timing by this audit.",
+    "Private ownNative instrumentation reads actual helper implementation but adds no production export or API.",
+    "The accepted native artifact cannot certify arbitrary future inputs, aggregate scene performance or SH throughput."
+  ]
+}

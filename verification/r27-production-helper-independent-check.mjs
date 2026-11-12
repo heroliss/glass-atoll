@@ -1,0 +1,39 @@
+// Independent promoted-helper source/pre-context gate checks; never real GL.
+import assert from 'node:assert/strict';import fs from 'node:fs';import crypto from 'node:crypto';
+import * as THREE from '../vendor/three.module.js';
+import {createSmokeTransmissionGPU} from '../pyro-smoke-transmission-gpu.js';
+import {createCompleteTransmissionCandidate} from './r26-complete-transmission-candidate.js';
+import {runProductionNativeTransmissionGPUCheck} from './r27-production-native-gpu-check.js';
+const here=new URL('./',import.meta.url),read=p=>fs.readFileSync(new URL(p,here),'utf8'),hash=x=>crypto.createHash('sha256').update(x).digest('hex'),checks=[];
+async function check(name,fn){try{checks.push({name,passed:true,evidence:await fn()});}catch(e){checks.push({name,passed:false,error:e.stack});}}
+const source=read('./r27-production-native-gpu-check.js'),baseline=read('./r27-complete-native-gpu-check.js'),manifest=JSON.parse(read('./r27-production-native-pins.json'));
+await check('Promoted helper/current modules/cached production factory are separately pinned to deployed code and the same artifact',()=>{
+ assert.equal(hash(source),'0cd559395aa464e61ac7629ef32581dc5876d1d14db9934a5aee3c566069cb19');for(const[p,pin]of Object.entries(manifest.sources))assert.equal(hash(read(p)),pin,p);assert.equal(hash(createSmokeTransmissionGPU.toString()),manifest.functions.createField);assert.equal(hash(read('./r27-native-transmission-fixture.js')),manifest.artifactSourceSHA256);assert.notEqual(hash(createCompleteTransmissionCandidate.toString()),manifest.functions.createField);return {helperSHA256:hash(source),productionFactorySHA256:manifest.functions.createField,deployedModuleSHA256:manifest.sources['../pyro-smoke-transmission-gpu.js'],artifactDigest:manifest.artifactDigest};
+});
+await check('Strict enumerated wrapper inverse preserves the entire hardware-passed ownership/timer/draw/read/error/state algorithm',()=>{
+ let s=source.replaceAll('\r\n','\n'),b=baseline.replaceAll('\r\n','\n');
+ const edits=[
+  ['// ROOT ONLY: explicit promoted-production phase of the SAME immutable native request.\n// Frozen candidate phase remains separate; this wrapper has distinct deployed source/factory pins.','// ROOT ONLY: one immutable actual native SourceT request, at most4draws.'],
+  ["import {packSmokeTransmissionInputs as productionPack,planSmokeTransmission as productionPolicy} from '../pyro-smoke-transmission-pack.js';\nimport {planSmokeTransmissionLayout as productionLayout} from '../smoke-transmission-layout.js';\nimport {planTransmissionRectangles as productionRectangles} from '../smoke-transmission-rectangles.js';\n",''],
+  ['R27_PRODUCTION_NATIVE_GPU_REVISION','R27_COMPLETE_NATIVE_GPU_REVISION'],
+  ['r27-production-native-sourceT-v1','r27-owned-native-sourceT-v1'],
+  ['runProductionNativeTransmissionGPUCheck','runCompleteNativeTransmissionGPUCheck'],
+  ['glass-atoll.r27-production-native-sourceT-GPU.v1','glass-atoll.r27-owned-native-sourceT-GPU.v1'],
+  ['{createField,candidatePack,candidatePolicy,candidateLayout,rectangles,productionPack,productionPolicy,productionLayout,productionRectangles}','{createField,candidatePack,candidatePolicy,candidateLayout,rectangles}'],
+  ['report.productionDiagnostics=field.diagnostics()','report.candidateDiagnostics=field.diagnostics()'],
+  ['const PRODUCTION_CONSTRUCTOR_CAPS=Object.freeze({...CAPS,maxPairs:1048576,maxMapDraws:8});\n',''],
+  ['...PRODUCTION_CONSTRUCTOR_CAPS','...CAPS'],
+  ['This explicit production implementation phase isolates the SAME native SourceT pair-work route; ordinary defaults remain unchanged. It does not admit normal live fallback policy, multi-consumer frame cost, resolvedSH repair, native smoke animation, UI promotion or60fps.','This isolates the native SourceT pair-work route. It does not admit normal live fallback policy, multi-consumer frame cost, resolvedSH repair, native smoke animation, UI promotion or60fps.']
+ ];
+ for(const[from,to]of edits){assert.ok(s.includes(from),'Missing authorized wrapper seam: '+from);s=s.replaceAll(from,to);}
+ for(const name of ['SOURCE_PINS','FUNCTION_PINS']){const prefix='const '+name+'=',line=s.split('\n').filter(x=>x.startsWith(prefix)),prior=b.split('\n').filter(x=>x.startsWith(prefix));assert.equal(line.length,1);assert.equal(prior.length,1);s=s.replace(line[0],prior[0]);}
+ assert.equal(s,b);return {authorizedSeams:edits.length+2,allOtherAlgorithmBytesExactAfterLineEndings:true,scope:'Pins/imports/phase naming/report field/documentation only; no numerical or state-path relaxation'};
+});
+await check('Strict production gate rejects variable options and old candidate factory before existing context, valid deployed pins reach only deliberate CPU boundary',async()=>{
+ const old=globalThis.fetch;let contexts=0,constructors=0;const renderer={debug:{},render(){},getContext(){contexts++;throw Error('independent production context boundary');}},forbidden=()=>{constructors++;throw Error('Unexpected factory construction');};
+ try{for(const options of [{parentLocked:false,createField:forbidden},{parentLocked:true,createField:forbidden,maxRequestPairs:1400001},{parentLocked:true,createField:forbidden,input:{}}]){const r=await runProductionNativeTransmissionGPUCheck(THREE,renderer,options);assert.equal(r.passed,false);assert.equal(r.actualDraws,0);assert.equal(contexts,0);}
+  globalThis.fetch=async url=>({ok:true,text:async()=>fs.readFileSync(url,'utf8')});const stale=await runProductionNativeTransmissionGPUCheck(THREE,renderer,{parentLocked:true,createField:createCompleteTransmissionCandidate});assert.equal(stale.passed,false);assert.match(stale.failure,/Cached factory\/math pin mismatch/);assert.equal(contexts,0);
+  const valid=await runProductionNativeTransmissionGPUCheck(THREE,renderer,{parentLocked:true,createField:createSmokeTransmissionGPU});assert.equal(valid.passed,false);assert.match(valid.failure,/independent production context boundary/);assert.equal(contexts,1);assert.equal(constructors,0);assert.equal(valid.actualDraws,0);assert.equal(valid.actualGPU,false);return {variableOptionRejections:3,oldCandidateFactoryRejected:true,allDeployedPinsCheckedBeforeContext:true,actualContextConstructed:false};
+ }finally{globalThis.fetch=old;}
+});
+const report={schema:'glass-atoll.r27-production-helper-independent-cpu-read.v1',dateUTC:new Date().toISOString(),actualGPU:false,browserActions:0,productionEdits:0,passed:checks.every(c=>c.passed),counts:{passed:checks.filter(c=>c.passed).length,total:checks.length},checks,constructorScope:{gate:'Exact live constructor maxPairs1048576/maxRequestPairs1400000/maxMapPairs1000000/maxMapDraws8; fixed request still hard-limited to4actualdraws',liveCaller:'Explicit maxPairs1048576/maxRequestPairs1400000/maxMapPairs1000000/maxMapDraws8',effectOnFixedRequest:'Exact same constructor policy/allocation/expanded shaders as live caller; this fixed request executes exactly3maps and does not exercise every future input under the larger envelope'},retainedIntermediate:'r27-production-helper-independent-before-live-constructor-update.json records source freeze4e3e being superseded by root-requested exact live constructor0cd5 during this audit; no numerical/tolerance relaxation',limits:['Read/source/CPU pre-context checks only; deployed factory requires its separately owned same-input hardware receipt.','Old candidate helper/receipt and native input remain frozen; this report does not rewrite their source pins.','Production implementation promotion does not by itself establish aggregate main/mirror/SH cost or scene FPS.']};fs.writeFileSync(new URL('./r27-production-helper-independent-check.json',import.meta.url),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({passed:report.passed,counts:report.counts,failed:checks.filter(c=>!c.passed)},null,2));if(!report.passed)process.exitCode=1;

@@ -1,0 +1,1234 @@
+{
+  "schema": "glass-atoll.receiver-lifecycle-cpu-check.v2",
+  "passed": false,
+  "counts": {
+    "passed": 7,
+    "total": 8
+  },
+  "corePassed": true,
+  "pressurePassed": false,
+  "training": {
+    "positions": 9,
+    "irradianceComponents": 13,
+    "purpose": "Partition selection only. No RGB/intensity fitting or temporal energy injection."
+  },
+  "heldOut": {
+    "base": 35,
+    "dense": 255,
+    "terrainFunctionFrom": "actual main.js"
+  },
+  "checks": [
+    {
+      "name": "six-show source conservation, held-out surface and foliage irradiance, extinction",
+      "passed": true,
+      "evidence": {
+        "phases": 18,
+        "max35": 0.02064720446333838,
+        "maxHoldout": 0.0198186540163859,
+        "lastEnd": 19.402743030694733,
+        "extinct": true
+      }
+    },
+    {
+      "name": "opposed source conservation, held-out surface and foliage irradiance, extinction",
+      "passed": true,
+      "evidence": {
+        "phases": 18,
+        "max35": 0.014773542385263306,
+        "maxHoldout": 0.014716368880374848,
+        "lastEnd": 16.642881203836453,
+        "extinct": true
+      }
+    },
+    {
+      "name": "staggered source conservation, held-out surface and foliage irradiance, extinction",
+      "passed": true,
+      "evidence": {
+        "phases": 18,
+        "max35": 0.019110021164782148,
+        "maxHoldout": 0.017217199116401922,
+        "lastEnd": 26.5,
+        "extinct": true
+      }
+    },
+    {
+      "name": "silver-waterfall-sweep source conservation, held-out surface and foliage irradiance, extinction",
+      "passed": true,
+      "evidence": {
+        "phases": 18,
+        "max35": 0.017495609795633294,
+        "maxHoldout": 0.016812782275235385,
+        "lastEnd": 19.606154153521754,
+        "extinct": true
+      }
+    },
+    {
+      "name": "twelve-show source conservation, held-out surface and foliage irradiance, extinction",
+      "passed": false,
+      "error": "35-probe error 0.26615257181243107"
+    },
+    {
+      "name": "event filtering uses the same real sources without poisoning generation cache",
+      "passed": true,
+      "evidence": {
+        "events": 2,
+        "cachePreserved": true
+      }
+    },
+    {
+      "name": "coincident sources retain every source and current spectrum without ghost tails",
+      "passed": true,
+      "evidence": {
+        "sources": 40,
+        "proxies": 1
+      }
+    },
+    {
+      "name": "shared real local-light budget, native/custom attenuation, unused slots extinction",
+      "passed": true,
+      "evidence": {
+        "total": 20,
+        "fireworks": 16,
+        "allUnusedZero": true
+      }
+    }
+  ],
+  "results": [
+    {
+      "name": "six-show",
+      "phases": [
+        {
+          "time": 0.05,
+          "sources": 10,
+          "proxies": 10,
+          "referenceMagnitude": 119.15913100734448,
+          "rms35": 1.4830378285742785e-16,
+          "rmsHoldout": 7.634643441067482e-17,
+          "baselineRMS35": 0.008133075056198778,
+          "baselineRMSHoldout": 0.013212671927258644,
+          "nativeCustomDifference": 0,
+          "buildMs": 2.5867999999999824
+        },
+        {
+          "time": 0.5,
+          "sources": 59,
+          "proxies": 16,
+          "referenceMagnitude": 254.98293081351153,
+          "rms35": 0.0021028744319738883,
+          "rmsHoldout": 0.0026848506485969356,
+          "baselineRMS35": 0.32929056779871063,
+          "baselineRMSHoldout": 0.30254330412286873,
+          "nativeCustomDifference": 0,
+          "buildMs": 4.6691000000000145
+        },
+        {
+          "time": 1,
+          "sources": 98,
+          "proxies": 16,
+          "referenceMagnitude": 243.18237083170638,
+          "rms35": 0.006401196071575076,
+          "rmsHoldout": 0.00649747340597638,
+          "baselineRMS35": 0.5508970383134836,
+          "baselineRMSHoldout": 0.5002950117398116,
+          "nativeCustomDifference": 0,
+          "buildMs": 1.7081000000000017
+        },
+        {
+          "time": 3,
+          "sources": 278,
+          "proxies": 16,
+          "referenceMagnitude": 305.0723683951342,
+          "rms35": 0.02064720446333838,
+          "rmsHoldout": 0.018540382050051245,
+          "baselineRMS35": 0.8828993396900524,
+          "baselineRMSHoldout": 0.8417569523378439,
+          "nativeCustomDifference": 0,
+          "buildMs": 4.631799999999998
+        },
+        {
+          "time": 5,
+          "sources": 630,
+          "proxies": 16,
+          "referenceMagnitude": 260.4938508545959,
+          "rms35": 0.01936586318864758,
+          "rmsHoldout": 0.0198186540163859,
+          "baselineRMS35": 0.8221436066683734,
+          "baselineRMSHoldout": 0.8195093297632766,
+          "nativeCustomDifference": 0,
+          "buildMs": 4.599999999999994
+        },
+        {
+          "time": 6.5,
+          "sources": 2751,
+          "proxies": 16,
+          "referenceMagnitude": 366.07235315033785,
+          "rms35": 0.012173278828775533,
+          "rmsHoldout": 0.013482826196852852,
+          "baselineRMS35": 0.9667378705859985,
+          "baselineRMSHoldout": 0.9488250969032558,
+          "nativeCustomDifference": 0,
+          "buildMs": 8.915599999999984
+        },
+        {
+          "time": 7,
+          "sources": 3716,
+          "proxies": 16,
+          "referenceMagnitude": 393.3679594227382,
+          "rms35": 0.011949345062782146,
+          "rmsHoldout": 0.011560842838411705,
+          "baselineRMS35": 0.8950632117222228,
+          "baselineRMSHoldout": 0.8543954937833798,
+          "nativeCustomDifference": 0,
+          "buildMs": 16.026700000000005
+        },
+        {
+          "time": 7.3,
+          "sources": 4087,
+          "proxies": 16,
+          "referenceMagnitude": 356.32462647688686,
+          "rms35": 0.012455658636640438,
+          "rmsHoldout": 0.013017568009580191,
+          "baselineRMS35": 0.9318269460736829,
+          "baselineRMSHoldout": 0.9157181577589482,
+          "nativeCustomDifference": 0,
+          "buildMs": 21.39330000000001
+        },
+        {
+          "time": 7.5,
+          "sources": 4195,
+          "proxies": 16,
+          "referenceMagnitude": 324.38911259105043,
+          "rms35": 0.010751036119692806,
+          "rmsHoldout": 0.014403261261118199,
+          "baselineRMS35": 0.9262518180836049,
+          "baselineRMSHoldout": 0.9148997672797305,
+          "nativeCustomDifference": 0,
+          "buildMs": 15.468400000000031
+        },
+        {
+          "time": 8,
+          "sources": 4740,
+          "proxies": 16,
+          "referenceMagnitude": 286.6559845944349,
+          "rms35": 0.017319972371176003,
+          "rmsHoldout": 0.01684453811482794,
+          "baselineRMS35": 0.9153547840413913,
+          "baselineRMSHoldout": 0.9133922221739841,
+          "nativeCustomDifference": 0,
+          "buildMs": 15.857399999999984
+        },
+        {
+          "time": 9,
+          "sources": 5208,
+          "proxies": 16,
+          "referenceMagnitude": 330.36785976194545,
+          "rms35": 0.01616682796829332,
+          "rmsHoldout": 0.016959956661156034,
+          "baselineRMS35": 0.867476518864505,
+          "baselineRMSHoldout": 0.8398489892176256,
+          "nativeCustomDifference": 0,
+          "buildMs": 19.6259
+        },
+        {
+          "time": 10,
+          "sources": 5144,
+          "proxies": 16,
+          "referenceMagnitude": 485.1018053597481,
+          "rms35": 0.006006478564195893,
+          "rmsHoldout": 0.0072595192381138905,
+          "baselineRMS35": 0.9661686280266863,
+          "baselineRMSHoldout": 0.9495791395634615,
+          "nativeCustomDifference": 0,
+          "buildMs": 21.50019999999995
+        },
+        {
+          "time": 12,
+          "sources": 3806,
+          "proxies": 16,
+          "referenceMagnitude": 349.0896698873052,
+          "rms35": 0.006071365822053088,
+          "rmsHoldout": 0.005852660060254703,
+          "baselineRMS35": 0.9775034324721935,
+          "baselineRMSHoldout": 0.973682491052642,
+          "nativeCustomDifference": 0,
+          "buildMs": 17.30600000000004
+        },
+        {
+          "time": 14,
+          "sources": 3177,
+          "proxies": 16,
+          "referenceMagnitude": 48.02570179484184,
+          "rms35": 0.0049887952673327626,
+          "rmsHoldout": 0.004706549145914993,
+          "baselineRMS35": 0.9157557525639549,
+          "baselineRMSHoldout": 0.9111018007525833,
+          "nativeCustomDifference": 0,
+          "buildMs": 12.51909999999998
+        },
+        {
+          "time": 17,
+          "sources": 1108,
+          "proxies": 16,
+          "referenceMagnitude": 0.0018205107219938681,
+          "rms35": 6.007919189496586e-7,
+          "rmsHoldout": 6.243598835680697e-7,
+          "baselineRMS35": 0.0021005269403469974,
+          "baselineRMSHoldout": 0.0021689930954299436,
+          "nativeCustomDifference": 0,
+          "buildMs": 5.885099999999966
+        },
+        {
+          "time": 20,
+          "sources": 0,
+          "proxies": 0,
+          "referenceMagnitude": 0,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.03110000000015134
+        },
+        {
+          "time": 25,
+          "sources": 0,
+          "proxies": 0,
+          "referenceMagnitude": 0,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.0014000000001033186
+        },
+        {
+          "time": 35,
+          "sources": 0,
+          "proxies": 0,
+          "referenceMagnitude": 0,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.0005999999998493877
+        }
+      ],
+      "max35": 0.02064720446333838,
+      "maxHoldout": 0.0198186540163859,
+      "lastEnd": 19.402743030694733,
+      "extinct": true
+    },
+    {
+      "name": "opposed",
+      "phases": [
+        {
+          "time": 0.05,
+          "sources": 4,
+          "proxies": 4,
+          "referenceMagnitude": 17.564062369382803,
+          "rms35": 9.69794775671812e-17,
+          "rmsHoldout": 1.5022063062893007e-16,
+          "baselineRMS35": 0.015966727540092745,
+          "baselineRMSHoldout": 0.06061881375662624,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.09359999999992397
+        },
+        {
+          "time": 0.5,
+          "sources": 18,
+          "proxies": 16,
+          "referenceMagnitude": 6.5136946116161445,
+          "rms35": 0.0008114681303969764,
+          "rmsHoldout": 0.0006914625359918558,
+          "baselineRMS35": 0.06546200514927868,
+          "baselineRMSHoldout": 0.08253203003254167,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.23020000000019536
+        },
+        {
+          "time": 1,
+          "sources": 18,
+          "proxies": 16,
+          "referenceMagnitude": 1.9319730834602964,
+          "rms35": 0.00011383386458935686,
+          "rmsHoldout": 0.0001019818742136427,
+          "baselineRMS35": 0.01662413268301036,
+          "baselineRMSHoldout": 0.015419630607996266,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.25720000000001164
+        },
+        {
+          "time": 3,
+          "sources": 18,
+          "proxies": 16,
+          "referenceMagnitude": 0.31296584391888926,
+          "rms35": 0.0000031313195230351745,
+          "rmsHoldout": 0.000003023291039742663,
+          "baselineRMS35": 0.0009656051315143221,
+          "baselineRMSHoldout": 0.0009369838473415308,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.23600000000010368
+        },
+        {
+          "time": 5,
+          "sources": 18,
+          "proxies": 16,
+          "referenceMagnitude": 0.1726654755253337,
+          "rms35": 4.284640009293177e-7,
+          "rmsHoldout": 4.1944277873027996e-7,
+          "baselineRMS35": 0.00013626611242400014,
+          "baselineRMSHoldout": 0.0001653285830293219,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.2555999999999585
+        },
+        {
+          "time": 6.5,
+          "sources": 18,
+          "proxies": 16,
+          "referenceMagnitude": 0.1317215848155779,
+          "rms35": 9.725701178922461e-8,
+          "rmsHoldout": 9.577139858504838e-8,
+          "baselineRMS35": 0.00001764517256762436,
+          "baselineRMSHoldout": 0.000017182439572621706,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.21849999999994907
+        },
+        {
+          "time": 7,
+          "sources": 1602,
+          "proxies": 16,
+          "referenceMagnitude": 21.151572400818484,
+          "rms35": 0.0011813254324690462,
+          "rmsHoldout": 0.00115792187464401,
+          "baselineRMS35": 0.002022686149296589,
+          "baselineRMSHoldout": 0.0029387895241440244,
+          "nativeCustomDifference": 0,
+          "buildMs": 5.672799999999825
+        },
+        {
+          "time": 7.3,
+          "sources": 2145,
+          "proxies": 16,
+          "referenceMagnitude": 22.837250655728223,
+          "rms35": 0.003699690991545391,
+          "rmsHoldout": 0.0036886389583952383,
+          "baselineRMS35": 0.0068599820230763825,
+          "baselineRMSHoldout": 0.008126966828951135,
+          "nativeCustomDifference": 0,
+          "buildMs": 7.2232000000001335
+        },
+        {
+          "time": 7.5,
+          "sources": 2432,
+          "proxies": 16,
+          "referenceMagnitude": 24.18207465509677,
+          "rms35": 0.007798979343558579,
+          "rmsHoldout": 0.007795270079302381,
+          "baselineRMS35": 0.01074921089584027,
+          "baselineRMSHoldout": 0.012273479612823207,
+          "nativeCustomDifference": 0,
+          "buildMs": 8.060600000000022
+        },
+        {
+          "time": 8,
+          "sources": 2432,
+          "proxies": 16,
+          "referenceMagnitude": 20.838588046146683,
+          "rms35": 0.00941024341794132,
+          "rmsHoldout": 0.00936701867665343,
+          "baselineRMS35": 0.018231004174141745,
+          "baselineRMSHoldout": 0.02004615734198565,
+          "nativeCustomDifference": 0,
+          "buildMs": 7.273000000000138
+        },
+        {
+          "time": 9,
+          "sources": 2432,
+          "proxies": 16,
+          "referenceMagnitude": 10.629930447557669,
+          "rms35": 0.01132606691948194,
+          "rmsHoldout": 0.01118177360868952,
+          "baselineRMS35": 0.034522900470466536,
+          "baselineRMSHoldout": 0.03724283925655311,
+          "nativeCustomDifference": 0,
+          "buildMs": 9.849299999999857
+        },
+        {
+          "time": 10,
+          "sources": 2304,
+          "proxies": 16,
+          "referenceMagnitude": 1.034973135081851,
+          "rms35": 0.014773542385263306,
+          "rmsHoldout": 0.014716368880374848,
+          "baselineRMS35": 0.02923199859859473,
+          "baselineRMSHoldout": 0.031121053769820627,
+          "nativeCustomDifference": 0,
+          "buildMs": 13.229900000000043
+        },
+        {
+          "time": 12,
+          "sources": 37,
+          "proxies": 16,
+          "referenceMagnitude": 2.1019629997639924e-13,
+          "rms35": 0.00003424949644067813,
+          "rmsHoldout": 0.000033819000435959566,
+          "baselineRMS35": 0.02110241361613224,
+          "baselineRMSHoldout": 0.0206093841155687,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.3158000000000811
+        },
+        {
+          "time": 14,
+          "sources": 0,
+          "proxies": 0,
+          "referenceMagnitude": 0,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.0027000000000043656
+        },
+        {
+          "time": 17,
+          "sources": 0,
+          "proxies": 0,
+          "referenceMagnitude": 0,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.0014000000001033186
+        },
+        {
+          "time": 20,
+          "sources": 0,
+          "proxies": 0,
+          "referenceMagnitude": 0,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.0004999999998744897
+        },
+        {
+          "time": 25,
+          "sources": 0,
+          "proxies": 0,
+          "referenceMagnitude": 0,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.0006000000000767614
+        },
+        {
+          "time": 35,
+          "sources": 0,
+          "proxies": 0,
+          "referenceMagnitude": 0,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.0005000000001018634
+        }
+      ],
+      "max35": 0.014773542385263306,
+      "maxHoldout": 0.014716368880374848,
+      "lastEnd": 16.642881203836453,
+      "extinct": true
+    },
+    {
+      "name": "staggered",
+      "phases": [
+        {
+          "time": 0.05,
+          "sources": 2,
+          "proxies": 2,
+          "referenceMagnitude": 8.059848294955515,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.06829999999990832
+        },
+        {
+          "time": 0.5,
+          "sources": 9,
+          "proxies": 9,
+          "referenceMagnitude": 2.807481129272559,
+          "rms35": 1.500860527906952e-16,
+          "rmsHoldout": 1.2816154754265757e-16,
+          "baselineRMS35": 0.027760978858034024,
+          "baselineRMSHoldout": 0.023004823553981677,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.14039999999999964
+        },
+        {
+          "time": 1,
+          "sources": 9,
+          "proxies": 9,
+          "referenceMagnitude": 0.8556809646425344,
+          "rms35": 2.84533166108838e-16,
+          "rmsHoldout": 1.7834656080798209e-16,
+          "baselineRMS35": 0.004750873622350563,
+          "baselineRMSHoldout": 0.0043118480078551576,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.3209999999999127
+        },
+        {
+          "time": 3,
+          "sources": 9,
+          "proxies": 9,
+          "referenceMagnitude": 0.14613451242261596,
+          "rms35": 3.1392013408771816e-16,
+          "rmsHoldout": 2.6979448351730854e-16,
+          "baselineRMS35": 0.0008355247441469833,
+          "baselineRMSHoldout": 0.0008079770068043184,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.1433999999999287
+        },
+        {
+          "time": 5,
+          "sources": 9,
+          "proxies": 9,
+          "referenceMagnitude": 0.08117931385502407,
+          "rms35": 1.5361460509486906e-16,
+          "rmsHoldout": 1.3528819953060696e-16,
+          "baselineRMS35": 0.00008786548226791386,
+          "baselineRMSHoldout": 0.00008603950061358012,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.1509000000000924
+        },
+        {
+          "time": 6.5,
+          "sources": 9,
+          "proxies": 9,
+          "referenceMagnitude": 0.06845961937428557,
+          "rms35": 2.5797472334127314e-16,
+          "rmsHoldout": 2.0407365267836967e-16,
+          "baselineRMS35": 0.000012168144613295977,
+          "baselineRMSHoldout": 0.000012023646239284731,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.14859999999998763
+        },
+        {
+          "time": 7,
+          "sources": 751,
+          "proxies": 16,
+          "referenceMagnitude": 12.520081004769251,
+          "rms35": 0.0004246793252012756,
+          "rmsHoldout": 0.00043004459447327505,
+          "baselineRMS35": 0.020407839091519248,
+          "baselineRMSHoldout": 0.017087113683168086,
+          "nativeCustomDifference": 0,
+          "buildMs": 3.431100000000015
+        },
+        {
+          "time": 7.3,
+          "sources": 1010,
+          "proxies": 16,
+          "referenceMagnitude": 11.695931522170364,
+          "rms35": 0.003695661848998303,
+          "rmsHoldout": 0.0035959324488131217,
+          "baselineRMS35": 0.004083448882037535,
+          "baselineRMSHoldout": 0.003553779676408922,
+          "nativeCustomDifference": 0,
+          "buildMs": 4.644600000000082
+        },
+        {
+          "time": 7.5,
+          "sources": 1230,
+          "proxies": 16,
+          "referenceMagnitude": 117.79617718046556,
+          "rms35": 0.0006488574851979591,
+          "rmsHoldout": 0.0006547953690182446,
+          "baselineRMS35": 0.9434332355068895,
+          "baselineRMSHoldout": 0.9493899935033527,
+          "nativeCustomDifference": 0,
+          "buildMs": 5.472599999999829
+        },
+        {
+          "time": 8,
+          "sources": 1254,
+          "proxies": 16,
+          "referenceMagnitude": 222.12091994950242,
+          "rms35": 0.002066357982421952,
+          "rmsHoldout": 0.002716671100121111,
+          "baselineRMS35": 0.9571307239093575,
+          "baselineRMSHoldout": 0.9534493825990819,
+          "nativeCustomDifference": 0,
+          "buildMs": 12.08219999999983
+        },
+        {
+          "time": 9,
+          "sources": 1341,
+          "proxies": 16,
+          "referenceMagnitude": 289.44707005865274,
+          "rms35": 0.008734924798637982,
+          "rmsHoldout": 0.008959623961474436,
+          "baselineRMS35": 0.9775984944221345,
+          "baselineRMSHoldout": 0.9673121696034891,
+          "nativeCustomDifference": 0,
+          "buildMs": 5.780700000000024
+        },
+        {
+          "time": 10,
+          "sources": 1367,
+          "proxies": 16,
+          "referenceMagnitude": 259.7256023353251,
+          "rms35": 0.017792459860739074,
+          "rmsHoldout": 0.016608934716992565,
+          "baselineRMS35": 0.8346822390404609,
+          "baselineRMSHoldout": 0.8089013473952261,
+          "nativeCustomDifference": 0,
+          "buildMs": 7.689899999999852
+        },
+        {
+          "time": 12,
+          "sources": 408,
+          "proxies": 16,
+          "referenceMagnitude": 295.2497466793213,
+          "rms35": 0.013763759952787516,
+          "rmsHoldout": 0.014455094679079862,
+          "baselineRMS35": 0.9953217607850512,
+          "baselineRMSHoldout": 0.9934823248755862,
+          "nativeCustomDifference": 0,
+          "buildMs": 2.0487000000000535
+        },
+        {
+          "time": 14,
+          "sources": 1073,
+          "proxies": 16,
+          "referenceMagnitude": 333.1423432128038,
+          "rms35": 0.015795434004537947,
+          "rmsHoldout": 0.014540617167606974,
+          "baselineRMS35": 0.9053004882278376,
+          "baselineRMSHoldout": 0.897590286796433,
+          "nativeCustomDifference": 0,
+          "buildMs": 5.371599999999944
+        },
+        {
+          "time": 17,
+          "sources": 2096,
+          "proxies": 16,
+          "referenceMagnitude": 368.019076229274,
+          "rms35": 0.019110021164782148,
+          "rmsHoldout": 0.017217199116401922,
+          "baselineRMS35": 0.9020293836103414,
+          "baselineRMSHoldout": 0.8959445027431355,
+          "nativeCustomDifference": 0,
+          "buildMs": 10.53710000000001
+        },
+        {
+          "time": 20,
+          "sources": 2096,
+          "proxies": 16,
+          "referenceMagnitude": 404.3321829705617,
+          "rms35": 0.013900723099816296,
+          "rmsHoldout": 0.012364210805274048,
+          "baselineRMS35": 0.8990511400316203,
+          "baselineRMSHoldout": 0.8905860690735119,
+          "nativeCustomDifference": 0,
+          "buildMs": 12.891799999999876
+        },
+        {
+          "time": 25,
+          "sources": 1,
+          "proxies": 1,
+          "referenceMagnitude": 4.4872449091970046e-9,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.04779999999982465
+        },
+        {
+          "time": 35,
+          "sources": 0,
+          "proxies": 0,
+          "referenceMagnitude": 0,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.0006000000000767614
+        }
+      ],
+      "max35": 0.019110021164782148,
+      "maxHoldout": 0.017217199116401922,
+      "lastEnd": 26.5,
+      "extinct": true
+    },
+    {
+      "name": "silver-waterfall-sweep",
+      "phases": [
+        {
+          "time": 0.05,
+          "sources": 5,
+          "proxies": 5,
+          "referenceMagnitude": 65.92109172623739,
+          "rms35": 4.21104423471908e-16,
+          "rmsHoldout": 9.082277850607989e-16,
+          "baselineRMS35": 0.0011847506907924701,
+          "baselineRMSHoldout": 0.004793478360347539,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.07930000000033033
+        },
+        {
+          "time": 0.5,
+          "sources": 35,
+          "proxies": 16,
+          "referenceMagnitude": 140.70217011220072,
+          "rms35": 0.0005056352876999762,
+          "rmsHoldout": 0.0006214845286885537,
+          "baselineRMS35": 0.21830055090792805,
+          "baselineRMSHoldout": 0.3338482699067302,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.8153000000002066
+        },
+        {
+          "time": 1,
+          "sources": 71,
+          "proxies": 16,
+          "referenceMagnitude": 211.86083644001033,
+          "rms35": 0.00508806844215995,
+          "rmsHoldout": 0.006216830116414907,
+          "baselineRMS35": 0.4423092421379983,
+          "baselineRMSHoldout": 0.5325743573505484,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.46529999999984284
+        },
+        {
+          "time": 3,
+          "sources": 251,
+          "proxies": 16,
+          "referenceMagnitude": 244.47780574106665,
+          "rms35": 0.016472178239205246,
+          "rmsHoldout": 0.016433886620012286,
+          "baselineRMS35": 0.8506840969548564,
+          "baselineRMSHoldout": 0.8399590920948332,
+          "nativeCustomDifference": 0,
+          "buildMs": 1.275300000000243
+        },
+        {
+          "time": 5,
+          "sources": 386,
+          "proxies": 16,
+          "referenceMagnitude": 334.0518571543049,
+          "rms35": 0.0143920659457357,
+          "rmsHoldout": 0.016812782275235385,
+          "baselineRMS35": 0.9155603172016166,
+          "baselineRMSHoldout": 0.8835409990890175,
+          "nativeCustomDifference": 0,
+          "buildMs": 1.924199999999928
+        },
+        {
+          "time": 6.5,
+          "sources": 385,
+          "proxies": 16,
+          "referenceMagnitude": 226.07874496604083,
+          "rms35": 0.017495609795633294,
+          "rmsHoldout": 0.015607159888310858,
+          "baselineRMS35": 0.87676963349042,
+          "baselineRMSHoldout": 0.8781237010691206,
+          "nativeCustomDifference": 0,
+          "buildMs": 1.8887999999997191
+        },
+        {
+          "time": 7,
+          "sources": 1003,
+          "proxies": 16,
+          "referenceMagnitude": 258.5208128497808,
+          "rms35": 0.007534690554859601,
+          "rmsHoldout": 0.008368822095256571,
+          "baselineRMS35": 0.8910640963125319,
+          "baselineRMSHoldout": 0.8838041607889483,
+          "nativeCustomDifference": 0,
+          "buildMs": 5.475200000000314
+        },
+        {
+          "time": 7.3,
+          "sources": 1447,
+          "proxies": 16,
+          "referenceMagnitude": 297.43480460313634,
+          "rms35": 0.00848761545641725,
+          "rmsHoldout": 0.010192921610680944,
+          "baselineRMS35": 0.8870088204690334,
+          "baselineRMSHoldout": 0.867935321290244,
+          "nativeCustomDifference": 0,
+          "buildMs": 7.914100000000417
+        },
+        {
+          "time": 7.5,
+          "sources": 1755,
+          "proxies": 16,
+          "referenceMagnitude": 322.1142522469197,
+          "rms35": 0.008703181950589155,
+          "rmsHoldout": 0.00991718928928949,
+          "baselineRMS35": 0.8810969356084001,
+          "baselineRMSHoldout": 0.8522898640926077,
+          "nativeCustomDifference": 0,
+          "buildMs": 6.9909999999999854
+        },
+        {
+          "time": 8,
+          "sources": 2242,
+          "proxies": 16,
+          "referenceMagnitude": 408.0363822046446,
+          "rms35": 0.012265047035013106,
+          "rmsHoldout": 0.014048129515768278,
+          "baselineRMS35": 0.9032687119625569,
+          "baselineRMSHoldout": 0.8671649294572231,
+          "nativeCustomDifference": 0,
+          "buildMs": 11.46180000000004
+        },
+        {
+          "time": 9,
+          "sources": 2750,
+          "proxies": 16,
+          "referenceMagnitude": 346.18078139423704,
+          "rms35": 0.010347399180447858,
+          "rmsHoldout": 0.008371000046972497,
+          "baselineRMS35": 0.8616395043418792,
+          "baselineRMSHoldout": 0.841882201847086,
+          "nativeCustomDifference": 0,
+          "buildMs": 13.832099999999627
+        },
+        {
+          "time": 10,
+          "sources": 3257,
+          "proxies": 16,
+          "referenceMagnitude": 297.3606676548575,
+          "rms35": 0.010310174623759676,
+          "rmsHoldout": 0.010837949443094557,
+          "baselineRMS35": 0.9892495768992874,
+          "baselineRMSHoldout": 0.9893062280669014,
+          "nativeCustomDifference": 0,
+          "buildMs": 19.173899999999776
+        },
+        {
+          "time": 12,
+          "sources": 2110,
+          "proxies": 16,
+          "referenceMagnitude": 429.1559758598324,
+          "rms35": 0.008872788845384753,
+          "rmsHoldout": 0.009340867011190773,
+          "baselineRMS35": 0.992130642921463,
+          "baselineRMSHoldout": 0.9904353692471255,
+          "nativeCustomDifference": 0,
+          "buildMs": 12.805499999999938
+        },
+        {
+          "time": 14,
+          "sources": 2017,
+          "proxies": 16,
+          "referenceMagnitude": 38.22380415816479,
+          "rms35": 0.00597398969066365,
+          "rmsHoldout": 0.006263004938727925,
+          "baselineRMS35": 0.4831649943535687,
+          "baselineRMSHoldout": 0.43548862639453767,
+          "nativeCustomDifference": 0,
+          "buildMs": 8.857099999999718
+        },
+        {
+          "time": 17,
+          "sources": 726,
+          "proxies": 16,
+          "referenceMagnitude": 0.0029837218121883174,
+          "rms35": 0.0001523298853714093,
+          "rmsHoldout": 0.0001541648533114517,
+          "baselineRMS35": 0.0013854357720586537,
+          "baselineRMSHoldout": 0.0013643666047904125,
+          "nativeCustomDifference": 0,
+          "buildMs": 3.8661000000001877
+        },
+        {
+          "time": 20,
+          "sources": 0,
+          "proxies": 0,
+          "referenceMagnitude": 0,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.0019999999999527063
+        },
+        {
+          "time": 25,
+          "sources": 0,
+          "proxies": 0,
+          "referenceMagnitude": 0,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.0004999999996471161
+        },
+        {
+          "time": 35,
+          "sources": 0,
+          "proxies": 0,
+          "referenceMagnitude": 0,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.0005000000001018634
+        }
+      ],
+      "max35": 0.017495609795633294,
+      "maxHoldout": 0.016812782275235385,
+      "lastEnd": 19.606154153521754,
+      "extinct": true
+    },
+    {
+      "name": "twelve-show",
+      "phases": [
+        {
+          "time": 0.05,
+          "sources": 229,
+          "proxies": 16,
+          "referenceMagnitude": 1942.8202040475435,
+          "rms35": 0.008117423930421842,
+          "rmsHoldout": 0.013855181202328473,
+          "baselineRMS35": 0.0038541880023630595,
+          "baselineRMSHoldout": 0.3812571541576039,
+          "nativeCustomDifference": 0,
+          "buildMs": 1.2268999999996595
+        },
+        {
+          "time": 0.5,
+          "sources": 1073,
+          "proxies": 16,
+          "referenceMagnitude": 1349.6476149992404,
+          "rms35": 0.04753574113218876,
+          "rmsHoldout": 0.03775652885676977,
+          "baselineRMS35": 0.9351691035995543,
+          "baselineRMSHoldout": 0.9249897255956668,
+          "nativeCustomDifference": 0,
+          "buildMs": 5.115500000000338
+        },
+        {
+          "time": 1,
+          "sources": 1107,
+          "proxies": 16,
+          "referenceMagnitude": 652.3584309906381,
+          "rms35": 0.26615257181243107,
+          "rmsHoldout": 0.09099239365883516,
+          "baselineRMS35": 0.9552693086057921,
+          "baselineRMSHoldout": 0.9312953574290053,
+          "nativeCustomDifference": 0,
+          "buildMs": 6.975800000000163
+        },
+        {
+          "time": 3,
+          "sources": 243,
+          "proxies": 16,
+          "referenceMagnitude": 3.0644095337206436,
+          "rms35": 0.0005335071900546653,
+          "rmsHoldout": 0.0005383076371927124,
+          "baselineRMS35": 0.44008914235847335,
+          "baselineRMSHoldout": 0.41976955937723187,
+          "nativeCustomDifference": 0,
+          "buildMs": 1.1713999999997213
+        },
+        {
+          "time": 5,
+          "sources": 749,
+          "proxies": 16,
+          "referenceMagnitude": 70.75959189422224,
+          "rms35": 0.004259802924067784,
+          "rmsHoldout": 0.001967424248096649,
+          "baselineRMS35": 0.6631419421040124,
+          "baselineRMSHoldout": 0.6570205803468808,
+          "nativeCustomDifference": 0,
+          "buildMs": 2.972700000000259
+        },
+        {
+          "time": 6.5,
+          "sources": 5857,
+          "proxies": 16,
+          "referenceMagnitude": 44.55852345568816,
+          "rms35": 0.003119302285719543,
+          "rmsHoldout": 0.004716254882560663,
+          "baselineRMS35": 0.48660949197673026,
+          "baselineRMSHoldout": 0.47886532353110217,
+          "nativeCustomDifference": 0,
+          "buildMs": 25.307999999999993
+        },
+        {
+          "time": 7,
+          "sources": 7271,
+          "proxies": 16,
+          "referenceMagnitude": 46.23966386037497,
+          "rms35": 0.005636127418459123,
+          "rmsHoldout": 0.005786235601282261,
+          "baselineRMS35": 0.4471354155293066,
+          "baselineRMSHoldout": 0.4424492683146209,
+          "nativeCustomDifference": 0,
+          "buildMs": 46.35209999999961
+        },
+        {
+          "time": 7.3,
+          "sources": 7338,
+          "proxies": 16,
+          "referenceMagnitude": 41.642664936681676,
+          "rms35": 0.008039674958531572,
+          "rmsHoldout": 0.007969353246116034,
+          "baselineRMS35": 0.4148751010450283,
+          "baselineRMSHoldout": 0.41018026816553455,
+          "nativeCustomDifference": 0,
+          "buildMs": 33.23109999999997
+        },
+        {
+          "time": 7.5,
+          "sources": 7270,
+          "proxies": 16,
+          "referenceMagnitude": 39.579102396880515,
+          "rms35": 0.014546931554926675,
+          "rmsHoldout": 0.014620774668321861,
+          "baselineRMS35": 0.4682080877178505,
+          "baselineRMSHoldout": 0.4636005179776633,
+          "nativeCustomDifference": 0,
+          "buildMs": 39.03769999999986
+        },
+        {
+          "time": 8,
+          "sources": 6916,
+          "proxies": 16,
+          "referenceMagnitude": 30.484220072454153,
+          "rms35": 0.010804153750158488,
+          "rmsHoldout": 0.010779873919121701,
+          "baselineRMS35": 0.5251678747041594,
+          "baselineRMSHoldout": 0.5207117544128163,
+          "nativeCustomDifference": 0,
+          "buildMs": 39.08969999999999
+        },
+        {
+          "time": 9,
+          "sources": 5681,
+          "proxies": 16,
+          "referenceMagnitude": 28.33654390108857,
+          "rms35": 0.006747496007522636,
+          "rmsHoldout": 0.0068484588403491,
+          "baselineRMS35": 0.6809451994245119,
+          "baselineRMSHoldout": 0.675712154845863,
+          "nativeCustomDifference": 0,
+          "buildMs": 31.055199999999786
+        },
+        {
+          "time": 10,
+          "sources": 4010,
+          "proxies": 16,
+          "referenceMagnitude": 14.668732479260978,
+          "rms35": 0.0066984819269709575,
+          "rmsHoldout": 0.008333939906609689,
+          "baselineRMS35": 0.7994877008412544,
+          "baselineRMSHoldout": 0.7965494911731954,
+          "nativeCustomDifference": 0,
+          "buildMs": 19.456300000000283
+        },
+        {
+          "time": 12,
+          "sources": 1473,
+          "proxies": 16,
+          "referenceMagnitude": 0.2260214957392614,
+          "rms35": 0.0027417640598899036,
+          "rmsHoldout": 0.0026101170583799657,
+          "baselineRMS35": 0.0040485419097650455,
+          "baselineRMSHoldout": 0.003827612424917585,
+          "nativeCustomDifference": 0,
+          "buildMs": 4.75669999999991
+        },
+        {
+          "time": 14,
+          "sources": 1440,
+          "proxies": 16,
+          "referenceMagnitude": 0.0003779648433343373,
+          "rms35": 0.0015767783997049855,
+          "rmsHoldout": 0.0014875208221762856,
+          "baselineRMS35": 0.014192427460933701,
+          "baselineRMSHoldout": 0.01373431166498463,
+          "nativeCustomDifference": 0,
+          "buildMs": 5.350699999999961
+        },
+        {
+          "time": 17,
+          "sources": 921,
+          "proxies": 16,
+          "referenceMagnitude": 2.0157025219117682e-11,
+          "rms35": 0.0012470383712352236,
+          "rmsHoldout": 0.0011787976712502905,
+          "baselineRMS35": 0.016229777275605588,
+          "baselineRMSHoldout": 0.01576227347105415,
+          "nativeCustomDifference": 0,
+          "buildMs": 3.776100000000042
+        },
+        {
+          "time": 20,
+          "sources": 0,
+          "proxies": 0,
+          "referenceMagnitude": 0,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.002599999999802094
+        },
+        {
+          "time": 25,
+          "sources": 0,
+          "proxies": 0,
+          "referenceMagnitude": 0,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.0005999999993946403
+        },
+        {
+          "time": 35,
+          "sources": 0,
+          "proxies": 0,
+          "referenceMagnitude": 0,
+          "rms35": 0,
+          "rmsHoldout": 0,
+          "baselineRMS35": 0,
+          "baselineRMSHoldout": 0,
+          "nativeCustomDifference": 0,
+          "buildMs": 0.0003999999998995918
+        }
+      ],
+      "max35": 0.26615257181243107,
+      "maxHoldout": 0.09099239365883516,
+      "lastEnd": 19.278474046435853,
+      "extinct": true
+    }
+  ],
+  "actualGPU": false,
+  "sourcePins": {
+    "fireworks.js": "954a7c8e70557874ca85da7d70e57cb5f73d196a5f40b1a547f1fbd2906820ce",
+    "firework-receiver-lighting.js": "e0ae63d237b522d0a2a93a0b41d382e9a2b41b286c8f83b007e51a809cb1d251",
+    "local-lights.js": "55aac00977aa728a97fcb1bd336e78035b047c6f7a10083ae7a15d87bfe987a2"
+  },
+  "limits": [
+    "CPU surface irradiance proxy test, no shadow/occlusion, smoke transmission, tone mapping or pixel acceptance.",
+    "Held-out probes bound the measured scenarios only, not every allowed show, source intersection or receiver location.",
+    "Point proxies retain instantaneous source I/RGB/centroid; they do not resolve finite source area illumination."
+  ]
+}

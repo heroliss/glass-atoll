@@ -1,0 +1,227 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "current budget is four non-pyro plus sixteen firework slots",
+      "passed": true,
+      "evidence": {
+        "shared": 20,
+        "firework": 16,
+        "actualRecords": 20
+      }
+    },
+    {
+      "name": "all actual borrowed vec4 arrays contain twenty entries",
+      "passed": true,
+      "evidence": {
+        "uLocalPosition": 20,
+        "uLocalColour": 20,
+        "uLocalDirection": 20,
+        "uLocalCone": 20
+      }
+    },
+    {
+      "name": "shared localIncident declarations and summation use twenty",
+      "passed": true,
+      "evidence": {
+        "shaderSHA256": "ad1042e95204a740c3cbcc5a895974f006af3a07ced9fd15d2efea0dbc939ea9"
+      }
+    },
+    {
+      "name": "actual default smoke material uses all twenty local sources",
+      "passed": true,
+      "evidence": {
+        "meta": {
+          "packets": 1,
+          "instances": 1,
+          "culled": 0,
+          "fullScreenFallbacks": 0,
+          "projectionMode": "legacy-sphere",
+          "proxyRasterPixelUpperBound": 64,
+          "proxyRasterViewportLayers": 0.25,
+          "reflection": false,
+          "width": 16,
+          "height": 16,
+          "storageEV": 0,
+          "supportSigma": 4,
+          "offProxyOpticalDepthUpperBound": 0.0012843766673387746,
+          "debugMode": 0,
+          "stateRevision": 1,
+          "extraOffscreenTargets": 0,
+          "frontAirEnabled": false,
+          "frontAirCells": 0,
+          "localLightingEnabled": true,
+          "localLightingSources": 20,
+          "legacyClusterSources": 0,
+          "samplerCount": 2,
+          "finiteClusterPhase": false
+        },
+        "fragmentSHA256": "8215dac2b5fbe5b3702619f37fb1c855417b06a1b8613c63b03c57d04bbafbaf"
+      }
+    },
+    {
+      "name": "last firework slot is populated in actual borrowed uniforms",
+      "passed": true,
+      "evidence": {
+        "raw": [
+          0.03654,
+          0.007308,
+          0.003654
+        ],
+        "stored": [
+          0.03654,
+          0.007308,
+          0.003654,
+          1015
+        ]
+      }
+    },
+    {
+      "name": "actual resolved material retains exactly four non-pyro direct sources",
+      "passed": true,
+      "evidence": {
+        "meta": {
+          "packets": 1,
+          "instances": 1,
+          "culled": 0,
+          "fullScreenFallbacks": 0,
+          "projectionMode": "legacy-sphere",
+          "proxyRasterPixelUpperBound": 64,
+          "proxyRasterViewportLayers": 0.25,
+          "reflection": false,
+          "width": 16,
+          "height": 16,
+          "storageEV": 0,
+          "supportSigma": 4,
+          "offProxyOpticalDepthUpperBound": 0.0012843766673387746,
+          "debugMode": 0,
+          "stateRevision": 1,
+          "extraOffscreenTargets": 0,
+          "frontAirEnabled": false,
+          "frontAirCells": 0,
+          "localLightingEnabled": true,
+          "localLightingSources": 4,
+          "legacyClusterSources": 0,
+          "samplerCount": 2,
+          "finiteClusterPhase": false,
+          "resolvedPyroField": true,
+          "resolvedFieldVersion": 1,
+          "vertexSamplers": 3
+        },
+        "fragmentSHA256": "49405d05397b4ce3c30a312bb900bb776d1f9eec0c4bbd1ab0b716604c55e73a"
+      }
+    },
+    {
+      "name": "resolved field disables legacy cluster loop and counts field once",
+      "passed": true,
+      "evidence": {
+        "meta": {
+          "packets": 1,
+          "instances": 1,
+          "culled": 0,
+          "fullScreenFallbacks": 0,
+          "projectionMode": "legacy-sphere",
+          "proxyRasterPixelUpperBound": 64,
+          "proxyRasterViewportLayers": 0.25,
+          "reflection": false,
+          "width": 16,
+          "height": 16,
+          "storageEV": 0,
+          "supportSigma": 4,
+          "offProxyOpticalDepthUpperBound": 0.0012843766673387746,
+          "debugMode": 0,
+          "stateRevision": 1,
+          "extraOffscreenTargets": 0,
+          "frontAirEnabled": false,
+          "frontAirCells": 0,
+          "localLightingEnabled": true,
+          "localLightingSources": 4,
+          "legacyClusterSources": 0,
+          "samplerCount": 2,
+          "finiteClusterPhase": false,
+          "resolvedPyroField": true,
+          "resolvedFieldVersion": 1,
+          "vertexSamplers": 3
+        }
+      }
+    },
+    {
+      "name": "resolved bound excludes every pyro proxy including last slot",
+      "passed": true,
+      "evidence": {
+        "legacy": {
+          "maxRGB": 13.182985670319756,
+          "components": {
+            "smokeSource": 13.182985670319756,
+            "airFront": 0
+          },
+          "airNumericalSafety": 1.00002,
+          "rawBeforeStorageExposure": true,
+          "localLightingEnabled": true,
+          "method": "non-emissive convex-over layer upper bound; passive front-air source plus current raw smoke sources; local records replace legacy clusters when enabled; no factor per historical packet",
+          "limits": "authored raw incident reference, neutral extinction, up to20 shared local lights OR2 legacy clusters; optional four-cell front-air/conditional-mean approximation, small-tau/Float32 safety on air term, not a bound for future joint-media/light transport"
+        },
+        "resolved": {
+          "maxRGB": 2,
+          "components": {
+            "smokeSource": 2,
+            "airFront": 0
+          },
+          "airNumericalSafety": 1.00002,
+          "rawBeforeStorageExposure": true,
+          "resolvedPyroField": true,
+          "resolvedFieldBound": {
+            "maxRGB": 2
+          },
+          "localLightingEnabled": true,
+          "method": "non-emissive convex-over layer upper bound; passive front-air source plus current raw smoke sources; local records replace legacy clusters when enabled; no factor per historical packet",
+          "limits": "authored raw incident reference, neutral extinction, up to20 shared local lights OR2 legacy clusters; optional four-cell front-air/conditional-mean approximation, small-tau/Float32 safety on air term, not a bound for future joint-media/light transport"
+        }
+      }
+    },
+    {
+      "name": "millionfold increase in all pyro proxy records leaves resolved raw bound unchanged",
+      "passed": true,
+      "evidence": {
+        "before": 2,
+        "after": 2,
+        "lastRaw": [
+          36540,
+          7308,
+          3654
+        ]
+      }
+    },
+    {
+      "name": "disabling field restores exact current twenty-source material",
+      "passed": true,
+      "evidence": {
+        "meta": {
+          "packets": 1,
+          "instances": 1,
+          "culled": 0,
+          "fullScreenFallbacks": 0,
+          "projectionMode": "legacy-sphere",
+          "proxyRasterPixelUpperBound": 64,
+          "proxyRasterViewportLayers": 0.25,
+          "reflection": false,
+          "width": 16,
+          "height": 16,
+          "storageEV": 0,
+          "supportSigma": 4,
+          "offProxyOpticalDepthUpperBound": 0.0012843766673387746,
+          "debugMode": 0,
+          "stateRevision": 1,
+          "extraOffscreenTargets": 0,
+          "frontAirEnabled": false,
+          "frontAirCells": 0,
+          "localLightingEnabled": true,
+          "localLightingSources": 20,
+          "legacyClusterSources": 0,
+          "samplerCount": 2,
+          "finiteClusterPhase": false
+        }
+      }
+    }
+  ]
+}

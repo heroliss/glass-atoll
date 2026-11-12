@@ -1,0 +1,100 @@
+{
+  "schema": "glass-atoll.timed-flight-HDR-SDR-scene.v1",
+  "passed": true,
+  "total": 16,
+  "passedCount": 16,
+  "checks": [
+    {
+      "name": "actual extended float HDR enabled then SDR then restored",
+      "passed": true,
+      "mode": "float-canvas-external-copy",
+      "peakNits": 700,
+      "whiteNits": 280
+    },
+    {
+      "name": "same paused physical time camera target and exact serialized smoke state",
+      "passed": true
+    },
+    {
+      "name": "same flight evidence sources intensity P and photographic exposure",
+      "passed": true,
+      "flight": {
+        "actualBurstVerticalVelocity": 21.504955257290906,
+        "authorApproximation": "constant linear drag .075/s; example fuse interpreted as display launch-to-burst delay; not measured smiley ballistics",
+        "burstDelaySeconds": 3,
+        "heightMeaning": "rise at fixed fuse, not apex; changed elevation keeps reference muzzle speed",
+        "model": "timed-reference",
+        "muzzleSpeed": 60.85954855043463,
+        "referenceElevationDegrees": 80,
+        "referenceRiseMetres": 120,
+        "referenceVerticalVelocity": 59.93495525729091,
+        "sourceURL": "https://rise-hanabi.jp/fireworks/knowledge/"
+      }
+    },
+    {
+      "name": "hdr: actual resolved field effective",
+      "passed": true
+    },
+    {
+      "name": "hdr: storage bound and output compensation safe",
+      "passed": true
+    },
+    {
+      "name": "hdr: opaque finite nonnegative and within declared FP16 limit",
+      "passed": true,
+      "maximumStored": 81.25
+    },
+    {
+      "name": "hdr: composed finite nonnegative and within declared FP16 limit",
+      "passed": true,
+      "maximumStored": 76.875
+    },
+    {
+      "name": "hdr: reflection finite nonnegative and within declared FP16 limit",
+      "passed": true,
+      "maximumStored": 162.375
+    },
+    {
+      "name": "sdr: actual resolved field effective",
+      "passed": true
+    },
+    {
+      "name": "sdr: storage bound and output compensation safe",
+      "passed": true
+    },
+    {
+      "name": "sdr: opaque finite nonnegative and within declared FP16 limit",
+      "passed": true,
+      "maximumStored": 81.25
+    },
+    {
+      "name": "sdr: composed finite nonnegative and within declared FP16 limit",
+      "passed": true,
+      "maximumStored": 76.875
+    },
+    {
+      "name": "sdr: reflection finite nonnegative and within declared FP16 limit",
+      "passed": true,
+      "maximumStored": 162.375
+    },
+    {
+      "name": "opaque: exact floating master extrema independent of HDR SDR display mode",
+      "passed": true
+    },
+    {
+      "name": "composed: exact floating master extrema independent of HDR SDR display mode",
+      "passed": true
+    },
+    {
+      "name": "reflection: exact floating master extrema independent of HDR SDR display mode",
+      "passed": true
+    }
+  ],
+  "sourceEvidence": "pyro-r6-timed-hdr-sdr-raw.json",
+  "limits": [
+    "Same complete physical smoke state and exact GPU HDR extrema, not all pixel buffers bitwise identity.",
+    "PNG uses explicit SDR output; not an HDR screenshot or measured panel luminance.",
+    "Actual browser floating/extended presentation enabled, but photometer calibration, current DRT hue quality and commercial pyro ballistics are not certified.",
+    "Default main smoke and flight models remain unchanged; per-launch QA candidate only."
+  ]
+}

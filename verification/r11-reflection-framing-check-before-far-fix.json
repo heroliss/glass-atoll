@@ -1,0 +1,82 @@
+{
+  "schema": "glass-atoll.r11-reflection-framing.v1",
+  "dateUTC": "2026-10-28T04:31:36.660Z",
+  "passed": true,
+  "checks": [
+    {
+      "name": "defaultbody exact inverse and original3c5b baseline fixed",
+      "passed": true,
+      "evidence": {
+        "baselineSHA256": "3c5b7a4f79dbb7fd6f901b7755c7ddcb9f42e5b5b699f0e6c441db1f02b92929",
+        "productionSHA256": "69e35b2516e6a6f5ff9d340aaa9c7dedcfed4c0c3d2d7cf0defc4d582606fa9f",
+        "defaultBody": "complete exactbytes unchanged"
+      }
+    },
+    {
+      "name": "legacy default returnshape and numericbits unchanged over96cases",
+      "passed": true,
+      "evidence": {
+        "cases": 96
+      }
+    },
+    {
+      "name": "source mirror islandallcorners fit overadversarial600projections",
+      "passed": true,
+      "evidence": {
+        "cases": 600,
+        "maxNDC": 0.8382866805099491,
+        "cornerProjections": 28800
+      }
+    },
+    {
+      "name": "sourcebox crossing plane and fullybelow plane remain valid",
+      "passed": true,
+      "evidence": {
+        "cases": 9
+      }
+    },
+    {
+      "name": "nonfinite or nonnumber plane rejects before inputmutation",
+      "passed": true,
+      "evidence": {
+        "cases": 7,
+        "undefined": "explicitundefined preserveslegacy"
+      }
+    },
+    {
+      "name": "unsupported farclip fit rejects withoutmoving inputcamera orbox",
+      "passed": true
+    },
+    {
+      "name": "metadata and returnedvectors owncopies ofinputs",
+      "passed": true
+    },
+    {
+      "name": "module source remains frozen throughchecks",
+      "passed": true,
+      "evidence": "69e35b2516e6a6f5ff9d340aaa9c7dedcfed4c0c3d2d7cf0defc4d582606fa9f"
+    }
+  ],
+  "counts": {
+    "passed": 8,
+    "total": 8
+  },
+  "metrics": {
+    "projection": {
+      "cases": 600,
+      "maxNDC": 0.8382866805099491,
+      "cornerProjections": 28800
+    }
+  },
+  "sourceSHA256": {
+    "baseline": "3c5b7a4f79dbb7fd6f901b7755c7ddcb9f42e5b5b699f0e6c441db1f02b92929",
+    "module": "69e35b2516e6a6f5ff9d340aaa9c7dedcfed4c0c3d2d7cf0defc4d582606fa9f",
+    "test": "435c783126e06dcf93b18418b615c60951d2e0bc6aa3c907648ff618480befb2"
+  },
+  "limits": [
+    "Pure THREE perspective math; no browser/actualvisual acceptance.",
+    "Defaultpath intact; optinonly, no rootmain/director/controller wiring.",
+    "Fits suppliedsourcebox andvirtualmirrorcorners only; reflectedwaves/occlusion/lensflare field mayextendbeyondidealplane bounds.",
+    "Keeps focal length andeyeheight; wider framing can makeisland smaller, composition stillneedsactualbrowser review."
+  ]
+}

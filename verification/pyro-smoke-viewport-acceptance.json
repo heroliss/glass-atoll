@@ -1,0 +1,59 @@
+{
+  "schema": "glass-atoll.smoke-viewport-acceptance-manifest.v1",
+  "dateUTC": "2026-10-26T23:35:56.240Z",
+  "passed": true,
+  "files": {
+    "executedFrozenSource": {
+      "path": "verification/baselines/smoke-before-finite-phase/pyro-smoke-renderer.js",
+      "sha256": "97fd2ba3f69cf028b27af88bdba767a206ee9cc839d35121aec61fd960a310bc"
+    },
+    "helper": {
+      "path": "verification/pyro-smoke-viewport-gpu-check.js",
+      "sha256": "4708c42dc8086da287186a81ada49a2a30852e18cc793300841ed8233c6622e0"
+    },
+    "actualGPUReport": {
+      "path": "verification/pyro-smoke-viewport-gpu-first.json",
+      "sha256": "cd623a1d12b193e107c6affd87f07627d1e7cf5b19119b928464ba5f706daea4"
+    },
+    "originalSourceProof": {
+      "path": "verification/baselines/smoke-before-finite-phase/pyro-smoke-viewport-check.json",
+      "sha256": "bf3d199458e218ced2678b992ce5822cdd83800968c4ed211870186416559707"
+    }
+  },
+  "gpuChecks": {
+    "checks": 9,
+    "passed": 9
+  },
+  "sharedRegressions": {
+    "gaussian": {
+      "checks": 18,
+      "passed": 18
+    },
+    "air": {
+      "checks": 14,
+      "passed": 14
+    },
+    "local": {
+      "checks": 18,
+      "passed": 18
+    }
+  },
+  "pixelRatios": [
+    1,
+    2
+  ],
+  "physicalTarget": [
+    17,
+    13
+  ],
+  "parentLockDeclared": true,
+  "backbufferDimensionsRestored": true,
+  "provenance": "Parent held renderer97fd+helper4708 frozen while running. Actual GPU JSON does not embed source hashes; this manifest records inspected frozen files/report hashes, not a self-attesting GPU source measurement.",
+  "limits": [
+    "parent must exclusively lock production renderer; flag is caller declaration, not an internal scheduler",
+    "temporary DPR change rebuilds canvas buffer; parent must redraw/invalidate paused presentation cache afterwards",
+    "small RT pixel/coverage/state proof, not a performance or arbitrary browser proof",
+    "shared18/14/18 regressions execute atDPR1; dedicated physical RT cases execute at1and2",
+    "does not change light/column/sort/S/T formula or production main/water integration"
+  ]
+}

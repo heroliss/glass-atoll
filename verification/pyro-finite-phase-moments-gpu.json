@@ -1,0 +1,555 @@
+{
+  "status": "done",
+  "phase": {
+    "schema": "glass-atoll.smoke-finite-phase-GPU.v1",
+    "passed": true,
+    "counts": {
+      "checks": 14,
+      "passed": 14
+    },
+    "checks": [
+      {
+        "id": "default_omitted_and_false_restore_97fd_baseline_bit_exact",
+        "passed": true,
+        "baseline": [
+          0.012617895379662514,
+          0.025233983993530273,
+          0.037850379943847656,
+          0.14713585376739502
+        ],
+        "omitted": [
+          0.012617895379662514,
+          0.025233983993530273,
+          0.037850379943847656,
+          0.14713585376739502
+        ],
+        "false": [
+          0.012617895379662514,
+          0.025233983993530273,
+          0.037850379943847656,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "false_with_air_and_storage_P_preserves_baseline_bit_exact",
+        "passed": true,
+        "baseline": [
+          0.3592492938041687,
+          0.273034930229187,
+          0.18877831101417542,
+          0.14713585376739502
+        ],
+        "false": [
+          0.3592492938041687,
+          0.273034930229187,
+          0.18877831101417542,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "pyro_near_sphere_is_isotropic_for_forward_back_and_side",
+        "passed": true,
+        "cases": [
+          {
+            "axis": [
+              0,
+              0,
+              -1
+            ],
+            "gpu": [
+              0.0029271747916936874,
+              0.0014635873958468437,
+              0.0007317936979234219,
+              0.14713585376739502
+            ],
+            "expected": [
+              0.0029271728932313036,
+              0.0014635864466156518,
+              0.0007317932233078259
+            ],
+            "passed": true
+          },
+          {
+            "axis": [
+              0,
+              0,
+              1
+            ],
+            "gpu": [
+              0.0029271747916936874,
+              0.0014635873958468437,
+              0.0007317936979234219,
+              0.14713585376739502
+            ],
+            "expected": [
+              0.0029271728932313036,
+              0.0014635864466156518,
+              0.0007317932233078259
+            ],
+            "passed": true
+          },
+          {
+            "axis": [
+              1,
+              0,
+              0
+            ],
+            "gpu": [
+              0.0029271747916936874,
+              0.0014635873958468437,
+              0.0007317936979234219,
+              0.14713585376739502
+            ],
+            "expected": [
+              0.0029271728932313036,
+              0.0014635864466156518,
+              0.0007317932233078259
+            ],
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "one_point_five_radius_is_half_isotropic_half_original_HG",
+        "passed": true,
+        "gpu": [
+          0.002507399534806609,
+          0.0012536997674033046,
+          0.0006268498837016523,
+          0.14713585376739502
+        ],
+        "phase": 0.153372497062605,
+        "weight": 0.5
+      },
+      {
+        "id": "outside_two_radii_recovers_original_HG",
+        "passed": true,
+        "on": [
+          0.0013369792141020298,
+          0.0006684896070510149,
+          0.00033424480352550745,
+          0.14713585376739502
+        ],
+        "off": [
+          0.001336979097686708,
+          0.000668489548843354,
+          0.000334244774421677,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "legacy_two_cluster_path_uses_same_near_transition_far_phase",
+        "passed": true,
+        "near": [
+          0.0029271747916936874,
+          0.0014635873958468437,
+          0.0007317936979234219,
+          0.14713585376739502
+        ],
+        "transition": [
+          0.002507399534806609,
+          0.0012536997674033046,
+          0.0006268498837016523,
+          0.14713585376739502
+        ],
+        "far": [
+          0.0013369792141020298,
+          0.0006684896070510149,
+          0.00033424480352550745,
+          0.14713585376739502
+        ],
+        "oldFar": [
+          0.001336979097686708,
+          0.000668489548843354,
+          0.000334244774421677,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "far_inverse_square_falloff_is_unchanged",
+        "passed": true,
+        "distance5": 0.0013369792141020298,
+        "distance10": 0.00033424494904465973,
+        "ratio": 3.9999982585328193
+      },
+      {
+        "id": "new_phase_adds_no_extra_storage_exposure_factor",
+        "passed": true,
+        "P0": [
+          0.0029271747916936874,
+          0.0014635873958468437,
+          0.0007317936979234219,
+          0.14713585376739502
+        ],
+        "P2": [
+          0.01170869916677475,
+          0.005854349583387375,
+          0.0029271747916936874,
+          0.14713585376739502
+        ]
+      },
+      {
+        "id": "ground_lamps_torch_sun_and_ambient_are_bit_unchanged",
+        "passed": true,
+        "cases": [
+          {
+            "id": 0,
+            "passed": true
+          },
+          {
+            "id": 1,
+            "passed": true
+          },
+          {
+            "id": 2,
+            "passed": true
+          },
+          {
+            "id": 3,
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "old_HG_raw_bound_is_conservative_for_near_approximation",
+        "passed": true,
+        "on": [
+          0.0029271747916936874,
+          0.0014635873958468437,
+          0.0007317936979234219,
+          0.14713585376739502
+        ],
+        "off": [
+          0.008356123231351376,
+          0.004178061615675688,
+          0.002089030807837844,
+          0.14713585376739502
+        ],
+        "rawBound": {
+          "maxRGB": 0.05679188064481561,
+          "components": {
+            "smokeSource": 0.05679188064481561,
+            "airFront": 0
+          },
+          "airNumericalSafety": 1.00002,
+          "rawBeforeStorageExposure": true,
+          "localLightingEnabled": true,
+          "method": "non-emissive convex-over layer upper bound; passive front-air source plus current raw smoke sources; local records replace legacy clusters when enabled; no factor per historical packet",
+          "limits": "authored raw incident reference, neutral extinction, up to6 shared local lights OR2 legacy clusters; optional four-cell front-air/conditional-mean approximation, small-tau/Float32 safety on air term, not a bound for future joint-media/light transport"
+        }
+      },
+      {
+        "id": "true_to_false_and_null_restores_default_baseline_bit_exact",
+        "passed": true
+      },
+      {
+        "id": "phase_does_not_change_smoke_column_alpha",
+        "passed": true,
+        "expectedAlpha": 0.1471357577146023
+      },
+      {
+        "id": "finite_phase_pixels_are_finite_nonnegative",
+        "passed": true
+      },
+      {
+        "id": "phase_fixture_restores_caller_state",
+        "passed": true
+      }
+    ],
+    "isolated": true,
+    "limits": [
+      "actual execution required; isolated1pixel synthetic far depth, not app visual/performance acceptance",
+      "sphere near/far angular mixture not an exact source distribution for planar smiley/ring",
+      "density/mass/I/P and source radii are unchanged by renderer; upstream source radius mode is independent",
+      "conditional-mean source function remains an approximation for overlapping thick volumes"
+    ]
+  },
+  "bound": {
+    "date": "2026-10-26T23:52:32.847Z",
+    "passed": true,
+    "passedCount": 7,
+    "total": 7,
+    "results": [
+      {
+        "name": "actual_resolved_on_axis_pixel_peak_fits_budget",
+        "passed": true,
+        "detail": {
+          "peak": 1.5699894428253174,
+          "budget": 1.8954162176433662,
+          "ratio": 0.8283085415283284,
+          "nonfinite": 0,
+          "litPixels": 3136,
+          "escapedPixels": 0,
+          "bounds": [
+            {
+              "peak": 1.5795135147028052,
+              "visible": true,
+              "rect": [
+                163.27640832085643,
+                115.27640832085642,
+                220.72359167914357,
+                172.72359167914357
+              ],
+              "nearPlaneFallback": false,
+              "baseSigma2": 55.01815473139371,
+              "omega": 0.00036403511624291223,
+              "distance": 0.15,
+              "depth": 0.15,
+              "shutterPixels": [
+                0,
+                0
+              ],
+              "stretchPixels": [
+                0,
+                0
+              ]
+            }
+          ],
+          "legacySphericalBudget": 1.9360834302518062,
+          "legacyFailureRatio": 0.810910014668699
+        }
+      },
+      {
+        "name": "actual_resolved_off_axis_blue_peak_fits_budget",
+        "passed": true,
+        "detail": {
+          "peak": 4.972829341888428,
+          "budget": 5.993832361774463,
+          "ratio": 0.829657728434739,
+          "nonfinite": 0,
+          "litPixels": 3080,
+          "escapedPixels": 0,
+          "bounds": [
+            {
+              "peak": 4.994860301478719,
+              "visible": true,
+              "rect": [
+                320.5115495238559,
+                115.27640832085642,
+                377.958732882143,
+                172.72359167914357
+              ],
+              "nearPlaneFallback": false,
+              "baseSigma2": 55.01815473139371,
+              "omega": 0.000011511801156117605,
+              "distance": 0.47434164902525694,
+              "depth": 0.15,
+              "shutterPixels": [
+                0,
+                0
+              ],
+              "stretchPixels": [
+                0,
+                0
+              ]
+            }
+          ],
+          "legacySphericalBudget": 1.9360834302518062,
+          "legacyFailureRatio": 2.5684995099832366
+        }
+      },
+      {
+        "name": "fixture_reproduces_old_spherical_ceiling_failure",
+        "passed": true,
+        "detail": {
+          "oldBudget": 1.9360834302518062,
+          "actual": 4.972829341888428,
+          "newBudget": 5.993832361774463,
+          "oldFailureRatio": 2.5684995099832366,
+          "scope": "same real shader, deliberately resolved off-axis blue source; not synthetic-only formula agreement"
+        }
+      },
+      {
+        "name": "near_crossing_head_uses_full_viewport_and_contains_actual_pixels",
+        "passed": true,
+        "detail": {
+          "peak": 17.1153621673584,
+          "budget": 188.98733719384396,
+          "ratio": 0.09056353944922355,
+          "nonfinite": 0,
+          "litPixels": 748,
+          "escapedPixels": 0,
+          "bounds": [
+            {
+              "peak": 157.48944766153664,
+              "visible": true,
+              "rect": [
+                0,
+                0,
+                384,
+                288
+              ],
+              "nearPlaneFallback": true,
+              "baseSigma2": 0.6277975473139373,
+              "omega": 0.00024718274766901424,
+              "distance": 0.17066048165876013,
+              "depth": 0.15,
+              "shutterPixels": [
+                98.53402182054636,
+                12.578811296239957
+              ],
+              "stretchPixels": [
+                0,
+                0
+              ]
+            }
+          ],
+          "legacySphericalBudget": 193.60834302518063,
+          "legacyFailureRatio": 0.08840198671155602
+        }
+      },
+      {
+        "name": "independent_stretch_and_shutter_near_crossing_fits_budget",
+        "passed": true,
+        "detail": {
+          "peak": 15.029959678649902,
+          "budget": 429.5910193145634,
+          "ratio": 0.0349866710496673,
+          "nonfinite": 0,
+          "litPixels": 584,
+          "escapedPixels": 0,
+          "bounds": [
+            {
+              "peak": 357.9925160954695,
+              "visible": true,
+              "rect": [
+                0,
+                0,
+                384,
+                288
+              ],
+              "nearPlaneFallback": true,
+              "baseSigma2": 0.27618311703301734,
+              "omega": 0.00024718274766901424,
+              "distance": 0.17066048165876013,
+              "depth": 0.15,
+              "shutterPixels": [
+                0.5989910141066623,
+                4.791928112853315
+              ],
+              "stretchPixels": [
+                117.92635590224958,
+                9.827196325187465
+              ]
+            }
+          ],
+          "legacySphericalBudget": 537.800952847724,
+          "legacyFailureRatio": 0.027947067774916286
+        }
+      },
+      {
+        "name": "additive_overlapping_RGB_sources_fit_summed_budget",
+        "passed": true,
+        "detail": {
+          "peak": 14.94157600402832,
+          "budget": 17.9934993989636,
+          "ratio": 0.8303874456398923,
+          "nonfinite": 0,
+          "litPixels": 3080,
+          "escapedPixels": 0,
+          "bounds": [
+            {
+              "peak": 4.994860301478719,
+              "visible": true,
+              "rect": [
+                320.5115495238559,
+                115.27640832085642,
+                377.958732882143,
+                172.72359167914357
+              ],
+              "nearPlaneFallback": false,
+              "baseSigma2": 55.01815473139371,
+              "omega": 0.000011511801156117605,
+              "distance": 0.47434164902525694,
+              "depth": 0.15,
+              "shutterPixels": [
+                0,
+                0
+              ],
+              "stretchPixels": [
+                0,
+                0
+              ]
+            },
+            {
+              "peak": 5.0048511298350045,
+              "visible": true,
+              "rect": [
+                320.8609609487515,
+                115.27640832085642,
+                378.3081443070386,
+                172.72359167914357
+              ],
+              "nearPlaneFallback": false,
+              "baseSigma2": 55.01815473139371,
+              "omega": 0.000011442998115976778,
+              "distance": 0.4752904375221534,
+              "depth": 0.15,
+              "shutterPixels": [
+                0,
+                0
+              ],
+              "stretchPixels": [
+                0,
+                0
+              ]
+            },
+            {
+              "peak": 4.994871401155945,
+              "visible": true,
+              "rect": [
+                320.5115495238559,
+                115.62581974575197,
+                377.958732882143,
+                173.07300310403912
+              ],
+              "nearPlaneFallback": false,
+              "baseSigma2": 55.01815473139371,
+              "omega": 0.000011511724411202925,
+              "distance": 0.4743427031166391,
+              "depth": 0.15,
+              "shutterPixels": [
+                0,
+                0
+              ],
+              "stretchPixels": [
+                0,
+                0
+              ]
+            }
+          ],
+          "legacySphericalBudget": 5.808250290755419,
+          "legacyFailureRatio": 2.572474541568873
+        }
+      },
+      {
+        "name": "production_records_and_overlap_bins_fit_actual_GPU_frame",
+        "passed": true,
+        "detail": {
+          "actualPeak": 0.0006050789379514754,
+          "budget": {
+            "maximumRawRadiance": 0.025495127563097544,
+            "maxRawRadiance": 0.025495127563097544,
+            "globalFiniteSurfaceCeiling": 716.526266576928,
+            "globalReferenceOnly": true,
+            "ownSmokeRawBound": 0.000022523314203062763,
+            "maximumEmissionRGBChannel": 4.63247550175383,
+            "visibleSources": 224,
+            "nearPlaneFallbackSources": 0,
+            "method": "32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers",
+            "conservative": true
+          },
+          "nonfinite": 0
+        }
+      }
+    ],
+    "conditions": {
+      "width": 384,
+      "height": 288,
+      "storageEV": 0,
+      "rawPerCandela": 0.000036,
+      "float32": true
+    },
+    "scope": "real runtime GPU peak/footprint compared with CPU storage budget; no display exposure, no scene FPS; ambient/air/receiver additions remain root budgets"
+  }
+}

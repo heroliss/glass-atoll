@@ -1,0 +1,105 @@
+{
+  "schema": "glass-atoll.waterfall-filament-style-check.v1",
+  "passed": true,
+  "summary": {
+    "passed": 4,
+    "total": 4
+  },
+  "sourceSHA": "41ecb458cfec9248f301b9f5d0cdb7c5e597aa97e645d091cd2335cf71875b34",
+  "beforeSHA": "5d1b888f9224dc4a4515f279c6f8f280d16940894ab19b80f6dde48e52838787",
+  "checks": [
+    {
+      "name": "only the named opt-in profile admits2.2s and all previous duration/fraction gates remain",
+      "passed": true,
+      "evidence": {
+        "legacyMax": 0.88,
+        "explicitMax": 2.2,
+        "rejected": 12,
+        "fractionMax": 0.45
+      }
+    },
+    {
+      "name": "all no-profile styles, explicit flashes and their full samples remain exact5d1 outputs",
+      "passed": true,
+      "evidence": {
+        "styles": 37,
+        "samples": 4773,
+        "noNewMetadataWithoutProfile": true
+      }
+    },
+    {
+      "name": "explicit root afterglow is bounded/monotone/C1 and long tail retains original release clock",
+      "passed": true,
+      "evidence": {
+        "life": 6,
+        "fullLagSupportEnd": 8.2,
+        "maximumScaledKnotSlope": 0.000003000044657142098,
+        "clocks": [
+          {
+            "time": 6,
+            "lag": 2.2,
+            "sourceAge": 3.8,
+            "envelope": 0.2270488500069513
+          },
+          {
+            "time": 6.5,
+            "lag": 2.2,
+            "sourceAge": 4.3,
+            "envelope": 0.03913257843010942
+          },
+          {
+            "time": 7,
+            "lag": 2.2,
+            "sourceAge": 4.8,
+            "envelope": 0.005973816227534413
+          },
+          {
+            "time": 7.5,
+            "lag": 2.2,
+            "sourceAge": 5.3,
+            "envelope": 0.00009656261710228902
+          },
+          {
+            "time": 8,
+            "lag": 2.2,
+            "sourceAge": 5.8,
+            "envelope": 9.259259259259259e-8
+          },
+          {
+            "time": 8.1,
+            "lag": 2.2,
+            "sourceAge": 5.8999999999999995,
+            "envelope": 3.7615740740741013e-8
+          },
+          {
+            "time": 8.2,
+            "lag": 2.2,
+            "sourceAge": 5.999999999999999,
+            "envelope": 0
+          },
+          {
+            "time": 8.200000001,
+            "lag": 2.2,
+            "sourceAge": 6.000000000999999,
+            "envelope": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "eight current tail weights retain normalized fraction/colour bound and declare midpoint endpoint limit",
+      "passed": true,
+      "evidence": {
+        "tailFraction": 0.38,
+        "maximumSampledTailI": 1.2353116696664654,
+        "tailI0Cap": 1.52,
+        "tailNodes": 8,
+        "maxMidpointLag": 2.0625,
+        "lastMidpointCanBurnUntil": 8.0625,
+        "continuousSupportConservativeEnd": 8.2,
+        "scope": "No new FW samples, no claim eight midpoints reach exact2.2s lag"
+      }
+    }
+  ],
+  "scope": "Pure style admission and released-source clocks; no FW/physics/GPU/browser changes or curtain visual acceptance"
+}

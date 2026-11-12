@@ -1,0 +1,203 @@
+{
+  "schema": "glass-atoll.r12-tick-state-cpu.v1",
+  "dateUTC": "2026-10-28T06:37:16.823Z",
+  "actualGPU": false,
+  "checks": [
+    {
+      "name": "legacy67fa remains exact and production modules have no verification/eval imports",
+      "passed": true,
+      "evidence": {
+        "state": "131de6ed505b89c26f0604bd66ea378bf7acf21d704f5aef9230284b0071b6a0",
+        "math": "9330bcd98fc38a1f30a494979887eecdeb946e7b373aa9534b4b5c9c14cddad2",
+        "graph": "99f0fb2650a6279125271ac3bfc7e176a602a74a28aa7b4b1235f5a1eb0ce174",
+        "legacy": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172"
+      }
+    },
+    {
+      "name": "pinned math is byte-for-byte legacy extraction except imported limits and export surface",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'const PI=Math.PI,GAUSS3=(2*PI)**1.5,EPS=Number.EPSILON;\\r\\n' +\n+   'const fail=(message,Type=RangeError)=>{throw new Type(message);};\\r\\n' +\n+   'const finite=(v,name,limit=Infinity)=>{if(!Number.isFinite(v)||Math.abs(v)>limit)fail(`${name} must be finite within ±${limit}`);return v;};\\r\\n' +\n+   'const vec=(v,name,limit=Infinity)=>{if(!v||v.length!==3)fail(`${name} requires three components`,TypeError);return Array.from(v,(x,i)=>finite(x,`${name}[${i}]`,limit));};\\r\\n' +\n+   'const dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2],norm=v=>Math.hypot(...v);\\r\\n' +\n+   \"const safeId=(v,name)=>{if(typeof v!=='string'||!v.length||v.length>128)fail(`${name} must be a nonempty string of at most128 characters`,TypeError);return v;};\\r\\n\" +\n+   'const positive=(v,name,limit=Infinity)=>{finite(v,name,limit);if(!(v>0))fail(`${name} must be positive`);return v;};\\r\\n' +\n+   'function covariance(value){\\r\\n' +\n+   \"  if(!value||value.length!==9)fail('covariance requires a row-major3x3 matrix',TypeError);\\r\\n\" +\n+   '  const c=Array.from(value,(v,i)=>finite(v,`covariance[${i}]`,PYRO_SMOKE_LIMITS.covarianceElement)),scale=Math.max(c[0],c[4],c[8]);\\r\\n' +\n+   \"  if(!(scale>0))fail('covariance must be positive definite');\\r\\n\" +\n+   \"  for(const [a,b]of [[1,3],[2,6],[5,7]]){if(Math.abs(c[a]-c[b])>64*EPS*scale)fail('covariance must be symmetric');c[a]=c[b]=(c[a]+c[b])*.5;}\\r\\n\" +\n+   '  const L=Array(9).fill(0);\\r\\n' +\n+   '  for(let i=0;i<3;i++)for(let j=0;j<=i;j++){\\r\\n' +\n+   '    let s=c[i*3+j];for(let k=0;k<j;k++)s-=L[i*3+k]*L[j*3+k];\\r\\n' +\n+   \"    if(i===j){if(!(s>=PYRO_SMOKE_LIMITS.minimumCholeskyVariance))fail('covariance must be SPD with Cholesky variances>=1e-24 m2 in the published numeric domain');L[i*3+j]=Math.sqrt(s);}else L[i*3+j]=s/L[j*3+j];\\r\\n\" +\n+   '  }\\r\\n' +\n+   \"  const determinantRoot=L[0]*L[4]*L[8];if(!(determinantRoot>0)||!Number.isFinite(determinantRoot))fail('covariance determinant exceeds numeric range');\\r\\n\" +\n+   '  return {covariance:c,L,determinantRoot};\\r\\n' +\n+   '}\\r\\n' +\n+   'const whiten=(L,v)=>{const x=v[0]/L[0],y=(v[1]-L[3]*x)/L[4];return[x,y,(v[2]-L[6]*x-L[7]*y)/L[8]];};\\r\\n' +\n+   'function kernel(p){\\r\\n' +\n+   \"  if(p._dirty){Object.assign(p,covariance(p.covariance));p._normalization=p.mass/(GAUSS3*p.determinantRoot);positive(p._normalization,'Gaussian normalization');p._dirty=false;}\\r\\n\" +\n+   '  return p;\\r\\n' +\n+   '}\\r\\n' +\n+   'const densityAt=(p,x)=>{kernel(p);const q=whiten(p.L,x.map((v,i)=>v-p.mean[i]));return p._normalization*Math.exp(-.5*dot(q,q));};\\r\\n' +\n+   '// Abramowitz-Stegun7.1.26 erfc approximation (~1.5e-7 absolute erf error).\\r\\n' +\n+   '// Use erfc differences on same-sign intervals to avoid subtracting near1.\\r\\n' +\n+   'function erfcPositive(x){if(x===Infinity)return 0;const t=1/(1+.3275911*x);return (((((1.061405429*t-1.453152027)*t)+1.421413741)*t-.284496736)*t+.254829592)*t*Math.exp(-x*x);}\\r\\n' +\n+   'function erfDifference(a,b){\\r\\n' +\n+   '  if(a===b)return 0;\\r\\n' +\n+   \"  // Short intervals use a two-node Gauss integral of erf', avoiding the\\r\\n\" +\n+   '  // nonzero erf(0) approximation and cancellation in nearly equal tails.\\r\\n' +\n+   '  const width=b-a;if(Number.isFinite(width)&&width<1e-3/(1+Math.max(Math.abs(a),Math.abs(b)))){const h=width*.5,m=a+h,q=h/Math.sqrt(3);return 2/Math.sqrt(PI)*h*(Math.exp(-((m-q)**2))+Math.exp(-((m+q)**2)));}\\r\\n' +\n+   '  if(a>=0)return erfcPositive(a)-erfcPositive(b);if(b<=0)return erfcPositive(-b)-erfcPositive(-a);return(1-erfcPositive(-a))+(1-erfcPositive(b));\\r\\n' +\n+   '}\\r\\n' +\n+   'function columnAt(p,o,d,start,end){\\r\\n' +\n+   '  if(start===end)return 0;kernel(p);\\r\\n' +\n+   '  const q=whiten(p.L,o.map((v,i)=>v-p.mean[i])),v=whiten(p.L,d),A=dot(v,v),b=dot(q,v)/A,s=Math.sqrt(A*.5),perp=q.map((x,i)=>x-v[i]*b);\\r\\n' +\n+   '  const out=p._normalization*Math.exp(-.5*dot(perp,perp))*Math.sqrt(PI/(2*A))*erfDifference(s*(start+b),s*(end+b));\\r\\n' +\n+   \"  if(!Number.isFinite(out)||out<0)fail('Gaussian column exceeded numeric range');return out;\\r\\n\" +\n+   '}\\r\\n' +\n+   'function publicPacket(p){return {id:p.id,sourceId:p.sourceId,profileId:p.profileId,birthTime:p.birthTime,mass:p.mass,mean:[...p.mean],covariance:[...p.covariance],temperatureExcessK:p.temperatureExcessK,buoyantVelocity:p.buoyantVelocity,sourceCount:p.sourceCount,...(p.dispersionQ===undefined?{}:{dispersionQ:p.dispersionQ})};}\\r\\n' +\n+   'function sumMass(packets){let sum=0,c=0;for(const p of packets){const y=p.mass-c,t=sum+y;c=(t-sum)-y;sum=t;}return sum;}\\r\\n' +\n+   'function mergePair(a,b,id){\\r\\n' +\n+   \"  if(a.profileId!==b.profileId)fail('Cross-profile merges are not permitted');\\r\\n\" +\n+   \"  const mass=a.mass+b.mass;positive(mass,'merged relative mass',PYRO_SMOKE_LIMITS.referenceMass);\\r\\n\" +\n+   '  const wb=b.mass/mass,wa=a.mass/mass,delta=b.mean.map((v,i)=>v-a.mean[i]),mean=a.mean.map((v,i)=>v+wb*delta[i]),c=Array(9);\\r\\n' +\n+   '  for(let i=0;i<3;i++)for(let j=0;j<3;j++)c[i*3+j]=wa*a.covariance[i*3+j]+wb*b.covariance[i*3+j]+wa*wb*delta[i]*delta[j];\\r\\n' +\n+   '  const p={id,sourceId:a.sourceId===b.sourceId?a.sourceId:null,profileId:a.profileId,birthTime:Math.min(a.birthTime,b.birthTime),mass,mean,covariance:c,temperatureExcessK:wa*a.temperatureExcessK+wb*b.temperatureExcessK,buoyantVelocity:wa*a.buoyantVelocity+wb*b.buoyantVelocity,sourceCount:a.sourceCount+b.sourceCount,_dirty:true};\\r\\n' +\n+   \"  if(a.dispersionQ!==undefined){if(b.dispersionQ===undefined)fail('Cannot merge mixed dispersion models');p.dispersionQ=validateDispersionMemory(a.dispersionQ+wb*(b.dispersionQ-a.dispersionQ));}\\r\\n\" +\n+   '  kernel(p);return p;\\r\\n' +\n+   '}\\r\\n' +\n+   'const RAY_DIRECTIONS=Object.freeze([[1,0,0],[0,1,0],[0,0,1],...Array.from({length:9},(_,i)=>{const y=1-2*(i+.5)/9,a=i*2.399963229728653,r=Math.sqrt(1-y*y);return[r*Math.cos(a),y,r*Math.sin(a)];})]);\\r\\n' +\n+   'function mergeDiagnostics(a,b,m,profile,{coolSeconds,dragSeconds,ambientKelvin}){\\r\\n' +\n+   '  const delta=b.mean.map((v,i)=>v-a.mean[i]),distance=norm(delta),combined=covariance(a.covariance.map((v,i)=>v+b.covariance[i])),q=whiten(combined.L,delta),normalizedDistance=norm(q);\\r\\n' +\n+   '  const points=[a.mean,b.mean,m.mean];for(const p of [a,b])for(let c=0;c<3;c++)for(const sign of [-1,1]){const v=[...p.mean];v[c]+=sign*Math.sqrt(p.covariance[c*3+c]);points.push(v);}\\r\\n' +\n+   '  let peakError=0,peakReference=0,maximumSampledNewDensity=0;\\r\\n' +\n+   '  for(const x of points){const before=densityAt(a,x)+densityAt(b,x),after=densityAt(m,x);peakError=Math.max(peakError,Math.abs(after-before));peakReference=Math.max(peakReference,before);maximumSampledNewDensity=Math.max(maximumSampledNewDensity,after);}\\r\\n' +\n+   '  const extent=distance+6*Math.sqrt(Math.max(...[a,b,m].flatMap(p=>[p.covariance[0],p.covariance[4],p.covariance[8]])));let colError=0,colReference=0,relativePerRay=0;\\r\\n' +\n+   '  for(const centre of [a.mean,b.mean,m.mean])for(const d of RAY_DIRECTIONS){const o=centre.map((v,i)=>v-d[i]*extent),before=columnAt(a,o,d,0,extent*2)+columnAt(b,o,d,0,extent*2),after=columnAt(m,o,d,0,extent*2),error=Math.abs(after-before);colError=Math.max(colError,error);colReference=Math.max(colReference,before);relativePerRay=Math.max(relativePerRay,2*error/Math.max(before+after,1e-300));}\\r\\n' +\n+   '  const k=Math.max(...profile.extinctionPerMassRGB);\\r\\n' +\n+   '  const differentialThermalTravelBoundMetres=dragSeconds*Math.abs(a.buoyantVelocity-b.buoyantVelocity)+9.81/ambientKelvin*dragSeconds*coolSeconds*Math.abs(a.temperatureExcessK-b.temperatureExcessK),normalizedThermalTravelBound=differentialThermalTravelBoundMetres/Math.sqrt(a.covariance[4]+b.covariance[4]);\\r\\n' +\n+   \"  return {distanceMetres:distance,normalizedDistance,differentialThermalTravelBoundMetres,normalizedThermalTravelBound,sampledPeakAbsoluteError:peakError,sampledPeakRelativeError:peakError/Math.max(peakReference,1e-300),maximumSampledNewDensity,sampledColumnAbsoluteError:colError,sampledColumnRelativeError:colError/Math.max(colReference,1e-300),maximumPerRaySymmetricRelativeError:relativePerRay,sampledOpticalDepthRGBAbsoluteError:profile.extinctionPerMassRGB.map(v=>v*colError),sampledMaximumOpticalDepthError:k*colError,peakSamples:points.length,columnRays:36,limits:'15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution.'};\\r\\n\" +\n+   '}\\r\\n' +\n+   'function thermalFactors(dt,coolSeconds,dragSeconds,ambientKelvin){\\r\\n' +\n+   '  const a=1/coolSeconds,b=1/dragSeconds,ea=Math.exp(-a*dt),eb=Math.exp(-b*dt),Aa=-Math.expm1(-a*dt)/a,Ab=-Math.expm1(-b*dt)/b,c=9.81/ambientKelvin;\\r\\n' +\n+   '  if(Math.abs(a-b)<1e-10)return {ea,eb,Ab,velocityPerK:c*dt*eb,positionPerK:c*(Ab-dt*eb)/b};\\r\\n' +\n+   '  return {ea,eb,Ab,velocityPerK:c*(ea-eb)/(b-a),positionPerK:c*(Aa-Ab)/(b-a)};\\r\\n' +\n- 'const PI=Math.PI,GAUSS3=(2*PI)**1.5,EPS=Number.EPSILON;\\n' +\n-   'const fail=(message,Type=RangeError)=>{throw new Type(message);};\\n' +\n-   'const finite=(v,name,limit=Infinity)=>{if(!Number.isFinite(v)||Math.abs(v)>limit)fail(`${name} must be finite within ±${limit}`);return v;};\\n' +\n-   'const vec=(v,name,limit=Infinity)=>{if(!v||v.length!==3)fail(`${name} requires three components`,TypeError);return Array.from(v,(x,i)=>finite(x,`${name}[${i}]`,limit));};\\n' +\n-   'const dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2],norm=v=>Math.hypot(...v);\\n' +\n-   \"const safeId=(v,name)=>{if(typeof v!=='string'||!v.length||v.length>128)fail(`${name} must be a nonempty string of at most128 characters`,TypeError);return v;};\\n\" +\n-   'const positive=(v,name,limit=Infinity)=>{finite(v,name,limit);if(!(v>0))fail(`${name} must be positive`);return v;};\\n' +\n-   'function covariance(value){\\n' +\n-   \"  if(!value||value.length!==9)fail('covariance requires a row-major3x3 matrix',TypeError);\\n\" +\n-   '  const c=Array.from(value,(v,i)=>finite(v,`covariance[${i}]`,PYRO_SMOKE_LIMITS.covarianceElement)),scale=Math.max(c[0],c[4],c[8]);\\n' +\n-   \"  if(!(scale>0))fail('covariance must be positive definite');\\n\" +\n-   \"  for(const [a,b]of [[1,3],[2,6],[5,7]]){if(Math.abs(c[a]-c[b])>64*EPS*scale)fail('covariance must be symmetric');c[a]=c[b]=(c[a]+c[b])*.5;}\\n\" +\n-   '  const L=Array(9).fill(0);\\n' +\n-   '  for(let i=0;i<3;i++)for(let j=0;j<=i;j++){\\n' +\n-   '    let s=c[i*3+j];for(let k=0;k<j;k++)s-=L[i*3+k]*L[j*3+k];\\n' +\n-   \"    if(i===j){if(!(s>=PYRO_SMOKE_LIMITS.minimumCholeskyVariance))fail('covariance must be SPD with Cholesky variances>=1e-24 m2 in the published numeric domain');L[i*3+j]=Math.sqrt(s);}else L[i*3+j]=s/L[j*3+j];\\n\" +\n-   '  }\\n' +\n-   \"  const determinantRoot=L[0]*L[4]*L[8];if(!(determinantRoot>0)||!Number.isFinite(determinantRoot))fail('covariance determinant exceeds numeric range');\\n\" +\n-   '  return {covariance:c,L,determinantRoot};\\n' +\n-   '}\\n' +\n-   'const whiten=(L,v)=>{const x=v[0]/L[0],y=(v[1]-L[3]*x)/L[4];return[x,y,(v[2]-L[6]*x-L[7]*y)/L[8]];};\\n' +\n-   'function kernel(p){\\n' +\n-   \"  if(p._dirty){Object.assign(p,covariance(p.covariance));p._normalization=p.mass/(GAUSS3*p.determinantRoot);positive(p._normalization,'Gaussian normalization');p._dirty=false;}\\n\" +\n-   '  return p;\\n' +\n-   '}\\n' +\n-   'const densityAt=(p,x)=>{kernel(p);const q=whiten(p.L,x.map((v,i)=>v-p.mean[i]));return p._normalization*Math.exp(-.5*dot(q,q));};\\n' +\n-   '// Abramowitz-Stegun7.1.26 erfc approximation (~1.5e-7 absolute erf error).\\n' +\n-   '// Use erfc differences on same-sign intervals to avoid subtracting near1.\\n' +\n-   'function erfcPositive(x){if(x===Infinity)return 0;const t=1/(1+.3275911*x);return (((((1.061405429*t-1.453152027)*t)+1.421413741)*t-.284496736)*t+.254829592)*t*Math.exp(-x*x);}\\n' +\n-   'function erfDifference(a,b){\\n' +\n-   '  if(a===b)return 0;\\n' +\n-   \"  // Short intervals use a two-node Gauss integral of erf', avoiding the\\n\" +\n-   '  // nonzero erf(0) approximation and cancellation in nearly equal tails.\\n' +\n-   '  const width=b-a;if(Number.isFinite(width)&&width<1e-3/(1+Math.max(Math.abs(a),Math.abs(b)))){const h=width*.5,m=a+h,q=h/Math.sqrt(3);return 2/Math.sqrt(PI)*h*(Math.exp(-((m-q)**2))+Math.exp(-((m+q)**2)));}\\n' +\n-   '  if(a>=0)return erfcPositive(a)-erfcPositive(b);if(b<=0)return erfcPositive(-b)-erfcPositive(-a);return(1-erfcPositive(-a))+(1-erfcPositive(b));\\n' +\n-   '}\\n' +\n-   'function columnAt(p,o,d,start,end){\\n' +\n-   '  if(start===end)return 0;kernel(p);\\n' +\n-   '  const q=whiten(p.L,o.map((v,i)=>v-p.mean[i])),v=whiten(p.L,d),A=dot(v,v),b=dot(q,v)/A,s=Math.sqrt(A*.5),perp=q.map((x,i)=>x-v[i]*b);\\n' +\n-   '  const out=p._normalization*Math.exp(-.5*dot(perp,perp))*Math.sqrt(PI/(2*A))*erfDifference(s*(start+b),s*(end+b));\\n' +\n-   \"  if(!Number.isFinite(out)||out<0)fail('Gaussian column exceeded numeric range');return out;\\n\" +\n-   '}\\n' +\n-   'function publicPacket(p){return {id:p.id,sourceId:p.sourceId,profileId:p.profileId,birthTime:p.birthTime,mass:p.mass,mean:[...p.mean],covariance:[...p.covariance],temperatureExcessK:p.temperatureExcessK,buoyantVelocity:p.buoyantVelocity,sourceCount:p.sourceCount,...(p.dispersionQ===undefined?{}:{dispersionQ:p.dispersionQ})};}\\n' +\n-   'function sumMass(packets){let sum=0,c=0;for(const p of packets){const y=p.mass-c,t=sum+y;c=(t-sum)-y;sum=t;}return sum;}\\n' +\n-   'function mergePair(a,b,id){\\n' +\n-   \"  if(a.profileId!==b.profileId)fail('Cross-profile merges are not permitted');\\n\" +\n-   \"  const mass=a.mass+b.mass;positive(mass,'merged relative mass',PYRO_SMOKE_LIMITS.referenceMass);\\n\" +\n-   '  const wb=b.mass/mass,wa=a.mass/mass,delta=b.mean.map((v,i)=>v-a.mean[i]),mean=a.mean.map((v,i)=>v+wb*delta[i]),c=Array(9);\\n' +\n-   '  for(let i=0;i<3;i++)for(let j=0;j<3;j++)c[i*3+j]=wa*a.covariance[i*3+j]+wb*b.covariance[i*3+j]+wa*wb*delta[i]*delta[j];\\n' +\n-   '  const p={id,sourceId:a.sourceId===b.sourceId?a.sourceId:null,profileId:a.profileId,birthTime:Math.min(a.birthTime,b.birthTime),mass,mean,covariance:c,temperatureExcessK:wa*a.temperatureExcessK+wb*b.temperatureExcessK,buoyantVelocity:wa*a.buoyantVelocity+wb*b.buoyantVelocity,sourceCount:a.sourceCount+b.sourceCount,_dirty:true};\\n' +\n-   \"  if(a.dispersionQ!==undefined){if(b.dispersionQ===undefined)fail('Cannot merge mixed dispersion models');p.dispersionQ=validateDispersionMemory(a.dispersionQ+wb*(b.dispersionQ-a.dispersionQ));}\\n\" +\n-   '  kernel(p);return p;\\n' +\n-   '}\\n' +\n-   'const RAY_DIRECTIONS=Object.freeze([[1,0,0],[0,1,0],[0,0,1],...Array.from({length:9},(_,i)=>{const y=1-2*(i+.5)/9,a=i*2.399963229728653,r=Math.sqrt(1-y*y);return[r*Math.cos(a),y,r*Math.sin(a)];})]);\\n' +\n-   'function mergeDiagnostics(a,b,m,profile,{coolSeconds,dragSeconds,ambientKelvin}){\\n' +\n-   '  const delta=b.mean.map((v,i)=>v-a.mean[i]),distance=norm(delta),combined=covariance(a.covariance.map((v,i)=>v+b.covariance[i])),q=whiten(combined.L,delta),normalizedDistance=norm(q);\\n' +\n-   '  const points=[a.mean,b.mean,m.mean];for(const p of [a,b])for(let c=0;c<3;c++)for(const sign of [-1,1]){const v=[...p.mean];v[c]+=sign*Math.sqrt(p.covariance[c*3+c]);points.push(v);}\\n' +\n-   '  let peakError=0,peakReference=0,maximumSampledNewDensity=0;\\n' +\n-   '  for(const x of points){const before=densityAt(a,x)+densityAt(b,x),after=densityAt(m,x);peakError=Math.max(peakError,Math.abs(after-before));peakReference=Math.max(peakReference,before);maximumSampledNewDensity=Math.max(maximumSampledNewDensity,after);}\\n' +\n-   '  const extent=distance+6*Math.sqrt(Math.max(...[a,b,m].flatMap(p=>[p.covariance[0],p.covariance[4],p.covariance[8]])));let colError=0,colReference=0,relativePerRay=0;\\n' +\n-   '  for(const centre of [a.mean,b.mean,m.mean])for(const d of RAY_DIRECTIONS){const o=centre.map((v,i)=>v-d[i]*extent),before=columnAt(a,o,d,0,extent*2)+columnAt(b,o,d,0,extent*2),after=columnAt(m,o,d,0,extent*2),error=Math.abs(after-before);colError=Math.max(colError,error);colReference=Math.max(colReference,before);relativePerRay=Math.max(relativePerRay,2*error/Math.max(before+after,1e-300));}\\n' +\n-   '  const k=Math.max(...profile.extinctionPerMassRGB);\\n' +\n-   '  const differentialThermalTravelBoundMetres=dragSeconds*Math.abs(a.buoyantVelocity-b.buoyantVelocity)+9.81/ambientKelvin*dragSeconds*coolSeconds*Math.abs(a.temperatureExcessK-b.temperatureExcessK),normalizedThermalTravelBound=differentialThermalTravelBoundMetres/Math.sqrt(a.covariance[4]+b.covariance[4]);\\n' +\n-   \"  return {distanceMetres:distance,normalizedDistance,differentialThermalTravelBoundMetres,normalizedThermalTravelBound,sampledPeakAbsoluteError:peakError,sampledPeakRelativeError:peakError/Math.max(peakReference,1e-300),maximumSampledNewDensity,sampledColumnAbsoluteError:colError,sampledColumnRelativeError:colError/Math.max(colReference,1e-300),maximumPerRaySymmetricRelativeError:relativePerRay,sampledOpticalDepthRGBAbsoluteError:profile.extinctionPerMassRGB.map(v=>v*colError),sampledMaximumOpticalDepthError:k*colError,peakSamples:points.length,columnRays:36,limits:'15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution.'};\\n\" +\n-   '}\\n' +\n-   'function thermalFactors(dt,coolSeconds,dragSeconds,ambientKelvin){\\n' +\n-   '  const a=1/coolSeconds,b=1/dragSeconds,ea=Math.exp(-a*dt),eb=Math.exp(-b*dt),Aa=-Math.expm1(-a*dt)/a,Ab=-Math.expm1(-b*dt)/b,c=9.81/ambientKelvin;\\n' +\n-   '  if(Math.abs(a-b)<1e-10)return {ea,eb,Ab,velocityPerK:c*dt*eb,positionPerK:c*(Ab-dt*eb)/b};\\n' +\n-   '  return {ea,eb,Ab,velocityPerK:c*(ea-eb)/(b-a),positionPerK:c*(Aa-Ab)/(b-a)};\\n' +\n    '}'\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-state-check.mjs:26:398\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-state-check.mjs:23:558)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-state-check.mjs:26:2"
+    },
+    {
+      "name": "sameclock inputs remain pending and cloned until explicit fence, never exceed publiccapacity",
+      "passed": true,
+      "evidence": {
+        "version": "pyro-smoke-tick-state-v1",
+        "stateModel": "tick-graph-v1",
+        "time": 0,
+        "requestedTime": 0,
+        "revision": 3,
+        "packetCount": 1,
+        "capacity": 1,
+        "peakPacketCount": 1,
+        "stagingPeakPacketCount": 2,
+        "maxStagingPackets": 8193,
+        "pendingEmissions": 0,
+        "pendingWindEvents": 0,
+        "pendingSameClockEmissions": 0,
+        "profileCount": 1,
+        "acceptedSources": 2,
+        "lastEmissionId": 1,
+        "totalTickSteps": 0,
+        "lastAdvanceSteps": 0,
+        "lastAdvanceFences": 0,
+        "fixedStep": 0.05,
+        "maxStepsPerAdvance": 200,
+        "ledger": {
+          "emitted": 0.023,
+          "airborne": 0.023,
+          "pendingMass": 0,
+          "residual": 0,
+          "deposited": 0,
+          "escaped": 0,
+          "explicitlyCleared": 0
+        },
+        "merges": 1,
+        "forcedMerges": 1,
+        "preferredSameSourceMerges": 0,
+        "preferredSameProfileMerges": 0,
+        "maximumMergeDistanceMetres": 1.4282856857085704,
+        "maximumMergeNormalizedDistance": 0.7088812050083361,
+        "maximumSampledMergePeakRelativeError": 0.08997956493889299,
+        "maximumSampledMergeColumnRelativeError": 0.08737257289063727,
+        "maximumSampledMergeOpticalDepthError": 0.00017018655618714009,
+        "diagnosticCacheHits": 0,
+        "diagnosticCacheMisses": 1,
+        "recentMerges": [
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 1.4282856857085704,
+            "normalizedDistance": 0.7088812050083361,
+            "differentialThermalTravelBoundMetres": 3.5391999999999997,
+            "normalizedThermalTravelBound": 1.7695999999999998,
+            "sampledPeakAbsoluteError": 0.00003875075043827022,
+            "sampledPeakRelativeError": 0.08997956493889299,
+            "maximumSampledNewDensity": 0.00042894641464802277,
+            "sampledColumnAbsoluteError": 0.00017018655618714009,
+            "sampledColumnRelativeError": 0.08737257289063727,
+            "maximumPerRaySymmetricRelativeError": 0.09724269333150318,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00017018655618714009,
+              0.00017018655618714009,
+              0.00017018655618714009
+            ],
+            "sampledMaximumOpticalDepthError": 0.00017018655618714009,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          }
+        ],
+        "units": "relative dry mass; metres; physical seconds; authored m2/reference-mass optical profiles. NOT calibrated kg/PM.",
+        "limits": [
+          "Explicit tick-graph-v1; same-clock inputs remain pending until an advance fence.",
+          "Fences and causal input availability are part of deterministic replay; arbitrary fence partitions are not equivalent.",
+          "Public density is committed only; capacity+maxPending bounds private staging.",
+          "Source transport/thermal model and sampled merge quality remain approximations; no CFD, deposition or global optical compression bound.",
+          "Graph and diagnostic caches live for one common-time commit only."
+        ]
+      }
+    },
+    {
+      "name": "same-fence full snapshots and physical diagnostics match naivebatch across24 BrownianTaylor origins/caps",
+      "passed": true,
+      "evidence": {
+        "cases": 24,
+        "merges": 1368
+      }
+    },
+    {
+      "name": "invalid inputs and queue limits reject atomically including hostile getter/reentrant mutations",
+      "passed": true,
+      "evidence": {
+        "cases": 16
+      }
+    },
+    {
+      "name": "clone: failed commit rolls back all public state except requested target and retries exactly",
+      "passed": true,
+      "evidence": {
+        "site": "clone",
+        "pendingRetained": 8
+      }
+    },
+    {
+      "name": "transport: failed commit rolls back all public state except requested target and retries exactly",
+      "passed": true,
+      "evidence": {
+        "site": "transport",
+        "pendingRetained": 8
+      }
+    },
+    {
+      "name": "merge: failed commit rolls back all public state except requested target and retries exactly",
+      "passed": true,
+      "evidence": {
+        "site": "merge",
+        "pendingRetained": 8
+      }
+    },
+    {
+      "name": "middle-merge: failed commit rolls back all public state except requested target and retries exactly",
+      "passed": true,
+      "evidence": {
+        "site": "middle-merge",
+        "pendingRetained": 8
+      }
+    },
+    {
+      "name": "diagnostic: failed commit rolls back all public state except requested target and retries exactly",
+      "passed": true,
+      "evidence": {
+        "site": "diagnostic",
+        "pendingRetained": 8
+      }
+    },
+    {
+      "name": "publish: failed commit rolls back all public state except requested target and retries exactly",
+      "passed": true,
+      "evidence": {
+        "site": "publish",
+        "pendingRetained": 8
+      }
+    },
+    {
+      "name": "reentrant stage observations see committed density only and reject nested mutation",
+      "passed": true,
+      "evidence": {
+        "privatePeak": 8,
+        "publicPeak": 1
+      }
+    },
+    {
+      "name": "bounded catchup publishes only whole ticks and repeated same target never repeats mass or IDs",
+      "passed": true,
+      "evidence": {
+        "completedTime": 0.30000000000000004,
+        "totalTickSteps": 6
+      }
+    },
+    {
+      "name": "legacy source still exact67fa after all tests",
+      "passed": true,
+      "evidence": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172"
+    }
+  ],
+  "runs": [],
+  "sourceSHA256": {
+    "state": "131de6ed505b89c26f0604bd66ea378bf7acf21d704f5aef9230284b0071b6a0",
+    "math": "9330bcd98fc38a1f30a494979887eecdeb946e7b373aa9534b4b5c9c14cddad2",
+    "graph": "99f0fb2650a6279125271ac3bfc7e176a602a74a28aa7b4b1235f5a1eb0ce174",
+    "legacy": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172"
+  },
+  "limits": [
+    "Newfactory only; host/default integration untouched.",
+    "Same causal fence protocol is required for parity; arbitrary same-clock fence partitions differ.",
+    "No GPU/FPS or photographic acceptance from CPU checks."
+  ],
+  "counts": {
+    "passed": 13,
+    "total": 14
+  },
+  "passed": false
+}

@@ -1,0 +1,139 @@
+{
+  "schema": "glass-atoll.r28-independent-policy-domain-cpu.v1",
+  "dateUTC": "2026-10-29T13:45:11.829Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 3,
+    "total": 3
+  },
+  "checks": [
+    {
+      "name": "Legacy SH request allowance is a positive safe integer option, not a hard1m ceiling",
+      "passed": true,
+      "evidence": {
+        "acceptedLegacyAllowances": [
+          1,
+          64,
+          1048576,
+          1400000,
+          9007199254740991
+        ],
+        "defaultAllowance": 1048576,
+        "physicalMaximumPairs": 57344000,
+        "maximumCells": 897024
+      }
+    },
+    {
+      "name": "All positive source/packet requests in each budget fit compact capacity and exact ordered1m-slot rectangles",
+      "passed": true,
+      "evidence": {
+        "cases": [
+          {
+            "maxRequestPairs": 1048576,
+            "packetCountsChecked": 4096,
+            "compactLogicalCapacity": 20480,
+            "maximumPositiveCells": 20400,
+            "maximumMaps": 3,
+            "witness": {
+              "packets": 73,
+              "sources": 14000,
+              "logicalPairs": 1022000,
+              "cells": 15987
+            },
+            "allSmallerCountsMapUpperBound": 3,
+            "default64MapsSufficient": true
+          },
+          {
+            "maxRequestPairs": 1400000,
+            "packetCountsChecked": 4096,
+            "compactLogicalCapacity": 25971,
+            "maximumPositiveCells": 25452,
+            "maximumMaps": 3,
+            "witness": {
+              "packets": 73,
+              "sources": 14000,
+              "logicalPairs": 1022000,
+              "cells": 15987
+            },
+            "allSmallerCountsMapUpperBound": 3,
+            "default64MapsSufficient": true
+          },
+          {
+            "maxRequestPairs": 9007199254740991,
+            "packetCountsChecked": 4096,
+            "compactLogicalCapacity": 900096,
+            "maximumPositiveCells": 897024,
+            "maximumMaps": 59,
+            "witness": {
+              "packets": 4066,
+              "sources": 14000,
+              "logicalPairs": 56924000,
+              "cells": 890454
+            },
+            "allSmallerCountsMapUpperBound": 59,
+            "default64MapsSufficient": true
+          }
+        ],
+        "allCountsProof": "For fixedP, P*ceil(S/64) is monotone inS. Maximal feasibleS checked for everyP. At width256,1m slots admit61full rows; grouped fullrows plus at mostone tail bounds every smaller feasibleS. No packet/source input is sliced."
+      }
+    },
+    {
+      "name": "The actual755x1728 request uses all27source tiles and exactly3maps plus one full final reduction",
+      "passed": true,
+      "evidence": {
+        "packetRows": 755,
+        "emissionRows": 1728,
+        "logicalPairs": 1304640,
+        "sourceTiles": 27,
+        "partialCells": 20385,
+        "conservativeSlots": 1304640,
+        "mapRects": [
+          [
+            0,
+            0,
+            256,
+            61
+          ],
+          [
+            0,
+            61,
+            256,
+            18
+          ],
+          [
+            0,
+            79,
+            161,
+            1
+          ]
+        ],
+        "mapSlots": [
+          999424,
+          294912,
+          10304
+        ],
+        "mapDraws": 3,
+        "reductionDraws": 1,
+        "finalFullTarget": [
+          256,
+          16
+        ],
+        "allValidCoefficientReadbackBytes": 36240,
+        "max8PartialReadbackBytes": 384
+      }
+    }
+  ],
+  "sourcePins": {
+    "incumbentTiles": "c9d712a559c81d7f02122bd0913425ea4808276dec4598172b61e197e4b8620c",
+    "sharedRectangles": "3080bdaf0630010dd0f7e91ff84b050eac889235f7b0a587c831ea4090898832"
+  },
+  "limits": [
+    "Pure input-policy/capacity/geometry proof only; candidate code/defaults/serial comparator still require independent review.",
+    "64maps covers the entire old explicit physical request domain; daily1.4m/maps8 is a separate explicit caller choice.",
+    "Zero sources/density need a fresh complete zero-output contract and safe reuse; no neutral dispatch implementation is admitted here.",
+    "Pair slots count one64source mathematical loop slot; three MRT channels/SH special-function costs and total frame time are separate."
+  ]
+}

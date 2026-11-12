@@ -1,0 +1,21 @@
+{
+  "schema": "glass-atoll.r33-current-screen-hdr-integration.v1",
+  "passed": true,
+  "actualGPU": false,
+  "before": {
+    "main": "920e5045c0eaf5cc0c4113fcb3f331c8a3d755bb7f45a4d91f39ab08562d2ad9",
+    "ui": "4e4202426cfde8575cced0bfff59af92d860f86d8e0bc0a365ea5f0c4d804d32"
+  },
+  "after": {
+    "main": "3dc48edd0c6f284760275c7a86a70993acbd41c0c9b95381ab917f77c614cba1",
+    "ui": "ab5ebeaeed382bbaf8ac4c42ce45037f3a746b493d8fb907b08de45ea348def2",
+    "module": "d8450e111a9c09b57be98b79a6871e5dea59ad24e38e0e9edc12b0bbd7e7dbf5"
+  },
+  "pureCandidateExactExceptHeaderAndImport": true,
+  "previousDisplayFunctions": "async function refreshDisplay(){if(refreshingDisplay)return refreshingDisplay;refreshingDisplay=(async()=>{displayReport=await fetchDisplayHDR();return applyDisplaySettings();})().catch(error=>{console.warn('Display refresh:',error.message);return null;}).finally(()=>{refreshingDisplay=null;});return refreshingDisplay;}\nasync function applyDisplaySettings(){\n  if(!hdrOutput)return;\n  const g=parameters.graphics;\n  hdrCalibration=resolveHDRCalibration(displayReport,{deviceName:g.displayName==='auto'?undefined:g.displayName,...(g.systemCalibration?{}:{peakNits:g.peakNits,paperWhiteNits:g.paperWhiteNits})});\n  if(g.systemCalibration){g.peakNits=hdrCalibration.peakNits;g.paperWhiteNits=hdrCalibration.paperWhiteNits;}\n  const nativeAllows=!hdrCalibration.display||hdrCalibration.display.advancedColorEnabled;\n  const verified=hdrCalibration.calibrationSource!=='unverified-fallback';\n  const enable=g.hdrMode==='hdr'||g.hdrMode==='auto'&&hdrOutput.state.available&&nativeAllows&&verified;\n  const signature=JSON.stringify([g.hdrMode,g.displayName,g.systemCalibration,hdrCalibration.peakNits,hdrCalibration.paperWhiteNits,hdrCalibration.sdrWhiteNits,hdrCalibration.calibrationSource,nativeAllows,enable]);\n  if(signature===lastDisplaySignature&&hdrOutput.state.enabled===enable){await displayTransform?.configure({mode:g.displayTransform,peakNits:hdrCalibration.peakNits});ui.setDisplays(displayReport,hdrCalibration);ui.setHDRSupport(hdrOutput.state);return hdrCalibration;}\n  lastDisplaySignature=signature;\n  hdrOutput.configure({paperWhiteNits:hdrCalibration.paperWhiteNits,peakNits:hdrCalibration.peakNits,sdrWhiteNits:hdrCalibration.sdrWhiteNits,calibrationSource:hdrCalibration.calibrationSource,displayName:hdrCalibration.displayName});\n  await hdrOutput.setEnabled(enable);g.hdr=hdrOutput.state.enabled;\n  await displayTransform?.configure({mode:g.displayTransform,peakNits:hdrCalibration.peakNits});\n  ui.setDisplays(displayReport,hdrCalibration);ui.setHDRSupport(hdrOutput.state);\n  lastPausedRenderKey=null;return hdrCalibration;\n}\n",
+  "scope": "Current-screen policy, direct trusted observation, coalesced/deferred refresh and stale async checks; display-only labels. No water, physics, audio or OS setting change.",
+  "limitations": [
+    "Automatic multi-display geometry currently admits only validated unit-scale contained windows; other cases need explicit screen/manual calibration.",
+    "Runtime/current-screen validation and asynchronous wiring tests remain separate next checks."
+  ]
+}

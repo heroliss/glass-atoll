@@ -1,0 +1,211 @@
+{
+  "budget": {
+    "allWithinBudget": true,
+    "medianWithinBudget": true,
+    "p95WithinBudget": true,
+    "passed": true,
+    "targetMs": 1
+  },
+  "checks": [
+    {
+      "expectedRGB": [
+        73,
+        128,
+        191
+      ],
+      "firstRGBA": [
+        73,
+        128,
+        191,
+        255
+      ],
+      "maximumByteError": 0,
+      "name": "perceptual RGB flat field survives without double gamma/tone mapping",
+      "passed": true,
+      "wrongAlpha": 0
+    },
+    {
+      "expectedRGB": [
+        0,
+        0,
+        0
+      ],
+      "firstRGBA": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "maximumByteError": 0,
+      "name": "black limit remains black, not invalid/blackened output",
+      "passed": true,
+      "wrongAlpha": 0
+    },
+    {
+      "expectedRGB": [
+        255,
+        255,
+        255
+      ],
+      "firstRGBA": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "maximumByteError": 0,
+      "name": "white limit remains white, not invalid/blackened output",
+      "passed": true,
+      "wrongAlpha": 0
+    },
+    {
+      "changedBytes": 0,
+      "maximumByteError": 0,
+      "mode": "native encoded copy",
+      "name": "native size bypass is byte-exact including orientation",
+      "passed": true
+    },
+    {
+      "channelDisagreement": 0,
+      "largestDownstep": 0,
+      "left": 0,
+      "meanAbsoluteByteError": 0.2700452302631572,
+      "name": "gradient remains bounded, monotonic within quantization, and non-black",
+      "passed": true,
+      "right": 255,
+      "uniqueValues": 128
+    },
+    {
+      "blackPixels": 0,
+      "maximumByte": 235,
+      "meanByte": 121.01497395833331,
+      "minimumByte": 14,
+      "name": "diagonal edge is bounded with meaningful non-black/non-white content",
+      "passed": true,
+      "whitePixels": 0
+    }
+  ],
+  "cleanup": {
+    "contextLossRequested": true,
+    "disposed": true
+  },
+  "context": {
+    "appendedToDOM": false,
+    "attributes": {
+      "alpha": true,
+      "antialias": false,
+      "depth": true,
+      "desynchronized": false,
+      "failIfMajorPerformanceCaveat": false,
+      "powerPreference": "high-performance",
+      "premultipliedAlpha": true,
+      "preserveDrawingBuffer": true,
+      "stencil": false,
+      "xrCompatible": false
+    },
+    "fixedFunctionDither": false,
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "shadingLanguage": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+    "vendor": "Google Inc. (NVIDIA)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "webgl2": true
+  },
+  "decision": "Candidate meets functional and strict 1 ms median/p95 GPU budget in this check. Still inspect the actual scene.",
+  "functionalPassed": true,
+  "glErrors": [],
+  "kind": "FSR1 EASU + RCAS functional readback and independent-context GPU timing",
+  "passed": true,
+  "pattern": {
+    "height": 80,
+    "note": "Authored encoded RGB edge/gradient fixture, not photographic quality acceptance.",
+    "width": 128
+  },
+  "recommendedEnable": true,
+  "shaderErrors": [],
+  "timing": {
+    "available": true,
+    "cpuSubmitIsNotGpu": true,
+    "disjoint": false,
+    "extensionAvailable": true,
+    "input": [
+      1080,
+      675
+    ],
+    "maximumMs": 0.129472,
+    "meanMs": 0.11962322580645154,
+    "medianMs": 0.118784,
+    "minimumMs": 0.118784,
+    "note": "Two complete GPU draws and target switches in this independent GL context. Shader warmup and CPU submit duration excluded.",
+    "output": [
+      1440,
+      900
+    ],
+    "p95Ms": 0.122864,
+    "passesPerSample": 2,
+    "sampleCount": 31,
+    "samplesMs": [
+      0.123904,
+      0.118784,
+      0.118784,
+      0.129472,
+      0.118784,
+      0.118784,
+      0.118784,
+      0.119808,
+      0.118784,
+      0.118784,
+      0.118784,
+      0.119808,
+      0.118784,
+      0.118784,
+      0.119808,
+      0.118784,
+      0.121824,
+      0.119808,
+      0.118784,
+      0.118784,
+      0.118784,
+      0.119808,
+      0.118784,
+      0.118784,
+      0.119808,
+      0.118784,
+      0.118784,
+      0.118784,
+      0.119808,
+      0.118784,
+      0.118784
+    ],
+    "unit": "GPU milliseconds",
+    "warmupFrames": 12
+  },
+  "upscaler": {
+    "algorithm": "FSR1 EASU + RCAS, FP32 WebGL2 port",
+    "allocatedEasuBytes": 5184000,
+    "bypass": false,
+    "frames": 49,
+    "gpuBudgetVerified": false,
+    "gpuMilliseconds": null,
+    "input": [
+      1080,
+      675
+    ],
+    "inputContract": "tone-mapped sRGB-encoded RGB in NoColorSpace RT; no conversion in this module",
+    "lastCpuSubmitMs": 0,
+    "mode": "EASU 12-tap + RCAS 5-tap",
+    "output": [
+      1440,
+      900
+    ],
+    "passes": 2,
+    "rcasDenoise": true,
+    "scale": [
+      0.75,
+      0.75
+    ],
+    "sharpnessStops": 0.7,
+    "sourceCommit": "a21ffb8f6c13233ba336352bdff293894c706575",
+    "warmed": true,
+    "warmupError": null
+  }
+}

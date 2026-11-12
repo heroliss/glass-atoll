@@ -1,0 +1,237 @@
+{
+  "schema": "glass-atoll.r17-burn-profile-check.v1",
+  "started": "2026-10-29T07:13:04.357Z",
+  "completed": "2026-10-29T07:13:04.396Z",
+  "passed": true,
+  "counts": {
+    "passed": 19,
+    "total": 19
+  },
+  "moduleSHA256": "7308fd7a59ac918de80acbf296a0117f2d499e48d8de40bf2880d0b3c90436d7",
+  "protectedSHA256": {
+    "fireworks.js": "f0e3b7db8a268cb02227c81282e85a808158942e2b73656df39fdc752c783463",
+    "fireworks-physics.js": "2cdffbced09c8a151f9fb3cb1531a905633af6978c41f9fc3ea2c1a13006419d",
+    "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+    "pyro-smoke-logical-burn.js": "235dff6244215b5a599d3d80ea93321ccacefb8d690a07813f0c25b827800a15",
+    "scene-radiometry.js": "f942645604dae00fe6ad713c605ad38509bf71cf7fbf10fe5e28b904eb5bf66d"
+  },
+  "results": [
+    {
+      "name": "Versioned deep immutable descriptors do not retain caller references",
+      "passed": true,
+      "details": {
+        "calibrationStatus": "authored-reference-not-measured",
+        "physical": {
+          "massKg": null,
+          "volumeM3": null,
+          "referenceAreaM2": null,
+          "status": "unknown; no trajectory or mass/volume evolution implemented"
+        }
+      }
+    },
+    {
+      "name": "Actual knot values, finite support and raw reference RGB unit contract",
+      "passed": true,
+      "details": {
+        "midpoint": {
+          "age": 1.5,
+          "emissionRGBReference": [
+            1,
+            0.5,
+            0
+          ],
+          "intensityCdReference": 0.5702,
+          "unitYColour": [
+            1.75377060680463,
+            0.876885303402315,
+            0
+          ],
+          "colourNormalization": "unit-Y",
+          "materialCDF": 0.3333333333333333
+        }
+      }
+    },
+    {
+      "name": "Exact vector shutter integral differs from avg(I) times avg(colour)",
+      "passed": true,
+      "details": {
+        "correct": [
+          1,
+          0.5,
+          0
+        ],
+        "incorrectIndependentAverages": [
+          1.3410159924741298,
+          0.39862975391498884,
+          0
+        ]
+      }
+    },
+    {
+      "name": "Clipped local-overlap integration, knot crossings and zero-width limits",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Tiny late windows use local integrals instead of catastrophic prefix subtraction",
+      "passed": true,
+      "details": {
+        "windowSeconds": 1.0000007932831068e-8,
+        "localIntegral": 1.0000007932831068e-8,
+        "naivePrefixDifference": 0
+      }
+    },
+    {
+      "name": "Independent Simpson integration witnesses across every colour and fade segment",
+      "passed": true,
+      "details": {
+        "windows": 18,
+        "maximumError": 3.552713678800501e-15
+      }
+    },
+    {
+      "name": "Black and subnormal emission never produce NaN or infinite normalized colour",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Nonnegative normalized material CDF and analytic interval fractions",
+      "passed": true,
+      "details": {
+        "normalizationArea": 3,
+        "final": 1
+      }
+    },
+    {
+      "name": "Material ledger closure is partition independent at30/60/120Hz and irregular cadence",
+      "passed": true,
+      "details": {
+        "finals": [
+          20.35,
+          20.35,
+          20.35
+        ],
+        "irregularFinal": 20.35
+      }
+    },
+    {
+      "name": "Late tiny material packet survives a huge already-emitted prefix",
+      "passed": true,
+      "details": {
+        "expected": 0.00009999999994999001,
+        "actual": 0.00009999999994999
+      }
+    },
+    {
+      "name": "Pure staged ledger transition, clear absorbing state and rewind rejection",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Body-keyed randomness is stable, independent of iteration order and bounded",
+      "passed": true,
+      "details": {
+        "instance": {
+          "baseProfileId": "author-two-colour-v1",
+          "eventSeed": 42,
+          "bodyId": 7,
+          "layerId": "outer",
+          "identityKey": "[\"glass-atoll.burn-profile.v1\",\"author-two-colour-v1\",42,7,\"outer\"]",
+          "timeScale": 0.9702488512173295,
+          "intensityScale": 1.002793127913028,
+          "opticalScale": 1,
+          "directionSeed": 425869972,
+          "randomness": "keyed deterministic author variation at creation only; no trajectory generated"
+        }
+      }
+    },
+    {
+      "name": "Every allowed base profile ID can instantiate without derived-label overflow",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Optical0/1/2 changes RGB only; material mass/time and propulsion remain independent",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Example descriptors contain actual different colour/life/layer contracts without new trajectories",
+      "passed": true,
+      "details": {
+        "threeLayerEnds": [
+          3.4,
+          4.6,
+          2.6
+        ],
+        "bee": {
+          "kind": "finite-author-acceleration",
+          "accelerationKnots": [
+            {
+              "age": 0,
+              "rate": 0
+            },
+            {
+              "age": 0.05,
+              "rate": 12
+            },
+            {
+              "age": 0.75,
+              "rate": 12
+            },
+            {
+              "age": 1,
+              "rate": 0
+            }
+          ],
+          "startAge": 0,
+          "endAge": 1,
+          "maximumAccelerationMetresPerSecondSquared": 12,
+          "integratedAccelerationBoundMetresPerSecond": 10.2,
+          "deltaVLimitMetresPerSecond": 12,
+          "maximumTurnDegreesPerSecond": 180,
+          "directionKnotSeconds": 0.125,
+          "trajectoryImplemented": false,
+          "units": "author acceleration m/s2; rate field in these descriptor knots is magnitude, not material rate; no force/fuel calibration"
+        }
+      }
+    },
+    {
+      "name": "All-phase source bound covers interpolated channels, including instanced variability",
+      "passed": true,
+      "details": {
+        "points": 2613,
+        "reason": "Analytic piecewise-linear positive interpolation stays in the convex hull of adjacent knots; finite samples are regression witnesses, not the proof"
+      }
+    },
+    {
+      "name": "Malformed/unbounded inputs reject before a profile/ledger exists",
+      "passed": true,
+      "details": {
+        "rejections": 13
+      }
+    },
+    {
+      "name": "Sparse RGB arrays reject before derived NaN reaches a profile",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Stage1 leaves protected production physics/render/audio/smoke/radiometry bytes unchanged",
+      "passed": true,
+      "details": {
+        "fireworks.js": "f0e3b7db8a268cb02227c81282e85a808158942e2b73656df39fdc752c783463",
+        "fireworks-physics.js": "2cdffbced09c8a151f9fb3cb1531a905633af6978c41f9fc3ea2c1a13006419d",
+        "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+        "pyro-smoke-logical-burn.js": "235dff6244215b5a599d3d80ea93321ccacefb8d690a07813f0c25b827800a15",
+        "scene-radiometry.js": "f942645604dae00fe6ad713c605ad38509bf71cf7fbf10fe5e28b904eb5bf66d"
+      }
+    }
+  ],
+  "limits": [
+    "Pure opt-in author-reference profile only; no runtime imports or integration.",
+    "No measured photometry, fuel/kg balance, propulsion trajectory, smoke transport, GPU, actual sound or visual acceptance.",
+    "Emission integration excludes moving transmission T(t); current renderer anchor-T approximation is not changed.",
+    "Ledger deltas are pure proposals; downstream host must retain its transactional prepare/commit and family allocation."
+  ]
+}

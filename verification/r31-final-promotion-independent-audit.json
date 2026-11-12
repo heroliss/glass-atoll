@@ -1,0 +1,86 @@
+{
+  "schema": "glass-atoll.r31-final-promotion-independent-audit.v1",
+  "actualGPU": false,
+  "browserActions": 0,
+  "nativeContextCalls": 0,
+  "physicalReplays": 0,
+  "productionEdits": 0,
+  "existingEvidenceEdited": 0,
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "Deployed main differs only by the explicit shadow import and pure read-only shader-source getter",
+      "passed": true,
+      "evidence": {
+        "beforeMainSHA256": "bd51038a3018bbcfea92440f80e824673aa3c00c4711b94b7f8ee8ad0e6dadfa",
+        "afterMainSHA256": "e43f1445109226a16f5fbd6ba70656a5faa6401c076ce16ce57369e055680674",
+        "exactTwoAdditions": true,
+        "normalFrameAndExistingQAEntryBodiesUnchanged": true,
+        "sourceGetterHasNoRendererOrMutation": true
+      }
+    },
+    {
+      "name": "Actual promoted shadow source is the reviewed candidate and reverses exactly to the preserved original",
+      "passed": true,
+      "evidence": {
+        "beforeShadowSHA256": "82a14b72b003cf4105f6cedb804e9ebd6c4b21da065d6ac51106db66ea2ca0d5",
+        "afterShadowSHA256": "8c7773d93682c0fc8202dab0611c0d7ed4424a42169bc0e7e9bb5662be8bbedd",
+        "wholeSourceInverseExact": true,
+        "enabledTailOrderByteExact": true,
+        "getterReturnsActualModuleShader": true,
+        "disabledSkipScope": "projection/division/derivative footprint/radius only; old disabled path already skipped PCF texture reads",
+        "shaderCompiledByThisAudit": false
+      }
+    },
+    {
+      "name": "Historical native/profile receipts and their main epochs remain intact and are rejected by their old closed source pins on the new main",
+      "passed": true,
+      "evidence": {
+        "historicalEpochs": [
+          {
+            "receipt": "verification/r30-browser-fresh-scene-v5-actual-gpu.json",
+            "mainEpoch": "bfe586ddebfb2d47eb83f285762ecf1acfe92e773862699092bf88c178545777",
+            "actualPassed": true,
+            "currentMainPinMatches": false,
+            "rejectionBeforeReplayOrContext": true
+          },
+          {
+            "receipt": "verification/r31-native-scene-actual-gpu.json",
+            "mainEpoch": "5b1541d2eddff1fa8a4c26eccd735657dac8b5a5e3c97a25001403cb1b1171f1",
+            "actualPassed": true,
+            "currentMainPinMatches": false,
+            "rejectionBeforeReplayOrContext": true
+          },
+          {
+            "receipt": "verification/r31-native-phase-profile-actual-gpu.json",
+            "mainEpoch": "bd51038a3018bbcfea92440f80e824673aa3c00c4711b94b7f8ee8ad0e6dadfa",
+            "actualPassed": false,
+            "currentMainPinMatches": false,
+            "rejectionBeforeReplayOrContext": true
+          }
+        ],
+        "oldHelperFilesUnchanged": true,
+        "importantFutureRequirement": "sun-shadows.js was a transitive shader dependency outside the old34-source subsets. Future candidate-specific GPU gates must explicitly pin current sun-shadows.js and its loaded shader string; a future sun-only edit must not rely on main always changing.",
+        "oldReportsRegenerated": false
+      }
+    },
+    {
+      "name": "Promotion metadata, existing CPU binding/math provenance and approved audio remain honestly scoped",
+      "passed": true,
+      "evidence": {
+        "metadataMatchesExactTwoFileChange": true,
+        "existingStagedMathPassed": true,
+        "approvedAudioSHA256": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+        "normalReloadCompileHealth": "Root-owned separate evidence; not performed or inferred by this CPU audit",
+        "measuredGPUgainClaim": false,
+        "pixelParityClaim": false,
+        "newExperimentalNativeDispatch": false
+      }
+    }
+  ],
+  "scope": "Post-promotion source, exact inverse, read-only getter, historical epoch and audio audit only. No shader compile, pixel parity or performance benefit is established; retained137.605376ms profile remains a failed timing gate."
+}

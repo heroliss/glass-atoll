@@ -1,0 +1,72 @@
+{
+  "schema": "glass-atoll.r16-smoke-transmission-pack.v1",
+  "dateUTC": "2026-10-28T18:15:25.469Z",
+  "actualGPU": false,
+  "actualCPU": true,
+  "passed": true,
+  "counts": {
+    "passed": 8,
+    "total": 8
+  },
+  "checks": [
+    {
+      "name": "original double buffers pack complete full-SPD rows and exact metadata without mutation",
+      "passed": true,
+      "diagnostics": {
+        "maximumMeanQuantizationMetres": 3.8146972691777137e-7,
+        "maximumEndpointQuantizationMetres": 4.768371586472142e-8,
+        "maximumOriginQuantizationMetres": 0,
+        "maximumDirectionQuantization": 1.8522398059772627e-8,
+        "maximumLengthQuantizationMetres": 4.565740638895477e-7,
+        "maximumCholeskyRelativeQuantization": 5.384340290216169e-8,
+        "maximumNormalizationRelativeQuantization": 6.634830854756569e-10,
+        "activeRays": 8,
+        "zeroLengthRays": 0,
+        "inactiveRows": 0,
+        "maximumWhitenedCoordinateBound": 23.764024299227284,
+        "maximumWhitenedDirectionBound": 2.4938887729704953,
+        "originalDoubleReflectionOrigins": true
+      }
+    },
+    {
+      "name": "quantized-double oracle separates input error before any GPU draw",
+      "passed": true,
+      "maximumInputQuantizationTError": 1.933470705761664e-8
+    },
+    {
+      "name": "reflection uses exact CPU water-hit origins at interior,t0,t1 and invalid crossing",
+      "passed": true,
+      "active": [
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "inactive and zero-length rows preserve geometry indices with neutral T1",
+      "passed": true
+    },
+    {
+      "name": "constructor and pair capacities never autoexpand and explicit larger caps are merely plans",
+      "passed": true
+    },
+    {
+      "name": "fixed capacity typed buffers accept active prefix without subarray copies",
+      "passed": true
+    },
+    {
+      "name": "unsafe tiny factors fallback explicitly and no Float32 world endpoints are silently accepted",
+      "passed": true
+    },
+    {
+      "name": "field capability/capacity fallback allocates no GL objects or stale sampled texture",
+      "passed": true,
+      "GPUobjectsCreated": 0,
+      "contextCalls": 1
+    }
+  ],
+  "sourceSHA256": {
+    "pyro-smoke-transmission-pack.js": "f2113d69fc0120c9f88250db32e4a9c5c82ced62babb411b8028e356d9cf5b7d",
+    "pyro-smoke-transmission-gpu.js": "28b173aa16267c1dc0be96283fea576199f2ea0c0cd9b76e0d6886b519e72369"
+  }
+}

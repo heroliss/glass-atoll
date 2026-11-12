@@ -1,0 +1,93 @@
+{
+  "schema": "glass-atoll.r16-firework-transmission-batch.v1",
+  "dateUTC": "2026-10-28T17:10:57.055Z",
+  "passed": true,
+  "passedCount": 9,
+  "total": 9,
+  "sourceSHA256": "3fb39738c83705d77dd5b6c55db8d15f76fbba6ec4e24d17130a9e9a3de477fe",
+  "baselineSHA256": "59b16a127228ede30ef7b2b839725ef05b2c1f850ae0cc147680bad32979ca1f",
+  "checks": [
+    {
+      "name": "baseline remains59b; no physical source, ledger or fragment shader changes",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "defaultCPU retained attributes and query order are byteexact vs59b, inmainandmirror",
+      "passed": true,
+      "evidence": {
+        "views": 2
+      }
+    },
+    {
+      "name": "effectiveGPU keeps unattenuatedcolour and skips every CPU query; other instance bytes retained",
+      "passed": true,
+      "evidence": {
+        "instances": 15,
+        "maximumFloat32Difference": 5.960464477539063e-8,
+        "limits": "CPU mimicsFloat32 texturecolour multiplication only; actualVTFGPU acceptance remains parent-owned."
+      }
+    },
+    {
+      "name": "GPU payload preserves original double world endpoints and exact CPU waterhit origins, with orderedmask",
+      "passed": true,
+      "evidence": [
+        {
+          "reflection": false,
+          "requestVersion": 1,
+          "cameraKey": "-0,3,7",
+          "active": 14
+        },
+        {
+          "reflection": true,
+          "requestVersion": 2,
+          "cameraKey": "-0,-3,7",
+          "active": 14
+        }
+      ]
+    },
+    {
+      "name": "unsupported/stale/invalid/error/feedback output clearsT and uses exact originalCPU fallback",
+      "passed": true,
+      "evidence": {
+        "scenarios": [
+          "unsupported",
+          "stale-source",
+          "stale-density",
+          "stale-camera",
+          "bad-count",
+          "bad-size",
+          "bad-texture",
+          "throw",
+          "feedback"
+        ],
+        "views": 2
+      }
+    },
+    {
+      "name": "GPUtoCPU/no-medium transitions never retain an old enabled sampler",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "dense-to-empty smoke binds current validwhite rows, never the previous attenuating field",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "GPUbatch emptyactive sources do not prepare an unsafe stale field",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "FW itself blocks framebufferfeedback without a provider guard and VTFsampler is explicit highp",
+      "passed": true,
+      "evidence": null
+    }
+  ],
+  "limits": [
+    "CPU actualThree factory/mockbatch wiring only; noGL orGPUerror/precision/performance acceptance.",
+    "Opt-inGPU only; production defaultCPU, preserved59b fallback geometry/queryvalues.",
+    "GPUfield itself has separate numerical and native framebuffer/VTF admission gates."
+  ]
+}

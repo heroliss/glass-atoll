@@ -1,0 +1,109 @@
+{
+  "schema": "glass-atoll.smoke-renderer-math.v1",
+  "dateUTC": "2026-10-29T09:30:30.375Z",
+  "runtimeIntegration": false,
+  "noGPU": true,
+  "passed": true,
+  "counts": {
+    "checks": 18,
+    "passed": 18
+  },
+  "checks": [
+    {
+      "id": "independent_module_accepts_frozen_reference_state_without_renderer_calls",
+      "passed": true
+    },
+    {
+      "id": "coloured_extinction_not_silently_encoded_as_scalar_alpha",
+      "passed": true
+    },
+    {
+      "id": "tiny_non_neutral_profile_is_still_rejected",
+      "passed": true
+    },
+    {
+      "id": "capacity_input_is_explicit_not_silently_culled",
+      "passed": true
+    },
+    {
+      "id": "invalid_SPD_packet_rejected_before_gpu_upload",
+      "passed": true
+    },
+    {
+      "id": "attached_depth_feedback_rejected_before_renderer_calls",
+      "passed": true
+    },
+    {
+      "id": "independent_opaque_depth_is_required_outside_explicit_isolated_QA",
+      "passed": true
+    },
+    {
+      "id": "source_function_bound_uses_raw_incident_light_once",
+      "passed": true,
+      "actual": 5.407908739335998,
+      "expected": 5.407908739335998
+    },
+    {
+      "id": "source_bound_does_not_scale_with_number_of_identical_puffs",
+      "passed": true
+    },
+    {
+      "id": "more_than_two_clusters_and_nonfinite_raw_inputs_are_rejected",
+      "passed": true
+    },
+    {
+      "id": "premult_alpha_product_is_exact_transmittance_identity",
+      "passed": true
+    },
+    {
+      "id": "same_total_tau_does_not_make_scattering_sources_commute",
+      "passed": true,
+      "Sab": 1.0196999786791776,
+      "Sba": 0.7717957369523794,
+      "T": 0.36787944117144233,
+      "limit": "T identity does not prove centre-ordered S is exact overlapping transport"
+    },
+    {
+      "id": "neutral_smoke_preserves_reflection_RGBA_remaining_sky_semantics",
+      "passed": true
+    },
+    {
+      "id": "single_reflection_alpha_cannot_represent_RGB_transmittance",
+      "passed": true
+    },
+    {
+      "id": "support_4_5sigma_has_explicit_per_ray_tau_error_bound_not_mass_deletion",
+      "passed": true,
+      "tailResults": [
+        {
+          "supportSigma": 4,
+          "observedOffEllipsoidColumn": 0.000025647248912595285,
+          "conservativeBound": 0.00022053910542474747
+        },
+        {
+          "supportSigma": 5,
+          "observedOffEllipsoidColumn": 2.820802457841856e-7,
+          "conservativeBound": 0.000002449968158710575
+        }
+      ]
+    },
+    {
+      "id": "shader_queries_one_packet_and_uses_explicit_depth_LOD",
+      "passed": true
+    },
+    {
+      "id": "P_scales_scattered_source_once_and_never_transmission",
+      "passed": true
+    },
+    {
+      "id": "disposed_renderer_refuses_state_updates",
+      "passed": true
+    }
+  ],
+  "sourceSHA256": "4f152a1470d8351b997728691bc2e0ec15ee0962b55926179917cb42ce7ee3dd",
+  "limits": [
+    "CPU algebra/source contract only; no shader compilation or realGPU pass",
+    "S centre-order and conditional-mean sampling are approximate; light-path/clean-air terms not implemented",
+    "RTE point-ray tau identity does not imply exact pixel/aperture averages or futureGPU unbiasedness"
+  ]
+}

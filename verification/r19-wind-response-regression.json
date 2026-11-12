@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-29T03:49:27.609Z",
+  "passed": true,
+  "passedCount": 14,
+  "total": 14,
+  "tests": [
+    {
+      "name": "all authored drag classes match the saved sequential implementation",
+      "passed": true,
+      "detail": {
+        "queries": 500,
+        "maximumPositionErrorMetres": 2.9700346380225555e-12,
+        "maximumVelocityErrorMps": 4.559989661680181e-13
+      }
+    },
+    {
+      "name": "zero/vanishing drag retains the original ballistic branch",
+      "passed": true
+    },
+    {
+      "name": "past/future reverse-order queries do not depend on a mutable time cursor",
+      "passed": true
+    },
+    {
+      "name": "before-birth and exact-birth limits",
+      "passed": true
+    },
+    {
+      "name": "near-birth tiny duration does not subtract large prefix positions",
+      "passed": true
+    },
+    {
+      "name": "future beyond final knot holds the final wind exactly",
+      "passed": true
+    },
+    {
+      "name": "initial finite knot extends backwards as the legacy model does",
+      "passed": true
+    },
+    {
+      "name": "append and front pruning reuse checkpoints without changing retained semantics",
+      "passed": true,
+      "detail": {
+        "maximumPositionErrorMetres": 4.354792321283889e-14,
+        "diagnostics": {
+          "revision": 180,
+          "dragClasses": 1,
+          "prefixQueries": 538,
+          "checkpointAppends": 179,
+          "rebuilds": 1
+        }
+      }
+    },
+    {
+      "name": "same-time wind changes and zero-duration segments",
+      "passed": true
+    },
+    {
+      "name": "replacing/truncating timeline then explicit historical edit invalidation",
+      "passed": true
+    },
+    {
+      "name": "multi-hour absolute clocks never exponentiate absolute time",
+      "passed": true,
+      "detail": {
+        "maximumPositionErrorMetres": 6.156995281266515e-12
+      }
+    },
+    {
+      "name": "parent/split inheritance and changing future previews remain current",
+      "passed": true
+    },
+    {
+      "name": "pose edits are not hidden by parent/body state caching",
+      "passed": true
+    },
+    {
+      "name": "independent RK4 agrees for multiple drag, gravity and vertical wind",
+      "passed": true,
+      "detail": {
+        "maximumPositionErrorMetres": 1.3782514501251928e-12
+      }
+    }
+  ],
+  "limits": [
+    "CPU Float64 analytic equivalence to saved sequential source and independent RK4; no GPU/render/FPS claim",
+    "Immutable timeline segments support append/prune automatically; editing an old segment in place requires explicit invalidation",
+    "Input forcing remains original piecewise-held samples, including its existing display-rate discretization"
+  ]
+}

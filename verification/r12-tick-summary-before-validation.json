@@ -1,0 +1,167 @@
+{
+  "schema": "glass-atoll.r12-tick-production-candidate-summary.v1",
+  "dateUTC": "2026-10-28T07:01:29.105Z",
+  "status": "G1-G4 CPU candidate; no host/default integration or promotion",
+  "sourceFreeze": {
+    "state": {
+      "path": "pyro-smoke-tick-state.js",
+      "sha256": "58325d57497a1f34c64ae5ca4d16e6cf336e6168cf3ac6351ec8d6b94f794d86"
+    },
+    "math": {
+      "path": "pyro-smoke-tick-math.js",
+      "sha256": "9330bcd98fc38a1f30a494979887eecdeb946e7b373aa9534b4b5c9c14cddad2"
+    },
+    "graph": {
+      "path": "pyro-smoke-merge-graph.js",
+      "sha256": "99f0fb2650a6279125271ac3bfc7e176a602a74a28aa7b4b1235f5a1eb0ce174"
+    },
+    "legacy": {
+      "path": "pyro-smoke-state.js",
+      "sha256": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172"
+    }
+  },
+  "provenance": {
+    "legacyHash": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+    "normalizedExtractionHash": "f5a3aed7e1bb2fc1aec3c40e8f8d00c5f97894f907bc2ef09354a3606453bca4",
+    "normalizedBytes": 8018,
+    "functions": [
+      "validation",
+      "covariance",
+      "kernel",
+      "densityAt",
+      "columnAt",
+      "publicPacket",
+      "sumMass",
+      "mergePair",
+      "mergeDiagnostics",
+      "thermalFactors"
+    ]
+  },
+  "checks": {
+    "main": {
+      "passed": 17,
+      "total": 17
+    },
+    "fence": {
+      "passed": 6,
+      "total": 6
+    },
+    "totalPassed": 23,
+    "total": 23
+  },
+  "fullNative": {
+    "count": 6291,
+    "hash": "d192c989db2d994bfa84bd7ac7a31627615312d9020eb001451d913caaa09766",
+    "emissionHash": "c39c6d9c6965ff1b9d4d043da51959c790bfa2944f70b30a8133761cec3317a5",
+    "endTime": 18.60858222067491,
+    "capacity": 4096,
+    "packets": 4096,
+    "merges": 2195,
+    "forcedMerges": 1842,
+    "selectedCandidates": 35120,
+    "diagnosticCacheHits": 31410,
+    "diagnosticCacheMisses": 3710,
+    "snapshotHash": "df33bf671857d3c888f3872e79f37b54bc741bd01131298400e32a55c29b314c",
+    "physicalDiagnosticsHash": "858134e8c96040f6166fd2f0768ef7e8c71d0ed64fae397bc85740a96551010c",
+    "completeSelectionTraceHash": "7b386a5512532f8d2ae253607fb3339c97e449be606e766e6616f70142c0442b",
+    "ledger": {
+      "emitted": 20.35000000000004,
+      "airborne": 20.35000000000004,
+      "pendingMass": 0,
+      "residual": 0,
+      "deposited": 0,
+      "escaped": 0,
+      "explicitlyCleared": 0
+    },
+    "publicPeak": 4096,
+    "privatePeak": 4137,
+    "privateHardCap": 12288
+  },
+  "measuredCPUOnly": {
+    "sameProtocolPaired": [
+      {
+        "mode": "naive",
+        "wallMs": 11387.040299999999,
+        "maxAdvanceMs": 237.8173999999999
+      },
+      {
+        "mode": "tick",
+        "wallMs": 2255.633,
+        "maxAdvanceMs": 53.88459999999941
+      }
+    ],
+    "nativeCadences": [
+      {
+        "hz": 30,
+        "wallMs": 2475.3197,
+        "maxAdvanceMs": 39.88440000000003,
+        "physicalSnapshotHash": "fd9a8784e226af4b528e04b7c4ccb2bea7b77628875341505ee8f5e92944de50",
+        "completeInputHash": "c39c6d9c6965ff1b9d4d043da51959c790bfa2944f70b30a8133761cec3317a5"
+      },
+      {
+        "hz": 60,
+        "wallMs": 3030.9724999999994,
+        "maxAdvanceMs": 48.04539999999997,
+        "physicalSnapshotHash": "fd9a8784e226af4b528e04b7c4ccb2bea7b77628875341505ee8f5e92944de50",
+        "completeInputHash": "c39c6d9c6965ff1b9d4d043da51959c790bfa2944f70b30a8133761cec3317a5"
+      },
+      {
+        "hz": 120,
+        "wallMs": 3904.3497000000007,
+        "maxAdvanceMs": 50.262799999999515,
+        "physicalSnapshotHash": "fd9a8784e226af4b528e04b7c4ccb2bea7b77628875341505ee8f5e92944de50",
+        "completeInputHash": "c39c6d9c6965ff1b9d4d043da51959c790bfa2944f70b30a8133761cec3317a5"
+      }
+    ],
+    "workerHardWallSeconds": 30,
+    "noFramePerformanceClaim": true
+  },
+  "failureSemantics": {
+    "invalidTarget": "no change including failure telemetry",
+    "validTarget": "records requestedTime and starts current-call successful commit counters",
+    "failedCommit": "C/Q/accepted IDs/mass and physics counters roll back only for the failed commit; earlier commits remain",
+    "diagnosticChangesOnFailure": [
+      "requestedTime",
+      "lastAdvanceSteps",
+      "lastAdvanceFences",
+      "lastAdvanceFailure"
+    ],
+    "failureRecord": [
+      "requestedTime",
+      "committedTime",
+      "failedCommitEndTime",
+      "failedCommitKind",
+      "completedSteps",
+      "completedSameClockFences"
+    ],
+    "successfulRetry": "clears failure record and equals clean same-fence execution"
+  },
+  "evidenceFiles": {
+    "verification/r12-tick-state-check.mjs": "e69676dc4a9d6e881f29c8781b3ac0bd2be1aab0968a3a4077d8efe9386cfb35",
+    "verification/r12-tick-state-check.json": "09145a33fa00666f18eabdf9d593be5ac786f5a251e243fac3ff9c6d92369955",
+    "verification/r12-tick-fence-check.mjs": "0156fd6378a2266e7abe73b4495bd6b6db52e5bb3e5903674c351740b60b9368",
+    "verification/r12-tick-fence-check.json": "ce93086bf9411598a6e3bf3953663ec1000551bb9091257b223e826fc1e512d3"
+  },
+  "preservedVerifierFailures": [
+    {
+      "prefix": "verification/r12-tick-state-first",
+      "reason": "Injected after publication rather than before; 10/11 small gates; fixed verifier placement only."
+    },
+    {
+      "prefix": "verification/r12-tick-state-second",
+      "reason": "Actual source provider had not advanced to throughTime, so intended prefix fault never reached queue; 13/14. Fixed causal test setup only."
+    },
+    {
+      "prefix": "verification/r12-tick-state-third",
+      "reason": "Extraction equality asserted raw bytes despite CRLF/LF difference; 13/14. Declared newline normalization and hashed exact remaining text."
+    }
+  ],
+  "limitations": [
+    "Legacy per-source model67fa and host/default remain untouched. Tick batch compaction is explicitly a different physical model from old per-source merge timing.",
+    "Exactness is to the naive tick batch oracle under the SAME causal input/fence protocol; arbitrary same-clock fence partitions are not equivalent.",
+    "Native30/60/120 equality covers the one complete seed42 willow with static wind, not all future scenarios.",
+    "23 CPU checks do not establish GPU/browser/FPS or photographic acceptance. Measured worst CPU advance still exceeds16.7ms.",
+    "No new global optical compression bound. Inherited merge quality is15 point/36 finite-ray sampling; local moments are conserved only at merge time.",
+    "Host fault/clear ledger wiring, browser ESM runtime, full optical phase/oracle/BVH acceptance and later gates remain parent work."
+  ]
+}

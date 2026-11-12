@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>金羽与银瀑 · 节奏、尾焰与环境受光</title>
+  <style>
+    :root{color-scheme:dark}
+    *{box-sizing:border-box}
+    body{margin:0;background:#091b20;color:#e5eee9;font:15px/1.8 "Microsoft YaHei",sans-serif}
+    main{max-width:1240px;margin:0 auto;padding:48px 24px 72px}
+    h1{font-size:30px;font-weight:500;letter-spacing:.03em;line-height:1.4}
+    h2{font-size:21px;font-weight:500;margin:0}
+    h3{font-size:17px;font-weight:500;margin:0}
+    p{margin:12px 0}
+    a{color:#a3dfd5;text-underline-offset:4px}
+    .intro{max-width:920px;color:#adc5c3}
+    .actions,.tools{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+    .actions{margin:28px 0}
+    .tools{margin-top:12px}
+    button{font:inherit;border:1px solid #597e7c;border-radius:6px;padding:8px 14px;background:#14383b;color:inherit;cursor:pointer}
+    button[aria-pressed="true"]{background:#245953;border-color:#a3dfd5}
+    button:hover{border-color:#a3dfd5}
+    button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid #c1eec5;outline-offset:4px}
+    #status,.muted{color:#adc5c3}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr));gap:32px}
+    article{padding-top:18px;border-top:1px solid #34504f;min-width:0}
+    .meta{font-size:13px;color:#9db7b5;margin:4px 0 14px}
+    .video-frame{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:#000;border-radius:4px}
+    video{display:block;width:100%;height:100%;object-fit:contain;transform-origin:var(--zoom-x,50%) var(--zoom-y,50%)}
+    .video-frame.is-zoomed video{transform:scale(2)}
+    .view-note{font-size:12px;color:#9db7b5;min-height:1.8em;margin:6px 0}
+    .timeline{display:flex;align-items:center;gap:12px;margin-top:10px}
+    .timeline input{min-width:0;flex:1;accent-color:#a3dfd5}
+    .clock{font:12px/1.6 Consolas,monospace;color:#adc5c3;white-space:nowrap;font-variant-numeric:tabular-nums}
+    details{margin-top:12px}
+    summary{cursor:pointer;color:#adc5c3}
+    .phases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
+    figure{margin:0;min-width:0}
+    img{width:100%;display:block;background:#000}
+    figcaption{font-size:12px;color:#9db7b5;margin-top:5px}
+    section{margin-top:52px}
+    .comparison{padding-top:18px;margin-top:24px;border-top:1px solid #34504f}
+    .comparison-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:14px}
+    .comparison img{aspect-ratio:4/3;object-fit:contain}
+    .tag{display:block;font-size:13px;color:#c4ded7;margin:0 0 8px}
+    .environment-clip{margin-top:24px}
+    .environment-clip .video-frame{max-width:820px}
+    footer{margin-top:42px;max-width:940px;color:#9db7b5;font-size:13px}
+    @media(max-width:580px){main{padding:28px 16px 48px}h1{font-size:25px}.comparison-grid{grid-template-columns:1fr}.tools button{padding:7px 10px}.grid{gap:28px}.clock{font-size:11px}}
+  </style>
+</head>
+<body>
+<main>
+  <h1>金羽更疾，银瀑更长</h1>
+  <p class="intro">本轮玻璃海实景回放：看四轮金羽往返的节奏，再看横空银瀑持续下垂的尾焰。下方另用同一时刻的环境受光开关图，对照岛屿、植被与海面的变化。</p>
+  <p><a href="../../">进入玻璃海</a> · <a href="../fireworks/audio-palette-review.html">声音分层试听</a> · <a href="ACCEPTANCE.md">本轮验证记录</a> · <a href="media-check.json">录像文件检查</a></p>
+
+  <div class="actions">
+    <button id="sequence" type="button">依次播放两款</button>
+    <button id="stop" type="button">停止播放</button>
+    <span id="status" role="status" aria-live="polite">点击播放后可听到原有声音。可单独播放，也可依次观看。</span>
+  </div>
+  <p class="intro">原视频为 960 × 720。默认保留完整画面；“2×细节”放大并裁看原画面，可随时恢复全幅，播放速度不变。裁看可能移出倒影，未增加原始分辨率。</p>
+
+  <div class="grid">
+    <article class="clip" data-label="金羽·往返扫射">
+      <h2>金羽·往返扫射</h2>
+      <p class="meta">完整事件 19.28 秒 · 录像 20.04 秒 · 种子 619</p>
+      <div class="video-frame" style="--zoom-x:50%;--zoom-y:66%">
+        <video id="vfan" controls playsinline preload="none" data-sequence poster="display-vfan-phase-2.png" src="display-vfan.webm" aria-label="金羽往返扫射完整实景录像" aria-describedby="vfan-view"></video>
+      </div>
+      <div class="tools">
+        <button type="button" data-play aria-controls="vfan">播放</button>
+        <button type="button" data-zoom aria-pressed="false" aria-controls="vfan">2×细节（裁看）</button>
+        <button type="button" data-mute aria-pressed="false" aria-controls="vfan">静音</button>
+        <a href="display-vfan.webm" target="_blank" rel="noopener">打开原视频</a>
+      </div>
+      <div class="timeline"><input type="range" data-seek min="0" max="20.04" step="0.01" value="0" aria-label="金羽播放进度，单位秒"><output class="clock" data-clock>00:00 / 00:20</output></div>
+      <p id="vfan-view" class="view-note" data-view-note>完整画面 · 金羽和水面倒影同框。</p>
+      <p>128 发与四轮往返保持，发射间隔从 0.15 秒缩至 0.10 秒，扫射节奏为原来的 <strong>1.5 倍</strong>。末发由 19.05 秒提前到 12.7 秒；每条彗星燃烧 4.1 秒，带 1.05 秒持续尾焰。</p>
+      <details><summary>查看三个阶段定位图</summary><div class="phases">
+        <figure><a href="display-vfan-phase-1.png" target="_blank" rel="noopener"><img loading="lazy" src="display-vfan-phase-1.png" alt="金羽发射后3.19秒，金色羽束向一侧展开"></a><figcaption>发射后 3.19 秒</figcaption></figure>
+        <figure><a href="display-vfan-phase-2.png" target="_blank" rel="noopener"><img loading="lazy" src="display-vfan-phase-2.png" alt="金羽发射后8.66秒，往返中的金色弧形尾焰"></a><figcaption>发射后 8.66 秒</figcaption></figure>
+        <figure><a href="display-vfan-phase-3.png" target="_blank" rel="noopener"><img loading="lazy" src="display-vfan-phase-3.png" alt="金羽发射后13.64秒，末轮彗星与倒影"></a><figcaption>发射后 13.64 秒</figcaption></figure>
+      </div></details>
+    </article>
+
+    <article class="clip" data-label="星河·横空银瀑">
+      <h2>星河·横空银瀑</h2>
+      <p class="meta">完整事件 19.69 秒 · 录像 20.48 秒 · 种子 619</p>
+      <div class="video-frame" style="--zoom-x:58%;--zoom-y:51%">
+        <video id="waterfall" controls playsinline preload="none" data-sequence poster="display-waterfall-phase-2.png" src="display-waterfall.webm" aria-label="横空银瀑完整实景录像" aria-describedby="waterfall-view"></video>
+      </div>
+      <div class="tools">
+        <button type="button" data-play aria-controls="waterfall">播放</button>
+        <button type="button" data-zoom aria-pressed="false" aria-controls="waterfall">2×细节（裁看）</button>
+        <button type="button" data-mute aria-pressed="false" aria-controls="waterfall">静音</button>
+        <a href="display-waterfall.webm" target="_blank" rel="noopener">打开原视频</a>
+      </div>
+      <div class="timeline"><input type="range" data-seek min="0" max="20.48" step="0.01" value="0" aria-label="银瀑播放进度，单位秒"><output class="clock" data-clock>00:00 / 00:20</output></div>
+      <p id="waterfall-view" class="view-note" data-view-note>完整画面 · 后段倒影接近底边，可切换细节查看银丝。</p>
+      <p>横穿的母彗星沿途释放银白火星。常用高仰角下，子体燃烧从 5.6–6.1 秒延至 <strong>7.6–8.1 秒</strong>，接入 2.2 秒尾迹，渐转金色余烬；低角发射会按离地余量提前熄灭。</p>
+      <details><summary>查看三个阶段定位图</summary><div class="phases">
+        <figure><a href="display-waterfall-phase-1.png" target="_blank" rel="noopener"><img loading="lazy" src="display-waterfall-phase-1.png" alt="银瀑发射后7.50秒，银白母彗星横穿"></a><figcaption>发射后 7.50 秒</figcaption></figure>
+        <figure><a href="display-waterfall-phase-2.png" target="_blank" rel="noopener"><img loading="lazy" src="display-waterfall-phase-2.png" alt="银瀑发射后11.07秒，银白细丝开始形成下垂帘幕"></a><figcaption>发射后 11.07 秒</figcaption></figure>
+        <figure><a href="display-waterfall-phase-3.png" target="_blank" rel="noopener"><img loading="lazy" src="display-waterfall-phase-3.png" alt="银瀑发射后14.08秒，向下延展的金白尾焰与暗色余烬"></a><figcaption>发射后 14.08 秒</figcaption></figure>
+      </div></details>
+    </article>
+  </div>
+
+  <section aria-labelledby="receivers-title">
+    <h2 id="receivers-title">看光如何落在环境上</h2>
+    <p class="intro">主爆瞬时闪光缩短为 <strong>75 毫秒</strong>，白色球状核心已弱化，由短促的环境提亮表达大闪光。持续焰光也会改变沙滩、植被与近海的受光，颜色、强弱和位置随燃烧过程变化。</p>
+    <p class="intro">以下是同一场景、同一燃烧时刻的接收光开关对照。0.800 秒和 2.600 秒展示的是爆后的持续焰光，不是 75 毫秒瞬时闪光。图片可点击查看原尺寸；具体测量与判定见 <a href="browser-lighting.json">当前环境受光检查</a>。</p>
+
+    <article class="clip environment-clip" data-label="星冠照亮岛屿的环境回放">
+      <h3>星冠照亮岛屿</h3>
+      <p class="meta">岛屿机位 · 24 mm · 录像 17.64 秒 · 面向沙滩、棕榈与近海</p>
+      <div class="video-frame"><video id="flower" controls playsinline preload="none" poster="display-flower-phase-2.png" src="display-flower.webm" aria-label="星冠燃放时岛屿环境受光的实际录像"></video></div>
+      <div class="tools"><button type="button" data-play aria-controls="flower">播放</button><a href="display-flower.webm" target="_blank" rel="noopener">打开原视频</a></div>
+      <p class="intro">这段朝岛屿取景，观察环境亮度和颜色随燃烧变化。高空主烟花不在画内；同一时刻的接收光开关对照见下方。</p>
+    </article>
+
+    <div class="comparison">
+      <h3>爆后 0.800 秒</h3>
+      <p class="meta">保持同一观察机位，比较沙滩、棕榈与近海的明暗。</p>
+      <div class="comparison-grid">
+        <figure><span class="tag">接收光开启</span><a href="current-burst-0.800-receivers-on.png" target="_blank" rel="noopener"><img loading="lazy" src="current-burst-0.800-receivers-on.png" alt="爆后0.800秒，环境接收烟花光开启的原场景画面"></a><figcaption>同刻原画面 · 接收光开启</figcaption></figure>
+        <figure><span class="tag">接收光关闭</span><a href="current-burst-0.800-receivers-off.png" target="_blank" rel="noopener"><img loading="lazy" src="current-burst-0.800-receivers-off.png" alt="爆后0.800秒，同一机位关闭烟花接收光的场景画面"></a><figcaption>同刻原画面 · 接收光关闭</figcaption></figure>
+      </div>
+    </div>
+    <div class="comparison">
+      <h3>爆后 2.600 秒</h3>
+      <p class="meta">继续比较燃烧后段的环境变化，避免只看爆闪最亮的一帧。</p>
+      <div class="comparison-grid">
+        <figure><span class="tag">接收光开启</span><a href="current-burst-2.600-receivers-on.png" target="_blank" rel="noopener"><img loading="lazy" src="current-burst-2.600-receivers-on.png" alt="爆后2.600秒，环境接收烟花持续焰光开启的场景画面"></a><figcaption>同刻原画面 · 接收光开启</figcaption></figure>
+        <figure><span class="tag">接收光关闭</span><a href="current-burst-2.600-receivers-off.png" target="_blank" rel="noopener"><img loading="lazy" src="current-burst-2.600-receivers-off.png" alt="爆后2.600秒，同一机位关闭烟花接收光的场景画面"></a><figcaption>同刻原画面 · 接收光关闭</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>这些视频记录真实网页画面与原有 WebAudio 声音，含约 0.75 秒开场；保留采集节奏并编码到 40 毫秒网格，没有补帧或改变播放速度。声音为近似同步，尚未做毫秒级声画同步或主观听审。录屏会增加开销，不能用这组材料宣称持续帧率。</p>
+    <p>阶段图用于定位，不能代替正常速度观看。金羽同时燃烧的身体增加，银瀑后段更亮、更长；密集燃放性能、真实移动设备表现和最终观感仍需继续验证。<a href="dynamic-gallery.json">采集记录</a> · <a href="choreography-check.json">编排检查</a> · <a href="receiver-light-check.json">环境光数据检查</a></p>
+  </footer>
+</main>
+<script>
+  const videos=[...document.querySelectorAll('video')];
+  const queue=videos.filter(video=>video.hasAttribute('data-sequence'));
+  const status=document.querySelector('#status');
+  let sequenceIndex=null;
+  const clock=seconds=>{const n=Math.max(0,Math.floor(Number.isFinite(seconds)?seconds:0));return String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0');};
+  function halt(){sequenceIndex=null;videos.forEach(video=>video.pause());}
+  async function playSequence(index){
+    if(index>=queue.length){sequenceIndex=null;status.textContent='两款回放已播放完毕。';return;}
+    sequenceIndex=index;const video=queue[index];video.currentTime=0;
+    video.closest('.clip').scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+    try{await video.play();}catch(error){sequenceIndex=null;status.textContent='请点击当前视频的播放按钮继续，也可打开原视频。';}
+  }
+  document.querySelector('#sequence').addEventListener('click',()=>{halt();playSequence(0);});
+  document.querySelector('#stop').addEventListener('click',()=>{halt();status.textContent='播放已停止，可从当前位置继续。';});
+  videos.forEach(video=>{
+    const card=video.closest('.clip'),play=card.querySelector('[data-play]'),zoom=card.querySelector('[data-zoom]'),mute=card.querySelector('[data-mute]'),seek=card.querySelector('[data-seek]'),output=card.querySelector('[data-clock]'),note=card.querySelector('[data-view-note]');
+    const originalNote=note?.textContent;
+    function updateProgress(){if(seek&&output){if(Number.isFinite(video.duration)&&video.duration>0)seek.max=video.duration;seek.value=video.currentTime;output.textContent=clock(video.currentTime)+' / '+clock(Number.isFinite(video.duration)?video.duration:Number(seek.max));}}
+    play.addEventListener('click',async()=>{sequenceIndex=null;if(video.paused){try{await video.play();}catch(error){status.textContent='播放未能开始，请使用视频原生控件或打开原视频。';}}else video.pause();});
+    video.addEventListener('play',()=>{if(sequenceIndex!==null&&queue[sequenceIndex]!==video)sequenceIndex=null;videos.forEach(other=>{if(other!==video)other.pause();});play.textContent='暂停';status.textContent='正在播放：'+card.dataset.label;});
+    video.addEventListener('pause',()=>{play.textContent='播放';});
+    video.addEventListener('ended',()=>{play.textContent='播放';if(sequenceIndex!==null&&queue[sequenceIndex]===video)playSequence(sequenceIndex+1);});
+    video.addEventListener('error',()=>{if(queue[sequenceIndex]===video)sequenceIndex=null;status.textContent='当前视频加载失败，可打开原视频或刷新后重试。';});
+    video.addEventListener('loadedmetadata',updateProgress);video.addEventListener('durationchange',updateProgress);video.addEventListener('timeupdate',updateProgress);
+    seek?.addEventListener('input',()=>{if(video.readyState>0)video.currentTime=Number(seek.value);updateProgress();});
+    zoom?.addEventListener('click',()=>{
+      const enabled=zoom.getAttribute('aria-pressed')!=='true';zoom.setAttribute('aria-pressed',String(enabled));zoom.textContent=enabled?'恢复完整画面':'2×细节（裁看）';video.parentElement.classList.toggle('is-zoomed',enabled);video.controls=!enabled;
+      note.textContent=enabled?'2×裁看原画面 · 进度与声音由下方控件操作，倒影可能在取景外；点击恢复完整画面。':originalNote;
+    });
+    mute?.addEventListener('click',()=>{video.muted=!video.muted;});
+    video.addEventListener('volumechange',()=>{if(mute){mute.setAttribute('aria-pressed',String(video.muted));mute.textContent=video.muted?'开启声音':'静音';}});
+  });
+</script>
+</body>
+</html>

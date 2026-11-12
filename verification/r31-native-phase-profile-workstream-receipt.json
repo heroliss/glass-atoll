@@ -1,0 +1,156 @@
+{
+  "schema": "glass-atoll.r31-native-phase-profile-smoke-workstream-receipt.v1",
+  "revision": "r31-one-fresh-native-phase-profile-v1",
+  "pendingHardware": false,
+  "actualGPUByChild": false,
+  "browserActionsByChild": 0,
+  "productionEditsByChild": 0,
+  "overallGoalComplete": false,
+  "helperSHA256": "698825a0ef921dbd0884c5850f1303f323d1b7629f136009d3ef3b217ce1c33d",
+  "pinsSHA256": "36ddf77f7a026c53721ee0622cf27e39caffcb18e1535246a32f052f592aca8c",
+  "manifestSHA256": "90389195b1c842006dcf2298ee294bea988b709d7d5a660290afa3afb719583d",
+  "ownCPU": {
+    "path": "verification/r31-native-phase-profile-preflight.json",
+    "sha256": "e4ed3de161e5e56449c25b01c729d67adddf8eb4de4a5947d84b5ccc38892e91",
+    "counts": {
+      "passed": 7,
+      "total": 7
+    },
+    "contextCalls": 0
+  },
+  "independentCPU": {
+    "path": "verification/r31-phase-profile-layer-bounds-review.json",
+    "sha256": "0714c76efb30a8c122540c3523a2d5f2d6d7ac5a057fcb26ba714897da44eb00",
+    "counts": {
+      "passed": 5,
+      "total": 5
+    }
+  },
+  "unchangedNativeHelperSHA256": "9ecc4755b9d9907831443d5dce0032f3d8b1f64bd92b45faf20c2e56d5aa3762",
+  "unchangedNativeHardwareReceiptSHA256": "873ecd6a1084655595cd91d82fa2b86003b0a04b5724ffc97a0239922f2682e4",
+  "schedule": {
+    "queryCount": 3,
+    "phaseOrder": [
+      "photometry",
+      "water",
+      "lens"
+    ],
+    "lensIncludesCapture": true,
+    "nested": false,
+    "awaitBetweenPhases": false,
+    "aggregate": "sum-of-three-sequential-query-intervals",
+    "continuousWholeQuery": false,
+    "sumCeilingMs": 100,
+    "allReadyNonDisjointFiniteBeforeImage": true,
+    "noResultPollingOnSubmissionFault": true,
+    "cleanupAllOwnedQueries": true,
+    "causalComparisonToPrevious59msClaim": false
+  },
+  "image": {
+    "width": 1209,
+    "height": 1292,
+    "readType": "UNSIGNED_BYTE",
+    "bytes": 6248112,
+    "rowOrder": "bottom-up",
+    "statisticsDomain": "normalized encoded-sRGB0..1"
+  },
+  "noSceneOrKernelOrWorkCapChange": true,
+  "hardwarePassed": false,
+  "profileSumGatePassed": false,
+  "validIndividualTimingEvidence": true,
+  "successfulFrameAdmitted": false,
+  "imageReadbackAdmitted": false,
+  "performanceTargetMet": false,
+  "actual": {
+    "path": "verification/r31-native-phase-profile-actual-gpu.json",
+    "sha256": "ffd2a438d9512de1db641035fdc448a85f69815e6596f76f0bb1b9e2271355b1",
+    "hardwareCounts": {
+      "passed": 4,
+      "total": 5
+    },
+    "actualGPU": true,
+    "passed": false,
+    "timings": {
+      "aggregation": "sum-of-three-sequential-query-intervals",
+      "continuousWholeQuery": false,
+      "individuallyReadyNonDisjoint": true,
+      "sumGpuMs": 137.605376,
+      "ceilingMs": 100,
+      "previous59msCausalComparisonClaim": false,
+      "steadyStateFPSClaim": false,
+      "totalInstrumentedCPUms": 125.1000000089407,
+      "phases": [
+        {
+          "phase": "photometry",
+          "gpuMs": 1.52064,
+          "cpuWallMs": 27.400000005960464,
+          "actualDraws": 8,
+          "elements": 24,
+          "renderCalls": 8,
+          "nativeOps": {
+            "blits": 0,
+            "mipmaps": 0,
+            "clears": 2
+          }
+        },
+        {
+          "phase": "water",
+          "gpuMs": 53.446976,
+          "cpuWallMs": 58.599999994039536,
+          "actualDraws": 43,
+          "elements": 4007466,
+          "renderCalls": 11,
+          "nativeOps": {
+            "blits": 5,
+            "mipmaps": 4,
+            "clears": 2
+          }
+        },
+        {
+          "phase": "lens",
+          "gpuMs": 82.63776,
+          "cpuWallMs": 37.79999999701977,
+          "actualDraws": 56,
+          "elements": 6433920,
+          "renderCalls": 22,
+          "nativeOps": {
+            "blits": 5,
+            "mipmaps": 0,
+            "clears": 12
+          }
+        }
+      ]
+    },
+    "work": {
+      "actualDraws": 107,
+      "elements": 10441410,
+      "renderCalls": 41,
+      "nativeOps": {
+        "blits": 10,
+        "mipmaps": 4,
+        "clears": 16
+      },
+      "numericalStages": 18,
+      "observedSharedSHBakes": 1,
+      "observedCPUFallbackQueries": 0,
+      "postTimerCompleteConsumerChecksAdmitted": false
+    },
+    "restoration": {
+      "semanticPassed": true,
+      "nativePassed": true,
+      "descriptorsPassed": true,
+      "originalPresentationRebuildAttempted": false
+    }
+  },
+  "ownSavedReceiptAudit": {
+    "path": "verification/r31-native-phase-profile-smoke-actual-audit.json",
+    "sha256": "dcb371f05e51637567d9636e77a7a4e6360c7a7f71ea88101be5a906ed30a1eb",
+    "auditPassed": true,
+    "counts": {
+      "passed": 6,
+      "total": 6
+    },
+    "actualGPU": false
+  },
+  "noRetryOrGuardIncrease": true
+}

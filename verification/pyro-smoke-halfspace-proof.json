@@ -1,0 +1,237 @@
+{
+  "schema": "glass-atoll.pyro-smoke-halfspace-proof.v1",
+  "dateUTC": "2026-10-26T22:10:47.028Z",
+  "runtimeSHA256": "d40060da202a0c4b488986acef4afcbb64550ac97bd875b012b9bdba70a25e19",
+  "runtimeEdits": false,
+  "noGPUOrBrowser": true,
+  "passed": true,
+  "counts": {
+    "checks": 13,
+    "passed": 13
+  },
+  "checks": [
+    {
+      "id": "existing_time_constructor_starts_at_running_app_clock_without_catchup",
+      "passed": true,
+      "advance": {
+        "time": 4000,
+        "requestedTime": 4000,
+        "steps": 0,
+        "completed": true,
+        "behindSeconds": 0,
+        "uncommittedRemainderSeconds": 0,
+        "revision": 0
+      }
+    },
+    {
+      "id": "default_time_zero_would_require_explicit_catchup_not_an_initialTime_bug",
+      "passed": true,
+      "advance": {
+        "time": 10,
+        "requestedTime": 4000,
+        "steps": 200,
+        "completed": false,
+        "behindSeconds": 3990,
+        "uncommittedRemainderSeconds": null,
+        "revision": 0
+      }
+    },
+    {
+      "id": "production_density_really_is_unbounded_below_plane",
+      "passed": true,
+      "belowGroundDensity": 0.022698307761609957
+    },
+    {
+      "id": "general_SPD_mirror_requires_R_covariance_R_not_mean_only",
+      "passed": true,
+      "correctMaxError": 0,
+      "meanOnlyWrongError": 0.004554374599445131,
+      "mirroredCovariance": [
+        4,
+        -0.8,
+        0.2,
+        -0.8,
+        1,
+        -0.3,
+        0.2,
+        -0.3,
+        2
+      ]
+    },
+    {
+      "id": "halfspace_fold_is_exactly_zero_below_plane",
+      "passed": true
+    },
+    {
+      "id": "folded_general_3D_density_above_ground_integrates_to_M_not_2M",
+      "passed": true,
+      "numericMass": 0.999999999993169,
+      "target": 1,
+      "limit": "finite7sigma Simpson volume; exact full-domain equality follows by change of variables"
+    },
+    {
+      "id": "physical_folded_centroid_is_not_the_latent_kernel_mean",
+      "passed": true,
+      "latentMean": [
+        0.3,
+        0.2,
+        -0.5
+      ],
+      "actualMeanFormula": [
+        0.3,
+        0.813789271726553,
+        -0.5
+      ],
+      "numericalMean": [
+        0.29999999999313204,
+        0.8137900965298989,
+        -0.5000000000027277
+      ]
+    },
+    {
+      "id": "kernel_on_plane_has_halfnormal_physical_centroid_and_variance",
+      "passed": true,
+      "latentMeanY": 0,
+      "physicalMeanY": 0.7978845608028654,
+      "latentVarianceY": 1,
+      "physicalVarianceY": 0.3633802276324186
+    },
+    {
+      "id": "plane_clipped_finite_columns_match_independent_folded_density_quadrature",
+      "passed": true,
+      "rays": [
+        {
+          "name": "main-down-to-water",
+          "origin": [
+            0,
+            5,
+            0
+          ],
+          "direction": [
+            0,
+            -1,
+            0
+          ],
+          "start": 0,
+          "end": 5,
+          "analytic": 0.05218391027426114,
+          "numeric": 0.05218391028007389
+        },
+        {
+          "name": "mirror-camera-through-plane",
+          "origin": [
+            0,
+            -5,
+            0
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "start": 0,
+          "end": 10,
+          "analytic": 0.052183910274261225,
+          "numeric": 0.05218391028007374
+        },
+        {
+          "name": "water-hit-up",
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "start": 0,
+          "end": 5,
+          "analytic": 0.05218391027426118,
+          "numeric": 0.05218391028007374
+        },
+        {
+          "name": "inside-t0-zero",
+          "origin": [
+            0,
+            0.2,
+            0
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "start": 0,
+          "end": 4,
+          "analytic": 0.04322247908187117,
+          "numeric": 0.043222477082110765
+        },
+        {
+          "name": "above-horizontal",
+          "origin": [
+            -8,
+            0.4,
+            0
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "start": 0,
+          "end": 16,
+          "analytic": 0.1925220832004568,
+          "numeric": 0.19252208545386418
+        },
+        {
+          "name": "below-horizontal",
+          "origin": [
+            -8,
+            -0.4,
+            0
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "start": 0,
+          "end": 16,
+          "analytic": 0,
+          "numeric": 0
+        }
+      ]
+    },
+    {
+      "id": "mirror_camera_to_plume_column_equals_water_hit_air_segment",
+      "passed": true
+    },
+    {
+      "id": "reverse_main_air_segment_has_reciprocal_scalar_optical_depth",
+      "passed": true
+    },
+    {
+      "id": "mirror_image_is_a_virtual_query_not_a_second_physical_mass_emission",
+      "passed": true
+    },
+    {
+      "id": "runtime_state_query_source_is_unchanged",
+      "passed": true
+    }
+  ],
+  "interpretation": {
+    "reset": "use existing constructor {time:appPhysicalTime,wind:current}; noinitialTime alias needed",
+    "currentState": "unbounded Gaussian: ledger airborne is full mathematical reservoir mass, including below-plane tails until an explicit boundary model is selected",
+    "halfspace": "rhoPlus(x,y,z)=rhoG(x,y,z)+rhoG(x,-y,z) for y>=0, otherwise0; virtual reflected kernel mean=Rmu,cov=RSigmaR",
+    "moments": "actual constrained meanY=E|Y|, not latent meanY; kernel covariance is not the constrained physical covariance",
+    "column": "clip real ray to y>=0 then evaluate same base kernel with real and R-reflected ray. Do not add mirror packets to the mass ledger.",
+    "limits": [
+      "flat reflecting mathematical density boundary only; no deposition/terrain/wave/fluid boundary solution",
+      "mass/optical-depth proof, not single/multiple-scatter source integration or actualGPU acceptance",
+      "optical conditional mean must be ray/opacity weighted after clipping; it is not virtual kernel mean",
+      "water mirror optics and mass-method-of-images are different operations; do not double-count camera-to-water andwater-hit-to-world air"
+    ]
+  }
+}

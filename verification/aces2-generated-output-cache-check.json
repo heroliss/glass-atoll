@@ -1,0 +1,55 @@
+{
+  "schema": "glass-atoll.aces2-generated-output-cache-QA.v1",
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "checks": [
+    {
+      "name": "twelve_dynamic_cache_slots_reject_thirteenth_without_IO_or_compile",
+      "passed": true,
+      "evidence": {
+        "protocolVMOnly": true,
+        "capacity": 12,
+        "noEviction": true,
+        "noSilentPeakSubstitution": true
+      }
+    },
+    {
+      "name": "latest_epoch_only_compiles_publishes_current_target",
+      "passed": true,
+      "evidence": {
+        "oldStale": true,
+        "noOldCompile": true
+      }
+    },
+    {
+      "name": "same_pending_target_uses_same_promise_and_one_compile",
+      "passed": true,
+      "evidence": {
+        "samePromise": true
+      }
+    },
+    {
+      "name": "dispose_pending_avoids_compile_and_publication",
+      "passed": true,
+      "evidence": {
+        "noLateGPUAllocation": true
+      }
+    },
+    {
+      "name": "compile_failure_is_explicit_not_supported_or_effective_success",
+      "passed": true,
+      "evidence": {
+        "notClassifiedAsUnsupported": true
+      }
+    }
+  ],
+  "noGPU": true,
+  "protocolVMOnly": true,
+  "limits": [
+    "Only two exact callsites are replaced in a VM: verified-data loader return and GL compile transaction. This validates production cache/epoch code, never shader values or GL restoration.",
+    "Real generated-loader integrity is tested separately against actual1200 package; actualGPU helper is still mandatory."
+  ]
+}

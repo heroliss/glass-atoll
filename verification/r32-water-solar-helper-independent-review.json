@@ -1,0 +1,164 @@
+{
+  "schema": "glass-atoll.r32-water-solar-helper-independent-cpu-review.v1",
+  "actualGPU": false,
+  "browserActions": 0,
+  "nativeContextCalls": 0,
+  "rendererRenderCalls": 0,
+  "fixtureReplays": 0,
+  "productionEdits": 0,
+  "ownerReportsRegenerated": 0,
+  "passed": true,
+  "counts": {
+    "passed": 7,
+    "total": 7
+  },
+  "sourcePins": {
+    "helper": "6696482771a8c1d4116d4d42bcc0a558ae28159fe933a4bd100616b496198bb0",
+    "pinsModule": "f4365e212b606a954e1a1149733592ef2d24c1d64274f7117eec3eddf53f1c9a",
+    "pinsManifest": "6f1acdfb6afd0e04997c75db90b497cb07208e79ea59773336fd5522a0e43573",
+    "main": "920e5045c0eaf5cc0c4113fcb3f331c8a3d755bb7f45a4d91f39ab08562d2ad9"
+  },
+  "checks": [
+    {
+      "name": "Final helper669648 and complete18-source/six-function closed pins match actual files and functions",
+      "passed": true,
+      "evidence": {
+        "helperSHA256": "6696482771a8c1d4116d4d42bcc0a558ae28159fe933a4bd100616b496198bb0",
+        "sources": 18,
+        "cachedFunctions": 6,
+        "productionWaterSHA256": "d7d5b76dadf35e2e507b640b8975fb3819821b29d113ceeebf195080fd88b045",
+        "mainSHA256": "920e5045c0eaf5cc0c4113fcb3f331c8a3d755bb7f45a4d91f39ab08562d2ad9",
+        "sunShadowExplicitlyPinned": true
+      }
+    },
+    {
+      "name": "Actual decorated production-water factory can be safely cloned with exact borrowed textures, owned mutable values and commuting four-MRT inverse",
+      "passed": true,
+      "evidence": {
+        "actualLocalLightFactory": true,
+        "geometryIndices": 2457600,
+        "borrowedTextureReferences": 12,
+        "uniformArraysAndVectorsPrivatelyOwned": true,
+        "compileHookAndKeyPreserved": true,
+        "allFourMRTOutputs": true,
+        "completeExpandedInverse": true,
+        "sourceMeshHookCalled": false,
+        "facadeContextReads": 1,
+        "nativeContextCalls": 0,
+        "draws": 0
+      }
+    },
+    {
+      "name": "Actual uniform snapshot preserves aliases while detecting original changes and rejects getters/nonfinite unsupported inputs",
+      "passed": true,
+      "evidence": {
+        "aliasesPreservedInOwnedCopy": true,
+        "originalVectorAndTextureMutationDetected": true,
+        "nonfiniteScalarRejected": true,
+        "gettersExecuted": 0
+      }
+    },
+    {
+      "name": "Strict raw comparison rejects signed-zero/U8 changes and nonfinite outputs; real loop requires finite positive baseline before candidate",
+      "passed": true,
+      "evidence": {
+        "exactStoredWordTolerance": 0,
+        "signedZeroDifferenceDetected": true,
+        "reactiveU8DifferenceDetected": true,
+        "nonfiniteRejected": true,
+        "baselinePositiveRGBGateBeforeSecondDraw": true,
+        "coverageScope": "Single detached water mesh, black/zero clear; positive RGB is a nonvacuous water-fragment witness, not whole-frame coverage"
+      }
+    },
+    {
+      "name": "Native pixel footprint, actual full draw, four attachment reads and all precompile gates are fixed before hardware",
+      "passed": true,
+      "evidence": {
+        "viewport": [
+          1209,
+          1292
+        ],
+        "roi": [
+          588,
+          256,
+          32,
+          32
+        ],
+        "maximumDraws": 2,
+        "indexType": "UNSIGNED_INT",
+        "offset": 0,
+        "maximumElements": 4915200,
+        "maximumRawReads": 8,
+        "maximumReadBytes": 106496,
+        "numericAllocationWithDepthBudgetBytes": 35926644,
+        "formats": [
+          "RGBA16F",
+          "RGBA16F",
+          "R16F",
+          "R8"
+        ],
+        "singleSample": true,
+        "noBlitOrMipmap": true,
+        "precompileAndActualShaderInverseBeforeFirstDraw": true
+      }
+    },
+    {
+      "name": "Actual timer-begin block stops before render on error and per-draw admission requires ready nondisjoint finite at most100ms",
+      "passed": true,
+      "evidence": {
+        "actualBeginBlockCases": 2,
+        "firstFaultStopsBeforeRender": true,
+        "perDrawCeilingMs": 100,
+        "readbackAndSecondDrawDependOnPriorGate": true,
+        "noCeilingRelaxation": true
+      }
+    },
+    {
+      "name": "Final liveness after private disposal always records failure and releases active; native caches/descriptors restore before disposal",
+      "passed": true,
+      "evidence": {
+        "actualExtractedFinalHealthCases": [
+          {
+            "mode": "healthy",
+            "stopped": false,
+            "active": false
+          },
+          {
+            "mode": "lost",
+            "stopped": true,
+            "active": false
+          },
+          {
+            "mode": "replacement",
+            "stopped": true,
+            "active": false
+          },
+          {
+            "mode": "deleted-program",
+            "stopped": true,
+            "active": false
+          },
+          {
+            "mode": "deleted-vao",
+            "stopped": true,
+            "active": false
+          },
+          {
+            "mode": "getter-throw",
+            "stopped": true,
+            "active": false
+          }
+        ],
+        "restoreThenUnpatchThenDisposeThenRecheck": true,
+        "originalGeometryNeverDisposed": true,
+        "privateRendererCacheIdentityClaimed": false
+      }
+    }
+  ],
+  "limits": [
+    "Focused actual factory/clone/expanded-MRT CPU checks and extracted first-fault/final-health blocks only; no native context or GPU call.",
+    "First version review requested final identity/liveness recording, no-throw cleanup and begin/indexed-draw pre-error checks; final669648 includes these repairs.",
+    "This review admits only the fixed separately root-owned first zero-key tile attempt after other gates. No nonzero/debug/props hardware parity or whole-scene performance approval.",
+    "Exact mixedFP16/R8 stored words can hide sub-FP16 arithmetic differences; one scissored tile and two cold timings are not universal equivalence or speedup evidence."
+  ]
+}

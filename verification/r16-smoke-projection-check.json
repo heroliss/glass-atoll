@@ -1,0 +1,74 @@
+{
+  "schema": "glass-atoll.r16-smoke-projection.v1",
+  "passed": true,
+  "counts": {
+    "passed": 7,
+    "total": 7
+  },
+  "checks": [
+    {
+      "name": "isotropic exact projection matches tangent-circle analytic roots",
+      "passed": true,
+      "rect": [
+        -0.1488558234178432,
+        -0.26463257496505455,
+        0.1488558234178432,
+        0.26463257496505455
+      ]
+    },
+    {
+      "name": "widened screen bounds contain250random Ksigma ellipsoids and asymmetric/rolled cameras",
+      "passed": true,
+      "samples": 50000,
+      "visibleSamples": 22257
+    },
+    {
+      "name": "depth support replaces false near-eye full-screen fallback",
+      "passed": true,
+      "oldPixels": 2073600,
+      "newPixels": 602809.7416126279
+    },
+    {
+      "name": "far side and camera-intersecting proxies retain conservative outcomes",
+      "passed": true
+    },
+    {
+      "name": "omitted screen rays stay outside Ksigma density support",
+      "passed": true,
+      "checked": 3708,
+      "minMahalanobis": 5.0598098217178045,
+      "relativeColumnTailFactor": 0.000003726653172078671
+    },
+    {
+      "name": "representative puff workload changes only projected fragment upper bounds",
+      "passed": true,
+      "rows": [
+        {
+          "legacyPixels": 362693.4891348398,
+          "ellipsoidPixels": 84236.37292014612,
+          "ratio": 0.2322522334797945
+        },
+        {
+          "legacyPixels": 2073600,
+          "ellipsoidPixels": 602809.7416126279,
+          "ratio": 0.29070685841658367
+        },
+        {
+          "legacyPixels": 1559996.7664008827,
+          "ellipsoidPixels": 286451.9822618741,
+          "ratio": 0.18362344617082532
+        }
+      ]
+    },
+    {
+      "name": "invalid viewport, matrices and packet shape reject without mutation",
+      "passed": true
+    }
+  ],
+  "noGPU": true,
+  "limits": [
+    "Finite5sigma proxy only; no mass or lifetime deletion.",
+    "Projected pixel counts are work upper bounds, not timing or FPS.",
+    "Existing source-varying scattering and overlap-order approximations remain."
+  ]
+}

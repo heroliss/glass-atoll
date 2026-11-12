@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "scope": "Independent operation-rounded Float32 world sweep sampling plus Gaussian/DOF support; CPU only, not proof of legacy screen-streak equality",
+  "pins": {
+    "fireworks.js": "a3515591221bd11d3aac643da29f054f8154bd12caff71ca4d175e6d1295a31a",
+    "main.js": "af79f7b2fa4a022946e8c6f32f56ff7edbbeb919a44d9672bf242c4ba6218b02",
+    "verification/lighting-choreography/swept-hull-independent-check.mjs": "66bb25b776f3f2543d8d6aec2d50d7ace00f577d626177037eed236641c14342"
+  },
+  "total": 1600,
+  "classifiedOutside": 920,
+  "dofOutside": 490,
+  "continuousSamples": 155480,
+  "cornerSamples": 3680,
+  "cases": [
+    {
+      "name": "Independent Float32 transforms of corners and continuous swept source samples remain outside Gaussian/DOF support",
+      "passed": true
+    },
+    {
+      "name": "A physical sweep crossing the viewport is retained even when its centre is far outside",
+      "passed": true
+    },
+    {
+      "name": "Near-plane-crossing but wholly top-side physical sweeps are excluded",
+      "passed": true
+    },
+    {
+      "name": "DOF can retain a close offscreen source whose blur reaches the viewport",
+      "passed": true
+    },
+    {
+      "name": "Vector raster exposure and scalar zero-duration shutter use the correct world domain",
+      "passed": true
+    },
+    {
+      "name": "Public Float32 attributes and reversed shutter direction keep equivalent swept domains",
+      "passed": true
+    },
+    {
+      "name": "Smoke, threshold uncertainty and nonfinite input retain their existing upload",
+      "passed": true
+    },
+    {
+      "name": "Viewport side-plane and ordinary on-axis support boundaries are retained",
+      "passed": true
+    }
+  ],
+  "failures": []
+}

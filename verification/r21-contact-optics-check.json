@@ -1,0 +1,103 @@
+{
+  "schema": "glass-atoll.r21-contact-optics-cpu.v1",
+  "dateUTC": "2026-10-29T05:20:22.810Z",
+  "passed": true,
+  "counts": {
+    "passed": 8,
+    "total": 8
+  },
+  "helperSHA256": "789ed0bfbe1fb81ddcfa8385a297576ebf334211ab3a34ef569ceb7b85f7a8fb",
+  "checks": [
+    {
+      "name": "disconnected head support uses own midpoint, independently integrated local bins, d/S once and source all-phase bound",
+      "passed": true,
+      "evidence": {
+        "records": 2,
+        "samples": [
+          10.175,
+          10.75
+        ],
+        "currentLedgerIntensity": 0
+      }
+    },
+    {
+      "name": "retired current tail keeps positive historical RGB and peak bound using fixed lag, sourceY, f/Z, decay and own colour",
+      "passed": true,
+      "evidence": {
+        "records": 2,
+        "currentIntensity": 0,
+        "positivePastPeak": true
+      }
+    },
+    {
+      "name": "local interval partition preserves global integrated RGB without gap renormalization",
+      "passed": true,
+      "evidence": {
+        "partitionRGB": [
+          2.64,
+          2.3200000000000003,
+          2.4799999999999995
+        ],
+        "disconnectedRGB": [
+          1.8600000000000008,
+          0.7966666666666702,
+          1.7866666666666697
+        ],
+        "renormalized": false
+      }
+    },
+    {
+      "name": "raster velocity/global shutter reproduce local motion endpoints while source velocity/local exposure remain honest",
+      "passed": true,
+      "evidence": {
+        "records": 2,
+        "f32MaximumRelativeError": 1.6689302384520488e-8,
+        "scope": "Algebra/Float32 input witness; actual unchanged shader and projection wiring remain root-owned"
+      }
+    },
+    {
+      "name": "empty and black supports allocate no anchor or neighbor queries; output arrays do not alias source",
+      "passed": true,
+      "evidence": {
+        "noEmissionQueries": 0,
+        "sourceArraysUntouched": true
+      }
+    },
+    {
+      "name": "complete temporal preflight is atomic and rejects overlap, future, pre-birth, zero/invalid clocks and unrepresentable midpoint",
+      "passed": true,
+      "evidence": {
+        "invalidCases": 13,
+        "queriesBeforeFailedPreflight": 0
+      }
+    },
+    {
+      "name": "callbacks are synchronous, causal and local; thrown or malformed later callbacks publish no partial result or source mutation",
+      "passed": true,
+      "evidence": {
+        "noPartialReturn": true,
+        "callbackQueriesBeforeThrow": 2,
+        "scope": "Callback external side effects cannot be rolled back; caller must supply read-only samplers"
+      }
+    },
+    {
+      "name": "actual certified plane-support intervals retain past airborne light after current source submerged",
+      "passed": true,
+      "evidence": {
+        "supportStatus": "bounded",
+        "uncertainBoundarySeconds": 1.862645149230957e-9,
+        "opticalRows": 1,
+        "queried": [
+          0.15999999921768904
+        ],
+        "currentActive": false
+      }
+    }
+  ],
+  "limits": [
+    "Pure source/RGB/local-motion plus actual plane-support helper coupling only. No production FW/projection/render/GPU/sourceT/ledger integration in this verifier.",
+    "Input intervals are caller-certified positive; this module cannot independently certify arbitrary geometry or remove air-support root uncertainty.",
+    "Current-N midpoint spatial support is retained as an approximation; no spatial clipping/recentering/renormalization is performed.",
+    "Finite8-bin local RGB plus first-order local motion; not nonlinear trajectory, varying T(t), past camera, receiver or opaque-depth history integration."
+  ]
+}

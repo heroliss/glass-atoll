@@ -1,0 +1,78 @@
+{
+  "schema": "glass-atoll.r41-explicit-dense-policy-check.v1",
+  "passed": true,
+  "passedChecks": 5,
+  "totalChecks": 5,
+  "actualGPU": false,
+  "rendererContextCalls": 0,
+  "productionEdits": [
+    "pyro-smoke-transmission-pack.js: two explicit ceiling literals",
+    "pyro-smoke-light-tiles.js: one explicit ceiling literal"
+  ],
+  "mainOrFWRoutingChanged": false,
+  "normalCallerBudgetChanged": false,
+  "hashes": {
+    "pyro-smoke-transmission-pack.js": "92131c1617517a56e875fecc8a7214e489c5a6aa63ea6f624a0b34b10cb9bf86",
+    "pyro-smoke-light-tiles.js": "836196409a114f0b87f753a7fb72e680e68414cf163309398b495d2494d21c2d",
+    "pyro-smoke-transmission-gpu.js": "16d7546cc73df5d14ab5bed3f07bb5a7f13fbec4638e1e2344e3ebb7d73abcf2",
+    "pyro-smoke-light-field.js": "6e37c2cc59c8f32b329840392dfba85a48c16c8beec92623d1e65b6458bffa6c",
+    "smoke-transmission-layout.js": "79b76d3ece575ab9eb4678e42825ff19b758200627512b0bfed78ab5b81508a5",
+    "smoke-transmission-rectangles.js": "3080bdaf0630010dd0f7e91ff84b050eac889235f7b0a587c831ea4090898832",
+    "verification/r39-dense-pack.js": "92131c1617517a56e875fecc8a7214e489c5a6aa63ea6f624a0b34b10cb9bf86",
+    "verification/r39-dense-light-tiles.js": "8d3b15128e354d73ea67a68cebf7bdd1d9c28422aa33c5baac02fe7e39e51425"
+  },
+  "scriptSHA256": "9fe58338fa7316cb5e9907d57d8cdedae374bd6f96d5beedd1bdd299024aca96",
+  "checks": [
+    {
+      "name": "Only the three authorized literals differ; proven R39 candidate bodies and shader identical",
+      "passed": true,
+      "detail": {
+        "changedLiterals": {
+          "SourceT": 2,
+          "SH": 1
+        },
+        "R39BodiesExactAfterImportRelocation": true,
+        "SHShaderAndDispatchSuffixExact": true
+      }
+    },
+    {
+      "name": "Old defaults and legacy named maxPairs/maxBakePairs remain unchanged",
+      "passed": true,
+      "detail": {
+        "TDefault": 3072,
+        "SHDefault": 1048576,
+        "legacySHPositiveSafeIntegerOverridePreserved": true
+      }
+    },
+    {
+      "name": "Explicit 4m behavior is exact old-domain behavior, including neutral/tile/limit boundaries",
+      "passed": true,
+      "detail": {
+        "countPairs": 15,
+        "exact4m": true,
+        "above4m": "pair-work-capacity"
+      }
+    },
+    {
+      "name": "Explicit 12m plans/layouts equal reviewed R39, all original-row counts retained",
+      "passed": true,
+      "detail": {
+        "countPairs": 15,
+        "exactRequestCeiling": 12000000,
+        "aboveCeilingPairsRejected": true,
+        "aboveCeilingOptionRejected": true
+      }
+    },
+    {
+      "name": "Actual immutable R39 main/mirror full original-double packing remains exact R39 U32",
+      "passed": true,
+      "detail": {
+        "views": 2,
+        "originalRowsPerView": 2418,
+        "completePackedU32Words": 563200,
+        "noNumericKernelOrGPUInvoked": true
+      }
+    }
+  ],
+  "scope": "Optional explicit12m request capability only; old default and explicit4m unchanged. Not live joint/prepared integration, numerical re-admission or frame/FPS proof."
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "glass-atoll.bloom-strength.cpu.v1",
+  "date": "2026-10-31T16:03:38.759Z",
+  "passed": true,
+  "checks": [
+    {
+      "name": "Former full-strength budgets remain exact without a strength argument",
+      "passed": true,
+      "evidence": {
+        "legacyBloom": 0.018,
+        "legacyCombined": 0.018
+      }
+    },
+    {
+      "name": "Amount scales bloom only; every combination remains a nonnegative unit mixture",
+      "passed": true,
+      "evidence": {
+        "combinations": 24,
+        "productionDefaultBudget": {
+          "direct": 0.9865,
+          "bloom": 0.013499999999999998,
+          "ghost": 0,
+          "veil": 0,
+          "total": 0.013499999999999998
+        }
+      }
+    },
+    {
+      "name": "Actual factory retains chosen amount across toggles and bypasses zero without render work",
+      "passed": true,
+      "evidence": [
+        {
+          "quality": "legacy",
+          "zeroAmountFlareBudget": {
+            "direct": 0.995,
+            "bloom": 0,
+            "ghost": 0.003,
+            "veil": 0.002,
+            "total": 0.005
+          }
+        },
+        {
+          "quality": "gaussian",
+          "zeroAmountFlareBudget": {
+            "direct": 0.995,
+            "bloom": 0,
+            "ghost": 0.003,
+            "veil": 0.002,
+            "total": 0.005
+          }
+        }
+      ]
+    },
+    {
+      "name": "Malformed amounts reject atomically in both budget and factory",
+      "passed": true,
+      "evidence": {
+        "invalidInputs": 11
+      }
+    }
+  ],
+  "sourcePins": {
+    "optical-bloom.js": "c6499865f5ad27dfcc07c2dcf6bb814a59a04e6308cf2d34a540a9305299278b",
+    "lens.js": "97855562aa4fdcf76f85e2713137b181a2424677ffb14c1dc10682e1c4d129d2"
+  },
+  "scope": "Pure unit-mixture algebra and actual Three factory configuration/bypass. No shader execution, GPU/scene readback or visual acceptance."
+}

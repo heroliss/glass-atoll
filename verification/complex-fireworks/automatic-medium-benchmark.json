@@ -1,0 +1,3807 @@
+{
+  "averageFps": 64.8652950776314,
+  "cpuMs": {
+    "count": 327,
+    "maximum": 101.09999999403954,
+    "mean": 14.921712537606558,
+    "median": 13.5,
+    "minimum": 10.699999988079073,
+    "p95": 21.099999994039536,
+    "p99": 29.5
+  },
+  "date": "2026-10-30T19:07:08.941Z",
+  "elapsedSeconds": 5.025799999982119,
+  "final": {
+    "atmosphere": {
+      "altitudeWindMetresPerSecond": [
+        2.6956800000000003,
+        1.01376
+      ],
+      "atmosphereSteps": 8,
+      "camera": [
+        435.67997580837334,
+        7,
+        -1601.9796816603202
+      ],
+      "cloudBaseContinuity": 1,
+      "cloudBaseMetres": 812.9564227727033,
+      "cloudDensityKey": "shape2:base1",
+      "cloudExtinctionPerMetre": 0.0036,
+      "cloudQuadrature": "conservative max-mip weather bounds plus one-segment margin, fixed per-pixel interleaved-gradient offset",
+      "cloudShapeBlend": 2,
+      "cloudShapeModel": "legacy capped column0; Gaussian thermal1; primary3D Worley puffs and continuous liquid-water density2",
+      "cloudSteps": 48,
+      "cloudSupportEnabled": 1,
+      "cloudSupportProbeCount": 32,
+      "cloudTopMetres": 1762.9564227727033,
+      "coverage": 0.35,
+      "diffuseAir": {
+        "enabled": true,
+        "limits": [
+          "Not a multiple-scattering LUT or angle-resolved sky radiance field",
+          "Clear-sky irradiance proxy; local sky occlusion and cloud angular redistribution are not solved"
+        ],
+        "model": "Esky/(2*pi) uniform upper hemisphere, one diffuse transport iteration; shared sky/finite air, no extra march",
+        "rawRadianceRGB": [
+          4.047529748732546e-7,
+          4.865227751469693e-7,
+          6.426825233224963e-7
+        ]
+      },
+      "groundCloudTransmission": 1,
+      "initializationMs": 815.7000000178814,
+      "lighting": {
+        "referenceElevationDegrees": 48,
+        "solarTransmission": [
+          0,
+          0,
+          0
+        ],
+        "sunStrength": 0
+      },
+      "limits": [
+        "8/6-point single-scattering quadrature, not a full multiple-scattering LUT",
+        "three-sample cloud self-shadow and ground shadow",
+        "bounded diffuse cloud bounce approximation",
+        "surface-parcel LCL estimate, not a measured sounding or cloud forecast",
+        "prescribed ascent and kinematic advection/entrainment; no Navier–Stokes solve",
+        "CPU density is the exact base-LOD density formula; view rays use filtered noise LOD",
+        "GPU budget must be measured on the actual renderer"
+      ],
+      "maximumViewNoiseLod": 1.25,
+      "model": "spherical single-scattering Rayleigh/Mie/ozone atmosphere; bounded hemispherical diffuse-air closure; multi-thermal, entrained volume cumulus",
+      "night": {
+        "angularRadii": {
+          "moon": 0.00479590725515525,
+          "sun": 0.004677925153002595
+        },
+        "astronomicalSunDirection": [
+          -0.4519843789004561,
+          -0.8793346579548398,
+          0.1499355880016947
+        ],
+        "baseMoonSourceRatio": 0.000002000377832217024,
+        "coordinates": "+X east,+Y up,-Z north; geographic azimuth north clockwise; worldToEQJ applies inverse heading; standard refraction is Astronomy Engine normal",
+        "currentDate": "2026-10-26T14:00:00.000Z",
+        "date": "2026-10-26T14:00:00.000Z",
+        "diagnostics": {
+          "ephemerisCalls": 6,
+          "updates": 42414
+        },
+        "ephemerisInterpolation": "continuous endpoints; exact current EQJ rotation",
+        "ephemerisRefreshSeconds": 30,
+        "epochJulianYear": 2026.8174766141913,
+        "externalClock": true,
+        "interpolation": {
+          "continuous": true,
+          "moonAndSun": "normalized vector interpolation between exact topocentric endpoints",
+          "rotation": "exact current-UTC Astronomy Engine transform",
+          "utcSpanSeconds": 30
+        },
+        "limits": [
+          "Astronomy Engine nominal arcminute-class; not a measurement-grade ephemeris",
+          "standard refraction uses a prescribed atmosphere, not current humidity sounding",
+          "historical UTC/UT1 and proper motion are approximations"
+        ],
+        "loadError": null,
+        "loaded": true,
+        "lunarMap": "NASA SVS4720,LRO1024x512,local",
+        "mode": "astronomical",
+        "moon": {
+          "altitudeDeg": 55.861065855731106,
+          "angularRadius": 0.00479590725515525,
+          "azimuthDeg": 62.04481520501304,
+          "direction": [
+            0.4957174891282005,
+            0.8276791730090381,
+            -0.2630805153170928
+          ],
+          "distanceAU": 0.0024216160925221667,
+          "geometricAltitudeDeg": 55.84960722646197,
+          "geometricDirection": [
+            0.4958636927019287,
+            0.8275669213047823,
+            -0.2631581065103857
+          ]
+        },
+        "moonAltitudeDegrees": 55.861065855731106,
+        "moonAngularRadius": 0.00479590725515525,
+        "moonAzimuthDegrees": 62.04481520501304,
+        "moonDirection": [
+          0.4957174891282005,
+          0.8276791730090381,
+          -0.2630805153170928
+        ],
+        "moonGeometricDirection": [
+          0.4958636927019287,
+          0.8275669213047823,
+          -0.2631581065103857
+        ],
+        "moonLibrationRadians": [
+          -0.06285323248045896,
+          -0.10809523957759866
+        ],
+        "moonMagnitude": -12.63672338079097,
+        "moonNorth": [
+          -0.377296802303312,
+          0.0636533151485313,
+          -0.9239022558919844
+        ],
+        "moonPhase": 0.9960060559924352,
+        "moonPhaseAngleRadians": 0.1264796040340311,
+        "moonSourceRatio": 0.000002000377832217024,
+        "moonSunDirection": [
+          -0.4491174702631953,
+          -0.8809231523586523,
+          0.14922431954236742
+        ],
+        "observer": {
+          "heightM": 2,
+          "latitudeDeg": 4.5,
+          "longitudeDeg": 118.6,
+          "northYawDeg": 0
+        },
+        "physicalSkyRevision": 3,
+        "rate": 1,
+        "refraction": "standard",
+        "running": false,
+        "settings": {
+          "automaticExposure": true,
+          "date": "2026-10-26T14:00:00.000Z",
+          "height": 2,
+          "latitude": 4.5,
+          "longitude": 118.6,
+          "moonIntensity": 1,
+          "rotationDegrees": 0,
+          "starIntensity": 1
+        },
+        "starField": {
+          "epochYears": 26.817476614191264,
+          "error": null,
+          "exposureSeconds": 0.008333333333333333,
+          "license": "Catalogue data/derivatives CC BY-NC3.0IGO, Credit ESA; ESA1997 SP1200, Hogetal2000 A&A355L27, CDS/VizieR DOI10.26093/cds/vizier; NASA background separate SVS4851 source terms",
+          "limits": [
+            "NASA background and full atlas have independent visualization gains, not an additive layer calibration",
+            "HIP combined systems take precedence over all linked Tycho components; no coordinate-only merging",
+            "Magnitude/colour boundary differs from exact unpublished NASA generator; no claim of perfect1.7B-source reconstruction",
+            "Missing photometry/positions and effective Tycho->Johnson conversions are counted",
+            "Bright-star supplement18Yale audit still required; no false complete-as-NASA claim"
+          ],
+          "loaded": true,
+          "model": "HIP/Tycho magnitude8.5 direction-cube candidates plus area-conserving diffuse, weak shutter-averaged scintillation",
+          "physicalF0": 9.144e-11,
+          "pointCount": 77925,
+          "pointLimit": 8.5,
+          "tables": [
+            {
+              "bytes": 7831552,
+              "entryCount": 390960,
+              "height": 478,
+              "maximumBucketFluxChannelUnitF0": 5.396329879760742,
+              "maximumCandidates": 50,
+              "meanCandidates": 3.97705078125,
+              "name": "native",
+              "supportDegrees": 0.18,
+              "width": 1024
+            },
+            {
+              "bytes": 66895872,
+              "entryCount": 4081955,
+              "height": 4083,
+              "maximumBucketFluxChannelUnitF0": 5.549199104309082,
+              "maximumCandidates": 225,
+              "meanCandidates": 41.52379353841146,
+              "name": "wide",
+              "supportDegrees": 2,
+              "width": 1024
+            }
+          ],
+          "view": {
+            "height": 1292,
+            "minimumPixelOmega": 1.674848408073031e-7,
+            "requiredSupportDegrees": 0.17817821747074752,
+            "table": "native",
+            "width": 1209
+          }
+        },
+        "starMap": "NASA SVS4851 no-HIP/Tycho background + HIP/Tycho8.5 point kernels + diffuse complementary aggregate",
+        "starScale": 2e-7,
+        "sun": {
+          "altitudeDeg": -61.56220748113398,
+          "angularRadius": 0.004677925153002595,
+          "azimuthDeg": 251.64790461365345,
+          "direction": [
+            -0.4519843789004561,
+            -0.8793346579548398,
+            0.1499355880016947
+          ],
+          "distanceAU": 0.994133952535998,
+          "geometricAltitudeDeg": -61.76731653734098,
+          "geometricDirection": [
+            -0.448993723820359,
+            -0.8810337496545114,
+            0.148943505865946
+          ]
+        },
+        "sunDirection": [
+          -0.4519843789004561,
+          -0.8793346579548398,
+          0.1499355880016947
+        ],
+        "sunGeometricDirection": [
+          -0.448993723820359,
+          -0.8810337496545114,
+          0.148943505865946
+        ],
+        "timeZoneOffsetMinutes": 480,
+        "utcMs": 1793023200000,
+        "worldToEquatorialColumns": [
+          [
+            -0.056084848569699176,
+            0.99842599930014,
+            0.0001169719208687672
+          ],
+          [
+            0.9955503840125498,
+            0.05591442972645943,
+            0.0758485955099296
+          ],
+          [
+            0.07572266934926421,
+            0.004370408434138442,
+            -0.9971193393354378
+          ]
+        ]
+      },
+      "noiseDimensions": [
+        64,
+        64,
+        64
+      ],
+      "offsetMetres": [
+        97.56536509472656,
+        36.69124841169221
+      ],
+      "preExposureEV": 11.5,
+      "recommendedCubeFaceRate": 12,
+      "recommendedPMREMHz": 0.5,
+      "shearOffsetMetresPerKilometre": [
+        37.26454916812485,
+        14.014018490576824
+      ],
+      "sun": [
+        -0.4519843789004561,
+        -0.8793346579548398,
+        0.1499355880016947
+      ],
+      "supportBytes": 1398100,
+      "supportMipCount": 10,
+      "time": 36.19322957277077,
+      "transientClouds": {
+        "count": 0,
+        "environmentCapture": "excluded by default; live restore includes transient state",
+        "extraSamplers": 0,
+        "limits": [
+          "two finite-radius diffuse clusters, not resolved burning-star angular integration",
+          "finite cloud self-shadow four-sample quadrature",
+          "source-to-cloud smoke attenuation not implemented; downstream compositor owns view smoke",
+          "legacy sky cloud view support rd.y>-.015 retained",
+          "relative RGB scene units; no absolute cloud or pyrotechnic calibration",
+          "P must be selected from combined raw source envelopes before rendering"
+        ],
+        "optIn": true,
+        "phaseMaximumBound": 0.7638996395992439,
+        "rawRadianceBound": 0,
+        "reflection": "isolated alpha0 delta; water-hit observer, hardware far depth; no attached-depth sampler",
+        "sourceAndViewCleanAirSamples": 4,
+        "sourceCloudSamples": 4,
+        "ssa": 0.999
+      },
+      "weather": {
+        "current": {
+          "automaticCloudBase": true,
+          "cloudBase": 812.9564227727033,
+          "cloudTop": 1762.9564227727033,
+          "coverage": 0.35,
+          "dewPoint": 22.496348617818377,
+          "humidity": 0.68,
+          "liftedCondensationLevel": 812.9564227727033,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+          "moisture": 0.984,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950,
+          "windDirection": null
+        },
+        "limits": [
+          "LCL is a surface-parcel estimate, not a sounding",
+          "Cloud coverage is independently prescribed ascent availability",
+          "No precipitation, prognostic humidity, CAPE or Navier–Stokes solve"
+        ],
+        "target": {
+          "automaticCloudBase": true,
+          "cloudBase": 812.9564227727033,
+          "cloudTop": 1762.9564227727033,
+          "coverage": 0.35,
+          "dewPoint": 22.496348617818377,
+          "humidity": 0.68,
+          "liftedCondensationLevel": 812.9564227727033,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+          "moisture": 0.984,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950,
+          "windDirection": null
+        },
+        "transitionSeconds": 2.5,
+        "units": {
+          "cloudBase": "metres above sea level",
+          "humidity": "fraction 0..1",
+          "shear": "metres/second/kilometre",
+          "temperature": "degrees Celsius",
+          "thickness": "metres",
+          "windDirection": "degrees clockwise from +Z; null follows update wind"
+        }
+      },
+      "weatherDimensions": [
+        512,
+        512
+      ],
+      "weatherOrigin": [
+        0.421875,
+        0.734375
+      ]
+    },
+    "audio": {
+      "activeSplashes": 0,
+      "audibleSplashes": 0,
+      "captureActive": false,
+      "contextState": "not-created",
+      "decoded": {},
+      "enabled": false,
+      "fallbacks": [
+        "procedural stone splash",
+        "quiet shaped-noise air bed"
+      ],
+      "lastSplashResponse": null,
+      "loaded": false,
+      "loading": false,
+      "loopSources": 0,
+      "mix": {
+        "air": 0,
+        "sea": 0,
+        "shoreDistance": 0,
+        "shorePositions": [],
+        "swell": 0,
+        "wind": 0
+      },
+      "paused": false,
+      "sources": [
+        "Beach sounds South Carolina — Anthropic42",
+        "Rustling leaves — Gravity Sound"
+      ],
+      "splashCount": 0,
+      "warnings": []
+    },
+    "camera": [
+      435.67997580837334,
+      7,
+      -1601.9796816603202
+    ],
+    "dpr": 1,
+    "lens": {
+      "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+      "aperture": 8,
+      "bloom": {
+        "bloom": true,
+        "budget": {
+          "bloom": 0.018,
+          "direct": 0.982,
+          "ghost": 0,
+          "total": 0.018,
+          "veil": 0
+        },
+        "enabled": true,
+        "flare": false,
+        "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference",
+        "gaussianKernel": {
+          "discreteTaps": 25,
+          "passesPerLevel": 2,
+          "radiusPixels": 12,
+          "sigmaPixels": 2,
+          "supportSigma": 6,
+          "textureFetchesPerAxis": 13
+        },
+        "levels": 4,
+        "model": "single threshold-free linear HDR PSF with positive6sigma separable Gaussian after each downsample; at most1.8% radiance redistribution",
+        "operatorPeakBoundRGB": [
+          1,
+          1,
+          1
+        ],
+        "passes": 13,
+        "quality": "gaussian",
+        "strength": 0.018
+      },
+      "cameraFocalMm": 27.999999999999993,
+      "depthOfField": false,
+      "displayTransform": {
+        "adapter": {
+          "disposed": false,
+          "fallbackFrames": {
+            "hdr": 2426,
+            "sdr": 0
+          },
+          "frames": {
+            "hdr": 0,
+            "sdr": 0
+          },
+          "hdr": {
+            "effective": "legacy",
+            "error": null,
+            "peakNits": 1270,
+            "reason": "selected-legacy"
+          },
+          "lastError": null,
+          "output": null,
+          "preparablePeakRange": {
+            "integerOnly": true,
+            "max": 10000,
+            "min": 100
+          },
+          "preparation": {
+            "error": null,
+            "peakNits": 1270,
+            "reason": "selected-legacy",
+            "status": "idle"
+          },
+          "requested": "legacy",
+          "revision": 1,
+          "sdr": {
+            "effective": "none",
+            "error": null,
+            "peakNits": 100,
+            "reason": "awaiting-render"
+          },
+          "supportedTargets": [
+            100,
+            700,
+            1270
+          ],
+          "variant": "aces2-ocio26-accurate-atan-v1"
+        },
+        "effective": "legacy",
+        "error": null,
+        "kind": "hdr",
+        "reason": "render-declined",
+        "requested": true
+      },
+      "dynamicLighting": true,
+      "exposureScale": 4.29920922961421,
+      "focalMm": 28,
+      "focusMetres": 1684.2118790905567,
+      "focusMode": "target",
+      "hdr": {
+        "absoluteNitsCalibrated": false,
+        "apiAvailable": true,
+        "available": true,
+        "calibrationAdjustments": [],
+        "calibrationSource": "windows-dxgi",
+        "displayHDR": true,
+        "displayName": "Q27G4XM",
+        "displayTransform": {
+          "adapter": {
+            "disposed": false,
+            "fallbackFrames": {
+              "hdr": 2426,
+              "sdr": 0
+            },
+            "frames": {
+              "hdr": 0,
+              "sdr": 0
+            },
+            "hdr": {
+              "effective": "legacy",
+              "error": null,
+              "peakNits": 1270,
+              "reason": "selected-legacy"
+            },
+            "lastError": null,
+            "output": null,
+            "preparablePeakRange": {
+              "integerOnly": true,
+              "max": 10000,
+              "min": 100
+            },
+            "preparation": {
+              "error": null,
+              "peakNits": 1270,
+              "reason": "selected-legacy",
+              "status": "idle"
+            },
+            "requested": "legacy",
+            "revision": 1,
+            "sdr": {
+              "effective": "none",
+              "error": null,
+              "peakNits": 100,
+              "reason": "awaiting-render"
+            },
+            "supportedTargets": [
+              100,
+              700,
+              1270
+            ],
+            "variant": "aces2-ocio26-accurate-atan-v1"
+          },
+          "effective": "legacy",
+          "error": null,
+          "kind": "hdr",
+          "reason": "render-declined",
+          "requested": true
+        },
+        "enabled": true,
+        "errors": [],
+        "headroom": 4.535714285714286,
+        "height": 1292,
+        "lastPresentCpuMs": 0.09999999403953552,
+        "lastPresentationTimestamp": 327316.40000000596,
+        "lastUploadCpuMs": 0,
+        "limits": "System-reported luminance is not a photometer measurement and scene lux is not calibrated. This is not an official ACES HDR ODT. Extended sRGB canvas is not a native 80-nit scRGB swap chain. External-image copy is not guaranteed zero-copy. PBO copies pixels through CPU. HDR enlargement is linear, not SDR FSR1.",
+        "maxBridgeWidth": 1440,
+        "maxHz": 120,
+        "mode": "float-canvas-external-copy",
+        "noExplicitCPUReadback": true,
+        "output": "sRGB-encoded rgba16float, extended, opaque",
+        "paperWhiteNits": 280,
+        "peakNits": 1270,
+        "peakRelativeToBrowserWhite": 4.535714285714286,
+        "presentationObserverActive": false,
+        "presentationObserverError": null,
+        "presentedFrames": 2426,
+        "readback": null,
+        "requiresRedraw": false,
+        "sdrWhiteNits": 280,
+        "shoulder": "same fitted SDR ACES anchor through exposed peak 1; C1 bounded highlight extension; nit scale divided by browser/Windows SDR white",
+        "skippedFrames": 36,
+        "source": "pre-OutputPass, scene-linear sRGB floating-point target",
+        "systemReportedCalibration": true,
+        "whiteScale": 1,
+        "width": 1209
+      },
+      "height": 1292,
+      "historyEV": 11.5,
+      "maxSamples": 8,
+      "motion": {
+        "attachment": "RGBA16F: unjittered UV velocity.xy, previous linear depth, MSAA coverage; R16F: current linear depth; normalize both by coverage",
+        "enabled": true,
+        "extraScenePasses": 0,
+        "frames": 2462,
+        "groups": 1,
+        "hasPrevious": true,
+        "limits": [
+          "analytic rest-mesh wind and camera motion only; no arbitrary model-matrix animation",
+          "missing-coverage bridge retains conservative camera-only fallback"
+        ]
+      },
+      "outputHeight": 1292,
+      "outputWidth": 1209,
+      "sampleSupport": [
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ]
+      ],
+      "samples": 4,
+      "sceneAttachments": [
+        "RGBA16F radiance",
+        "RGBA16F motion/coverage",
+        "R16F foliage depth",
+        "R8 local reactive"
+      ],
+      "sceneStats": {
+        "calls": 35,
+        "triangles": 2137210
+      },
+      "sensorHeightMm": 36,
+      "shutterSeconds": 0.008333333333333333,
+      "storageEV": 11.5,
+      "temporal": {
+        "active": true,
+        "artificialJitter": false,
+        "enabled": true,
+        "frozen": false,
+        "historyBytes": 28116504,
+        "historyFrames": 948,
+        "historyWeight": 0.84,
+        "jitterPixels": [
+          0,
+          0
+        ],
+        "lastResetReason": "camera or animation cut",
+        "maximumMissingCoverageFrames": 2,
+        "metadata": "R8 age; nearest valid depth, bilinear RGB",
+        "scope": "analytic wind/camera foliage motion, MSAA coverage, independent short water radiance history",
+        "stillFrames": 0,
+        "waterEnabled": true
+      },
+      "upscaler": "native resolution",
+      "verticalFovDegrees": 65.4704525442152,
+      "vignette": true,
+      "width": 1209
+    },
+    "parameters": {
+      "air": {
+        "aerosolScale": 8,
+        "enabled": true,
+        "shadows": true
+      },
+      "current": 0.16,
+      "director": {
+        "mode": "off",
+        "periodSeconds": 240
+      },
+      "graphics": {
+        "displayName": "auto",
+        "displayTransform": "legacy",
+        "hdr": true,
+        "hdrMode": "auto",
+        "indirect": "low",
+        "paperWhiteNits": 280,
+        "peakNits": 1270,
+        "shadows": "recommended",
+        "systemCalibration": true,
+        "targetFps": 60,
+        "waveResolution": 512
+      },
+      "lens": {
+        "antialias": "smaa",
+        "aperture": 8,
+        "automatic": false,
+        "dof": false,
+        "exposure": 0,
+        "firelightAA": true,
+        "focal": 28,
+        "focusDistance": 60,
+        "focusMode": "target",
+        "glintAA": true,
+        "manualExposureEV": 0,
+        "opticalBloom": true,
+        "opticalFlare": false,
+        "temporal": true,
+        "vignette": true
+      },
+      "paused": false,
+      "quality": "balanced",
+      "qualityCustom": false,
+      "qualityPreset": "medium",
+      "renderSampling": {
+        "airShadowTaps": 1,
+        "airSteps": 6,
+        "antialias": "smaa",
+        "atmosphereSteps": 8,
+        "causticsGrid": 1280,
+        "causticsHz": 24,
+        "causticsSize": 1536,
+        "cloudSteps": 48,
+        "dprCap": 1.65,
+        "glintAA": true,
+        "indirect": "low",
+        "msaaSamples": 4,
+        "opticalBloom": true,
+        "reflectionSamples": 0,
+        "reflectionScale": 0.75,
+        "shadowHz": 45,
+        "shadowSize": 4096,
+        "temporal": true,
+        "waveResolution": 512
+      },
+      "sea": {
+        "clarity": 0.9,
+        "swellHeight": 0.16,
+        "windSea": 1
+      },
+      "sound": false,
+      "sun": {
+        "azimuth": 100,
+        "elevation": 48,
+        "intensity": 1
+      },
+      "weather": {
+        "cloudBase": "auto",
+        "coverage": 0.35,
+        "humidity": 0.68,
+        "shear": 1.1,
+        "temperature": 29,
+        "thickness": 950
+      },
+      "wind": 1.8
+    },
+    "performance": {
+      "changes": [],
+      "enabled": false,
+      "lastGpuMs": null,
+      "minimumScale": 0.6,
+      "referenceBudgetMs": 16.666666666666668,
+      "scale": 1,
+      "slowFrameFraction": 0,
+      "smoothedCostMs": null,
+      "targetFps": 60
+    },
+    "renderScale": 1,
+    "spectrum": {
+      "channels": [
+        "height",
+        "slopeX",
+        "slopeZ",
+        "slopeSquared"
+      ],
+      "components": 256,
+      "domainsMetres": [
+        1021,
+        137,
+        29,
+        5.3
+      ],
+      "limitations": [
+        "reference-depth3m analytic spectrum; no ray-traced bathymetric refraction",
+        "linear superposition, no overturning or full nonlinear wave interactions",
+        "SWE boundary swell is a separate lower-frequency resolved system"
+      ],
+      "method": "256-mode GPU Fourier synthesis: independent narrow swell + broader wind sea, mipmapped slope moments; non-FFT",
+      "phasePrecision": "CPU double precision modulo 2pi each frame",
+      "referenceDepthMetres": 3,
+      "resolution": 512,
+      "rmsHeight": 0.046893434077446686,
+      "rmsSlope": 0.1085800054080905,
+      "seaState": {
+        "swellHeight": 0.16,
+        "windSea": 1
+      },
+      "significantHeight": 0.18757373630978671,
+      "specularExposureSeconds": 0.008333333333333333,
+      "swell": {
+        "directionRadians": -0.68,
+        "directionalSpreadRadians": 0.14,
+        "frequencyStdFraction": 0.16,
+        "peakPeriodSeconds": 7.5,
+        "referenceSignificantHeightMetres": 0.16,
+        "windIndependent": true
+      },
+      "swellPeakPeriod": 7.5,
+      "swellRmsSlope": 0.006294249313537006,
+      "swellSignificantHeight": 0.16,
+      "swellTemporalSlopeVariance": 1.731965320805549e-10,
+      "temporalSlopeVariance": 0.000023619889856221493,
+      "time": 36.19322957277077,
+      "updates": 1996,
+      "windRmsSlope": 0.108397416943394,
+      "windSea": {
+        "frequencyShape": "JONSWAP-shaped, gamma3.3, log-k importance weighted; no fetch/growth solve",
+        "peakPeriodSeconds": 2.2
+      },
+      "windTemporalSlopeVariance": 0.000023619716659689413
+    },
+    "target": [
+      45.78216661389081,
+      281.5625311763542,
+      13.311242145394823
+    ],
+    "viewport": [
+      1209,
+      1292
+    ],
+    "water": {
+      "farField": {
+        "additionalSamplers": 0,
+        "additionalScenePasses": 0,
+        "axisBytes": 5128,
+        "earthRadiusMetres": 6360000,
+        "farHalfExtentMetres": 65536,
+        "mode": "curved",
+        "model": "shared spherical-Earth datum with logarithmic outer grid; analytic bed preserves local water depth",
+        "nearGridHalfExtentMetres": 96,
+        "requiredCameraFarMetres": 120000,
+        "vertices": 410881
+      },
+      "glintAA": {
+        "enabled": 1,
+        "model": "pixel normal variance plus statistical 1/120 s temporal slope variance; only direct-sun NDF",
+        "temporalSlopeVarianceAtReferenceWind": 0.000023619889856221493
+      },
+      "lighting": {
+        "ambientIntensity": 1,
+        "skyColourStored": [
+          0.009368604223124697,
+          0.008137871179100847,
+          0.00748963278605968
+        ],
+        "source": "shared skyTintPhysical and scene storage exposure; solar intensity included once",
+        "sunIrradianceStored": 0.019526727778006896
+      },
+      "optics": {
+        "absorption": [
+          0.16,
+          0.035,
+          0.018
+        ],
+        "beamEfoldDistanceMetres": [
+          6.097560975609756,
+          22.727272727272727,
+          31.25
+        ],
+        "clarity": 0.9,
+        "coefficientUnit": "m^-1",
+        "extinction": [
+          0.164,
+          0.044,
+          0.032
+        ],
+        "particleMultiplier": 1,
+        "reference": "authored linear-RGB effective coefficients; clarity changes only suspended-particle scattering; not measured full-spectrum/NTU/Secchi data",
+        "revision": 0,
+        "scattering": [
+          0.004,
+          0.009,
+          0.014
+        ]
+      },
+      "reflection": {
+        "colourMipmaps": true,
+        "depthMipmaps": false,
+        "directionMode": "geometric",
+        "filter": "linear mipmapped colour; independent non-mipmapped depth",
+        "geometricSource": "curved macro-frame reflection; incoming Smith visibility; fixed2m environment approximation retained",
+        "legacyFloorsRadians": [
+          0.006,
+          0.012
+        ],
+        "samples": 0,
+        "size": [
+          907,
+          969
+        ]
+      },
+      "submergedProps": {
+        "additionalSamplers": 0,
+        "additionalTargets": 0,
+        "bisectionSteps": 6,
+        "bounds": [],
+        "count": 0,
+        "limits": [
+          "Screen-visible auxiliary surfaces only; offscreen/occluded surfaces retain analytic bed without clamped sampling",
+          "Captured native RGB has no sun/ambient/local decomposition; incoming water attenuation uses one receiver-depth solar-path approximation",
+          "Thin/grazing/subpixel geometry may be missed by the bounded search; sphere bounds alone never create a coloured surface"
+        ],
+        "maximum": 36,
+        "model": "finite real sphere bounds choose search intervals; real auxiliary RGB/depth verifies nearest wet ray hit; one-pixel finite-resolution tolerance",
+        "probesPerIntersectedBound": 4,
+        "revision": 0
+      },
+      "treeShadow": {
+        "bias": -0.00012,
+        "enabled": true,
+        "limits": [
+          "receives the existing caster map; does not add missing terrain casters",
+          "plane solar-refraction interface at mean sea level",
+          "three independent PCF queries, including one volume midpoint",
+          "main renderer requests up to 60 Hz in high quality, 30 Hz balanced; actual rate is frame limited"
+        ],
+        "mapSize": [
+          4096,
+          4096
+        ],
+        "normalBiasMetres": 0.035,
+        "packing": "Three.js RGBADepthPacking; ordinary non-reversed directional shadow",
+        "pcfTapsPerQuery": 9,
+        "queriesPerWaterFragment": 3,
+        "updates": 2463
+      }
+    }
+  },
+  "frameMs": {
+    "count": 326,
+    "maximum": 102,
+    "mean": 15.36196319018405,
+    "median": 13.900000005960464,
+    "minimum": 11,
+    "p95": 21.799999982118607,
+    "p99": 29.799999982118607
+  },
+  "frames": 326,
+  "framesOver16_67ms": 72,
+  "gpuMs": {
+    "count": 323,
+    "maximum": 78.124,
+    "mean": 8.361151702786376,
+    "median": 7.751,
+    "minimum": 5.673,
+    "p95": 10.075,
+    "p99": 14.824
+  },
+  "initial": {
+    "atmosphere": {
+      "altitudeWindMetresPerSecond": [
+        2.6956800000000003,
+        1.01376
+      ],
+      "atmosphereSteps": 8,
+      "camera": [
+        435.67997580837334,
+        7,
+        -1601.9796816603202
+      ],
+      "cloudBaseContinuity": 1,
+      "cloudBaseMetres": 812.9564227727033,
+      "cloudDensityKey": "shape2:base1",
+      "cloudExtinctionPerMetre": 0.0036,
+      "cloudQuadrature": "conservative max-mip weather bounds plus one-segment margin, fixed per-pixel interleaved-gradient offset",
+      "cloudShapeBlend": 2,
+      "cloudShapeModel": "legacy capped column0; Gaussian thermal1; primary3D Worley puffs and continuous liquid-water density2",
+      "cloudSteps": 48,
+      "cloudSupportEnabled": 1,
+      "cloudSupportProbeCount": 32,
+      "cloudTopMetres": 1762.9564227727033,
+      "coverage": 0.35,
+      "diffuseAir": {
+        "enabled": true,
+        "limits": [
+          "Not a multiple-scattering LUT or angle-resolved sky radiance field",
+          "Clear-sky irradiance proxy; local sky occlusion and cloud angular redistribution are not solved"
+        ],
+        "model": "Esky/(2*pi) uniform upper hemisphere, one diffuse transport iteration; shared sky/finite air, no extra march",
+        "rawRadianceRGB": [
+          4.047529748732546e-7,
+          4.865227751469693e-7,
+          6.426825233224963e-7
+        ]
+      },
+      "groundCloudTransmission": 1,
+      "initializationMs": 815.7000000178814,
+      "lighting": {
+        "referenceElevationDegrees": 48,
+        "solarTransmission": [
+          0,
+          0,
+          0
+        ],
+        "sunStrength": 0
+      },
+      "limits": [
+        "8/6-point single-scattering quadrature, not a full multiple-scattering LUT",
+        "three-sample cloud self-shadow and ground shadow",
+        "bounded diffuse cloud bounce approximation",
+        "surface-parcel LCL estimate, not a measured sounding or cloud forecast",
+        "prescribed ascent and kinematic advection/entrainment; no Navier–Stokes solve",
+        "CPU density is the exact base-LOD density formula; view rays use filtered noise LOD",
+        "GPU budget must be measured on the actual renderer"
+      ],
+      "maximumViewNoiseLod": 1.25,
+      "model": "spherical single-scattering Rayleigh/Mie/ozone atmosphere; bounded hemispherical diffuse-air closure; multi-thermal, entrained volume cumulus",
+      "night": {
+        "angularRadii": {
+          "moon": 0.00479590725515525,
+          "sun": 0.004677925153002595
+        },
+        "astronomicalSunDirection": [
+          -0.4519843789004561,
+          -0.8793346579548398,
+          0.1499355880016947
+        ],
+        "baseMoonSourceRatio": 0.000002000377832217024,
+        "coordinates": "+X east,+Y up,-Z north; geographic azimuth north clockwise; worldToEQJ applies inverse heading; standard refraction is Astronomy Engine normal",
+        "currentDate": "2026-10-26T14:00:00.000Z",
+        "date": "2026-10-26T14:00:00.000Z",
+        "diagnostics": {
+          "ephemerisCalls": 6,
+          "updates": 42087
+        },
+        "ephemerisInterpolation": "continuous endpoints; exact current EQJ rotation",
+        "ephemerisRefreshSeconds": 30,
+        "epochJulianYear": 2026.8174766141913,
+        "externalClock": true,
+        "interpolation": {
+          "continuous": true,
+          "moonAndSun": "normalized vector interpolation between exact topocentric endpoints",
+          "rotation": "exact current-UTC Astronomy Engine transform",
+          "utcSpanSeconds": 30
+        },
+        "limits": [
+          "Astronomy Engine nominal arcminute-class; not a measurement-grade ephemeris",
+          "standard refraction uses a prescribed atmosphere, not current humidity sounding",
+          "historical UTC/UT1 and proper motion are approximations"
+        ],
+        "loadError": null,
+        "loaded": true,
+        "lunarMap": "NASA SVS4720,LRO1024x512,local",
+        "mode": "astronomical",
+        "moon": {
+          "altitudeDeg": 55.861065855731106,
+          "angularRadius": 0.00479590725515525,
+          "azimuthDeg": 62.04481520501304,
+          "direction": [
+            0.4957174891282005,
+            0.8276791730090381,
+            -0.2630805153170928
+          ],
+          "distanceAU": 0.0024216160925221667,
+          "geometricAltitudeDeg": 55.84960722646197,
+          "geometricDirection": [
+            0.4958636927019287,
+            0.8275669213047823,
+            -0.2631581065103857
+          ]
+        },
+        "moonAltitudeDegrees": 55.861065855731106,
+        "moonAngularRadius": 0.00479590725515525,
+        "moonAzimuthDegrees": 62.04481520501304,
+        "moonDirection": [
+          0.4957174891282005,
+          0.8276791730090381,
+          -0.2630805153170928
+        ],
+        "moonGeometricDirection": [
+          0.4958636927019287,
+          0.8275669213047823,
+          -0.2631581065103857
+        ],
+        "moonLibrationRadians": [
+          -0.06285323248045896,
+          -0.10809523957759866
+        ],
+        "moonMagnitude": -12.63672338079097,
+        "moonNorth": [
+          -0.377296802303312,
+          0.0636533151485313,
+          -0.9239022558919844
+        ],
+        "moonPhase": 0.9960060559924352,
+        "moonPhaseAngleRadians": 0.1264796040340311,
+        "moonSourceRatio": 0.000002000377832217024,
+        "moonSunDirection": [
+          -0.4491174702631953,
+          -0.8809231523586523,
+          0.14922431954236742
+        ],
+        "observer": {
+          "heightM": 2,
+          "latitudeDeg": 4.5,
+          "longitudeDeg": 118.6,
+          "northYawDeg": 0
+        },
+        "physicalSkyRevision": 3,
+        "rate": 1,
+        "refraction": "standard",
+        "running": false,
+        "settings": {
+          "automaticExposure": true,
+          "date": "2026-10-26T14:00:00.000Z",
+          "height": 2,
+          "latitude": 4.5,
+          "longitude": 118.6,
+          "moonIntensity": 1,
+          "rotationDegrees": 0,
+          "starIntensity": 1
+        },
+        "starField": {
+          "epochYears": 26.817476614191264,
+          "error": null,
+          "exposureSeconds": 0.008333333333333333,
+          "license": "Catalogue data/derivatives CC BY-NC3.0IGO, Credit ESA; ESA1997 SP1200, Hogetal2000 A&A355L27, CDS/VizieR DOI10.26093/cds/vizier; NASA background separate SVS4851 source terms",
+          "limits": [
+            "NASA background and full atlas have independent visualization gains, not an additive layer calibration",
+            "HIP combined systems take precedence over all linked Tycho components; no coordinate-only merging",
+            "Magnitude/colour boundary differs from exact unpublished NASA generator; no claim of perfect1.7B-source reconstruction",
+            "Missing photometry/positions and effective Tycho->Johnson conversions are counted",
+            "Bright-star supplement18Yale audit still required; no false complete-as-NASA claim"
+          ],
+          "loaded": true,
+          "model": "HIP/Tycho magnitude8.5 direction-cube candidates plus area-conserving diffuse, weak shutter-averaged scintillation",
+          "physicalF0": 9.144e-11,
+          "pointCount": 77925,
+          "pointLimit": 8.5,
+          "tables": [
+            {
+              "bytes": 7831552,
+              "entryCount": 390960,
+              "height": 478,
+              "maximumBucketFluxChannelUnitF0": 5.396329879760742,
+              "maximumCandidates": 50,
+              "meanCandidates": 3.97705078125,
+              "name": "native",
+              "supportDegrees": 0.18,
+              "width": 1024
+            },
+            {
+              "bytes": 66895872,
+              "entryCount": 4081955,
+              "height": 4083,
+              "maximumBucketFluxChannelUnitF0": 5.549199104309082,
+              "maximumCandidates": 225,
+              "meanCandidates": 41.52379353841146,
+              "name": "wide",
+              "supportDegrees": 2,
+              "width": 1024
+            }
+          ],
+          "view": {
+            "height": 1292,
+            "minimumPixelOmega": 1.674848408073031e-7,
+            "requiredSupportDegrees": 0.17817821747074752,
+            "table": "native",
+            "width": 1209
+          }
+        },
+        "starMap": "NASA SVS4851 no-HIP/Tycho background + HIP/Tycho8.5 point kernels + diffuse complementary aggregate",
+        "starScale": 2e-7,
+        "sun": {
+          "altitudeDeg": -61.56220748113398,
+          "angularRadius": 0.004677925153002595,
+          "azimuthDeg": 251.64790461365345,
+          "direction": [
+            -0.4519843789004561,
+            -0.8793346579548398,
+            0.1499355880016947
+          ],
+          "distanceAU": 0.994133952535998,
+          "geometricAltitudeDeg": -61.76731653734098,
+          "geometricDirection": [
+            -0.448993723820359,
+            -0.8810337496545114,
+            0.148943505865946
+          ]
+        },
+        "sunDirection": [
+          -0.4519843789004561,
+          -0.8793346579548398,
+          0.1499355880016947
+        ],
+        "sunGeometricDirection": [
+          -0.448993723820359,
+          -0.8810337496545114,
+          0.148943505865946
+        ],
+        "timeZoneOffsetMinutes": 480,
+        "utcMs": 1793023200000,
+        "worldToEquatorialColumns": [
+          [
+            -0.056084848569699176,
+            0.99842599930014,
+            0.0001169719208687672
+          ],
+          [
+            0.9955503840125498,
+            0.05591442972645943,
+            0.0758485955099296
+          ],
+          [
+            0.07572266934926421,
+            0.004370408434138442,
+            -0.9971193393354378
+          ]
+        ]
+      },
+      "noiseDimensions": [
+        64,
+        64,
+        64
+      ],
+      "offsetMetres": [
+        84.17322685472642,
+        31.65488873169196
+      ],
+      "preExposureEV": 11.75,
+      "recommendedCubeFaceRate": 12,
+      "recommendedPMREMHz": 0.5,
+      "shearOffsetMetresPerKilometre": [
+        32.14949636812463,
+        12.090408890576777
+      ],
+      "sun": [
+        -0.4519843789004561,
+        -0.8793346579548398,
+        0.1499355880016947
+      ],
+      "supportBytes": 1398100,
+      "supportMipCount": 10,
+      "time": 31.22522957277063,
+      "transientClouds": {
+        "count": 0,
+        "environmentCapture": "excluded by default; live restore includes transient state",
+        "extraSamplers": 0,
+        "limits": [
+          "two finite-radius diffuse clusters, not resolved burning-star angular integration",
+          "finite cloud self-shadow four-sample quadrature",
+          "source-to-cloud smoke attenuation not implemented; downstream compositor owns view smoke",
+          "legacy sky cloud view support rd.y>-.015 retained",
+          "relative RGB scene units; no absolute cloud or pyrotechnic calibration",
+          "P must be selected from combined raw source envelopes before rendering"
+        ],
+        "optIn": true,
+        "phaseMaximumBound": 0.7638996395992439,
+        "rawRadianceBound": 0,
+        "reflection": "isolated alpha0 delta; water-hit observer, hardware far depth; no attached-depth sampler",
+        "sourceAndViewCleanAirSamples": 4,
+        "sourceCloudSamples": 4,
+        "ssa": 0.999
+      },
+      "weather": {
+        "current": {
+          "automaticCloudBase": true,
+          "cloudBase": 812.9564227727033,
+          "cloudTop": 1762.9564227727033,
+          "coverage": 0.35,
+          "dewPoint": 22.496348617818377,
+          "humidity": 0.68,
+          "liftedCondensationLevel": 812.9564227727033,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+          "moisture": 0.984,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950,
+          "windDirection": null
+        },
+        "limits": [
+          "LCL is a surface-parcel estimate, not a sounding",
+          "Cloud coverage is independently prescribed ascent availability",
+          "No precipitation, prognostic humidity, CAPE or Navier–Stokes solve"
+        ],
+        "target": {
+          "automaticCloudBase": true,
+          "cloudBase": 812.9564227727033,
+          "cloudTop": 1762.9564227727033,
+          "coverage": 0.35,
+          "dewPoint": 22.496348617818377,
+          "humidity": 0.68,
+          "liftedCondensationLevel": 812.9564227727033,
+          "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+          "moisture": 0.984,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950,
+          "windDirection": null
+        },
+        "transitionSeconds": 2.5,
+        "units": {
+          "cloudBase": "metres above sea level",
+          "humidity": "fraction 0..1",
+          "shear": "metres/second/kilometre",
+          "temperature": "degrees Celsius",
+          "thickness": "metres",
+          "windDirection": "degrees clockwise from +Z; null follows update wind"
+        }
+      },
+      "weatherDimensions": [
+        512,
+        512
+      ],
+      "weatherOrigin": [
+        0.421875,
+        0.734375
+      ]
+    },
+    "audio": {
+      "activeSplashes": 0,
+      "audibleSplashes": 0,
+      "captureActive": false,
+      "contextState": "not-created",
+      "decoded": {},
+      "enabled": false,
+      "fallbacks": [
+        "procedural stone splash",
+        "quiet shaped-noise air bed"
+      ],
+      "lastSplashResponse": null,
+      "loaded": false,
+      "loading": false,
+      "loopSources": 0,
+      "mix": {
+        "air": 0,
+        "sea": 0,
+        "shoreDistance": 0,
+        "shorePositions": [],
+        "swell": 0,
+        "wind": 0
+      },
+      "paused": true,
+      "sources": [
+        "Beach sounds South Carolina — Anthropic42",
+        "Rustling leaves — Gravity Sound"
+      ],
+      "splashCount": 0,
+      "warnings": []
+    },
+    "camera": [
+      435.67997580837334,
+      7,
+      -1601.9796816603202
+    ],
+    "dpr": 1,
+    "lens": {
+      "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+      "aperture": 8,
+      "bloom": {
+        "bloom": true,
+        "budget": {
+          "bloom": 0.018,
+          "direct": 0.982,
+          "ghost": 0,
+          "total": 0.018,
+          "veil": 0
+        },
+        "enabled": true,
+        "flare": false,
+        "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference",
+        "gaussianKernel": {
+          "discreteTaps": 25,
+          "passesPerLevel": 2,
+          "radiusPixels": 12,
+          "sigmaPixels": 2,
+          "supportSigma": 6,
+          "textureFetchesPerAxis": 13
+        },
+        "levels": 4,
+        "model": "single threshold-free linear HDR PSF with positive6sigma separable Gaussian after each downsample; at most1.8% radiance redistribution",
+        "operatorPeakBoundRGB": [
+          1,
+          1,
+          1
+        ],
+        "passes": 13,
+        "quality": "gaussian",
+        "strength": 0.018
+      },
+      "cameraFocalMm": 27.999999999999993,
+      "depthOfField": false,
+      "displayTransform": {
+        "adapter": {
+          "disposed": false,
+          "fallbackFrames": {
+            "hdr": 2099,
+            "sdr": 0
+          },
+          "frames": {
+            "hdr": 0,
+            "sdr": 0
+          },
+          "hdr": {
+            "effective": "legacy",
+            "error": null,
+            "peakNits": 1270,
+            "reason": "selected-legacy"
+          },
+          "lastError": null,
+          "output": null,
+          "preparablePeakRange": {
+            "integerOnly": true,
+            "max": 10000,
+            "min": 100
+          },
+          "preparation": {
+            "error": null,
+            "peakNits": 1270,
+            "reason": "selected-legacy",
+            "status": "idle"
+          },
+          "requested": "legacy",
+          "revision": 1,
+          "sdr": {
+            "effective": "none",
+            "error": null,
+            "peakNits": 100,
+            "reason": "awaiting-render"
+          },
+          "supportedTargets": [
+            100,
+            700,
+            1270
+          ],
+          "variant": "aces2-ocio26-accurate-atan-v1"
+        },
+        "effective": "legacy",
+        "error": null,
+        "kind": "hdr",
+        "reason": "render-declined",
+        "requested": true
+      },
+      "dynamicLighting": false,
+      "exposureScale": 3.615189629608272,
+      "focalMm": 28,
+      "focusMetres": 1684.2118790905567,
+      "focusMode": "target",
+      "hdr": {
+        "absoluteNitsCalibrated": false,
+        "apiAvailable": true,
+        "available": true,
+        "calibrationAdjustments": [],
+        "calibrationSource": "windows-dxgi",
+        "displayHDR": true,
+        "displayName": "Q27G4XM",
+        "displayTransform": {
+          "adapter": {
+            "disposed": false,
+            "fallbackFrames": {
+              "hdr": 2099,
+              "sdr": 0
+            },
+            "frames": {
+              "hdr": 0,
+              "sdr": 0
+            },
+            "hdr": {
+              "effective": "legacy",
+              "error": null,
+              "peakNits": 1270,
+              "reason": "selected-legacy"
+            },
+            "lastError": null,
+            "output": null,
+            "preparablePeakRange": {
+              "integerOnly": true,
+              "max": 10000,
+              "min": 100
+            },
+            "preparation": {
+              "error": null,
+              "peakNits": 1270,
+              "reason": "selected-legacy",
+              "status": "idle"
+            },
+            "requested": "legacy",
+            "revision": 1,
+            "sdr": {
+              "effective": "none",
+              "error": null,
+              "peakNits": 100,
+              "reason": "awaiting-render"
+            },
+            "supportedTargets": [
+              100,
+              700,
+              1270
+            ],
+            "variant": "aces2-ocio26-accurate-atan-v1"
+          },
+          "effective": "legacy",
+          "error": null,
+          "kind": "hdr",
+          "reason": "render-declined",
+          "requested": true
+        },
+        "enabled": true,
+        "errors": [],
+        "headroom": 4.535714285714286,
+        "height": 1292,
+        "lastPresentCpuMs": 0.09999999403953552,
+        "lastPresentationTimestamp": 197109.70000001788,
+        "lastUploadCpuMs": 0,
+        "limits": "System-reported luminance is not a photometer measurement and scene lux is not calibrated. This is not an official ACES HDR ODT. Extended sRGB canvas is not a native 80-nit scRGB swap chain. External-image copy is not guaranteed zero-copy. PBO copies pixels through CPU. HDR enlargement is linear, not SDR FSR1.",
+        "maxBridgeWidth": 1440,
+        "maxHz": 120,
+        "mode": "float-canvas-external-copy",
+        "noExplicitCPUReadback": true,
+        "output": "sRGB-encoded rgba16float, extended, opaque",
+        "paperWhiteNits": 280,
+        "peakNits": 1270,
+        "peakRelativeToBrowserWhite": 4.535714285714286,
+        "presentationObserverActive": false,
+        "presentationObserverError": null,
+        "presentedFrames": 2099,
+        "readback": null,
+        "requiresRedraw": false,
+        "sdrWhiteNits": 280,
+        "shoulder": "same fitted SDR ACES anchor through exposed peak 1; C1 bounded highlight extension; nit scale divided by browser/Windows SDR white",
+        "skippedFrames": 36,
+        "source": "pre-OutputPass, scene-linear sRGB floating-point target",
+        "systemReportedCalibration": true,
+        "whiteScale": 1,
+        "width": 1209
+      },
+      "height": 1292,
+      "historyEV": 11.75,
+      "maxSamples": 8,
+      "motion": {
+        "attachment": "RGBA16F: unjittered UV velocity.xy, previous linear depth, MSAA coverage; R16F: current linear depth; normalize both by coverage",
+        "enabled": true,
+        "extraScenePasses": 0,
+        "frames": 2135,
+        "groups": 1,
+        "hasPrevious": true,
+        "limits": [
+          "analytic rest-mesh wind and camera motion only; no arbitrary model-matrix animation",
+          "missing-coverage bridge retains conservative camera-only fallback"
+        ]
+      },
+      "outputHeight": 1292,
+      "outputWidth": 1209,
+      "sampleSupport": [
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ]
+      ],
+      "samples": 4,
+      "sceneAttachments": [
+        "RGBA16F radiance",
+        "RGBA16F motion/coverage",
+        "R16F foliage depth",
+        "R8 local reactive"
+      ],
+      "sceneStats": {
+        "calls": 35,
+        "triangles": 2137210
+      },
+      "sensorHeightMm": 36,
+      "shutterSeconds": 0.008333333333333333,
+      "storageEV": 11.75,
+      "temporal": {
+        "active": true,
+        "artificialJitter": false,
+        "enabled": true,
+        "frozen": true,
+        "historyBytes": 28116504,
+        "historyFrames": 621,
+        "historyWeight": 0.84,
+        "jitterPixels": [
+          0,
+          0
+        ],
+        "lastResetReason": "camera or animation cut",
+        "maximumMissingCoverageFrames": 2,
+        "metadata": "R8 age; nearest valid depth, bilinear RGB",
+        "scope": "analytic wind/camera foliage motion, MSAA coverage, independent short water radiance history",
+        "stillFrames": 41,
+        "waterEnabled": true
+      },
+      "upscaler": "native resolution",
+      "verticalFovDegrees": 65.4704525442152,
+      "vignette": true,
+      "width": 1209
+    },
+    "parameters": {
+      "air": {
+        "aerosolScale": 8,
+        "enabled": true,
+        "shadows": true
+      },
+      "current": 0.16,
+      "director": {
+        "mode": "off",
+        "periodSeconds": 240
+      },
+      "graphics": {
+        "displayName": "auto",
+        "displayTransform": "legacy",
+        "hdr": true,
+        "hdrMode": "auto",
+        "indirect": "low",
+        "paperWhiteNits": 280,
+        "peakNits": 1270,
+        "shadows": "recommended",
+        "systemCalibration": true,
+        "targetFps": 60,
+        "waveResolution": 512
+      },
+      "lens": {
+        "antialias": "smaa",
+        "aperture": 8,
+        "automatic": false,
+        "dof": false,
+        "exposure": 0,
+        "firelightAA": true,
+        "focal": 28,
+        "focusDistance": 60,
+        "focusMode": "target",
+        "glintAA": true,
+        "manualExposureEV": 0,
+        "opticalBloom": true,
+        "opticalFlare": false,
+        "temporal": true,
+        "vignette": true
+      },
+      "paused": false,
+      "quality": "balanced",
+      "qualityCustom": false,
+      "qualityPreset": "medium",
+      "renderSampling": {
+        "airShadowTaps": 1,
+        "airSteps": 6,
+        "antialias": "smaa",
+        "atmosphereSteps": 8,
+        "causticsGrid": 1280,
+        "causticsHz": 24,
+        "causticsSize": 1536,
+        "cloudSteps": 48,
+        "dprCap": 1.65,
+        "glintAA": true,
+        "indirect": "low",
+        "msaaSamples": 4,
+        "opticalBloom": true,
+        "reflectionSamples": 0,
+        "reflectionScale": 0.75,
+        "shadowHz": 45,
+        "shadowSize": 4096,
+        "temporal": true,
+        "waveResolution": 512
+      },
+      "sea": {
+        "clarity": 0.9,
+        "swellHeight": 0.16,
+        "windSea": 1
+      },
+      "sound": false,
+      "sun": {
+        "azimuth": 100,
+        "elevation": 48,
+        "intensity": 1
+      },
+      "weather": {
+        "cloudBase": "auto",
+        "coverage": 0.35,
+        "humidity": 0.68,
+        "shear": 1.1,
+        "temperature": 29,
+        "thickness": 950
+      },
+      "wind": 1.8
+    },
+    "performance": {
+      "changes": [],
+      "enabled": false,
+      "lastGpuMs": null,
+      "minimumScale": 0.6,
+      "referenceBudgetMs": 16.666666666666668,
+      "scale": 1,
+      "slowFrameFraction": 0,
+      "smoothedCostMs": null,
+      "targetFps": 60
+    },
+    "renderScale": 1,
+    "spectrum": {
+      "channels": [
+        "height",
+        "slopeX",
+        "slopeZ",
+        "slopeSquared"
+      ],
+      "components": 256,
+      "domainsMetres": [
+        1021,
+        137,
+        29,
+        5.3
+      ],
+      "limitations": [
+        "reference-depth3m analytic spectrum; no ray-traced bathymetric refraction",
+        "linear superposition, no overturning or full nonlinear wave interactions",
+        "SWE boundary swell is a separate lower-frequency resolved system"
+      ],
+      "method": "256-mode GPU Fourier synthesis: independent narrow swell + broader wind sea, mipmapped slope moments; non-FFT",
+      "phasePrecision": "CPU double precision modulo 2pi each frame",
+      "referenceDepthMetres": 3,
+      "resolution": 512,
+      "rmsHeight": 0.046893434077446686,
+      "rmsSlope": 0.1085800054080905,
+      "seaState": {
+        "swellHeight": 0.16,
+        "windSea": 1
+      },
+      "significantHeight": 0.18757373630978671,
+      "specularExposureSeconds": 0.008333333333333333,
+      "swell": {
+        "directionRadians": -0.68,
+        "directionalSpreadRadians": 0.14,
+        "frequencyStdFraction": 0.16,
+        "peakPeriodSeconds": 7.5,
+        "referenceSignificantHeightMetres": 0.16,
+        "windIndependent": true
+      },
+      "swellPeakPeriod": 7.5,
+      "swellRmsSlope": 0.006294249313537006,
+      "swellSignificantHeight": 0.16,
+      "swellTemporalSlopeVariance": 1.731965320805549e-10,
+      "temporalSlopeVariance": 0.000023619889856221493,
+      "time": 31.22522957277063,
+      "updates": 1669,
+      "windRmsSlope": 0.108397416943394,
+      "windSea": {
+        "frequencyShape": "JONSWAP-shaped, gamma3.3, log-k importance weighted; no fetch/growth solve",
+        "peakPeriodSeconds": 2.2
+      },
+      "windTemporalSlopeVariance": 0.000023619716659689413
+    },
+    "target": [
+      45.78216661389081,
+      281.5625311763542,
+      13.311242145394823
+    ],
+    "viewport": [
+      1209,
+      1292
+    ],
+    "water": {
+      "farField": {
+        "additionalSamplers": 0,
+        "additionalScenePasses": 0,
+        "axisBytes": 5128,
+        "earthRadiusMetres": 6360000,
+        "farHalfExtentMetres": 65536,
+        "mode": "curved",
+        "model": "shared spherical-Earth datum with logarithmic outer grid; analytic bed preserves local water depth",
+        "nearGridHalfExtentMetres": 96,
+        "requiredCameraFarMetres": 120000,
+        "vertices": 410881
+      },
+      "glintAA": {
+        "enabled": 1,
+        "model": "pixel normal variance plus statistical 1/120 s temporal slope variance; only direct-sun NDF",
+        "temporalSlopeVarianceAtReferenceWind": 0.000023619889856221493
+      },
+      "lighting": {
+        "ambientIntensity": 1,
+        "skyColourStored": [
+          0.011141210799784425,
+          0.009677614307162309,
+          0.008906724597939822
+        ],
+        "source": "shared skyTintPhysical and scene storage exposure; solar intensity included once",
+        "sunIrradianceStored": 0.02322132360632707
+      },
+      "optics": {
+        "absorption": [
+          0.16,
+          0.035,
+          0.018
+        ],
+        "beamEfoldDistanceMetres": [
+          6.097560975609756,
+          22.727272727272727,
+          31.25
+        ],
+        "clarity": 0.9,
+        "coefficientUnit": "m^-1",
+        "extinction": [
+          0.164,
+          0.044,
+          0.032
+        ],
+        "particleMultiplier": 1,
+        "reference": "authored linear-RGB effective coefficients; clarity changes only suspended-particle scattering; not measured full-spectrum/NTU/Secchi data",
+        "revision": 0,
+        "scattering": [
+          0.004,
+          0.009,
+          0.014
+        ]
+      },
+      "reflection": {
+        "colourMipmaps": true,
+        "depthMipmaps": false,
+        "directionMode": "geometric",
+        "filter": "linear mipmapped colour; independent non-mipmapped depth",
+        "geometricSource": "curved macro-frame reflection; incoming Smith visibility; fixed2m environment approximation retained",
+        "legacyFloorsRadians": [
+          0.006,
+          0.012
+        ],
+        "samples": 0,
+        "size": [
+          907,
+          969
+        ]
+      },
+      "submergedProps": {
+        "additionalSamplers": 0,
+        "additionalTargets": 0,
+        "bisectionSteps": 6,
+        "bounds": [],
+        "count": 0,
+        "limits": [
+          "Screen-visible auxiliary surfaces only; offscreen/occluded surfaces retain analytic bed without clamped sampling",
+          "Captured native RGB has no sun/ambient/local decomposition; incoming water attenuation uses one receiver-depth solar-path approximation",
+          "Thin/grazing/subpixel geometry may be missed by the bounded search; sphere bounds alone never create a coloured surface"
+        ],
+        "maximum": 36,
+        "model": "finite real sphere bounds choose search intervals; real auxiliary RGB/depth verifies nearest wet ray hit; one-pixel finite-resolution tolerance",
+        "probesPerIntersectedBound": 4,
+        "revision": 0
+      },
+      "treeShadow": {
+        "bias": -0.00012,
+        "enabled": true,
+        "limits": [
+          "receives the existing caster map; does not add missing terrain casters",
+          "plane solar-refraction interface at mean sea level",
+          "three independent PCF queries, including one volume midpoint",
+          "main renderer requests up to 60 Hz in high quality, 30 Hz balanced; actual rate is frame limited"
+        ],
+        "mapSize": [
+          4096,
+          4096
+        ],
+        "normalBiasMetres": 0.035,
+        "packing": "Three.js RGBADepthPacking; ordinary non-reversed directional shadow",
+        "pcfTapsPerQuery": 9,
+        "queriesPerWaterFragment": 3,
+        "updates": 2136
+      }
+    }
+  },
+  "raw": {
+    "cpuTimes": [
+      13.400000005960464,
+      17.30000001192093,
+      30,
+      101.09999999403954,
+      20.299999982118607,
+      14.300000011920927,
+      23.5,
+      15.699999988079073,
+      15.399999976158142,
+      12.300000011920927,
+      12.400000005960464,
+      13,
+      12.100000023841858,
+      15.099999994039536,
+      24.700000017881393,
+      15.900000005960464,
+      14.199999988079073,
+      13.5,
+      14,
+      12.800000011920927,
+      12.200000017881392,
+      13.099999994039536,
+      12.099999994039536,
+      11.099999994039536,
+      12,
+      14.200000017881392,
+      12.300000011920927,
+      12.899999976158142,
+      11.800000011920927,
+      12.299999982118608,
+      21.5,
+      16.400000005960464,
+      12,
+      11.200000017881392,
+      11.400000005960464,
+      11.399999976158142,
+      11,
+      11.100000023841858,
+      18.30000001192093,
+      13.599999994039536,
+      11.700000017881392,
+      13.200000017881392,
+      11.300000011920927,
+      11.699999988079073,
+      12.299999982118608,
+      12.099999994039536,
+      12.900000005960464,
+      11.599999994039536,
+      11.400000005960464,
+      11.700000017881392,
+      19.399999976158146,
+      11.699999988079073,
+      11.900000005960464,
+      11.800000011920927,
+      12.699999988079073,
+      13.699999988079073,
+      16.69999998807907,
+      11.700000017881392,
+      12.5,
+      12.800000011920927,
+      14.700000017881392,
+      20.69999998807907,
+      12.599999994039536,
+      18.600000023841854,
+      12.699999988079073,
+      12.099999994039536,
+      11.599999994039536,
+      12.299999982118608,
+      13.800000011920927,
+      12.5,
+      13.900000005960464,
+      13.600000023841858,
+      13.400000005960464,
+      12.899999976158142,
+      12.100000023841858,
+      13.599999994039536,
+      11.099999994039536,
+      11.600000023841858,
+      11.099999994039536,
+      19.5,
+      17.80000001192093,
+      12.300000011920927,
+      11.900000005960464,
+      12,
+      11.400000005960464,
+      11.899999976158142,
+      19.19999998807907,
+      12.799999982118608,
+      11.900000005960464,
+      11.5,
+      10.699999988079073,
+      11.399999976158142,
+      11.700000017881392,
+      11.900000005960464,
+      15,
+      13.900000005960464,
+      12.300000011920927,
+      11.699999988079073,
+      16.099999994039536,
+      12.900000005960464,
+      12,
+      12.300000011920927,
+      12.800000011920927,
+      13,
+      13.299999982118608,
+      12.5,
+      15.800000011920927,
+      11.5,
+      11.300000011920927,
+      13.5,
+      12.399999976158142,
+      16.19999998807907,
+      14.900000005960464,
+      12.199999988079073,
+      11.400000005960464,
+      13.200000017881392,
+      11.100000023841858,
+      13.200000017881392,
+      13.5,
+      11.900000005960464,
+      13,
+      11.5,
+      14.400000005960464,
+      12.900000005960464,
+      18.5,
+      21.099999994039536,
+      12.700000017881392,
+      19.200000017881393,
+      12.400000005960464,
+      16.599999994039536,
+      12.5,
+      12.400000005960464,
+      12,
+      11.599999994039536,
+      12.199999988079073,
+      12.599999994039536,
+      12.900000005960464,
+      12.800000011920927,
+      12,
+      12.299999982118608,
+      11.700000017881392,
+      13,
+      12.199999988079073,
+      18.299999982118607,
+      17.80000001192093,
+      13.5,
+      12.199999988079073,
+      12.099999994039536,
+      12.599999994039536,
+      12.099999994039536,
+      13.099999994039536,
+      12.299999982118608,
+      12.699999988079073,
+      13.5,
+      11.700000017881392,
+      13.400000005960464,
+      11.900000005960464,
+      14.300000011920927,
+      12.199999988079073,
+      22.69999998807907,
+      17.400000005960464,
+      15.600000023841858,
+      13.099999994039536,
+      15.700000017881392,
+      13,
+      12.800000011920927,
+      12.800000011920927,
+      14.199999988079073,
+      11.900000005960464,
+      13,
+      13.599999994039536,
+      12.800000011920927,
+      17,
+      14,
+      15.200000017881392,
+      13.399999976158142,
+      18.5,
+      14.299999982118608,
+      16.80000001192093,
+      15.200000017881392,
+      15.099999994039536,
+      16.5,
+      13.599999994039536,
+      17,
+      17.099999994039536,
+      15,
+      13.699999988079073,
+      14,
+      15.400000005960464,
+      13.300000011920927,
+      14.099999994039536,
+      13.5,
+      21,
+      14.400000005960464,
+      14.599999994039536,
+      13.800000011920927,
+      13.5,
+      13.5,
+      13.900000005960464,
+      14.899999976158142,
+      12.800000011920927,
+      12,
+      12.800000011920927,
+      12.300000011920927,
+      14.099999994039536,
+      13,
+      12.800000011920927,
+      13.199999988079073,
+      12.199999988079073,
+      12.5,
+      14.299999982118608,
+      13.5,
+      17.599999994039536,
+      14.300000011920927,
+      13.099999994039536,
+      12.400000005960464,
+      13.199999988079073,
+      14.399999976158142,
+      14.199999988079073,
+      13.5,
+      14.299999982118608,
+      26.30000001192093,
+      16.19999998807907,
+      12.599999994039536,
+      16.69999998807907,
+      15.400000005960464,
+      25.100000023841854,
+      13.5,
+      13.699999988079073,
+      12.800000011920927,
+      12.400000005960464,
+      12.299999982118608,
+      12.199999988079073,
+      13.700000017881392,
+      12.299999982118608,
+      14.299999982118608,
+      13,
+      13.299999982118608,
+      13.199999988079073,
+      13.599999994039536,
+      13.300000011920927,
+      12.900000005960464,
+      12.200000017881392,
+      12.400000005960464,
+      13.5,
+      13.199999988079073,
+      16.5,
+      12.699999988079073,
+      16.799999982118607,
+      22.299999982118607,
+      21.80000001192093,
+      18.799999982118607,
+      14.699999988079073,
+      14,
+      19.80000001192093,
+      16.899999976158142,
+      13.099999994039536,
+      13.5,
+      13.5,
+      23,
+      14,
+      14.600000023841858,
+      13.399999976158142,
+      16.099999994039536,
+      16.19999998807907,
+      16.599999994039536,
+      18.099999994039536,
+      17.200000017881393,
+      31.19999998807907,
+      19.69999998807907,
+      14.099999994039536,
+      18.69999998807907,
+      13.400000005960464,
+      14.300000011920927,
+      13.399999976158142,
+      23.700000017881393,
+      15.699999988079073,
+      15.400000005960464,
+      15.099999994039536,
+      16.69999998807907,
+      16,
+      13.099999994039536,
+      18.69999998807907,
+      14.800000011920927,
+      15.900000005960464,
+      13.899999976158142,
+      17.400000005960464,
+      13.599999994039536,
+      29.5,
+      20.099999994039536,
+      17.19999998807907,
+      15.299999982118608,
+      15.599999994039536,
+      14.199999988079073,
+      15.199999988079073,
+      15.699999988079073,
+      14.5,
+      18,
+      18.200000017881393,
+      17.19999998807907,
+      19.099999994039536,
+      19,
+      17.5,
+      14.099999994039536,
+      21.099999994039536,
+      16.299999982118607,
+      18.599999994039536,
+      17.700000017881393,
+      13.799999982118608,
+      14.800000011920927,
+      15.599999994039536,
+      15.199999988079073,
+      18.599999994039536,
+      32.5,
+      15.099999994039536,
+      22.799999982118607,
+      14.400000005960464,
+      14.700000017881392,
+      16.200000017881393,
+      14.299999982118608,
+      26.900000005960464,
+      15.900000005960464,
+      13.900000005960464,
+      15.599999994039536,
+      15.900000005960464,
+      15.099999994039536,
+      15.5
+    ],
+    "frameIntervals": [
+      14.599999994039536,
+      18.30000001192093,
+      30.400000005960464,
+      102,
+      21.799999982118607,
+      14.800000011920927,
+      23.80000001192093,
+      16,
+      15.699999988079073,
+      12.699999988079073,
+      12.700000017881392,
+      13.299999982118608,
+      12.400000005960464,
+      15.5,
+      25.099999994039536,
+      16.600000023841858,
+      14.5,
+      13.799999982118608,
+      14.400000005960464,
+      13.099999994039536,
+      12.5,
+      13.400000005960464,
+      12.400000005960464,
+      11.799999982118608,
+      12.5,
+      14.5,
+      12.600000023841858,
+      13.299999982118608,
+      12.300000011920927,
+      12.599999994039536,
+      21.900000005960464,
+      16.900000005960464,
+      12.799999982118608,
+      11.5,
+      11.700000017881392,
+      11.599999994039536,
+      11.299999982118608,
+      11.800000011920927,
+      19.099999994039536,
+      14,
+      12.599999994039536,
+      13.5,
+      11.700000017881392,
+      12,
+      12.599999994039536,
+      12.400000005960464,
+      13.099999994039536,
+      12,
+      11.699999988079073,
+      12.100000023841858,
+      19.69999998807907,
+      12,
+      12.199999988079073,
+      12.200000017881392,
+      13.099999994039536,
+      14.400000005960464,
+      17.299999982118607,
+      12,
+      12.800000011920927,
+      13.099999994039536,
+      15.300000011920927,
+      21.19999998807907,
+      13.099999994039536,
+      19.100000023841854,
+      13.599999994039536,
+      12.400000005960464,
+      12,
+      12.699999988079073,
+      14.199999988079073,
+      12.800000011920927,
+      14.199999988079073,
+      13.900000005960464,
+      13.700000017881392,
+      13.399999976158142,
+      12.400000005960464,
+      14.300000011920927,
+      11.299999982118608,
+      12.600000023841858,
+      11.399999976158142,
+      19.80000001192093,
+      18.19999998807907,
+      12.700000017881392,
+      12.299999982118608,
+      12.300000011920927,
+      12.300000011920927,
+      12.199999988079073,
+      19.400000005960464,
+      13.099999994039536,
+      12.199999988079073,
+      12.100000023841858,
+      11,
+      11.799999982118608,
+      13,
+      12.099999994039536,
+      15.300000011920927,
+      14.199999988079073,
+      12.700000017881392,
+      12,
+      16.5,
+      13.199999988079073,
+      12.400000005960464,
+      12.599999994039536,
+      13.300000011920927,
+      13.5,
+      13.799999982118608,
+      12.800000011920927,
+      16.19999998807907,
+      11.800000011920927,
+      11.599999994039536,
+      13.700000017881392,
+      12.699999988079073,
+      16.69999998807907,
+      15.700000017881392,
+      12.5,
+      11.699999988079073,
+      14.099999994039536,
+      11.5,
+      13.5,
+      13.900000005960464,
+      12.200000017881392,
+      13.399999976158142,
+      11.800000011920927,
+      14.699999988079073,
+      13.200000017881392,
+      19.19999998807907,
+      21.5,
+      13,
+      19.900000005960464,
+      12.800000011920927,
+      16.899999976158142,
+      12.800000011920927,
+      12.699999988079073,
+      12.300000011920927,
+      12.400000005960464,
+      12.5,
+      13,
+      13.199999988079073,
+      13.400000005960464,
+      12.300000011920927,
+      12.899999976158142,
+      12.300000011920927,
+      13.400000005960464,
+      12.5,
+      18.599999994039536,
+      18.19999998807907,
+      13.700000017881392,
+      12.5,
+      12.400000005960464,
+      13.199999988079073,
+      12.400000005960464,
+      13.400000005960464,
+      12.699999988079073,
+      13.699999988079073,
+      13.900000005960464,
+      12.099999994039536,
+      13.800000011920927,
+      12.199999988079073,
+      14.700000017881392,
+      12.5,
+      23.599999994039536,
+      17.69999998807907,
+      15.900000005960464,
+      13.5,
+      16.099999994039536,
+      13.400000005960464,
+      13.099999994039536,
+      13.100000023841858,
+      14.599999994039536,
+      12.199999988079073,
+      13.5,
+      13.900000005960464,
+      13.099999994039536,
+      17.5,
+      14.599999994039536,
+      15.600000023841858,
+      13.799999982118608,
+      18.80000001192093,
+      14.599999994039536,
+      17.19999998807907,
+      15.700000017881392,
+      15.5,
+      16.900000005960464,
+      14,
+      18.099999994039536,
+      17.69999998807907,
+      15.300000011920927,
+      14.699999988079073,
+      14.300000011920927,
+      15.799999982118608,
+      13.600000023841858,
+      14.399999976158142,
+      13.900000005960464,
+      21.400000005960464,
+      14.800000011920927,
+      14.899999976158142,
+      14.300000011920927,
+      14,
+      14,
+      14.800000011920927,
+      15.299999982118608,
+      13.099999994039536,
+      12.300000011920927,
+      13.099999994039536,
+      12.800000011920927,
+      14.5,
+      13.299999982118608,
+      13.300000011920927,
+      13.5,
+      12.599999994039536,
+      12.700000017881392,
+      14.899999976158142,
+      13.900000005960464,
+      18,
+      14.5,
+      13.5,
+      12.700000017881392,
+      13.5,
+      14.699999988079073,
+      15,
+      13.900000005960464,
+      14.599999994039536,
+      27.30000001192093,
+      16.599999994039536,
+      12.900000005960464,
+      17.099999994039536,
+      15.799999982118608,
+      25.400000005960464,
+      13.800000011920927,
+      14.099999994039536,
+      13.099999994039536,
+      12.800000011920927,
+      12.599999994039536,
+      12.699999988079073,
+      14.100000023841858,
+      12.5,
+      14.699999988079073,
+      13.300000011920927,
+      13.599999994039536,
+      13.5,
+      13.799999982118608,
+      13.700000017881392,
+      13.299999982118608,
+      12.5,
+      12.800000011920927,
+      13.900000005960464,
+      13.799999982118608,
+      16.80000001192093,
+      12.900000005960464,
+      17.400000005960464,
+      22.799999982118607,
+      22.30000001192093,
+      19.5,
+      15.299999982118608,
+      14.300000011920927,
+      20.30000001192093,
+      18.19999998807907,
+      13.400000005960464,
+      13.799999982118608,
+      13.700000017881392,
+      23.5,
+      14.299999982118608,
+      15.100000023841858,
+      13.699999988079073,
+      16.5,
+      16.599999994039536,
+      17,
+      18.599999994039536,
+      17.80000001192093,
+      31.80000001192093,
+      20.799999982118607,
+      14.800000011920927,
+      19,
+      13.799999982118608,
+      14.600000023841858,
+      13.799999982118608,
+      24.700000017881393,
+      16.19999998807907,
+      16.400000005960464,
+      15.5,
+      17.19999998807907,
+      16.400000005960464,
+      14.5,
+      19.19999998807907,
+      15.200000017881392,
+      16.400000005960464,
+      14.199999988079073,
+      18.400000005960464,
+      13.900000005960464,
+      29.799999982118607,
+      20.700000017881393,
+      17.599999994039536,
+      15.599999994039536,
+      15.900000005960464,
+      14.5,
+      15.5,
+      16.099999994039536,
+      15.199999988079073,
+      18.5,
+      18.700000017881393,
+      17.599999994039536,
+      19.69999998807907,
+      19.400000005960464,
+      18,
+      14.800000011920927,
+      21.5,
+      16.69999998807907,
+      19.099999994039536,
+      18.200000017881393,
+      14.199999988079073,
+      15.300000011920927,
+      16.400000005960464,
+      15.5,
+      19,
+      32.69999998807907,
+      15.400000005960464,
+      24.5,
+      14.799999982118608,
+      15,
+      16.700000017881393,
+      14.599999994039536,
+      27.19999998807907,
+      16.200000017881393,
+      14.900000005960464,
+      15.899999976158142,
+      16.200000017881393,
+      15.699999988079073
+    ],
+    "gpuTimes": [
+      56.879,
+      78.124,
+      22.769,
+      7.258,
+      7.429,
+      11.608,
+      6.85,
+      9.016,
+      8.067,
+      8.499,
+      7.731,
+      8.261,
+      7.619,
+      10.63,
+      8.057,
+      8.99,
+      6.769,
+      8.62,
+      7.708,
+      7.687,
+      7.268,
+      7.989,
+      7.354,
+      8.475,
+      7.299,
+      6.727,
+      7.007,
+      8.696,
+      7.082,
+      7.735,
+      7.813,
+      8.5,
+      6.799,
+      7.551,
+      7.141,
+      7.021,
+      6.689,
+      7.572,
+      7.263,
+      8.936,
+      6.861,
+      9.627,
+      7.391,
+      8.607,
+      6.443,
+      7.601,
+      6.571,
+      7.746,
+      7.985,
+      7.077,
+      7.489,
+      7.883,
+      7.585,
+      8.295,
+      7.455,
+      7.405,
+      7.465,
+      7.767,
+      6.622,
+      7.807,
+      7.051,
+      9.703,
+      6.774,
+      7.118,
+      7.203,
+      7.427,
+      7.368,
+      8.778,
+      6.562,
+      8.167,
+      7.479,
+      8.017,
+      7.558,
+      9.118,
+      6.404,
+      7.239,
+      7.838,
+      8.263,
+      6.398,
+      6.081,
+      10.088,
+      7.688,
+      6.067,
+      8.348,
+      7.703,
+      8.651,
+      7.004,
+      8.176,
+      6.883,
+      7.56,
+      6.747,
+      7.885,
+      6.34,
+      7.324,
+      7.659,
+      8.097,
+      7.354,
+      7.545,
+      7.484,
+      7.852,
+      6.735,
+      7.43,
+      7.49,
+      8.728,
+      7.438,
+      7.844,
+      7.363,
+      6.786,
+      7.441,
+      8.283,
+      7.229,
+      8.479,
+      6.796,
+      7.58,
+      7.404,
+      8.165,
+      6.774,
+      8.507,
+      8.158,
+      7.652,
+      7.618,
+      6.932,
+      6.389,
+      7.913,
+      6.921,
+      8.219,
+      7.911,
+      9.113,
+      6.4,
+      8.997,
+      6.993,
+      7.466,
+      7.747,
+      7.015,
+      7.176,
+      7.511,
+      6.793,
+      7.536,
+      6.792,
+      8.601,
+      7.212,
+      8.471,
+      7.822,
+      7.009,
+      8.586,
+      8.591,
+      7.082,
+      7.751,
+      6.974,
+      8.236,
+      6.958,
+      7.96,
+      5.692,
+      7.773,
+      7.226,
+      7.892,
+      7.416,
+      8.559,
+      6.669,
+      8.441,
+      7.652,
+      7.5,
+      7.622,
+      8.354,
+      7.694,
+      7.691,
+      7.318,
+      7.084,
+      7.363,
+      6.744,
+      7.89,
+      8.781,
+      11.481,
+      7.659,
+      7.948,
+      8.118,
+      7.949,
+      6.699,
+      8.507,
+      7.982,
+      9.036,
+      7.178,
+      8.318,
+      9.301,
+      9.196,
+      7.251,
+      8.357,
+      14.824,
+      7.533,
+      7.497,
+      6.657,
+      7.574,
+      8.738,
+      8.094,
+      8.87,
+      7.771,
+      8.137,
+      7.14,
+      8.684,
+      6.441,
+      7.449,
+      7.099,
+      7.855,
+      7.484,
+      8.269,
+      8.733,
+      8.468,
+      8.271,
+      8.496,
+      7.163,
+      7.625,
+      7.615,
+      7.787,
+      8.102,
+      7.763,
+      7.626,
+      7.797,
+      8.534,
+      10.318,
+      7.309,
+      9.035,
+      7.689,
+      16.42,
+      8.563,
+      9.394,
+      8.015,
+      8.148,
+      8.724,
+      7.982,
+      8.919,
+      7.869,
+      7.02,
+      6.857,
+      7.552,
+      6.859,
+      7.944,
+      7.539,
+      10.075,
+      7.416,
+      8.741,
+      7.043,
+      7.626,
+      7.901,
+      7.071,
+      7.155,
+      7.18,
+      7.253,
+      7.923,
+      9.427,
+      7.49,
+      8.342,
+      8.903,
+      8.58,
+      8.192,
+      8.185,
+      9.162,
+      12.983,
+      7.047,
+      7.134,
+      6.39,
+      9.071,
+      5.673,
+      8.346,
+      7.128,
+      9.561,
+      7.466,
+      10.127,
+      8.152,
+      8.468,
+      11.077,
+      8.409,
+      8.607,
+      6.797,
+      8.507,
+      7.304,
+      9.149,
+      7.505,
+      9.546,
+      8.582,
+      7.037,
+      7.586,
+      7.477,
+      5.93,
+      8.697,
+      9.112,
+      7.351,
+      9.072,
+      7.801,
+      8.85,
+      11.413,
+      8.089,
+      7.889,
+      8.315,
+      8.248,
+      8.553,
+      10.351,
+      9.438,
+      8.782,
+      8.605,
+      10.326,
+      7.593,
+      9.742,
+      7.24,
+      7.825,
+      7.384,
+      8.073,
+      9.053,
+      8.723,
+      8.705,
+      9.02,
+      7.618,
+      7.97,
+      7.88,
+      7.815,
+      8.432,
+      7.274,
+      11.325,
+      7.309,
+      8.451,
+      7.755,
+      7.607,
+      7.19,
+      7.311
+    ],
+    "initial": {
+      "atmosphere": {
+        "altitudeWindMetresPerSecond": [
+          2.6956800000000003,
+          1.01376
+        ],
+        "atmosphereSteps": 8,
+        "camera": [
+          435.67997580837334,
+          7,
+          -1601.9796816603202
+        ],
+        "cloudBaseContinuity": 1,
+        "cloudBaseMetres": 812.9564227727033,
+        "cloudDensityKey": "shape2:base1",
+        "cloudExtinctionPerMetre": 0.0036,
+        "cloudQuadrature": "conservative max-mip weather bounds plus one-segment margin, fixed per-pixel interleaved-gradient offset",
+        "cloudShapeBlend": 2,
+        "cloudShapeModel": "legacy capped column0; Gaussian thermal1; primary3D Worley puffs and continuous liquid-water density2",
+        "cloudSteps": 48,
+        "cloudSupportEnabled": 1,
+        "cloudSupportProbeCount": 32,
+        "cloudTopMetres": 1762.9564227727033,
+        "coverage": 0.35,
+        "diffuseAir": {
+          "enabled": true,
+          "limits": [
+            "Not a multiple-scattering LUT or angle-resolved sky radiance field",
+            "Clear-sky irradiance proxy; local sky occlusion and cloud angular redistribution are not solved"
+          ],
+          "model": "Esky/(2*pi) uniform upper hemisphere, one diffuse transport iteration; shared sky/finite air, no extra march",
+          "rawRadianceRGB": [
+            4.047529748732546e-7,
+            4.865227751469693e-7,
+            6.426825233224963e-7
+          ]
+        },
+        "groundCloudTransmission": 1,
+        "initializationMs": 815.7000000178814,
+        "lighting": {
+          "referenceElevationDegrees": 48,
+          "solarTransmission": [
+            0,
+            0,
+            0
+          ],
+          "sunStrength": 0
+        },
+        "limits": [
+          "8/6-point single-scattering quadrature, not a full multiple-scattering LUT",
+          "three-sample cloud self-shadow and ground shadow",
+          "bounded diffuse cloud bounce approximation",
+          "surface-parcel LCL estimate, not a measured sounding or cloud forecast",
+          "prescribed ascent and kinematic advection/entrainment; no Navier–Stokes solve",
+          "CPU density is the exact base-LOD density formula; view rays use filtered noise LOD",
+          "GPU budget must be measured on the actual renderer"
+        ],
+        "maximumViewNoiseLod": 1.25,
+        "model": "spherical single-scattering Rayleigh/Mie/ozone atmosphere; bounded hemispherical diffuse-air closure; multi-thermal, entrained volume cumulus",
+        "night": {
+          "angularRadii": {
+            "moon": 0.00479590725515525,
+            "sun": 0.004677925153002595
+          },
+          "astronomicalSunDirection": [
+            -0.4519843789004561,
+            -0.8793346579548398,
+            0.1499355880016947
+          ],
+          "baseMoonSourceRatio": 0.000002000377832217024,
+          "coordinates": "+X east,+Y up,-Z north; geographic azimuth north clockwise; worldToEQJ applies inverse heading; standard refraction is Astronomy Engine normal",
+          "currentDate": "2026-10-26T14:00:00.000Z",
+          "date": "2026-10-26T14:00:00.000Z",
+          "diagnostics": {
+            "ephemerisCalls": 6,
+            "updates": 42087
+          },
+          "ephemerisInterpolation": "continuous endpoints; exact current EQJ rotation",
+          "ephemerisRefreshSeconds": 30,
+          "epochJulianYear": 2026.8174766141913,
+          "externalClock": true,
+          "interpolation": {
+            "continuous": true,
+            "moonAndSun": "normalized vector interpolation between exact topocentric endpoints",
+            "rotation": "exact current-UTC Astronomy Engine transform",
+            "utcSpanSeconds": 30
+          },
+          "limits": [
+            "Astronomy Engine nominal arcminute-class; not a measurement-grade ephemeris",
+            "standard refraction uses a prescribed atmosphere, not current humidity sounding",
+            "historical UTC/UT1 and proper motion are approximations"
+          ],
+          "loadError": null,
+          "loaded": true,
+          "lunarMap": "NASA SVS4720,LRO1024x512,local",
+          "mode": "astronomical",
+          "moon": {
+            "altitudeDeg": 55.861065855731106,
+            "angularRadius": 0.00479590725515525,
+            "azimuthDeg": 62.04481520501304,
+            "direction": [
+              0.4957174891282005,
+              0.8276791730090381,
+              -0.2630805153170928
+            ],
+            "distanceAU": 0.0024216160925221667,
+            "geometricAltitudeDeg": 55.84960722646197,
+            "geometricDirection": [
+              0.4958636927019287,
+              0.8275669213047823,
+              -0.2631581065103857
+            ]
+          },
+          "moonAltitudeDegrees": 55.861065855731106,
+          "moonAngularRadius": 0.00479590725515525,
+          "moonAzimuthDegrees": 62.04481520501304,
+          "moonDirection": [
+            0.4957174891282005,
+            0.8276791730090381,
+            -0.2630805153170928
+          ],
+          "moonGeometricDirection": [
+            0.4958636927019287,
+            0.8275669213047823,
+            -0.2631581065103857
+          ],
+          "moonLibrationRadians": [
+            -0.06285323248045896,
+            -0.10809523957759866
+          ],
+          "moonMagnitude": -12.63672338079097,
+          "moonNorth": [
+            -0.377296802303312,
+            0.0636533151485313,
+            -0.9239022558919844
+          ],
+          "moonPhase": 0.9960060559924352,
+          "moonPhaseAngleRadians": 0.1264796040340311,
+          "moonSourceRatio": 0.000002000377832217024,
+          "moonSunDirection": [
+            -0.4491174702631953,
+            -0.8809231523586523,
+            0.14922431954236742
+          ],
+          "observer": {
+            "heightM": 2,
+            "latitudeDeg": 4.5,
+            "longitudeDeg": 118.6,
+            "northYawDeg": 0
+          },
+          "physicalSkyRevision": 3,
+          "rate": 1,
+          "refraction": "standard",
+          "running": false,
+          "settings": {
+            "automaticExposure": true,
+            "date": "2026-10-26T14:00:00.000Z",
+            "height": 2,
+            "latitude": 4.5,
+            "longitude": 118.6,
+            "moonIntensity": 1,
+            "rotationDegrees": 0,
+            "starIntensity": 1
+          },
+          "starField": {
+            "epochYears": 26.817476614191264,
+            "error": null,
+            "exposureSeconds": 0.008333333333333333,
+            "license": "Catalogue data/derivatives CC BY-NC3.0IGO, Credit ESA; ESA1997 SP1200, Hogetal2000 A&A355L27, CDS/VizieR DOI10.26093/cds/vizier; NASA background separate SVS4851 source terms",
+            "limits": [
+              "NASA background and full atlas have independent visualization gains, not an additive layer calibration",
+              "HIP combined systems take precedence over all linked Tycho components; no coordinate-only merging",
+              "Magnitude/colour boundary differs from exact unpublished NASA generator; no claim of perfect1.7B-source reconstruction",
+              "Missing photometry/positions and effective Tycho->Johnson conversions are counted",
+              "Bright-star supplement18Yale audit still required; no false complete-as-NASA claim"
+            ],
+            "loaded": true,
+            "model": "HIP/Tycho magnitude8.5 direction-cube candidates plus area-conserving diffuse, weak shutter-averaged scintillation",
+            "physicalF0": 9.144e-11,
+            "pointCount": 77925,
+            "pointLimit": 8.5,
+            "tables": [
+              {
+                "bytes": 7831552,
+                "entryCount": 390960,
+                "height": 478,
+                "maximumBucketFluxChannelUnitF0": 5.396329879760742,
+                "maximumCandidates": 50,
+                "meanCandidates": 3.97705078125,
+                "name": "native",
+                "supportDegrees": 0.18,
+                "width": 1024
+              },
+              {
+                "bytes": 66895872,
+                "entryCount": 4081955,
+                "height": 4083,
+                "maximumBucketFluxChannelUnitF0": 5.549199104309082,
+                "maximumCandidates": 225,
+                "meanCandidates": 41.52379353841146,
+                "name": "wide",
+                "supportDegrees": 2,
+                "width": 1024
+              }
+            ],
+            "view": {
+              "height": 1292,
+              "minimumPixelOmega": 1.674848408073031e-7,
+              "requiredSupportDegrees": 0.17817821747074752,
+              "table": "native",
+              "width": 1209
+            }
+          },
+          "starMap": "NASA SVS4851 no-HIP/Tycho background + HIP/Tycho8.5 point kernels + diffuse complementary aggregate",
+          "starScale": 2e-7,
+          "sun": {
+            "altitudeDeg": -61.56220748113398,
+            "angularRadius": 0.004677925153002595,
+            "azimuthDeg": 251.64790461365345,
+            "direction": [
+              -0.4519843789004561,
+              -0.8793346579548398,
+              0.1499355880016947
+            ],
+            "distanceAU": 0.994133952535998,
+            "geometricAltitudeDeg": -61.76731653734098,
+            "geometricDirection": [
+              -0.448993723820359,
+              -0.8810337496545114,
+              0.148943505865946
+            ]
+          },
+          "sunDirection": [
+            -0.4519843789004561,
+            -0.8793346579548398,
+            0.1499355880016947
+          ],
+          "sunGeometricDirection": [
+            -0.448993723820359,
+            -0.8810337496545114,
+            0.148943505865946
+          ],
+          "timeZoneOffsetMinutes": 480,
+          "utcMs": 1793023200000,
+          "worldToEquatorialColumns": [
+            [
+              -0.056084848569699176,
+              0.99842599930014,
+              0.0001169719208687672
+            ],
+            [
+              0.9955503840125498,
+              0.05591442972645943,
+              0.0758485955099296
+            ],
+            [
+              0.07572266934926421,
+              0.004370408434138442,
+              -0.9971193393354378
+            ]
+          ]
+        },
+        "noiseDimensions": [
+          64,
+          64,
+          64
+        ],
+        "offsetMetres": [
+          84.17322685472642,
+          31.65488873169196
+        ],
+        "preExposureEV": 11.75,
+        "recommendedCubeFaceRate": 12,
+        "recommendedPMREMHz": 0.5,
+        "shearOffsetMetresPerKilometre": [
+          32.14949636812463,
+          12.090408890576777
+        ],
+        "sun": [
+          -0.4519843789004561,
+          -0.8793346579548398,
+          0.1499355880016947
+        ],
+        "supportBytes": 1398100,
+        "supportMipCount": 10,
+        "time": 31.22522957277063,
+        "transientClouds": {
+          "count": 0,
+          "environmentCapture": "excluded by default; live restore includes transient state",
+          "extraSamplers": 0,
+          "limits": [
+            "two finite-radius diffuse clusters, not resolved burning-star angular integration",
+            "finite cloud self-shadow four-sample quadrature",
+            "source-to-cloud smoke attenuation not implemented; downstream compositor owns view smoke",
+            "legacy sky cloud view support rd.y>-.015 retained",
+            "relative RGB scene units; no absolute cloud or pyrotechnic calibration",
+            "P must be selected from combined raw source envelopes before rendering"
+          ],
+          "optIn": true,
+          "phaseMaximumBound": 0.7638996395992439,
+          "rawRadianceBound": 0,
+          "reflection": "isolated alpha0 delta; water-hit observer, hardware far depth; no attached-depth sampler",
+          "sourceAndViewCleanAirSamples": 4,
+          "sourceCloudSamples": 4,
+          "ssa": 0.999
+        },
+        "weather": {
+          "current": {
+            "automaticCloudBase": true,
+            "cloudBase": 812.9564227727033,
+            "cloudTop": 1762.9564227727033,
+            "coverage": 0.35,
+            "dewPoint": 22.496348617818377,
+            "humidity": 0.68,
+            "liftedCondensationLevel": 812.9564227727033,
+            "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+            "moisture": 0.984,
+            "shear": 1.1,
+            "temperature": 29,
+            "thickness": 950,
+            "windDirection": null
+          },
+          "limits": [
+            "LCL is a surface-parcel estimate, not a sounding",
+            "Cloud coverage is independently prescribed ascent availability",
+            "No precipitation, prognostic humidity, CAPE or Navier–Stokes solve"
+          ],
+          "target": {
+            "automaticCloudBase": true,
+            "cloudBase": 812.9564227727033,
+            "cloudTop": 1762.9564227727033,
+            "coverage": 0.35,
+            "dewPoint": 22.496348617818377,
+            "humidity": 0.68,
+            "liftedCondensationLevel": 812.9564227727033,
+            "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve",
+            "moisture": 0.984,
+            "shear": 1.1,
+            "temperature": 29,
+            "thickness": 950,
+            "windDirection": null
+          },
+          "transitionSeconds": 2.5,
+          "units": {
+            "cloudBase": "metres above sea level",
+            "humidity": "fraction 0..1",
+            "shear": "metres/second/kilometre",
+            "temperature": "degrees Celsius",
+            "thickness": "metres",
+            "windDirection": "degrees clockwise from +Z; null follows update wind"
+          }
+        },
+        "weatherDimensions": [
+          512,
+          512
+        ],
+        "weatherOrigin": [
+          0.421875,
+          0.734375
+        ]
+      },
+      "audio": {
+        "activeSplashes": 0,
+        "audibleSplashes": 0,
+        "captureActive": false,
+        "contextState": "not-created",
+        "decoded": {},
+        "enabled": false,
+        "fallbacks": [
+          "procedural stone splash",
+          "quiet shaped-noise air bed"
+        ],
+        "lastSplashResponse": null,
+        "loaded": false,
+        "loading": false,
+        "loopSources": 0,
+        "mix": {
+          "air": 0,
+          "sea": 0,
+          "shoreDistance": 0,
+          "shorePositions": [],
+          "swell": 0,
+          "wind": 0
+        },
+        "paused": true,
+        "sources": [
+          "Beach sounds South Carolina — Anthropic42",
+          "Rustling leaves — Gravity Sound"
+        ],
+        "splashCount": 0,
+        "warnings": []
+      },
+      "camera": [
+        435.67997580837334,
+        7,
+        -1601.9796816603202
+      ],
+      "dpr": 1,
+      "lens": {
+        "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+        "aperture": 8,
+        "bloom": {
+          "bloom": true,
+          "budget": {
+            "bloom": 0.018,
+            "direct": 0.982,
+            "ghost": 0,
+            "total": 0.018,
+            "veil": 0
+          },
+          "enabled": true,
+          "flare": false,
+          "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference",
+          "gaussianKernel": {
+            "discreteTaps": 25,
+            "passesPerLevel": 2,
+            "radiusPixels": 12,
+            "sigmaPixels": 2,
+            "supportSigma": 6,
+            "textureFetchesPerAxis": 13
+          },
+          "levels": 4,
+          "model": "single threshold-free linear HDR PSF with positive6sigma separable Gaussian after each downsample; at most1.8% radiance redistribution",
+          "operatorPeakBoundRGB": [
+            1,
+            1,
+            1
+          ],
+          "passes": 13,
+          "quality": "gaussian",
+          "strength": 0.018
+        },
+        "cameraFocalMm": 27.999999999999993,
+        "depthOfField": false,
+        "displayTransform": {
+          "adapter": {
+            "disposed": false,
+            "fallbackFrames": {
+              "hdr": 2099,
+              "sdr": 0
+            },
+            "frames": {
+              "hdr": 0,
+              "sdr": 0
+            },
+            "hdr": {
+              "effective": "legacy",
+              "error": null,
+              "peakNits": 1270,
+              "reason": "selected-legacy"
+            },
+            "lastError": null,
+            "output": null,
+            "preparablePeakRange": {
+              "integerOnly": true,
+              "max": 10000,
+              "min": 100
+            },
+            "preparation": {
+              "error": null,
+              "peakNits": 1270,
+              "reason": "selected-legacy",
+              "status": "idle"
+            },
+            "requested": "legacy",
+            "revision": 1,
+            "sdr": {
+              "effective": "none",
+              "error": null,
+              "peakNits": 100,
+              "reason": "awaiting-render"
+            },
+            "supportedTargets": [
+              100,
+              700,
+              1270
+            ],
+            "variant": "aces2-ocio26-accurate-atan-v1"
+          },
+          "effective": "legacy",
+          "error": null,
+          "kind": "hdr",
+          "reason": "render-declined",
+          "requested": true
+        },
+        "dynamicLighting": false,
+        "exposureScale": 3.615189629608272,
+        "focalMm": 28,
+        "focusMetres": 1684.2118790905567,
+        "focusMode": "target",
+        "hdr": {
+          "absoluteNitsCalibrated": false,
+          "apiAvailable": true,
+          "available": true,
+          "calibrationAdjustments": [],
+          "calibrationSource": "windows-dxgi",
+          "displayHDR": true,
+          "displayName": "Q27G4XM",
+          "displayTransform": {
+            "adapter": {
+              "disposed": false,
+              "fallbackFrames": {
+                "hdr": 2099,
+                "sdr": 0
+              },
+              "frames": {
+                "hdr": 0,
+                "sdr": 0
+              },
+              "hdr": {
+                "effective": "legacy",
+                "error": null,
+                "peakNits": 1270,
+                "reason": "selected-legacy"
+              },
+              "lastError": null,
+              "output": null,
+              "preparablePeakRange": {
+                "integerOnly": true,
+                "max": 10000,
+                "min": 100
+              },
+              "preparation": {
+                "error": null,
+                "peakNits": 1270,
+                "reason": "selected-legacy",
+                "status": "idle"
+              },
+              "requested": "legacy",
+              "revision": 1,
+              "sdr": {
+                "effective": "none",
+                "error": null,
+                "peakNits": 100,
+                "reason": "awaiting-render"
+              },
+              "supportedTargets": [
+                100,
+                700,
+                1270
+              ],
+              "variant": "aces2-ocio26-accurate-atan-v1"
+            },
+            "effective": "legacy",
+            "error": null,
+            "kind": "hdr",
+            "reason": "render-declined",
+            "requested": true
+          },
+          "enabled": true,
+          "errors": [],
+          "headroom": 4.535714285714286,
+          "height": 1292,
+          "lastPresentCpuMs": 0.09999999403953552,
+          "lastPresentationTimestamp": 197109.70000001788,
+          "lastUploadCpuMs": 0,
+          "limits": "System-reported luminance is not a photometer measurement and scene lux is not calibrated. This is not an official ACES HDR ODT. Extended sRGB canvas is not a native 80-nit scRGB swap chain. External-image copy is not guaranteed zero-copy. PBO copies pixels through CPU. HDR enlargement is linear, not SDR FSR1.",
+          "maxBridgeWidth": 1440,
+          "maxHz": 120,
+          "mode": "float-canvas-external-copy",
+          "noExplicitCPUReadback": true,
+          "output": "sRGB-encoded rgba16float, extended, opaque",
+          "paperWhiteNits": 280,
+          "peakNits": 1270,
+          "peakRelativeToBrowserWhite": 4.535714285714286,
+          "presentationObserverActive": false,
+          "presentationObserverError": null,
+          "presentedFrames": 2099,
+          "readback": null,
+          "requiresRedraw": false,
+          "sdrWhiteNits": 280,
+          "shoulder": "same fitted SDR ACES anchor through exposed peak 1; C1 bounded highlight extension; nit scale divided by browser/Windows SDR white",
+          "skippedFrames": 36,
+          "source": "pre-OutputPass, scene-linear sRGB floating-point target",
+          "systemReportedCalibration": true,
+          "whiteScale": 1,
+          "width": 1209
+        },
+        "height": 1292,
+        "historyEV": 11.75,
+        "maxSamples": 8,
+        "motion": {
+          "attachment": "RGBA16F: unjittered UV velocity.xy, previous linear depth, MSAA coverage; R16F: current linear depth; normalize both by coverage",
+          "enabled": true,
+          "extraScenePasses": 0,
+          "frames": 2135,
+          "groups": 1,
+          "hasPrevious": true,
+          "limits": [
+            "analytic rest-mesh wind and camera motion only; no arbitrary model-matrix animation",
+            "missing-coverage bridge retains conservative camera-only fallback"
+          ]
+        },
+        "outputHeight": 1292,
+        "outputWidth": 1209,
+        "sampleSupport": [
+          [
+            8,
+            4,
+            2,
+            1
+          ],
+          [
+            8,
+            4,
+            2,
+            1
+          ],
+          [
+            8,
+            4,
+            2,
+            1
+          ],
+          [
+            8,
+            4,
+            2,
+            1
+          ]
+        ],
+        "samples": 4,
+        "sceneAttachments": [
+          "RGBA16F radiance",
+          "RGBA16F motion/coverage",
+          "R16F foliage depth",
+          "R8 local reactive"
+        ],
+        "sceneStats": {
+          "calls": 35,
+          "triangles": 2137210
+        },
+        "sensorHeightMm": 36,
+        "shutterSeconds": 0.008333333333333333,
+        "storageEV": 11.75,
+        "temporal": {
+          "active": true,
+          "artificialJitter": false,
+          "enabled": true,
+          "frozen": true,
+          "historyBytes": 28116504,
+          "historyFrames": 621,
+          "historyWeight": 0.84,
+          "jitterPixels": [
+            0,
+            0
+          ],
+          "lastResetReason": "camera or animation cut",
+          "maximumMissingCoverageFrames": 2,
+          "metadata": "R8 age; nearest valid depth, bilinear RGB",
+          "scope": "analytic wind/camera foliage motion, MSAA coverage, independent short water radiance history",
+          "stillFrames": 41,
+          "waterEnabled": true
+        },
+        "upscaler": "native resolution",
+        "verticalFovDegrees": 65.4704525442152,
+        "vignette": true,
+        "width": 1209
+      },
+      "parameters": {
+        "air": {
+          "aerosolScale": 8,
+          "enabled": true,
+          "shadows": true
+        },
+        "current": 0.16,
+        "director": {
+          "mode": "off",
+          "periodSeconds": 240
+        },
+        "graphics": {
+          "displayName": "auto",
+          "displayTransform": "legacy",
+          "hdr": true,
+          "hdrMode": "auto",
+          "indirect": "low",
+          "paperWhiteNits": 280,
+          "peakNits": 1270,
+          "shadows": "recommended",
+          "systemCalibration": true,
+          "targetFps": 60,
+          "waveResolution": 512
+        },
+        "lens": {
+          "antialias": "smaa",
+          "aperture": 8,
+          "automatic": false,
+          "dof": false,
+          "exposure": 0,
+          "firelightAA": true,
+          "focal": 28,
+          "focusDistance": 60,
+          "focusMode": "target",
+          "glintAA": true,
+          "manualExposureEV": 0,
+          "opticalBloom": true,
+          "opticalFlare": false,
+          "temporal": true,
+          "vignette": true
+        },
+        "paused": false,
+        "quality": "balanced",
+        "qualityCustom": false,
+        "qualityPreset": "medium",
+        "renderSampling": {
+          "airShadowTaps": 1,
+          "airSteps": 6,
+          "antialias": "smaa",
+          "atmosphereSteps": 8,
+          "causticsGrid": 1280,
+          "causticsHz": 24,
+          "causticsSize": 1536,
+          "cloudSteps": 48,
+          "dprCap": 1.65,
+          "glintAA": true,
+          "indirect": "low",
+          "msaaSamples": 4,
+          "opticalBloom": true,
+          "reflectionSamples": 0,
+          "reflectionScale": 0.75,
+          "shadowHz": 45,
+          "shadowSize": 4096,
+          "temporal": true,
+          "waveResolution": 512
+        },
+        "sea": {
+          "clarity": 0.9,
+          "swellHeight": 0.16,
+          "windSea": 1
+        },
+        "sound": false,
+        "sun": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "weather": {
+          "cloudBase": "auto",
+          "coverage": 0.35,
+          "humidity": 0.68,
+          "shear": 1.1,
+          "temperature": 29,
+          "thickness": 950
+        },
+        "wind": 1.8
+      },
+      "performance": {
+        "changes": [],
+        "enabled": false,
+        "lastGpuMs": null,
+        "minimumScale": 0.6,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 1,
+        "slowFrameFraction": 0,
+        "smoothedCostMs": null,
+        "targetFps": 60
+      },
+      "renderScale": 1,
+      "spectrum": {
+        "channels": [
+          "height",
+          "slopeX",
+          "slopeZ",
+          "slopeSquared"
+        ],
+        "components": 256,
+        "domainsMetres": [
+          1021,
+          137,
+          29,
+          5.3
+        ],
+        "limitations": [
+          "reference-depth3m analytic spectrum; no ray-traced bathymetric refraction",
+          "linear superposition, no overturning or full nonlinear wave interactions",
+          "SWE boundary swell is a separate lower-frequency resolved system"
+        ],
+        "method": "256-mode GPU Fourier synthesis: independent narrow swell + broader wind sea, mipmapped slope moments; non-FFT",
+        "phasePrecision": "CPU double precision modulo 2pi each frame",
+        "referenceDepthMetres": 3,
+        "resolution": 512,
+        "rmsHeight": 0.046893434077446686,
+        "rmsSlope": 0.1085800054080905,
+        "seaState": {
+          "swellHeight": 0.16,
+          "windSea": 1
+        },
+        "significantHeight": 0.18757373630978671,
+        "specularExposureSeconds": 0.008333333333333333,
+        "swell": {
+          "directionRadians": -0.68,
+          "directionalSpreadRadians": 0.14,
+          "frequencyStdFraction": 0.16,
+          "peakPeriodSeconds": 7.5,
+          "referenceSignificantHeightMetres": 0.16,
+          "windIndependent": true
+        },
+        "swellPeakPeriod": 7.5,
+        "swellRmsSlope": 0.006294249313537006,
+        "swellSignificantHeight": 0.16,
+        "swellTemporalSlopeVariance": 1.731965320805549e-10,
+        "temporalSlopeVariance": 0.000023619889856221493,
+        "time": 31.22522957277063,
+        "updates": 1669,
+        "windRmsSlope": 0.108397416943394,
+        "windSea": {
+          "frequencyShape": "JONSWAP-shaped, gamma3.3, log-k importance weighted; no fetch/growth solve",
+          "peakPeriodSeconds": 2.2
+        },
+        "windTemporalSlopeVariance": 0.000023619716659689413
+      },
+      "target": [
+        45.78216661389081,
+        281.5625311763542,
+        13.311242145394823
+      ],
+      "viewport": [
+        1209,
+        1292
+      ],
+      "water": {
+        "farField": {
+          "additionalSamplers": 0,
+          "additionalScenePasses": 0,
+          "axisBytes": 5128,
+          "earthRadiusMetres": 6360000,
+          "farHalfExtentMetres": 65536,
+          "mode": "curved",
+          "model": "shared spherical-Earth datum with logarithmic outer grid; analytic bed preserves local water depth",
+          "nearGridHalfExtentMetres": 96,
+          "requiredCameraFarMetres": 120000,
+          "vertices": 410881
+        },
+        "glintAA": {
+          "enabled": 1,
+          "model": "pixel normal variance plus statistical 1/120 s temporal slope variance; only direct-sun NDF",
+          "temporalSlopeVarianceAtReferenceWind": 0.000023619889856221493
+        },
+        "lighting": {
+          "ambientIntensity": 1,
+          "skyColourStored": [
+            0.011141210799784425,
+            0.009677614307162309,
+            0.008906724597939822
+          ],
+          "source": "shared skyTintPhysical and scene storage exposure; solar intensity included once",
+          "sunIrradianceStored": 0.02322132360632707
+        },
+        "optics": {
+          "absorption": [
+            0.16,
+            0.035,
+            0.018
+          ],
+          "beamEfoldDistanceMetres": [
+            6.097560975609756,
+            22.727272727272727,
+            31.25
+          ],
+          "clarity": 0.9,
+          "coefficientUnit": "m^-1",
+          "extinction": [
+            0.164,
+            0.044,
+            0.032
+          ],
+          "particleMultiplier": 1,
+          "reference": "authored linear-RGB effective coefficients; clarity changes only suspended-particle scattering; not measured full-spectrum/NTU/Secchi data",
+          "revision": 0,
+          "scattering": [
+            0.004,
+            0.009,
+            0.014
+          ]
+        },
+        "reflection": {
+          "colourMipmaps": true,
+          "depthMipmaps": false,
+          "directionMode": "geometric",
+          "filter": "linear mipmapped colour; independent non-mipmapped depth",
+          "geometricSource": "curved macro-frame reflection; incoming Smith visibility; fixed2m environment approximation retained",
+          "legacyFloorsRadians": [
+            0.006,
+            0.012
+          ],
+          "samples": 0,
+          "size": [
+            907,
+            969
+          ]
+        },
+        "submergedProps": {
+          "additionalSamplers": 0,
+          "additionalTargets": 0,
+          "bisectionSteps": 6,
+          "bounds": [],
+          "count": 0,
+          "limits": [
+            "Screen-visible auxiliary surfaces only; offscreen/occluded surfaces retain analytic bed without clamped sampling",
+            "Captured native RGB has no sun/ambient/local decomposition; incoming water attenuation uses one receiver-depth solar-path approximation",
+            "Thin/grazing/subpixel geometry may be missed by the bounded search; sphere bounds alone never create a coloured surface"
+          ],
+          "maximum": 36,
+          "model": "finite real sphere bounds choose search intervals; real auxiliary RGB/depth verifies nearest wet ray hit; one-pixel finite-resolution tolerance",
+          "probesPerIntersectedBound": 4,
+          "revision": 0
+        },
+        "treeShadow": {
+          "bias": -0.00012,
+          "enabled": true,
+          "limits": [
+            "receives the existing caster map; does not add missing terrain casters",
+            "plane solar-refraction interface at mean sea level",
+            "three independent PCF queries, including one volume midpoint",
+            "main renderer requests up to 60 Hz in high quality, 30 Hz balanced; actual rate is frame limited"
+          ],
+          "mapSize": [
+            4096,
+            4096
+          ],
+          "normalBiasMetres": 0.035,
+          "packing": "Three.js RGBADepthPacking; ordinary non-reversed directional shadow",
+          "pcfTapsPerQuery": 9,
+          "queriesPerWaterFragment": 3,
+          "updates": 2136
+        }
+      }
+    },
+    "previous": 327301,
+    "start": 322291.2000000179
+  },
+  "reason": null,
+  "status": "completed",
+  "validity": "valid"
+}

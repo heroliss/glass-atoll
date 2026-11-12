@@ -1,0 +1,113 @@
+{
+  "schema": "glass-atoll.r11-reflection-independent.v1",
+  "actualGPU": false,
+  "dateUTC": "2026-10-28T04:44:01.160Z",
+  "sourceSHA256": "69e35b2516e6a6f5ff9d340aaa9c7dedcfed4c0c3d2d7cf0defc4d582606fa9f",
+  "checks": [
+    {
+      "name": "virtual image and real water hit obey specular reflection and identical imageXY",
+      "passed": true,
+      "evidence": {
+        "rays": 6,
+        "maximumDirectionError": 5.438959822042073e-16,
+        "maximumProjectedXYError": 1.354472090042691e-14,
+        "scope": "ideal horizontal mirror only; wave perturbation/occlusion are separate"
+      }
+    },
+    {
+      "name": "three independent actual projection configurations fit with input and output ownership intact",
+      "passed": true,
+      "evidence": {
+        "configurations": [
+          {
+            "fov": 50,
+            "aspect": 1.6,
+            "plane": 0,
+            "eye": 8,
+            "maxXY": 0.8779690854346425,
+            "minZ": 0.9993261236511151,
+            "maxZ": 0.9994893996567288
+          },
+          {
+            "fov": 65,
+            "aspect": 0.6,
+            "plane": 4.5,
+            "eye": 12,
+            "maxXY": 0.8778504865360648,
+            "minZ": 0.9990492429914731,
+            "maxZ": 0.9993444723033642
+          },
+          {
+            "fov": 45,
+            "aspect": 2,
+            "plane": -2,
+            "eye": 2.5,
+            "maxXY": 0.8782157994716334,
+            "minZ": 0.9995501523558028,
+            "maxZ": 0.9996288152978323
+          }
+        ],
+        "projections": 48,
+        "cameraIncludesOffAxisView": true
+      }
+    },
+    {
+      "name": "farclip bracket finds existing valid interval rather than falsely rejecting it",
+      "passed": false,
+      "error": "RangeError: Source and reflected bounds do not fit within the camera clipping volume\n    at fitReflectedPerspectiveBounds (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/camera-framing.js:27:22)\n    at fitPerspectiveBounds (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/camera-framing.js:4:42)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/[eval1]:10:467\n    at test (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/[eval1]:3:67)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/[eval1]:10:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async node:internal/modules/esm/loader:223:26\n    at async ModuleLoader.executeModuleJob (node:internal/modules/esm/loader:220:20)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "main integration may add one plane option but must retain physical input box",
+      "passed": true,
+      "evidence": {
+        "currentCall": "fitPerspectiveBounds(THREE,camera,box,{eyeHeight:THREE.MathUtils.clamp(camera.position.y,2.5,12)});\r",
+        "sourceBoundsCausalBasis": "existing forecast box unchanged by framing; function adds virtual geometry only",
+        "wiringPresent": false,
+        "notes": "Bounds are supplied whole-event forecast; not a new physical light source, trajectory, exposure or wave model. Terrain clamp after fit is existing caller behavior."
+      }
+    }
+  ],
+  "knownFinding": {
+    "fov": 120,
+    "aspect": 1,
+    "near": 0.15,
+    "far": 125,
+    "box": {
+      "min": [
+        -20,
+        0,
+        -20
+      ],
+      "max": [
+        20,
+        80,
+        20
+      ]
+    },
+    "eyeHeight": 8,
+    "bearing": [
+      -1,
+      0,
+      0
+    ],
+    "plane": 0,
+    "margin": 0.9,
+    "manualDistance80": {
+      "maxXY": 0.8529038067574017,
+      "minZ": 0.9966858664368149,
+      "maxZ": 0.9996284487282384
+    },
+    "functionError": "Source and reflected bounds do not fit within the camera clipping volume",
+    "reason": "Initial reflected-box diagonal is already beyond the far plane; fits(distance) has a finite valid interval, but expansion only increases distance."
+  },
+  "counts": {
+    "passed": 3,
+    "total": 4
+  },
+  "limits": [
+    "Read-only narrow projection/ray review; root actual scene evidence is separate.",
+    "Current main far24000 and ordinary forecast dimensions avoid the demonstrated far125 edge; this does not prove arbitrary farclip support.",
+    "Fits ideal virtual source corners only. Ocean waves, finite water extent, terrain occlusion, lens bloom and composition/photo quality are not proved."
+  ],
+  "passed": false
+}

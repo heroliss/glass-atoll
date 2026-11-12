@@ -1,0 +1,66 @@
+{
+  "generatedAt": "2026-10-27T10:17:19.941Z",
+  "kind": "actual CPU thin-lens helper versus analytic limits",
+  "sourceHashes": {
+    "lens.js": "a3897b76115dc202e670545ee6da65eb07d95429babd5f2297143421d87ceebe",
+    "verification/lens-math-check.mjs": "079ed3a51c7e17d19e2e4681548f8fdf3daaf4976f6709234433b0618ea60a1b"
+  },
+  "passed": true,
+  "passedCount": 6,
+  "total": 6,
+  "parameters": {
+    "focalMm": 35,
+    "aperture": 8,
+    "focusMetres": 10,
+    "sensorHeightMm": 24,
+    "pixels": 1080
+  },
+  "infinityLimitPixels": 0.6914826894129453,
+  "checks": [
+    {
+      "id": "focus_plane_is_sharp",
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "id": "infinite_distance_matches_independent_thin_lens_limit",
+      "actual": 0.6914826887214627,
+      "expected": 0.6914826894129453,
+      "tolerance": 1e-8,
+      "passed": true
+    },
+    {
+      "id": "doubling_f_number_halves_blur",
+      "actual": 0.34574134470647266,
+      "expected": 0.34574134470647266,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "id": "doubling_pixel_count_doubles_blur",
+      "actual": 1.3829653788258907,
+      "expected": 1.3829653788258907,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "id": "half_focus_distance_matches_infinite_limit",
+      "actual": 0.6914826894129453,
+      "expected": 0.6914826894129453,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "id": "guarded_near_lens_input_is_finite_and_nonnegative",
+      "actual": 191.3870421475163,
+      "passed": true,
+      "notes": "Numerical guard only; the model is not physically accurate inside the lens."
+    }
+  ],
+  "limitations": [
+    "Does not validate GPU depth reconstruction, blur visibility, occlusion halos or color output.",
+    "No absolute ISO/lux calibration or physical shutter integration is implied."
+  ]
+}

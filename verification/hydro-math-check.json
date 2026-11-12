@@ -1,0 +1,469 @@
+{
+  "status": "passed",
+  "generatedAt": "2026-10-26T11:58:09.875Z",
+  "method": "Independent CPU measurements of the actual exported finite-volume projection and impact functions, plus analytic constant-current transport.",
+  "sourceSHA256": {
+    "hydrodynamics.js": "6ac8daffa0c27bd2387990edc7930ea60e91755e0261fd132eeb5cc3785c5ad9",
+    "main.js": "5b3922bd36de1e448e3100f45c29c2fe9181043d78f6129c72bc0c99ea4a0f47"
+  },
+  "summary": {
+    "passed": 38,
+    "failed": 0,
+    "total": 38
+  },
+  "tests": [
+    {
+      "id": "flat_projection_converged",
+      "passed": true,
+      "relativeResidual": 0,
+      "iterations": 0
+    },
+    {
+      "id": "flat_depth_flux_continuity",
+      "passed": true,
+      "rms": 0,
+      "max": 0,
+      "notes": "Independent divergence of H times face velocity, in unit-speed flow."
+    },
+    {
+      "id": "flat_dry_face_impermeability",
+      "passed": true,
+      "maximumDryNormalFlow": 0
+    },
+    {
+      "id": "flat_discrete_divergence_theorem",
+      "passed": true,
+      "integralDivergence": 0,
+      "boundaryFlux": -3.3306690738754696e-16
+    },
+    {
+      "id": "flat_bounded_global_normalisation",
+      "passed": true,
+      "maximumCenterSpeed": 1
+    },
+    {
+      "id": "sloping_projection_converged",
+      "passed": true,
+      "relativeResidual": 0.00001958340410390867,
+      "iterations": 212
+    },
+    {
+      "id": "sloping_depth_flux_continuity",
+      "passed": true,
+      "rms": 3.4835906681258256e-7,
+      "max": 0.000001969425735159902,
+      "notes": "Independent divergence of H times face velocity, in unit-speed flow."
+    },
+    {
+      "id": "sloping_dry_face_impermeability",
+      "passed": true,
+      "maximumDryNormalFlow": 0
+    },
+    {
+      "id": "sloping_discrete_divergence_theorem",
+      "passed": true,
+      "integralDivergence": 0.0000027672778786236307,
+      "boundaryFlux": 0.0000027672778840637235
+    },
+    {
+      "id": "sloping_bounded_global_normalisation",
+      "passed": true,
+      "maximumCenterSpeed": 1
+    },
+    {
+      "id": "island_projection_converged",
+      "passed": true,
+      "relativeResidual": 0.000018666081648741022,
+      "iterations": 152
+    },
+    {
+      "id": "island_depth_flux_continuity",
+      "passed": true,
+      "rms": 5.799841695169889e-7,
+      "max": 0.000002681206878931558,
+      "notes": "Independent divergence of H times face velocity, in unit-speed flow."
+    },
+    {
+      "id": "island_dry_face_impermeability",
+      "passed": true,
+      "maximumDryNormalFlow": 0
+    },
+    {
+      "id": "island_discrete_divergence_theorem",
+      "passed": true,
+      "integralDivergence": -5.201595447770768e-15,
+      "boundaryFlux": -5.467848396278896e-15
+    },
+    {
+      "id": "island_bounded_global_normalisation",
+      "passed": true,
+      "maximumCenterSpeed": 1
+    },
+    {
+      "id": "sealed_basin_projection_converged",
+      "passed": true,
+      "relativeResidual": 0.000011868538794085117,
+      "iterations": 42
+    },
+    {
+      "id": "sealed_basin_depth_flux_continuity",
+      "passed": true,
+      "rms": 0.000015539564974752604,
+      "max": 0.00004673216338790809,
+      "notes": "Independent divergence of H times face velocity, in unit-speed flow."
+    },
+    {
+      "id": "sealed_basin_dry_face_impermeability",
+      "passed": true,
+      "maximumDryNormalFlow": 0
+    },
+    {
+      "id": "sealed_basin_discrete_divergence_theorem",
+      "passed": true,
+      "integralDivergence": 0,
+      "boundaryFlux": 0
+    },
+    {
+      "id": "sealed_basin_bounded_global_normalisation",
+      "passed": true,
+      "maximumCenterSpeed": 0.000006642343743600107
+    },
+    {
+      "id": "actual_scene_projection_converged",
+      "passed": true,
+      "relativeResidual": 0.00001955449974796293,
+      "iterations": 276
+    },
+    {
+      "id": "actual_scene_depth_flux_continuity",
+      "passed": true,
+      "rms": 0.0000010053211617671045,
+      "max": 0.000007553476959366713,
+      "notes": "Independent divergence of H times face velocity, in unit-speed flow."
+    },
+    {
+      "id": "actual_scene_dry_face_impermeability",
+      "passed": true,
+      "maximumDryNormalFlow": 0
+    },
+    {
+      "id": "actual_scene_discrete_divergence_theorem",
+      "passed": true,
+      "integralDivergence": -0.0002995639454644196,
+      "boundaryFlux": -0.00029956394558627863
+    },
+    {
+      "id": "actual_scene_bounded_global_normalisation",
+      "passed": true,
+      "maximumCenterSpeed": 1.0000000000000002
+    },
+    {
+      "id": "flat_current_matches_analytic_constant_solution",
+      "passed": true,
+      "observed": {
+        "x": 0.9701425001453319,
+        "z": -0.24253562503633297
+      },
+      "expected": {
+        "x": 0.9701425001453319,
+        "z": -0.24253562503633297
+      }
+    },
+    {
+      "id": "rk2_marker_actual_sampler_transports_at_metres_per_second",
+      "passed": true,
+      "observed": [
+        -3.1462745998721218,
+        0.7865686499680304
+      ],
+      "expected": [
+        -3.146274599872108,
+        0.786568649968027
+      ],
+      "seconds": 4,
+      "speed": 0.22
+    },
+    {
+      "id": "sealed_basin_has_no_forced_circulation",
+      "passed": true,
+      "maximumSpeed": 0.000006642343743600107,
+      "notes": "A blocked uniform potential drive should be cancelled, not amplified by normalising tiny residuals."
+    },
+    {
+      "id": "island_sampler_stops_on_land",
+      "passed": true,
+      "observed": {
+        "x": 0,
+        "z": 0
+      }
+    },
+    {
+      "id": "flat_center_impulse_zero_net_volume",
+      "passed": true,
+      "cells": 112,
+      "volume": 4.1674021004911577e-19,
+      "float32Volume": -6.548361852765083e-11,
+      "maximumAmplitude": 0.021062365527026936,
+      "dryTouched": 0,
+      "doubleTolerance": 1e-12,
+      "float32Tolerance": 0.000001
+    },
+    {
+      "id": "flat_center_impulse_only_touches_wet_cells",
+      "passed": true,
+      "dryTouched": 0
+    },
+    {
+      "id": "flat_edge_impulse_zero_net_volume",
+      "passed": true,
+      "cells": 58,
+      "volume": -1.8126505071242027e-18,
+      "float32Volume": 3.710738383233547e-10,
+      "maximumAmplitude": 0.02421255889689551,
+      "dryTouched": 0,
+      "doubleTolerance": 1e-12,
+      "float32Tolerance": 0.000001
+    },
+    {
+      "id": "flat_edge_impulse_only_touches_wet_cells",
+      "passed": true,
+      "dryTouched": 0
+    },
+    {
+      "id": "island_shore_impulse_zero_net_volume",
+      "passed": true,
+      "cells": 66,
+      "volume": -4.0657581468206416e-19,
+      "float32Volume": -1.4551915228366852e-10,
+      "maximumAmplitude": 0.02421255889689552,
+      "dryTouched": 0,
+      "doubleTolerance": 1e-12,
+      "float32Tolerance": 0.000001
+    },
+    {
+      "id": "island_shore_impulse_only_touches_wet_cells",
+      "passed": true,
+      "dryTouched": 0
+    },
+    {
+      "id": "actual_nearshore_impulse_zero_net_volume",
+      "passed": true,
+      "cells": 78,
+      "volume": -5.523078332571665e-18,
+      "float32Volume": -2.6705038180807605e-10,
+      "maximumAmplitude": 0.025348866611157553,
+      "dryTouched": 0,
+      "doubleTolerance": 1e-12,
+      "float32Tolerance": 0.000001
+    },
+    {
+      "id": "actual_nearshore_impulse_only_touches_wet_cells",
+      "passed": true,
+      "dryTouched": 0
+    },
+    {
+      "id": "all_dry_domain_is_finite_and_still",
+      "passed": true,
+      "metrics": {
+        "iterations": 0,
+        "relativeResidual": 0,
+        "converged": true,
+        "tolerance": 0.00002,
+        "wetCells": 0,
+        "rmsDepthFluxDivergence": 0,
+        "maxDepthFluxDivergence": 0,
+        "netOpenBoundaryFlux": 0,
+        "maxDryNormalFlux": 0,
+        "unscaledMaximumSpeed": 1e-12,
+        "globalScale": 1
+      }
+    }
+  ],
+  "fixtures": {
+    "flat": {
+      "elapsedMs": 19.185399999999994,
+      "configuration": {
+        "extent": 24,
+        "resolution": 96
+      },
+      "solver": {
+        "iterations": 0,
+        "relativeResidual": 0,
+        "converged": true,
+        "tolerance": 0.00002,
+        "wetCells": 9216,
+        "rmsDepthFluxDivergence": 0,
+        "maxDepthFluxDivergence": 0,
+        "netOpenBoundaryFlux": -3.3306690738754696e-16,
+        "maxDryNormalFlux": 0,
+        "unscaledMaximumSpeed": 1,
+        "globalScale": 1
+      },
+      "independent": {
+        "wetCells": 9216,
+        "rmsDivergence": 0,
+        "maxDivergence": 0,
+        "integralDivergence": 0,
+        "netBoundaryFlux": -3.3306690738754696e-16,
+        "absoluteBoundaryFlux": 232.83420003487964,
+        "maxDryNormalFlow": 0,
+        "maximumCenterSpeed": 1
+      }
+    },
+    "sloping": {
+      "elapsedMs": 55.1319,
+      "configuration": {
+        "extent": 24,
+        "resolution": 96
+      },
+      "solver": {
+        "iterations": 212,
+        "relativeResidual": 0.00001958340410390867,
+        "converged": true,
+        "tolerance": 0.00002,
+        "wetCells": 9216,
+        "rmsDepthFluxDivergence": 3.4835906681258256e-7,
+        "maxDepthFluxDivergence": 0.000001969425735159902,
+        "netOpenBoundaryFlux": 0.0000027672778840637235,
+        "maxDryNormalFlux": 0,
+        "unscaledMaximumSpeed": 1.218259826036969,
+        "globalScale": 0.8208429586429243
+      },
+      "independent": {
+        "wetCells": 9216,
+        "rmsDivergence": 3.4835906681258256e-7,
+        "maxDivergence": 0.000001969425735159902,
+        "integralDivergence": 0.0000027672778786236307,
+        "netBoundaryFlux": 0.0000027672778840637235,
+        "absoluteBoundaryFlux": 190.15201210470462,
+        "maxDryNormalFlow": 0,
+        "maximumCenterSpeed": 1
+      }
+    },
+    "island": {
+      "elapsedMs": 44.0925,
+      "configuration": {
+        "extent": 24,
+        "resolution": 96
+      },
+      "solver": {
+        "iterations": 152,
+        "relativeResidual": 0.000018666081648741022,
+        "converged": true,
+        "tolerance": 0.00002,
+        "wetCells": 9060,
+        "rmsDepthFluxDivergence": 5.799841695169889e-7,
+        "maxDepthFluxDivergence": 0.000002681206878931558,
+        "netOpenBoundaryFlux": -5.467848396278896e-15,
+        "maxDryNormalFlux": 0,
+        "unscaledMaximumSpeed": 3.1461442442274525,
+        "globalScale": 0.31784938082060304
+      },
+      "independent": {
+        "wetCells": 9060,
+        "rmsDivergence": 5.799841695169889e-7,
+        "maxDivergence": 0.000002681206878931558,
+        "integralDivergence": -5.201595447770768e-15,
+        "netBoundaryFlux": -5.467848396278896e-15,
+        "absoluteBoundaryFlux": 93.1866975408151,
+        "maxDryNormalFlow": 0,
+        "maximumCenterSpeed": 1
+      }
+    },
+    "sealed_basin": {
+      "elapsedMs": 11.162099999999981,
+      "configuration": {
+        "extent": 24,
+        "resolution": 96
+      },
+      "solver": {
+        "iterations": 42,
+        "relativeResidual": 0.000011868538794085117,
+        "converged": true,
+        "tolerance": 0.00002,
+        "wetCells": 448,
+        "rmsDepthFluxDivergence": 0.000015539564974752604,
+        "maxDepthFluxDivergence": 0.00004673216338790809,
+        "netOpenBoundaryFlux": 0,
+        "maxDryNormalFlux": 0,
+        "unscaledMaximumSpeed": 0.0000073064694765534455,
+        "globalScale": 1
+      },
+      "independent": {
+        "wetCells": 448,
+        "rmsDivergence": 0.000015539564974752604,
+        "maxDivergence": 0.00004673216338790809,
+        "integralDivergence": 0,
+        "netBoundaryFlux": 0,
+        "absoluteBoundaryFlux": 0,
+        "maxDryNormalFlow": 0,
+        "maximumCenterSpeed": 0.000006642343743600107
+      }
+    },
+    "actual_scene": {
+      "elapsedMs": 85.0231,
+      "configuration": {
+        "extent": 72,
+        "resolution": 128
+      },
+      "solver": {
+        "iterations": 276,
+        "relativeResidual": 0.00001955449974796293,
+        "converged": true,
+        "tolerance": 0.00002,
+        "wetCells": 14731,
+        "rmsDepthFluxDivergence": 0.0000010053211617671045,
+        "maxDepthFluxDivergence": 0.0000075534769593667125,
+        "netOpenBoundaryFlux": -0.00029956394558627863,
+        "maxDryNormalFlux": 0,
+        "unscaledMaximumSpeed": 2.536860222575923,
+        "globalScale": 0.39418805620461106
+      },
+      "independent": {
+        "wetCells": 14731,
+        "rmsDivergence": 0.0000010053211617671045,
+        "maxDivergence": 0.000007553476959366713,
+        "integralDivergence": -0.0002995639454644196,
+        "netBoundaryFlux": -0.00029956394558627863,
+        "absoluteBoundaryFlux": 1095.4048054483987,
+        "maxDryNormalFlow": 0,
+        "maximumCenterSpeed": 1.0000000000000002
+      }
+    }
+  },
+  "impacts": {
+    "flat_center": {
+      "cells": 112,
+      "volume": 4.1674021004911577e-19,
+      "float32Volume": -6.548361852765083e-11,
+      "maximumAmplitude": 0.021062365527026936,
+      "dryTouched": 0
+    },
+    "flat_edge": {
+      "cells": 58,
+      "volume": -1.8126505071242027e-18,
+      "float32Volume": 3.710738383233547e-10,
+      "maximumAmplitude": 0.02421255889689551,
+      "dryTouched": 0
+    },
+    "island_shore": {
+      "cells": 66,
+      "volume": -4.0657581468206416e-19,
+      "float32Volume": -1.4551915228366852e-10,
+      "maximumAmplitude": 0.02421255889689552,
+      "dryTouched": 0
+    },
+    "actual_nearshore": {
+      "cells": 78,
+      "volume": -5.523078332571665e-18,
+      "float32Volume": -2.6705038180807605e-10,
+      "maximumAmplitude": 0.025348866611157553,
+      "dryTouched": 0
+    }
+  },
+  "limits": [
+    "CPU convergence refers to its coarse projection grid; resampling the field to the higher-resolution GPU grid is an approximation, not a second exact projection.",
+    "The separate GPU report is required to verify actual render-target evolution and readback.",
+    "The flat analytic RK2 fixture verifies speed and transport, not complete wave-orbital or shallow-water-velocity coupling of the displayed leaf."
+  ]
+}

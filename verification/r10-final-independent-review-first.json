@@ -1,0 +1,264 @@
+{
+  "schema": "glass-atoll.r10-final-independent-review.v1",
+  "dateUTC": "2026-10-28T03:33:08.402309+00:00",
+  "actualGPU": false,
+  "checks": [
+    {
+      "name": "seven current runtime hashes match the reviewed frozen sources",
+      "passed": true,
+      "evidence": {
+        "main.js": "b2fe468c216b8fe89839f168a3c4b6ae7a21272d4f73277356f27b69f7e885a8",
+        "fireworks.js": "b37ea388471b6f50a307327fab95ccc10d7f9aaa1dc46ed921fc1abd9c890e43",
+        "pyro-smoke-columns.js": "d44a897ab8c7c9f58e0c7f974d07d1206b374d44dbb228bf05ebbe71131afad6",
+        "pyro-smoke.js": "01c4c66e15579f429e472a0089fda9f5ba1f17d782d3cd63d69a226b30225a89",
+        "pyro-smoke-logical-burn.js": "235dff6244215b5a599d3d80ea93321ccacefb8d690a07813f0c25b827800a15",
+        "pyro-smoke-logical-events.js": "5f7bf8b0d311f9cdac938b18612b9ff16b5c80fa26330a20d79e9e44661a1837",
+        "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+      }
+    },
+    {
+      "name": "rerun clones alter only the report filename and preserve original evidence",
+      "passed": true,
+      "evidence": {
+        "cases": 6,
+        "assertionsChanged": 0,
+        "originalsOverwritten": false,
+        "byteExactAfterOutputURLInverse": true
+      }
+    },
+    {
+      "name": "six bounded targeted reruns pass with unchanged assertions",
+      "passed": true,
+      "evidence": {
+        "runs": [
+          {
+            "file": "verification/r10-final-independent-array-out.json",
+            "SHA256": "bf3d44eba00eda733b9c710edbaad5a6de5cdb7dbda167644f0a64bc80984e70",
+            "passed": true,
+            "counts": {
+              "passed": 6,
+              "total": 6
+            }
+          },
+          {
+            "file": "verification/r10-final-independent-transmission.json",
+            "SHA256": "d2af4dac8d53597f9f601023011b5f562ce203b746e7e931563b012d04444ce5",
+            "passed": true,
+            "counts": {
+              "passed": 7,
+              "total": 7
+            }
+          },
+          {
+            "file": "verification/fireworks/r10-final-independent-body-sampler.json",
+            "SHA256": "e1fa04ee36e3d83f07be62b18e608fc43c01470d49953146b1d7d23bfa9971c5",
+            "passed": true,
+            "counts": {
+              "passed": 7,
+              "total": 7
+            }
+          },
+          {
+            "file": "verification/r10-final-independent-transmission-logical.json",
+            "SHA256": "87509658fc945811d4624c85fab937a0f9624a12af28f1c5107c7a506867d114",
+            "passed": true,
+            "counts": {
+              "passed": 7,
+              "total": 7
+            }
+          },
+          {
+            "file": "verification/r10-final-independent-logical.json",
+            "SHA256": "3eaf0f2c1c5ec6796a9d0a0c2568337f73424748a3df3dbfcd8700540fc24216",
+            "passed": true,
+            "counts": {
+              "passed": 8,
+              "total": 8
+            }
+          },
+          {
+            "file": "verification/r10-final-independent-logical-burn.json",
+            "SHA256": "7f00a3134eba468ba5d931611623c12a307ecba75d07ab60d06177bc0f13d548",
+            "passed": true,
+            "counts": {
+              "passed": 23,
+              "total": 23
+            }
+          }
+        ],
+        "passed": 58,
+        "total": 58,
+        "actualGPU": false
+      }
+    },
+    {
+      "name": "historical GPU10 and scene7 are internally complete and kept in their version scope",
+      "passed": true,
+      "evidence": {
+        "historicalGPU": 10,
+        "historicalScene": 7,
+        "newGPUExecuted": false,
+        "capturedColumnsVersion": "0c2a14e9b8bd4181c022a70eb0fc34d04b65f25bce8e28d20201eef6c3a11e7d",
+        "versionBasis": "preserved source boundary and owner capture record; report itself has no embedded main hash"
+      }
+    },
+    {
+      "name": "saved static legacy and fast SDR PNG files are byte-identical",
+      "passed": true,
+      "evidence": {
+        "identicalBytes": 2054114,
+        "SHA256": "08f56bf61128df4f32ef742677abc0dc9fea6e0aa1b85469fd579accbf98efcd",
+        "scope": "complete SDR PNG bytes only; no full HDR master hash"
+      }
+    },
+    {
+      "name": "actual interleaved capture retains all257 query labels and finite returned results",
+      "passed": true,
+      "evidence": {
+        "rows": 257,
+        "returnedQueries": 257,
+        "GL": [],
+        "camera": [
+          -300.0978790174206,
+          11.999999999999986,
+          -215.3498340677912
+        ],
+        "viewport": [
+          1920,
+          1080
+        ]
+      }
+    },
+    {
+      "name": "whole-window GPU means are flat slightly worse and recompute from raw samples",
+      "passed": true,
+      "evidence": {
+        "legacy": {
+          "n": 129,
+          "meanGPUms": 24.035321798449612
+        },
+        "fast": {
+          "n": 128,
+          "meanGPUms": 24.168444
+        },
+        "changePercent": 0.5538606999593965
+      }
+    },
+    {
+      "name": "CPU join analysis still refers to exact current protocol source bytes",
+      "passed": true,
+      "evidence": {
+        "historicalAnalysisChecks": 9,
+        "sourceProvenance": "Capture report does not embed main file hash; join uses timestamp witnesses plus current frozen main/benchmark protocol and owner-confirmed capture versions. Hashes above identify inspected sources, not newly captured GPU tests.",
+        "currentProtocolHashesMatch": true,
+        "newGPUExecuted": false
+      }
+    },
+    {
+      "name": "CPU improvement retains descriptive hot-window and elapsed-time limits",
+      "passed": false,
+      "error": "'hot'"
+    },
+    {
+      "name": "crossette actual4096 captures verify source coverage and reference budget only",
+      "passed": true,
+      "evidence": {
+        "checks": 14,
+        "rows": [
+          {
+            "phase": 0.8,
+            "queried": 36,
+            "declared": 180,
+            "packets": 135,
+            "Mmaterialized": 7.77940730751928,
+            "Mreserved": 12.570592692480716
+          },
+          {
+            "phase": 3.6,
+            "queried": 180,
+            "declared": 180,
+            "packets": 1481,
+            "Mmaterialized": 19.436463704906288,
+            "Mreserved": 0.91353629509371
+          },
+          {
+            "phase": 10,
+            "queried": 180,
+            "declared": 180,
+            "packets": 1632,
+            "Mmaterialized": 20.34999999999999,
+            "Mreserved": 0
+          }
+        ],
+        "visualAccepted": false,
+        "singleEventNotLongStress": true,
+        "referenceMassNotKgOrMeasuredYield": true
+      }
+    },
+    {
+      "name": "bouquet actual4096 captures verify source coverage and reference budget only",
+      "passed": true,
+      "evidence": {
+        "checks": 14,
+        "rows": [
+          {
+            "phase": 0.8,
+            "queried": 104,
+            "declared": 104,
+            "packets": 270,
+            "Mmaterialized": 0.6680250789135682,
+            "Mreserved": 1.3319749210864331
+          },
+          {
+            "phase": 3.6,
+            "queried": 104,
+            "declared": 104,
+            "packets": 973,
+            "Mmaterialized": 2.000000000000001,
+            "Mreserved": 0
+          },
+          {
+            "phase": 10,
+            "queried": 104,
+            "declared": 104,
+            "packets": 973,
+            "Mmaterialized": 2.000000000000001,
+            "Mreserved": 0
+          }
+        ],
+        "visualAccepted": false,
+        "singleEventNotLongStress": true,
+        "referenceMassNotKgOrMeasuredYield": true
+      }
+    },
+    {
+      "name": "checkpoint preserves65536 CPU replay and old report provenance limits",
+      "passed": true,
+      "evidence": {
+        "CPUAdapterHistorical": 18,
+        "allTenReplayCapacity": 65536,
+        "defaultCapacityLongStressNotClaimed": true,
+        "historicalStaleLimits": [
+          "logical-events-check.json says production provider unmodified; main/G1 were added later",
+          "logical-burn-check.json says provider root-only; current G1 has sampleBody"
+        ],
+        "checkpointDistinguishesHistoricalFromCurrent": true
+      }
+    }
+  ],
+  "counts": {
+    "passed": 11,
+    "total": 12
+  },
+  "newTargetedAssertions": {
+    "passed": 58,
+    "total": 58
+  },
+  "limits": [
+    "Independent reruns used real CPU modules and unchanged assertions with new output filenames. No new browser/GPU runs were performed.",
+    "Review of historical actual-GPU JSON checks and SDR files is artifact validation, not new GPU validation or visual acceptance.",
+    "Full ten-type adapter replay was deliberately not rerun at65536. Production4096 willow/continuous long-smoke performance remains open.",
+    "No overall renderer FPS gain, every-frame60fps, photoreal smoke, kg/yield or full HDR-master pixel identity claims."
+  ],
+  "passed": false
+}

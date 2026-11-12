@@ -1,0 +1,113 @@
+{
+  "schema": "glass-atoll.r28-deployed-integration-independent-cpu.v1",
+  "dateUTC": "2026-10-29T14:40:57.283Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "checks": [
+    {
+      "name": "All deployed file/function pins match promotion receipt and audio remains unchanged",
+      "passed": true,
+      "evidence": {
+        "filePins": 8,
+        "functionPins": 9,
+        "candidateReceiptSHA256": "b49cc8fab93bad0fba0e386882acc14652e4a525f002f0f9c8cefb657f698e75"
+      }
+    },
+    {
+      "name": "Deployed copy equals reviewed staging with only two literal import relocations and one locked QA hook",
+      "passed": true,
+      "evidence": {
+        "importRelocations": 2,
+        "extraLockedQaEntries": 1,
+        "allOtherStagingBytesExact": true,
+        "noDirectStagingImportClaim": true
+      }
+    },
+    {
+      "name": "Real deployed host/volume/field chain preserves omitted defaults and forwards explicit policy without GPU",
+      "passed": true,
+      "evidence": {
+        "cases": [
+          {
+            "maxRequestPairs": null,
+            "maxMapPairs": 1000000,
+            "maxMapDraws": 64,
+            "bakeMode": "serial-reference",
+            "actualCpuFactoryRenders": 1
+          },
+          {
+            "maxRequestPairs": null,
+            "maxMapPairs": 1000000,
+            "maxMapDraws": 64,
+            "bakeMode": "serial-reference",
+            "actualCpuFactoryRenders": 1
+          },
+          {
+            "maxRequestPairs": 1400000,
+            "maxMapPairs": 1000000,
+            "maxMapDraws": 8,
+            "bakeMode": "serial-reference",
+            "actualCpuFactoryRenders": 1
+          },
+          {
+            "maxRequestPairs": 1400000,
+            "maxMapPairs": 1000000,
+            "maxMapDraws": 8,
+            "bakeMode": "tiled64",
+            "actualCpuFactoryRenders": 2
+          }
+        ],
+        "directRootModuleImports": true,
+        "realThreeObjectsAndCpuRenderer": true,
+        "actualGpu": false
+      }
+    },
+    {
+      "name": "Every main construction route uses same explicit daily controls and staged volume/physical draw bodies are exact",
+      "passed": true,
+      "evidence": {
+        "routes": 3,
+        "dailyControls": {
+          "lightFieldMaxRequestPairs": 1400000,
+          "lightFieldMaxMapPairs": 1000000,
+          "lightFieldMaxMapDraws": 8
+        },
+        "unchangedPhysicalSourceAndVolumeDrawBodies": true
+      }
+    },
+    {
+      "name": "Deployed actual field preserves candidate shaders, input words and complete native atomic route",
+      "passed": true,
+      "evidence": {
+        "nativePackets": 755,
+        "nativeSources": 1728,
+        "renders": 4,
+        "expandedShadersExact": true,
+        "packedWordsExact": true,
+        "syntheticCpuOutputExact": true
+      }
+    },
+    {
+      "name": "Deployed old API/serial boundary and new explicit native allowance remain distinct",
+      "passed": true,
+      "evidence": {
+        "oldDefault": 1048576,
+        "compatibleOldPhysicalDomain": 57344000,
+        "explicitNativeAllowance": 1400000,
+        "serialReferenceNotExpanded": true
+      }
+    }
+  ],
+  "promotionPinsSHA256": "25f895b9820f1d0c389960e3d817c9c5c6bb91fd47cbcafc5e0a0fa40e8b1b4f",
+  "limits": [
+    "Real deployed module import/factory routing and synthetic CPU rendering only; no new GPU or browser work.",
+    "The candidate actual numerical receipt was independently reviewed before promotion. This source audit does not replace the separate production helper/hardware gate.",
+    "Existing library defaults/serial budget remain; daily1.4m is a partial single-phase repair, below sampled later N8 lifetime peaks."
+  ]
+}

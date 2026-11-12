@@ -1,0 +1,556 @@
+{
+  "actualGPU": true,
+  "air": {
+    "backgroundLocalScattering": 0,
+    "coefficients": {
+      "aerosolHeight": 1200,
+      "aerosolScale": 8,
+      "areaGrowth": 1.7297669727451437,
+      "asymmetry": 0.76,
+      "betaMieExtinctionRGB": [
+        0.00005529719058471676,
+        0.00005529719058471676,
+        0.00005529719058471676
+      ],
+      "betaMieScatteringRGB": [
+        0.000049767471526245085,
+        0.000049767471526245085,
+        0.000049767471526245085
+      ],
+      "betaRayleighRGB": [
+        0.000005802,
+        0.000013558,
+        0.0000331
+      ],
+      "humidity": 0.68,
+      "kappa": 0.6,
+      "model": "bulk hygroscopic radius growth and geometric-area extinction proxy; no Mie size-distribution solve",
+      "normalizedMieScale": 13.83813578196115,
+      "radiusGrowth": 1.3152060571428128,
+      "rayleighHeight": 8000,
+      "singleScatteringAlbedo": 0.9,
+      "units": "inverse metres at sea level; scale is an environmental control, not measured aerosol mass",
+      "wetMie550": 0.00005529719058471676
+    },
+    "declaredSamplerBudget": {
+      "composite": 8,
+      "integration": 5
+    },
+    "dimensions": [
+      1280,
+      720
+    ],
+    "enabled": true,
+    "estimatedTargetBytes": 11059200,
+    "frames": 2,
+    "gpuMilliseconds": null,
+    "integration": "Quadratically spaced finite-distance analytic segments; half-res RGB scattering/transmission, depth-aware 4-neighbour reconstruction",
+    "integrationDimensions": [
+      640,
+      360
+    ],
+    "lastCpuSubmitMilliseconds": 0.20000004768371585,
+    "limits": [
+      "At most8-step single scattering; no multiple-scattering or full atmospheric radiative transfer",
+      "Local incident uses shared punctual finite-radius/range/cone falloff; source-to-sample air extinction is not separately integrated",
+      "Only the shared flashlight has local source shadows; ground lamps and two burst clusters retain their shared lighting approximation",
+      "Sky depth bypasses the pass to avoid duplicate sky extinction",
+      "Opaque depth-edge fallback uses one midpoint; local sky fallback uses the configured segment count",
+      "No temporal random jitter/history; the pass does not hide motion with accumulation",
+      "Hygroscopic area growth is a prescribed aerosol proxy, not measured composition or a full Mie calculation",
+      "CPU submission time is not GPU cost or scene FPS"
+    ],
+    "localLightCount": 6,
+    "localLightsEnabled": true,
+    "localScatteringModel": "quadratic",
+    "maxDistanceMetres": 12000,
+    "quality": "high",
+    "samplingOverride": {
+      "shadowTaps": 1,
+      "steps": 6
+    },
+    "shadows": true,
+    "source": "Shared scene sunlight after upper-atmosphere attenuation plus finite local incident RGB already multiplied by sceneScale; each uses Rayleigh/HG phase once",
+    "steps": 6,
+    "supportSamplesPerIntersectedLight": 0,
+    "time": 0.055,
+    "treeShadowTapsPerStep": 1
+  },
+  "state": {
+    "camera": [
+      -48,
+      12.000000000000004,
+      -40.00000000000001
+    ],
+    "caustics": {
+      "gridSegments": 1280,
+      "maxHz": 24,
+      "quality": "high"
+    },
+    "drawCalls": 35,
+    "fps": 0,
+    "gpuMs": null,
+    "graphicsContextInterrupted": true,
+    "leaves": [],
+    "lens": {
+      "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+      "aperture": 8,
+      "bloom": {
+        "bloom": true,
+        "budget": {
+          "bloom": 0.018,
+          "direct": 0.982,
+          "ghost": 0,
+          "total": 0.018,
+          "veil": 0
+        },
+        "enabled": true,
+        "flare": false,
+        "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference",
+        "levels": 4,
+        "model": "single threshold-free linear HDR PSF; opt-in affine ghost/veil share at most 1.8% radiance redistribution",
+        "operatorPeakBoundRGB": [
+          1,
+          1,
+          1
+        ],
+        "passes": 5,
+        "strength": 0.018
+      },
+      "cameraFocalMm": 28.000000000000004,
+      "depthOfField": false,
+      "displayTransform": {
+        "adapter": {
+          "disposed": false,
+          "fallbackFrames": {
+            "hdr": 2,
+            "sdr": 0
+          },
+          "frames": {
+            "hdr": 0,
+            "sdr": 0
+          },
+          "hdr": {
+            "effective": "none",
+            "error": null,
+            "peakNits": 700,
+            "reason": "awaiting-render"
+          },
+          "lastError": null,
+          "output": null,
+          "preparablePeakRange": {
+            "integerOnly": true,
+            "max": 10000,
+            "min": 100
+          },
+          "preparation": {
+            "error": null,
+            "peakNits": 700,
+            "reason": "selected-legacy",
+            "status": "idle"
+          },
+          "requested": "legacy",
+          "revision": 3,
+          "sdr": {
+            "effective": "none",
+            "error": null,
+            "peakNits": 100,
+            "reason": "awaiting-render"
+          },
+          "supportedTargets": [
+            100,
+            700,
+            1270
+          ],
+          "variant": "aces2-ocio26-accurate-atan-v1"
+        },
+        "effective": "legacy",
+        "error": null,
+        "kind": "hdr",
+        "reason": "render-declined",
+        "requested": true
+      },
+      "dynamicLighting": true,
+      "exposureScale": 1.52,
+      "focalMm": 28,
+      "focusMetres": 63.20007911387454,
+      "focusMode": "target",
+      "hdr": {
+        "absoluteNitsCalibrated": false,
+        "apiAvailable": true,
+        "available": true,
+        "calibrationAdjustments": [],
+        "calibrationSource": "windows-dxgi",
+        "displayHDR": true,
+        "displayName": "Q27G4XM",
+        "displayTransform": {
+          "adapter": {
+            "disposed": false,
+            "fallbackFrames": {
+              "hdr": 2,
+              "sdr": 0
+            },
+            "frames": {
+              "hdr": 0,
+              "sdr": 0
+            },
+            "hdr": {
+              "effective": "none",
+              "error": null,
+              "peakNits": 700,
+              "reason": "awaiting-render"
+            },
+            "lastError": null,
+            "output": null,
+            "preparablePeakRange": {
+              "integerOnly": true,
+              "max": 10000,
+              "min": 100
+            },
+            "preparation": {
+              "error": null,
+              "peakNits": 700,
+              "reason": "selected-legacy",
+              "status": "idle"
+            },
+            "requested": "legacy",
+            "revision": 3,
+            "sdr": {
+              "effective": "none",
+              "error": null,
+              "peakNits": 100,
+              "reason": "awaiting-render"
+            },
+            "supportedTargets": [
+              100,
+              700,
+              1270
+            ],
+            "variant": "aces2-ocio26-accurate-atan-v1"
+          },
+          "effective": "legacy",
+          "error": null,
+          "kind": "hdr",
+          "reason": "render-declined",
+          "requested": true
+        },
+        "enabled": true,
+        "errors": [
+          "WebGPU 设备丢失：A valid external Instance reference no longer exists.",
+          "HDR readback requires WebGL2 + EXT_color_buffer_float."
+        ],
+        "headroom": 2.5,
+        "height": 1080,
+        "lastPresentCpuMs": 0.2999999523162842,
+        "lastPresentationTimestamp": 102339.60000002384,
+        "lastUploadCpuMs": 0,
+        "limits": "System-reported luminance is not a photometer measurement and scene lux is not calibrated. This is not an official ACES HDR ODT. Extended sRGB canvas is not a native 80-nit scRGB swap chain. External-image copy is not guaranteed zero-copy. PBO copies pixels through CPU. HDR enlargement is linear, not SDR FSR1.",
+        "maxBridgeWidth": 1440,
+        "maxHz": 120,
+        "mode": "float-canvas-external-copy",
+        "noExplicitCPUReadback": true,
+        "output": "sRGB-encoded rgba16float, extended, opaque",
+        "paperWhiteNits": 280,
+        "peakNits": 700,
+        "peakRelativeToBrowserWhite": 2.5,
+        "presentationObserverActive": false,
+        "presentationObserverError": null,
+        "presentedFrames": 2,
+        "readback": null,
+        "requiresRedraw": true,
+        "sdrWhiteNits": 280,
+        "shoulder": "same fitted SDR ACES anchor through exposed peak 1; C1 bounded highlight extension; nit scale divided by browser/Windows SDR white",
+        "skippedFrames": 0,
+        "source": "pre-OutputPass, scene-linear sRGB floating-point target",
+        "systemReportedCalibration": true,
+        "whiteScale": 1,
+        "width": 1920
+      },
+      "height": 1080,
+      "historyEV": -1,
+      "maxSamples": 8,
+      "motion": {
+        "attachment": "RGBA16F: unjittered UV velocity.xy, previous linear depth, MSAA coverage; R16F: current linear depth; normalize both by coverage",
+        "enabled": true,
+        "extraScenePasses": 0,
+        "frames": 2,
+        "groups": 0,
+        "hasPrevious": false,
+        "limits": [
+          "analytic rest-mesh wind and camera motion only; no arbitrary model-matrix animation",
+          "missing-coverage bridge retains conservative camera-only fallback"
+        ]
+      },
+      "outputHeight": 1080,
+      "outputWidth": 1920,
+      "sampleSupport": [
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ]
+      ],
+      "samples": 8,
+      "sceneAttachments": [
+        "RGBA16F radiance",
+        "RGBA16F motion/coverage",
+        "R16F foliage depth",
+        "R8 local reactive"
+      ],
+      "sceneStats": {
+        "calls": 35,
+        "triangles": 2137210
+      },
+      "sensorHeightMm": 20.25,
+      "storageEV": -1,
+      "temporal": {
+        "active": true,
+        "artificialJitter": false,
+        "enabled": true,
+        "frozen": false,
+        "historyBytes": 37324800,
+        "historyFrames": 0,
+        "historyWeight": 0.84,
+        "jitterPixels": [
+          0,
+          0
+        ],
+        "lastResetReason": "resize",
+        "maximumMissingCoverageFrames": 2,
+        "metadata": "R8 age; nearest valid depth, bilinear RGB",
+        "scope": "analytic wind/camera foliage motion, MSAA coverage, independent short water radiance history",
+        "stillFrames": 0,
+        "waterEnabled": true
+      },
+      "upscaler": "native resolution",
+      "verticalFovDegrees": 39.76070472928529,
+      "vignette": true,
+      "width": 1920
+    },
+    "parameters": {
+      "air": {
+        "aerosolScale": 8,
+        "enabled": true,
+        "shadows": true
+      },
+      "current": 0.16,
+      "director": {
+        "mode": "off",
+        "periodSeconds": 240
+      },
+      "graphics": {
+        "displayName": "auto",
+        "displayTransform": "legacy",
+        "hdr": true,
+        "hdrMode": "auto",
+        "indirect": "low",
+        "paperWhiteNits": 280,
+        "peakNits": 700,
+        "shadows": "recommended",
+        "systemCalibration": true,
+        "targetFps": 60,
+        "waveResolution": 512
+      },
+      "lens": {
+        "antialias": "smaa",
+        "aperture": 8,
+        "automatic": false,
+        "dof": false,
+        "exposure": 0,
+        "focal": 28,
+        "focusDistance": 60,
+        "focusMode": "target",
+        "glintAA": true,
+        "opticalBloom": true,
+        "opticalFlare": false,
+        "temporal": true,
+        "vignette": true
+      },
+      "paused": true,
+      "quality": "high",
+      "qualityCustom": false,
+      "qualityPreset": "medium",
+      "renderSampling": {
+        "airShadowTaps": 1,
+        "airSteps": 6,
+        "antialias": "smaa",
+        "atmosphereSteps": 8,
+        "causticsGrid": 1280,
+        "causticsHz": 24,
+        "causticsSize": 1536,
+        "cloudSteps": 64,
+        "dprCap": 1.65,
+        "glintAA": true,
+        "indirect": "low",
+        "msaaSamples": 8,
+        "opticalBloom": true,
+        "reflectionSamples": 2,
+        "reflectionScale": 1,
+        "shadowHz": 45,
+        "shadowSize": 4096,
+        "temporal": true,
+        "waveResolution": 512
+      },
+      "sea": {
+        "swellHeight": 0.16,
+        "windSea": 1
+      },
+      "sound": false,
+      "sun": {
+        "azimuth": 100,
+        "elevation": 48,
+        "intensity": 1
+      },
+      "weather": {
+        "cloudBase": "auto",
+        "coverage": 0.35,
+        "humidity": 0.68,
+        "shear": 1.1,
+        "temperature": 29,
+        "thickness": 950
+      },
+      "wind": 1.8
+    },
+    "pausedRenderCached": false,
+    "pausedSteadyFrames": 0,
+    "performance": {
+      "changes": [],
+      "enabled": false,
+      "lastGpuMs": null,
+      "minimumScale": 0.6,
+      "referenceBudgetMs": 16.666666666666668,
+      "scale": 1,
+      "slowFrameFraction": 0,
+      "smoothedCostMs": null,
+      "targetFps": 60
+    },
+    "ready": true,
+    "renderScale": 1,
+    "ripples": [
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ]
+    ],
+    "target": [
+      0,
+      2.5,
+      0
+    ],
+    "time": 0.055,
+    "triangles": 2137210
+  },
+  "logs": [
+    {
+      "level": "error",
+      "message": "THREE.WebGLProgram: Shader Error 0 - VALIDATE_STATUS false\n\nMaterial Name: Depth-aware aerial reconstruction / linear HDR\nMaterial Type: RawShaderMaterial\n\nProgram Info Log: \n\n",
+      "timestamp": "2026-10-28T08:31:01.037Z",
+      "url": "http://127.0.0.1:5186/vendor/three.module.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.WebGLProgram: Shader Error 1282 - VALIDATE_STATUS false\n\nMaterial Name: Thin lens and restrained optical falloff\nMaterial Type: ShaderMaterial\n\nProgram Info Log: \n\n",
+      "timestamp": "2026-10-28T08:31:01.041Z",
+      "url": "http://127.0.0.1:5186/vendor/three.module.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.WebGLProgram: Shader Error 1282 - VALIDATE_STATUS false\n\nMaterial Name: Normalized camera PSF downsample\nMaterial Type: ShaderMaterial\n\nProgram Info Log: \n\n",
+      "timestamp": "2026-10-28T08:31:01.041Z",
+      "url": "http://127.0.0.1:5186/vendor/three.module.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.WebGLProgram: Shader Error 1282 - VALIDATE_STATUS false\n\nMaterial Name: Single finite-energy camera PSF / optional ghost and veil\nMaterial Type: ShaderMaterial\n\nProgram Info Log: \n\n",
+      "timestamp": "2026-10-28T08:31:01.041Z",
+      "url": "http://127.0.0.1:5186/vendor/three.module.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.WebGLProgram: Shader Error 1282 - VALIDATE_STATUS false\n\nMaterial Name: \nMaterial Type: ShaderMaterial\n\nProgram Info Log: \n\n",
+      "timestamp": "2026-10-28T08:31:01.041Z",
+      "url": "http://127.0.0.1:5186/vendor/three.module.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.WebGLProgram: Shader Error 1282 - VALIDATE_STATUS false\n\nMaterial Name: \nMaterial Type: ShaderMaterial\n\nProgram Info Log: \n\n",
+      "timestamp": "2026-10-28T08:31:01.041Z",
+      "url": "http://127.0.0.1:5186/vendor/three.module.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.WebGLProgram: Shader Error 1282 - VALIDATE_STATUS false\n\nMaterial Name: \nMaterial Type: ShaderMaterial\n\nProgram Info Log: \n\n",
+      "timestamp": "2026-10-28T08:31:01.041Z",
+      "url": "http://127.0.0.1:5186/vendor/three.module.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.WebGLProgram: Shader Error 1282 - VALIDATE_STATUS false\n\nMaterial Name: Extended-range HDR output\nMaterial Type: RawShaderMaterial\n\nProgram Info Log: \n\n",
+      "timestamp": "2026-10-28T08:31:01.042Z",
+      "url": "http://127.0.0.1:5186/vendor/three.module.js"
+    }
+  ]
+}

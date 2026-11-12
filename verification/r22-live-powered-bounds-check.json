@@ -1,0 +1,108 @@
+{
+  "schema": "glass-atoll.r22-live-powered-bounds-cpu.v1",
+  "dateUTC": "2026-10-29T05:24:43.144Z",
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "sourceSHA256": "f0e3b7db8a268cb02227c81282e85a808158942e2b73656df39fdc752c783463",
+  "lineEndings": {
+    "CRLF": 865,
+    "LF": 865
+  },
+  "checks": [
+    {
+      "name": "All ten ordinary live bounds retain exact pre-R22 public values at four wind phases",
+      "passed": true,
+      "evidence": {
+        "comparisons": 40,
+        "scope": "All legacy types retain sampled/smoke forecast contract exactly; no new powered metadata appears"
+      }
+    },
+    {
+      "name": "Powered live bounds union exact actual muzzle/jitter launch and all committed wind ranges",
+      "passed": true,
+      "evidence": {
+        "actualOrigin": [
+          29.480653402461733,
+          0.48892805274886164,
+          7.356049783164781
+        ],
+        "actualAzimuth": 126.52964244261655,
+        "actualElevation": 25,
+        "windRanges": [
+          [
+            -3,
+            4
+          ],
+          [
+            -0.4,
+            0.2
+          ],
+          [
+            -1,
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "name": "Selecting ordinary style does not remove an active powered event from live analytic framing",
+      "passed": true,
+      "evidence": {
+        "selectedType": "peony",
+        "livePoweredEvents": 1
+      }
+    },
+    {
+      "name": "Historical wind extrema invalidate a same-bucket/same-current-wind cached powered forecast",
+      "passed": true,
+      "evidence": {
+        "oldRanges": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "newRanges": [
+          [
+            -5,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "name": "Immutable motor object identity invalidates cached past-sample and whole live bound identities",
+      "passed": true,
+      "evidence": {
+        "samePublicScheduleId": "bee-thrust-5d2249ac",
+        "distinctImmutableObject": true,
+        "scope": "Read-only production identity check using an explicit private QA replacement; no public schedule mutation API is introduced"
+      }
+    }
+  ],
+  "limits": [
+    "Native definition-rise apex powered candidate only; production admission rejects custom height/unsupported flight separately.",
+    "Committed wind components must remain in the show envelope admitted -50..50m/s domain; main UI uses a narrower range.",
+    "Analytic physical/motor proxy support is combined with incumbent sampled smoke coverage; persistent smoke and camera Gaussian/DOF/bloom remain separate margins.",
+    "Actual source factory CPU, not GPU/image/FPS acceptance."
+  ]
+}

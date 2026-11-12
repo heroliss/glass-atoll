@@ -1,0 +1,121 @@
+{
+  "checks": [
+    {
+      "name": "Disabled pass returns the exact input texture without a draw",
+      "passed": true
+    },
+    {
+      "maximumError": 0,
+      "name": "Zero medium is an exact HDR identity through GPU integration/composition",
+      "passed": true
+    },
+    {
+      "maximumError": 0,
+      "name": "Physical sky depth bypasses aerial extinction/scattering exactly",
+      "passed": true
+    },
+    {
+      "invalidT": 0,
+      "name": "HDR composite is finite and RGB transmittance stays in 0..1",
+      "nonFinite": 0,
+      "passed": true
+    },
+    {
+      "actual": [
+        0.12457275390625,
+        0.497802734375,
+        1.9912109375
+      ],
+      "expected": [
+        0.12466042519390354,
+        0.4980868312541378,
+        1.9917924554950748
+      ],
+      "maximumBoundRatio": 0.06921758514494328,
+      "name": "Homogeneous GPU transfer agrees with independent analytic composition",
+      "note": "1% allows half-resolution angular reconstruction and FP16 storage; not a full-scene pixel identity.",
+      "passed": true
+    },
+    {
+      "maximumScattering": 0,
+      "maximumTransmissionChange": 0,
+      "name": "Cloud occlusion removes source radiance without changing extinction",
+      "passed": true
+    },
+    {
+      "maximumError": 0,
+      "name": "Source scattering follows shared incident sunlight linearly",
+      "passed": true
+    }
+  ],
+  "cleanup": true,
+  "diagnostics": {
+    "coefficients": {
+      "aerosolHeight": 1000000000,
+      "aerosolScale": 12,
+      "areaGrowth": 1.7297669727451437,
+      "asymmetry": 0.76,
+      "betaMieExtinctionRGB": [
+        0.00008294578587707514,
+        0.00008294578587707514,
+        0.00008294578587707514
+      ],
+      "betaMieScatteringRGB": [
+        0.00007465120728936762,
+        0.00007465120728936762,
+        0.00007465120728936762
+      ],
+      "betaRayleighRGB": [
+        0,
+        0,
+        0
+      ],
+      "humidity": 0.68,
+      "kappa": 0.6,
+      "model": "bulk hygroscopic radius growth and geometric-area extinction proxy; no Mie size-distribution solve",
+      "normalizedMieScale": 20.757203672941724,
+      "radiusGrowth": 1.3152060571428128,
+      "rayleighHeight": 8000,
+      "singleScatteringAlbedo": 0.9,
+      "units": "inverse metres at sea level; scale is an environmental control, not measured aerosol mass",
+      "wetMie550": 0.00008294578587707514
+    },
+    "dimensions": [
+      32,
+      24
+    ],
+    "enabled": true,
+    "estimatedTargetBytes": 9216,
+    "frames": 4,
+    "gpuMilliseconds": null,
+    "integration": "Quadratically spaced finite-distance analytic segments; half-res RGB scattering/transmission, depth-aware 4-neighbour reconstruction",
+    "integrationDimensions": [
+      16,
+      12
+    ],
+    "lastCpuSubmitMilliseconds": 0,
+    "limits": [
+      "8/6-step single scattering; no multiple-scattering or full atmospheric radiative transfer",
+      "Sky depth bypasses the pass to avoid duplicate sky extinction",
+      "Depth-edge fallback uses one midpoint; thin shadow boundaries may soften",
+      "No temporal random jitter/history; the pass does not hide motion with accumulation",
+      "Hygroscopic area growth is a prescribed aerosol proxy, not measured composition or a full Mie calculation",
+      "CPU submission time is not GPU cost or scene FPS"
+    ],
+    "maxDistanceMetres": 12000,
+    "quality": "high",
+    "shadows": false,
+    "source": "Shared scene sunlight after upper-atmosphere attenuation; local cloud/tree visibility once",
+    "steps": 8,
+    "time": 0,
+    "treeShadowTapsPerStep": 2
+  },
+  "glErrors": [],
+  "kind": "Linear HDR finite-air fixtures on the actual WebGL2 renderer",
+  "limits": [
+    "Fixtures test numerical coupling, HDR identity and sky bypass, not full-scene realism or mobile performance",
+    "Only the cloud visibility path is isolated here; actual tree-shadow placement requires the scene caster map",
+    "No GPU timer or FPS claim is derived from this readback check"
+  ],
+  "passed": true
+}

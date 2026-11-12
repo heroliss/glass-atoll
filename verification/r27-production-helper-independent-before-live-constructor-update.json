@@ -1,0 +1,44 @@
+{
+  "schema": "glass-atoll.r27-production-helper-independent-cpu-read.v1",
+  "dateUTC": "2026-10-29T12:45:04.963Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": false,
+  "counts": {
+    "passed": 1,
+    "total": 3
+  },
+  "checks": [
+    {
+      "name": "Promoted helper/current modules/cached production factory are separately pinned to deployed code and the same artifact",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ '0cd559395aa464e61ac7629ef32581dc5876d1d14db9934a5aee3c566069cb19'\n- '4e3e11fdc2738f2846356e0a7a7e04ed2fdf23559f7324f9415901c272b0f7f1'\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r27-production-helper-independent-check.mjs:11:9\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r27-production-helper-independent-check.mjs:8:80)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r27-production-helper-independent-check.mjs:10:7\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "Strict enumerated wrapper inverse preserves the entire hardware-passed ownership/timer/draw/read/error/state algorithm",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n... Skipped lines\n\n  '// ROOT ONLY: one immutable actual native SourceT request, at most4draws.\\n' +\n    '// Not a normal rendering path. No live scene, second consumer, VTF or new context.\\n' +\n    \"import {R27_NATIVE_TRANSMISSION_FIXTURE as artifact,R27_NATIVE_TRANSMISSION_FIXTURE_DIGEST as exportedDigest,r27CanonicalJSON} from './r27-native-transmission-fixture.js';\\n\" +\n    \"import {packSmokeTransmissionInputs as candidatePack,planSmokeTransmission as candidatePolicy} from './r26-transmission-pack-candidate.js';\\n\" +\n    \"import {planSmokeTransmissionLayout as candidateLayout} from './r26-transmission-layout-candidate.js';\\n\" +\n...\n    'const CAPS=Object.freeze({maxSources:18000,maxPackets:4096,maxRequestPairs:1400000,maxMapPairs:1000000,maxMapDraws:3});\\n' +\n+   'const PRODUCTION_CONSTRUCTOR_CAPS=Object.freeze({...CAPS,maxPairs:1048576,maxMapDraws:8});\\n' +\n    'const MAX_CAPTURE_BYTES=67108864,MAX_READBACK_BYTES=65536,MAX_PARTIAL_SAMPLES=8;\\n' +\n    \"const PACK_NAMES=['PACK_ALIGNMENT','PACK_ROW_LENGTH','PACK_SKIP_PIXELS','PACK_SKIP_ROWS'];\\n\" +\n    \"const UNPACK_NAMES=['UNPACK_ALIGNMENT','UNPACK_ROW_LENGTH','UNPACK_IMAGE_HEIGHT','UNPACK_SKIP_PIXELS','UNPACK_SKIP_ROWS','UNPACK_SKIP_IMAGES','UNPACK_FLIP_Y_WEBGL','UNPACK_PREMULTIPLY_ALPHA_WEBGL','UNPACK_COLORSPACE_CONVERSION_WEBGL'];\\n\" +\n    'const demand=(v,m)=>{if(!v)throw new Error(m);},cleanError=e=>String(e?.stack??e).slice(0,4096);\\n' +\n    'let activeCall=false;\\n' +\n...\n    \" demand(artifact.schema==='glass-atoll.r27-native-transmission-fixture.v1'&&Object.isFrozen(artifact),'Frozen fixed native fixture schema required');const selected=artifact.consumers?.find(c=>c.kind==='main');demand(selected&&selected.requested===true&&selected.submitted===true,'One actually submitted native main consumer required');const count=selected.input.count,packetCount=artifact.snapshot.packets.length;\\n\" +\n+   \" demand(Number.isSafeInteger(count)&&count>0&&count<=18000&&packetCount>0&&packetCount<=4096&&count*packetCount>1048576&&count*packetCount<=1400000,'Actual complete request must cross old1m gate within explicit1.4m envelope');demand(Object.keys(artifact.candidateCaps).length===Object.keys(CAPS).length&&Object.entr\"... 22946 more characters\n-   \" demand(Number.isSafeInteger(count)&&count>0&&count<=18000&&packetCount>0&&packetCount<=4096&&count*packetCount>1048576&&count*packetCount<=1400000,'Actual complete request must cross old1m gate within explicit1.4m envelope');demand(Object.keys(artifact.candidateCaps).length===Object.keys(CAPS).length&&Object.entries(CAPS).every(([k,v])=>artifact.candidateCaps[k]===v),'Fixed live-style constructor polic\"... 22809 more characters\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r27-production-helper-independent-check.mjs:28:9\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r27-production-helper-independent-check.mjs:8:80)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r27-production-helper-independent-check.mjs:13:7"
+    },
+    {
+      "name": "Strict production gate rejects variable options and old candidate factory before existing context, valid deployed pins reach only deliberate CPU boundary",
+      "passed": true,
+      "evidence": {
+        "variableOptionRejections": 3,
+        "oldCandidateFactoryRejected": true,
+        "allDeployedPinsCheckedBeforeContext": true,
+        "actualContextConstructed": false
+      }
+    }
+  ],
+  "constructorScope": {
+    "gate": "Fixed same-input map cap3; default legacy maxPairs3072 with explicit maxRequestPairs1400000",
+    "liveCaller": "Explicit maxPairs1048576/maxRequestPairs1400000/maxMapPairs1000000/maxMapDraws8",
+    "effectOnFixedRequest": "Both use the same effective complete envelope/allocation/expanded shaders and exactly3maps; this fixed implementation gate does not exercise the full live caller envelope"
+  },
+  "limits": [
+    "Read/source/CPU pre-context checks only; deployed factory requires its separately owned same-input hardware receipt.",
+    "Old candidate helper/receipt and native input remain frozen; this report does not rewrite their source pins.",
+    "Production implementation promotion does not by itself establish aggregate main/mirror/SH cost or scene FPS."
+  ]
+}

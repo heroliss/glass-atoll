@@ -1,0 +1,89 @@
+// Isolated opt-in G1 gate. Importing this file does not construct a renderer,
+// advance the host, alter its sea state, or run the checks automatically.
+import {createShorelineCPU,createShorelineGPU} from '../shoreline-dynamics.js';
+
+const assert=(condition,message)=>{if(!condition)throw new Error(message);};
+const close=(a,b,eps=1e-5)=>Math.abs(a-b)<=eps*Math.max(1,Math.abs(a),Math.abs(b));
+const physical=state=>Array.from(state.data??[]);
+const equalArray=(a,b)=>a.length===b.length&&a.every((v,i)=>Object.is(v,b[i]));
+const cpuAdvance=(state,target)=>{let r;do{r=state.advanceFence(target);}while(!r.completed);};
+const gpuAdvance=async(state,target)=>{let r;do{r=await state.advanceFence(target);}while(!r.completed);};
+
+function rendererState(THREE,renderer){
+  const gl=renderer.getContext();return{
+    target:renderer.getRenderTarget(),face:renderer.getActiveCubeFace(),mip:renderer.getActiveMipmapLevel(),
+    viewport:renderer.getViewport(new THREE.Vector4()).toArray(),scissor:renderer.getScissor(new THREE.Vector4()).toArray(),test:renderer.getScissorTest(),
+    actualViewport:Array.from(gl.getParameter(gl.VIEWPORT)),actualScissor:Array.from(gl.getParameter(gl.SCISSOR_BOX)),actualTest:gl.isEnabled(gl.SCISSOR_TEST),
+    drawFramebuffer:gl.getParameter(gl.DRAW_FRAMEBUFFER_BINDING),readFramebuffer:gl.getParameter(gl.READ_FRAMEBUFFER_BINDING),
+    autoClear:renderer.autoClear,xr:renderer.xr.enabled,shadowAuto:renderer.shadowMap.autoUpdate,shadowDirty:renderer.shadowMap.needsUpdate,
+  };
+}
+function assertRendererEqual(a,b){for(const key of Object.keys(a))assert(Array.isArray(a[key])?equalArray(a[key],b[key]):a[key]===b[key],'Renderer state changed: '+key);}
+function compareCPU(cpu,gpu,eps=1e-4){
+  const c=cpu.snapshot(),g=gpu.snapshot({readback:true});assert(c.time===g.time&&c.tick===g.tick,'CPU/GPU commit clock differs');
+  const maxima={h:0,qx:0,qz:0,wetness:0};for(const [channel,name]of['h','qx','qz','wetness'].entries())for(let i=0;i<c.h.length;i++){
+    const v=g.data[i*4+channel];assert(Number.isFinite(v),'GPU published nonfinite '+name);maxima[name]=Math.max(maxima[name],Math.abs(c[name][i]-v));
+  }for(const [name,error]of Object.entries(maxima))assert(error<eps,'CPU/GPU '+name+' error '+error+' >= '+eps);return maxima;
+}
+export async function runR13ShoreGPU(THREE,renderer,{includeQuality=false,onProgress=()=>{}}={}){
+  const checks=[],shaderErrors=[],created=[],gl=renderer.getContext(),started=performance.now(),initialRenderer=rendererState(THREE,renderer),priorShaderError=renderer.debug.onShaderError;
+  renderer.debug.onShaderError=(context,program,vertex,fragment)=>{shaderErrors.push({program:context.getProgramInfoLog(program),vertex:context.getShaderInfoLog(vertex),fragment:context.getShaderInfoLog(fragment)});};
+  const make=options=>{const s=createShorelineGPU(THREE,renderer,options);created.push(s);return s;};
+  const check=async(name,fn)=>{onProgress(name);const t=performance.now();try{checks.push({name,passed:true,elapsedWallMs:performance.now()-t,evidence:await fn()});checks.at(-1).elapsedWallMs=performance.now()-t;}catch(error){checks.push({name,passed:false,elapsedWallMs:performance.now()-t,error:String(error.stack||error)});}await new Promise(resolve=>setTimeout(resolve,0));};
+  const base={resolution:16,center:[0,0],size:[12,12],terrainHeight:()=>-1,boundary:'closed',maxTicksPerAdvance:120};
+  try{
+    await check('RGBA32F initialization is read back, finite, complete and unchanged by detached query mutation',async()=>{
+      const s=make(base),p=s.snapshot({readback:true});assert(p.data.length===16*16*4,'Unexpected state field length');assert(p.data.every(Number.isFinite),'Nonfinite initialized field');
+      for(let i=0;i<16*16;i++){assert(p.data[i*4]===1&&p.data[i*4+1]===0&&p.data[i*4+2]===0&&p.data[i*4+3]===1,'Initialization did not preserve lake');}
+      const before=physical(p);p.data[0]=99;p.bed[0]=99;assert(equalArray(before,physical(s.snapshot({readback:true}))),'Readback array aliases state');
+      let setterRejected=false;try{s.uniforms.uShoreState.value=null;}catch{setterRejected=true;}assert(setterRejected,'Published uniform permits replacement');assert(s.uniforms.uShoreState.value===s.snapshot().texture,'Read-only Uniform is stale');return{cells:256,passes:s.diagnostics().passes,detachedReadback:true};
+    });
+    await check('well-balanced stepped sloping partly dry lake agrees with CPU over thirty physical ticks',async()=>{
+      const options={...base,resolution:24,time:4000,terrainHeight:(x,z)=>Math.max(-1+.04*x+.02*z,x>1?.3:-2,Math.hypot(x+2,z)<1.4?.4:-2)},cpu=createShorelineCPU(options),s=make(options);
+      try{cpuAdvance(cpu,4000.5);await gpuAdvance(s,4000.5);const error=compareCPU(cpu,s,8e-5);assert(Math.abs(s.diagnostics().ledger.residual)<.005,'Closed lake volume drift');return{maximumAbsoluteFieldError:error,diagnostics:s.diagnostics()};}finally{cpu.dispose();}
+    });
+    await check('2D diagonal wet outflow remains positive at safe allocation and agrees with CPU',async()=>{
+      const n=16,count=n*n,h=Array(count).fill(0),qx=Array(count).fill(0),qz=Array(count).fill(0),k=8*n+8;h[k]=1;qx[k]=8;qz[k]=8;
+      const options={...base,size:[16,16],terrainHeight:()=>0,initialState:{h,qx,qz},manning:0,velocityBudgetMps:12},cpu=createShorelineCPU(options),s=make(options);
+      try{cpuAdvance(cpu,.05);await gpuAdvance(s,.05);const p=s.snapshot({readback:true});for(let i=0;i<count;i++)assert(p.data[i*4]>=0,'Negative GPU depth');assert(close(s.diagnostics().ledger.volume,1,5e-5),'Closed wet cell lost volume');return{maximumAbsoluteFieldError:compareCPU(cpu,s,8e-5),ledger:s.diagnostics().ledger};}finally{cpu.dispose();}
+    });
+    await check('unsafe actual CFL rejects the private commit with committed texture fields clock and revision intact',async()=>{
+      const n=16,h=Array(n*n).fill(1),qx=Array(n*n).fill(100),qz=Array(n*n).fill(100),s=make({...base,size:[4,4],substepsPerTick:1,initialState:{h,qx,qz}}),before=s.snapshot({readback:true});let rejected=false;
+      try{await s.advanceFence(.1);}catch{rejected=true;}assert(rejected,'Unsafe GPU state published');const after=s.snapshot({readback:true}),d=s.diagnostics();assert(before.texture===after.texture&&equalArray(physical(before),physical(after)),'C overwritten by failed stage');assert(after.time===0&&after.revision===0&&d.requestedTime===.1&&!d.busy,'Rollback counters wrong');assert(d.lastFailure?.failedCommitEndTime===1/60,'Failure fence missing');
+      const saved=JSON.stringify(d);try{await s.advanceFence(NaN);}catch{}assert(JSON.stringify(s.diagnostics())===saved,'Invalid target changed accepted failure telemetry');return{lastFailure:d.lastFailure,ledger:d.ledger};
+    });
+    await check('render exception after one committed tick preserves prefix, restores renderer, and retries exactly',async()=>{
+      const s=make({...base,boundary:'swell',boundaryRampSeconds:1}),control=make({...base,boundary:'swell',boundaryRampSeconds:1});await s.advanceFence(1/60);await control.advanceFence(1/60);
+      const before=s.snapshot({readback:true}),rs=rendererState(THREE,renderer),render=renderer.render;let calls=0;
+      renderer.render=function(...args){calls++;if(calls===2)throw new Error('verification render-stage exception');return render.apply(this,args);};let rejected=false;
+      try{await s.advanceFence(.05);}catch{rejected=true;}finally{renderer.render=render;}
+      assert(rejected,'Injected stage exception ignored');assertRendererEqual(rs,rendererState(THREE,renderer));const failed=s.snapshot({readback:true});assert(failed.time===1/60&&failed.texture===before.texture&&equalArray(physical(before),physical(failed)),'Exception changed committed prefix');assert(s.diagnostics().lastFailure?.completedTicks===0,'Failure completed ticks must count this call only');
+      await gpuAdvance(s,.05);await gpuAdvance(control,.05);assert(equalArray(physical(s.snapshot({readback:true})),physical(control.snapshot({readback:true}))),'Retry differs from no-failure control');return{retainedTick:1,retryTick:s.diagnostics().tick,privateDrawsBeforeThrow:calls};
+    });
+    await check('30Hz and120Hz fences use identical complete-clock native64 boundary states at origin4000',async()=>{
+      const outputs=[];for(const hz of[30,120]){const s=make({...base,time:4000,boundary:'swell',boundaryRampSeconds:0});for(let i=1;i<=hz*.2;i++)await s.advanceFence(4000+i/hz);await gpuAdvance(s,4000.2);outputs.push(s.snapshot({readback:true}));}
+      assert(equalArray(physical(outputs[0]),physical(outputs[1])),'GPU display cadence changed physics');const cpu=createShorelineCPU({...base,time:4000,boundary:'swell',boundaryRampSeconds:0});try{cpuAdvance(cpu,4000.2);const compare=created.at(-1);return{time:outputs[0].time,bitIdenticalGPUCadences:true,maximumAbsoluteFieldError:compareCPU(cpu,compare,8e-5)};}finally{cpu.dispose();}
+    });
+    await check('reentrant advance or dispose is rejected while a complete commit is pending',async()=>{
+      const s=make(base),pending=s.advanceFence(.05),pendingOutcome=pending.then(value=>({value}),error=>({error}));
+      // Issue both mutations and the query before the first await: awaiting the
+      // rejected reentrant promise would itself let later valid ticks commit.
+      const reentrantOutcome=s.advanceFence(.1).then(()=>false,()=>true);let disposeRejected=false;try{s.dispose();}catch{disposeRejected=true;}
+      const snap=s.snapshot({readback:true}),advanceRejected=await reentrantOutcome,outcome=await pendingOutcome;
+      if(outcome.error)throw outcome.error;assert(advanceRejected&&disposeRejected,'Mutation entered a busy GPU transaction');assert(snap.tick===1,'Synchronous validation commits exactly first tick before yielding');assert(!s.diagnostics().busy,'Busy flag stuck');return{advanceRejected,disposeRejected,queryDuringPendingTick:snap.tick,finalTick:s.diagnostics().tick};
+    });
+    await check('caller offscreen target viewport scissor FBO and flags survive creation advance and readback',async()=>{
+      const target=new THREE.WebGLRenderTarget(20,20,{depthBuffer:false});try{renderer.setRenderTarget(target);renderer.setViewport(2,3,13,12);renderer.setScissor(4,5,9,8);renderer.setScissorTest(true);renderer.autoClear=true;renderer.shadowMap.autoUpdate=true;renderer.shadowMap.needsUpdate=true;
+        const a=rendererState(THREE,renderer),s=make(base);assertRendererEqual(a,rendererState(THREE,renderer));await s.advanceFence(1/60);assertRendererEqual(a,rendererState(THREE,renderer));s.snapshot({readback:true});assertRendererEqual(a,rendererState(THREE,renderer));return{offscreen:true,logicalAndActualStatePreserved:true};
+      }finally{renderer.setRenderTarget(initialRenderer.target,initialRenderer.face,initialRenderer.mip);target.dispose();renderer.setViewport(...initialRenderer.viewport);renderer.setScissor(...initialRenderer.scissor);renderer.setScissorTest(initialRenderer.test);renderer.autoClear=initialRenderer.autoClear;renderer.shadowMap.autoUpdate=initialRenderer.shadowAuto;renderer.shadowMap.needsUpdate=initialRenderer.shadowDirty;}
+    });
+    if(includeQuality)await check('192/256/384 actual-ROI finite initialization and one measured physics commit',async()=>{
+      const text=await(await fetch('../main.js')).text(),body=text.match(/export function terrainHeight\(x,z\)\{([\s\S]*?)\n\}/)?.[1];assert(body,'Scene terrain function unavailable');const terrainHeight=new Function('x','z',body),runs=[];
+      for(const resolution of[192,256,384]){const t=performance.now(),s=make({terrainHeight,resolution});await s.advanceFence(1/60);const d=s.diagnostics();assert(d.tick===1&&d.state.maxCFL<=.4*(1+2e-6),'Quality commit incomplete or unsafe');runs.push({resolution,elapsedCreateAndCommitWallMs:performance.now()-t,diagnostics:d});s.dispose();}return{runs,warning:'One synchronous fence includes init/reductions/readbacks; it is not p95 steady GPU time or60fps acceptance.'};
+    });
+    await check('shader diagnostics and GL error gate',async()=>{assert(shaderErrors.length===0,'GLSL shader errors occurred');const error=gl.getError();assert(error===gl.NO_ERROR,'WebGL error '+error);return{shaderErrors,glError:error};});
+  }finally{for(const s of created){try{s.dispose();}catch{}}renderer.debug.onShaderError=priorShaderError;}
+  return{schema:'glass-atoll.r13-shore-gpu-check.v1',dateUTC:new Date().toISOString(),actualGPU:true,defaultHostImported:false,passed:checks.every(c=>c.passed),counts:{passed:checks.filter(c=>c.passed).length,total:checks.length},elapsedWallMs:performance.now()-started,
+    renderer:{vendor:gl.getParameter(gl.VENDOR),renderer:gl.getParameter(gl.RENDERER),version:gl.getParameter(gl.VERSION)},checks,shaderErrors,
+    limits:['Synchronous1x1 validation per physical tick; no60fps or final visual acceptance.','No full192/256/384 runup grid-convergence study here.','Boundary is a shared native64-mode long-wave characteristic approximation, not a full dispersive offshore solver.','No production host/water/foam/wet-sand/caustic integration.']};
+}

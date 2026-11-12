@@ -1,0 +1,511 @@
+{
+  "schema": "glass-atoll.r36-normal-performance-read-audit.v1",
+  "actualGPUByThisAudit": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "Saved evolving measurement is completed/valid with internally consistent frame and timing sample counts",
+      "passed": true,
+      "sha256": "667f304e11c865a68113c2cf30647254f8a73fdbc051a1624f8878a21e737927",
+      "scope": "Existing native app evolving-simulation benchmark over one real representative-smoke event; includes profiler overhead; not fixed-workload A/B or sustained60FPS proof",
+      "frames": 101,
+      "elapsedSeconds": 3.0321000000089406,
+      "fps": 33.310247023416835,
+      "frameMs": {
+        "count": 101,
+        "minimum": 16.799999997019768,
+        "median": 27,
+        "mean": 29.795049505068523,
+        "p95": 50.3999999910593,
+        "p99": 60.69999998807907,
+        "maximum": 61.8999999910593
+      },
+      "gpuMs": {
+        "count": 99,
+        "minimum": 13.174,
+        "median": 21.15,
+        "mean": 22.891757575757577,
+        "p95": 33.258,
+        "p99": 58.539,
+        "maximum": 60.834
+      },
+      "cpuMs": {
+        "count": 102,
+        "minimum": 16.400000005960464,
+        "median": 26.5,
+        "mean": 29.088235293825466,
+        "p95": 46.599999994039536,
+        "p99": 53.5,
+        "maximum": 61.3999999910593
+      },
+      "profileFrames": 101,
+      "firstPhysicalTime": 79.6245088019372,
+      "lastPhysicalTime": 82.62810880196102
+    },
+    {
+      "name": "Per-stage data is CPU wall/submission time, not stage-specific GPU elapsed time",
+      "passed": true,
+      "total": {
+        "count": 101,
+        "mean": 29.186138613684342,
+        "median": 26.5,
+        "p95NearestRank": 49.79999999701977,
+        "maximum": 61.29999999701977
+      },
+      "stageCPU": {
+        "timer-read": {
+          "count": 101,
+          "mean": 0.013861385755019613,
+          "median": 0,
+          "p95NearestRank": 0.09999999403953552,
+          "maximum": 0.10000000894069672,
+          "shareOfProfiledTotalMean": 0.000474930443471563
+        },
+        "physical-simulation": {
+          "count": 101,
+          "mean": 1.6900990100780335,
+          "median": 1.699999988079071,
+          "p95NearestRank": 2.5,
+          "maximum": 3.5999999940395355,
+          "shareOfProfiledTotalMean": 0.05790759210900226
+        },
+        "celestial-navigation": {
+          "count": 101,
+          "mean": 0.10099009859679949,
+          "median": 0.09999999403953552,
+          "p95NearestRank": 0.20000000298023224,
+          "maximum": 0.30000001192092896,
+          "shareOfProfiledTotalMean": 0.0034602075983237064
+        },
+        "firework-simulation-audio": {
+          "count": 101,
+          "mean": 2.64950495102618,
+          "median": 2.0999999940395355,
+          "p95NearestRank": 5.300000011920929,
+          "maximum": 12.200000002980232,
+          "shareOfProfiledTotalMean": 0.09077956443967279
+        },
+        "photometry": {
+          "count": 101,
+          "mean": 11.063366335954997,
+          "median": 9.799999997019768,
+          "p95NearestRank": 18.599999994039536,
+          "maximum": 27.099999994039536,
+          "shareOfProfiledTotalMean": 0.37906235156327867
+        },
+        "locators-cloud-GI": {
+          "count": 101,
+          "mean": 0.040594059641998595,
+          "median": 0,
+          "p95NearestRank": 0.10000000894069672,
+          "maximum": 0.20000000298023224,
+          "shareOfProfiledTotalMean": 0.0013908677738878922
+        },
+        "environment-capture": {
+          "count": 101,
+          "mean": 0.3841584161071494,
+          "median": 0,
+          "p95NearestRank": 0.9000000059604645,
+          "maximum": 14.300000011920929,
+          "shareOfProfiledTotalMean": 0.01316235837813198
+        },
+        "shadow-caustics-sand": {
+          "count": 101,
+          "mean": 0.0900990092518306,
+          "median": 0.09999999403953552,
+          "p95NearestRank": 0.20000000298023224,
+          "maximum": 0.29999999701976776,
+          "shareOfProfiledTotalMean": 0.003087047945752796
+        },
+        "water-captures": {
+          "count": 101,
+          "mean": 6.517821783181464,
+          "median": 6,
+          "p95NearestRank": 10.200000002980232,
+          "maximum": 17,
+          "shareOfProfiledTotalMean": 0.22331908545536372
+        },
+        "main-lens-display": {
+          "count": 101,
+          "mean": 6.565346534594451,
+          "median": 6,
+          "p95NearestRank": 9.900000005960464,
+          "maximum": 25.200000002980232,
+          "shareOfProfiledTotalMean": 0.22494741841307483
+        },
+        "ui-audio": {
+          "count": 101,
+          "mean": 0.06930693054553305,
+          "median": 0,
+          "p95NearestRank": 0.29999999701976776,
+          "maximum": 0.5999999940395355,
+          "shareOfProfiledTotalMean": 0.0023746522780179456
+        }
+      },
+      "meaning": "Synchronous application wall/submission intervals; driver stalls, CPU source/bounds work and GPU submission may appear in a phase. Whole GPU query cannot be divided by these CPU percentages.",
+      "notSummable": "CPU and GPU elapsed overlap; do not add their means."
+    },
+    {
+      "name": "Actual normal snapshots preserve derived G16/light budget, stored bound and effective positive/neutral source routes",
+      "passed": true,
+      "snapshots": [
+        {
+          "file": "r36-radiant-normal-plus0p70-wide.json",
+          "sha256": "4b44b1f5850669d33bbf0102956e146122b2d0f79a71226fd3d327edfe9da6f6",
+          "time": 77.8245088019372,
+          "packets": 24,
+          "SHcount": 1600,
+          "SHpairs": 38400,
+          "SHreused": true,
+          "views": {
+            "main": {
+              "count": 1600,
+              "active": 1600,
+              "backend": "gpu",
+              "reason": "experimental-ready",
+              "mediumQueries": 0
+            },
+            "reflection": {
+              "count": 1600,
+              "active": 1600,
+              "backend": "gpu",
+              "reason": "experimental-ready",
+              "mediumQueries": 0
+            }
+          },
+          "derivedPeakBudget": 22740.68725347519,
+          "nativePeakBudget": 1421.2929533421993,
+          "storageEV": 10.75,
+          "cameraEV": 14,
+          "maxRawRGB": 8.283127648518319,
+          "storedBound": 14264.83680609891,
+          "safeMaximum": 16376,
+          "components": {
+            "sky": 0.021184932723487485,
+            "locals": 2.520005313774294,
+            "indirect": 0.0000016859661651396317,
+            "fireworks": 4.859445138267302,
+            "medium": 0.8824905777870705
+          },
+          "trailSampling": {
+            "scope": "CPU projected estimates; GPU branch validated by independent fixtures, not runtime readback",
+            "tails": 1408,
+            "clipped": 0,
+            "adaptive": 1408,
+            "legacyFallback": 0,
+            "reasons": {
+              "degenerate": 0,
+              "globalBudget": 0,
+              "localBudget": 0
+            },
+            "maximumN": 16,
+            "maximumLocalBound": 16,
+            "minimumStepPixels": 0.5,
+            "maximumStepSigma": 0.5,
+            "supportSigma": 6,
+            "maxLocalSamplesPerLevel": 128,
+            "maxGlobalSamples": 65536,
+            "vectorTails": 1408,
+            "vectorTemporalBins": 8,
+            "vectorJointKernel": "8 time-bin colour means, each with its shifted positive spatial kernel; not a separable mean-colour approximation"
+          },
+          "display": {
+            "enabled": true,
+            "mode": "float-canvas-external-copy"
+          }
+        },
+        {
+          "file": "r36-radiant-normal-plus1p70-detail-hdr.json",
+          "sha256": "9a7734f298f5c2d10b6cbffe430f5f59f9c279e6782dc09a4e38cb99283c642f",
+          "time": 78.8245088019372,
+          "packets": 24,
+          "SHcount": 1728,
+          "SHpairs": 41472,
+          "SHreused": true,
+          "views": {
+            "main": {
+              "count": 1728,
+              "active": 1728,
+              "backend": "gpu",
+              "reason": "experimental-ready",
+              "mediumQueries": 0
+            },
+            "reflection": {
+              "count": 0,
+              "active": 0,
+              "backend": "cpu",
+              "reason": "no-active-source-rays",
+              "mediumQueries": 0
+            }
+          },
+          "derivedPeakBudget": 22740.68725347519,
+          "nativePeakBudget": 1421.2929533421993,
+          "storageEV": 10.75,
+          "cameraEV": 14,
+          "maxRawRGB": 8.281136172587065,
+          "storedBound": 14261.40717415696,
+          "safeMaximum": 16376,
+          "components": {
+            "sky": 0.017415419013746842,
+            "locals": 2.515065807586391,
+            "indirect": 0.0000013148061293061842,
+            "fireworks": 4.910208792988301,
+            "medium": 0.8384448381924974
+          },
+          "trailSampling": {
+            "scope": "CPU projected estimates; GPU branch validated by independent fixtures, not runtime readback",
+            "tails": 1536,
+            "clipped": 0,
+            "adaptive": 1536,
+            "legacyFallback": 0,
+            "reasons": {
+              "degenerate": 0,
+              "globalBudget": 0,
+              "localBudget": 0
+            },
+            "maximumN": 33,
+            "maximumLocalBound": 17,
+            "minimumStepPixels": 0.5,
+            "maximumStepSigma": 0.5,
+            "supportSigma": 6,
+            "maxLocalSamplesPerLevel": 128,
+            "maxGlobalSamples": 65536,
+            "vectorTails": 1536,
+            "vectorTemporalBins": 8,
+            "vectorJointKernel": "8 time-bin colour means, each with its shifted positive spatial kernel; not a separable mean-colour approximation"
+          },
+          "display": {
+            "enabled": true,
+            "mode": "float-canvas-external-copy"
+          }
+        },
+        {
+          "file": "r36-radiant-normal-plus1p70-wide.json",
+          "sha256": "509a4fb727e1dc2e77c25b3042e85a629c4e89e910d48cbbf4aed5b82f6c9e55",
+          "time": 78.8245088019372,
+          "packets": 24,
+          "SHcount": 1728,
+          "SHpairs": 41472,
+          "SHreused": true,
+          "views": {
+            "main": {
+              "count": 1728,
+              "active": 1728,
+              "backend": "gpu",
+              "reason": "experimental-ready",
+              "mediumQueries": 0
+            },
+            "reflection": {
+              "count": 1728,
+              "active": 1728,
+              "backend": "gpu",
+              "reason": "experimental-ready",
+              "mediumQueries": 0
+            }
+          },
+          "derivedPeakBudget": 22740.68725347519,
+          "nativePeakBudget": 1421.2929533421993,
+          "storageEV": 11.5,
+          "cameraEV": 14,
+          "maxRawRGB": 5.474644321214317,
+          "storedBound": 15856.263676375316,
+          "safeMaximum": 16376,
+          "components": {
+            "sky": 0.017415419013746842,
+            "locals": 2.515065807586391,
+            "indirect": 0.0000013148061293061842,
+            "fireworks": 2.1037169416155517,
+            "medium": 0.8384448381924974
+          },
+          "trailSampling": {
+            "scope": "CPU projected estimates; GPU branch validated by independent fixtures, not runtime readback",
+            "tails": 1536,
+            "clipped": 0,
+            "adaptive": 1536,
+            "legacyFallback": 0,
+            "reasons": {
+              "degenerate": 0,
+              "globalBudget": 0,
+              "localBudget": 0
+            },
+            "maximumN": 12,
+            "maximumLocalBound": 12,
+            "minimumStepPixels": 0.5,
+            "maximumStepSigma": 0.5,
+            "supportSigma": 6,
+            "maxLocalSamplesPerLevel": 128,
+            "maxGlobalSamples": 65536,
+            "vectorTails": 1536,
+            "vectorTemporalBins": 8,
+            "vectorJointKernel": "8 time-bin colour means, each with its shifted positive spatial kernel; not a separable mean-colour approximation"
+          },
+          "display": {
+            "enabled": true,
+            "mode": "float-canvas-external-copy"
+          }
+        },
+        {
+          "file": "r36-radiant-normal-plus2p50-detail-hdr.json",
+          "sha256": "b8d31d6b274697c3006dd77f4bcb2127e90b6245496f96a1c08e701bcfc70925",
+          "time": 79.6245088019372,
+          "packets": 24,
+          "SHcount": 1699,
+          "SHpairs": 40776,
+          "SHreused": true,
+          "views": {
+            "main": {
+              "count": 1703,
+              "active": 1703,
+              "backend": "gpu",
+              "reason": "experimental-ready",
+              "mediumQueries": 0
+            },
+            "reflection": {
+              "count": 0,
+              "active": 0,
+              "backend": "cpu",
+              "reason": "no-active-source-rays",
+              "mediumQueries": 0
+            }
+          },
+          "derivedPeakBudget": 22740.68725347519,
+          "nativePeakBudget": 1421.2929533421993,
+          "storageEV": 11.25,
+          "cameraEV": 14,
+          "maxRawRGB": 6.169867228744824,
+          "storedBound": 15026.688014429114,
+          "safeMaximum": 16376,
+          "components": {
+            "sky": 0.016724068063861147,
+            "locals": 2.5141598731455246,
+            "indirect": 6.226814283335287e-7,
+            "fireworks": 2.836419260220844,
+            "medium": 0.8025634046331667
+          },
+          "trailSampling": {
+            "scope": "CPU projected estimates; GPU branch validated by independent fixtures, not runtime readback",
+            "tails": 1526,
+            "clipped": 0,
+            "adaptive": 1526,
+            "legacyFallback": 0,
+            "reasons": {
+              "degenerate": 0,
+              "globalBudget": 0,
+              "localBudget": 0
+            },
+            "maximumN": 26,
+            "maximumLocalBound": 17,
+            "minimumStepPixels": 0.5,
+            "maximumStepSigma": 0.5,
+            "supportSigma": 6,
+            "maxLocalSamplesPerLevel": 128,
+            "maxGlobalSamples": 65536,
+            "vectorTails": 1526,
+            "vectorTemporalBins": 8,
+            "vectorJointKernel": "8 time-bin colour means, each with its shifted positive spatial kernel; not a separable mean-colour approximation"
+          },
+          "display": {
+            "enabled": true,
+            "mode": "float-canvas-external-copy"
+          }
+        },
+        {
+          "file": "r36-radiant-normal-plus2p50-detail-sdr.json",
+          "sha256": "68625ed34642b9c3bdb50af6b3e6dafe83c6530debc975a456777810bddb95e0",
+          "time": 79.6245088019372,
+          "packets": 24,
+          "SHcount": 1699,
+          "SHpairs": 40776,
+          "SHreused": true,
+          "views": {
+            "main": {
+              "count": 1703,
+              "active": 1703,
+              "backend": "gpu",
+              "reason": "experimental-ready",
+              "mediumQueries": 0
+            },
+            "reflection": {
+              "count": 0,
+              "active": 0,
+              "backend": "cpu",
+              "reason": "no-active-source-rays",
+              "mediumQueries": 0
+            }
+          },
+          "derivedPeakBudget": 22740.68725347519,
+          "nativePeakBudget": 1421.2929533421993,
+          "storageEV": 11.25,
+          "cameraEV": 14,
+          "maxRawRGB": 6.689772982513981,
+          "storedBound": 16292.916487288012,
+          "safeMaximum": 16376,
+          "components": {
+            "sky": 0.016724068063861147,
+            "locals": 2.5141598731455246,
+            "indirect": 6.226814283335287e-7,
+            "fireworks": 3.3563250139899994,
+            "medium": 0.8025634046331667
+          },
+          "trailSampling": {
+            "scope": "CPU projected estimates; GPU branch validated by independent fixtures, not runtime readback",
+            "tails": 1526,
+            "clipped": 0,
+            "adaptive": 1526,
+            "legacyFallback": 0,
+            "reasons": {
+              "degenerate": 0,
+              "globalBudget": 0,
+              "localBudget": 0
+            },
+            "maximumN": 26,
+            "maximumLocalBound": 17,
+            "minimumStepPixels": 0.5,
+            "maximumStepSigma": 0.5,
+            "supportSigma": 6,
+            "maxLocalSamplesPerLevel": 128,
+            "maxGlobalSamples": 65536,
+            "vectorTails": 1526,
+            "vectorTemporalBins": 8,
+            "vectorJointKernel": "8 time-bin colour means, each with its shifted positive spatial kernel; not a separable mean-colour approximation"
+          },
+          "display": {
+            "enabled": false,
+            "mode": "disabled"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Benchmark endpoint is faded light/neutral source work, not a constant bright-peak workload",
+      "passed": true,
+      "before": {
+        "time": 79.6245088019372,
+        "SHcount": 1699,
+        "storageEV": 11.5,
+        "cameraEV": 14
+      },
+      "after": {
+        "time": 82.62810880196102,
+        "activeEvents": 1,
+        "records": 556,
+        "SHcount": 0,
+        "storageEV": 12.25,
+        "cameraEV": 14
+      },
+      "limits": "Source counts were not logged for each profiled frame. Endpoint decline and changing simulation invalidate fixed-workload speedup/FPS extrapolation; neutral labels are not CPU ray fallback."
+    }
+  ],
+  "conclusions": [
+    "33.31FPS over one evolving ~3s interval is an observation, not60FPS acceptance or fixed-workload A/B.",
+    "Photometry is the largest synchronous stage (~11.06ms); water captures and main/lens/display each~6.5ms. It is not evidence SH GPU alone costs11ms.",
+    "Source/receiver/storage chain is effective in saved observations; gain16 is author reference, not measured source/output luminance.",
+    "Long-tail adaptive kernel and native HDR transport remain included; no per-kernel GPU causal attribution is available."
+  ]
+}

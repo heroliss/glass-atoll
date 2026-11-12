@@ -1,0 +1,233 @@
+{
+  "schema": "glass-atoll.r16-firework-controls-check.v1",
+  "dateUTC": "2026-10-28T14:15:55.527Z",
+  "counts": {
+    "passed": 22,
+    "total": 22
+  },
+  "passed": true,
+  "checks": [
+    {
+      "name": "direct legacy events preserve complete old objects across60cases",
+      "passed": true,
+      "evidence": {
+        "count": 60
+      }
+    },
+    {
+      "name": "new drag preserves ascent apex, burns, intensities, colours and RNG",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "all aerial profiles use Earth gravity and converge to declared terminal speed",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "palm descends more slowly without changing global time or gravity",
+      "passed": true,
+      "evidence": {
+        "oldVerticalSpeedAt5s": -25.605422689477603,
+        "newVerticalSpeedAt5s": -15.85801770745323
+      }
+    },
+    {
+      "name": "bounded willow starts spherical rather than an upward-biased half crown",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "world burst rotation preserves root kinetic speed and does not face a camera",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "four manual launches are immediate and fifth explicitly rejects without queue",
+      "passed": true,
+      "evidence": {
+        "maxActive": 4
+      }
+    },
+    {
+      "name": "capacity rejection does not consume a future event seed",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "shared cone jitter stays inside requested angle including pitch limits",
+      "passed": true,
+      "evidence": {
+        "cases": 900
+      }
+    },
+    {
+      "name": "equal seeds reproduce launch type, angle and world burst orientation",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "random button samples every defined type over100seeds",
+      "passed": true,
+      "evidence": {
+        "types": [
+          "peony",
+          "willow",
+          "strobe",
+          "palm",
+          "ring",
+          "heart",
+          "bouquet",
+          "chrysanthemum",
+          "fan",
+          "crossette"
+        ]
+      }
+    },
+    {
+      "name": "zero shared variation reproduces a deliberate fixed launch orientation",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "automatic interval/type/skip state is invariant at30/60/120Hz",
+      "passed": true,
+      "evidence": {
+        "launches": 13,
+        "skipped": 25,
+        "events": [
+          {
+            "id": "2415085400-26.40000",
+            "time": 26.39999999999999,
+            "type": "willow",
+            "azimuth": 109.97749246577665,
+            "elevation": 79.16223928888449
+          },
+          {
+            "id": "3428989626-31.20000",
+            "time": 31.19999999999999,
+            "type": "crossette",
+            "azimuth": 105.94555450093632,
+            "elevation": 82.52839989317847
+          },
+          {
+            "id": "1788458091-33.60000",
+            "time": 33.599999999999994,
+            "type": "ring",
+            "azimuth": 107.51483113590734,
+            "elevation": 77.84254880464127
+          },
+          {
+            "id": "147926556-38.40000",
+            "time": 38.400000000000006,
+            "type": "ring",
+            "azimuth": 94.67229142384879,
+            "elevation": 78.29908724094129
+          }
+        ]
+      }
+    },
+    {
+      "name": "fast automatic mode skips full slots instead of making a backlog",
+      "passed": true,
+      "evidence": {
+        "skipped": 8
+      }
+    },
+    {
+      "name": "interval echo does not reset an already running automatic cadence",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "changing automatic interval takes effect on the next new cadence",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "invalid new settings and per-launch options reject atomically",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "muzzle position follows each actual jittered rig axis",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "merged diffuse proxies preserve total candela/RGB and enclose all original proxies",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "four real shows preserve complete source ledger and valid two-group field bounds",
+      "passed": true,
+      "evidence": {
+        "records": 13116,
+        "sources": 13056,
+        "groupMembers": [
+          [
+            "42-0.00000"
+          ],
+          [
+            "43-0.00000",
+            "44-0.00000",
+            "45-0.00000"
+          ]
+        ],
+        "bound": 0.000004762065125096432
+      }
+    },
+    {
+      "name": "four native shows stay within14000instances atmaximum16tailsegments",
+      "passed": true,
+      "evidence": {
+        "maximum": 13128,
+        "byType": [
+          {
+            "type": "peony"
+          },
+          {
+            "type": "chrysanthemum"
+          },
+          {
+            "type": "willow"
+          },
+          {
+            "type": "palm"
+          },
+          {
+            "type": "ring"
+          },
+          {
+            "type": "heart"
+          },
+          {
+            "type": "crossette"
+          },
+          {
+            "type": "strobe"
+          },
+          {
+            "type": "fan"
+          },
+          {
+            "type": "bouquet"
+          }
+        ]
+      }
+    },
+    {
+      "name": "audio source bytes and supported event kinds remain unchanged",
+      "passed": true,
+      "evidence": {
+        "sha": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+      }
+    }
+  ],
+  "limits": [
+    "CPU mechanics and real Three.js factory only; no browser/GPU or subjective movement acceptance.",
+    "Terminal speeds and effective linear-drag profiles are authored visual references, not measured particle or heat-transfer data.",
+    "Maximum4complete simultaneous events; manual capacity rejects explicitly, automatic full slots skip. The oldest two-group diffuse/resolved metadata format remains with every source row retained."
+  ]
+}

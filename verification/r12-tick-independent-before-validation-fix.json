@@ -1,0 +1,174 @@
+{
+  "schema": "glass-atoll.r12-tick-independent-audit.v1",
+  "dateUTC": "2026-10-28T07:37:23.945Z",
+  "actualGPU": false,
+  "hostIntegrated": false,
+  "sourceFreeze": {
+    "pyro-smoke-tick-state.js": "58325d57497a1f34c64ae5ca4d16e6cf336e6168cf3ac6351ec8d6b94f794d86",
+    "pyro-smoke-tick-math.js": "9330bcd98fc38a1f30a494979887eecdeb946e7b373aa9534b4b5c9c14cddad2",
+    "pyro-smoke-merge-graph.js": "99f0fb2650a6279125271ac3bfc7e176a602a74a28aa7b4b1235f5a1eb0ce174",
+    "pyro-smoke-state.js": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+    "fireworks.js": "bb6a0080f34d714379eb860a45f1e595c2d82241fb62cd04dfb4cb2b601b949b",
+    "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+  },
+  "counts": {
+    "passed": 13,
+    "total": 16
+  },
+  "passed": false,
+  "checks": [
+    {
+      "name": "protected actual legacy and accepted audio/FW source hashes remain frozen",
+      "passed": true,
+      "evidence": {
+        "pyro-smoke-tick-state.js": "58325d57497a1f34c64ae5ca4d16e6cf336e6168cf3ac6351ec8d6b94f794d86",
+        "pyro-smoke-tick-math.js": "9330bcd98fc38a1f30a494979887eecdeb946e7b373aa9534b4b5c9c14cddad2",
+        "pyro-smoke-merge-graph.js": "99f0fb2650a6279125271ac3bfc7e176a602a74a28aa7b4b1235f5a1eb0ce174",
+        "pyro-smoke-state.js": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+        "fireworks.js": "bb6a0080f34d714379eb860a45f1e595c2d82241fb62cd04dfb4cb2b601b949b",
+        "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+      }
+    },
+    {
+      "name": "malformed iterable mean is rejected before IDs queue mass or requestedTime change",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Missing expected exception.\n    at unchangedAfterReject (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-independent-check.mjs:21:68)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-independent-check.mjs:33:3\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-independent-check.mjs:16:79)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-independent-check.mjs:31:7"
+    },
+    {
+      "name": "malformed iterable wind is rejected before its event can poison committed wind",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Missing expected exception.\n    at unchangedAfterReject (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-independent-check.mjs:21:68)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-independent-check.mjs:38:3\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-independent-check.mjs:16:79)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-independent-check.mjs:36:7"
+    },
+    {
+      "name": "malformed iterable covariance rejects an overlong copied matrix at input",
+      "passed": true,
+      "evidence": {
+        "declaredLength": 9,
+        "copiedLength": 10
+      }
+    },
+    {
+      "name": "hostile getters iterators and coercions see old C plus Q and cannot reenter mutators",
+      "passed": true,
+      "evidence": {
+        "callbacks": [
+          "time",
+          "emissionId",
+          "profileId",
+          "sourceId",
+          "mass",
+          "mean",
+          "covariance",
+          "temperatureExcessK",
+          "buoyantVelocity",
+          "toString",
+          "iterator",
+          "wind-time"
+        ]
+      }
+    },
+    {
+      "name": "all public snapshots profiles diagnostics failures and query results are detached copies",
+      "passed": true,
+      "evidence": {
+        "copiedPackets": 1,
+        "mergedDiagnostics": true
+      }
+    },
+    {
+      "name": "wind at emission time wins before later transport, same-clock replacement is bounded LWW",
+      "passed": true,
+      "evidence": {
+        "firstTransport": 0.075,
+        "secondTransport": 0.275
+      }
+    },
+    {
+      "name": "ordinary numeric transport failure atomically retains tick1 and pending birth, can recover using same-clock wind",
+      "passed": true,
+      "evidence": {
+        "retainedTime": 0.05
+      }
+    },
+    {
+      "name": "ordinary numeric failure recovery preserves accepted IDs and material exactly once",
+      "passed": true,
+      "evidence": {
+        "airborne": 0.201,
+        "sourceIds": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "name": "successful zero-time commit survives later failed tick with exact per-call telemetry",
+      "passed": true,
+      "evidence": {
+        "retainedSameClockMass": 0.1,
+        "retryMass": 0.201
+      }
+    },
+    {
+      "name": "failed late stage after evolution and merge leaves dirty committed kernels observationally unchanged",
+      "passed": true,
+      "evidence": {
+        "retainedQueue": 10,
+        "rollbackIncludesCovarianceAndKernels": true
+      }
+    },
+    {
+      "name": "graph every selected edge equals independent full rebuild through ties negative IDs mixed profiles and null sources",
+      "passed": true,
+      "evidence": {
+        "runs": 180,
+        "merges": 4144,
+        "selections": 44528,
+        "rebuildConstrained": 2570
+      }
+    },
+    {
+      "name": "valid bounded profile/source identifiers containing NUL preserve tuple source grouping",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  [\n    {\n-     i: 0,\n-     j: 12,\n-     sameSource: true,\n-     score: 24\n-   },\n-   {\n      i: 1,\n      j: 3,\n      sameSource: true,\n      score: 666666666666.6667\n    },\n...\n    {\n+     i: 3,\n+     j: 7,\n+     sameSource: true,\n+     score: 2666666666666.667\n+   },\n+   {\n      i: 0,\n      j: 2,\n      sameSource: false,\n      score: 0.6666666666666666\n    },\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-independent-check.mjs:139:119\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-independent-check.mjs:16:79)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r12-tick-independent-check.mjs:135:7"
+    },
+    {
+      "name": "same explicit fence protocol matches frozen67fa naive batch under future out-of-ID-time births and variable wind",
+      "passed": true,
+      "evidence": {
+        "cases": 12,
+        "origins": [
+          0,
+          4000
+        ],
+        "sameFenceProtocol": true
+      }
+    },
+    {
+      "name": "actual G4 accepted-prefix before and after-accept faults clear all pending matter and IDs remain monotonic",
+      "passed": true,
+      "evidence": {
+        "cases": 2,
+        "coverage": "actual palm prefix then ground fan, clear at source causal watermark, no host/renderer"
+      }
+    },
+    {
+      "name": "all captured production/legacy/audio/FW sources remain byte-identical throughout independent audit",
+      "passed": true,
+      "evidence": {
+        "pyro-smoke-tick-state.js": "58325d57497a1f34c64ae5ca4d16e6cf336e6168cf3ac6351ec8d6b94f794d86",
+        "pyro-smoke-tick-math.js": "9330bcd98fc38a1f30a494979887eecdeb946e7b373aa9534b4b5c9c14cddad2",
+        "pyro-smoke-merge-graph.js": "99f0fb2650a6279125271ac3bfc7e176a602a74a28aa7b4b1235f5a1eb0ce174",
+        "pyro-smoke-state.js": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+        "fireworks.js": "bb6a0080f34d714379eb860a45f1e595c2d82241fb62cd04dfb4cb2b601b949b",
+        "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+      }
+    }
+  ],
+  "limits": [
+    "Independent contract-focused additional tests; not all native6291 cells or a fresh GPU/performance acceptance run.",
+    "Frozen67fa naive oracle is only compared after identical explicit fences; its immediate pre-fence density is not used as the candidate contract.",
+    "Production fault probes are compiled in memory; no production callback or source edits.",
+    "Malformed iterable and NUL-identifier tests exercise inputs accepted by current declared bounded numeric/string domains, not the normal native source output."
+  ]
+}

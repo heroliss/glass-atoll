@@ -1,0 +1,553 @@
+{
+  "date": "2026-11-12T10:10:04.306Z",
+  "cloudShapeBlend": 2,
+  "status": "passed",
+  "summary": {
+    "passed": 30,
+    "total": 30,
+    "failed": 0
+  },
+  "sourceHashes": {
+    "sky.js": "6484d75f87099aecd6bea6bb25a99983af921c8f0c8139919b79d3e3d7aef872",
+    "night-sky.js": "3125620aae40d03bcd96df025d257ed6ae99d780097ab12aabd9e242c634145e",
+    "weather.js": "1dcb854daf7dfe356f0c07066dcc2165b93f41d8fb72a5068bcf6f414ca2d7c6",
+    "assets/night/astronomy.js": "0276ebbcfc3746cad98417e3082ba510067ae81a92c1f6ad0f43fae8d417fdc7"
+  },
+  "checks": [
+    {
+      "id": "J2000_local_rotation_has_positive_unit_determinant_not_mirrored",
+      "passed": true,
+      "actual": 0.999999999999999,
+      "expected": 1,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "celestial_rotation_is_orthonormal",
+      "passed": true,
+      "actual": 7.771561172376096e-16,
+      "expected": 0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "zenith_declination_near_observer_latitude",
+      "passed": true,
+      "declinationJ2000Degrees": 4.349982138281389,
+      "latitudeDegrees": 4.5
+    },
+    {
+      "id": "continuous_inter_ephemeris_rotation_matches_fresh_transform",
+      "passed": true,
+      "maximumMatrixDifference": 0,
+      "elapsedSeconds": 15,
+      "notes": "Bounded Earth-axis approximation between30s ephemerides; this is not a sub-arcsecond planetarium claim."
+    },
+    {
+      "id": "direction_control_does_not_reset_the_date_clock",
+      "passed": true,
+      "before": "2026-10-26T14:00:15.000Z",
+      "after": "2026-10-26T14:00:15.000Z"
+    },
+    {
+      "id": "explicit_date_is_anchored_to_current_simulation_time",
+      "passed": true,
+      "actual": "2026-08-13T14:00:00.000Z"
+    },
+    {
+      "id": "default_is_correctly_identified_as_near_full_moon",
+      "passed": true,
+      "phase": 0.9960060559924353,
+      "altitudeDegrees": 55.8610658557311,
+      "azimuthDegrees": 62.04481520501304,
+      "source": "Vendored AstronomyEngine; validates API/frame integration, not an independent numerical lunar ephemeris."
+    },
+    {
+      "id": "dark_sky_preset_has_crescent_below_horizon",
+      "passed": true,
+      "phase": 0.009803503328842778,
+      "altitudeDegrees": -44.568152322342115
+    },
+    {
+      "id": "night_settings_bound_numeric_values_and_reject_invalid_date",
+      "passed": true
+    },
+    {
+      "id": "day_to_night_exposure_is_monotonic_and_finite",
+      "passed": true,
+      "exposures": [
+        {
+          "elevation": 10,
+          "full": 0,
+          "dark": 0
+        },
+        {
+          "elevation": 0,
+          "full": 2,
+          "dark": 2
+        },
+        {
+          "elevation": -6,
+          "full": 8,
+          "dark": 8
+        },
+        {
+          "elevation": -12,
+          "full": 14,
+          "dark": 14
+        },
+        {
+          "elevation": -18,
+          "full": 17.703452891212947,
+          "dark": 21
+        },
+        {
+          "elevation": -40,
+          "full": 17.703452891212947,
+          "dark": 21
+        }
+      ]
+    },
+    {
+      "id": "dark_sky_target21EV",
+      "passed": true,
+      "actual": 21,
+      "expected": 21,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "automatic_exposure_disabled_means_no_hidden_boost",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 0
+    },
+    {
+      "id": "exposure_piecewise_boundaries_are_continuous",
+      "passed": true,
+      "discontinuities": [
+        {
+          "e": 0,
+          "delta": 5.6000093451302746e-11
+        },
+        {
+          "e": -6,
+          "delta": 9.99991200956174e-11
+        },
+        {
+          "e": -12,
+          "delta": 1.0833467456450308e-10
+        },
+        {
+          "e": -18,
+          "delta": 5.833555860590423e-11
+        },
+        {
+          "e": 10,
+          "delta": 6.000089314284196e-12
+        }
+      ]
+    },
+    {
+      "id": "key_radiometry_before_after_preexposure_48",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "key_radiometry_before_after_preexposure_0",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "key_radiometry_before_after_preexposure_-6",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "key_radiometry_before_after_preexposure_-12",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "key_radiometry_before_after_preexposure_-25",
+      "passed": true,
+      "actual": 4.235164736271502e-22,
+      "expected": 0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "key_radiometry_before_after_preexposure_-40",
+      "passed": true,
+      "actual": 4.235164736271502e-22,
+      "expected": 0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "direct_solar_irradiance_zero_below_horizon",
+      "passed": true,
+      "lighting": [
+        {
+          "elevation": 48,
+          "physicalSun": 1,
+          "physicalMoon": 0.000002017072323606712,
+          "preExposureEV": 0,
+          "skyTintPhysical": [
+            0.370000738308498,
+            0.5000009693390165,
+            0.6500011983191211
+          ],
+          "keyIsMoon": false
+        },
+        {
+          "elevation": 0,
+          "physicalSun": 0.07015060482002669,
+          "physicalMoon": 0.000002017072323606712,
+          "preExposureEV": 2,
+          "skyTintPhysical": [
+            0.13364258744847743,
+            0.0765231410663465,
+            0.06063445308240454
+          ],
+          "keyIsMoon": false
+        },
+        {
+          "elevation": -6,
+          "physicalSun": 0,
+          "physicalMoon": 0.000002017072323606712,
+          "preExposureEV": 8,
+          "skyTintPhysical": [
+            0.0011068703800475867,
+            0.0008365971883259018,
+            0.000567843559039312
+          ],
+          "keyIsMoon": true
+        },
+        {
+          "elevation": -12,
+          "physicalSun": 0,
+          "physicalMoon": 0.000002017072323606712,
+          "preExposureEV": 14,
+          "skyTintPhysical": [
+            7.38308498045319e-7,
+            9.69339016558603e-7,
+            0.0000011983191211626378
+          ],
+          "keyIsMoon": true
+        },
+        {
+          "elevation": -25,
+          "physicalSun": 0,
+          "physicalMoon": 0.000002017072323606712,
+          "preExposureEV": 17.703452891212947,
+          "skyTintPhysical": [
+            7.38308498045319e-7,
+            9.69339016558603e-7,
+            0.0000011983191211626378
+          ],
+          "keyIsMoon": true
+        },
+        {
+          "elevation": -40,
+          "physicalSun": 0,
+          "physicalMoon": 0.000002017072323606712,
+          "preExposureEV": 17.703452891212947,
+          "skyTintPhysical": [
+            7.38308498045319e-7,
+            9.69339016558603e-7,
+            0.0000011983191211626378
+          ],
+          "keyIsMoon": true
+        }
+      ]
+    },
+    {
+      "id": "deep_night_water_ambient_tint_has_no_daylight_floor",
+      "passed": true,
+      "nightTint": [
+        7.38308498045319e-7,
+        9.69339016558603e-7,
+        0.0000011983191211626378
+      ]
+    },
+    {
+      "id": "moonless_physical_ambient_is_starlight_scale_and_direct_lights_off",
+      "passed": true,
+      "physicalTint": [
+        8.098322711713686e-9,
+        5.273934631805882e-9,
+        3.3603758319525914e-9
+      ],
+      "physicalSun": 0,
+      "physicalMoon": 0
+    },
+    {
+      "id": "FP16_storage_sees_preexposed_values_instead_of_underflow",
+      "passed": true,
+      "physical": [
+        8.098322711713686e-9,
+        5.273934631805882e-9,
+        3.3603758319525914e-9
+      ],
+      "stored": [
+        0.01698341367151578,
+        0.011060242560960968,
+        0.007047218896731041
+      ],
+      "minimumPositiveFP16": 5.960464477539063e-8,
+      "notes": "CPU range check. Actual FP16 rendered radiance/readback is separately required."
+    },
+    {
+      "id": "atmosphere_auto_off_preexposureEV_is_zero",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 0
+    },
+    {
+      "id": "atmosphere_auto_off_preexposureScale_is_one",
+      "passed": true,
+      "actual": 1,
+      "expected": 1,
+      "tolerance": 0
+    },
+    {
+      "id": "Chapman_spherical_columns_agree_with_independent_integral",
+      "passed": true,
+      "maximumRelativeError": 0.0012469431370438766,
+      "cases": [
+        {
+          "height": 2,
+          "mu": 0,
+          "H": 1200,
+          "observed": 109308.85951668232,
+          "reference": 109316.59328503413,
+          "relativeError": 0.0000707465181579714
+        },
+        {
+          "height": 2,
+          "mu": 0,
+          "H": 8000,
+          "observed": 282634.3768860825,
+          "reference": 282767.6428813608,
+          "relativeError": 0.0004712915308141552
+        },
+        {
+          "height": 2,
+          "mu": 0.1,
+          "H": 1200,
+          "observed": 11765.725659656619,
+          "reference": 11767.815056260939,
+          "relativeError": 0.00017755178801937
+        },
+        {
+          "height": 2,
+          "mu": 0.1,
+          "H": 8000,
+          "observed": 72374.86783102037,
+          "reference": 72450.51579929717,
+          "relativeError": 0.0010441329153039192
+        },
+        {
+          "height": 2,
+          "mu": 0.5,
+          "H": 1200,
+          "observed": 2394.1991065528705,
+          "reference": 2394.4848785857057,
+          "relativeError": 0.00011934593339513189
+        },
+        {
+          "height": 2,
+          "mu": 0.5,
+          "H": 8000,
+          "observed": 15916.702855638532,
+          "reference": 15936.503468180246,
+          "relativeError": 0.0012424690636342328
+        },
+        {
+          "height": 2,
+          "mu": 1,
+          "H": 1200,
+          "observed": 1197.7757555875091,
+          "reference": 1197.6711441067093,
+          "relativeError": 0.00008734574704805098
+        },
+        {
+          "height": 2,
+          "mu": 1,
+          "H": 8000,
+          "observed": 7987.977602472551,
+          "reference": 7997.950592073753,
+          "relativeError": 0.0012469431370438766
+        },
+        {
+          "height": 1000,
+          "mu": 0,
+          "H": 1200,
+          "observed": 47588.40956471955,
+          "reference": 47591.77598898605,
+          "relativeError": 0.00007073542007096645
+        },
+        {
+          "height": 1000,
+          "mu": 0,
+          "H": 8000,
+          "observed": 249505.89965505258,
+          "reference": 249623.52666722029,
+          "relativeError": 0.0004712176521908251
+        },
+        {
+          "height": 1000,
+          "mu": 0.1,
+          "H": 1200,
+          "observed": 5121.906565876031,
+          "reference": 5122.815996644737,
+          "relativeError": 0.0001775255580723778
+        },
+        {
+          "height": 1000,
+          "mu": 0.1,
+          "H": 8000,
+          "observed": 63887.391821331956,
+          "reference": 63954.15731509747,
+          "relativeError": 0.0010439586192430017
+        },
+        {
+          "height": 1000,
+          "mu": 0.5,
+          "H": 1200,
+          "observed": 1042.2504025003977,
+          "reference": 1042.3747749422191,
+          "relativeError": 0.00011931643475182607
+        },
+        {
+          "height": 1000,
+          "mu": 0.5,
+          "H": 8000,
+          "observed": 14049.96384063259,
+          "reference": 14067.439483017068,
+          "relativeError": 0.0012422759952566143
+        },
+        {
+          "height": 1000,
+          "mu": 1,
+          "H": 1200,
+          "observed": 521.4195217112386,
+          "reference": 521.3739664918385,
+          "relativeError": 0.00008737532429292649
+        },
+        {
+          "height": 1000,
+          "mu": 1,
+          "H": 8000,
+          "observed": 7051.129436653184,
+          "reference": 7059.93138677191,
+          "relativeError": 0.001246747260917891
+        },
+        {
+          "height": 12000,
+          "mu": 0,
+          "H": 1200,
+          "observed": 4.975578993982318,
+          "reference": 4.975930360979397,
+          "relativeError": 0.00007061332687319233
+        },
+        {
+          "height": 12000,
+          "mu": 0,
+          "H": 8000,
+          "observed": 63139.49329531043,
+          "reference": 63169.20839988178,
+          "relativeError": 0.000470404890674736
+        },
+        {
+          "height": 12000,
+          "mu": 0.1,
+          "H": 1200,
+          "observed": 0.5350715537013178,
+          "reference": 0.5351664049465248,
+          "relativeError": 0.00017723691982596268
+        },
+        {
+          "height": 12000,
+          "mu": 0.1,
+          "H": 8000,
+          "observed": 16155.559345196616,
+          "reference": 16172.411637785546,
+          "relativeError": 0.0010420395526883341
+        },
+        {
+          "height": 12000,
+          "mu": 0.5,
+          "H": 1200,
+          "observed": 0.10887793725514013,
+          "reference": 0.10889089439074268,
+          "relativeError": 0.00011899191089437267
+        },
+        {
+          "height": 12000,
+          "mu": 0.5,
+          "H": 8000,
+          "observed": 3552.417281256854,
+          "reference": 3556.8282888000977,
+          "relativeError": 0.0012401519514262382
+        },
+        {
+          "height": 12000,
+          "mu": 1,
+          "H": 1200,
+          "observed": 0.05446966163493549,
+          "reference": 0.054464885025709966,
+          "relativeError": 0.00008770071254660117
+        },
+        {
+          "height": 12000,
+          "mu": 1,
+          "H": 8000,
+          "observed": 1782.8085633012674,
+          "reference": 1785.0301982406547,
+          "relativeError": 0.0012445923556794192
+        }
+      ]
+    },
+    {
+      "id": "spherical_horizon_column_is_finite",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 0
+    },
+    {
+      "id": "geometric_Earth_blocks_low_observer_solar_flux_-40",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 0
+    },
+    {
+      "id": "geometric_Earth_blocks_low_observer_solar_flux_-18",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 0
+    },
+    {
+      "id": "geometric_Earth_blocks_low_observer_solar_flux_-6",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 0
+    }
+  ],
+  "limits": [
+    "CPU astronomy/frame/math checks; not actual GPU sky, cloud shape, star image or FPS acceptance.",
+    "AstronomyEngine API outputs are not an independent lunar ephemeris oracle.",
+    "Parabolic Chapman+ozone-column approximation and8-step single scattering are not a full multiple-scattering atmosphere.",
+    "16-ray clear-sky irradiance estimate ignores detailed cloud hemisphere occlusion and directional stellar irradiance variations."
+  ]
+}

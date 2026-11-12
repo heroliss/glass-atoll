@@ -1,0 +1,1540 @@
+{
+  "schema": "glass-atoll.r13-water-audit.v1",
+  "dateUTC": "2026-10-28T09:22:44.802Z",
+  "actualGPU": false,
+  "runtimeMutated": false,
+  "sourceSHA256": {
+    "waves.js": "af1d6b1559b701b8f1d36c53bbd89dd721e22bb792517a58543473f4629396d4",
+    "spectral-waves.js": "58ae823709ff9b5db57b638813ff2350bdd70405c38f4c3892adae999afaf82a",
+    "hydrodynamics.js": "6ac8daffa0c27bd2387990edc7930ea60e91755e0261fd132eeb5cc3785c5ad9",
+    "water.js": "7f3ba0f5eaa599ac8cf60dcc299a440d134a708ea336ae7e8999081a883df4c8",
+    "caustics.js": "d7bb1842335db79bda99d7e1b5a7a70cafb48270b174fe956fe1d1558ed029ef",
+    "sand.js": "37b156b3ef9e9574596e284ed6b5e69bff35f0ffbc1e7089779d87e14fa61e91",
+    "floating-leaves.js": "6858a3b09de599b5cd393e54ca8faf3cdea00a2eea6a99fdc6c43c8add3b2dba",
+    "main.js": "f6fd6775c68030d3ab5189672dba36f2bd0ddc7445568d866f522898ce25dccd"
+  },
+  "definitions": {
+    "Hs": "4*sqrt(sum(amplitude^2/2)), independent phase ensemble, not individual crest-to-trough height",
+    "phaseSpeed": "omega/k relative to water; current adds Doppler advection",
+    "groupSpeed": "domega/dk of the actual capped-kh gravity-capillary dispersion",
+    "direction": "propagation vector (cos angle,sin angle), from+x toward+z; no geographic north mapping"
+  },
+  "defaultState": {
+    "swellHeight": 0.16,
+    "windSea": 1,
+    "windSpeedUI": 1.8,
+    "currentSpeedUI": 0.16,
+    "analyticDepthMetres": 3,
+    "statistics": {
+      "components": 256,
+      "rmsSlope": 0.1085800054080905,
+      "rmsHeight": 0.046893434077446686,
+      "significantHeight": 0.18757373630978674,
+      "swellSignificantHeight": 0.16,
+      "swellPeakPeriod": 7.5,
+      "referenceDepthMetres": 3,
+      "specularExposureSeconds": 0.008333333333333333,
+      "temporalSlopeVariance": 0.000023619889856221493,
+      "swellRmsSlope": 0.006294249313537006,
+      "swellTemporalSlopeVariance": 1.7319653208055498e-10,
+      "windRmsSlope": 0.108397416943394,
+      "windTemporalSlopeVariance": 0.000023619716659689413
+    }
+  },
+  "bands": [
+    {
+      "kind": "swell",
+      "count": 64,
+      "domainMetres": 1021,
+      "significantHeightMetres": 0.16,
+      "slopeRMS": 0.006294249313537006,
+      "minMaxPeriodSeconds": [
+        5.879067356740507,
+        12.90295709189854
+      ],
+      "energyWeightedMeanPeriodSeconds": 8.046813604214293,
+      "energyWeightedMeanWavelengthMetres": 42.24518025940904,
+      "energyWeightedMeanPhaseSpeedMps": 5.238132383672049,
+      "energyWeightedMeanGroupSpeedMps": 4.891363408942945,
+      "propagationDirectionDegreesFromPositiveXToPositiveZ": -36.490643028279116,
+      "heightVarianceFraction": 0.7276053885966767
+    },
+    {
+      "kind": "wind sea",
+      "count": 64,
+      "domainMetres": 137,
+      "significantHeightMetres": 0.08599207786949205,
+      "slopeRMS": 0.024999999999999994,
+      "minMaxPeriodSeconds": [
+        1.1717020796134403,
+        2.524204669440766
+      ],
+      "energyWeightedMeanPeriodSeconds": 2.025823125946481,
+      "energyWeightedMeanWavelengthMetres": 6.46628940228437,
+      "energyWeightedMeanPhaseSpeedMps": 3.1308556015018443,
+      "energyWeightedMeanGroupSpeedMps": 1.6439355862120308,
+      "propagationDirectionDegreesFromPositiveXToPositiveZ": 18.983344705421157,
+      "heightVarianceFraction": 0.21017101796609391
+    },
+    {
+      "kind": "short wind waves",
+      "count": 64,
+      "domainMetres": 29,
+      "significantHeightMetres": 0.045222456067827176,
+      "slopeRMS": 0.055,
+      "minMaxPeriodSeconds": [
+        0.5370587212993883,
+        1.1507187353450867
+      ],
+      "energyWeightedMeanPeriodSeconds": 0.980571232774099,
+      "energyWeightedMeanWavelengthMetres": 1.5312014461475176,
+      "energyWeightedMeanPhaseSpeedMps": 1.5301760417013526,
+      "energyWeightedMeanGroupSpeedMps": 0.7653152249942397,
+      "propagationDirectionDegreesFromPositiveXToPositiveZ": 25.780746405299286,
+      "heightVarianceFraction": 0.05812516952071597
+    },
+    {
+      "kind": "gravity-capillary tail",
+      "count": 64,
+      "domainMetres": 5.3,
+      "significantHeightMetres": 0.012008270653765002,
+      "slopeRMS": 0.09000000000000001,
+      "minMaxPeriodSeconds": [
+        0.19477587340804095,
+        0.5307382926174734
+      ],
+      "energyWeightedMeanPeriodSeconds": 0.42061927490358136,
+      "energyWeightedMeanWavelengthMetres": 0.2869598819264731,
+      "energyWeightedMeanPhaseSpeedMps": 0.6595572127301015,
+      "energyWeightedMeanGroupSpeedMps": 0.33305920278798407,
+      "propagationDirectionDegreesFromPositiveXToPositiveZ": 15.310222091770502,
+      "heightVarianceFraction": 0.004098423916513724
+    }
+  ],
+  "depthComparison": [
+    {
+      "depthMetres": 0.05,
+      "periodSeconds": 7.5,
+      "kRadPerM": 1.1968945377985623,
+      "wavelengthMetres": 5.2495730482120795,
+      "phaseSpeedMps": 0.6999430730949439,
+      "groupSpeedMps": 0.6991160572696606,
+      "kh": 0.05984472688992812,
+      "defaultSwellHsOverDepth": 3.1999999999999997
+    },
+    {
+      "depthMetres": 0.08,
+      "periodSeconds": 7.5,
+      "kRadPerM": 0.9465688892593139,
+      "wavelengthMetres": 6.637853175267731,
+      "phaseSpeedMps": 0.8850470900356975,
+      "groupSpeedMps": 0.8833655602313031,
+      "kh": 0.07572551114074512,
+      "defaultSwellHsOverDepth": 2
+    },
+    {
+      "depthMetres": 0.1,
+      "periodSeconds": 7.5,
+      "kRadPerM": 0.8468396827343599,
+      "wavelengthMetres": 7.419568821918943,
+      "phaseSpeedMps": 0.9892758429225257,
+      "groupSpeedMps": 0.9869239906866483,
+      "kh": 0.084683968273436,
+      "defaultSwellHsOverDepth": 1.5999999999999999
+    },
+    {
+      "depthMetres": 0.3,
+      "periodSeconds": 7.5,
+      "kRadPerM": 0.49009466117031775,
+      "wavelengthMetres": 12.820350444495157,
+      "phaseSpeedMps": 1.7093800592660209,
+      "groupSpeedMps": 1.6971887132616075,
+      "kh": 0.14702839835109532,
+      "defaultSwellHsOverDepth": 0.5333333333333333
+    },
+    {
+      "depthMetres": 0.5,
+      "periodSeconds": 7.5,
+      "kRadPerM": 0.38053741443754674,
+      "wavelengthMetres": 16.511347028692164,
+      "phaseSpeedMps": 2.201512937158955,
+      "groupSpeedMps": 2.1753907679237368,
+      "kh": 0.19026870721877337,
+      "defaultSwellHsOverDepth": 0.32
+    },
+    {
+      "depthMetres": 1,
+      "periodSeconds": 7.5,
+      "kRadPerM": 0.2707069855320331,
+      "wavelengthMetres": 23.21028138535453,
+      "phaseSpeedMps": 3.0947041847139376,
+      "groupSpeedMps": 3.021617831355569,
+      "kh": 0.2707069855320331,
+      "defaultSwellHsOverDepth": 0.16
+    },
+    {
+      "depthMetres": 1.5,
+      "periodSeconds": 7.5,
+      "kRadPerM": 0.22237671365303402,
+      "wavelengthMetres": 28.25469089800024,
+      "phaseSpeedMps": 3.7672921197333653,
+      "groupSpeedMps": 3.634499421116785,
+      "kh": 0.33356507047955103,
+      "defaultSwellHsOverDepth": 0.10666666666666667
+    },
+    {
+      "depthMetres": 3,
+      "periodSeconds": 7.5,
+      "kRadPerM": 0.16017350816260334,
+      "wavelengthMetres": 39.22736899038938,
+      "phaseSpeedMps": 5.230315865385251,
+      "groupSpeedMps": 4.867275028261503,
+      "kh": 0.48052052448781,
+      "defaultSwellHsOverDepth": 0.05333333333333334
+    },
+    {
+      "depthMetres": 10,
+      "periodSeconds": 7.5,
+      "kRadPerM": 0.09607896199998212,
+      "wavelengthMetres": 65.39605733022756,
+      "phaseSpeedMps": 8.719474310697008,
+      "groupSpeedMps": 6.865983104706559,
+      "kh": 0.9607896199998212,
+      "defaultSwellHsOverDepth": 0.016
+    },
+    {
+      "depthMetres": 32,
+      "periodSeconds": 7.5,
+      "kRadPerM": 0.07290269217707956,
+      "wavelengthMetres": 86.185916041589,
+      "phaseSpeedMps": 11.491455472211866,
+      "groupSpeedMps": 6.250410259297341,
+      "kh": 2.332886149666546,
+      "defaultSwellHsOverDepth": 0.005
+    }
+  ],
+  "shallowBoundary": {
+    "amplitude": 0.015,
+    "period": 20,
+    "groupiness": 0.35,
+    "weights": [
+      0.2331615655174588,
+      0.951679859254934,
+      0.19985277044353614
+    ],
+    "periodsSeconds": [
+      22.501758018520476,
+      20,
+      17.474081133220757
+    ],
+    "directionDegrees": -14.036243467926477,
+    "rmsElevationMetres": 0.010606601717798212,
+    "equivalentSpectralHsMetres": 0.04242640687119285,
+    "regularEquivalentWaveHeightMetres": 0.03,
+    "warning": "A distinct lower-frequency authored system, not an exact duplicate of the7.5s spectrum and not its depth-aware continuation."
+  },
+  "shoreline": {
+    "count": 64,
+    "slopeMinimum": 0.07786938817685275,
+    "slopeMedian": 0.14652657011357575,
+    "slopeMaximum": 0.1840243768292272,
+    "fixedDryBoundaryRadialGapMinMetres": 0.4496990174589115,
+    "fixedDryBoundaryRadialGapMedianMetres": 0.6179491796980017,
+    "fixedDryBoundaryRadialGapMaxMetres": 1.4085205271506425,
+    "points": [
+      {
+        "index": 0,
+        "angleDegrees": 0,
+        "pointXZ": [
+          27.352316900733975,
+          -1
+        ],
+        "localSlope": 0.12509289787727645,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.7738029764186791,
+        "inwardNormalXZ": [
+          -0.7714960163387375,
+          -0.6362341524733316
+        ],
+        "incidentSwellProjection": 0.002421117383091962,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.5773487020268449
+      },
+      {
+        "index": 1,
+        "angleDegrees": 5.625,
+        "pointXZ": [
+          37.45345907940954,
+          2.836580850346917
+        ],
+        "localSlope": 0.12668852173561493,
+        "radialGapToFixedHydroDryBoundaryMetres": 1.4085205271506425,
+        "inwardNormalXZ": [
+          -0.5729919258395658,
+          0.8195610123246868
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.570077077487273
+      },
+      {
+        "index": 2,
+        "angleDegrees": 11.25,
+        "pointXZ": [
+          40.567010935496555,
+          7.367648733765581
+        ],
+        "localSlope": 0.07786938817685275,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.984044550480931,
+        "inwardNormalXZ": [
+          -0.9858084941656458,
+          -0.1678738003110133
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.9274789992980939
+      },
+      {
+        "index": 3,
+        "angleDegrees": 16.875,
+        "pointXZ": [
+          38.04414060007392,
+          10.995583907134886
+        ],
+        "localSlope": 0.12074529295437354,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.7951085653687073,
+        "inwardNormalXZ": [
+          -0.5257990629301026,
+          -0.8506088086904732
+        ],
+        "incidentSwellProjection": 0.11370962070332216,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.5981369580138671
+      },
+      {
+        "index": 4,
+        "angleDegrees": 22.5,
+        "pointXZ": [
+          32.446522215370486,
+          13.061109897006018
+        ],
+        "localSlope": 0.1840243768292272,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.8060943194646484,
+        "inwardNormalXZ": [
+          -0.1979721475912986,
+          -0.9802076457455784
+        ],
+        "incidentSwellProjection": 0.4187757362964551,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.39246008309672864
+      },
+      {
+        "index": 5,
+        "angleDegrees": 28.125,
+        "pointXZ": [
+          26.17284757859034,
+          13.791445194225435
+        ],
+        "localSlope": 0.17499499742287053,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.8832608022045463,
+        "inwardNormalXZ": [
+          -0.05668799101809346,
+          -0.9983919429133693
+        ],
+        "incidentSwellProjection": 0.5417123613293692,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.41271021049647055
+      },
+      {
+        "index": 6,
+        "angleDegrees": 33.75,
+        "pointXZ": [
+          19.742610932422075,
+          13.19385883867539
+        ],
+        "localSlope": 0.17325656179571652,
+        "radialGapToFixedHydroDryBoundaryMetres": 1.3268496551552431,
+        "inwardNormalXZ": [
+          0.27815775300497286,
+          -0.9605354050961498
+        ],
+        "incidentSwellProjection": 0.7854980546601364,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.41685129540650845
+      },
+      {
+        "index": 7,
+        "angleDegrees": 39.375,
+        "pointXZ": [
+          17.247615681497596,
+          14.385770568411877
+        ],
+        "localSlope": 0.1354820944442454,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.6364918847723473,
+        "inwardNormalXZ": [
+          -0.6519289713443946,
+          -0.7582800381929089
+        ],
+        "incidentSwellProjection": 0.02856125908547746,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.5330757729903832
+      },
+      {
+        "index": 8,
+        "angleDegrees": 45,
+        "pointXZ": [
+          15.248437819139042,
+          15.748437819139038
+        ],
+        "localSlope": 0.13809403045195515,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.6528890855561613,
+        "inwardNormalXZ": [
+          -0.38783261723540124,
+          -0.921729819962628
+        ],
+        "incidentSwellProjection": 0.23868496826075064,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.5229930793232177
+      },
+      {
+        "index": 9,
+        "angleDegrees": 50.62499999999999,
+        "pointXZ": [
+          13.124316331919266,
+          16.819781009757445
+        ],
+        "localSlope": 0.1520511416046083,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5364890588178,
+        "inwardNormalXZ": [
+          -0.5271125298550086,
+          -0.8497954935570398
+        ],
+        "incidentSwellProjection": 0.11268929927048303,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.4749863858965813
+      },
+      {
+        "index": 10,
+        "angleDegrees": 56.25,
+        "pointXZ": [
+          10.955707925197153,
+          17.64128425892826
+        ],
+        "localSlope": 0.15438366772014014,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5473004347132147,
+        "inwardNormalXZ": [
+          -0.15850752732545698,
+          -0.9873577688868252
+        ],
+        "incidentSwellProjection": 0.45433234253244764,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.46780999110050586
+      },
+      {
+        "index": 11,
+        "angleDegrees": 61.87499999999999,
+        "pointXZ": [
+          8.687604625563576,
+          18.059667685766357
+        ],
+        "localSlope": 0.1301922066188027,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5999069562632542,
+        "inwardNormalXZ": [
+          -0.19383074792704397,
+          -0.9810349846758997
+        ],
+        "incidentSwellProjection": 0.4225522881044226,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.5547353723997154
+      },
+      {
+        "index": 12,
+        "angleDegrees": 67.5,
+        "pointXZ": [
+          6.3884827823649,
+          18.044482119731985
+        ],
+        "localSlope": 0.1563596538053797,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.6036252002846254,
+        "inwardNormalXZ": [
+          0.11551666918358476,
+          -0.9933055416842947
+        ],
+        "incidentSwellProjection": 0.6755391306033764,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.4618980693837872
+      },
+      {
+        "index": 13,
+        "angleDegrees": 73.12500000000001,
+        "pointXZ": [
+          4.282983839732575,
+          18.06394284902807
+        ],
+        "localSlope": 0.16422223939697925,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.49076522674326384,
+        "inwardNormalXZ": [
+          -0.13127708175364586,
+          -0.9913457155837445
+        ],
+        "incidentSwellProjection": 0.4783105400225127,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.4397834452107142
+      },
+      {
+        "index": 14,
+        "angleDegrees": 78.75,
+        "pointXZ": [
+          2.3052263252293335,
+          18.13016458130234
+        ],
+        "localSlope": 0.1623864192187964,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.49772695097837527,
+        "inwardNormalXZ": [
+          0.14306567774495624,
+          -0.9897131967652933
+        ],
+        "incidentSwellProjection": 0.6953155195579525,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.4447553100170979
+      },
+      {
+        "index": 15,
+        "angleDegrees": 84.37499999999999,
+        "pointXZ": [
+          0.3426106005348635,
+          17.70833938524472
+        ],
+        "localSlope": 0.14652657011357575,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5651768248596412,
+        "inwardNormalXZ": [
+          0.13032968325561747,
+          -0.9914707124582605
+        ],
+        "incidentSwellProjection": 0.6862296992129395,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.492895057642046
+      },
+      {
+        "index": 16,
+        "angleDegrees": 90,
+        "pointXZ": [
+          -1.499999999999999,
+          17.77835027615687
+        ],
+        "localSlope": 0.16182109349002108,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.49694180275631794,
+        "inwardNormalXZ": [
+          -0.10592839373896841,
+          -0.9943737604140015
+        ],
+        "incidentSwellProjection": 0.5002295571096211,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.4463090729681412
+      },
+      {
+        "index": 17,
+        "angleDegrees": 95.62500000000001,
+        "pointXZ": [
+          -3.3527324198765998,
+          17.81110794165399
+        ],
+        "localSlope": 0.1743635342735675,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.4496990174589115,
+        "inwardNormalXZ": [
+          0.05900072431602365,
+          -0.9982579398783585
+        ],
+        "incidentSwellProjection": 0.6335479053596419,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.4142048538022247
+      },
+      {
+        "index": 18,
+        "angleDegrees": 101.24999999999999,
+        "pointXZ": [
+          -5.228779795191842,
+          17.74584192180889
+        ],
+        "localSlope": 0.13766562965066526,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5784912361511942,
+        "inwardNormalXZ": [
+          -0.02969750311141207,
+          -0.9995589318839323
+        ],
+        "incidentSwellProjection": 0.563842048168576,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.5246205781754706
+      },
+      {
+        "index": 19,
+        "angleDegrees": 106.87499999999999,
+        "pointXZ": [
+          -7.18546339014441,
+          17.742461010398863
+        ],
+        "localSlope": 0.15256385012920246,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5245429176815648,
+        "inwardNormalXZ": [
+          0.08853461431846216,
+          -0.9960731007649395
+        ],
+        "incidentSwellProjection": 0.6557284612656321,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.4733901390208693
+      },
+      {
+        "index": 20,
+        "angleDegrees": 112.5,
+        "pointXZ": [
+          -9.18618526755294,
+          17.556092715838584
+        ],
+        "localSlope": 0.16767808508981408,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5147352427135559,
+        "inwardNormalXZ": [
+          0.03859283557858313,
+          -0.999255019022674
+        ],
+        "incidentSwellProjection": 0.6179198853290783,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.430719507462991
+      },
+      {
+        "index": 21,
+        "angleDegrees": 118.12500000000001,
+        "pointXZ": [
+          -11.382723295544162,
+          17.489274836088704
+        ],
+        "localSlope": 0.13772329282566192,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5757294162337132,
+        "inwardNormalXZ": [
+          0.17717856223670178,
+          -0.9841787221250696
+        ],
+        "incidentSwellProjection": 0.7191655044297879,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.5244009255111644
+      },
+      {
+        "index": 22,
+        "angleDegrees": 123.74999999999999,
+        "pointXZ": [
+          -13.335989766180745,
+          16.71381049091587
+        ],
+        "localSlope": 0.15349170178161492,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5276423780823905,
+        "inwardNormalXZ": [
+          0.4167129035936242,
+          -0.9090381488026622
+        ],
+        "incidentSwellProjection": 0.8653149352556906,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.47052851316339317
+      },
+      {
+        "index": 23,
+        "angleDegrees": 129.375,
+        "pointXZ": [
+          -15.408121381128467,
+          15.947094937210558
+        ],
+        "localSlope": 0.1325664936306786,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.6456512666491605,
+        "inwardNormalXZ": [
+          0.3362068954106494,
+          -0.9417881521225104
+        ],
+        "incidentSwellProjection": 0.8206002216016006,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.5447999735395318
+      },
+      {
+        "index": 24,
+        "angleDegrees": 135,
+        "pointXZ": [
+          -17.33796021045664,
+          14.837960210456641
+        ],
+        "localSlope": 0.12198606453061149,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.6179491796980017,
+        "inwardNormalXZ": [
+          0.5824006382090121,
+          -0.8129018985177335
+        ],
+        "incidentSwellProjection": 0.9404544124582014,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.5920530554053458
+      },
+      {
+        "index": 25,
+        "angleDegrees": 140.625,
+        "pointXZ": [
+          -19.308399715248644,
+          13.614975944903716
+        ],
+        "localSlope": 0.15353304843139298,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5411761987122503,
+        "inwardNormalXZ": [
+          0.5485777649382331,
+          -0.8360995370261681
+        ],
+        "incidentSwellProjection": 0.9272154082605406,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.47040179922236797
+      },
+      {
+        "index": 26,
+        "angleDegrees": 146.25000000000003,
+        "pointXZ": [
+          -21.09322268595955,
+          12.091772846753955
+        ],
+        "localSlope": 0.1337684184026983,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.6597606147540915,
+        "inwardNormalXZ": [
+          0.6374093523917921,
+          -0.7705253516163346
+        ],
+        "incidentSwellProjection": 0.9592541318742366,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.539904882517213
+      },
+      {
+        "index": 27,
+        "angleDegrees": 151.875,
+        "pointXZ": [
+          -23.62797192777721,
+          10.827647411403431
+        ],
+        "localSlope": 0.12471785022333381,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.691493231633082,
+        "inwardNormalXZ": [
+          0.48960689358262255,
+          -0.8719432835662961
+        ],
+        "incidentSwellProjection": 0.9014284687112099,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.5790848871504197
+      },
+      {
+        "index": 28,
+        "angleDegrees": 157.5,
+        "pointXZ": [
+          -25.669092788810257,
+          9.011166023378982
+        ],
+        "localSlope": 0.1384872564417604,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.6259368149834259,
+        "inwardNormalXZ": [
+          0.6557963300783755,
+          -0.7549378606585676
+        ],
+        "incidentSwellProjection": 0.9647018206758404,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.5215080728571919
+      },
+      {
+        "index": 29,
+        "angleDegrees": 163.125,
+        "pointXZ": [
+          -27.556967521752128,
+          6.90429468258774
+        ],
+        "localSlope": 0.1311497357980196,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.6448639156341471,
+        "inwardNormalXZ": [
+          0.8982921621006696,
+          -0.4393986703535912
+        ],
+        "incidentSwellProjection": 0.971922881455316,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.550685228473886
+      },
+      {
+        "index": 30,
+        "angleDegrees": 168.74999999999997,
+        "pointXZ": [
+          -29.037908872917388,
+          4.477630646597297
+        ],
+        "localSlope": 0.11442039645864116,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.8384350063229391,
+        "inwardNormalXZ": [
+          0.7897449098647003,
+          -0.6134353897052213
+        ],
+        "incidentSwellProjection": 0.9879631069578985,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.631200594103237
+      },
+      {
+        "index": 31,
+        "angleDegrees": 174.375,
+        "pointXZ": [
+          -30.499966625168636,
+          1.8562474102237925
+        ],
+        "localSlope": 0.111142377070348,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.9470132190538934,
+        "inwardNormalXZ": [
+          0.809663002949807,
+          -0.5868950686914152
+        ],
+        "incidentSwellProjection": 0.9881903292798575,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.6498171455925301
+      },
+      {
+        "index": 32,
+        "angleDegrees": 180,
+        "pointXZ": [
+          -32.76647392500336,
+          -0.9999999999999962
+        ],
+        "localSlope": 0.09409202003697943,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.9019534237867148,
+        "inwardNormalXZ": [
+          0.9192357420642663,
+          -0.39370756979204474
+        ],
+        "incidentSwellProjection": 0.9617100164095581,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.7675701105560058
+      },
+      {
+        "index": 33,
+        "angleDegrees": 185.62500000000003,
+        "pointXZ": [
+          -34.018480802288174,
+          -4.202790809260366
+        ],
+        "localSlope": 0.07812129832442333,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.9239819662698778,
+        "inwardNormalXZ": [
+          0.9837854870840332,
+          0.179349143858652
+        ],
+        "incidentSwellProjection": 0.6762115324247785,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.9244882480357234
+      },
+      {
+        "index": 34,
+        "angleDegrees": 191.25000000000003,
+        "pointXZ": [
+          -32.530423703495096,
+          -7.172335039656067
+        ],
+        "localSlope": 0.1301114853516242,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.6896913312214892,
+        "inwardNormalXZ": [
+          0.7994458300649854,
+          0.6007381832310204
+        ],
+        "incidentSwellProjection": 0.28299018009675964,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.5550795306582107
+      },
+      {
+        "index": 35,
+        "angleDegrees": 196.875,
+        "pointXZ": [
+          -29.534777788272493,
+          -9.504256867741237
+        ],
+        "localSlope": 0.14723123545257333,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.6738584902775813,
+        "inwardNormalXZ": [
+          0.6656497524245173,
+          0.7462643011006082
+        ],
+        "incidentSwellProjection": 0.11352489857756631,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.49053600616892673
+      },
+      {
+        "index": 36,
+        "angleDegrees": 202.49999999999997,
+        "pointXZ": [
+          -26.671596449386886,
+          -11.426416635918489
+        ],
+        "localSlope": 0.1451100695900719,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.7086069656042753,
+        "inwardNormalXZ": [
+          0.527834886515301,
+          0.849347003631248
+        ],
+        "incidentSwellProjection": 0.032332988819169815,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.49770648188817007
+      },
+      {
+        "index": 37,
+        "angleDegrees": 208.125,
+        "pointXZ": [
+          -24.34875423344631,
+          -13.212913580379846
+        ],
+        "localSlope": 0.1486177403364659,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.619378159310287,
+        "inwardNormalXZ": [
+          0.49785349183588196,
+          0.8672611490588168
+        ],
+        "incidentSwellProjection": 0.022679520836369534,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.4859596307864281
+      },
+      {
+        "index": 38,
+        "angleDegrees": 213.74999999999997,
+        "pointXZ": [
+          -21.849310241617776,
+          -14.596974399841395
+        ],
+        "localSlope": 0.15471532775719987,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5420318465681291,
+        "inwardNormalXZ": [
+          0.5676305692949453,
+          0.8232833879059483
+        ],
+        "incidentSwellProjection": 0.04865105743799287,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.46680715653178884
+      },
+      {
+        "index": 39,
+        "angleDegrees": 219.37499999999997,
+        "pointXZ": [
+          -19.350370868054426,
+          -15.649420779838042
+        ],
+        "localSlope": 0.14572570283327213,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.6432908376063651,
+        "inwardNormalXZ": [
+          0.21696335346111048,
+          0.9761797494595497
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.49560386958540315
+      },
+      {
+        "index": 40,
+        "angleDegrees": 225,
+        "pointXZ": [
+          -16.93947419617095,
+          -16.43947419617094
+        ],
+        "localSlope": 0.13705456388761936,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.6311416680701356,
+        "inwardNormalXZ": [
+          0.28755513440322394,
+          0.9577640861289088
+        ],
+        "incidentSwellProjection": 0.00031975572414199703,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.5269596296073896
+      },
+      {
+        "index": 41,
+        "angleDegrees": 230.62499999999997,
+        "pointXZ": [
+          -14.495612899193668,
+          -16.83520013484405
+        ],
+        "localSlope": 0.15786785891248,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.592604575088167,
+        "inwardNormalXZ": [
+          0.22410808486438347,
+          0.9745642956205702
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.45748528370338715
+      },
+      {
+        "index": 42,
+        "angleDegrees": 236.25000000000003,
+        "pointXZ": [
+          -12.56762138837787,
+          -17.56386594884614
+        ],
+        "localSlope": 0.17026922422039728,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.4872098225539858,
+        "inwardNormalXZ": [
+          0.36099186572521835,
+          0.9325689641416479
+        ],
+        "incidentSwellProjection": 0.0029958502367724766,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.4241648633386468
+      },
+      {
+        "index": 43,
+        "angleDegrees": 241.875,
+        "pointXZ": [
+          -10.638027055535058,
+          -18.096046164277336
+        ],
+        "localSlope": 0.16904401435590968,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.47407832487625967,
+        "inwardNormalXZ": [
+          0.24963422016674267,
+          0.9683402068084038
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.42723915719466804
+      },
+      {
+        "index": 44,
+        "angleDegrees": 247.49999999999997,
+        "pointXZ": [
+          -8.867632363993712,
+          -18.787037975732535
+        ],
+        "localSlope": 0.1564296994420617,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.48729683804288015,
+        "inwardNormalXZ": [
+          0.420641916789086,
+          0.9072267510606176
+        ],
+        "incidentSwellProjection": 0.008345063938217543,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.46169124200722395
+      },
+      {
+        "index": 45,
+        "angleDegrees": 253.12500000000003,
+        "pointXZ": [
+          -7.054141775487678,
+          -19.309551663591158
+        ],
+        "localSlope": 0.14449811319587041,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5346315624860623,
+        "inwardNormalXZ": [
+          0.11679569140797696,
+          0.9931559628117493
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.4998142925528957
+      },
+      {
+        "index": 46,
+        "angleDegrees": 258.75,
+        "pointXZ": [
+          -5.202260201351864,
+          -19.61251892038198
+        ],
+        "localSlope": 0.13681938249981931,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.587372012672347,
+        "inwardNormalXZ": [
+          0.27780002875837184,
+          0.9606389248941809
+        ],
+        "incidentSwellProjection": 0.00019184792854668624,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.5278654303407457
+      },
+      {
+        "index": 47,
+        "angleDegrees": 264.375,
+        "pointXZ": [
+          -3.3779322694224874,
+          -20.066966307835536
+        ],
+        "localSlope": 0.15843588515773874,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5101926983444756,
+        "inwardNormalXZ": [
+          0.11366396608596031,
+          0.993519251355307
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.4558451019497116
+      },
+      {
+        "index": 48,
+        "angleDegrees": 270,
+        "pointXZ": [
+          -1.5000000000000036,
+          -20.162825668190536
+        ],
+        "localSlope": 0.168322605846738,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.4732177258231758,
+        "inwardNormalXZ": [
+          0.06470082238101559,
+          0.9979047066645294
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.42907024792607107
+      },
+      {
+        "index": 49,
+        "angleDegrees": 275.62499999999994,
+        "pointXZ": [
+          0.40317814461089885,
+          -20.323291980207856
+        ],
+        "localSlope": 0.14521725482373285,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5264644870062796,
+        "inwardNormalXZ": [
+          -0.005129553028771463,
+          0.9999868437563191
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.4973391234387867
+      },
+      {
+        "index": 50,
+        "angleDegrees": 281.25,
+        "pointXZ": [
+          2.2614122007978326,
+          -19.909896103234942
+        ],
+        "localSlope": 0.15399624632218029,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5212953992056129,
+        "inwardNormalXZ": [
+          -0.3307608202891307,
+          0.9437146177535142
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.4689869003113484
+      },
+      {
+        "index": 51,
+        "angleDegrees": 286.875,
+        "pointXZ": [
+          4.103582303310321,
+          -19.47253524143916
+        ],
+        "localSlope": 0.1583666351237551,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5200758137538415,
+        "inwardNormalXZ": [
+          -0.09506047014450893,
+          0.9954714998511534
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.45604443237544573
+      },
+      {
+        "index": 52,
+        "angleDegrees": 292.50000000000006,
+        "pointXZ": [
+          6.075760629099194,
+          -19.28950405606339
+        ],
+        "localSlope": 0.1493949222071017,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5170863340137686,
+        "inwardNormalXZ": [
+          -0.22119069895022117,
+          0.975230575145136
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.48343157287570127
+      },
+      {
+        "index": 53,
+        "angleDegrees": 298.125,
+        "pointXZ": [
+          7.898601306782163,
+          -18.58354629986123
+        ],
+        "localSlope": 0.15636869266468167,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5155105028244762,
+        "inwardNormalXZ": [
+          -0.3768790085427145,
+          0.9262624967685242
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.4618713694632988
+      },
+      {
+        "index": 54,
+        "angleDegrees": 303.75,
+        "pointXZ": [
+          9.979214906593823,
+          -18.179859180083916
+        ],
+        "localSlope": 0.15753303178119982,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.5990225043634609,
+        "inwardNormalXZ": [
+          -0.016348578569664225,
+          0.9998663530586231
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.4584576415854983
+      },
+      {
+        "index": 55,
+        "angleDegrees": 309.375,
+        "pointXZ": [
+          12.347450654845762,
+          -17.873167443335088
+        ],
+        "localSlope": 0.15564565243605513,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.530494319348783,
+        "inwardNormalXZ": [
+          -0.3318435719285315,
+          0.9433344283814269
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.46401695833999423
+      },
+      {
+        "index": 56,
+        "angleDegrees": 315,
+        "pointXZ": [
+          14.648114462948875,
+          -17.148114462948882
+        ],
+        "localSlope": 0.15311680904695618,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.6867539836274617,
+        "inwardNormalXZ": [
+          -0.12393961844319025,
+          0.9922897616020012
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.4716805599055679
+      },
+      {
+        "index": 57,
+        "angleDegrees": 320.625,
+        "pointXZ": [
+          17.593344373090314,
+          -16.669502772982984
+        ],
+        "localSlope": 0.14747871276958519,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.576010948167891,
+        "inwardNormalXZ": [
+          -0.4373950234093735,
+          0.8992694776854787
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.48971286001837644
+      },
+      {
+        "index": 58,
+        "angleDegrees": 326.25,
+        "pointXZ": [
+          19.956383751256073,
+          -15.33669726958806
+        ],
+        "localSlope": 0.13299388483964666,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.7827216127245009,
+        "inwardNormalXZ": [
+          -0.3708132290989524,
+          0.9287074615427658
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.54304919590327
+      },
+      {
+        "index": 59,
+        "angleDegrees": 331.875,
+        "pointXZ": [
+          22.54931084871676,
+          -13.854624460581304
+        ],
+        "localSlope": 0.10539062507626998,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.7103196916975705,
+        "inwardNormalXZ": [
+          -0.7330059104230774,
+          0.6802222690303777
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.6852812778172236
+      },
+      {
+        "index": 60,
+        "angleDegrees": 337.49999999999994,
+        "pointXZ": [
+          24.73824502650736,
+          -11.868236942847778
+        ],
+        "localSlope": 0.12949840810558247,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.649689081186061,
+        "inwardNormalXZ": [
+          -0.727163539576218,
+          0.6864642647006367
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.5577074133864108
+      },
+      {
+        "index": 61,
+        "angleDegrees": 343.12499999999994,
+        "pointXZ": [
+          26.41901667311796,
+          -9.469141117368434
+        ],
+        "localSlope": 0.12233775268922494,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.7760181597495759,
+        "inwardNormalXZ": [
+          -0.7453501168587666,
+          0.6666732357749356
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.5903510619954627
+      },
+      {
+        "index": 62,
+        "angleDegrees": 348.75,
+        "pointXZ": [
+          28.070624506438897,
+          -6.881962925470706
+        ],
+        "localSlope": 0.10986607926954059,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.7990769391106198,
+        "inwardNormalXZ": [
+          -0.9750077495438251,
+          0.22217085391537225
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.6573659741241462
+      },
+      {
+        "index": 63,
+        "angleDegrees": 354.375,
+        "pointXZ": [
+          28.568978000649036,
+          -3.9615358407996193
+        ],
+        "localSlope": 0.10708201188520747,
+        "radialGapToFixedHydroDryBoundaryMetres": 0.7660685358178085,
+        "inwardNormalXZ": [
+          -0.9998948247256224,
+          -0.014503085427487634
+        ],
+        "incidentSwellProjection": 0,
+        "authoredFoamPhaseOffshoreSpeedMps": 0.6744570908851139
+      }
+    ]
+  },
+  "nativeHydro": {
+    "extent": 72,
+    "resolution": 384,
+    "cells": 147456,
+    "dx": 0.375,
+    "maxDepth": 22.720075318569535,
+    "wetCells": 132570,
+    "fixedDt": 0.006805235077880397,
+    "defaultCurrentMps": 0.16,
+    "globalAnalyticCurrentOffsetMps": [
+      0.05928746634416667,
+      -0.01937457298676671
+    ],
+    "fixedMaskDryDepth": 0.08,
+    "standaloneClockCounterfactual": [
+      {
+        "renderHz": 120,
+        "wallSeconds": 120,
+        "sceneSeconds": 120.00000000004157,
+        "hydroSimulatedSeconds": 119.99671012822972,
+        "discardedSeconds": 0,
+        "pendingSeconds": 0.0032898717349448226,
+        "totalSteps": 17633,
+        "averageFullscreenPassesPerFrame": 2.449027777777778,
+        "maximumSecondsAdvancedPerRender": 0.08166282093456477
+      },
+      {
+        "renderHz": 60,
+        "wallSeconds": 120,
+        "sceneSeconds": 119.99999999999447,
+        "hydroSimulatedSeconds": 119.99671012825858,
+        "discardedSeconds": 0,
+        "pendingSeconds": 0.0032898717349448253,
+        "totalSteps": 17633,
+        "averageFullscreenPassesPerFrame": 4.898055555555556,
+        "maximumSecondsAdvancedPerRender": 0.08166282093456477
+      },
+      {
+        "renderHz": 30,
+        "wallSeconds": 120,
+        "sceneSeconds": 119.99999999999575,
+        "hydroSimulatedSeconds": 119.9967101282606,
+        "discardedSeconds": 0,
+        "pendingSeconds": 0.0032898717349469087,
+        "totalSteps": 17633,
+        "averageFullscreenPassesPerFrame": 9.796111111111111,
+        "maximumSecondsAdvancedPerRender": 0.08166282093456477
+      },
+      {
+        "renderHz": 20,
+        "wallSeconds": 120,
+        "sceneSeconds": 119.99999999999532,
+        "hydroSimulatedSeconds": 119.99671012826919,
+        "discardedSeconds": 0,
+        "pendingSeconds": 0.0032898717349614734,
+        "totalSteps": 17633,
+        "averageFullscreenPassesPerFrame": 14.694166666666666,
+        "maximumSecondsAdvancedPerRender": 0.08166282093456477
+      },
+      {
+        "renderHz": 15,
+        "wallSeconds": 120,
+        "sceneSeconds": 119.99999999999831,
+        "hydroSimulatedSeconds": 119.99671012826254,
+        "discardedSeconds": 0,
+        "pendingSeconds": 0.0032898717349473666,
+        "totalSteps": 17633,
+        "averageFullscreenPassesPerFrame": 19.592222222222222,
+        "maximumSecondsAdvancedPerRender": 0.08166282093456477
+      },
+      {
+        "renderHz": 10,
+        "wallSeconds": 120,
+        "sceneSeconds": 119.99999999999746,
+        "hydroSimulatedSeconds": 97.99538512148023,
+        "discardedSeconds": 21.841289236653672,
+        "pendingSeconds": 0.16332564186912954,
+        "totalSteps": 14400,
+        "averageFullscreenPassesPerFrame": 24,
+        "maximumSecondsAdvancedPerRender": 0.08166282093456477
+      },
+      {
+        "renderHz": 5,
+        "wallSeconds": 120,
+        "sceneSeconds": 120.00000000000117,
+        "hydroSimulatedSeconds": 48.99769256073943,
+        "discardedSeconds": 70.8389817973918,
+        "pendingSeconds": 0.16332564186912954,
+        "totalSteps": 7200,
+        "averageFullscreenPassesPerFrame": 24,
+        "maximumSecondsAdvancedPerRender": 0.08166282093456477
+      }
+    ],
+    "actualHostDeltaCap": 0.055,
+    "actualHostClocks": [
+      {
+        "renderHz": 120,
+        "wallSeconds": 120,
+        "sceneSeconds": 120.00000000004157,
+        "hydroSimulatedSeconds": 119.99671012822972,
+        "discardedSeconds": 0,
+        "pendingSeconds": 0.0032898717349448226,
+        "totalSteps": 17633,
+        "averageFullscreenPassesPerFrame": 2.449027777777778,
+        "maximumSecondsAdvancedPerRender": 0.08166282093456477
+      },
+      {
+        "renderHz": 60,
+        "wallSeconds": 120,
+        "sceneSeconds": 119.99999999999447,
+        "hydroSimulatedSeconds": 119.99671012825858,
+        "discardedSeconds": 0,
+        "pendingSeconds": 0.0032898717349448253,
+        "totalSteps": 17633,
+        "averageFullscreenPassesPerFrame": 4.898055555555556,
+        "maximumSecondsAdvancedPerRender": 0.08166282093456477
+      },
+      {
+        "renderHz": 30,
+        "wallSeconds": 120,
+        "sceneSeconds": 119.99999999999575,
+        "hydroSimulatedSeconds": 119.9967101282606,
+        "discardedSeconds": 0,
+        "pendingSeconds": 0.0032898717349469087,
+        "totalSteps": 17633,
+        "averageFullscreenPassesPerFrame": 9.796111111111111,
+        "maximumSecondsAdvancedPerRender": 0.08166282093456477
+      },
+      {
+        "renderHz": 20,
+        "wallSeconds": 120,
+        "sceneSeconds": 119.99999999999532,
+        "hydroSimulatedSeconds": 119.99671012826919,
+        "discardedSeconds": 0,
+        "pendingSeconds": 0.0032898717349614734,
+        "totalSteps": 17633,
+        "averageFullscreenPassesPerFrame": 14.694166666666666,
+        "maximumSecondsAdvancedPerRender": 0.08166282093456477
+      },
+      {
+        "renderHz": 15,
+        "wallSeconds": 120,
+        "sceneSeconds": 99.00000000000404,
+        "hydroSimulatedSeconds": 98.99575467792812,
+        "discardedSeconds": 0,
+        "pendingSeconds": 0.004245322073862558,
+        "totalSteps": 14547,
+        "averageFullscreenPassesPerFrame": 16.163333333333334,
+        "maximumSecondsAdvancedPerRender": 0.08166282093456477
+      },
+      {
+        "renderHz": 10,
+        "wallSeconds": 120,
+        "sceneSeconds": 65.99999999999994,
+        "hydroSimulatedSeconds": 65.99716978528494,
+        "discardedSeconds": 0,
+        "pendingSeconds": 0.002830214715908372,
+        "totalSteps": 9698,
+        "averageFullscreenPassesPerFrame": 16.163333333333334,
+        "maximumSecondsAdvancedPerRender": 0.08166282093456477
+      },
+      {
+        "renderHz": 5,
+        "wallSeconds": 120,
+        "sceneSeconds": 32.99999999999986,
+        "hydroSimulatedSeconds": 32.99858489264176,
+        "discardedSeconds": 0,
+        "pendingSeconds": 0.001415107357954186,
+        "totalSteps": 4849,
+        "averageFullscreenPassesPerFrame": 16.163333333333334,
+        "maximumSecondsAdvancedPerRender": 0.08166282093456477
+      }
+    ],
+    "returnedFlow": "sampleFlow returns only steady potential-flow current; GPU perturbation u/v is not returned",
+    "clockWarning": "Standalone API can drop excess lag, but actual main caps delta0.055s below12*dt. Current host therefore retains analytic/SWE phase to one fixed tick and instead slows the whole scene at low renderHz. Do not claim standalone10Hz lag is an observed host defect."
+  },
+  "materialCoupling": {
+    "foam": {
+      "source": "sin(verticalDepth*18-time*1.3+noiseXZ*5)",
+      "fixedDepthPeriodSeconds": 4.83321946706122,
+      "depthPhaseSpeedMps": 0.07222222222222223,
+      "foamDepthWindowMetres": [
+        0.018,
+        0.16
+      ],
+      "drivenBySolvedFlux": false
+    },
+    "wetSand": {
+      "timeDependent": false,
+      "staticAlwaysWetHeightBelow": 0.008,
+      "staticAlwaysDryHeightAbove": 0.1935,
+      "solverContactHistory": false
+    },
+    "caustics": {
+      "sameWaveUniforms": true,
+      "sharedHydroTexture": true,
+      "filters": "geometry footprint0.40m; caustics0.12m or0.32m; optical per-pixel footprint. Shared phases but different deliberate LOD, not identical per-pass shapes.",
+      "presets": [
+        {
+          "quality": "low",
+          "grid": 768,
+          "targetSize": 1024,
+          "maxHz": 15,
+          "gridCellMetres": 0.16666666666666666,
+          "trianglesPerUpdate": 1179648,
+          "requestedTriangleRate": 17694720,
+          "maximumNominalTimeStalenessSeconds": 0.06666666666666667,
+          "phaseStalenessAtOneSecondWaveDegrees": 24
+        },
+        {
+          "quality": "balanced",
+          "grid": 1024,
+          "targetSize": 1024,
+          "maxHz": 20,
+          "gridCellMetres": 0.125,
+          "trianglesPerUpdate": 2097152,
+          "requestedTriangleRate": 41943040,
+          "maximumNominalTimeStalenessSeconds": 0.05,
+          "phaseStalenessAtOneSecondWaveDegrees": 18
+        },
+        {
+          "quality": "medium",
+          "grid": 1280,
+          "targetSize": 1536,
+          "maxHz": 24,
+          "gridCellMetres": 0.1,
+          "trianglesPerUpdate": 3276800,
+          "requestedTriangleRate": 78643200,
+          "maximumNominalTimeStalenessSeconds": 0.041666666666666664,
+          "phaseStalenessAtOneSecondWaveDegrees": 15
+        },
+        {
+          "quality": "high",
+          "grid": 1536,
+          "targetSize": 2048,
+          "maxHz": 30,
+          "gridCellMetres": 0.08333333333333333,
+          "trianglesPerUpdate": 4718592,
+          "requestedTriangleRate": 141557760,
+          "maximumNominalTimeStalenessSeconds": 0.03333333333333333,
+          "phaseStalenessAtOneSecondWaveDegrees": 12
+        },
+        {
+          "quality": "ultra",
+          "grid": 1536,
+          "targetSize": 2048,
+          "maxHz": 30,
+          "gridCellMetres": 0.08333333333333333,
+          "trianglesPerUpdate": 4718592,
+          "requestedTriangleRate": 141557760,
+          "maximumNominalTimeStalenessSeconds": 0.03333333333333333,
+          "phaseStalenessAtOneSecondWaveDegrees": 12
+        }
+      ]
+    },
+    "sandDirectLighting": "shared solar/key caustic concentration multiplies the entire standard-material reflectedLight.directDiffuse including local lights; water custom bedLocal does not have this multiplication."
+  },
+  "invariants": {
+    "sourceHashesUnchanged": true,
+    "currentHydroHasWettingDrying": false,
+    "currentHydroHasBreaking": false,
+    "currentWetSandHasHistory": false
+  },
+  "limits": [
+    "Numerical/source audit only; no fresh GPU capture, no measuredFPS or subjective visual acceptance.",
+    "The physical dispersion table is a small-amplitude diagnostic; rows with Hs/depth near1 are outside the validity of that linear waveform.",
+    "Steady projection velocity is an authored tide flow, not solved wave runup/backwash.",
+    "The dry boundary gap uses radial coast probes and actual scene terrain; it is not a surveyed real island slope."
+  ]
+}

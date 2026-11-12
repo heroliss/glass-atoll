@@ -1,0 +1,319 @@
+{
+  "schema": "glass-atoll.fireworks-intensity-scale-check.v1",
+  "dateUTC": "2026-10-30T15:35:18.089Z",
+  "passed": false,
+  "counts": {
+    "checks": 17,
+    "passed": 16
+  },
+  "checks": [
+    {
+      "name": "baseline_is_the_preserved_5a61_physics_and_default_remains1",
+      "passed": true
+    },
+    {
+      "name": "default_and_explicit1_match_every_old_event_field_and_RNG_bitwise",
+      "passed": true,
+      "evidence": {
+        "cases": 99,
+        "comparison": "all pre-existing event fields, including every parent/child body number, palette, events and endTime; only new metadata intensityScale=1 added"
+      }
+    },
+    {
+      "name": "all_10_types_1_4_16_64_keep_entire_non_intensity_event_graph",
+      "passed": true,
+      "evidence": {
+        "eventGraphCases": 40,
+        "includes": [
+          "pose",
+          "velocity",
+          "radius",
+          "birth/life/time",
+          "seed",
+          "palette/RGB",
+          "layout/actual count",
+          "parent links",
+          "audio event positions/times/energy",
+          "visible ground apex"
+        ]
+      }
+    },
+    {
+      "name": "every_parent_child_and_rocket_intensity_is_multiplied_exactly_once",
+      "passed": true,
+      "evidence": {
+        "crossette16": {
+          "parentCandela": 240,
+          "childCandela": 88,
+          "notSquared": 1408
+        }
+      }
+    },
+    {
+      "name": "all_four_smiley_layouts_and_all_colours_keep_source_geometry_and_Y_normalization",
+      "passed": true,
+      "evidence": {
+        "largestBlueRGBChannel": 12.423172957038197,
+        "colourMaximumDoesNotScale": true,
+        "photopicYIsReferenceNotMeasuredSpectrum": true
+      }
+    },
+    {
+      "name": "resolve_wind_and_repeated_sampling_cannot_apply_scale_a_second_time",
+      "passed": true
+    },
+    {
+      "name": "zero_scale_keeps_smoke_events_particles_slots_and_geometry_but_no_light",
+      "passed": true
+    },
+    {
+      "name": "invalid_scales_reject_before_factory_or_configuration_mutation",
+      "passed": true
+    },
+    {
+      "name": "invalid_queued_request_is_rejected_immediately_not_later_during_update",
+      "passed": true
+    },
+    {
+      "name": "negative_zero_normalizes_and_fractional_finite_scale_is_supported",
+      "passed": true
+    },
+    {
+      "name": "configure_only_changes_future_events_and_explicit_queued_scale_survives",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    1,\n    16,\n+   64,\n+   4\n  ]\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/intensity-scale-check.mjs:27:532\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/intensity-scale-check.mjs:9:78)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/intensity-scale-check.mjs:27:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "configure_echo_does_not_retroactively_rescale_active_sources",
+      "passed": true
+    },
+    {
+      "name": "current_production_clusters_scale_reference_intensity_not_RGB_colour",
+      "passed": true,
+      "evidence": {
+        "types": 10,
+        "scales": [
+          1,
+          4,
+          16,
+          64
+        ],
+        "phases": [
+          0.05,
+          0.3,
+          1.1,
+          2.5
+        ],
+        "boundary": "actual emitting phases above existing getLightClusters1e-6 filter; no claim of exact cardinality across that pre-existing negligible-source threshold"
+      }
+    },
+    {
+      "name": "current_main_mirror_and_fallback_bounds_follow_source_scale",
+      "passed": true,
+      "evidence": {
+        "cases": 160,
+        "colourMaximumAndSourceCountDoNotScale": true,
+        "notGPUOrAbsolutePhotometry": true
+      }
+    },
+    {
+      "name": "zero_source_current_clusters_and_bounds_are_zero_without_deleting_records",
+      "passed": true
+    },
+    {
+      "name": "preburst_rocket_and_tail_share_scale_without_trajectory_change",
+      "passed": true,
+      "evidence": [
+        {
+          "intensityScale": 1,
+          "I": 17.999999999999996,
+          "bound": 0.004617247230142302
+        },
+        {
+          "intensityScale": 4,
+          "I": 71.99999999999999,
+          "bound": 0.018468988920569206
+        },
+        {
+          "intensityScale": 16,
+          "I": 287.99999999999994,
+          "bound": 0.07387595568227683
+        },
+        {
+          "intensityScale": 64,
+          "I": 1151.9999999999998,
+          "bound": 0.2955038227291073
+        }
+      ]
+    },
+    {
+      "name": "physics_30_60_120Hz_is_still_invariant_at_nondefault_scale",
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "bodyCases": 40,
+    "production": [
+      {
+        "type": "peony",
+        "intensityScale": 1,
+        "clusterReferenceCandela": 1277.3908232661374,
+        "mainRawBound": 0.49337080821709456,
+        "mirrorRawBound": 0.21716780259616505,
+        "colourMaximum": 4.632475501753829,
+        "records": 239
+      },
+      {
+        "type": "peony",
+        "intensityScale": 4,
+        "clusterReferenceCandela": 5109.56329306455,
+        "mainRawBound": 1.9734832328683782,
+        "mirrorRawBound": 0.8686712103846602,
+        "colourMaximum": 4.632475501753829,
+        "records": 239
+      },
+      {
+        "type": "peony",
+        "intensityScale": 16,
+        "clusterReferenceCandela": 20438.2531722582,
+        "mainRawBound": 7.893932931473513,
+        "mirrorRawBound": 3.474684841538641,
+        "colourMaximum": 4.632475501753829,
+        "records": 239
+      },
+      {
+        "type": "peony",
+        "intensityScale": 64,
+        "clusterReferenceCandela": 81753.0126890328,
+        "mainRawBound": 31.57573172589405,
+        "mirrorRawBound": 13.898739366154564,
+        "colourMaximum": 4.632475501753829,
+        "records": 239
+      },
+      {
+        "type": "ring",
+        "intensityScale": 1,
+        "clusterReferenceCandela": 715.2873281071712,
+        "mainRawBound": 0.07472669679274947,
+        "mirrorRawBound": 0.04168250258952039,
+        "colourMaximum": 2.5592428230357753,
+        "records": 135
+      },
+      {
+        "type": "ring",
+        "intensityScale": 4,
+        "clusterReferenceCandela": 2861.149312428685,
+        "mainRawBound": 0.2989067871709979,
+        "mirrorRawBound": 0.16673001035808155,
+        "colourMaximum": 2.5592428230357753,
+        "records": 135
+      },
+      {
+        "type": "ring",
+        "intensityScale": 16,
+        "clusterReferenceCandela": 11444.59724971474,
+        "mainRawBound": 1.1956271486839916,
+        "mirrorRawBound": 0.6669200414323262,
+        "colourMaximum": 2.5592428230357753,
+        "records": 135
+      },
+      {
+        "type": "ring",
+        "intensityScale": 64,
+        "clusterReferenceCandela": 45778.38899885896,
+        "mainRawBound": 4.782508594735966,
+        "mirrorRawBound": 2.6676801657293048,
+        "colourMaximum": 2.5592428230357753,
+        "records": 135
+      },
+      {
+        "type": "willow",
+        "intensityScale": 1,
+        "clusterReferenceCandela": 610.5257291639541,
+        "mainRawBound": 0.050132779378423344,
+        "mirrorRawBound": 0.0233820410388244,
+        "colourMaximum": 1.8277674763872431,
+        "records": 1455
+      },
+      {
+        "type": "willow",
+        "intensityScale": 4,
+        "clusterReferenceCandela": 2442.1029166558164,
+        "mainRawBound": 0.20053111751369337,
+        "mirrorRawBound": 0.0935281641552976,
+        "colourMaximum": 1.8277674763872431,
+        "records": 1455
+      },
+      {
+        "type": "willow",
+        "intensityScale": 16,
+        "clusterReferenceCandela": 9768.411666623266,
+        "mainRawBound": 0.8021244700547735,
+        "mirrorRawBound": 0.3741126566211904,
+        "colourMaximum": 1.8277674763872431,
+        "records": 1455
+      },
+      {
+        "type": "willow",
+        "intensityScale": 64,
+        "clusterReferenceCandela": 39073.64666649306,
+        "mainRawBound": 3.208497880219094,
+        "mirrorRawBound": 1.4964506264847617,
+        "colourMaximum": 1.8277674763872431,
+        "records": 1455
+      },
+      {
+        "type": "palm",
+        "intensityScale": 1,
+        "clusterReferenceCandela": 494.15670877751455,
+        "mainRawBound": 0.10926242361635971,
+        "mirrorRawBound": 0.04410090541641502,
+        "colourMaximum": 4.632475501753829,
+        "records": 123
+      },
+      {
+        "type": "palm",
+        "intensityScale": 4,
+        "clusterReferenceCandela": 1976.6268351100582,
+        "mainRawBound": 0.43704969446543884,
+        "mirrorRawBound": 0.1764036216656601,
+        "colourMaximum": 4.632475501753829,
+        "records": 123
+      },
+      {
+        "type": "palm",
+        "intensityScale": 16,
+        "clusterReferenceCandela": 7906.507340440233,
+        "mainRawBound": 1.7481987778617554,
+        "mirrorRawBound": 0.7056144866626404,
+        "colourMaximum": 4.632475501753829,
+        "records": 123
+      },
+      {
+        "type": "palm",
+        "intensityScale": 64,
+        "clusterReferenceCandela": 31626.02936176093,
+        "mainRawBound": 6.9927951114470215,
+        "mirrorRawBound": 2.8224579466505615,
+        "colourMaximum": 4.632475501753829,
+        "records": 123
+      }
+    ]
+  },
+  "sourceSHA256": {
+    "../../fireworks-physics.js": "3dfb32211f0ca731e232bd6c8bea065668d9e4b6205bc4c2eaf81e31f4ca4d54",
+    "../../fireworks.js": "50895d4aeba191cd6817f344b3f728a305365e252eeaae7bb9fc96f3187815d8",
+    "../../fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+    "../baselines/fireworks-before-persistent-medium/fireworks-physics.js": "5a61e6b87b233941cba647bfc44599009ee679f2f91172ececac66a045609b41",
+    "./intensity-scale-check.mjs": "0d47c324d7f61515320f4d56a697e1be94f9d0938013a0cbd19d478e0477008e"
+  },
+  "runtimeMainUIWired": false,
+  "noGPUOrBrowser": true,
+  "limits": [
+    "intensityScale is optional author reference0..64 with default1, not measured commercial star/shell photometry",
+    "same-source fixed camera/phase CPU bound checks, not GPU RGB, full-scene energy or scene FPS",
+    "existing1e-6 cluster threshold is unchanged; zero emits no clusters while geometry/slots/smoke/audio events remain",
+    "no cameraP/C changes; colours remain Y-normalized approximate spectral RGB and maximum channel is independent of luminous scale",
+    "no audio gain/file/propagation changes"
+  ]
+}

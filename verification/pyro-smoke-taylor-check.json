@@ -1,0 +1,190 @@
+{
+  "schema": "glass-atoll.pyro-smoke-taylor-cpu.v1",
+  "dateUTC": "2026-10-27T17:12:07.484Z",
+  "passed": true,
+  "counts": {
+    "checks": 18,
+    "passed": 18
+  },
+  "checks": [
+    {
+      "name": "state_inverse_restores_entire_frozen_D400_and_exact_scope_fails_closed",
+      "passed": true,
+      "evidence": {
+        "edits": 10,
+        "frozenSHA256": "d40060da202a0c4b488986acef4afcbb64550ac97bd875b012b9bdba70a25e19"
+      }
+    },
+    {
+      "name": "Brownian_default_complete_state_and_diagnostics_match_frozen",
+      "passed": true,
+      "evidence": {
+        "fullDefaultOutputsExact": true,
+        "merges": 1
+      }
+    },
+    {
+      "name": "Taylor_variance_matches_independent_stationary_velocity_correlation_integral",
+      "passed": true,
+      "evidence": {
+        "maximumRelativeError": 2.8579463648826717e-13,
+        "oracle": "Simpson integral of (age-s)*exp(-s/TL)/TL; no cancellation formula reuse"
+      }
+    },
+    {
+      "name": "small_x_positive_ballistic_and_late_diffusive_asymptotes",
+      "passed": true,
+      "evidence": {
+        "age": 0.75,
+        "K": 0.6,
+        "TL": 10,
+        "brownianSigma": 0.9486832980505138,
+        "taylorSigma": 0.18144375421224843
+      }
+    },
+    {
+      "name": "memory_step_semigroup_for_mixed_initial_q",
+      "passed": true,
+      "evidence": {
+        "maximumError": 2.842170943040401e-14
+      }
+    },
+    {
+      "name": "model_memory_and_TL_domain_reject_nonfinite_out_of_range",
+      "passed": true
+    },
+    {
+      "name": "future_queue_starts_memory_at_actual_birth_not_enqueue_clock",
+      "passed": true
+    },
+    {
+      "name": "state_same_timestamped_30_60_120Hz_inputs_are_bit_identical",
+      "passed": true,
+      "evidence": {
+        "hashes": [
+          "a784c26550e016facb84d9c1434af1e245e3dd4d8d5312546cd5a5b6f7085dd3",
+          "a784c26550e016facb84d9c1434af1e245e3dd4d8d5312546cd5a5b6f7085dd3",
+          "a784c26550e016facb84d9c1434af1e245e3dd4d8d5312546cd5a5b6f7085dd3"
+        ]
+      }
+    },
+    {
+      "name": "common_drift_mixed_release_age_merge_preserves_future_diffusion_second_moments",
+      "passed": true,
+      "evidence": {
+        "differentAges": [
+          0.1,
+          0.7,
+          2
+        ],
+        "finalQ": 0.6487197509070766,
+        "model": "common deterministic drift; no thermal differences"
+      }
+    },
+    {
+      "name": "thermal_cross_moment_counterexample_remains_explicit_not_false_equivalence",
+      "passed": true,
+      "evidence": {
+        "futureYVarianceLoss": 0.15481812174617632,
+        "expected": 0.15481812174617549
+      }
+    },
+    {
+      "name": "Taylor1800s_retains_mass_finite_SPD_and_memory_without_age_fade",
+      "passed": true,
+      "evidence": {
+        "time": 1800,
+        "mass": 2.75,
+        "q": 6.714184288217066e-79
+      }
+    },
+    {
+      "name": "source_adapter_host_exact_inverse_restore_complete_frozen_samples48_branch",
+      "passed": true,
+      "evidence": {
+        "sourceEdits": 7,
+        "adapterEdits": 10,
+        "hostEdits": 6
+      }
+    },
+    {
+      "name": "GL5_source_birth_covariance_and_memory_are_aged_positive_mixture_not_reset",
+      "passed": true,
+      "evidence": {
+        "qBirth": 0.9851488817163941,
+        "qFinal": 0.9094070363369178,
+        "ageInterval": [
+          0,
+          0.3
+        ]
+      }
+    },
+    {
+      "name": "actual_single_event_Brownian_vsTaylor48_both60_sameM_source_clocks_means_and_sound",
+      "passed": true,
+      "evidence": {
+        "packetsEach": 60,
+        "totalAreaEach": 20.35,
+        "originalSoundEvents": 2,
+        "sourceClocksAndMeansUnchanged": true
+      }
+    },
+    {
+      "name": "Taylor48_real_host30_60_120Hz_has_bit_identical_packets_memory_and_original_events",
+      "passed": true,
+      "evidence": {
+        "hashes": [
+          "ea9c9c5ded8b113bc1f9644f6cfdca5e07c44d14be1f07de4b5b94e593c5d513",
+          "ea9c9c5ded8b113bc1f9644f6cfdca5e07c44d14be1f07de4b5b94e593c5d513",
+          "ea9c9c5ded8b113bc1f9644f6cfdca5e07c44d14be1f07de4b5b94e593c5d513"
+        ],
+        "packets": 60
+      }
+    },
+    {
+      "name": "adapter_constructor_and_clear_refuse_changed_model_TL_or_K_before_mutation",
+      "passed": true
+    },
+    {
+      "name": "Taylor_host_clear4000_keeps_model_time_and_cancels_old_source_cells",
+      "passed": true
+    },
+    {
+      "name": "Taylor_source_preflight_failure_preserves_wind_q_and_all_ledgers",
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "scale": {
+      "age": 0.75,
+      "K": 0.6,
+      "TL": 10,
+      "brownianSigma": 0.9486832980505138,
+      "taylorSigma": 0.18144375421224843
+    },
+    "thermalCounterexample": {
+      "futureYVarianceLoss": 0.15481812174617632,
+      "expected": 0.15481812174617549
+    },
+    "actualEvent": {
+      "packetsEach": 60,
+      "totalAreaEach": 20.35,
+      "originalSoundEvents": 2,
+      "sourceClocksAndMeansUnchanged": true
+    }
+  },
+  "sourceSHA256": {
+    "pyro-smoke-state.js": "1aa90d24f42adbf6416bd871e8de56d26c4841535e7f0d7f80e591286c6a2cba",
+    "pyro-smoke-dispersion.js": "53e4da36a6ba91fb001771973217642dcb53c00a6798dcc707a33942bc59e7ad",
+    "pyro-smoke-source-moments.js": "36313d5c7f526778a923a4861fc5076bbfd7545e5468255c8ffbf7d048f45260",
+    "pyro-smoke-trajectory-events.js": "4070f8f053ff9f9c40205a2c7e0dadc48ea6a5d257d7093b12fb5b0d4d4cd4da",
+    "pyro-smoke.js": "6cdd9a3da7aa359bba0f90a0403261823edc2ac92ed0159477990308ad1e717a"
+  },
+  "stage": "math-state-source-host",
+  "noGPU": true,
+  "limits": [
+    "Stationary zero-mean independent/decorrelated parcel hypothesis, not calibrated relative puff dispersion or CFD.",
+    "Narrower fixed-mass kernels can increase tau and bright cores. No visual pass or native performance claimed by this report.",
+    "CPU columns and unchanged GPU renderer consume the same covariance; no new GPU/optical shader correctness claim from these CPU tests."
+  ]
+}

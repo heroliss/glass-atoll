@@ -1,0 +1,115 @@
+{
+  "schema": "glass-atoll.r26.rectangle-independent-cpu-check.v1",
+  "actualGPU": false,
+  "productionChanged": false,
+  "passed": true,
+  "summary": {
+    "passed": 8,
+    "total": 8
+  },
+  "sourceSHA256": "70b1a2c95c86847d2f3b1787bf48721a1d4ed32ff599d1eb79c48f37ea2b9d28",
+  "checks": [
+    {
+      "name": "755 packets by 1734 ordered sources: complete 1.30917m request, three exact maps plus one reduction",
+      "passed": true,
+      "detail": {
+        "logicalPairs": 1309170,
+        "padded64Pairs": 1331712,
+        "mapDraws": 3,
+        "totalDraws": 4,
+        "rectangles": [
+          {
+            "x": 0,
+            "y": 0,
+            "width": 256,
+            "height": 61,
+            "begin": 0,
+            "end": 15616,
+            "texels": 15616,
+            "index": 0,
+            "logicalPairs": 999424,
+            "conservativePairs": 999424
+          },
+          {
+            "x": 0,
+            "y": 61,
+            "width": 256,
+            "height": 20,
+            "begin": 15616,
+            "end": 20736,
+            "texels": 5120,
+            "index": 1,
+            "logicalPairs": 306074,
+            "conservativePairs": 327680
+          },
+          {
+            "x": 0,
+            "y": 81,
+            "width": 72,
+            "height": 1,
+            "begin": 20736,
+            "end": 20808,
+            "texels": 72,
+            "index": 2,
+            "logicalPairs": 3672,
+            "conservativePairs": 4608
+          }
+        ]
+      }
+    },
+    {
+      "name": "Arbitrary interval decomposition: row tail, grouped whole rows and row prefix cover each cell once",
+      "passed": true,
+      "detail": {
+        "cases": 1344,
+        "cells": 105024
+      }
+    },
+    {
+      "name": "Independent pair enumeration: row wraps, incomplete packet tiles, legacy stride holes and low map budgets",
+      "passed": true,
+      "detail": {
+        "cases": 700,
+        "cells": 204571
+      }
+    },
+    {
+      "name": "Physical address boundaries and non-divisible 64-slot budgets: 18000 sources, 4096 packets",
+      "passed": true,
+      "detail": {
+        "maxCells": 1152000,
+        "maxLogicalPairs": 73728000,
+        "draws": 73
+      }
+    },
+    {
+      "name": "Empty inputs remain neutral: no map cells, one complete output reduction, no uncharged holes",
+      "passed": true,
+      "detail": {
+        "cases": 3
+      }
+    },
+    {
+      "name": "Rejected budget returns no executable prefix; exact reduction draw counts toward draw budget",
+      "passed": true,
+      "detail": {
+        "rejectedBudgets": 4
+      }
+    },
+    {
+      "name": "Invalid numeric domains reject: no unsafe integer, nonfinite, impossible width/stride or allocation-sized arguments",
+      "passed": true,
+      "detail": {
+        "rejectedCases": 39
+      }
+    },
+    {
+      "name": "Plans are deeply immutable and verification-only; pure module contains no render/context/import/publication path",
+      "passed": true,
+      "detail": {
+        "sourceSHA256": "70b1a2c95c86847d2f3b1787bf48721a1d4ed32ff599d1eb79c48f37ea2b9d28",
+        "scope": "Exact viewport geometry and conservative64-slot work only; no complete-request policy, allocation, aggregate frame, GL or numerical admission"
+      }
+    }
+  ]
+}

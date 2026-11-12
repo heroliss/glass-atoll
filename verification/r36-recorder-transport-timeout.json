@@ -1,0 +1,24 @@
+{
+  "schema": "glass-atoll.r36-recording-transport-failure.v1",
+  "passed": false,
+  "recorderRevision": "r36-one-radiant-native-sdr-audio-24s-v2",
+  "commandRequestedTimeoutMs": 34000,
+  "observedTransportTimeoutSeconds": 20,
+  "recordingOutcome": "return-data-not-received; no media retained and no successful recording claim",
+  "observedAfter": {
+    "time": 21.071100000038747,
+    "paused": true,
+    "active": 0,
+    "smoke": 2442,
+    "audioCapture": false,
+    "context": "suspended",
+    "gl": {
+      "label": "r36-recorder-after-transport-timeout",
+      "errors": [],
+      "programLive": true,
+      "programDeletePending": false,
+      "vertexArrayLive": true
+    }
+  },
+  "fix": "Dispatch a retained page promise and retrieve after completion; do not issue a24s awaited command"
+}

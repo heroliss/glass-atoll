@@ -1,0 +1,56 @@
+{
+  "schema": "glass-atoll.choreography-polish.geometry.v1",
+  "passed": false,
+  "counts": {
+    "passed": 1,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "one continuous ground sector crosses its centre and reverses smoothly for19 seconds",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(Math.abs(e.heads.at(-1).birth-19.05)<1e-10)\n",
+      "stack": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(Math.abs(e.heads.at(-1).birth-19.05)<1e-10)\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/choreography-polish/geometry-check.mjs:13:92\n    at test (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/choreography-polish/geometry-check.mjs:7:83)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/choreography-polish/geometry-check.mjs:11:1"
+    },
+    {
+      "name": "longer ground show does not increase simultaneous burning heads per event",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(now<=25&&now<previous)\n",
+      "stack": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(now<=25&&now<previous)\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/choreography-polish/geometry-check.mjs:22:278\n    at test (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/choreography-polish/geometry-check.mjs:7:83)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/choreography-polish/geometry-check.mjs:21:1"
+    },
+    {
+      "name": "waterfall actually releases from a nearly horizontal moving parent and falls much farther",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(b.life>=5.6&&b.life<=6.1)\n",
+      "stack": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(b.life>=5.6&&b.life<=6.1)\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/choreography-polish/geometry-check.mjs:27:217\n    at test (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/choreography-polish/geometry-check.mjs:7:83)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/choreography-polish/geometry-check.mjs:24:1"
+    },
+    {
+      "name": "reference planar patterns use fewer irregular seeded points and independent burn durations",
+      "passed": true,
+      "evidence": [
+        {
+          "type": "display-saturn",
+          "planeCount": 48,
+          "formerPlaneCount": 64,
+          "minimumLife": 4.626292624912691,
+          "maximumLife": 5.09064882897446
+        },
+        {
+          "type": "display-heart",
+          "planeCount": 48,
+          "formerPlaneCount": 64,
+          "minimumLife": 4.626292624912691,
+          "maximumLife": 5.09064882897446
+        },
+        {
+          "type": "display-flower",
+          "planeCount": 48,
+          "formerPlaneCount": 64,
+          "minimumLife": 4.626292624912691,
+          "maximumLife": 5.09064882897446
+        }
+      ]
+    }
+  ],
+  "scope": "Actual production events. Before builder shares current curve code only to isolate geometry; no raster, visual or FPS claim."
+}

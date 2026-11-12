@@ -1,0 +1,5089 @@
+{
+  "schema": "glass-atoll.r12-tick-state-cpu.v1",
+  "dateUTC": "2026-10-28T06:39:39.616Z",
+  "actualGPU": false,
+  "checks": [
+    {
+      "name": "legacy67fa remains exact and production modules have no verification/eval imports",
+      "passed": true,
+      "evidence": {
+        "state": "131de6ed505b89c26f0604bd66ea378bf7acf21d704f5aef9230284b0071b6a0",
+        "math": "9330bcd98fc38a1f30a494979887eecdeb946e7b373aa9534b4b5c9c14cddad2",
+        "graph": "99f0fb2650a6279125271ac3bfc7e176a602a74a28aa7b4b1235f5a1eb0ce174",
+        "legacy": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172"
+      }
+    },
+    {
+      "name": "pinned math matches legacy extraction after declared newline normalization and removed limits/export surface",
+      "passed": true,
+      "evidence": {
+        "legacyHash": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172",
+        "normalizedExtractionHash": "f5a3aed7e1bb2fc1aec3c40e8f8d00c5f97894f907bc2ef09354a3606453bca4",
+        "normalizedBytes": 8018,
+        "functions": [
+          "validation",
+          "covariance",
+          "kernel",
+          "densityAt",
+          "columnAt",
+          "publicPacket",
+          "sumMass",
+          "mergePair",
+          "mergeDiagnostics",
+          "thermalFactors"
+        ]
+      }
+    },
+    {
+      "name": "sameclock inputs remain pending and cloned until explicit fence, never exceed publiccapacity",
+      "passed": true,
+      "evidence": {
+        "version": "pyro-smoke-tick-state-v1",
+        "stateModel": "tick-graph-v1",
+        "time": 0,
+        "requestedTime": 0,
+        "revision": 3,
+        "packetCount": 1,
+        "capacity": 1,
+        "peakPacketCount": 1,
+        "stagingPeakPacketCount": 2,
+        "maxStagingPackets": 8193,
+        "pendingEmissions": 0,
+        "pendingWindEvents": 0,
+        "pendingSameClockEmissions": 0,
+        "profileCount": 1,
+        "acceptedSources": 2,
+        "lastEmissionId": 1,
+        "totalTickSteps": 0,
+        "lastAdvanceSteps": 0,
+        "lastAdvanceFences": 0,
+        "fixedStep": 0.05,
+        "maxStepsPerAdvance": 200,
+        "ledger": {
+          "emitted": 0.023,
+          "airborne": 0.023,
+          "pendingMass": 0,
+          "residual": 0,
+          "deposited": 0,
+          "escaped": 0,
+          "explicitlyCleared": 0
+        },
+        "merges": 1,
+        "forcedMerges": 1,
+        "preferredSameSourceMerges": 0,
+        "preferredSameProfileMerges": 0,
+        "maximumMergeDistanceMetres": 1.4282856857085704,
+        "maximumMergeNormalizedDistance": 0.7088812050083361,
+        "maximumSampledMergePeakRelativeError": 0.08997956493889299,
+        "maximumSampledMergeColumnRelativeError": 0.08737257289063727,
+        "maximumSampledMergeOpticalDepthError": 0.00017018655618714009,
+        "diagnosticCacheHits": 0,
+        "diagnosticCacheMisses": 1,
+        "recentMerges": [
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 1.4282856857085704,
+            "normalizedDistance": 0.7088812050083361,
+            "differentialThermalTravelBoundMetres": 3.5391999999999997,
+            "normalizedThermalTravelBound": 1.7695999999999998,
+            "sampledPeakAbsoluteError": 0.00003875075043827022,
+            "sampledPeakRelativeError": 0.08997956493889299,
+            "maximumSampledNewDensity": 0.00042894641464802277,
+            "sampledColumnAbsoluteError": 0.00017018655618714009,
+            "sampledColumnRelativeError": 0.08737257289063727,
+            "maximumPerRaySymmetricRelativeError": 0.09724269333150318,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00017018655618714009,
+              0.00017018655618714009,
+              0.00017018655618714009
+            ],
+            "sampledMaximumOpticalDepthError": 0.00017018655618714009,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          }
+        ],
+        "units": "relative dry mass; metres; physical seconds; authored m2/reference-mass optical profiles. NOT calibrated kg/PM.",
+        "limits": [
+          "Explicit tick-graph-v1; same-clock inputs remain pending until an advance fence.",
+          "Fences and causal input availability are part of deterministic replay; arbitrary fence partitions are not equivalent.",
+          "Public density is committed only; capacity+maxPending bounds private staging.",
+          "Source transport/thermal model and sampled merge quality remain approximations; no CFD, deposition or global optical compression bound.",
+          "Graph and diagnostic caches live for one common-time commit only."
+        ]
+      }
+    },
+    {
+      "name": "same-fence full snapshots and physical diagnostics match naivebatch across24 BrownianTaylor origins/caps",
+      "passed": true,
+      "evidence": {
+        "cases": 24,
+        "merges": 1368
+      }
+    },
+    {
+      "name": "invalid inputs and queue limits reject atomically including hostile getter/reentrant mutations",
+      "passed": true,
+      "evidence": {
+        "cases": 16
+      }
+    },
+    {
+      "name": "clone: failed commit rolls back all public state except requested target and retries exactly",
+      "passed": true,
+      "evidence": {
+        "site": "clone",
+        "pendingRetained": 8
+      }
+    },
+    {
+      "name": "transport: failed commit rolls back all public state except requested target and retries exactly",
+      "passed": true,
+      "evidence": {
+        "site": "transport",
+        "pendingRetained": 8
+      }
+    },
+    {
+      "name": "merge: failed commit rolls back all public state except requested target and retries exactly",
+      "passed": true,
+      "evidence": {
+        "site": "merge",
+        "pendingRetained": 8
+      }
+    },
+    {
+      "name": "middle-merge: failed commit rolls back all public state except requested target and retries exactly",
+      "passed": true,
+      "evidence": {
+        "site": "middle-merge",
+        "pendingRetained": 8
+      }
+    },
+    {
+      "name": "diagnostic: failed commit rolls back all public state except requested target and retries exactly",
+      "passed": true,
+      "evidence": {
+        "site": "diagnostic",
+        "pendingRetained": 8
+      }
+    },
+    {
+      "name": "publish: failed commit rolls back all public state except requested target and retries exactly",
+      "passed": true,
+      "evidence": {
+        "site": "publish",
+        "pendingRetained": 8
+      }
+    },
+    {
+      "name": "reentrant stage observations see committed density only and reject nested mutation",
+      "passed": true,
+      "evidence": {
+        "privatePeak": 8,
+        "publicPeak": 1
+      }
+    },
+    {
+      "name": "bounded catchup publishes only whole ticks and repeated same target never repeats mass or IDs",
+      "passed": true,
+      "evidence": {
+        "completedTime": 0.30000000000000004,
+        "totalTickSteps": 6
+      }
+    },
+    {
+      "name": "actual logical source G4 queue-prefix failure clears pending material and IDs never rewind",
+      "passed": true,
+      "evidence": {
+        "acceptedPrefix": 3,
+        "pendingCleared": 0.11666666666666664,
+        "materialized": 0.11666666666666664
+      }
+    },
+    {
+      "name": "native all-logical source produced all6291 cells and closed20.35 material budget",
+      "passed": true,
+      "evidence": {
+        "count": 6291,
+        "hash": "d192c989db2d994bfa84bd7ac7a31627615312d9020eb001451d913caaa09766",
+        "emissionHash": "c39c6d9c6965ff1b9d4d043da51959c790bfa2944f70b30a8133761cec3317a5",
+        "endTime": 18.60858222067491
+      }
+    },
+    {
+      "name": "full4096 native replay exact snapshot physical diagnostics and allselecteditems vs same-fence naivebatch",
+      "passed": true,
+      "evidence": [
+        {
+          "mode": "naive",
+          "wallMs": 12569.8992,
+          "selected": 35120,
+          "maxAdvanceMs": 271.27799999999934
+        },
+        {
+          "mode": "tick",
+          "wallMs": 2259.8318,
+          "selected": 35120,
+          "maxAdvanceMs": 53.82600000000093
+        }
+      ]
+    },
+    {
+      "name": "legacy source still exact67fa after all tests",
+      "passed": true,
+      "evidence": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172"
+    }
+  ],
+  "runs": [
+    {
+      "mode": "naive",
+      "completed": true,
+      "wallMs": 12569.8992,
+      "snapshotHash": "df33bf671857d3c888f3872e79f37b54bc741bd01131298400e32a55c29b314c",
+      "diagnosticsHash": "858134e8c96040f6166fd2f0768ef7e8c71d0ed64fae397bc85740a96551010c",
+      "traceHash": "7b386a5512532f8d2ae253607fb3339c97e449be606e766e6616f70142c0442b",
+      "selected": 35120,
+      "diagnostics": {
+        "version": "pyro-smoke-state-v1",
+        "time": 18.6,
+        "requestedTime": 18.60858222067491,
+        "revision": 15148,
+        "packetCount": 4096,
+        "capacity": 4096,
+        "peakPacketCount": 4137,
+        "pendingEmissions": 0,
+        "pendingWindEvents": 0,
+        "profileCount": 1,
+        "acceptedSources": 6291,
+        "lastEmissionId": 6290,
+        "totalTickSteps": 372,
+        "lastAdvanceSteps": 4,
+        "fixedStep": 0.05,
+        "maxStepsPerAdvance": 200,
+        "ledger": {
+          "emitted": 20.35000000000004,
+          "airborne": 20.35000000000004,
+          "pendingMass": 0,
+          "residual": 0,
+          "deposited": 0,
+          "escaped": 0,
+          "explicitlyCleared": 0
+        },
+        "merges": 2195,
+        "forcedMerges": 1842,
+        "preferredSameSourceMerges": 53,
+        "preferredSameProfileMerges": 300,
+        "maximumMergeDistanceMetres": 6.787548088989026,
+        "maximumMergeNormalizedDistance": 2.1542677992020822,
+        "maximumSampledMergePeakRelativeError": 0.3266208534570073,
+        "maximumSampledMergeColumnRelativeError": 0.263983095611234,
+        "maximumSampledMergeOpticalDepthError": 0.0017795404799216402,
+        "recentMerges": [
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.082220306822154,
+            "normalizedDistance": 1.7240270739532377,
+            "differentialThermalTravelBoundMetres": 0.16576202843751384,
+            "normalizedThermalTravelBound": 0.07001211222958792,
+            "sampledPeakAbsoluteError": 0.000004144859676566736,
+            "sampledPeakRelativeError": 0.29208865793916217,
+            "maximumSampledNewDensity": 0.000016605990835370712,
+            "sampledColumnAbsoluteError": 0.00002729721178183662,
+            "sampledColumnRelativeError": 0.24827862494604214,
+            "maximumPerRaySymmetricRelativeError": 0.28557512498032733,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00002729721178183662,
+              0.00002729721178183662,
+              0.00002729721178183662
+            ],
+            "sampledMaximumOpticalDepthError": 0.00002729721178183662,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.087219332753058,
+            "normalizedDistance": 1.724519347097009,
+            "differentialThermalTravelBoundMetres": 0.16569103270965102,
+            "normalizedThermalTravelBound": 0.06991772625794122,
+            "sampledPeakAbsoluteError": 0.0000047602627829396194,
+            "sampledPeakRelativeError": 0.29227803550452797,
+            "maximumSampledNewDensity": 0.000019056797010118837,
+            "sampledColumnAbsoluteError": 0.00003137048069354464,
+            "sampledColumnRelativeError": 0.24836476451643238,
+            "maximumPerRaySymmetricRelativeError": 0.285826422842995,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003137048069354464,
+              0.00003137048069354464,
+              0.00003137048069354464
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003137048069354464,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.084775375140584,
+            "normalizedDistance": 1.7248507425248245,
+            "differentialThermalTravelBoundMetres": 0.16579637588214755,
+            "normalizedThermalTravelBound": 0.07001636296241275,
+            "sampledPeakAbsoluteError": 0.000004819156988874365,
+            "sampledPeakRelativeError": 0.2924017582529166,
+            "maximumSampledNewDensity": 0.000019282859984287903,
+            "sampledColumnAbsoluteError": 0.00003172787884047658,
+            "sampledColumnRelativeError": 0.24840939360912273,
+            "maximumPerRaySymmetricRelativeError": 0.28599123915017155,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003172787884047658,
+              0.00003172787884047658,
+              0.00003172787884047658
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003172787884047658,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.096724649745302,
+            "normalizedDistance": 1.7251776017682485,
+            "differentialThermalTravelBoundMetres": 0.1655202200238025,
+            "normalizedThermalTravelBound": 0.06971184669876773,
+            "sampledPeakAbsoluteError": 0.000004377885528141341,
+            "sampledPeakRelativeError": 0.2925330759328387,
+            "maximumSampledNewDensity": 0.000017507765675929506,
+            "sampledColumnAbsoluteError": 0.000028895438032641314,
+            "sampledColumnRelativeError": 0.2484822868963444,
+            "maximumPerRaySymmetricRelativeError": 0.28616192465151946,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000028895438032641314,
+              0.000028895438032641314,
+              0.000028895438032641314
+            ],
+            "sampledMaximumOpticalDepthError": 0.000028895438032641314,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.088426268845504,
+            "normalizedDistance": 1.7254276725609445,
+            "differentialThermalTravelBoundMetres": 0.16577152347883953,
+            "normalizedThermalTravelBound": 0.06996745256322648,
+            "sampledPeakAbsoluteError": 0.000004633479882962555,
+            "sampledPeakRelativeError": 0.292622233434405,
+            "maximumSampledNewDensity": 0.00001852324511155112,
+            "sampledColumnAbsoluteError": 0.00003051233432439531,
+            "sampledColumnRelativeError": 0.24850509346469818,
+            "maximumPerRaySymmetricRelativeError": 0.28628448459223255,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003051233432439531,
+              0.00003051233432439531,
+              0.00003051233432439531
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003051233432439531,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.120279761916698,
+            "normalizedDistance": 1.425365464150821,
+            "differentialThermalTravelBoundMetres": 0.13248755767138504,
+            "normalizedThermalTravelBound": 0.0890652412126454,
+            "sampledPeakAbsoluteError": 0.0000018034761295282291,
+            "sampledPeakRelativeError": 0.025488047158347616,
+            "maximumSampledNewDensity": 0.00007129490678330475,
+            "sampledColumnAbsoluteError": 0.000005369931912486994,
+            "sampledColumnRelativeError": 0.021833456676360684,
+            "maximumPerRaySymmetricRelativeError": 0.06754590546578133,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000005369931912486994,
+              0.000005369931912486994,
+              0.000005369931912486994
+            ],
+            "sampledMaximumOpticalDepthError": 0.000005369931912486994,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.077535573693455,
+            "normalizedDistance": 1.7220048538424924,
+            "differentialThermalTravelBoundMetres": 0.16563025215655205,
+            "normalizedThermalTravelBound": 0.06995093564505828,
+            "sampledPeakAbsoluteError": 0.0000043901129078257115,
+            "sampledPeakRelativeError": 0.2913210264102767,
+            "maximumSampledNewDensity": 0.000017643793112102286,
+            "sampledColumnAbsoluteError": 0.000028947510727406404,
+            "sampledColumnRelativeError": 0.2479468149743264,
+            "maximumPerRaySymmetricRelativeError": 0.2845548841556111,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000028947510727406404,
+              0.000028947510727406404,
+              0.000028947510727406404
+            ],
+            "sampledMaximumOpticalDepthError": 0.000028947510727406404,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 3.483490866123608,
+            "normalizedDistance": 0.7534120466045582,
+            "differentialThermalTravelBoundMetres": 0.36438999900545854,
+            "normalizedThermalTravelBound": 0.11556779984566518,
+            "sampledPeakAbsoluteError": 6.796743687852519e-7,
+            "sampledPeakRelativeError": 0.03232301942198106,
+            "maximumSampledNewDensity": 0.000021330545475883108,
+            "sampledColumnAbsoluteError": 0.000003194092475877972,
+            "sampledColumnRelativeError": 0.01586602780383529,
+            "maximumPerRaySymmetricRelativeError": 0.027150861421231548,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000003194092475877972,
+              0.000003194092475877972,
+              0.000003194092475877972
+            ],
+            "sampledMaximumOpticalDepthError": 0.000003194092475877972,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.137595058908782,
+            "normalizedDistance": 1.7230009482277253,
+            "differentialThermalTravelBoundMetres": 0.17418951034284433,
+            "normalizedThermalTravelBound": 0.07231309105542383,
+            "sampledPeakAbsoluteError": 0.000010627280368304716,
+            "sampledPeakRelativeError": 0.2899799865092591,
+            "maximumSampledNewDensity": 0.000042672209849253155,
+            "sampledColumnAbsoluteError": 0.00006502309726340202,
+            "sampledColumnRelativeError": 0.22692822771046192,
+            "maximumPerRaySymmetricRelativeError": 0.28501043196280873,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00006502309726340202,
+              0.00006502309726340202,
+              0.00006502309726340202
+            ],
+            "sampledMaximumOpticalDepthError": 0.00006502309726340202,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 5.858806214160125,
+            "normalizedDistance": 1.7134752267470024,
+            "differentialThermalTravelBoundMetres": 0.24796220334540722,
+            "normalizedThermalTravelBound": 0.07785325335867942,
+            "sampledPeakAbsoluteError": 0.0000042322712656149065,
+            "sampledPeakRelativeError": 0.28827654663623903,
+            "maximumSampledNewDensity": 0.000016551693908980113,
+            "sampledColumnAbsoluteError": 0.00003667576302166408,
+            "sampledColumnRelativeError": 0.22574248946152817,
+            "maximumPerRaySymmetricRelativeError": 0.2949670316072016,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003667576302166408,
+              0.00003667576302166408,
+              0.00003667576302166408
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003667576302166408,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 5.734482957681407,
+            "normalizedDistance": 1.5419559478775369,
+            "differentialThermalTravelBoundMetres": 0.14909432979262455,
+            "normalizedThermalTravelBound": 0.04752487535177258,
+            "sampledPeakAbsoluteError": 0.0000021915503886555175,
+            "sampledPeakRelativeError": 0.1906343682619728,
+            "maximumSampledNewDensity": 0.000013017849323699617,
+            "sampledColumnAbsoluteError": 0.00001870049404359822,
+            "sampledColumnRelativeError": 0.150444964509504,
+            "maximumPerRaySymmetricRelativeError": 0.18602478459429378,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00001870049404359822,
+              0.00001870049404359822,
+              0.00001870049404359822
+            ],
+            "sampledMaximumOpticalDepthError": 0.00001870049404359822,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.106832316743558,
+            "normalizedDistance": 1.2069982457635235,
+            "differentialThermalTravelBoundMetres": 0.0021849123169921047,
+            "normalizedThermalTravelBound": 0.0009573208896150044,
+            "sampledPeakAbsoluteError": 0.000003560937463638801,
+            "sampledPeakRelativeError": 0.09310606630320997,
+            "maximumSampledNewDensity": 0.000040823066357088714,
+            "sampledColumnAbsoluteError": 0.000015422207132218972,
+            "sampledColumnRelativeError": 0.04853631737401818,
+            "maximumPerRaySymmetricRelativeError": 0.06514673674783636,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000015422207132218972,
+              0.000015422207132218972,
+              0.000015422207132218972
+            ],
+            "sampledMaximumOpticalDepthError": 0.000015422207132218972,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.4139567548833614,
+            "normalizedDistance": 1.5276916266892206,
+            "differentialThermalTravelBoundMetres": 0.13450914687475196,
+            "normalizedThermalTravelBound": 0.08512518300524771,
+            "sampledPeakAbsoluteError": 0.000006570000129268656,
+            "sampledPeakRelativeError": 0.12502581602156962,
+            "maximumSampledNewDensity": 0.000055064083447362843,
+            "sampledColumnAbsoluteError": 0.000023049061158451434,
+            "sampledColumnRelativeError": 0.10643777590490874,
+            "maximumPerRaySymmetricRelativeError": 0.229619692885455,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000023049061158451434,
+              0.000023049061158451434,
+              0.000023049061158451434
+            ],
+            "sampledMaximumOpticalDepthError": 0.000023049061158451434,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.587715028679019,
+            "normalizedDistance": 1.574413803613625,
+            "differentialThermalTravelBoundMetres": 0.13481740516871485,
+            "normalizedThermalTravelBound": 0.08202543491874248,
+            "sampledPeakAbsoluteError": 0.000007101926005715346,
+            "sampledPeakRelativeError": 0.1559479101114562,
+            "maximumSampledNewDensity": 0.000048740919188883805,
+            "sampledColumnAbsoluteError": 0.000026991986163067195,
+            "sampledColumnRelativeError": 0.1313477292415875,
+            "maximumPerRaySymmetricRelativeError": 0.2492358570955937,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000026991986163067195,
+              0.000026991986163067195,
+              0.000026991986163067195
+            ],
+            "sampledMaximumOpticalDepthError": 0.000026991986163067195,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.0729074293273766,
+            "normalizedDistance": 1.39935606529123,
+            "differentialThermalTravelBoundMetres": 0.13062221384626896,
+            "normalizedThermalTravelBound": 0.08817904414874957,
+            "sampledPeakAbsoluteError": 1.7080788691099848e-7,
+            "sampledPeakRelativeError": 0.0023746726679991855,
+            "maximumSampledNewDensity": 0.00007197981805119533,
+            "sampledColumnAbsoluteError": 5.016567013987731e-7,
+            "sampledColumnRelativeError": 0.002061767656029959,
+            "maximumPerRaySymmetricRelativeError": 0.006825445321745759,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              5.016567013987731e-7,
+              5.016567013987731e-7,
+              5.016567013987731e-7
+            ],
+            "sampledMaximumOpticalDepthError": 5.016567013987731e-7,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.0758575425748904,
+            "normalizedDistance": 1.4018363631772586,
+            "differentialThermalTravelBoundMetres": 0.1309042786367236,
+            "normalizedThermalTravelBound": 0.08840027822435528,
+            "sampledPeakAbsoluteError": 2.857365762723823e-7,
+            "sampledPeakRelativeError": 0.003965329509744143,
+            "maximumSampledNewDensity": 0.00007214339984895026,
+            "sampledColumnAbsoluteError": 8.382920027901332e-7,
+            "sampledColumnRelativeError": 0.0034341469377474655,
+            "maximumPerRaySymmetricRelativeError": 0.011337258904611234,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              8.382920027901332e-7,
+              8.382920027901332e-7,
+              8.382920027901332e-7
+            ],
+            "sampledMaximumOpticalDepthError": 8.382920027901332e-7,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.2636180918477,
+            "normalizedDistance": 1.473439624456782,
+            "differentialThermalTravelBoundMetres": 0.13260171286880118,
+            "normalizedThermalTravelBound": 0.08631342670414045,
+            "sampledPeakAbsoluteError": 0.000004752721390288611,
+            "sampledPeakRelativeError": 0.08054715615058466,
+            "maximumSampledNewDensity": 0.000060634068734203864,
+            "sampledColumnAbsoluteError": 0.00001559904415025192,
+            "sampledColumnRelativeError": 0.06965709491410037,
+            "maximumPerRaySymmetricRelativeError": 0.17366649099819925,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00001559904415025192,
+              0.00001559904415025192,
+              0.00001559904415025192
+            ],
+            "sampledMaximumOpticalDepthError": 0.00001559904415025192,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.420921223625317,
+            "normalizedDistance": 1.5234412204062302,
+            "differentialThermalTravelBoundMetres": 0.13330740038740463,
+            "normalizedThermalTravelBound": 0.08388790774478815,
+            "sampledPeakAbsoluteError": 0.000006296051895337581,
+            "sampledPeakRelativeError": 0.12343399818725195,
+            "maximumSampledNewDensity": 0.00005349022931334273,
+            "sampledColumnAbsoluteError": 0.000022412595095693455,
+            "sampledColumnRelativeError": 0.10603574369718298,
+            "maximumPerRaySymmetricRelativeError": 0.22564255584850165,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000022412595095693455,
+              0.000022412595095693455,
+              0.000022412595095693455
+            ],
+            "sampledMaximumOpticalDepthError": 0.000022412595095693455,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.107265022978238,
+            "normalizedDistance": 1.7113494945458563,
+            "differentialThermalTravelBoundMetres": 0.1634377996738139,
+            "normalizedThermalTravelBound": 0.06810808007036394,
+            "sampledPeakAbsoluteError": 0.000004344317773627793,
+            "sampledPeakRelativeError": 0.2872970354801768,
+            "maximumSampledNewDensity": 0.000017749625227155295,
+            "sampledColumnAbsoluteError": 0.0000292054744416084,
+            "sampledColumnRelativeError": 0.24574029906221498,
+            "maximumPerRaySymmetricRelativeError": 0.2792305659883176,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.0000292054744416084,
+              0.0000292054744416084,
+              0.0000292054744416084
+            ],
+            "sampledMaximumOpticalDepthError": 0.0000292054744416084,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.080804175945247,
+            "normalizedDistance": 1.7108233874394587,
+            "differentialThermalTravelBoundMetres": 0.164112876727962,
+            "normalizedThermalTravelBound": 0.06880624090497789,
+            "sampledPeakAbsoluteError": 0.0000045474755831096155,
+            "sampledPeakRelativeError": 0.28708353170108947,
+            "maximumSampledNewDensity": 0.00001859635716671921,
+            "sampledColumnAbsoluteError": 0.000030394336229522327,
+            "sampledColumnRelativeError": 0.24617405637721235,
+            "maximumPerRaySymmetricRelativeError": 0.278961276966612,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000030394336229522327,
+              0.000030394336229522327,
+              0.000030394336229522327
+            ],
+            "sampledMaximumOpticalDepthError": 0.000030394336229522327,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.074629898839112,
+            "normalizedDistance": 1.7110469431637232,
+            "differentialThermalTravelBoundMetres": 0.16431249202532724,
+            "normalizedThermalTravelBound": 0.06900092020003878,
+            "sampledPeakAbsoluteError": 0.0000045009911558694225,
+            "sampledPeakRelativeError": 0.2871652049291346,
+            "maximumSampledNewDensity": 0.000018400162473661014,
+            "sampledColumnAbsoluteError": 0.000030031328455387967,
+            "sampledColumnRelativeError": 0.2461967221443052,
+            "maximumPerRaySymmetricRelativeError": 0.27907067302862754,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000030031328455387967,
+              0.000030031328455387967,
+              0.000030031328455387967
+            ],
+            "sampledMaximumOpticalDepthError": 0.000030031328455387967,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.089255092844153,
+            "normalizedDistance": 1.7116051465921842,
+            "differentialThermalTravelBoundMetres": 0.16397951549899897,
+            "normalizedThermalTravelBound": 0.06864191267688585,
+            "sampledPeakAbsoluteError": 0.000004149842701390088,
+            "sampledPeakRelativeError": 0.28738496639204164,
+            "maximumSampledNewDensity": 0.0000169491612106434,
+            "sampledColumnAbsoluteError": 0.000027768610724910486,
+            "sampledColumnRelativeError": 0.24631601689425245,
+            "maximumPerRaySymmetricRelativeError": 0.2793524454916435,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000027768610724910486,
+              0.000027768610724910486,
+              0.000027768610724910486
+            ],
+            "sampledMaximumOpticalDepthError": 0.000027768610724910486,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.099992241583529,
+            "normalizedDistance": 1.712366237423522,
+            "differentialThermalTravelBoundMetres": 0.16377905427808212,
+            "normalizedThermalTravelBound": 0.06841147675587139,
+            "sampledPeakAbsoluteError": 0.000004378046287462315,
+            "sampledPeakRelativeError": 0.28767964991007045,
+            "maximumSampledNewDensity": 0.000017859430060816585,
+            "sampledColumnAbsoluteError": 0.000029346426973534897,
+            "sampledColumnRelativeError": 0.2460294811811081,
+            "maximumPerRaySymmetricRelativeError": 0.279739891051525,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000029346426973534897,
+              0.000029346426973534897,
+              0.000029346426973534897
+            ],
+            "sampledMaximumOpticalDepthError": 0.000029346426973534897,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 3.874971634519314,
+            "normalizedDistance": 1.0018490454484483,
+            "differentialThermalTravelBoundMetres": 0.4764722287386435,
+            "normalizedThermalTravelBound": 0.12587735090769292,
+            "sampledPeakAbsoluteError": 0.000001338737172919861,
+            "sampledPeakRelativeError": 0.05413031434476856,
+            "maximumSampledNewDensity": 0.000025759079304065276,
+            "sampledColumnAbsoluteError": 0.0000080881334357628,
+            "sampledColumnRelativeError": 0.03736861858918443,
+            "maximumPerRaySymmetricRelativeError": 0.05397401644621487,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.0000080881334357628,
+              0.0000080881334357628,
+              0.0000080881334357628
+            ],
+            "sampledMaximumOpticalDepthError": 0.0000080881334357628,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.081034001951477,
+            "normalizedDistance": 1.7117111715152864,
+            "differentialThermalTravelBoundMetres": 0.16422060235622588,
+            "normalizedThermalTravelBound": 0.06888227470272583,
+            "sampledPeakAbsoluteError": 0.00000416493200683503,
+            "sampledPeakRelativeError": 0.2874209796507449,
+            "maximumSampledNewDensity": 0.00001700837466149027,
+            "sampledColumnAbsoluteError": 0.000027811336094062095,
+            "sampledColumnRelativeError": 0.24631541796985948,
+            "maximumPerRaySymmetricRelativeError": 0.27940441905770913,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000027811336094062095,
+              0.000027811336094062095,
+              0.000027811336094062095
+            ],
+            "sampledMaximumOpticalDepthError": 0.000027811336094062095,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.081415903699962,
+            "normalizedDistance": 1.3960786990282692,
+            "differentialThermalTravelBoundMetres": 0.12936279101306475,
+            "normalizedThermalTravelBound": 0.08676817546073405,
+            "sampledPeakAbsoluteError": 3.9911341809630626e-7,
+            "sampledPeakRelativeError": 0.005816778334937793,
+            "maximumSampledNewDensity": 0.00006873728938565256,
+            "sampledColumnAbsoluteError": 0.0000011983734473594327,
+            "sampledColumnRelativeError": 0.005122608481230843,
+            "maximumPerRaySymmetricRelativeError": 0.01642348364279545,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.0000011983734473594327,
+              0.0000011983734473594327,
+              0.0000011983734473594327
+            ],
+            "sampledMaximumOpticalDepthError": 0.0000011983734473594327,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.2125251236045105,
+            "normalizedDistance": 1.4533232625329744,
+            "differentialThermalTravelBoundMetres": 0.1318509414481937,
+            "normalizedThermalTravelBound": 0.08660786247087716,
+            "sampledPeakAbsoluteError": 0.0000037915548927630434,
+            "sampledPeakRelativeError": 0.062045200394803726,
+            "maximumSampledNewDensity": 0.00006236549927501845,
+            "sampledColumnAbsoluteError": 0.000012144570388486657,
+            "sampledColumnRelativeError": 0.053916387048557224,
+            "maximumPerRaySymmetricRelativeError": 0.1428100647885306,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000012144570388486657,
+              0.000012144570388486657,
+              0.000012144570388486657
+            ],
+            "sampledMaximumOpticalDepthError": 0.000012144570388486657,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.075398826161423,
+            "normalizedDistance": 1.6687467451995353,
+            "differentialThermalTravelBoundMetres": 0.16022251492519485,
+            "normalizedThermalTravelBound": 0.06540474591807553,
+            "sampledPeakAbsoluteError": 0.000009046006499185485,
+            "sampledPeakRelativeError": 0.27205277600722944,
+            "maximumSampledNewDensity": 0.000039545325856414444,
+            "sampledColumnAbsoluteError": 0.00007629977565279378,
+            "sampledColumnRelativeError": 0.2595444026329143,
+            "maximumPerRaySymmetricRelativeError": 0.2585554691564578,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00007629977565279378,
+              0.00007629977565279378,
+              0.00007629977565279378
+            ],
+            "sampledMaximumOpticalDepthError": 0.00007629977565279378,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 6.516966022429379,
+            "normalizedDistance": 1.4320998989660227,
+            "differentialThermalTravelBoundMetres": 0.08111037221367079,
+            "normalizedThermalTravelBound": 0.030411370422398165,
+            "sampledPeakAbsoluteError": 0.0000027733729036373805,
+            "sampledPeakRelativeError": 0.10367519622436777,
+            "maximumSampledNewDensity": 0.00002519971770161826,
+            "sampledColumnAbsoluteError": 0.00002631575466438603,
+            "sampledColumnRelativeError": 0.0916566402156517,
+            "maximumPerRaySymmetricRelativeError": 0.1592011363888406,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00002631575466438603,
+              0.00002631575466438603,
+              0.00002631575466438603
+            ],
+            "sampledMaximumOpticalDepthError": 0.00002631575466438603,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 5.881830215651018,
+            "normalizedDistance": 1.1306861906194938,
+            "differentialThermalTravelBoundMetres": 0.5073016519378323,
+            "normalizedThermalTravelBound": 0.16128900043790104,
+            "sampledPeakAbsoluteError": 0.0000020192817513937804,
+            "sampledPeakRelativeError": 0.07260314629385224,
+            "maximumSampledNewDensity": 0.000029012978927868088,
+            "sampledColumnAbsoluteError": 0.000014384788361065058,
+            "sampledColumnRelativeError": 0.04291604974820757,
+            "maximumPerRaySymmetricRelativeError": 0.09749953553754001,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000014384788361065058,
+              0.000014384788361065058,
+              0.000014384788361065058
+            ],
+            "sampledMaximumOpticalDepthError": 0.000014384788361065058,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.922733699948903,
+            "normalizedDistance": 1.3558850257911037,
+            "differentialThermalTravelBoundMetres": 0.08064970437702526,
+            "normalizedThermalTravelBound": 0.02302205139396138,
+            "sampledPeakAbsoluteError": 0.0000034410270035981234,
+            "sampledPeakRelativeError": 0.1095765359972005,
+            "maximumSampledNewDensity": 0.000030392836525916282,
+            "sampledColumnAbsoluteError": 0.000045120664944210535,
+            "sampledColumnRelativeError": 0.12677513449017547,
+            "maximumPerRaySymmetricRelativeError": 0.21287668564973752,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000045120664944210535,
+              0.000045120664944210535,
+              0.000045120664944210535
+            ],
+            "sampledMaximumOpticalDepthError": 0.000045120664944210535,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 6.787548088989026,
+            "normalizedDistance": 1.10617548434801,
+            "differentialThermalTravelBoundMetres": 0.23726221512871812,
+            "normalizedThermalTravelBound": 0.07809600471293854,
+            "sampledPeakAbsoluteError": 0.000004688769180656454,
+            "sampledPeakRelativeError": 0.17474042897418413,
+            "maximumSampledNewDensity": 0.000029593506190095383,
+            "sampledColumnAbsoluteError": 0.00004195103581685887,
+            "sampledColumnRelativeError": 0.11144419576857667,
+            "maximumPerRaySymmetricRelativeError": 0.19824364978654815,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00004195103581685887,
+              0.00004195103581685887,
+              0.00004195103581685887
+            ],
+            "sampledMaximumOpticalDepthError": 0.00004195103581685887,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          }
+        ],
+        "units": "relative dry mass; metres; physical seconds; authored m2/reference-mass optical profiles. NOT calibrated kg/PM.",
+        "limits": [
+          "no age deletion; no deposition/domain/RH chemistry implemented",
+          "uniform piecewise-held wind and prescribed thermal/diffusion surrogate; no Navier-Stokes or shear",
+          "same-profile capacity merges conserve instantaneous spatial moments; no velocity/thermal variance or position-velocity cross covariance, so future heterogeneous thermal separation is not preserved",
+          "sampled peak/column diagnostics are not global optical bounds; differential-thermal-travel gate only limits preferred merges",
+          "forcedMerges signal visual approximation, not an accepted appearance",
+          "no camera/P/C/UTC or renderer dependency",
+          "erf columns have finite numerical approximation error; not an unbiased ray renderer",
+          "pending queues, profiles and recent merge log are bounded; no retained old source/active-event archive"
+        ]
+      },
+      "times": [
+        {
+          "time": 0,
+          "ms": 0.2567000000003645,
+          "merges": 0
+        },
+        {
+          "time": 0.1,
+          "ms": 0.16040000000020882,
+          "merges": 0
+        },
+        {
+          "time": 0.15000000000000002,
+          "ms": 0.03029999999989741,
+          "merges": 0
+        },
+        {
+          "time": 0.2,
+          "ms": 0.027700000000095315,
+          "merges": 0
+        },
+        {
+          "time": 0.30000000000000004,
+          "ms": 0.04059999999981301,
+          "merges": 0
+        },
+        {
+          "time": 0.4,
+          "ms": 0.03890000000001237,
+          "merges": 0
+        },
+        {
+          "time": 0.45,
+          "ms": 0.016700000000128057,
+          "merges": 0
+        },
+        {
+          "time": 0.5,
+          "ms": 0.013500000000021828,
+          "merges": 0
+        },
+        {
+          "time": 0.6000000000000001,
+          "ms": 0.03300000000035652,
+          "merges": 0
+        },
+        {
+          "time": 5.800000000000001,
+          "ms": 0.440900000000056,
+          "merges": 0
+        },
+        {
+          "time": 5.8500000000000005,
+          "ms": 0.008799999999610009,
+          "merges": 0
+        },
+        {
+          "time": 5.9,
+          "ms": 0.23010000000022046,
+          "merges": 0
+        },
+        {
+          "time": 5.9,
+          "ms": 0.007399999999961437,
+          "merges": 0
+        },
+        {
+          "time": 5.95,
+          "ms": 1.1911999999997533,
+          "merges": 0
+        },
+        {
+          "time": 6,
+          "ms": 2.0511999999998807,
+          "merges": 0
+        },
+        {
+          "time": 6,
+          "ms": 0.0061000000000603904,
+          "merges": 0
+        },
+        {
+          "time": 6.050000000000001,
+          "ms": 0.39429999999993015,
+          "merges": 0
+        },
+        {
+          "time": 6.1000000000000005,
+          "ms": 0.23600000000033106,
+          "merges": 0
+        },
+        {
+          "time": 6.2,
+          "ms": 0.3285999999998239,
+          "merges": 0
+        },
+        {
+          "time": 6.2,
+          "ms": 0.009800000000268483,
+          "merges": 0
+        },
+        {
+          "time": 6.25,
+          "ms": 0.9329000000002452,
+          "merges": 0
+        },
+        {
+          "time": 6.300000000000001,
+          "ms": 0.5054999999997563,
+          "merges": 0
+        },
+        {
+          "time": 6.300000000000001,
+          "ms": 0.005000000000109139,
+          "merges": 0
+        },
+        {
+          "time": 6.3500000000000005,
+          "ms": 0.5871999999999389,
+          "merges": 0
+        },
+        {
+          "time": 6.4,
+          "ms": 0.33330000000023574,
+          "merges": 0
+        },
+        {
+          "time": 6.5,
+          "ms": 0.3493999999996049,
+          "merges": 0
+        },
+        {
+          "time": 6.5,
+          "ms": 0.005899999999655847,
+          "merges": 0
+        },
+        {
+          "time": 6.550000000000001,
+          "ms": 0.7640000000001237,
+          "merges": 0
+        },
+        {
+          "time": 6.6000000000000005,
+          "ms": 0.9940000000001419,
+          "merges": 0
+        },
+        {
+          "time": 6.6000000000000005,
+          "ms": 0.0065999999997075065,
+          "merges": 0
+        },
+        {
+          "time": 6.65,
+          "ms": 0.8687999999997373,
+          "merges": 0
+        },
+        {
+          "time": 6.7,
+          "ms": 0.49599999999963984,
+          "merges": 0
+        },
+        {
+          "time": 6.800000000000001,
+          "ms": 3.1235999999998967,
+          "merges": 0
+        },
+        {
+          "time": 6.800000000000001,
+          "ms": 0.007500000000163709,
+          "merges": 0
+        },
+        {
+          "time": 6.8500000000000005,
+          "ms": 1.149499999999989,
+          "merges": 0
+        },
+        {
+          "time": 6.9,
+          "ms": 1.2132999999998901,
+          "merges": 0
+        },
+        {
+          "time": 6.9,
+          "ms": 0.0078000000003157766,
+          "merges": 0
+        },
+        {
+          "time": 6.95,
+          "ms": 1.1751000000003842,
+          "merges": 0
+        },
+        {
+          "time": 7,
+          "ms": 0.755699999999706,
+          "merges": 0
+        },
+        {
+          "time": 7.1000000000000005,
+          "ms": 0.7971000000002277,
+          "merges": 0
+        },
+        {
+          "time": 7.1000000000000005,
+          "ms": 0.00580000000036307,
+          "merges": 0
+        },
+        {
+          "time": 7.15,
+          "ms": 2.024199999999837,
+          "merges": 0
+        },
+        {
+          "time": 7.2,
+          "ms": 0.5061000000000604,
+          "merges": 0
+        },
+        {
+          "time": 7.2,
+          "ms": 0.005300000000261207,
+          "merges": 0
+        },
+        {
+          "time": 7.25,
+          "ms": 0.4472000000000662,
+          "merges": 0
+        },
+        {
+          "time": 7.300000000000001,
+          "ms": 0.2381999999997788,
+          "merges": 0
+        },
+        {
+          "time": 7.4,
+          "ms": 0.2788999999997941,
+          "merges": 0
+        },
+        {
+          "time": 7.4,
+          "ms": 0.0052999999998064595,
+          "merges": 0
+        },
+        {
+          "time": 7.45,
+          "ms": 0.503400000000056,
+          "merges": 0
+        },
+        {
+          "time": 7.5,
+          "ms": 0.5672999999997046,
+          "merges": 0
+        },
+        {
+          "time": 7.5,
+          "ms": 0.005500000000211003,
+          "merges": 0
+        },
+        {
+          "time": 7.550000000000001,
+          "ms": 0.535200000000259,
+          "merges": 0
+        },
+        {
+          "time": 7.6000000000000005,
+          "ms": 0.2898000000000138,
+          "merges": 0
+        },
+        {
+          "time": 7.7,
+          "ms": 0.31140000000004875,
+          "merges": 0
+        },
+        {
+          "time": 7.7,
+          "ms": 0.0059000000001105946,
+          "merges": 0
+        },
+        {
+          "time": 7.75,
+          "ms": 0.6082000000001244,
+          "merges": 0
+        },
+        {
+          "time": 7.800000000000001,
+          "ms": 0.6431999999999789,
+          "merges": 0
+        },
+        {
+          "time": 7.800000000000001,
+          "ms": 0.005699999999706051,
+          "merges": 0
+        },
+        {
+          "time": 7.8500000000000005,
+          "ms": 0.7118000000000393,
+          "merges": 0
+        },
+        {
+          "time": 7.9,
+          "ms": 0.3910999999998239,
+          "merges": 0
+        },
+        {
+          "time": 8,
+          "ms": 0.421100000000024,
+          "merges": 0
+        },
+        {
+          "time": 8,
+          "ms": 0.005599999999958527,
+          "merges": 0
+        },
+        {
+          "time": 8.05,
+          "ms": 0.8404000000000451,
+          "merges": 0
+        },
+        {
+          "time": 8.1,
+          "ms": 0.9695999999999003,
+          "merges": 0
+        },
+        {
+          "time": 8.1,
+          "ms": 0.005599999999958527,
+          "merges": 0
+        },
+        {
+          "time": 8.15,
+          "ms": 1.0725999999999658,
+          "merges": 0
+        },
+        {
+          "time": 8.200000000000001,
+          "ms": 0.5121000000003733,
+          "merges": 0
+        },
+        {
+          "time": 8.3,
+          "ms": 0.763300000000072,
+          "merges": 0
+        },
+        {
+          "time": 8.3,
+          "ms": 0.0059000000001105946,
+          "merges": 0
+        },
+        {
+          "time": 8.35,
+          "ms": 1.3011999999998807,
+          "merges": 0
+        },
+        {
+          "time": 8.4,
+          "ms": 1.453599999999824,
+          "merges": 0
+        },
+        {
+          "time": 8.4,
+          "ms": 0.005599999999958527,
+          "merges": 0
+        },
+        {
+          "time": 8.450000000000001,
+          "ms": 1.5363000000002103,
+          "merges": 0
+        },
+        {
+          "time": 8.5,
+          "ms": 0.822400000000016,
+          "merges": 0
+        },
+        {
+          "time": 8.6,
+          "ms": 0.9494999999997162,
+          "merges": 0
+        },
+        {
+          "time": 8.6,
+          "ms": 0.006300000000010186,
+          "merges": 0
+        },
+        {
+          "time": 8.65,
+          "ms": 1.9630999999999403,
+          "merges": 0
+        },
+        {
+          "time": 8.700000000000001,
+          "ms": 1.8966999999997824,
+          "merges": 0
+        },
+        {
+          "time": 8.700000000000001,
+          "ms": 0.005400000000008731,
+          "merges": 0
+        },
+        {
+          "time": 8.75,
+          "ms": 2.076299999999719,
+          "merges": 0
+        },
+        {
+          "time": 8.8,
+          "ms": 1.1814999999996871,
+          "merges": 0
+        },
+        {
+          "time": 8.9,
+          "ms": 1.3402000000000953,
+          "merges": 0
+        },
+        {
+          "time": 8.9,
+          "ms": 0.007399999999961437,
+          "merges": 0
+        },
+        {
+          "time": 8.950000000000001,
+          "ms": 1.0702000000001135,
+          "merges": 0
+        },
+        {
+          "time": 9,
+          "ms": 1.0423000000000684,
+          "merges": 0
+        },
+        {
+          "time": 9,
+          "ms": 0.006799999999657302,
+          "merges": 0
+        },
+        {
+          "time": 9.05,
+          "ms": 0.9681000000000495,
+          "merges": 0
+        },
+        {
+          "time": 9.1,
+          "ms": 0.5354999999999563,
+          "merges": 0
+        },
+        {
+          "time": 9.200000000000001,
+          "ms": 0.5741000000002714,
+          "merges": 0
+        },
+        {
+          "time": 9.200000000000001,
+          "ms": 0.02260000000023865,
+          "merges": 0
+        },
+        {
+          "time": 9.25,
+          "ms": 1.4540000000001783,
+          "merges": 0
+        },
+        {
+          "time": 9.3,
+          "ms": 1.548399999999674,
+          "merges": 0
+        },
+        {
+          "time": 9.3,
+          "ms": 0.0065999999997075065,
+          "merges": 0
+        },
+        {
+          "time": 9.35,
+          "ms": 1.5320999999999003,
+          "merges": 0
+        },
+        {
+          "time": 9.4,
+          "ms": 0.719499999999698,
+          "merges": 0
+        },
+        {
+          "time": 9.5,
+          "ms": 0.7527999999997519,
+          "merges": 0
+        },
+        {
+          "time": 9.5,
+          "ms": 0.005999999999858119,
+          "merges": 0
+        },
+        {
+          "time": 9.55,
+          "ms": 1.7092000000002372,
+          "merges": 0
+        },
+        {
+          "time": 9.600000000000001,
+          "ms": 1.904700000000048,
+          "merges": 0
+        },
+        {
+          "time": 9.600000000000001,
+          "ms": 0.007000000000061846,
+          "merges": 0
+        },
+        {
+          "time": 9.65,
+          "ms": 1.8688999999999396,
+          "merges": 0
+        },
+        {
+          "time": 9.700000000000001,
+          "ms": 1.0051000000003114,
+          "merges": 0
+        },
+        {
+          "time": 9.8,
+          "ms": 1.1945999999998094,
+          "merges": 0
+        },
+        {
+          "time": 9.8,
+          "ms": 0.006999999999607098,
+          "merges": 0
+        },
+        {
+          "time": 9.850000000000001,
+          "ms": 2.0891999999998916,
+          "merges": 0
+        },
+        {
+          "time": 9.9,
+          "ms": 2.186699999999746,
+          "merges": 0
+        },
+        {
+          "time": 9.9,
+          "ms": 0.009399999999914144,
+          "merges": 0
+        },
+        {
+          "time": 9.950000000000001,
+          "ms": 2.2842000000000553,
+          "merges": 0
+        },
+        {
+          "time": 10,
+          "ms": 1.3532000000000153,
+          "merges": 0
+        },
+        {
+          "time": 10.100000000000001,
+          "ms": 1.4448999999999614,
+          "merges": 0
+        },
+        {
+          "time": 10.100000000000001,
+          "ms": 0.007500000000163709,
+          "merges": 0
+        },
+        {
+          "time": 10.15,
+          "ms": 2.5999000000001615,
+          "merges": 0
+        },
+        {
+          "time": 10.200000000000001,
+          "ms": 2.9283000000000357,
+          "merges": 0
+        },
+        {
+          "time": 10.200000000000001,
+          "ms": 0.010200000000168075,
+          "merges": 0
+        },
+        {
+          "time": 10.25,
+          "ms": 2.9216999999998734,
+          "merges": 0
+        },
+        {
+          "time": 10.3,
+          "ms": 1.5683999999996558,
+          "merges": 0
+        },
+        {
+          "time": 10.4,
+          "ms": 1.685699999999997,
+          "merges": 0
+        },
+        {
+          "time": 10.4,
+          "ms": 0.009199999999964348,
+          "merges": 0
+        },
+        {
+          "time": 10.450000000000001,
+          "ms": 3.3910000000000764,
+          "merges": 0
+        },
+        {
+          "time": 10.5,
+          "ms": 3.3263999999999214,
+          "merges": 0
+        },
+        {
+          "time": 10.5,
+          "ms": 0.008299999999962893,
+          "merges": 0
+        },
+        {
+          "time": 10.55,
+          "ms": 3.4329999999999927,
+          "merges": 0
+        },
+        {
+          "time": 10.600000000000001,
+          "ms": 1.7528999999999542,
+          "merges": 0
+        },
+        {
+          "time": 10.700000000000001,
+          "ms": 1.9322000000001935,
+          "merges": 0
+        },
+        {
+          "time": 10.700000000000001,
+          "ms": 0.010200000000168075,
+          "merges": 0
+        },
+        {
+          "time": 10.75,
+          "ms": 3.585900000000038,
+          "merges": 0
+        },
+        {
+          "time": 10.8,
+          "ms": 3.7952000000000226,
+          "merges": 0
+        },
+        {
+          "time": 10.8,
+          "ms": 0.010200000000168075,
+          "merges": 0
+        },
+        {
+          "time": 10.850000000000001,
+          "ms": 3.667099999999664,
+          "merges": 0
+        },
+        {
+          "time": 10.9,
+          "ms": 2.106800000000021,
+          "merges": 0
+        },
+        {
+          "time": 11,
+          "ms": 2.1404999999999745,
+          "merges": 0
+        },
+        {
+          "time": 11,
+          "ms": 0.009600000000318687,
+          "merges": 0
+        },
+        {
+          "time": 11.05,
+          "ms": 3.5927999999998974,
+          "merges": 0
+        },
+        {
+          "time": 11.100000000000001,
+          "ms": 4.232300000000123,
+          "merges": 0
+        },
+        {
+          "time": 11.100000000000001,
+          "ms": 0.011799999999766442,
+          "merges": 0
+        },
+        {
+          "time": 11.15,
+          "ms": 4.181699999999637,
+          "merges": 0
+        },
+        {
+          "time": 11.200000000000001,
+          "ms": 2.1163000000001375,
+          "merges": 0
+        },
+        {
+          "time": 11.3,
+          "ms": 2.1263999999996486,
+          "merges": 0
+        },
+        {
+          "time": 11.3,
+          "ms": 0.009999999999763531,
+          "merges": 0
+        },
+        {
+          "time": 11.350000000000001,
+          "ms": 3.9387000000001535,
+          "merges": 0
+        },
+        {
+          "time": 11.4,
+          "ms": 4.281700000000001,
+          "merges": 0
+        },
+        {
+          "time": 11.4,
+          "ms": 0.010199999999713327,
+          "merges": 0
+        },
+        {
+          "time": 11.450000000000001,
+          "ms": 4.31899999999996,
+          "merges": 0
+        },
+        {
+          "time": 11.5,
+          "ms": 2.1309000000001106,
+          "merges": 0
+        },
+        {
+          "time": 11.600000000000001,
+          "ms": 2.882300000000214,
+          "merges": 0
+        },
+        {
+          "time": 11.600000000000001,
+          "ms": 0.012400000000070577,
+          "merges": 0
+        },
+        {
+          "time": 11.65,
+          "ms": 5.408100000000104,
+          "merges": 0
+        },
+        {
+          "time": 11.700000000000001,
+          "ms": 4.535399999999754,
+          "merges": 0
+        },
+        {
+          "time": 11.700000000000001,
+          "ms": 0.011199999999917054,
+          "merges": 0
+        },
+        {
+          "time": 11.75,
+          "ms": 4.774199999999837,
+          "merges": 0
+        },
+        {
+          "time": 11.8,
+          "ms": 2.5808999999999287,
+          "merges": 0
+        },
+        {
+          "time": 11.9,
+          "ms": 2.7422999999998865,
+          "merges": 0
+        },
+        {
+          "time": 11.9,
+          "ms": 0.013799999999719148,
+          "merges": 0
+        },
+        {
+          "time": 11.950000000000001,
+          "ms": 4.787899999999809,
+          "merges": 0
+        },
+        {
+          "time": 12,
+          "ms": 5.154700000000048,
+          "merges": 0
+        },
+        {
+          "time": 12,
+          "ms": 0.011599999999816646,
+          "merges": 0
+        },
+        {
+          "time": 12.05,
+          "ms": 4.744299999999839,
+          "merges": 0
+        },
+        {
+          "time": 12.100000000000001,
+          "ms": 1.6164999999996326,
+          "merges": 0
+        },
+        {
+          "time": 12.200000000000001,
+          "ms": 1.7743000000000393,
+          "merges": 0
+        },
+        {
+          "time": 12.200000000000001,
+          "ms": 0.011799999999766442,
+          "merges": 0
+        },
+        {
+          "time": 12.25,
+          "ms": 3.239300000000185,
+          "merges": 0
+        },
+        {
+          "time": 12.3,
+          "ms": 3.098199999999906,
+          "merges": 0
+        },
+        {
+          "time": 12.3,
+          "ms": 0.012299999999868305,
+          "merges": 0
+        },
+        {
+          "time": 12.350000000000001,
+          "ms": 3.892699999999877,
+          "merges": 0
+        },
+        {
+          "time": 12.4,
+          "ms": 1.7091999999997824,
+          "merges": 0
+        },
+        {
+          "time": 12.5,
+          "ms": 2.196599999999762,
+          "merges": 0
+        },
+        {
+          "time": 12.5,
+          "ms": 0.029199999999946158,
+          "merges": 0
+        },
+        {
+          "time": 12.55,
+          "ms": 3.711300000000392,
+          "merges": 0
+        },
+        {
+          "time": 12.600000000000001,
+          "ms": 3.611499999999978,
+          "merges": 0
+        },
+        {
+          "time": 12.600000000000001,
+          "ms": 0.01680000000033033,
+          "merges": 0
+        },
+        {
+          "time": 12.65,
+          "ms": 4.446100000000115,
+          "merges": 0
+        },
+        {
+          "time": 12.700000000000001,
+          "ms": 2.326100000000224,
+          "merges": 0
+        },
+        {
+          "time": 12.8,
+          "ms": 2.1963000000000648,
+          "merges": 0
+        },
+        {
+          "time": 12.8,
+          "ms": 0.014499999999770807,
+          "merges": 0
+        },
+        {
+          "time": 12.850000000000001,
+          "ms": 4.1513999999997395,
+          "merges": 0
+        },
+        {
+          "time": 12.9,
+          "ms": 4.164800000000014,
+          "merges": 0
+        },
+        {
+          "time": 12.9,
+          "ms": 0.013399999999819556,
+          "merges": 0
+        },
+        {
+          "time": 12.950000000000001,
+          "ms": 4.703799999999774,
+          "merges": 0
+        },
+        {
+          "time": 13,
+          "ms": 2.187800000000152,
+          "merges": 0
+        },
+        {
+          "time": 13.100000000000001,
+          "ms": 2.7986000000000786,
+          "merges": 0
+        },
+        {
+          "time": 13.100000000000001,
+          "ms": 0.01749999999992724,
+          "merges": 0
+        },
+        {
+          "time": 13.15,
+          "ms": 4.704600000000028,
+          "merges": 0
+        },
+        {
+          "time": 13.200000000000001,
+          "ms": 4.574799999999868,
+          "merges": 0
+        },
+        {
+          "time": 13.200000000000001,
+          "ms": 0.01650000000017826,
+          "merges": 0
+        },
+        {
+          "time": 13.25,
+          "ms": 4.616800000000239,
+          "merges": 0
+        },
+        {
+          "time": 13.3,
+          "ms": 2.3310999999998785,
+          "merges": 0
+        },
+        {
+          "time": 13.4,
+          "ms": 2.4695999999999003,
+          "merges": 0
+        },
+        {
+          "time": 13.4,
+          "ms": 0.01679999999987558,
+          "merges": 0
+        },
+        {
+          "time": 13.450000000000001,
+          "ms": 5.35149999999976,
+          "merges": 0
+        },
+        {
+          "time": 13.5,
+          "ms": 125.30019999999968,
+          "merges": 16
+        },
+        {
+          "time": 13.5,
+          "ms": 0.0684000000001106,
+          "merges": 16
+        },
+        {
+          "time": 13.55,
+          "ms": 258.34850000000006,
+          "merges": 56
+        },
+        {
+          "time": 13.600000000000001,
+          "ms": 117.71289999999999,
+          "merges": 76
+        },
+        {
+          "time": 13.700000000000001,
+          "ms": 118.63800000000037,
+          "merges": 96
+        },
+        {
+          "time": 13.700000000000001,
+          "ms": 0.10419999999976426,
+          "merges": 96
+        },
+        {
+          "time": 13.75,
+          "ms": 212.99789999999985,
+          "merges": 136
+        },
+        {
+          "time": 13.8,
+          "ms": 192.36109999999962,
+          "merges": 176
+        },
+        {
+          "time": 13.8,
+          "ms": 0.0626999999999498,
+          "merges": 176
+        },
+        {
+          "time": 13.850000000000001,
+          "ms": 202.14439999999968,
+          "merges": 216
+        },
+        {
+          "time": 13.9,
+          "ms": 106.37890000000061,
+          "merges": 236
+        },
+        {
+          "time": 14,
+          "ms": 95.36189999999988,
+          "merges": 256
+        },
+        {
+          "time": 14,
+          "ms": 0.0261000000000422,
+          "merges": 256
+        },
+        {
+          "time": 14.05,
+          "ms": 199.7493999999997,
+          "merges": 296
+        },
+        {
+          "time": 14.100000000000001,
+          "ms": 201.692,
+          "merges": 336
+        },
+        {
+          "time": 14.100000000000001,
+          "ms": 0.07780000000002474,
+          "merges": 336
+        },
+        {
+          "time": 14.15,
+          "ms": 271.27799999999934,
+          "merges": 376
+        },
+        {
+          "time": 14.200000000000001,
+          "ms": 118.35570000000007,
+          "merges": 396
+        },
+        {
+          "time": 14.3,
+          "ms": 109.41730000000007,
+          "merges": 416
+        },
+        {
+          "time": 14.3,
+          "ms": 0.03719999999975698,
+          "merges": 416
+        },
+        {
+          "time": 14.350000000000001,
+          "ms": 212.4296000000004,
+          "merges": 456
+        },
+        {
+          "time": 14.4,
+          "ms": 247.8744000000006,
+          "merges": 496
+        },
+        {
+          "time": 14.4,
+          "ms": 0.06590000000051077,
+          "merges": 496
+        },
+        {
+          "time": 14.450000000000001,
+          "ms": 221.84259999999995,
+          "merges": 536
+        },
+        {
+          "time": 14.5,
+          "ms": 99.83129999999983,
+          "merges": 556
+        },
+        {
+          "time": 14.600000000000001,
+          "ms": 98.63739999999962,
+          "merges": 576
+        },
+        {
+          "time": 14.600000000000001,
+          "ms": 0.024999999999636202,
+          "merges": 576
+        },
+        {
+          "time": 14.65,
+          "ms": 213.91539999999986,
+          "merges": 616
+        },
+        {
+          "time": 14.700000000000001,
+          "ms": 192.20430000000033,
+          "merges": 656
+        },
+        {
+          "time": 14.700000000000001,
+          "ms": 0.028699999999844295,
+          "merges": 656
+        },
+        {
+          "time": 14.75,
+          "ms": 200.6176999999998,
+          "merges": 696
+        },
+        {
+          "time": 14.8,
+          "ms": 107.8770999999997,
+          "merges": 716
+        },
+        {
+          "time": 14.9,
+          "ms": 99.0560000000005,
+          "merges": 736
+        },
+        {
+          "time": 14.9,
+          "ms": 0.02930000000014843,
+          "merges": 736
+        },
+        {
+          "time": 14.950000000000001,
+          "ms": 199.72729999999956,
+          "merges": 776
+        },
+        {
+          "time": 15,
+          "ms": 199.5113999999994,
+          "merges": 816
+        },
+        {
+          "time": 15,
+          "ms": 0.02570000000014261,
+          "merges": 816
+        },
+        {
+          "time": 15.05,
+          "ms": 201.1894999999995,
+          "merges": 856
+        },
+        {
+          "time": 15.100000000000001,
+          "ms": 105.20840000000044,
+          "merges": 876
+        },
+        {
+          "time": 15.200000000000001,
+          "ms": 110.01500000000033,
+          "merges": 896
+        },
+        {
+          "time": 15.200000000000001,
+          "ms": 0.03179999999974825,
+          "merges": 896
+        },
+        {
+          "time": 15.25,
+          "ms": 202.24049999999988,
+          "merges": 936
+        },
+        {
+          "time": 15.3,
+          "ms": 203.54129999999896,
+          "merges": 976
+        },
+        {
+          "time": 15.3,
+          "ms": 0.021000000000640284,
+          "merges": 976
+        },
+        {
+          "time": 15.350000000000001,
+          "ms": 191.15020000000004,
+          "merges": 1016
+        },
+        {
+          "time": 15.4,
+          "ms": 98.60180000000037,
+          "merges": 1036
+        },
+        {
+          "time": 15.5,
+          "ms": 106.60189999999966,
+          "merges": 1056
+        },
+        {
+          "time": 15.5,
+          "ms": 0.027899999999135616,
+          "merges": 1056
+        },
+        {
+          "time": 15.55,
+          "ms": 246.34709999999905,
+          "merges": 1096
+        },
+        {
+          "time": 15.600000000000001,
+          "ms": 216.99209999999948,
+          "merges": 1136
+        },
+        {
+          "time": 15.600000000000001,
+          "ms": 0.030300000000352156,
+          "merges": 1136
+        },
+        {
+          "time": 15.65,
+          "ms": 194.32030000000123,
+          "merges": 1176
+        },
+        {
+          "time": 15.700000000000001,
+          "ms": 94.86319999999978,
+          "merges": 1196
+        },
+        {
+          "time": 15.8,
+          "ms": 93.47659999999996,
+          "merges": 1216
+        },
+        {
+          "time": 15.8,
+          "ms": 0.03019999999924039,
+          "merges": 1216
+        },
+        {
+          "time": 15.850000000000001,
+          "ms": 206.60280000000057,
+          "merges": 1256
+        },
+        {
+          "time": 15.9,
+          "ms": 233.73250000000007,
+          "merges": 1296
+        },
+        {
+          "time": 15.9,
+          "ms": 0.04200000000128057,
+          "merges": 1296
+        },
+        {
+          "time": 15.950000000000001,
+          "ms": 262.60549999999967,
+          "merges": 1336
+        },
+        {
+          "time": 16,
+          "ms": 122.65449999999873,
+          "merges": 1357
+        },
+        {
+          "time": 16,
+          "ms": 0.02389999999832071,
+          "merges": 1357
+        },
+        {
+          "time": 16.05,
+          "ms": 4.6141999999999825,
+          "merges": 1358
+        },
+        {
+          "time": 16.1,
+          "ms": 118.04910000000018,
+          "merges": 1381
+        },
+        {
+          "time": 16.1,
+          "ms": 0.03110000000015134,
+          "merges": 1381
+        },
+        {
+          "time": 16.150000000000002,
+          "ms": 201.6193000000003,
+          "merges": 1422
+        },
+        {
+          "time": 16.2,
+          "ms": 209.1844000000001,
+          "merges": 1460
+        },
+        {
+          "time": 16.2,
+          "ms": 0.027700000000550062,
+          "merges": 1460
+        },
+        {
+          "time": 16.25,
+          "ms": 205.11369999999988,
+          "merges": 1499
+        },
+        {
+          "time": 16.3,
+          "ms": 127.13540000000103,
+          "merges": 1523
+        },
+        {
+          "time": 16.3,
+          "ms": 0.02329999999892607,
+          "merges": 1523
+        },
+        {
+          "time": 16.35,
+          "ms": 4.8255000000008295,
+          "merges": 1524
+        },
+        {
+          "time": 16.400000000000002,
+          "ms": 101.08890000000065,
+          "merges": 1544
+        },
+        {
+          "time": 16.400000000000002,
+          "ms": 0.028200000000651926,
+          "merges": 1544
+        },
+        {
+          "time": 16.45,
+          "ms": 218.39729999999872,
+          "merges": 1582
+        },
+        {
+          "time": 16.5,
+          "ms": 182.14749999999913,
+          "merges": 1617
+        },
+        {
+          "time": 16.5,
+          "ms": 0.027099999999336433,
+          "merges": 1617
+        },
+        {
+          "time": 16.55,
+          "ms": 231.1794000000009,
+          "merges": 1655
+        },
+        {
+          "time": 16.6,
+          "ms": 103.18119999999908,
+          "merges": 1675
+        },
+        {
+          "time": 16.6,
+          "ms": 0.020899999999528518,
+          "merges": 1675
+        },
+        {
+          "time": 16.650000000000002,
+          "ms": 10.566100000000006,
+          "merges": 1677
+        },
+        {
+          "time": 16.7,
+          "ms": 92.33600000000115,
+          "merges": 1694
+        },
+        {
+          "time": 16.7,
+          "ms": 0.028600000001461012,
+          "merges": 1694
+        },
+        {
+          "time": 16.75,
+          "ms": 189.1879000000008,
+          "merges": 1730
+        },
+        {
+          "time": 16.8,
+          "ms": 211.46739999999954,
+          "merges": 1761
+        },
+        {
+          "time": 16.8,
+          "ms": 0.028000000000247383,
+          "merges": 1761
+        },
+        {
+          "time": 16.85,
+          "ms": 201.60879999999997,
+          "merges": 1793
+        },
+        {
+          "time": 16.900000000000002,
+          "ms": 127.93919999999889,
+          "merges": 1811
+        },
+        {
+          "time": 16.900000000000002,
+          "ms": 0.024900000000343425,
+          "merges": 1811
+        },
+        {
+          "time": 16.95,
+          "ms": 14.60280000000057,
+          "merges": 1814
+        },
+        {
+          "time": 17,
+          "ms": 107.63760000000002,
+          "merges": 1832
+        },
+        {
+          "time": 17,
+          "ms": 0.036099999999350985,
+          "merges": 1832
+        },
+        {
+          "time": 17.05,
+          "ms": 195.10770000000048,
+          "merges": 1864
+        },
+        {
+          "time": 17.1,
+          "ms": 136.85969999999907,
+          "merges": 1888
+        },
+        {
+          "time": 17.1,
+          "ms": 0.0658000000003085,
+          "merges": 1888
+        },
+        {
+          "time": 17.150000000000002,
+          "ms": 172.65079999999944,
+          "merges": 1916
+        },
+        {
+          "time": 17.2,
+          "ms": 80.45510000000104,
+          "merges": 1929
+        },
+        {
+          "time": 17.2,
+          "ms": 0.026100000000951695,
+          "merges": 1929
+        },
+        {
+          "time": 17.25,
+          "ms": 7.333699999999226,
+          "merges": 1930
+        },
+        {
+          "time": 17.3,
+          "ms": 77.81450000000041,
+          "merges": 1942
+        },
+        {
+          "time": 17.3,
+          "ms": 0.043900000000576256,
+          "merges": 1942
+        },
+        {
+          "time": 17.35,
+          "ms": 216.96349999999984,
+          "merges": 1972
+        },
+        {
+          "time": 17.400000000000002,
+          "ms": 128.84449999999924,
+          "merges": 1992
+        },
+        {
+          "time": 17.400000000000002,
+          "ms": 0.030600000000049477,
+          "merges": 1992
+        },
+        {
+          "time": 17.45,
+          "ms": 151.77499999999964,
+          "merges": 2011
+        },
+        {
+          "time": 17.5,
+          "ms": 71.41849999999977,
+          "merges": 2021
+        },
+        {
+          "time": 17.5,
+          "ms": 0.025900000000547152,
+          "merges": 2021
+        },
+        {
+          "time": 17.55,
+          "ms": 14.906800000000658,
+          "merges": 2024
+        },
+        {
+          "time": 17.6,
+          "ms": 48.69870000000083,
+          "merges": 2034
+        },
+        {
+          "time": 17.6,
+          "ms": 0.05489999999917927,
+          "merges": 2034
+        },
+        {
+          "time": 17.650000000000002,
+          "ms": 179.71090000000004,
+          "merges": 2060
+        },
+        {
+          "time": 17.7,
+          "ms": 117.94909999999982,
+          "merges": 2079
+        },
+        {
+          "time": 17.7,
+          "ms": 0.028200000000651926,
+          "merges": 2079
+        },
+        {
+          "time": 17.75,
+          "ms": 120.79989999999998,
+          "merges": 2096
+        },
+        {
+          "time": 17.8,
+          "ms": 56.2445000000007,
+          "merges": 2105
+        },
+        {
+          "time": 17.8,
+          "ms": 0.032700000001568696,
+          "merges": 2105
+        },
+        {
+          "time": 17.85,
+          "ms": 31.485000000000582,
+          "merges": 2110
+        },
+        {
+          "time": 17.900000000000002,
+          "ms": 44.85200000000077,
+          "merges": 2117
+        },
+        {
+          "time": 17.900000000000002,
+          "ms": 0.03960000000006403,
+          "merges": 2117
+        },
+        {
+          "time": 17.95,
+          "ms": 96.74330000000009,
+          "merges": 2133
+        },
+        {
+          "time": 18,
+          "ms": 46.0028999999995,
+          "merges": 2141
+        },
+        {
+          "time": 18,
+          "ms": 0.02500000000145519,
+          "merges": 2141
+        },
+        {
+          "time": 18.05,
+          "ms": 42.85410000000047,
+          "merges": 2149
+        },
+        {
+          "time": 18.1,
+          "ms": 49.895300000000134,
+          "merges": 2157
+        },
+        {
+          "time": 18.1,
+          "ms": 0.03149999999914144,
+          "merges": 2157
+        },
+        {
+          "time": 18.150000000000002,
+          "ms": 6.98489999999947,
+          "merges": 2158
+        },
+        {
+          "time": 18.2,
+          "ms": 59.62489999999889,
+          "merges": 2168
+        },
+        {
+          "time": 18.2,
+          "ms": 0.0455999999994674,
+          "merges": 2168
+        },
+        {
+          "time": 18.25,
+          "ms": 37.55550000000039,
+          "merges": 2175
+        },
+        {
+          "time": 18.3,
+          "ms": 13.16439999999966,
+          "merges": 2177
+        },
+        {
+          "time": 18.3,
+          "ms": 0.02380000000084692,
+          "merges": 2177
+        },
+        {
+          "time": 18.35,
+          "ms": 27.76850000000013,
+          "merges": 2181
+        },
+        {
+          "time": 18.400000000000002,
+          "ms": 40.82840000000033,
+          "merges": 2188
+        },
+        {
+          "time": 18.400000000000002,
+          "ms": 0.02230000000054133,
+          "merges": 2188
+        },
+        {
+          "time": 18.6,
+          "ms": 34.25489999999991,
+          "merges": 2195
+        }
+      ]
+    },
+    {
+      "mode": "tick",
+      "completed": true,
+      "wallMs": 2259.8318,
+      "snapshotHash": "df33bf671857d3c888f3872e79f37b54bc741bd01131298400e32a55c29b314c",
+      "diagnosticsHash": "858134e8c96040f6166fd2f0768ef7e8c71d0ed64fae397bc85740a96551010c",
+      "traceHash": "7b386a5512532f8d2ae253607fb3339c97e449be606e766e6616f70142c0442b",
+      "selected": 35120,
+      "diagnostics": {
+        "version": "pyro-smoke-tick-state-v1",
+        "stateModel": "tick-graph-v1",
+        "time": 18.6,
+        "requestedTime": 18.60858222067491,
+        "revision": 15148,
+        "packetCount": 4096,
+        "capacity": 4096,
+        "peakPacketCount": 4096,
+        "stagingPeakPacketCount": 4137,
+        "maxStagingPackets": 12288,
+        "pendingEmissions": 0,
+        "pendingWindEvents": 0,
+        "pendingSameClockEmissions": 0,
+        "profileCount": 1,
+        "acceptedSources": 6291,
+        "lastEmissionId": 6290,
+        "totalTickSteps": 372,
+        "lastAdvanceSteps": 4,
+        "lastAdvanceFences": 0,
+        "fixedStep": 0.05,
+        "maxStepsPerAdvance": 200,
+        "ledger": {
+          "emitted": 20.35000000000004,
+          "airborne": 20.35000000000004,
+          "pendingMass": 0,
+          "residual": 0,
+          "deposited": 0,
+          "escaped": 0,
+          "explicitlyCleared": 0
+        },
+        "merges": 2195,
+        "forcedMerges": 1842,
+        "preferredSameSourceMerges": 53,
+        "preferredSameProfileMerges": 300,
+        "maximumMergeDistanceMetres": 6.787548088989026,
+        "maximumMergeNormalizedDistance": 2.1542677992020822,
+        "maximumSampledMergePeakRelativeError": 0.3266208534570073,
+        "maximumSampledMergeColumnRelativeError": 0.263983095611234,
+        "maximumSampledMergeOpticalDepthError": 0.0017795404799216402,
+        "diagnosticCacheHits": 31410,
+        "diagnosticCacheMisses": 3710,
+        "recentMerges": [
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.082220306822154,
+            "normalizedDistance": 1.7240270739532377,
+            "differentialThermalTravelBoundMetres": 0.16576202843751384,
+            "normalizedThermalTravelBound": 0.07001211222958792,
+            "sampledPeakAbsoluteError": 0.000004144859676566736,
+            "sampledPeakRelativeError": 0.29208865793916217,
+            "maximumSampledNewDensity": 0.000016605990835370712,
+            "sampledColumnAbsoluteError": 0.00002729721178183662,
+            "sampledColumnRelativeError": 0.24827862494604214,
+            "maximumPerRaySymmetricRelativeError": 0.28557512498032733,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00002729721178183662,
+              0.00002729721178183662,
+              0.00002729721178183662
+            ],
+            "sampledMaximumOpticalDepthError": 0.00002729721178183662,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.087219332753058,
+            "normalizedDistance": 1.724519347097009,
+            "differentialThermalTravelBoundMetres": 0.16569103270965102,
+            "normalizedThermalTravelBound": 0.06991772625794122,
+            "sampledPeakAbsoluteError": 0.0000047602627829396194,
+            "sampledPeakRelativeError": 0.29227803550452797,
+            "maximumSampledNewDensity": 0.000019056797010118837,
+            "sampledColumnAbsoluteError": 0.00003137048069354464,
+            "sampledColumnRelativeError": 0.24836476451643238,
+            "maximumPerRaySymmetricRelativeError": 0.285826422842995,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003137048069354464,
+              0.00003137048069354464,
+              0.00003137048069354464
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003137048069354464,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.084775375140584,
+            "normalizedDistance": 1.7248507425248245,
+            "differentialThermalTravelBoundMetres": 0.16579637588214755,
+            "normalizedThermalTravelBound": 0.07001636296241275,
+            "sampledPeakAbsoluteError": 0.000004819156988874365,
+            "sampledPeakRelativeError": 0.2924017582529166,
+            "maximumSampledNewDensity": 0.000019282859984287903,
+            "sampledColumnAbsoluteError": 0.00003172787884047658,
+            "sampledColumnRelativeError": 0.24840939360912273,
+            "maximumPerRaySymmetricRelativeError": 0.28599123915017155,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003172787884047658,
+              0.00003172787884047658,
+              0.00003172787884047658
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003172787884047658,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.096724649745302,
+            "normalizedDistance": 1.7251776017682485,
+            "differentialThermalTravelBoundMetres": 0.1655202200238025,
+            "normalizedThermalTravelBound": 0.06971184669876773,
+            "sampledPeakAbsoluteError": 0.000004377885528141341,
+            "sampledPeakRelativeError": 0.2925330759328387,
+            "maximumSampledNewDensity": 0.000017507765675929506,
+            "sampledColumnAbsoluteError": 0.000028895438032641314,
+            "sampledColumnRelativeError": 0.2484822868963444,
+            "maximumPerRaySymmetricRelativeError": 0.28616192465151946,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000028895438032641314,
+              0.000028895438032641314,
+              0.000028895438032641314
+            ],
+            "sampledMaximumOpticalDepthError": 0.000028895438032641314,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.088426268845504,
+            "normalizedDistance": 1.7254276725609445,
+            "differentialThermalTravelBoundMetres": 0.16577152347883953,
+            "normalizedThermalTravelBound": 0.06996745256322648,
+            "sampledPeakAbsoluteError": 0.000004633479882962555,
+            "sampledPeakRelativeError": 0.292622233434405,
+            "maximumSampledNewDensity": 0.00001852324511155112,
+            "sampledColumnAbsoluteError": 0.00003051233432439531,
+            "sampledColumnRelativeError": 0.24850509346469818,
+            "maximumPerRaySymmetricRelativeError": 0.28628448459223255,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003051233432439531,
+              0.00003051233432439531,
+              0.00003051233432439531
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003051233432439531,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.120279761916698,
+            "normalizedDistance": 1.425365464150821,
+            "differentialThermalTravelBoundMetres": 0.13248755767138504,
+            "normalizedThermalTravelBound": 0.0890652412126454,
+            "sampledPeakAbsoluteError": 0.0000018034761295282291,
+            "sampledPeakRelativeError": 0.025488047158347616,
+            "maximumSampledNewDensity": 0.00007129490678330475,
+            "sampledColumnAbsoluteError": 0.000005369931912486994,
+            "sampledColumnRelativeError": 0.021833456676360684,
+            "maximumPerRaySymmetricRelativeError": 0.06754590546578133,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000005369931912486994,
+              0.000005369931912486994,
+              0.000005369931912486994
+            ],
+            "sampledMaximumOpticalDepthError": 0.000005369931912486994,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.077535573693455,
+            "normalizedDistance": 1.7220048538424924,
+            "differentialThermalTravelBoundMetres": 0.16563025215655205,
+            "normalizedThermalTravelBound": 0.06995093564505828,
+            "sampledPeakAbsoluteError": 0.0000043901129078257115,
+            "sampledPeakRelativeError": 0.2913210264102767,
+            "maximumSampledNewDensity": 0.000017643793112102286,
+            "sampledColumnAbsoluteError": 0.000028947510727406404,
+            "sampledColumnRelativeError": 0.2479468149743264,
+            "maximumPerRaySymmetricRelativeError": 0.2845548841556111,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000028947510727406404,
+              0.000028947510727406404,
+              0.000028947510727406404
+            ],
+            "sampledMaximumOpticalDepthError": 0.000028947510727406404,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 3.483490866123608,
+            "normalizedDistance": 0.7534120466045582,
+            "differentialThermalTravelBoundMetres": 0.36438999900545854,
+            "normalizedThermalTravelBound": 0.11556779984566518,
+            "sampledPeakAbsoluteError": 6.796743687852519e-7,
+            "sampledPeakRelativeError": 0.03232301942198106,
+            "maximumSampledNewDensity": 0.000021330545475883108,
+            "sampledColumnAbsoluteError": 0.000003194092475877972,
+            "sampledColumnRelativeError": 0.01586602780383529,
+            "maximumPerRaySymmetricRelativeError": 0.027150861421231548,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000003194092475877972,
+              0.000003194092475877972,
+              0.000003194092475877972
+            ],
+            "sampledMaximumOpticalDepthError": 0.000003194092475877972,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.137595058908782,
+            "normalizedDistance": 1.7230009482277253,
+            "differentialThermalTravelBoundMetres": 0.17418951034284433,
+            "normalizedThermalTravelBound": 0.07231309105542383,
+            "sampledPeakAbsoluteError": 0.000010627280368304716,
+            "sampledPeakRelativeError": 0.2899799865092591,
+            "maximumSampledNewDensity": 0.000042672209849253155,
+            "sampledColumnAbsoluteError": 0.00006502309726340202,
+            "sampledColumnRelativeError": 0.22692822771046192,
+            "maximumPerRaySymmetricRelativeError": 0.28501043196280873,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00006502309726340202,
+              0.00006502309726340202,
+              0.00006502309726340202
+            ],
+            "sampledMaximumOpticalDepthError": 0.00006502309726340202,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 5.858806214160125,
+            "normalizedDistance": 1.7134752267470024,
+            "differentialThermalTravelBoundMetres": 0.24796220334540722,
+            "normalizedThermalTravelBound": 0.07785325335867942,
+            "sampledPeakAbsoluteError": 0.0000042322712656149065,
+            "sampledPeakRelativeError": 0.28827654663623903,
+            "maximumSampledNewDensity": 0.000016551693908980113,
+            "sampledColumnAbsoluteError": 0.00003667576302166408,
+            "sampledColumnRelativeError": 0.22574248946152817,
+            "maximumPerRaySymmetricRelativeError": 0.2949670316072016,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00003667576302166408,
+              0.00003667576302166408,
+              0.00003667576302166408
+            ],
+            "sampledMaximumOpticalDepthError": 0.00003667576302166408,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 5.734482957681407,
+            "normalizedDistance": 1.5419559478775369,
+            "differentialThermalTravelBoundMetres": 0.14909432979262455,
+            "normalizedThermalTravelBound": 0.04752487535177258,
+            "sampledPeakAbsoluteError": 0.0000021915503886555175,
+            "sampledPeakRelativeError": 0.1906343682619728,
+            "maximumSampledNewDensity": 0.000013017849323699617,
+            "sampledColumnAbsoluteError": 0.00001870049404359822,
+            "sampledColumnRelativeError": 0.150444964509504,
+            "maximumPerRaySymmetricRelativeError": 0.18602478459429378,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00001870049404359822,
+              0.00001870049404359822,
+              0.00001870049404359822
+            ],
+            "sampledMaximumOpticalDepthError": 0.00001870049404359822,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.106832316743558,
+            "normalizedDistance": 1.2069982457635235,
+            "differentialThermalTravelBoundMetres": 0.0021849123169921047,
+            "normalizedThermalTravelBound": 0.0009573208896150044,
+            "sampledPeakAbsoluteError": 0.000003560937463638801,
+            "sampledPeakRelativeError": 0.09310606630320997,
+            "maximumSampledNewDensity": 0.000040823066357088714,
+            "sampledColumnAbsoluteError": 0.000015422207132218972,
+            "sampledColumnRelativeError": 0.04853631737401818,
+            "maximumPerRaySymmetricRelativeError": 0.06514673674783636,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000015422207132218972,
+              0.000015422207132218972,
+              0.000015422207132218972
+            ],
+            "sampledMaximumOpticalDepthError": 0.000015422207132218972,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.4139567548833614,
+            "normalizedDistance": 1.5276916266892206,
+            "differentialThermalTravelBoundMetres": 0.13450914687475196,
+            "normalizedThermalTravelBound": 0.08512518300524771,
+            "sampledPeakAbsoluteError": 0.000006570000129268656,
+            "sampledPeakRelativeError": 0.12502581602156962,
+            "maximumSampledNewDensity": 0.000055064083447362843,
+            "sampledColumnAbsoluteError": 0.000023049061158451434,
+            "sampledColumnRelativeError": 0.10643777590490874,
+            "maximumPerRaySymmetricRelativeError": 0.229619692885455,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000023049061158451434,
+              0.000023049061158451434,
+              0.000023049061158451434
+            ],
+            "sampledMaximumOpticalDepthError": 0.000023049061158451434,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.587715028679019,
+            "normalizedDistance": 1.574413803613625,
+            "differentialThermalTravelBoundMetres": 0.13481740516871485,
+            "normalizedThermalTravelBound": 0.08202543491874248,
+            "sampledPeakAbsoluteError": 0.000007101926005715346,
+            "sampledPeakRelativeError": 0.1559479101114562,
+            "maximumSampledNewDensity": 0.000048740919188883805,
+            "sampledColumnAbsoluteError": 0.000026991986163067195,
+            "sampledColumnRelativeError": 0.1313477292415875,
+            "maximumPerRaySymmetricRelativeError": 0.2492358570955937,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000026991986163067195,
+              0.000026991986163067195,
+              0.000026991986163067195
+            ],
+            "sampledMaximumOpticalDepthError": 0.000026991986163067195,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.0729074293273766,
+            "normalizedDistance": 1.39935606529123,
+            "differentialThermalTravelBoundMetres": 0.13062221384626896,
+            "normalizedThermalTravelBound": 0.08817904414874957,
+            "sampledPeakAbsoluteError": 1.7080788691099848e-7,
+            "sampledPeakRelativeError": 0.0023746726679991855,
+            "maximumSampledNewDensity": 0.00007197981805119533,
+            "sampledColumnAbsoluteError": 5.016567013987731e-7,
+            "sampledColumnRelativeError": 0.002061767656029959,
+            "maximumPerRaySymmetricRelativeError": 0.006825445321745759,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              5.016567013987731e-7,
+              5.016567013987731e-7,
+              5.016567013987731e-7
+            ],
+            "sampledMaximumOpticalDepthError": 5.016567013987731e-7,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.0758575425748904,
+            "normalizedDistance": 1.4018363631772586,
+            "differentialThermalTravelBoundMetres": 0.1309042786367236,
+            "normalizedThermalTravelBound": 0.08840027822435528,
+            "sampledPeakAbsoluteError": 2.857365762723823e-7,
+            "sampledPeakRelativeError": 0.003965329509744143,
+            "maximumSampledNewDensity": 0.00007214339984895026,
+            "sampledColumnAbsoluteError": 8.382920027901332e-7,
+            "sampledColumnRelativeError": 0.0034341469377474655,
+            "maximumPerRaySymmetricRelativeError": 0.011337258904611234,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              8.382920027901332e-7,
+              8.382920027901332e-7,
+              8.382920027901332e-7
+            ],
+            "sampledMaximumOpticalDepthError": 8.382920027901332e-7,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.2636180918477,
+            "normalizedDistance": 1.473439624456782,
+            "differentialThermalTravelBoundMetres": 0.13260171286880118,
+            "normalizedThermalTravelBound": 0.08631342670414045,
+            "sampledPeakAbsoluteError": 0.000004752721390288611,
+            "sampledPeakRelativeError": 0.08054715615058466,
+            "maximumSampledNewDensity": 0.000060634068734203864,
+            "sampledColumnAbsoluteError": 0.00001559904415025192,
+            "sampledColumnRelativeError": 0.06965709491410037,
+            "maximumPerRaySymmetricRelativeError": 0.17366649099819925,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00001559904415025192,
+              0.00001559904415025192,
+              0.00001559904415025192
+            ],
+            "sampledMaximumOpticalDepthError": 0.00001559904415025192,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.420921223625317,
+            "normalizedDistance": 1.5234412204062302,
+            "differentialThermalTravelBoundMetres": 0.13330740038740463,
+            "normalizedThermalTravelBound": 0.08388790774478815,
+            "sampledPeakAbsoluteError": 0.000006296051895337581,
+            "sampledPeakRelativeError": 0.12343399818725195,
+            "maximumSampledNewDensity": 0.00005349022931334273,
+            "sampledColumnAbsoluteError": 0.000022412595095693455,
+            "sampledColumnRelativeError": 0.10603574369718298,
+            "maximumPerRaySymmetricRelativeError": 0.22564255584850165,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000022412595095693455,
+              0.000022412595095693455,
+              0.000022412595095693455
+            ],
+            "sampledMaximumOpticalDepthError": 0.000022412595095693455,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.107265022978238,
+            "normalizedDistance": 1.7113494945458563,
+            "differentialThermalTravelBoundMetres": 0.1634377996738139,
+            "normalizedThermalTravelBound": 0.06810808007036394,
+            "sampledPeakAbsoluteError": 0.000004344317773627793,
+            "sampledPeakRelativeError": 0.2872970354801768,
+            "maximumSampledNewDensity": 0.000017749625227155295,
+            "sampledColumnAbsoluteError": 0.0000292054744416084,
+            "sampledColumnRelativeError": 0.24574029906221498,
+            "maximumPerRaySymmetricRelativeError": 0.2792305659883176,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.0000292054744416084,
+              0.0000292054744416084,
+              0.0000292054744416084
+            ],
+            "sampledMaximumOpticalDepthError": 0.0000292054744416084,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.080804175945247,
+            "normalizedDistance": 1.7108233874394587,
+            "differentialThermalTravelBoundMetres": 0.164112876727962,
+            "normalizedThermalTravelBound": 0.06880624090497789,
+            "sampledPeakAbsoluteError": 0.0000045474755831096155,
+            "sampledPeakRelativeError": 0.28708353170108947,
+            "maximumSampledNewDensity": 0.00001859635716671921,
+            "sampledColumnAbsoluteError": 0.000030394336229522327,
+            "sampledColumnRelativeError": 0.24617405637721235,
+            "maximumPerRaySymmetricRelativeError": 0.278961276966612,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000030394336229522327,
+              0.000030394336229522327,
+              0.000030394336229522327
+            ],
+            "sampledMaximumOpticalDepthError": 0.000030394336229522327,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.074629898839112,
+            "normalizedDistance": 1.7110469431637232,
+            "differentialThermalTravelBoundMetres": 0.16431249202532724,
+            "normalizedThermalTravelBound": 0.06900092020003878,
+            "sampledPeakAbsoluteError": 0.0000045009911558694225,
+            "sampledPeakRelativeError": 0.2871652049291346,
+            "maximumSampledNewDensity": 0.000018400162473661014,
+            "sampledColumnAbsoluteError": 0.000030031328455387967,
+            "sampledColumnRelativeError": 0.2461967221443052,
+            "maximumPerRaySymmetricRelativeError": 0.27907067302862754,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000030031328455387967,
+              0.000030031328455387967,
+              0.000030031328455387967
+            ],
+            "sampledMaximumOpticalDepthError": 0.000030031328455387967,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.089255092844153,
+            "normalizedDistance": 1.7116051465921842,
+            "differentialThermalTravelBoundMetres": 0.16397951549899897,
+            "normalizedThermalTravelBound": 0.06864191267688585,
+            "sampledPeakAbsoluteError": 0.000004149842701390088,
+            "sampledPeakRelativeError": 0.28738496639204164,
+            "maximumSampledNewDensity": 0.0000169491612106434,
+            "sampledColumnAbsoluteError": 0.000027768610724910486,
+            "sampledColumnRelativeError": 0.24631601689425245,
+            "maximumPerRaySymmetricRelativeError": 0.2793524454916435,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000027768610724910486,
+              0.000027768610724910486,
+              0.000027768610724910486
+            ],
+            "sampledMaximumOpticalDepthError": 0.000027768610724910486,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.099992241583529,
+            "normalizedDistance": 1.712366237423522,
+            "differentialThermalTravelBoundMetres": 0.16377905427808212,
+            "normalizedThermalTravelBound": 0.06841147675587139,
+            "sampledPeakAbsoluteError": 0.000004378046287462315,
+            "sampledPeakRelativeError": 0.28767964991007045,
+            "maximumSampledNewDensity": 0.000017859430060816585,
+            "sampledColumnAbsoluteError": 0.000029346426973534897,
+            "sampledColumnRelativeError": 0.2460294811811081,
+            "maximumPerRaySymmetricRelativeError": 0.279739891051525,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000029346426973534897,
+              0.000029346426973534897,
+              0.000029346426973534897
+            ],
+            "sampledMaximumOpticalDepthError": 0.000029346426973534897,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 3.874971634519314,
+            "normalizedDistance": 1.0018490454484483,
+            "differentialThermalTravelBoundMetres": 0.4764722287386435,
+            "normalizedThermalTravelBound": 0.12587735090769292,
+            "sampledPeakAbsoluteError": 0.000001338737172919861,
+            "sampledPeakRelativeError": 0.05413031434476856,
+            "maximumSampledNewDensity": 0.000025759079304065276,
+            "sampledColumnAbsoluteError": 0.0000080881334357628,
+            "sampledColumnRelativeError": 0.03736861858918443,
+            "maximumPerRaySymmetricRelativeError": 0.05397401644621487,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.0000080881334357628,
+              0.0000080881334357628,
+              0.0000080881334357628
+            ],
+            "sampledMaximumOpticalDepthError": 0.0000080881334357628,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.081034001951477,
+            "normalizedDistance": 1.7117111715152864,
+            "differentialThermalTravelBoundMetres": 0.16422060235622588,
+            "normalizedThermalTravelBound": 0.06888227470272583,
+            "sampledPeakAbsoluteError": 0.00000416493200683503,
+            "sampledPeakRelativeError": 0.2874209796507449,
+            "maximumSampledNewDensity": 0.00001700837466149027,
+            "sampledColumnAbsoluteError": 0.000027811336094062095,
+            "sampledColumnRelativeError": 0.24631541796985948,
+            "maximumPerRaySymmetricRelativeError": 0.27940441905770913,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000027811336094062095,
+              0.000027811336094062095,
+              0.000027811336094062095
+            ],
+            "sampledMaximumOpticalDepthError": 0.000027811336094062095,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.081415903699962,
+            "normalizedDistance": 1.3960786990282692,
+            "differentialThermalTravelBoundMetres": 0.12936279101306475,
+            "normalizedThermalTravelBound": 0.08676817546073405,
+            "sampledPeakAbsoluteError": 3.9911341809630626e-7,
+            "sampledPeakRelativeError": 0.005816778334937793,
+            "maximumSampledNewDensity": 0.00006873728938565256,
+            "sampledColumnAbsoluteError": 0.0000011983734473594327,
+            "sampledColumnRelativeError": 0.005122608481230843,
+            "maximumPerRaySymmetricRelativeError": 0.01642348364279545,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.0000011983734473594327,
+              0.0000011983734473594327,
+              0.0000011983734473594327
+            ],
+            "sampledMaximumOpticalDepthError": 0.0000011983734473594327,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 2.2125251236045105,
+            "normalizedDistance": 1.4533232625329744,
+            "differentialThermalTravelBoundMetres": 0.1318509414481937,
+            "normalizedThermalTravelBound": 0.08660786247087716,
+            "sampledPeakAbsoluteError": 0.0000037915548927630434,
+            "sampledPeakRelativeError": 0.062045200394803726,
+            "maximumSampledNewDensity": 0.00006236549927501845,
+            "sampledColumnAbsoluteError": 0.000012144570388486657,
+            "sampledColumnRelativeError": 0.053916387048557224,
+            "maximumPerRaySymmetricRelativeError": 0.1428100647885306,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000012144570388486657,
+              0.000012144570388486657,
+              0.000012144570388486657
+            ],
+            "sampledMaximumOpticalDepthError": 0.000012144570388486657,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.075398826161423,
+            "normalizedDistance": 1.6687467451995353,
+            "differentialThermalTravelBoundMetres": 0.16022251492519485,
+            "normalizedThermalTravelBound": 0.06540474591807553,
+            "sampledPeakAbsoluteError": 0.000009046006499185485,
+            "sampledPeakRelativeError": 0.27205277600722944,
+            "maximumSampledNewDensity": 0.000039545325856414444,
+            "sampledColumnAbsoluteError": 0.00007629977565279378,
+            "sampledColumnRelativeError": 0.2595444026329143,
+            "maximumPerRaySymmetricRelativeError": 0.2585554691564578,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00007629977565279378,
+              0.00007629977565279378,
+              0.00007629977565279378
+            ],
+            "sampledMaximumOpticalDepthError": 0.00007629977565279378,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 6.516966022429379,
+            "normalizedDistance": 1.4320998989660227,
+            "differentialThermalTravelBoundMetres": 0.08111037221367079,
+            "normalizedThermalTravelBound": 0.030411370422398165,
+            "sampledPeakAbsoluteError": 0.0000027733729036373805,
+            "sampledPeakRelativeError": 0.10367519622436777,
+            "maximumSampledNewDensity": 0.00002519971770161826,
+            "sampledColumnAbsoluteError": 0.00002631575466438603,
+            "sampledColumnRelativeError": 0.0916566402156517,
+            "maximumPerRaySymmetricRelativeError": 0.1592011363888406,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00002631575466438603,
+              0.00002631575466438603,
+              0.00002631575466438603
+            ],
+            "sampledMaximumOpticalDepthError": 0.00002631575466438603,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 5.881830215651018,
+            "normalizedDistance": 1.1306861906194938,
+            "differentialThermalTravelBoundMetres": 0.5073016519378323,
+            "normalizedThermalTravelBound": 0.16128900043790104,
+            "sampledPeakAbsoluteError": 0.0000020192817513937804,
+            "sampledPeakRelativeError": 0.07260314629385224,
+            "maximumSampledNewDensity": 0.000029012978927868088,
+            "sampledColumnAbsoluteError": 0.000014384788361065058,
+            "sampledColumnRelativeError": 0.04291604974820757,
+            "maximumPerRaySymmetricRelativeError": 0.09749953553754001,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000014384788361065058,
+              0.000014384788361065058,
+              0.000014384788361065058
+            ],
+            "sampledMaximumOpticalDepthError": 0.000014384788361065058,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 4.922733699948903,
+            "normalizedDistance": 1.3558850257911037,
+            "differentialThermalTravelBoundMetres": 0.08064970437702526,
+            "normalizedThermalTravelBound": 0.02302205139396138,
+            "sampledPeakAbsoluteError": 0.0000034410270035981234,
+            "sampledPeakRelativeError": 0.1095765359972005,
+            "maximumSampledNewDensity": 0.000030392836525916282,
+            "sampledColumnAbsoluteError": 0.000045120664944210535,
+            "sampledColumnRelativeError": 0.12677513449017547,
+            "maximumPerRaySymmetricRelativeError": 0.21287668564973752,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.000045120664944210535,
+              0.000045120664944210535,
+              0.000045120664944210535
+            ],
+            "sampledMaximumOpticalDepthError": 0.000045120664944210535,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          },
+          {
+            "classification": "forced-profile-approximation",
+            "profileId": "reference",
+            "distanceMetres": 6.787548088989026,
+            "normalizedDistance": 1.10617548434801,
+            "differentialThermalTravelBoundMetres": 0.23726221512871812,
+            "normalizedThermalTravelBound": 0.07809600471293854,
+            "sampledPeakAbsoluteError": 0.000004688769180656454,
+            "sampledPeakRelativeError": 0.17474042897418413,
+            "maximumSampledNewDensity": 0.000029593506190095383,
+            "sampledColumnAbsoluteError": 0.00004195103581685887,
+            "sampledColumnRelativeError": 0.11144419576857667,
+            "maximumPerRaySymmetricRelativeError": 0.19824364978654815,
+            "sampledOpticalDepthRGBAbsoluteError": [
+              0.00004195103581685887,
+              0.00004195103581685887,
+              0.00004195103581685887
+            ],
+            "sampledMaximumOpticalDepthError": 0.00004195103581685887,
+            "peakSamples": 15,
+            "columnRays": 36,
+            "limits": "15 spatial points and36 finite rays; sampled errors, NOT global peak/column/source bounds. Spatial moments are preserved at merge time, not future heterogeneous thermal evolution."
+          }
+        ],
+        "units": "relative dry mass; metres; physical seconds; authored m2/reference-mass optical profiles. NOT calibrated kg/PM.",
+        "limits": [
+          "Explicit tick-graph-v1; same-clock inputs remain pending until an advance fence.",
+          "Fences and causal input availability are part of deterministic replay; arbitrary fence partitions are not equivalent.",
+          "Public density is committed only; capacity+maxPending bounds private staging.",
+          "Source transport/thermal model and sampled merge quality remain approximations; no CFD, deposition or global optical compression bound.",
+          "Graph and diagnostic caches live for one common-time commit only."
+        ]
+      },
+      "times": [
+        {
+          "time": 0,
+          "ms": 0.8649000000004889,
+          "merges": 0
+        },
+        {
+          "time": 0.1,
+          "ms": 0.1742000000012922,
+          "merges": 0
+        },
+        {
+          "time": 0.15000000000000002,
+          "ms": 0.10080000000016298,
+          "merges": 0
+        },
+        {
+          "time": 0.2,
+          "ms": 0.08359999999993306,
+          "merges": 0
+        },
+        {
+          "time": 0.30000000000000004,
+          "ms": 0.12700000000040745,
+          "merges": 0
+        },
+        {
+          "time": 0.4,
+          "ms": 0.15190000000075088,
+          "merges": 0
+        },
+        {
+          "time": 0.45,
+          "ms": 0.02990000000136206,
+          "merges": 0
+        },
+        {
+          "time": 0.5,
+          "ms": 0.018900000000940054,
+          "merges": 0
+        },
+        {
+          "time": 0.6000000000000001,
+          "ms": 0.04169999999976426,
+          "merges": 0
+        },
+        {
+          "time": 5.800000000000001,
+          "ms": 0.8711999999995896,
+          "merges": 0
+        },
+        {
+          "time": 5.8500000000000005,
+          "ms": 0.013699999999516876,
+          "merges": 0
+        },
+        {
+          "time": 5.9,
+          "ms": 0.28210000000035507,
+          "merges": 0
+        },
+        {
+          "time": 5.9,
+          "ms": 0.00999999999839929,
+          "merges": 0
+        },
+        {
+          "time": 5.95,
+          "ms": 0.2206000000005588,
+          "merges": 0
+        },
+        {
+          "time": 6,
+          "ms": 0.28590000000076543,
+          "merges": 0
+        },
+        {
+          "time": 6,
+          "ms": 0.0072000000000116415,
+          "merges": 0
+        },
+        {
+          "time": 6.050000000000001,
+          "ms": 1.1762999999991735,
+          "merges": 0
+        },
+        {
+          "time": 6.1000000000000005,
+          "ms": 0.27700000000004366,
+          "merges": 0
+        },
+        {
+          "time": 6.2,
+          "ms": 0.4223999999994703,
+          "merges": 0
+        },
+        {
+          "time": 6.2,
+          "ms": 0.03920000000107393,
+          "merges": 0
+        },
+        {
+          "time": 6.25,
+          "ms": 0.7030000000013388,
+          "merges": 0
+        },
+        {
+          "time": 6.300000000000001,
+          "ms": 0.7998000000006869,
+          "merges": 0
+        },
+        {
+          "time": 6.300000000000001,
+          "ms": 0.009399999999004649,
+          "merges": 0
+        },
+        {
+          "time": 6.3500000000000005,
+          "ms": 1.1072999999996682,
+          "merges": 0
+        },
+        {
+          "time": 6.4,
+          "ms": 0.45380000000113796,
+          "merges": 0
+        },
+        {
+          "time": 6.5,
+          "ms": 0.560299999999188,
+          "merges": 0
+        },
+        {
+          "time": 6.5,
+          "ms": 0.0072000000000116415,
+          "merges": 0
+        },
+        {
+          "time": 6.550000000000001,
+          "ms": 1.1370999999999185,
+          "merges": 0
+        },
+        {
+          "time": 6.6000000000000005,
+          "ms": 0.4283000000013999,
+          "merges": 0
+        },
+        {
+          "time": 6.6000000000000005,
+          "ms": 0.0072999999993044185,
+          "merges": 0
+        },
+        {
+          "time": 6.65,
+          "ms": 0.5496999999995751,
+          "merges": 0
+        },
+        {
+          "time": 6.7,
+          "ms": 0.6072999999996682,
+          "merges": 0
+        },
+        {
+          "time": 6.800000000000001,
+          "ms": 0.8677999999999884,
+          "merges": 0
+        },
+        {
+          "time": 6.800000000000001,
+          "ms": 0.03980000000046857,
+          "merges": 0
+        },
+        {
+          "time": 6.8500000000000005,
+          "ms": 0.7705000000005384,
+          "merges": 0
+        },
+        {
+          "time": 6.9,
+          "ms": 0.6532999999999447,
+          "merges": 0
+        },
+        {
+          "time": 6.9,
+          "ms": 0.006899999998495332,
+          "merges": 0
+        },
+        {
+          "time": 6.95,
+          "ms": 0.6486999999997352,
+          "merges": 0
+        },
+        {
+          "time": 7,
+          "ms": 0.3712999999988824,
+          "merges": 0
+        },
+        {
+          "time": 7.1000000000000005,
+          "ms": 0.46750000000065484,
+          "merges": 0
+        },
+        {
+          "time": 7.1000000000000005,
+          "ms": 0.005600000000413274,
+          "merges": 0
+        },
+        {
+          "time": 7.15,
+          "ms": 1.023800000000847,
+          "merges": 0
+        },
+        {
+          "time": 7.2,
+          "ms": 0.8590000000003783,
+          "merges": 0
+        },
+        {
+          "time": 7.2,
+          "ms": 0.009200000000419095,
+          "merges": 0
+        },
+        {
+          "time": 7.25,
+          "ms": 0.8486999999986438,
+          "merges": 0
+        },
+        {
+          "time": 7.300000000000001,
+          "ms": 0.5027000000009139,
+          "merges": 0
+        },
+        {
+          "time": 7.4,
+          "ms": 0.5963000000010652,
+          "merges": 0
+        },
+        {
+          "time": 7.4,
+          "ms": 0.006000000001222361,
+          "merges": 0
+        },
+        {
+          "time": 7.45,
+          "ms": 0.8849000000009255,
+          "merges": 0
+        },
+        {
+          "time": 7.5,
+          "ms": 1.3402999999998428,
+          "merges": 0
+        },
+        {
+          "time": 7.5,
+          "ms": 0.015299999999115244,
+          "merges": 0
+        },
+        {
+          "time": 7.550000000000001,
+          "ms": 1.607800000001589,
+          "merges": 0
+        },
+        {
+          "time": 7.6000000000000005,
+          "ms": 0.6614000000008673,
+          "merges": 0
+        },
+        {
+          "time": 7.7,
+          "ms": 1.5421999999998661,
+          "merges": 0
+        },
+        {
+          "time": 7.7,
+          "ms": 0.006899999998495332,
+          "merges": 0
+        },
+        {
+          "time": 7.75,
+          "ms": 1.243000000000393,
+          "merges": 0
+        },
+        {
+          "time": 7.800000000000001,
+          "ms": 1.2036000000007334,
+          "merges": 0
+        },
+        {
+          "time": 7.800000000000001,
+          "ms": 0.0059999999994033715,
+          "merges": 0
+        },
+        {
+          "time": 7.8500000000000005,
+          "ms": 1.7574000000004162,
+          "merges": 0
+        },
+        {
+          "time": 7.9,
+          "ms": 0.8022000000000844,
+          "merges": 0
+        },
+        {
+          "time": 8,
+          "ms": 1.0820000000003347,
+          "merges": 0
+        },
+        {
+          "time": 8,
+          "ms": 0.0239000000001397,
+          "merges": 0
+        },
+        {
+          "time": 8.05,
+          "ms": 1.6257000000005064,
+          "merges": 0
+        },
+        {
+          "time": 8.1,
+          "ms": 1.2861999999986438,
+          "merges": 0
+        },
+        {
+          "time": 8.1,
+          "ms": 0.03629999999975553,
+          "merges": 0
+        },
+        {
+          "time": 8.15,
+          "ms": 2.066999999999098,
+          "merges": 0
+        },
+        {
+          "time": 8.200000000000001,
+          "ms": 1.2818000000006577,
+          "merges": 0
+        },
+        {
+          "time": 8.3,
+          "ms": 1.2734000000000378,
+          "merges": 0
+        },
+        {
+          "time": 8.3,
+          "ms": 0.008100000000922591,
+          "merges": 0
+        },
+        {
+          "time": 8.35,
+          "ms": 2.1151000000008935,
+          "merges": 0
+        },
+        {
+          "time": 8.4,
+          "ms": 3.8773000000001048,
+          "merges": 0
+        },
+        {
+          "time": 8.4,
+          "ms": 0.01720000000022992,
+          "merges": 0
+        },
+        {
+          "time": 8.450000000000001,
+          "ms": 2.624599999999191,
+          "merges": 0
+        },
+        {
+          "time": 8.5,
+          "ms": 1.6574999999993452,
+          "merges": 0
+        },
+        {
+          "time": 8.6,
+          "ms": 1.6995000000006257,
+          "merges": 0
+        },
+        {
+          "time": 8.6,
+          "ms": 0.013799999998809653,
+          "merges": 0
+        },
+        {
+          "time": 8.65,
+          "ms": 2.216999999998734,
+          "merges": 0
+        },
+        {
+          "time": 8.700000000000001,
+          "ms": 2.4138999999995576,
+          "merges": 0
+        },
+        {
+          "time": 8.700000000000001,
+          "ms": 0.013699999999516876,
+          "merges": 0
+        },
+        {
+          "time": 8.75,
+          "ms": 2.635200000000623,
+          "merges": 0
+        },
+        {
+          "time": 8.8,
+          "ms": 1.3914999999997235,
+          "merges": 0
+        },
+        {
+          "time": 8.9,
+          "ms": 1.7366000000001804,
+          "merges": 0
+        },
+        {
+          "time": 8.9,
+          "ms": 0.016100000000733417,
+          "merges": 0
+        },
+        {
+          "time": 8.950000000000001,
+          "ms": 3.8145000000004075,
+          "merges": 0
+        },
+        {
+          "time": 9,
+          "ms": 2.6040999999986525,
+          "merges": 0
+        },
+        {
+          "time": 9,
+          "ms": 0.009099999999307329,
+          "merges": 0
+        },
+        {
+          "time": 9.05,
+          "ms": 2.2779000000009546,
+          "merges": 0
+        },
+        {
+          "time": 9.1,
+          "ms": 1.5763999999999214,
+          "merges": 0
+        },
+        {
+          "time": 9.200000000000001,
+          "ms": 2.0938999999998487,
+          "merges": 0
+        },
+        {
+          "time": 9.200000000000001,
+          "ms": 0.009500000000116415,
+          "merges": 0
+        },
+        {
+          "time": 9.25,
+          "ms": 3.1630999999997584,
+          "merges": 0
+        },
+        {
+          "time": 9.3,
+          "ms": 2.5745000000006257,
+          "merges": 0
+        },
+        {
+          "time": 9.3,
+          "ms": 0.010200000000622822,
+          "merges": 0
+        },
+        {
+          "time": 9.35,
+          "ms": 2.4530999999988126,
+          "merges": 0
+        },
+        {
+          "time": 9.4,
+          "ms": 1.5975999999991473,
+          "merges": 0
+        },
+        {
+          "time": 9.5,
+          "ms": 2.0164999999997235,
+          "merges": 0
+        },
+        {
+          "time": 9.5,
+          "ms": 0.010099999999511056,
+          "merges": 0
+        },
+        {
+          "time": 9.55,
+          "ms": 2.280899999999747,
+          "merges": 0
+        },
+        {
+          "time": 9.600000000000001,
+          "ms": 3.039699999999357,
+          "merges": 0
+        },
+        {
+          "time": 9.600000000000001,
+          "ms": 0.017099999999118154,
+          "merges": 0
+        },
+        {
+          "time": 9.65,
+          "ms": 2.5614999999997963,
+          "merges": 0
+        },
+        {
+          "time": 9.700000000000001,
+          "ms": 1.4562999999998283,
+          "merges": 0
+        },
+        {
+          "time": 9.8,
+          "ms": 3.5604999999995925,
+          "merges": 0
+        },
+        {
+          "time": 9.8,
+          "ms": 0.027700000000550062,
+          "merges": 0
+        },
+        {
+          "time": 9.850000000000001,
+          "ms": 3.849099999999453,
+          "merges": 0
+        },
+        {
+          "time": 9.9,
+          "ms": 2.9192999999995664,
+          "merges": 0
+        },
+        {
+          "time": 9.9,
+          "ms": 0.010000000000218279,
+          "merges": 0
+        },
+        {
+          "time": 9.950000000000001,
+          "ms": 3.2523000000001048,
+          "merges": 0
+        },
+        {
+          "time": 10,
+          "ms": 2.075799999998708,
+          "merges": 0
+        },
+        {
+          "time": 10.100000000000001,
+          "ms": 1.7602000000006228,
+          "merges": 0
+        },
+        {
+          "time": 10.100000000000001,
+          "ms": 0.009000000000014552,
+          "merges": 0
+        },
+        {
+          "time": 10.15,
+          "ms": 2.774999999999636,
+          "merges": 0
+        },
+        {
+          "time": 10.200000000000001,
+          "ms": 3.8334999999988213,
+          "merges": 0
+        },
+        {
+          "time": 10.200000000000001,
+          "ms": 0.013999999999214197,
+          "merges": 0
+        },
+        {
+          "time": 10.25,
+          "ms": 3.2602999999999156,
+          "merges": 0
+        },
+        {
+          "time": 10.3,
+          "ms": 2.3898000000008324,
+          "merges": 0
+        },
+        {
+          "time": 10.4,
+          "ms": 2.1093000000000757,
+          "merges": 0
+        },
+        {
+          "time": 10.4,
+          "ms": 0.017399999998815474,
+          "merges": 0
+        },
+        {
+          "time": 10.450000000000001,
+          "ms": 3.324800000000323,
+          "merges": 0
+        },
+        {
+          "time": 10.5,
+          "ms": 3.0820000000003347,
+          "merges": 0
+        },
+        {
+          "time": 10.5,
+          "ms": 0.016800000001239823,
+          "merges": 0
+        },
+        {
+          "time": 10.55,
+          "ms": 4.5900000000001455,
+          "merges": 0
+        },
+        {
+          "time": 10.600000000000001,
+          "ms": 2.304200000000492,
+          "merges": 0
+        },
+        {
+          "time": 10.700000000000001,
+          "ms": 2.036000000000058,
+          "merges": 0
+        },
+        {
+          "time": 10.700000000000001,
+          "ms": 0.012499999998908606,
+          "merges": 0
+        },
+        {
+          "time": 10.75,
+          "ms": 4.126000000000204,
+          "merges": 0
+        },
+        {
+          "time": 10.8,
+          "ms": 4.313200000000506,
+          "merges": 0
+        },
+        {
+          "time": 10.8,
+          "ms": 0.1103000000002794,
+          "merges": 0
+        },
+        {
+          "time": 10.850000000000001,
+          "ms": 5.6622000000006665,
+          "merges": 0
+        },
+        {
+          "time": 10.9,
+          "ms": 2.6781000000009954,
+          "merges": 0
+        },
+        {
+          "time": 11,
+          "ms": 3.2731999999996333,
+          "merges": 0
+        },
+        {
+          "time": 11,
+          "ms": 0.01389999999992142,
+          "merges": 0
+        },
+        {
+          "time": 11.05,
+          "ms": 4.142100000000937,
+          "merges": 0
+        },
+        {
+          "time": 11.100000000000001,
+          "ms": 3.6189999999987776,
+          "merges": 0
+        },
+        {
+          "time": 11.100000000000001,
+          "ms": 0.014600000000427826,
+          "merges": 0
+        },
+        {
+          "time": 11.15,
+          "ms": 3.7674000000006345,
+          "merges": 0
+        },
+        {
+          "time": 11.200000000000001,
+          "ms": 2.2644000000000233,
+          "merges": 0
+        },
+        {
+          "time": 11.3,
+          "ms": 3.66820000000007,
+          "merges": 0
+        },
+        {
+          "time": 11.3,
+          "ms": 0.013100000000122236,
+          "merges": 0
+        },
+        {
+          "time": 11.350000000000001,
+          "ms": 4.370699999999488,
+          "merges": 0
+        },
+        {
+          "time": 11.4,
+          "ms": 4.633100000000923,
+          "merges": 0
+        },
+        {
+          "time": 11.4,
+          "ms": 0.01810000000114087,
+          "merges": 0
+        },
+        {
+          "time": 11.450000000000001,
+          "ms": 4.802299999999377,
+          "merges": 0
+        },
+        {
+          "time": 11.5,
+          "ms": 2.7708999999995285,
+          "merges": 0
+        },
+        {
+          "time": 11.600000000000001,
+          "ms": 3.6538000000000466,
+          "merges": 0
+        },
+        {
+          "time": 11.600000000000001,
+          "ms": 0.014699999999720603,
+          "merges": 0
+        },
+        {
+          "time": 11.65,
+          "ms": 4.2652000000016415,
+          "merges": 0
+        },
+        {
+          "time": 11.700000000000001,
+          "ms": 4.832899999999427,
+          "merges": 0
+        },
+        {
+          "time": 11.700000000000001,
+          "ms": 0.03259999999863794,
+          "merges": 0
+        },
+        {
+          "time": 11.75,
+          "ms": 5.501399999999194,
+          "merges": 0
+        },
+        {
+          "time": 11.8,
+          "ms": 3.5464999999985594,
+          "merges": 0
+        },
+        {
+          "time": 11.9,
+          "ms": 4.430200000000696,
+          "merges": 0
+        },
+        {
+          "time": 11.9,
+          "ms": 0.016400000000430737,
+          "merges": 0
+        },
+        {
+          "time": 11.950000000000001,
+          "ms": 5.202199999999721,
+          "merges": 0
+        },
+        {
+          "time": 12,
+          "ms": 4.7840999999989435,
+          "merges": 0
+        },
+        {
+          "time": 12,
+          "ms": 0.02260000000023865,
+          "merges": 0
+        },
+        {
+          "time": 12.05,
+          "ms": 4.913000000000466,
+          "merges": 0
+        },
+        {
+          "time": 12.100000000000001,
+          "ms": 2.683899999999994,
+          "merges": 0
+        },
+        {
+          "time": 12.200000000000001,
+          "ms": 3.6370000000006257,
+          "merges": 0
+        },
+        {
+          "time": 12.200000000000001,
+          "ms": 0.03149999999914144,
+          "merges": 0
+        },
+        {
+          "time": 12.25,
+          "ms": 7.7172000000009575,
+          "merges": 0
+        },
+        {
+          "time": 12.3,
+          "ms": 4.912800000000061,
+          "merges": 0
+        },
+        {
+          "time": 12.3,
+          "ms": 0.01809999999932188,
+          "merges": 0
+        },
+        {
+          "time": 12.350000000000001,
+          "ms": 5.5033000000003085,
+          "merges": 0
+        },
+        {
+          "time": 12.4,
+          "ms": 3.207800000000134,
+          "merges": 0
+        },
+        {
+          "time": 12.5,
+          "ms": 3.992099999999482,
+          "merges": 0
+        },
+        {
+          "time": 12.5,
+          "ms": 0.01990000000114378,
+          "merges": 0
+        },
+        {
+          "time": 12.55,
+          "ms": 7.066200000001118,
+          "merges": 0
+        },
+        {
+          "time": 12.600000000000001,
+          "ms": 5.857900000000882,
+          "merges": 0
+        },
+        {
+          "time": 12.600000000000001,
+          "ms": 0.021600000000034925,
+          "merges": 0
+        },
+        {
+          "time": 12.65,
+          "ms": 6.308899999999994,
+          "merges": 0
+        },
+        {
+          "time": 12.700000000000001,
+          "ms": 3.4447000000000116,
+          "merges": 0
+        },
+        {
+          "time": 12.8,
+          "ms": 3.537500000000364,
+          "merges": 0
+        },
+        {
+          "time": 12.8,
+          "ms": 0.023699999999735155,
+          "merges": 0
+        },
+        {
+          "time": 12.850000000000001,
+          "ms": 6.6304999999993015,
+          "merges": 0
+        },
+        {
+          "time": 12.9,
+          "ms": 6.304899999999179,
+          "merges": 0
+        },
+        {
+          "time": 12.9,
+          "ms": 0.023799999999027932,
+          "merges": 0
+        },
+        {
+          "time": 12.950000000000001,
+          "ms": 5.430099999999584,
+          "merges": 0
+        },
+        {
+          "time": 13,
+          "ms": 4.207599999999729,
+          "merges": 0
+        },
+        {
+          "time": 13.100000000000001,
+          "ms": 5.551100000000588,
+          "merges": 0
+        },
+        {
+          "time": 13.100000000000001,
+          "ms": 0.028800000000046566,
+          "merges": 0
+        },
+        {
+          "time": 13.15,
+          "ms": 5.83219999999892,
+          "merges": 0
+        },
+        {
+          "time": 13.200000000000001,
+          "ms": 6.065400000001318,
+          "merges": 0
+        },
+        {
+          "time": 13.200000000000001,
+          "ms": 0.0305000000007567,
+          "merges": 0
+        },
+        {
+          "time": 13.25,
+          "ms": 6.569999999999709,
+          "merges": 0
+        },
+        {
+          "time": 13.3,
+          "ms": 3.701499999999214,
+          "merges": 0
+        },
+        {
+          "time": 13.4,
+          "ms": 5.547099999999773,
+          "merges": 0
+        },
+        {
+          "time": 13.4,
+          "ms": 0.031199999999444117,
+          "merges": 0
+        },
+        {
+          "time": 13.450000000000001,
+          "ms": 5.865900000000693,
+          "merges": 0
+        },
+        {
+          "time": 13.5,
+          "ms": 36.86789999999928,
+          "merges": 16
+        },
+        {
+          "time": 13.5,
+          "ms": 0.057199999999284046,
+          "merges": 16
+        },
+        {
+          "time": 13.55,
+          "ms": 53.82600000000093,
+          "merges": 56
+        },
+        {
+          "time": 13.600000000000001,
+          "ms": 26.442199999999502,
+          "merges": 76
+        },
+        {
+          "time": 13.700000000000001,
+          "ms": 25.336699999999837,
+          "merges": 96
+        },
+        {
+          "time": 13.700000000000001,
+          "ms": 0.039099999999962165,
+          "merges": 96
+        },
+        {
+          "time": 13.75,
+          "ms": 29.670500000000175,
+          "merges": 136
+        },
+        {
+          "time": 13.8,
+          "ms": 30.006199999999808,
+          "merges": 176
+        },
+        {
+          "time": 13.8,
+          "ms": 0.03149999999914144,
+          "merges": 176
+        },
+        {
+          "time": 13.850000000000001,
+          "ms": 28.145699999999124,
+          "merges": 216
+        },
+        {
+          "time": 13.9,
+          "ms": 18.054399999999077,
+          "merges": 236
+        },
+        {
+          "time": 14,
+          "ms": 18.48269999999866,
+          "merges": 256
+        },
+        {
+          "time": 14,
+          "ms": 0.04160000000047148,
+          "merges": 256
+        },
+        {
+          "time": 14.05,
+          "ms": 40.26599999999962,
+          "merges": 296
+        },
+        {
+          "time": 14.100000000000001,
+          "ms": 36.56660000000011,
+          "merges": 336
+        },
+        {
+          "time": 14.100000000000001,
+          "ms": 0.09710000000086438,
+          "merges": 336
+        },
+        {
+          "time": 14.15,
+          "ms": 22.010800000000017,
+          "merges": 376
+        },
+        {
+          "time": 14.200000000000001,
+          "ms": 14.895800000000236,
+          "merges": 396
+        },
+        {
+          "time": 14.3,
+          "ms": 19.206899999999223,
+          "merges": 416
+        },
+        {
+          "time": 14.3,
+          "ms": 0.025900000000547152,
+          "merges": 416
+        },
+        {
+          "time": 14.350000000000001,
+          "ms": 24.02719999999863,
+          "merges": 456
+        },
+        {
+          "time": 14.4,
+          "ms": 25.154899999999543,
+          "merges": 496
+        },
+        {
+          "time": 14.4,
+          "ms": 0.03449999999975262,
+          "merges": 496
+        },
+        {
+          "time": 14.450000000000001,
+          "ms": 29.073300000000017,
+          "merges": 536
+        },
+        {
+          "time": 14.5,
+          "ms": 21.538899999999558,
+          "merges": 556
+        },
+        {
+          "time": 14.600000000000001,
+          "ms": 39.51430000000073,
+          "merges": 576
+        },
+        {
+          "time": 14.600000000000001,
+          "ms": 0.03709999999955471,
+          "merges": 576
+        },
+        {
+          "time": 14.65,
+          "ms": 25.15440000000126,
+          "merges": 616
+        },
+        {
+          "time": 14.700000000000001,
+          "ms": 22.141600000000835,
+          "merges": 656
+        },
+        {
+          "time": 14.700000000000001,
+          "ms": 0.031599999998434214,
+          "merges": 656
+        },
+        {
+          "time": 14.75,
+          "ms": 28.98359999999957,
+          "merges": 696
+        },
+        {
+          "time": 14.8,
+          "ms": 17.29490000000078,
+          "merges": 716
+        },
+        {
+          "time": 14.9,
+          "ms": 14.3608000000022,
+          "merges": 736
+        },
+        {
+          "time": 14.9,
+          "ms": 0.03830000000016298,
+          "merges": 736
+        },
+        {
+          "time": 14.950000000000001,
+          "ms": 29.09360000000015,
+          "merges": 776
+        },
+        {
+          "time": 15,
+          "ms": 25.98370000000068,
+          "merges": 816
+        },
+        {
+          "time": 15,
+          "ms": 0.03689999999915017,
+          "merges": 816
+        },
+        {
+          "time": 15.05,
+          "ms": 21.570099999997183,
+          "merges": 856
+        },
+        {
+          "time": 15.100000000000001,
+          "ms": 15.634500000000116,
+          "merges": 876
+        },
+        {
+          "time": 15.200000000000001,
+          "ms": 21.355999999999767,
+          "merges": 896
+        },
+        {
+          "time": 15.200000000000001,
+          "ms": 0.04070000000137952,
+          "merges": 896
+        },
+        {
+          "time": 15.25,
+          "ms": 21.927499999997963,
+          "merges": 936
+        },
+        {
+          "time": 15.3,
+          "ms": 21.330399999998917,
+          "merges": 976
+        },
+        {
+          "time": 15.3,
+          "ms": 0.030900000001565786,
+          "merges": 976
+        },
+        {
+          "time": 15.350000000000001,
+          "ms": 31.610100000001694,
+          "merges": 1016
+        },
+        {
+          "time": 15.4,
+          "ms": 18.59610000000248,
+          "merges": 1036
+        },
+        {
+          "time": 15.5,
+          "ms": 16.153200000000652,
+          "merges": 1056
+        },
+        {
+          "time": 15.5,
+          "ms": 0.0404000000016822,
+          "merges": 1056
+        },
+        {
+          "time": 15.55,
+          "ms": 22.21180000000095,
+          "merges": 1096
+        },
+        {
+          "time": 15.600000000000001,
+          "ms": 38.56980000000112,
+          "merges": 1136
+        },
+        {
+          "time": 15.600000000000001,
+          "ms": 0.04820000000108848,
+          "merges": 1136
+        },
+        {
+          "time": 15.65,
+          "ms": 41.69080000000031,
+          "merges": 1176
+        },
+        {
+          "time": 15.700000000000001,
+          "ms": 13.868999999998778,
+          "merges": 1196
+        },
+        {
+          "time": 15.8,
+          "ms": 16.742200000000594,
+          "merges": 1216
+        },
+        {
+          "time": 15.8,
+          "ms": 0.030600000001868466,
+          "merges": 1216
+        },
+        {
+          "time": 15.850000000000001,
+          "ms": 23.940299999998388,
+          "merges": 1256
+        },
+        {
+          "time": 15.9,
+          "ms": 25.66870000000199,
+          "merges": 1296
+        },
+        {
+          "time": 15.9,
+          "ms": 0.03869999999733409,
+          "merges": 1296
+        },
+        {
+          "time": 15.950000000000001,
+          "ms": 22.003099999998085,
+          "merges": 1336
+        },
+        {
+          "time": 16,
+          "ms": 18.69670000000042,
+          "merges": 1357
+        },
+        {
+          "time": 16,
+          "ms": 0.02600000000165892,
+          "merges": 1357
+        },
+        {
+          "time": 16.05,
+          "ms": 8.077300000000832,
+          "merges": 1358
+        },
+        {
+          "time": 16.1,
+          "ms": 14.762900000001537,
+          "merges": 1381
+        },
+        {
+          "time": 16.1,
+          "ms": 0.054500000002008164,
+          "merges": 1381
+        },
+        {
+          "time": 16.150000000000002,
+          "ms": 21.635000000002037,
+          "merges": 1422
+        },
+        {
+          "time": 16.2,
+          "ms": 29.340700000000652,
+          "merges": 1460
+        },
+        {
+          "time": 16.2,
+          "ms": 0.03540000000066357,
+          "merges": 1460
+        },
+        {
+          "time": 16.25,
+          "ms": 25.356400000000576,
+          "merges": 1499
+        },
+        {
+          "time": 16.3,
+          "ms": 21.526099999999133,
+          "merges": 1523
+        },
+        {
+          "time": 16.3,
+          "ms": 0.02899999999863212,
+          "merges": 1523
+        },
+        {
+          "time": 16.35,
+          "ms": 8.71820000000298,
+          "merges": 1524
+        },
+        {
+          "time": 16.400000000000002,
+          "ms": 19.683099999998376,
+          "merges": 1544
+        },
+        {
+          "time": 16.400000000000002,
+          "ms": 0.0286999999989348,
+          "merges": 1544
+        },
+        {
+          "time": 16.45,
+          "ms": 22.666700000001583,
+          "merges": 1582
+        },
+        {
+          "time": 16.5,
+          "ms": 18.853299999998853,
+          "merges": 1617
+        },
+        {
+          "time": 16.5,
+          "ms": 0.09629999999742722,
+          "merges": 1617
+        },
+        {
+          "time": 16.55,
+          "ms": 25.017500000001746,
+          "merges": 1655
+        },
+        {
+          "time": 16.6,
+          "ms": 15.1804000000011,
+          "merges": 1675
+        },
+        {
+          "time": 16.6,
+          "ms": 0.024600000000646105,
+          "merges": 1675
+        },
+        {
+          "time": 16.650000000000002,
+          "ms": 9.359300000000076,
+          "merges": 1677
+        },
+        {
+          "time": 16.7,
+          "ms": 13.060199999999895,
+          "merges": 1694
+        },
+        {
+          "time": 16.7,
+          "ms": 0.037600000003294554,
+          "merges": 1694
+        },
+        {
+          "time": 16.75,
+          "ms": 18.26550000000134,
+          "merges": 1730
+        },
+        {
+          "time": 16.8,
+          "ms": 24.800900000002002,
+          "merges": 1761
+        },
+        {
+          "time": 16.8,
+          "ms": 0.03020000000105938,
+          "merges": 1761
+        },
+        {
+          "time": 16.85,
+          "ms": 26.109599999999773,
+          "merges": 1793
+        },
+        {
+          "time": 16.900000000000002,
+          "ms": 12.08560000000216,
+          "merges": 1811
+        },
+        {
+          "time": 16.900000000000002,
+          "ms": 0.02690000000075088,
+          "merges": 1811
+        },
+        {
+          "time": 16.95,
+          "ms": 8.548900000001595,
+          "merges": 1814
+        },
+        {
+          "time": 17,
+          "ms": 26.740600000000995,
+          "merges": 1832
+        },
+        {
+          "time": 17,
+          "ms": 0.05020000000149594,
+          "merges": 1832
+        },
+        {
+          "time": 17.05,
+          "ms": 30.93550000000323,
+          "merges": 1864
+        },
+        {
+          "time": 17.1,
+          "ms": 15.172600000001694,
+          "merges": 1888
+        },
+        {
+          "time": 17.1,
+          "ms": 0.02839999999923748,
+          "merges": 1888
+        },
+        {
+          "time": 17.150000000000002,
+          "ms": 18.90940000000046,
+          "merges": 1916
+        },
+        {
+          "time": 17.2,
+          "ms": 10.909499999997934,
+          "merges": 1929
+        },
+        {
+          "time": 17.2,
+          "ms": 0.030300000002171146,
+          "merges": 1929
+        },
+        {
+          "time": 17.25,
+          "ms": 7.012500000000728,
+          "merges": 1930
+        },
+        {
+          "time": 17.3,
+          "ms": 11.45759999999791,
+          "merges": 1942
+        },
+        {
+          "time": 17.3,
+          "ms": 0.031200000001263106,
+          "merges": 1942
+        },
+        {
+          "time": 17.35,
+          "ms": 16.892299999999523,
+          "merges": 1972
+        },
+        {
+          "time": 17.400000000000002,
+          "ms": 21.78150000000096,
+          "merges": 1992
+        },
+        {
+          "time": 17.400000000000002,
+          "ms": 0.03689999999915017,
+          "merges": 1992
+        },
+        {
+          "time": 17.45,
+          "ms": 15.718100000001868,
+          "merges": 2011
+        },
+        {
+          "time": 17.5,
+          "ms": 14.588599999999133,
+          "merges": 2021
+        },
+        {
+          "time": 17.5,
+          "ms": 0.03809999999793945,
+          "merges": 2021
+        },
+        {
+          "time": 17.55,
+          "ms": 8.603100000000268,
+          "merges": 2024
+        },
+        {
+          "time": 17.6,
+          "ms": 11.110799999998562,
+          "merges": 2034
+        },
+        {
+          "time": 17.6,
+          "ms": 0.028599999997823033,
+          "merges": 2034
+        },
+        {
+          "time": 17.650000000000002,
+          "ms": 20.983200000002398,
+          "merges": 2060
+        },
+        {
+          "time": 17.7,
+          "ms": 12.977999999999156,
+          "merges": 2079
+        },
+        {
+          "time": 17.7,
+          "ms": 0.033999999999650754,
+          "merges": 2079
+        },
+        {
+          "time": 17.75,
+          "ms": 11.70310000000245,
+          "merges": 2096
+        },
+        {
+          "time": 17.8,
+          "ms": 10.73029999999926,
+          "merges": 2105
+        },
+        {
+          "time": 17.8,
+          "ms": 0.027099999999336433,
+          "merges": 2105
+        },
+        {
+          "time": 17.85,
+          "ms": 10.243099999999686,
+          "merges": 2110
+        },
+        {
+          "time": 17.900000000000002,
+          "ms": 16.570999999999913,
+          "merges": 2117
+        },
+        {
+          "time": 17.900000000000002,
+          "ms": 0.02710000000297441,
+          "merges": 2117
+        },
+        {
+          "time": 17.95,
+          "ms": 14.002000000000407,
+          "merges": 2133
+        },
+        {
+          "time": 18,
+          "ms": 11.837100000000646,
+          "merges": 2141
+        },
+        {
+          "time": 18,
+          "ms": 0.07899999999790452,
+          "merges": 2141
+        },
+        {
+          "time": 18.05,
+          "ms": 10.021899999999732,
+          "merges": 2149
+        },
+        {
+          "time": 18.1,
+          "ms": 12.453999999997905,
+          "merges": 2157
+        },
+        {
+          "time": 18.1,
+          "ms": 0.03449999999793363,
+          "merges": 2157
+        },
+        {
+          "time": 18.150000000000002,
+          "ms": 17.245200000001205,
+          "merges": 2158
+        },
+        {
+          "time": 18.2,
+          "ms": 12.069500000001426,
+          "merges": 2168
+        },
+        {
+          "time": 18.2,
+          "ms": 0.028500000000349246,
+          "merges": 2168
+        },
+        {
+          "time": 18.25,
+          "ms": 11.58690000000206,
+          "merges": 2175
+        },
+        {
+          "time": 18.3,
+          "ms": 8.239199999999983,
+          "merges": 2177
+        },
+        {
+          "time": 18.3,
+          "ms": 0.025799999999435386,
+          "merges": 2177
+        },
+        {
+          "time": 18.35,
+          "ms": 8.978900000001886,
+          "merges": 2181
+        },
+        {
+          "time": 18.400000000000002,
+          "ms": 15.506400000002031,
+          "merges": 2188
+        },
+        {
+          "time": 18.400000000000002,
+          "ms": 0.020099999997910345,
+          "merges": 2188
+        },
+        {
+          "time": 18.6,
+          "ms": 20.784200000001874,
+          "merges": 2195
+        }
+      ]
+    }
+  ],
+  "sourceSHA256": {
+    "state": "131de6ed505b89c26f0604bd66ea378bf7acf21d704f5aef9230284b0071b6a0",
+    "math": "9330bcd98fc38a1f30a494979887eecdeb946e7b373aa9534b4b5c9c14cddad2",
+    "graph": "99f0fb2650a6279125271ac3bfc7e176a602a74a28aa7b4b1235f5a1eb0ce174",
+    "legacy": "67fa049f11928d23edf7b57798fd899fdbacb8956c3d939a479839642b429172"
+  },
+  "limits": [
+    "Newfactory only; host/default integration untouched.",
+    "Same causal fence protocol is required for parity; arbitrary same-clock fence partitions differ.",
+    "No GPU/FPS or photographic acceptance from CPU checks."
+  ],
+  "tape": {
+    "count": 6291,
+    "hash": "d192c989db2d994bfa84bd7ac7a31627615312d9020eb001451d913caaa09766",
+    "emissionHash": "c39c6d9c6965ff1b9d4d043da51959c790bfa2944f70b30a8133761cec3317a5",
+    "endTime": 18.60858222067491
+  },
+  "counts": {
+    "passed": 17,
+    "total": 17
+  },
+  "passed": true
+}

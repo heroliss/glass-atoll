@@ -1,0 +1,73 @@
+{
+  "schema": "glass-atoll.r30-capture-format-layer-bounds-review.v1",
+  "actualGPU": false,
+  "browserActions": 0,
+  "nativeProbesByReviewer": 0,
+  "gpuHelperImported": false,
+  "productionEdits": 0,
+  "passed": true,
+  "summary": {
+    "passed": 3,
+    "total": 3
+  },
+  "checks": [
+    {
+      "name": "Actual saved readonly platform tuple selects matching RGBA16F/FLOAT without using default UNORM8 as storage authority",
+      "passed": true,
+      "evidence": {
+        "probeSHA": "2b49f3a5333a03728366903d560d8f083b4e014a9faf3c97849cdd98912a9ae3",
+        "effectiveSizedFormat": 34842,
+        "preferredReadType": 5131,
+        "defaultComponentDiagnostic": 35863,
+        "defaultRedBitsDiagnostic": 8,
+        "selected": {
+          "internalFormat": 34842,
+          "readType": 5126,
+          "readTypeName": "FLOAT",
+          "bytes": 437760
+        },
+        "downgraded": false,
+        "unknownOrInconsistentTuplesRejected": true
+      }
+    },
+    {
+      "name": "v4 changes only pure format qualification and capture allocation diagnostics; complete measured frame remains byte exact",
+      "passed": true,
+      "evidence": {
+        "v4SHA": "ddcfa533be748f4ff27ccfda34612cf1e828b99c19c6b290f6a0d0669affce80",
+        "priorV3SHA": "bb4a23bc39be07c3c3dc16ebbebda20de8a59cf5433f9cf50945ed0dcdcdbff1",
+        "completeFrameQueryDrawBudgetReadbackAndRestorationUnchanged": true,
+        "ownedFBOCompletenessRequired": true,
+        "ownedComponentTypeBackendVerified": true,
+        "defaultComponentIsDiagnosticOnly": true,
+        "formatFallbackRemoved": true
+      }
+    },
+    {
+      "name": "Current source pins and pre-query failure restoration evidence remain intact",
+      "passed": true,
+      "evidence": {
+        "sourcePins": 34,
+        "mainSHA": "bfe586ddebfb2d47eb83f285762ecf1acfe92e773862699092bf88c178545777",
+        "priorFailedReceiptSHA": "c1b49a543bd082207a1310acdee559484320a854ae42ff9c2970f6fe6380ed3d",
+        "priorExperimentalDraws": 0,
+        "priorInstallOccurred": true,
+        "innerAndSemanticRestorationPassed": true,
+        "priorFailureNotRelabeledPassed": true
+      }
+    }
+  ],
+  "primarySourceReview": {
+    "webglDraft": "https://registry.khronos.org/webgl/specs/latest/1.0/#DOM-WebGLRenderingContext-drawingBufferStorage",
+    "floatExtension": "https://registry.khronos.org/webgl/extensions/EXT_color_buffer_float/",
+    "chromium": "https://chromium.googlesource.com/chromium/src/+/HEAD/third_party/blink/renderer/modules/webgl/webgl2_rendering_context_base.cc",
+    "chromiumObservedBlob": "9eb36fe26cc59e1d248b41b1f02adff133585474",
+    "facts": "Current Khronos draft names drawingBufferFormat as effective storage and RGBA/FLOAT after RGBA16F storage. EXT_color_buffer_float permits RGBA/FLOAT from float color buffers. Reviewed Chromium default-attachment branch reports constant8/UNORM, while non-default attachments query backend. This supports the observed metadata seam; it does not identify an exact compiled browser build from HEAD source."
+  },
+  "decision": "No remaining material capture-format qualification blocker found in this minimal v4 delta. Root may separately consider one fixed bounded composed-frame dispatch after confirming loaded v4 and existing strict-browser prerequisite. No new draw/query budget, HDR presentation path, model or kernel change is authorized by this review.",
+  "limits": [
+    "Saved readonly tuple and earlier zero-draw failure are observations by root, not probes executed by this reviewer.",
+    "v3 installed/resized native state before rejecting; zero measured draws/queries does not mean no native state or allocation work occurred.",
+    "FLOAT437760-byte capture remains an SDR-composed image in float storage; it is not a measurement of HDR display output or native-resolution FPS."
+  ]
+}

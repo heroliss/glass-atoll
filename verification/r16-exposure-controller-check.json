@@ -1,0 +1,72 @@
+{
+  "schema": "glass-atoll.r16-exposure-controller.v1",
+  "actualGPU": false,
+  "checks": [
+    {
+      "name": "perceptual ceiling is continuous monotone and bounded for day twilight night",
+      "passed": true
+    },
+    {
+      "name": "twenty explicit day night clock cuts cannot retain previous camera gain",
+      "passed": true
+    },
+    {
+      "name": "storageP cancellation remains independent of camera C",
+      "passed": true
+    },
+    {
+      "name": "switching automatic off without manual value locks current base and compensation once",
+      "passed": true
+    },
+    {
+      "name": "explicit manual exposure is independent of celestial lighting and uses gain sign",
+      "passed": true
+    },
+    {
+      "name": "reenabling automatic adapts from manual without an instantaneous gain cut",
+      "passed": true
+    },
+    {
+      "name": "constant target adaptation is frame-schedule independent30/60/120Hz",
+      "passed": true
+    },
+    {
+      "name": "bounded log adaptation cannot overshoot or exceed chosen stop rate",
+      "passed": true
+    },
+    {
+      "name": "actual-pixel histogram removes storageP in log space exactly",
+      "passed": true
+    },
+    {
+      "name": "a one-percent bright hot spot does not pull whole-image metering",
+      "passed": true
+    },
+    {
+      "name": "real broad bright pixels affect histogram but camera influence stays within2EV prior",
+      "passed": true
+    },
+    {
+      "name": "no supplied histogram is explicitly a bounded celestial prior",
+      "passed": true
+    },
+    {
+      "name": "zero pixels fall back and nonfinite invalid updates are atomic",
+      "passed": true
+    },
+    {
+      "name": "local light on off without a genuine meter change cannot dim the entire camera",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "counts": {
+    "passed": 14,
+    "total": 14
+  },
+  "limits": [
+    "Controller CPU math only; root must verify main P/C caches, HDR presentation and actual slider sequences.",
+    "Histogram support is not a claim that live renderer has histogram sampling.",
+    "Night ceiling14 is an authored perceptual policy, not measured eye response."
+  ]
+}

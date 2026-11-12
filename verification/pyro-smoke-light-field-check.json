@@ -1,0 +1,85 @@
+{
+  "schema": "glass-atoll.smoke-resolved-light-CPU.v1",
+  "dateUTC": "2026-10-31T16:38:03.157Z",
+  "passed": false,
+  "counts": {
+    "checks": 15,
+    "passed": 12
+  },
+  "checks": [
+    {
+      "id": "complete_legacy_renderer_and_host_inverse_are_byte_exact_fail_closed",
+      "passed": false,
+      "error": "Error: resolved renderer scope drift: field factory import\n    at inverse (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/resolved-light-default-normalize.mjs:40:202)\n    at normalizeResolvedRendererSource (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/resolved-light-default-normalize.mjs:41:54)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:12:380\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:5:69)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:12:1"
+    },
+    {
+      "id": "default_factory_has_original_shaders_uniforms_and_raw_bound_no_extra_attributes",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n... Skipped lines\n\n  'precision highp float;precision highp int;\\n' +\n    '    uniform highp sampler2D uOpaqueDepth;uniform mat4 uInverseProjection,uCameraWorld;uniform vec3 uEye,uAmbient,uDirectionalRGB,uDirectionalDirection,uClusterPosition[2],uClusterRGB[2];uniform vec2 uSize,uNearFar;uniform float uReflection,uPlaneY,uDebugMode,uG,uClusterRadius[2],uVignette,uSensorHeight,uFocal;\\n' +\n    '    uniform float uAirEnabled,uAirG;uniform vec2 uAirHeights;uniform vec3 uAirBetaR,uAirBetaME,uAirBetaMS,uAirSun,uAirDirection;\\n' +\n    '    uniform float uUseLocalLighting,uFiniteClusterPhase;\\n' +\n    '    \\n' +\n...\n    '      vec3 point=direction*column.y,source=uAmbient/12.566370614359172+uDirectionalRGB*phaseHG(clamp(dot(direction,uDirectionalDirection),-1.,1.));\\n' +\n+   '      if(uUseLocalLighting>.5){vec3 worldPoint=uEye+point;for(int i=0;i<20;i++){vec3 L;vec3 incident=localIncident(worldPoint,i,L);if(uFiniteClusterPhase>.5&&i>=4){float distance=length(uLocalPosition[i].xyz-worldPoint),weight=smoothstep(1.,2.,distance/uLocalPosition[i].w),phase=mix(0.07957747154594767,phaseHG(clamp(dot(direction,L),-1.,1.)),weight);source+=incident*phase;}else{source+=incident*phaseHG(clamp(dot(direction,L),-1.,1.));}}}\\n' +\n-   '      if(uUseLocalLighting>.5){vec3 worldPoint=uEye+point;for(int i=0;i<6;i++){vec3 L;vec3 incident=localIncident(worldPoint,i,L);if(uFiniteClusterPhase>.5&&i>=4){float distance=length(uLocalPosition[i].xyz-worldPoint),weight=smoothstep(1.,2.,distance/uLocalPosition[i].w),phase=mix(0.07957747154594767,phaseHG(clamp(dot(direction,L),-1.,1.)),weight);source+=incident*phase;}else{source+=incident*phaseHG(clamp(dot(direction,L),-1.,1.));}}}\\n' +\n    '      else{for(int i=0;i<2;i++){vec3 delta=uClusterPosition[i]-point;float distance2=dot(delta,delta),phase=distance2>1e-12?phaseHG(clamp(dot(direction,delta*inversesqrt(distance2)),-1.,1.)):0.07957747154594767;if(uFiniteClusterPhase>.5){float weight=smoothstep(1.,2.,sqrt(distance2)/uClusterRadius[i]);phase=mix(0.07957747154594767,phase,weight);}source+=uClusterRGB[i]*phase/max(distance2,uClusterRadius[i]*uClusterRadius[i]);}}\\n' +\n    '      vec3 rgb=vOptics.yzw*source*opacity;\\n' +\n    '      if(uAirEnabled>.5){vec3 Tair,Sair;smokeFrontAir(direction,start,column.y,Tair,Sair);rgb=opacity*(Tair*vOptics.yzw*source+Sair);}\\n' +\n    '      vec2 sensor=(uv-.5)*vec2(uSensorHeight*uSize.x/uSize.y,uSensorHeight);float cos4=pow(inversesqrt(1.+dot(sensor,sensor)/(uFocal*uFocal)),4.);rgb*=mix(1.,mix(1.,cos4,.30),uVignette);\\n' +\n    '      outColour=vec4(rgb,opacity);\\n' +\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:13:203\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:5:69)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:13:1"
+    },
+    {
+      "id": "disabled_light_factory_and_host_allocate_no_numeric_resources_or_GPU_passes",
+      "passed": true
+    },
+    {
+      "id": "actual_upload_pack_is_Float32_world_mean_trace_no_mass_camera_P",
+      "passed": true
+    },
+    {
+      "id": "invalid_or_indefinite_packet_geometry_rejected_not_silently_isotropized",
+      "passed": true
+    },
+    {
+      "id": "work_capacity_unsupported_is_explicit_and_disable_reenable_cannot_publish_stale_cache",
+      "passed": true
+    },
+    {
+      "id": "invalid_source_or_group_is_error_not_resource_unsupported",
+      "passed": true
+    },
+    {
+      "id": "valid_input_without_float_MRT_support_reports_unsupported_no_fake_GPU_success",
+      "passed": true
+    },
+    {
+      "id": "resolved_shader_is_lazy_separate_and_excludes_only_pyro_local4_5",
+      "passed": true
+    },
+    {
+      "id": "camera_sorted_culled_instances_keep_original_snapshot_field_indices",
+      "passed": true
+    },
+    {
+      "id": "resolved_raw_bound_replaces_legacy_cluster_model_and_applies_SSA_once",
+      "passed": true
+    },
+    {
+      "id": "own_raw_field_receives_one_P_and_borrowed_localRGB_is_not_scaled_again",
+      "passed": true
+    },
+    {
+      "id": "stale_or_different_snapshot_layout_refuses_field_before_draw",
+      "passed": true
+    },
+    {
+      "id": "null_disable_restores_original_material_shader_and_bound",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n... Skipped lines\n\n  'precision highp float;precision highp int;\\n' +\n    '    uniform highp sampler2D uOpaqueDepth;uniform mat4 uInverseProjection,uCameraWorld;uniform vec3 uEye,uAmbient,uDirectionalRGB,uDirectionalDirection,uClusterPosition[2],uClusterRGB[2];uniform vec2 uSize,uNearFar;uniform float uReflection,uPlaneY,uDebugMode,uG,uClusterRadius[2],uVignette,uSensorHeight,uFocal;\\n' +\n    '    uniform float uAirEnabled,uAirG;uniform vec2 uAirHeights;uniform vec3 uAirBetaR,uAirBetaME,uAirBetaMS,uAirSun,uAirDirection;\\n' +\n    '    uniform float uUseLocalLighting,uFiniteClusterPhase;\\n' +\n    '    \\n' +\n...\n    '      vec3 point=direction*column.y,source=uAmbient/12.566370614359172+uDirectionalRGB*phaseHG(clamp(dot(direction,uDirectionalDirection),-1.,1.));\\n' +\n+   '      if(uUseLocalLighting>.5){vec3 worldPoint=uEye+point;for(int i=0;i<20;i++){vec3 L;vec3 incident=localIncident(worldPoint,i,L);if(uFiniteClusterPhase>.5&&i>=4){float distance=length(uLocalPosition[i].xyz-worldPoint),weight=smoothstep(1.,2.,distance/uLocalPosition[i].w),phase=mix(0.07957747154594767,phaseHG(clamp(dot(direction,L),-1.,1.)),weight);source+=incident*phase;}else{source+=incident*phaseHG(clamp(dot(direction,L),-1.,1.));}}}\\n' +\n-   '      if(uUseLocalLighting>.5){vec3 worldPoint=uEye+point;for(int i=0;i<6;i++){vec3 L;vec3 incident=localIncident(worldPoint,i,L);if(uFiniteClusterPhase>.5&&i>=4){float distance=length(uLocalPosition[i].xyz-worldPoint),weight=smoothstep(1.,2.,distance/uLocalPosition[i].w),phase=mix(0.07957747154594767,phaseHG(clamp(dot(direction,L),-1.,1.)),weight);source+=incident*phase;}else{source+=incident*phaseHG(clamp(dot(direction,L),-1.,1.));}}}\\n' +\n    '      else{for(int i=0;i<2;i++){vec3 delta=uClusterPosition[i]-point;float distance2=dot(delta,delta),phase=distance2>1e-12?phaseHG(clamp(dot(direction,delta*inversesqrt(distance2)),-1.,1.)):0.07957747154594767;if(uFiniteClusterPhase>.5){float weight=smoothstep(1.,2.,sqrt(distance2)/uClusterRadius[i]);phase=mix(0.07957747154594767,phase,weight);}source+=uClusterRGB[i]*phase/max(distance2,uClusterRadius[i]*uClusterRadius[i]);}}\\n' +\n    '      vec3 rgb=vOptics.yzw*source*opacity;\\n' +\n    '      if(uAirEnabled>.5){vec3 Tair,Sair;smokeFrontAir(direction,start,column.y,Tair,Sair);rgb=opacity*(Tair*vOptics.yzw*source+Sair);}\\n' +\n    '      vec2 sensor=(uv-.5)*vec2(uSensorHeight*uSize.x/uSize.y,uSensorHeight);float cos4=pow(inversesqrt(1.+dot(sensor,sensor)/(uFocal*uFocal)),4.);rgb*=mix(1.,mix(1.,cos4,.30),uVignette);\\n' +\n    '      outColour=vec4(rgb,opacity);\\n' +\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:25:201\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:5:69)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:25:1"
+    },
+    {
+      "id": "moments_shader_has_explicit_small_far_stable_forms_and_no_noise_readback",
+      "passed": true
+    }
+  ],
+  "sourceSHA256": {
+    "pyro-smoke-light-field.js": "6e37c2cc59c8f32b329840392dfba85a48c16c8beec92623d1e65b6458bffa6c",
+    "pyro-smoke-renderer.js": "18f39cc13b0d33a2299ba4896ad348eed53b42086e344cabe323ec4d3a33eda9",
+    "pyro-smoke.js": "a4e46fa9ac93bdcbafb576cdbd6d71b07e2e4fd252b90ec573ff4f966314caf0"
+  },
+  "noGPU": true,
+  "limits": [
+    "True factories/packing/rawbound/shader-selection exercised with stub render calls; no GL pixels, measured cost or actual scene visual acceptance.",
+    "Independent float-field GPU/Laplace oracle and main/mirror sorted-index tests remain required on hardware.",
+    "Trace-isotropic constant SH1 approximation is not conditional-ray anisotropic RTE or smoke self-shadow."
+  ]
+}

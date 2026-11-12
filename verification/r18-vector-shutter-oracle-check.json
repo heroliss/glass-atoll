@@ -1,0 +1,130 @@
+{
+  "schema": "glass-atoll.r18-vector-shutter-oracle-cpu.v1",
+  "date": "2026-10-29T03:49:57.403Z",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 9,
+    "total": 9
+  },
+  "helperSHA256": "d97d379d28d3e7281a6dc31c8bf2da56f0671fb933addc3afdaac4a7097918a6",
+  "checks": [
+    {
+      "name": "independent numerical erf matches known high precision values and symmetry",
+      "passed": true,
+      "evidence": {
+        "knownPoints": 6,
+        "method": "Gauss-Legendre32 integration, no production erf coefficients"
+      }
+    },
+    {
+      "name": "bounded fixture list has seven single-instance cases and fresh independent values",
+      "passed": true,
+      "evidence": {
+        "cases": [
+          "candidate-static-two-colour",
+          "candidate-shapeZ37-no-second-I",
+          "candidate-moving-head-joint-colour",
+          "candidate-fixed8-spatial-tail-times8-RGB",
+          "candidate-adaptive-positive-spatial-times8-RGB",
+          "candidate-vertex-T-once",
+          "legacy-scalar-isolation"
+        ],
+        "size": [
+          32,
+          32
+        ]
+      }
+    },
+    {
+      "name": "stationary RGB mean has normalized total flux and is independent of shape.z",
+      "passed": true,
+      "evidence": {
+        "capturedKernelFlux": [
+          0.9999979817045229,
+          0.9999979825784892,
+          0.999997996124972
+        ]
+      }
+    },
+    {
+      "name": "moving RGB source preserves colour-position correlation",
+      "passed": true,
+      "evidence": {
+        "channelCentresX": [
+          14.796266196703758,
+          17.05279539323714,
+          17.28674992894118
+        ],
+        "shutterPixels": [
+          5.146816839647954,
+          1.71560557060846
+        ]
+      }
+    },
+    {
+      "name": "fixed eight and adaptive positive spatial sums preserve RGB flux",
+      "passed": true,
+      "evidence": [
+        {
+          "name": "candidate-fixed8-spatial-tail-times8-RGB",
+          "flux": [
+            0.9999999935875562,
+            0.9999999944615249,
+            1.0000000080080356
+          ],
+          "n0": 8,
+          "n1": 8,
+          "blend": 0
+        },
+        {
+          "name": "candidate-adaptive-positive-spatial-times8-RGB",
+          "flux": [
+            0.9999999547644515,
+            0.9999999556384197,
+            0.9999999691849305
+          ],
+          "n0": 27,
+          "n1": 28,
+          "blend": 0.36207586445617884
+        }
+      ]
+    },
+    {
+      "name": "reference vertex T has one multiplication and legacy scalar ignores candidate RGB",
+      "passed": true
+    },
+    {
+      "name": "QA lock and bounded case count reject before any renderer/context use",
+      "passed": true,
+      "evidence": {
+        "contextCalls": 0
+      }
+    },
+    {
+      "name": "helper uses actual supplied FW shader and has no context creation resize or cloned shader",
+      "passed": true,
+      "evidence": {
+        "newContexts": 0,
+        "newShaders": 0,
+        "newCanvasResizes": 0,
+        "maximumCases": 7
+      }
+    },
+    {
+      "name": "actual helper draw-throw cleanup ends an active query exactly once and restores state",
+      "passed": true,
+      "evidence": {
+        "endQueryCalls": 1,
+        "deletedQueries": 1,
+        "glErrors": [],
+        "actualGPU": false
+      }
+    }
+  ],
+  "limits": [
+    "CPU validation of independent oracle and helper guards only.",
+    "No WebGL context, GPU shader/link/readback/timer or renderer-state restoration executed.",
+    "Root must run bounded native helper using existing renderer under QA lock."
+  ]
+}

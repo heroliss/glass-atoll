@@ -1,0 +1,83 @@
+{
+  "schema": "glass-atoll.smoke-resolved-light-CPU.v1",
+  "dateUTC": "2026-10-27T04:08:14.016Z",
+  "passed": false,
+  "counts": {
+    "checks": 15,
+    "passed": 14
+  },
+  "checks": [
+    {
+      "id": "complete_legacy_renderer_and_host_inverse_are_byte_exact_fail_closed",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n... Skipped lines\n\n  \"import {parseSmokeDispersion} from './pyro-smoke-dispersion.js';\\n\" +\n    \"import {createPyroSmokeState} from './pyro-smoke-state.js';\\n\" +\n    \"import {createPyroSmokeEvents} from './pyro-smoke-events.js';\\n\" +\n    \"import {createPyroSmokeTrajectoryEvents} from './pyro-smoke-trajectory-events.js';\\n\" +\n    \"import {SMOKE_SOURCE_TRANSPORT} from './pyro-smoke-source-moments.js';\\n\" +\n...\n    '// Integration is opt-in; no camera/exposure-dependent physical mass or ageing.\\n' +\n+   \"export function createPyroSmoke(THREE,renderer,{time=0,wind=[0,0,0],capacity=4096,sourceModel='legacy9',sourceProvider=null,kernelModel='point',centralFraction=.20,trajectorySlots=12,dispersionModel='brownian',lagrangianSeconds=10,emissionProfile='two-births'}={}){\\n\" +\n+   \"  if(emissionProfile!=='two-births'&&emissionProfile!=='ring-uniform-burn-v1')throw new RangeError('emissionProfile must be two-births or ring-uniform-burn-v1');\\n\" +\n-   \"export function createPyroSmoke(THREE,renderer,{time=0,wind=[0,0,0],capacity=4096,sourceModel='legacy9',sourceProvider=null,kernelModel='point',centralFraction=.20,trajectorySlots=12,dispersionModel='brownian',lagrangianSeconds=10}={}){\\n\" +\n    '  parseSmokeDispersion({dispersionModel,lagrangianSeconds});\\n' +\n    \"  if(trajectorySlots!==12&&trajectorySlots!==48)throw new RangeError('trajectorySlots must be12 or48');\\n\" +\n    `  if(sourceModel!=='legacy9'&&sourceModel!=='trajectory-v1')throw new RangeError(\"sourceModel must be 'legacy9' or 'trajectory-v1'\");\\n` +\n+   \"  if(sourceModel==='legacy9'&&(kernelModel!=='point'||centralFraction!==.20||trajectorySlots!==12||dispersionModel!=='brownian'||emissionProfile!=='two-births'))throw new RangeError('Source kernel controls require trajectory-v1; legacy9 remains unchanged');\\n\" +\n-   \"  if(sourceModel==='legacy9'&&(kernelModel!=='point'||centralFraction!==.20||trajectorySlots!==12||dispersionModel!=='brownian'))throw new RangeError('Source kernel controls require trajectory-v1; legacy9 remains unchanged');\\n\" +\n    \"  const sourceStateOptions=sourceModel==='trajectory-v1'?{maxPendingEmissions:8192,...(dispersionModel==='taylor'?{dispersionModel,lagrangianSeconds}:{}),...(kernelModel==='past-segment-v2'?{diffusivity:SMOKE_SOURCE_TRANSPORT.diffusivity,coolSeconds:SMOKE_SOURCE_TRANSPORT.coolSeconds,dragSeconds:SMOKE_SOURCE_TRANSPORT.dragSeconds,ambientKelvin:SMOKE_SOURCE_TRANSPORT.ambientKelvin}: {})}:{};\\n\" +\n    '  let state=createPyroSmokeState({time,wind,capacity,...sourceStateOptions}),currentWind=[...wind],physicalTime=time,snapshot=state.snapshot(),revision=snapshot.revision;\\n' +\n+   \"  const events=sourceModel==='legacy9'?createPyroSmokeEvents({state}):createPyroSmokeTrajectoryEvents({state,sourceProvider,queueCapacity:8192,kernelModel,centralFraction,trajectorySlots,dispersionModel,lagrangianSeconds,transport:SMOKE_SOURCE_TRANSPORT,...(emissionProfile==='two-births'?{}:{emissionProfile})}),columns=createPyroSmokeColumns(snapshot),volume=createPyroSmokeRenderer(THREE,renderer,{maxPackets:capacity});\\n\" +\n-   \"  const events=sourceModel==='legacy9'?createPyroSmokeEvents({state}):createPyroSmokeTrajectoryEvents({state,sourceProvider,queueCapacity:8192,kernelModel,centralFraction,trajectorySlots,dispersionModel,lagrangianSeconds,transport:SMOKE_SOURCE_TRANSPORT}),columns=createPyroSmokeColumns(snapshot),volume=createPyroSmokeRenderer(THREE,renderer,{maxPackets:capacity});\\n\" +\n    '  volume.setState(snapshot);let explicitlyCleared=0,clears=0,lastUpdateMs=0;\\n' +\n    '  function refresh(){const d=state.diagnostics();if(d.revision===revision)return;const start=performance.now();snapshot=state.snapshot();columns.update(snapshot);volume.setState(snapshot);revision=d.revision;lastUpdateMs=performance.now()-start;}\\n' +\n    '  return{\\n' +\n    '    update({time:now,windVector=currentWind,events:sourceEvents=[]}={}){\\n' +\n    \"      if(!Number.isFinite(now)||now<physicalTime)throw new RangeError('Smoke physical time cannot rewind');\\n\" +\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:11:374\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:4:69)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/pyro-smoke-light-field-check.mjs:11:1"
+    },
+    {
+      "id": "default_factory_has_original_shaders_uniforms_and_raw_bound_no_extra_attributes",
+      "passed": true
+    },
+    {
+      "id": "disabled_light_factory_and_host_allocate_no_numeric_resources_or_GPU_passes",
+      "passed": true
+    },
+    {
+      "id": "actual_upload_pack_is_Float32_world_mean_trace_no_mass_camera_P",
+      "passed": true
+    },
+    {
+      "id": "invalid_or_indefinite_packet_geometry_rejected_not_silently_isotropized",
+      "passed": true
+    },
+    {
+      "id": "work_capacity_unsupported_is_explicit_and_disable_reenable_cannot_publish_stale_cache",
+      "passed": true
+    },
+    {
+      "id": "invalid_source_or_group_is_error_not_resource_unsupported",
+      "passed": true
+    },
+    {
+      "id": "valid_input_without_float_MRT_support_reports_unsupported_no_fake_GPU_success",
+      "passed": true
+    },
+    {
+      "id": "resolved_shader_is_lazy_separate_and_excludes_only_pyro_local4_5",
+      "passed": true
+    },
+    {
+      "id": "camera_sorted_culled_instances_keep_original_snapshot_field_indices",
+      "passed": true
+    },
+    {
+      "id": "resolved_raw_bound_replaces_legacy_cluster_model_and_applies_SSA_once",
+      "passed": true
+    },
+    {
+      "id": "own_raw_field_receives_one_P_and_borrowed_localRGB_is_not_scaled_again",
+      "passed": true
+    },
+    {
+      "id": "stale_or_different_snapshot_layout_refuses_field_before_draw",
+      "passed": true
+    },
+    {
+      "id": "null_disable_restores_original_material_shader_and_bound",
+      "passed": true
+    },
+    {
+      "id": "moments_shader_has_explicit_small_far_stable_forms_and_no_noise_readback",
+      "passed": true
+    }
+  ],
+  "sourceSHA256": {
+    "pyro-smoke-light-field.js": "eed47490545f7d0a3f56fd3ada5bef5b0b7321588eeae32f055c76eaaee8c41b",
+    "pyro-smoke-renderer.js": "cd7257e8dc80d15b26328e15bc0cd5625cc534c972a9df9f0188fe72d0a96c5b",
+    "pyro-smoke.js": "d8bcccf2803f95bcbd050eb0c6e5490dfc2c53922d56c99e6a37ff60977b63d4"
+  },
+  "noGPU": true,
+  "limits": [
+    "True factories/packing/rawbound/shader-selection exercised with stub render calls; no GL pixels, measured cost or actual scene visual acceptance.",
+    "Independent float-field GPU/Laplace oracle and main/mirror sorted-index tests remain required on hardware.",
+    "Trace-isotropic constant SH1 approximation is not conditional-ray anisotropic RTE or smoke self-shadow."
+  ]
+}

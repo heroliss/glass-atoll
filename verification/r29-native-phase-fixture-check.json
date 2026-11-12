@@ -1,0 +1,70 @@
+{
+  "schema": "glass-atoll.r29-all-native-phase-acceptance.v1",
+  "dateUTC": "2026-10-29T15:52:11.285Z",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "phaseChecks": 21,
+    "phasePassed": 21,
+    "scanChecks": 2,
+    "scanPassed": 2
+  },
+  "scanSHA256": "4fbeb483f811f7ce60716af369c3b917c444a5cca9db01315ebdcf8292c02b6e",
+  "captureSHA256": "fccc82bcafadcd14f66df41014413925422f4d5c53447ff25123df57f90a3d01",
+  "generatorSHA256": "0694a1f29e5fa9473b494b18b506220d2aad7c0a0d3adefa35beacb2c87009cd",
+  "phases": [
+    {
+      "phase": "source-peak",
+      "passed": true,
+      "digest": "7a1c6261ae3489b158b539487a4bcbd0d7958bdbd3a980671bc30d93e8e82c15",
+      "moduleSHA256": "a607ab808988ce8206732abd3a22cafc3dde19941a08e1331f9889573f155445",
+      "jsonSHA256": "d2d8cdc1ea91c89c55a3f0ab2124ada3403c531954b68819db20b4b4c467b04c",
+      "cpuMs": 25324.899
+    },
+    {
+      "phase": "joint-peak",
+      "passed": true,
+      "digest": "51c7e73d5667f5ab6da82937ee48d71979f0c9c885adcafa133ab39e07aab401",
+      "moduleSHA256": "93b594b397670ea5dee6d68623ff465eea288be834a090fcc2dccc195fe31200",
+      "jsonSHA256": "d854e8c94c11f697e65e9ef8a97b58ee2765467951082d02faca679893401ed1",
+      "cpuMs": 23398.0838
+    },
+    {
+      "phase": "light-peak",
+      "passed": true,
+      "digest": "61be84b2d72760799334e3291ecc3b2bb9b13d3c5ffa28b32a445c1867ff147e",
+      "moduleSHA256": "6a47ddab03c61a3e8af649cfcb3e87d0d03f7b4e71959ad84889ccaf78722ac7",
+      "jsonSHA256": "f653c0fc7a8c2bb9f29117e0abe9f54aa97e8c1c05b4b53746e7bdfeb866c707",
+      "cpuMs": 22530.9723
+    }
+  ],
+  "scanChecks": [
+    {
+      "name": "Complete801read/598original60Hz scan retains every old203physicalcheckpoint without count/material drift",
+      "passed": true,
+      "evidence": {
+        "physicalUpdates": 1120,
+        "opticalReads": 801,
+        "original60HzReads": 598,
+        "oldExactCheckpoints": 203,
+        "r27PhysicalAndRaysExact": true
+      }
+    },
+    {
+      "name": "Actual dense sampled maxima select frozen inputs, allpair counts/material and sourcehistory fingerprints remain complete",
+      "passed": true,
+      "evidence": {
+        "sourceT": 2256632,
+        "light": 3242109,
+        "jointDifferentKernelPairs": 5197916,
+        "reflection": 0,
+        "sourceHistoryEntries": 2645,
+        "sampledNotContinuousBound": true
+      }
+    }
+  ],
+  "limits": [
+    "CPU full native data/allrowsreference and sampled opticalcounts only; no browser/GL/GPU.",
+    "No complete4m runtime/wholeframe/multi-event admission follows solely from these CPU fixtures."
+  ]
+}

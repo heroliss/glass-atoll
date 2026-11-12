@@ -1,0 +1,3 @@
+import fs from 'node:fs';import crypto from 'node:crypto';import assert from 'node:assert/strict';
+const root=new URL('../',import.meta.url),p=new URL('main.js',root),b=fs.readFileSync(p),hash=crypto.createHash('sha256').update(b).digest('hex');assert.equal(hash,'328f997e0b7595388a4564427c0cb8db10beeedb8f881e0bbec3cbb6af1e232b');
+const dir=new URL('verification/baselines/r34-before-host-mode-preservation/',root);fs.mkdirSync(dir,{recursive:true});const target=new URL('main.js',dir);if(fs.existsSync(target))assert.deepEqual(fs.readFileSync(target),b);else fs.writeFileSync(target,b);console.log(JSON.stringify({archived:true,mainSHA256:hash}));

@@ -1,0 +1,210 @@
+{
+  "schema": "glass-atoll.r39-dense-calibration-build.v1",
+  "pending": false,
+  "productionChanged": false,
+  "baseRuntimeSHA256": "3535ebae18ff359b52daec0a7eedfaca746d2c0ff3703360aeffaa7f9bf3896d",
+  "runtimeSHA256": "0e6f2bd483c18f343dbe129c2c96bceefd3e6fb71ebfbd070f223a331253900c",
+  "byteExactWholeRuntimeInverse": true,
+  "spec": {
+    "packets": 1663,
+    "tCount": 2418,
+    "lCount": 2413,
+    "mirrorCount": 2418,
+    "tMaps": 6,
+    "lMaps": 0,
+    "draws": 7,
+    "prepares": 1,
+    "readBytes": 38816
+  },
+  "TCTOR": {
+    "maxSources": 18000,
+    "maxPackets": 4096,
+    "maxPairs": 1048576,
+    "maxRequestPairs": 12000000,
+    "maxMapPairs": 1000000,
+    "maxMapDraws": 16
+  },
+  "edits": [
+    {
+      "index": 96,
+      "old": "import {R29_CALIBRATION_PINS as PINS} from './r29-native-calibration-pins.js';",
+      "new": "import {R39_DENSE_CALIBRATION_PINS as PINS} from './r39-dense-calibration-pins.js';\nimport {R39_DENSE_FIXTURE,R39_DENSE_FIXTURE_DIGEST,r39DenseCanonicalJSON} from './r39-dense-native-fixture.js';\nimport {createSmokeTransmissionGPU as createTransmission} from './r39-dense-gpu.js';\nimport {createPyroSmokeLightField as createLightField} from './r39-dense-light-field.js';"
+    },
+    {
+      "index": 546,
+      "old": "from '../pyro-smoke-transmission-pack.js'",
+      "new": "from './r39-dense-pack.js'"
+    },
+    {
+      "index": 622,
+      "old": "from '../smoke-transmission-layout.js'",
+      "new": "from './r39-dense-layout.js'"
+    },
+    {
+      "index": 943,
+      "old": "from '../pyro-smoke-light-field.js'",
+      "new": "from './r39-dense-light-field.js'"
+    },
+    {
+      "index": 1061,
+      "old": "from '../pyro-smoke-light-tiles.js'",
+      "new": "from './r39-dense-light-tiles.js'"
+    },
+    {
+      "index": 1367,
+      "old": "export const R29_CALIBRATION_RUNTIME_REVISION='r29-complete-native-lifetime-v1';",
+      "new": "export const R39_DENSE_CALIBRATION_REVISION='r39-dense-current-main-sourceT-v1';\nconst R29_CALIBRATION_RUNTIME_REVISION=R39_DENSE_CALIBRATION_REVISION;"
+    },
+    {
+      "index": 1519,
+      "old": "const TCTOR=Object.freeze({maxSources:18000,maxPackets:4096,maxPairs:1048576,maxRequestPairs:4000000,maxMapPairs:1000000,maxMapDraws:8});",
+      "new": "const TCTOR=Object.freeze({\"maxSources\":18000,\"maxPackets\":4096,\"maxPairs\":1048576,\"maxRequestPairs\":12000000,\"maxMapPairs\":1000000,\"maxMapDraws\":16});"
+    },
+    {
+      "index": 1671,
+      "old": "const LCTOR=Object.freeze({maxPackets:4096,maxSources:14000,maxBakePairs:1048576,maxRequestPairs:4000000,maxMapPairs:1000000,maxMapDraws:8,anisotropy:.32,bakeMode:'tiled64'});",
+      "new": "const LCTOR=Object.freeze({maxPackets:4096,maxSources:14000,maxBakePairs:1048576,maxRequestPairs:12000000,maxMapPairs:1000000,maxMapDraws:16,anisotropy:.32,bakeMode:'tiled64'});"
+    },
+    {
+      "index": 1849,
+      "old": "const SPECS=Object.freeze({source:Object.freeze({packets:1652,tCount:1366,lCount:1440,tMaps:4,lMaps:0,draws:5,prepares:1,readBytes:21984}),light:Object.freeze({packets:2301,tCount:845,lCount:1409,tMaps:0,lMaps:5,draws:6,prepares:1,readBytes:110832}),joint:Object.freeze({packets:2258,tCount:871,lCount:1431,tMaps:3,lMaps:5,draws:10,prepares:2,readBytes:122832})});",
+      "new": "const SPECS=Object.freeze({source:Object.freeze({\"packets\":1663,\"tCount\":2418,\"lCount\":2413,\"mirrorCount\":2418,\"tMaps\":6,\"lMaps\":0,\"draws\":7,\"prepares\":1,\"readBytes\":38816})});\nconst FIXED_PHASE_KEY=\"source-first-crossing\";"
+    },
+    {
+      "index": 5081,
+      "old": " const sourceKeys=['../main.js','../pyro-smoke-transmission-pack.js','../smoke-transmission-layout.js','../pyro-smoke-transmission-gpu.js','../pyro-smoke-light-tiles.js','../pyro-smoke-light-field.js','../pyro-smoke-light-native-state.js','../pyro-smoke-renderer.js','../pyro-smoke.js','../fireworks-audio.js','../package.json','./r29-native-calibration-runtime.js','../smoke-transmission-rectangles.js','../pyro-smoke-light-bound.js','./r16-smoke-transmission-oracle.js','./pyro-smoke-light-field-oracle.js'];",
+      "new": " const sourceKeys=[\"../main.js\",\"./r39-dense-pack.js\",\"./r39-dense-layout.js\",\"./r39-dense-gpu.js\",\"./r39-dense-light-tiles.js\",\"./r39-dense-light-field.js\",\"../pyro-smoke-light-native-state.js\",\"../pyro-smoke-renderer.js\",\"../pyro-smoke.js\",\"../fireworks.js\",\"../fireworks-physics.js\",\"../firework-layer-profile.js\",\"../fireworks-audio.js\",\"../package.json\",\"./r39-dense-calibration-runtime.js\",\"./r39-dense-calibration-build.mjs\",\"../smoke-transmission-rectangles.js\",\"../pyro-smoke-light-bound.js\",\"./r16-smoke-transmission-oracle.js\",\"./pyro-smoke-light-field-oracle.js\"];"
+    },
+    {
+      "index": 6003,
+      "old": "PINS.schema==='glass-atoll.r29-native-calibration-pins.v1'",
+      "new": "PINS.schema==='glass-atoll.r39-dense-calibration-pins.v1'"
+    },
+    {
+      "index": 6355,
+      "old": "exact(PINS.jobs,['source','joint','light'])",
+      "new": "exact(PINS.jobs,['source'])"
+    },
+    {
+      "index": 6443,
+      "old": "for(const key of ['source','joint','light']){const job=PINS.jobs[key],paths=['./r29-native-phase-'+key+'-peak.js','./r29-native-phase-'+key+'-peak.json','./r29-'+key+'-peak-gpu-check.js','./r29-native-phase-fixture.mjs'];",
+      "new": "for(const key of ['source']){const job=PINS.jobs[key],paths=[\"./r39-dense-native-fixture.js\",\"./r39-dense-native-fixture.json\"];"
+    },
+    {
+      "index": 6860,
+      "old": "job.phase.key===key+'-peak'&&job.phase.label===key+'-peak'",
+      "new": "job.phase.key===FIXED_PHASE_KEY&&job.phase.label===\"Current radiant two-event first20Hz MAIN>4m\""
+    },
+    {
+      "index": 8298,
+      "old": "copy.phase.key===kind+'-peak'",
+      "new": "copy.phase.key===FIXED_PHASE_KEY"
+    },
+    {
+      "index": 8451,
+      "old": "snapshot.time<=ledger.time",
+      "new": "snapshot.requestedTime===ledger.time"
+    },
+    {
+      "index": 8740,
+      "old": "mirror?.input.count===0&&!mirror.submitted",
+      "new": "mirror?.input.count===spec.mirrorCount&&mirror.requested&&mirror.submitted"
+    },
+    {
+      "index": 8879,
+      "old": "const jobs=[];\n if(spec.tMaps)",
+      "new": "demand(Number.isSafeInteger(copy.opticalRecordGeneration)&&[main,mirror].every(v=>v.captureBackend==='verification-only-inert-acknowledgement'&&v.hardwareEffective===false&&v.captureMetadata.time===copy.phase.time&&v.captureMetadata.sourceTransmission.recordsGeneration===copy.opticalRecordGeneration&&v.captureMetadata.sourceTransmission.sourceVersion===v.input.sourceVersion&&v.captureMetadata.sourceTransmission.cameraKey===v.input.cameraKey&&v.captureMetadata.sourceTransmission.densityRevision===snapshot.revision),'Captured optical lineage and inert source-ray provenance mismatch');const jobs=[];\n if(spec.tMaps)"
+    },
+    {
+      "index": 14429,
+      "old": "provenance:copy.provenance,phase:copy.phase,otherConsumers:",
+      "new": "provenance:copy.provenance,phase:copy.phase,opticalRecordGeneration:copy.opticalRecordGeneration,otherConsumers:"
+    },
+    {
+      "index": 7251,
+      "old": "const candidates=[0,cells-1,...rects.map(r=>r.begin),rects[0].end-1,lastTile,sentinel,Math.floor(cells/2),1,17,63]",
+      "new": "const candidates=[0,cells-1,lastTile,sentinel,rects[0].end-1,rects[1]?.begin,Math.floor(cells/2),1,17,63,...rects.map(r=>r.begin)]"
+    },
+    {
+      "index": 17830,
+      "old": "export async function runR29NativeCalibration(THREE,renderer,kind,artifact,exportedDigest,canonical,options={}){",
+      "new": "export async function runR39DenseCalibration(THREE,renderer,options={}){\n const kind='source',artifact=R39_DENSE_FIXTURE,exportedDigest=R39_DENSE_FIXTURE_DIGEST,canonical=r39DenseCanonicalJSON;"
+    },
+    {
+      "index": 18138,
+      "old": "schema:'glass-atoll.r29-native-lifetime-GPU.v1'",
+      "new": "schema:'glass-atoll.r39-dense-current-main-GPU.v1'"
+    },
+    {
+      "index": 18280,
+      "old": "actualGPU:false,passed:false,actualDraws:0",
+      "new": "actualGPU:false,passed:false,effective:false,publishedToLive:false,actualDraws:0"
+    },
+    {
+      "index": 21165,
+      "old": "['parentLocked','createTransmission','createLightField'].includes(k)",
+      "new": "['parentLocked'].includes(k)"
+    },
+    {
+      "index": 24602,
+      "old": "options.createTransmission",
+      "new": "createTransmission"
+    },
+    {
+      "index": 23220,
+      "old": "options.createTransmission",
+      "new": "createTransmission"
+    },
+    {
+      "index": 21319,
+      "old": "options.createTransmission",
+      "new": "createTransmission"
+    },
+    {
+      "index": 24632,
+      "old": "options.createLightField",
+      "new": "createLightField"
+    },
+    {
+      "index": 23248,
+      "old": "options.createLightField",
+      "new": "createLightField"
+    },
+    {
+      "index": 21359,
+      "old": "options.createLightField",
+      "new": "createLightField"
+    },
+    {
+      "index": 22048,
+      "old": "mainOpticalSources:spec.tCount,emissionSources:spec.lCount",
+      "new": "mainOpticalSources:spec.tCount,reflectionOpticalSources:spec.mirrorCount,submittedConsumers:['main'],unsubmittedConsumers:['reflection','light'],emissionSources:spec.lCount"
+    },
+    {
+      "index": 22221,
+      "old": "densityRevision:owned.snapshot.revision,ledgerVersion:owned.ledger.version,recordGeneration:owned.ledger.recordGeneration,ledgerTime:",
+      "new": "densityRevision:owned.snapshot.revision,densityTick:owned.snapshot.tick,densityCommittedTime:owned.snapshot.time,densityRequestedTime:owned.snapshot.requestedTime,capturedOpticalRecordGeneration:owned.opticalRecordGeneration,capturedSourceMetadataScope:'Original CPU producer used an inert acknowledgement only; no captured gpu/effective flag is hardware evidence',ledgerVersion:owned.ledger.version,recordGeneration:owned.ledger.recordGeneration,ledgerTime:"
+    },
+    {
+      "index": 22810,
+      "old": "(spec.tMaps?2707456:0)+(spec.lMaps?3919872:0)",
+      "new": "(spec.tMaps?4706304:0)+(spec.lMaps?9916416:0)"
+    },
+    {
+      "index": 35548,
+      "old": "light?diag.tiled.allocatedBytes===3919872:diag.gpuNumericalBytes===2707456",
+      "new": "light?diag.tiled.allocatedBytes===9916416:diag.gpuNumericalBytes===4706304"
+    },
+    {
+      "index": 38517,
+      "old": "'One fixed actual dense60Hz native peak job; all original packets, rays and emission sources retained. No source/density thinning, reference GPU, volume or scene draw.'",
+      "new": "'One fixed actual current two-event dense MAIN SourceT job only; all original packets and main rays retained. Captured reflection and current ledger remain owned metadata but are NOT submitted. No source/density thinning, reference GPU, volume, SH, reflection or scene draw.'"
+    },
+    {
+      "index": 38411,
+      "old": "report.counts={passed:report.checks.filter(x=>x.passed).length,total:report.checks.length};report.limits=",
+      "new": "report.effective=report.passed;report.effectiveScope='Completed private numerical validation only; owned fields are disposed and no live texture/source result is published';report.counts={passed:report.checks.filter(x=>x.passed).length,total:report.checks.length};report.limits="
+    }
+  ],
+  "actualGPU": false
+}

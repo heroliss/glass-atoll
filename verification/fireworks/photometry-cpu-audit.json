@@ -1,0 +1,901 @@
+{
+  "date": "2026-10-26T17:43:07.478Z",
+  "sourceSHA256": {
+    "fireworks.js": "892dd94713a82b27da414e723e10197444a7f4ead1ce1b4bcd6c6319ea397d74",
+    "fireworks-physics.js": "2cc716d0bfb49639c6f0e55975cdf41b60736c5b33f47bba974b9b79e1613939",
+    "wind-response.js": "dfa1ba96c3b8d5fb1d35853392874678c46200ad98ffb8b7306c91cbba71bca1"
+  },
+  "scope": "Node CPU-only actual update/getBounds/clusters/two camera bounds; no GL/renderer/FPS claim",
+  "scenario": "2 Chrysanthemums;8tail segments; initialized317wind knots then144Hz continued exact1.4s wind ramp;80measured frames",
+  "summary": {
+    "update": {
+      "meanMs": 3.5659025000000057,
+      "p95Ms": 5.49109999999996
+    },
+    "forecast": {
+      "meanMs": 3.5741774999999807,
+      "p95Ms": 5.773200000000088
+    },
+    "clusters": {
+      "meanMs": 0.5612287500000207,
+      "p95Ms": 1.1787999999999101
+    },
+    "sourceBoundMain": {
+      "meanMs": 0.7167900000000046,
+      "p95Ms": 0.9886000000000195
+    },
+    "sourceBoundMirror": {
+      "meanMs": 0.6034099999999881,
+      "p95Ms": 0.7841999999999416
+    },
+    "forecastSameStateCached": {
+      "meanMs": 0.012733750000010957,
+      "p95Ms": 0.031000000000062755
+    },
+    "photometry": {
+      "meanMs": 5.4556062499999936,
+      "p95Ms": 7.409400000000005
+    },
+    "total": {
+      "meanMs": 9.021508749999999,
+      "p95Ms": 10.929799999999886
+    }
+  },
+  "state": {
+    "time": 7.894444444444445,
+    "active": 2,
+    "queued": 0,
+    "launches": 2,
+    "rejected": 0,
+    "maxActive": 2,
+    "maxQueued": 16,
+    "settings": {
+      "type": "peony",
+      "azimuth": 104,
+      "elevation": 80,
+      "autoDirection": true,
+      "autoLaunch": false,
+      "interval": 7.5
+    },
+    "windSegments": 417,
+    "model": "analytic linear-drag segments; deterministic world-space events; authored reference photometry, not CFD",
+    "records": 3492,
+    "lastRender": {
+      "instances": 0
+    },
+    "quality": {
+      "trailSegments": 8
+    },
+    "radianceBound": {
+      "maximumRawRadiance": 0.14918784292587123,
+      "maxRawRadiance": 0.14918784292587123,
+      "globalFiniteSurfaceCeiling": 6765.437610698944,
+      "globalReferenceOnly": true,
+      "ownSmokeRawBound": 0.00003250820717407682,
+      "maximumEmissionRGBChannel": 1.8277674763872431,
+      "visibleSources": 3456,
+      "nearPlaneFallbackSources": 0,
+      "method": "32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers",
+      "conservative": true
+    },
+    "warnings": [],
+    "units": "reference cd + approximate emission RGB, linear scene reference once *2^storageEV; not measured pyrotechnic photometry",
+    "renderer": "independent instanced premult effects, four-segment finite air; water-hit reflection origin; sorted short segments",
+    "tailIntegration": {
+      "spatialSamples": 8,
+      "shutter": "<=1px: trace-preserving isotropic variance; >1px:3-point independent quadrature",
+      "kernelEvaluations": "8 normal /24 large-shutter tail; heads unchanged",
+      "extraPasses": 0
+    },
+    "limits": [
+      "linear drag/burn model; no chemical or shock/fluid solve",
+      "grey smoke thin sprites; centre-depth sorting and shared near-air visibility approximation",
+      "resolved opaque depth/defocus occlusion approximation; root owns one shared bloom/vignette",
+      "subpixel tail shutter variance is a bounded angular approximation, not exact time-space convolution",
+      "star/cross-spectrum RGB is approximate CIE fit + authored bands and gamut compression"
+    ]
+  },
+  "forecastCallsPerMiss": 6562,
+  "rows": [
+    {
+      "update": 2.6948999999999614,
+      "forecast": 5.328000000000088,
+      "clusters": 0.22439999999994598,
+      "sourceBoundMain": 0.7776999999999816,
+      "sourceBoundMirror": 0.7948999999999842,
+      "forecastSameStateCached": 0.0119000000000824,
+      "photometry": 7.125,
+      "total": 9.819899999999961
+    },
+    {
+      "update": 2.741100000000074,
+      "forecast": 2.909599999999955,
+      "clusters": 0.5208999999999833,
+      "sourceBoundMain": 0.7966000000000122,
+      "sourceBoundMirror": 0.7364000000000033,
+      "forecastSameStateCached": 0.04169999999999163,
+      "photometry": 4.963499999999954,
+      "total": 7.704600000000028
+    },
+    {
+      "update": 2.7007999999999583,
+      "forecast": 3.312400000000025,
+      "clusters": 0.5636000000000649,
+      "sourceBoundMain": 0.9886000000000195,
+      "sourceBoundMirror": 0.7809999999999491,
+      "forecastSameStateCached": 0.009599999999977626,
+      "photometry": 5.645600000000059,
+      "total": 8.346400000000017
+    },
+    {
+      "update": 5.0634000000000015,
+      "forecast": 3.004299999999944,
+      "clusters": 0.4231999999999516,
+      "sourceBoundMain": 0.825800000000072,
+      "sourceBoundMirror": 0.7841999999999416,
+      "forecastSameStateCached": 0.00940000000002783,
+      "photometry": 5.037499999999909,
+      "total": 10.10089999999991
+    },
+    {
+      "update": 3.1493999999999005,
+      "forecast": 3.977700000000027,
+      "clusters": 0.7330000000000609,
+      "sourceBoundMain": 1.0750999999999067,
+      "sourceBoundMirror": 0.9455000000000382,
+      "forecastSameStateCached": 0.031000000000062755,
+      "photometry": 6.731300000000033,
+      "total": 9.880699999999933
+    },
+    {
+      "update": 3.0013000000000147,
+      "forecast": 5.39530000000002,
+      "clusters": 0.19600000000002638,
+      "sourceBoundMain": 0.5757999999999583,
+      "sourceBoundMirror": 0.5312999999999874,
+      "forecastSameStateCached": 0.010499999999979082,
+      "photometry": 6.698399999999992,
+      "total": 9.699700000000007
+    },
+    {
+      "update": 2.8496000000000095,
+      "forecast": 2.9850000000000136,
+      "clusters": 0.4642999999999802,
+      "sourceBoundMain": 0.6910000000000309,
+      "sourceBoundMirror": 0.5605000000000473,
+      "forecastSameStateCached": 0.005899999999996908,
+      "photometry": 4.700800000000072,
+      "total": 7.5504000000000815
+    },
+    {
+      "update": 2.7171999999999343,
+      "forecast": 3.1878000000000384,
+      "clusters": 0.6381999999999834,
+      "sourceBoundMain": 0.6634999999999991,
+      "sourceBoundMirror": 0.5482000000000653,
+      "forecastSameStateCached": 0.011899999999968713,
+      "photometry": 5.037700000000086,
+      "total": 7.7549000000000206
+    },
+    {
+      "update": 5.435399999999959,
+      "forecast": 2.995400000000018,
+      "clusters": 0.20119999999997162,
+      "sourceBoundMain": 0.4995999999999867,
+      "sourceBoundMirror": 0.45289999999999964,
+      "forecastSameStateCached": 0.00940000000002783,
+      "photometry": 4.149099999999976,
+      "total": 9.584499999999935
+    },
+    {
+      "update": 2.850599999999986,
+      "forecast": 2.9622000000000526,
+      "clusters": 0.5494999999999663,
+      "sourceBoundMain": 0.6480999999999995,
+      "sourceBoundMirror": 0.5816999999999553,
+      "forecastSameStateCached": 0.011300000000005639,
+      "photometry": 4.741499999999974,
+      "total": 7.592099999999959
+    },
+    {
+      "update": 2.792599999999993,
+      "forecast": 3.015899999999988,
+      "clusters": 0.519800000000032,
+      "sourceBoundMain": 0.6704999999999472,
+      "sourceBoundMirror": 0.5977000000000317,
+      "forecastSameStateCached": 0.009599999999977626,
+      "photometry": 4.803899999999999,
+      "total": 7.596499999999992
+    },
+    {
+      "update": 5.315600000000018,
+      "forecast": 3.2999999999999545,
+      "clusters": 0.5128999999999451,
+      "sourceBoundMain": 0.6030000000000655,
+      "sourceBoundMirror": 0.4914999999999736,
+      "forecastSameStateCached": 0.011399999999980537,
+      "photometry": 4.907399999999939,
+      "total": 10.222999999999956
+    },
+    {
+      "update": 2.793800000000033,
+      "forecast": 3.1608999999999696,
+      "clusters": 0.5412000000000035,
+      "sourceBoundMain": 0.6307000000000471,
+      "sourceBoundMirror": 0.514699999999948,
+      "forecastSameStateCached": 0.01059999999995398,
+      "photometry": 4.847499999999968,
+      "total": 7.641300000000001
+    },
+    {
+      "update": 2.780300000000011,
+      "forecast": 5.598700000000008,
+      "clusters": 0.18230000000005475,
+      "sourceBoundMain": 0.5248000000000275,
+      "sourceBoundMirror": 0.48309999999992215,
+      "forecastSameStateCached": 0.011399999999980537,
+      "photometry": 6.788900000000012,
+      "total": 9.569200000000023
+    },
+    {
+      "update": 2.752399999999966,
+      "forecast": 2.864599999999996,
+      "clusters": 0.6059000000000196,
+      "sourceBoundMain": 0.7092999999999847,
+      "sourceBoundMirror": 0.6713999999999487,
+      "forecastSameStateCached": 0.012900000000058753,
+      "photometry": 4.851199999999949,
+      "total": 7.603599999999915
+    },
+    {
+      "update": 2.6984999999999673,
+      "forecast": 2.9144000000000005,
+      "clusters": 0.5582000000000562,
+      "sourceBoundMain": 0.6200000000000045,
+      "sourceBoundMirror": 0.5716999999999643,
+      "forecastSameStateCached": 0.010499999999979082,
+      "photometry": 4.664300000000026,
+      "total": 7.362799999999993
+    },
+    {
+      "update": 5.1340999999999894,
+      "forecast": 3.322599999999966,
+      "clusters": 0.3631000000000313,
+      "sourceBoundMain": 0.5529999999999973,
+      "sourceBoundMirror": 0.48660000000006676,
+      "forecastSameStateCached": 0.01089999999999236,
+      "photometry": 4.725300000000061,
+      "total": 9.85940000000005
+    },
+    {
+      "update": 2.827199999999948,
+      "forecast": 3.4559000000000424,
+      "clusters": 0.6282999999999674,
+      "sourceBoundMain": 0.6259000000000015,
+      "sourceBoundMirror": 0.5430000000000064,
+      "forecastSameStateCached": 0.012899999999945067,
+      "photometry": 5.253100000000018,
+      "total": 8.080299999999966
+    },
+    {
+      "update": 2.8992999999999256,
+      "forecast": 2.914100000000076,
+      "clusters": 0.4880999999999176,
+      "sourceBoundMain": 3.183200000000056,
+      "sourceBoundMirror": 0.5041999999999689,
+      "forecastSameStateCached": 0.013800000000060209,
+      "photometry": 7.0896000000000186,
+      "total": 9.988899999999944
+    },
+    {
+      "update": 2.5748000000000957,
+      "forecast": 3.191699999999855,
+      "clusters": 0.5733999999999924,
+      "sourceBoundMain": 0.6878000000001521,
+      "sourceBoundMirror": 0.7020999999999731,
+      "forecastSameStateCached": 0.06629999999995562,
+      "photometry": 5.154999999999973,
+      "total": 7.729800000000068
+    },
+    {
+      "update": 3.664199999999937,
+      "forecast": 3.1001000000001113,
+      "clusters": 0.5207000000000335,
+      "sourceBoundMain": 0.6144999999999072,
+      "sourceBoundMirror": 0.5247999999999138,
+      "forecastSameStateCached": 0.010600000000067666,
+      "photometry": 4.760099999999966,
+      "total": 8.424299999999903
+    },
+    {
+      "update": 2.6264000000001033,
+      "forecast": 5.9746000000000095,
+      "clusters": 0.1553999999998723,
+      "sourceBoundMain": 0.46910000000002583,
+      "sourceBoundMirror": 0.46289999999999054,
+      "forecastSameStateCached": 0.010600000000067666,
+      "photometry": 7.061999999999898,
+      "total": 9.688400000000001
+    },
+    {
+      "update": 2.619699999999966,
+      "forecast": 3.1274000000000797,
+      "clusters": 0.4906999999998334,
+      "sourceBoundMain": 0.6428000000000793,
+      "sourceBoundMirror": 0.5596000000000458,
+      "forecastSameStateCached": 0.008800000000064756,
+      "photometry": 4.820500000000038,
+      "total": 7.440200000000004
+    },
+    {
+      "update": 2.696100000000115,
+      "forecast": 3.059099999999944,
+      "clusters": 0.7006999999998698,
+      "sourceBoundMain": 0.7113000000001648,
+      "sourceBoundMirror": 0.5794999999998254,
+      "forecastSameStateCached": 0.013100000000122236,
+      "photometry": 5.050599999999804,
+      "total": 7.746699999999919
+    },
+    {
+      "update": 5.49109999999996,
+      "forecast": 3.1359999999999673,
+      "clusters": 0.42660000000000764,
+      "sourceBoundMain": 0.912900000000036,
+      "sourceBoundMirror": 0.8487999999999829,
+      "forecastSameStateCached": 0.05819999999994252,
+      "photometry": 5.324299999999994,
+      "total": 10.815399999999954
+    },
+    {
+      "update": 3.4369000000001506,
+      "forecast": 3.4228999999997995,
+      "clusters": 0.52800000000002,
+      "sourceBoundMain": 0.6592000000000553,
+      "sourceBoundMirror": 0.6218000000001211,
+      "forecastSameStateCached": 0.01139999999986685,
+      "photometry": 5.231899999999996,
+      "total": 8.668800000000147
+    },
+    {
+      "update": 2.8432999999999993,
+      "forecast": 6.905099999999948,
+      "clusters": 0.16499999999996362,
+      "sourceBoundMain": 0.5312000000001262,
+      "sourceBoundMirror": 0.48519999999984975,
+      "forecastSameStateCached": 0.007399999999961437,
+      "photometry": 8.086499999999887,
+      "total": 10.929799999999886
+    },
+    {
+      "update": 2.842200000000048,
+      "forecast": 3.2821000000001277,
+      "clusters": 0.5319999999999254,
+      "sourceBoundMain": 0.6493000000000393,
+      "sourceBoundMirror": 0.5567999999998392,
+      "forecastSameStateCached": 0.006200000000035288,
+      "photometry": 5.020199999999932,
+      "total": 7.86239999999998
+    },
+    {
+      "update": 2.787399999999934,
+      "forecast": 3.2157999999999447,
+      "clusters": 0.5158000000001266,
+      "sourceBoundMain": 0.6554999999998472,
+      "sourceBoundMirror": 0.5679000000000087,
+      "forecastSameStateCached": 0.007100000000036744,
+      "photometry": 4.954999999999927,
+      "total": 7.742399999999861
+    },
+    {
+      "update": 5.0598999999999705,
+      "forecast": 3.0865000000001146,
+      "clusters": 0.25729999999998654,
+      "sourceBoundMain": 0.5738999999998668,
+      "sourceBoundMirror": 0.5053000000000338,
+      "forecastSameStateCached": 0.012200000000120781,
+      "photometry": 4.423000000000002,
+      "total": 9.482899999999972
+    },
+    {
+      "update": 2.820600000000013,
+      "forecast": 3.1598999999998796,
+      "clusters": 0.5211000000001604,
+      "sourceBoundMain": 0.6769999999999072,
+      "sourceBoundMirror": 0.631800000000112,
+      "forecastSameStateCached": 0.009199999999964348,
+      "photometry": 4.989800000000059,
+      "total": 7.810400000000072
+    },
+    {
+      "update": 3.3493000000000848,
+      "forecast": 3.6305999999999585,
+      "clusters": 0.6386999999999716,
+      "sourceBoundMain": 0.7333000000000993,
+      "sourceBoundMirror": 0.6958999999999378,
+      "forecastSameStateCached": 0.01209999999991851,
+      "photometry": 5.698499999999967,
+      "total": 9.047800000000052
+    },
+    {
+      "update": 11.105800000000045,
+      "forecast": 4.587600000000066,
+      "clusters": 1.4764999999999873,
+      "sourceBoundMain": 0.7234000000000833,
+      "sourceBoundMirror": 0.6218999999998687,
+      "forecastSameStateCached": 0.01040000000011787,
+      "photometry": 7.409400000000005,
+      "total": 18.51520000000005
+    },
+    {
+      "update": 3.1523999999999432,
+      "forecast": 3.3297999999999774,
+      "clusters": 1.4479000000001179,
+      "sourceBoundMain": 0.7235000000000582,
+      "sourceBoundMirror": 0.6322000000000116,
+      "forecastSameStateCached": 0.009799999999813735,
+      "photometry": 6.133400000000165,
+      "total": 9.285800000000108
+    },
+    {
+      "update": 3.1567000000000007,
+      "forecast": 2.9613999999999123,
+      "clusters": 3.1049000000000433,
+      "sourceBoundMain": 0.5231000000001131,
+      "sourceBoundMirror": 0.4772000000000389,
+      "forecastSameStateCached": 0.010399999999890497,
+      "photometry": 7.066600000000108,
+      "total": 10.223300000000108
+    },
+    {
+      "update": 2.955099999999902,
+      "forecast": 3.5680999999999585,
+      "clusters": 1.2937000000001717,
+      "sourceBoundMain": 0.7437999999999647,
+      "sourceBoundMirror": 0.6227999999998701,
+      "forecastSameStateCached": 0.010200000000168075,
+      "photometry": 6.228399999999965,
+      "total": 9.183499999999867
+    },
+    {
+      "update": 2.9782000000000153,
+      "forecast": 3.180799999999863,
+      "clusters": 0.5574000000001433,
+      "sourceBoundMain": 0.6333999999999378,
+      "sourceBoundMirror": 0.549199999999928,
+      "forecastSameStateCached": 0.007000000000061846,
+      "photometry": 4.920799999999872,
+      "total": 7.898999999999887
+    },
+    {
+      "update": 5.722099999999955,
+      "forecast": 2.986799999999903,
+      "clusters": 0.3220000000001164,
+      "sourceBoundMain": 0.5496000000000549,
+      "sourceBoundMirror": 0.573699999999917,
+      "forecastSameStateCached": 0.00909999999998945,
+      "photometry": 4.432099999999991,
+      "total": 10.154199999999946
+    },
+    {
+      "update": 2.953899999999976,
+      "forecast": 3.1495000000002165,
+      "clusters": 0.6941999999999098,
+      "sourceBoundMain": 0.7635000000000218,
+      "sourceBoundMirror": 0.7638999999999214,
+      "forecastSameStateCached": 0.00980000000004111,
+      "photometry": 5.3711000000000695,
+      "total": 8.325000000000045
+    },
+    {
+      "update": 2.9873999999999796,
+      "forecast": 4.022000000000162,
+      "clusters": 0.6113000000000284,
+      "sourceBoundMain": 0.6989999999998417,
+      "sourceBoundMirror": 0.6422999999999774,
+      "forecastSameStateCached": 0.009999999999990905,
+      "photometry": 5.9746000000000095,
+      "total": 8.961999999999989
+    },
+    {
+      "update": 5.34900000000016,
+      "forecast": 2.9146999999998116,
+      "clusters": 0.6199000000001433,
+      "sourceBoundMain": 0.625,
+      "sourceBoundMirror": 0.529700000000048,
+      "forecastSameStateCached": 0.007499999999936335,
+      "photometry": 4.689300000000003,
+      "total": 10.038300000000163
+    },
+    {
+      "update": 3.0672000000001844,
+      "forecast": 4.213599999999815,
+      "clusters": 0.6173000000001139,
+      "sourceBoundMain": 0.7708000000000084,
+      "sourceBoundMirror": 0.6601000000000568,
+      "forecastSameStateCached": 0.00839999999993779,
+      "photometry": 6.261799999999994,
+      "total": 9.329000000000178
+    },
+    {
+      "update": 3.1666000000000167,
+      "forecast": 5.773200000000088,
+      "clusters": 0.16099999999983083,
+      "sourceBoundMain": 0.5132000000000971,
+      "sourceBoundMirror": 0.4915000000000873,
+      "forecastSameStateCached": 0.009999999999990905,
+      "photometry": 6.938900000000103,
+      "total": 10.10550000000012
+    },
+    {
+      "update": 2.941100000000006,
+      "forecast": 3.35329999999999,
+      "clusters": 0.4738999999999578,
+      "sourceBoundMain": 0.6442000000001826,
+      "sourceBoundMirror": 0.5589999999999691,
+      "forecastSameStateCached": 0.009499999999889042,
+      "photometry": 5.0304000000001,
+      "total": 7.9715000000001055
+    },
+    {
+      "update": 3.243700000000217,
+      "forecast": 3.1003999999998086,
+      "clusters": 0.5085000000001401,
+      "sourceBoundMain": 0.6756000000000313,
+      "sourceBoundMirror": 0.611699999999928,
+      "forecastSameStateCached": 0.008700000000089858,
+      "photometry": 4.896199999999908,
+      "total": 8.139900000000125
+    },
+    {
+      "update": 4.933899999999994,
+      "forecast": 3.1735000000001037,
+      "clusters": 0.4032999999999447,
+      "sourceBoundMain": 0.6503000000000156,
+      "sourceBoundMirror": 0.5587000000000444,
+      "forecastSameStateCached": 0.0079000000000633,
+      "photometry": 4.785800000000108,
+      "total": 9.719700000000103
+    },
+    {
+      "update": 3.1357000000000426,
+      "forecast": 3.27170000000001,
+      "clusters": 0.8046999999999116,
+      "sourceBoundMain": 1.133199999999988,
+      "sourceBoundMirror": 2.332800000000134,
+      "forecastSameStateCached": 0.016999999999825377,
+      "photometry": 7.542400000000043,
+      "total": 10.678100000000086
+    },
+    {
+      "update": 3.7209000000000287,
+      "forecast": 7.580299999999852,
+      "clusters": 0.1530999999999949,
+      "sourceBoundMain": 0.48910000000000764,
+      "sourceBoundMirror": 0.46659999999997126,
+      "forecastSameStateCached": 0.007600000000138607,
+      "photometry": 8.689099999999826,
+      "total": 12.409999999999854
+    },
+    {
+      "update": 3.0996999999999844,
+      "forecast": 3.6467999999999847,
+      "clusters": 0.5260000000000673,
+      "sourceBoundMain": 0.6657999999999902,
+      "sourceBoundMirror": 0.5903999999998177,
+      "forecastSameStateCached": 0.00930000000016662,
+      "photometry": 5.42899999999986,
+      "total": 8.528699999999844
+    },
+    {
+      "update": 3.098500000000058,
+      "forecast": 3.211599999999862,
+      "clusters": 0.5303000000001248,
+      "sourceBoundMain": 0.6702000000000226,
+      "sourceBoundMirror": 0.5770999999999731,
+      "forecastSameStateCached": 0.007899999999835927,
+      "photometry": 4.9891999999999825,
+      "total": 8.08770000000004
+    },
+    {
+      "update": 5.474999999999909,
+      "forecast": 3.1807000000001153,
+      "clusters": 0.21879999999987376,
+      "sourceBoundMain": 0.5264000000001943,
+      "sourceBoundMirror": 0.496199999999817,
+      "forecastSameStateCached": 0.007700000000113505,
+      "photometry": 4.4221,
+      "total": 9.89709999999991
+    },
+    {
+      "update": 3.0143000000000484,
+      "forecast": 3.161100000000033,
+      "clusters": 0.49450000000001637,
+      "sourceBoundMain": 0.6576000000000022,
+      "sourceBoundMirror": 0.5706000000000131,
+      "forecastSameStateCached": 0.006699999999909778,
+      "photometry": 4.883800000000065,
+      "total": 7.898100000000113
+    },
+    {
+      "update": 3.1074999999998454,
+      "forecast": 3.2110999999999876,
+      "clusters": 0.5206000000000586,
+      "sourceBoundMain": 0.6736000000000786,
+      "sourceBoundMirror": 0.6045999999998912,
+      "forecastSameStateCached": 0.13030000000003383,
+      "photometry": 5.009900000000016,
+      "total": 8.117399999999861
+    },
+    {
+      "update": 5.1021999999998116,
+      "forecast": 3.0142000000000735,
+      "clusters": 0.5442000000000462,
+      "sourceBoundMain": 0.8626999999999043,
+      "sourceBoundMirror": 0.6470000000001619,
+      "forecastSameStateCached": 0.01209999999991851,
+      "photometry": 5.068100000000186,
+      "total": 10.170299999999997
+    },
+    {
+      "update": 3.072300000000041,
+      "forecast": 3.024099999999862,
+      "clusters": 0.5076000000001386,
+      "sourceBoundMain": 0.667299999999841,
+      "sourceBoundMirror": 0.5943999999999505,
+      "forecastSameStateCached": 0.006600000000162254,
+      "photometry": 4.793399999999792,
+      "total": 7.865699999999833
+    },
+    {
+      "update": 3.0187000000000808,
+      "forecast": 5.459100000000035,
+      "clusters": 0.16650000000004184,
+      "sourceBoundMain": 0.5321999999998752,
+      "sourceBoundMirror": 0.5533000000000357,
+      "forecastSameStateCached": 0.010800000000017462,
+      "photometry": 6.711099999999988,
+      "total": 9.729800000000068
+    },
+    {
+      "update": 3.2872999999999593,
+      "forecast": 2.885300000000143,
+      "clusters": 0.4440999999999349,
+      "sourceBoundMain": 0.6218000000001211,
+      "sourceBoundMirror": 0.54099999999994,
+      "forecastSameStateCached": 0.007499999999936335,
+      "photometry": 4.492200000000139,
+      "total": 7.779500000000098
+    },
+    {
+      "update": 3.0224000000000615,
+      "forecast": 3.5335999999999785,
+      "clusters": 0.5333000000000538,
+      "sourceBoundMain": 0.7228999999999814,
+      "sourceBoundMirror": 0.5865999999998621,
+      "forecastSameStateCached": 0.006900000000086948,
+      "photometry": 5.376399999999876,
+      "total": 8.398799999999937
+    },
+    {
+      "update": 4.9905999999998585,
+      "forecast": 3.066000000000031,
+      "clusters": 0.3080999999999676,
+      "sourceBoundMain": 0.5790000000001783,
+      "sourceBoundMirror": 0.522899999999936,
+      "forecastSameStateCached": 0.006499999999959982,
+      "photometry": 4.476000000000113,
+      "total": 9.466599999999971
+    },
+    {
+      "update": 3.078800000000001,
+      "forecast": 3.191699999999855,
+      "clusters": 0.5559000000000651,
+      "sourceBoundMain": 0.6585999999999785,
+      "sourceBoundMirror": 0.5167000000001281,
+      "forecastSameStateCached": 0.008199999999987995,
+      "photometry": 4.922900000000027,
+      "total": 8.001700000000028
+    },
+    {
+      "update": 2.899599999999964,
+      "forecast": 3.1669999999999163,
+      "clusters": 0.4862000000000535,
+      "sourceBoundMain": 3.1713999999999487,
+      "sourceBoundMirror": 0.6068000000000211,
+      "forecastSameStateCached": 0.01290000000017244,
+      "photometry": 7.43139999999994,
+      "total": 10.330999999999904
+    },
+    {
+      "update": 3.067700000000059,
+      "forecast": 2.8956000000000586,
+      "clusters": 0.5389999999999873,
+      "sourceBoundMain": 0.6271999999999025,
+      "sourceBoundMirror": 0.5667000000000826,
+      "forecastSameStateCached": 0.00680000000011205,
+      "photometry": 4.628500000000031,
+      "total": 7.69620000000009
+    },
+    {
+      "update": 3.030999999999949,
+      "forecast": 3.2148999999999432,
+      "clusters": 0.4736000000000331,
+      "sourceBoundMain": 0.6341999999999643,
+      "sourceBoundMirror": 0.5586000000000695,
+      "forecastSameStateCached": 0.005400000000008731,
+      "photometry": 4.88130000000001,
+      "total": 7.912299999999959
+    },
+    {
+      "update": 3.258400000000165,
+      "forecast": 5.208799999999883,
+      "clusters": 0.1776999999999589,
+      "sourceBoundMain": 0.5220000000001619,
+      "sourceBoundMirror": 0.6201999999998407,
+      "forecastSameStateCached": 0.010800000000017462,
+      "photometry": 6.528699999999844,
+      "total": 9.78710000000001
+    },
+    {
+      "update": 3.285899999999856,
+      "forecast": 3.5878999999999905,
+      "clusters": 0.45420000000012806,
+      "sourceBoundMain": 0.608600000000024,
+      "sourceBoundMirror": 0.5283999999999196,
+      "forecastSameStateCached": 0.0079000000000633,
+      "photometry": 5.179100000000062,
+      "total": 8.464999999999918
+    },
+    {
+      "update": 2.8088000000000193,
+      "forecast": 3.0645999999999276,
+      "clusters": 0.5188000000000557,
+      "sourceBoundMain": 0.7565999999999349,
+      "sourceBoundMirror": 0.6618000000000848,
+      "forecastSameStateCached": 0.005499999999983629,
+      "photometry": 5.001800000000003,
+      "total": 7.810600000000022
+    },
+    {
+      "update": 7.6469999999999345,
+      "forecast": 2.7175999999999476,
+      "clusters": 1.034400000000005,
+      "sourceBoundMain": 0.5821000000000822,
+      "sourceBoundMirror": 0.49919999999997344,
+      "forecastSameStateCached": 0.007100000000036744,
+      "photometry": 4.833300000000008,
+      "total": 12.480299999999943
+    },
+    {
+      "update": 2.736499999999978,
+      "forecast": 3.119799999999941,
+      "clusters": 1.1787999999999101,
+      "sourceBoundMain": 0.5966000000000804,
+      "sourceBoundMirror": 0.6458999999999833,
+      "forecastSameStateCached": 0.005599999999958527,
+      "photometry": 5.541099999999915,
+      "total": 8.277599999999893
+    },
+    {
+      "update": 2.8217999999999392,
+      "forecast": 3.0813000000000557,
+      "clusters": 1.169300000000021,
+      "sourceBoundMain": 0.5942000000000007,
+      "sourceBoundMirror": 0.4934000000000651,
+      "forecastSameStateCached": 0.00909999999998945,
+      "photometry": 5.338200000000143,
+      "total": 8.160000000000082
+    },
+    {
+      "update": 4.695400000000063,
+      "forecast": 2.9821999999999207,
+      "clusters": 1.0296000000000731,
+      "sourceBoundMain": 0.6045999999998912,
+      "sourceBoundMirror": 0.49300000000016553,
+      "forecastSameStateCached": 0.006499999999959982,
+      "photometry": 5.109400000000051,
+      "total": 9.804800000000114
+    },
+    {
+      "update": 2.9833000000000993,
+      "forecast": 3.019399999999905,
+      "clusters": 0.49020000000018626,
+      "sourceBoundMain": 0.5591999999999189,
+      "sourceBoundMirror": 0.48489999999992506,
+      "forecastSameStateCached": 0.007000000000061846,
+      "photometry": 4.553699999999935,
+      "total": 7.537000000000035
+    },
+    {
+      "update": 3.1453999999998814,
+      "forecast": 5.511300000000119,
+      "clusters": 0.19810000000006767,
+      "sourceBoundMain": 0.5057999999999083,
+      "sourceBoundMirror": 0.46869999999989886,
+      "forecastSameStateCached": 0.007600000000138607,
+      "photometry": 6.683899999999994,
+      "total": 9.829299999999876
+    },
+    {
+      "update": 2.7847999999999047,
+      "forecast": 3.173999999999978,
+      "clusters": 0.5590000000001965,
+      "sourceBoundMain": 0.6024999999999636,
+      "sourceBoundMirror": 0.6429000000000542,
+      "forecastSameStateCached": 0.00889999999981228,
+      "photometry": 4.9784000000001924,
+      "total": 7.763200000000097
+    },
+    {
+      "update": 3.072200000000066,
+      "forecast": 3.166500000000042,
+      "clusters": 0.5901999999998679,
+      "sourceBoundMain": 0.5729000000001179,
+      "sourceBoundMirror": 0.5165999999999258,
+      "forecastSameStateCached": 0.00860000000011496,
+      "photometry": 4.846199999999953,
+      "total": 7.91840000000002
+    },
+    {
+      "update": 6.158899999999903,
+      "forecast": 3.379599999999982,
+      "clusters": 0.607300000000123,
+      "sourceBoundMain": 0.603099999999813,
+      "sourceBoundMirror": 0.5375000000001364,
+      "forecastSameStateCached": 0.007699999999886131,
+      "photometry": 5.127500000000055,
+      "total": 11.286399999999958
+    },
+    {
+      "update": 2.8815000000001874,
+      "forecast": 3.1895999999999276,
+      "clusters": 0.5132000000000971,
+      "sourceBoundMain": 0.601399999999785,
+      "sourceBoundMirror": 0.4910000000002128,
+      "forecastSameStateCached": 0.007499999999936335,
+      "photometry": 4.7952000000000226,
+      "total": 7.67670000000021
+    },
+    {
+      "update": 2.9751000000001113,
+      "forecast": 6.03229999999985,
+      "clusters": 0.16270000000008622,
+      "sourceBoundMain": 0.4855000000000018,
+      "sourceBoundMirror": 0.44839999999999236,
+      "forecastSameStateCached": 0.007700000000113505,
+      "photometry": 7.1288999999999305,
+      "total": 10.104000000000042
+    },
+    {
+      "update": 2.8381000000001677,
+      "forecast": 2.848399999999856,
+      "clusters": 0.4226000000001022,
+      "sourceBoundMain": 0.5516999999999825,
+      "sourceBoundMirror": 0.5444999999999709,
+      "forecastSameStateCached": 0.008100000000013097,
+      "photometry": 4.367199999999912,
+      "total": 7.205300000000079
+    },
+    {
+      "update": 2.9644000000000688,
+      "forecast": 2.8787999999999556,
+      "clusters": 0.47859999999991487,
+      "sourceBoundMain": 0.723700000000008,
+      "sourceBoundMirror": 0.7481999999999971,
+      "forecastSameStateCached": 0.007800000000088403,
+      "photometry": 4.829299999999876,
+      "total": 7.793699999999944
+    },
+    {
+      "update": 5.269999999999982,
+      "forecast": 3.0459999999998217,
+      "clusters": 0.2758000000001175,
+      "sourceBoundMain": 0.5610999999998967,
+      "sourceBoundMirror": 0.49909999999999854,
+      "forecastSameStateCached": 0.006600000000162254,
+      "photometry": 4.3819999999998345,
+      "total": 9.651999999999816
+    }
+  ]
+}

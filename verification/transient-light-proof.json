@@ -1,0 +1,2870 @@
+{
+  "schema": "glass-atoll.transient-light-research-proof.v1",
+  "dateUTC": "2026-11-05T03:27:37.095Z",
+  "researchOnly": true,
+  "runtimeChanges": false,
+  "noGPUOrBrowser": true,
+  "passed": true,
+  "counts": {
+    "checks": 13,
+    "passed": 13
+  },
+  "checks": [
+    {
+      "id": "HG_and_current_cloud_mixture_normalize_to_unit_solid_angle",
+      "passed": true,
+      "evidence": {
+        "results": [
+          {
+            "g": 0.62,
+            "integral": 0.9999999996991642
+          },
+          {
+            "g": -0.25,
+            "integral": 0.9999999999943123
+          }
+        ],
+        "mixture": 0.9999999997522923
+      }
+    },
+    {
+      "id": "minus_HG_uses_view_ray_dot_point_to_source_not_two_outward_vectors",
+      "passed": true,
+      "evidence": {
+        "bothObserverAndSourceBelowCloud": 0.04127937306195371,
+        "forward": 0.7389441445224341,
+        "conservativeMaximum": 0.7638996395992439,
+        "note": "camera-to-cloud ray up and cloud-to-source down gives mu=-1/backscatter"
+      }
+    },
+    {
+      "id": "phase_envelope_bounds_all_angles_without_reusing_solar22",
+      "passed": true,
+      "evidence": {
+        "phaseMaximumBound": 0.7638996395992439,
+        "solarGainUsed": false
+      }
+    },
+    {
+      "id": "homogeneous_constant_source_closed_form_matches_segment_composition",
+      "passed": true,
+      "evidence": {
+        "expectedRawRadiance": 9.98905805695089e-9,
+        "referenceIlluminanceLux": 0.007,
+        "omega": 0.999,
+        "phase": 0.04127937306195371
+      }
+    },
+    {
+      "id": "finite_source_segment_is_not_an_infinite_solar_shadow_ray",
+      "passed": true,
+      "evidence": {
+        "sourceDistance": 100,
+        "expectedFiniteTransmission": 0.36787944117144233,
+        "wrong690mTransmission": 0.0010077854290485105
+      }
+    },
+    {
+      "id": "raw_storageP_and_cameraC_are_independent_without_duplicate_P",
+      "passed": true,
+      "evidence": {
+        "displayLinearBeforeToneMap": 0.021835855645579754,
+        "raw": 3.1e-7,
+        "C": 16.5,
+        "storageEVs": [
+          -12,
+          0,
+          8,
+          21
+        ]
+      }
+    },
+    {
+      "id": "production_cluster_ledger_is_raw_finite_positive_unit_photopic_colour",
+      "passed": true,
+      "evidence": {
+        "records": 79,
+        "note": "point proxy colour is intensity weighted and checked against photopic Y; phase samples are not a peak search"
+      }
+    },
+    {
+      "id": "current_scale_and_single_global_author_calibration_give_explicit_distance_law",
+      "passed": true,
+      "evidence": [
+        {
+          "authorGain": 1,
+          "nominalOrdinaryStarRangeCd": [
+            5,
+            10
+          ],
+          "referenceLuxAtOverheadCloud": 0.0025265463973619833,
+          "isotropicReferenceClusterLumens": 15455.738164982928
+        },
+        {
+          "authorGain": 4,
+          "nominalOrdinaryStarRangeCd": [
+            20,
+            40
+          ],
+          "referenceLuxAtOverheadCloud": 0.010106185589447933,
+          "isotropicReferenceClusterLumens": 61822.95265993171
+        },
+        {
+          "authorGain": 16,
+          "nominalOrdinaryStarRangeCd": [
+            80,
+            160
+          ],
+          "referenceLuxAtOverheadCloud": 0.04042474235779173,
+          "isotropicReferenceClusterLumens": 247291.81063972684
+        },
+        {
+          "authorGain": 64,
+          "nominalOrdinaryStarRangeCd": [
+            320,
+            640
+          ],
+          "referenceLuxAtOverheadCloud": 0.16169896943116693,
+          "isotropicReferenceClusterLumens": 989167.2425589074
+        }
+      ]
+    },
+    {
+      "id": "finite_two_cluster_proxy_source_bounds_integral_not_number_of_cloud_steps",
+      "passed": true,
+      "evidence": {
+        "integratedProxyMaximumChannel": 0.0006232046091938691,
+        "rawBound": 0.10474478470128287,
+        "storedAtP21": 219665.73472586478,
+        "storageEVForSafe": 17.25,
+        "safeMaximum": 16376,
+        "limit": "bounds this finite-radius two-cluster proxy, not every physical star near an intersecting cloud"
+      }
+    },
+    {
+      "id": "existing_diffuse_transfer_reciprocity_and_substochastic_rows_remain_bounded",
+      "passed": true,
+      "evidence": {
+        "maxRow": 0.0395783093931229,
+        "reciprocityError": 1.734723475976807e-18,
+        "sourceReflectedPower": [
+          1.148,
+          0.9159999999999999,
+          0.856
+        ],
+        "optionalSecondReflectedPower": [
+          0.020295463910413696,
+          0.01632791622417337,
+          0.01464581276010018
+        ]
+      }
+    },
+    {
+      "id": "one_bounce_is_source_to_surfel_to_probe_not_direct_light_added_twice",
+      "passed": true,
+      "evidence": {
+        "exitance": {
+          "0": 0.7,
+          "1": 0.48,
+          "2": 0.3,
+          "3": 0.16000000000000003,
+          "4": 0.3,
+          "5": 0.42,
+          "6": 0.18,
+          "7": 0.1,
+          "8": 0.16000000000000003
+        },
+        "probeSH1": [
+          0.005172126591911367,
+          -0.0026208924191542934,
+          -0.0026208924191542934,
+          0.00873240521054933,
+          0.0041478825650880895,
+          -0.0012233184714940189,
+          -0.0012233184714940189,
+          0.006932551561472371,
+          0.003873823664112032,
+          -0.00006339902409841901,
+          -0.00006339902409841901,
+          0.006580467868135289
+        ],
+        "note": "projectDiffusion converts exitance to probe irradiance; never add this direct surfel array again as native receiver direct lighting"
+      }
+    },
+    {
+      "id": "existing_SH1_arrays_have_a_pointwise_spectral_envelope_even_with_negative_lobes",
+      "passed": true,
+      "evidence": {
+        "maximumRawIrradianceRGB": [
+          0.01465859352680288,
+          0.011293040878090672,
+          0.010454902317043803
+        ],
+        "note": "take max over18 probes; spatial trilinear interpolation/edge fade cannot increase this. Do not infer a pointwise bound solely from total reflected power."
+      }
+    },
+    {
+      "id": "illumination_linearity_supports_per_unit_position_basis_and_current_envelope",
+      "passed": true,
+      "evidence": {
+        "scale": 7.3,
+        "basisIndependentOfStoredP": true,
+        "spatialVisibilityApproximation": "a cached source-position basis is only exact while source position/visibility remain fixed"
+      }
+    }
+  ],
+  "metrics": {
+    "productionClusters": {
+      "seed": 42,
+      "origin": [
+        0,
+        0.7,
+        0
+      ],
+      "elevation": 80,
+      "wind": [
+        0,
+        0,
+        0
+      ],
+      "weather": {
+        "temperature": 29,
+        "humidity": 0.68,
+        "dewPoint": 22.496348617818374,
+        "liftedCondensationLevel": 812.9564227727033,
+        "automaticCloudBase": true,
+        "cloudBase": 812.9564227727033,
+        "thickness": 950,
+        "cloudTop": 1762.9564227727033,
+        "coverage": 0.35,
+        "moisture": 0.984,
+        "shear": 1.1,
+        "windDirection": null,
+        "model": "prescribed moist parcel LCL plus kinematic cumulus; no atmospheric fluid/forecast solve"
+      },
+      "cloudY": 812.9564227727033,
+      "rows": [
+        {
+          "type": "peony",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 224,
+          "clusterPosition": [
+            5.604737037011719,
+            120.0294706501685,
+            -45.680026934064266
+          ],
+          "referenceCandela": 1692.1162562219938,
+          "isotropicReferenceLumens": 21263.75999826752,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 692.9269521225348,
+          "referenceLuxAtOverheadCloud": 0.0035241573401820774,
+          "normalRawIncidentRGB": [
+            5.874938572352168e-7,
+            6.723465741919907e-11,
+            2.6598115946834738e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            2.4227126726314265e-8,
+            2.7726291017934725e-12,
+            1.0968555973635768e-9
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 4.63068820055753
+        },
+        {
+          "type": "peony",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 224,
+          "clusterPosition": [
+            5.779383665965376,
+            119.64724127861496,
+            -47.490626414925934
+          ],
+          "referenceCandela": 1573.5457119223797,
+          "isotropicReferenceLumens": 19773.758594652278,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 693.3091814940883,
+          "referenceLuxAtOverheadCloud": 0.00327359885858088,
+          "normalRawIncidentRGB": [
+            5.45922688567999e-7,
+            3.708130785693867e-12,
+            2.4705585376966994e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            2.2512810978058816e-8,
+            1.529162447511075e-13,
+            1.018811244414279e-9
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 4.63236938366442
+        },
+        {
+          "type": "peony",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 224,
+          "clusterPosition": [
+            6.269593275628795,
+            115.2442422563116,
+            -51.8818162367031
+          ],
+          "referenceCandela": 1229.9285640455464,
+          "isotropicReferenceLumens": 15455.738164982928,
+          "proxyFalloffRadius": 8.800000000000004,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 697.7121805163916,
+          "referenceLuxAtOverheadCloud": 0.0025265463973619833,
+          "normalRawIncidentRGB": [
+            4.2134991443365626e-7,
+            0,
+            1.9067569202715655e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            1.737566724722164e-8,
+            0,
+            7.863102052010152e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 4.63247550175383
+        },
+        {
+          "type": "peony",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 224,
+          "clusterPosition": [
+            8.075344726432107,
+            99.61846755861582,
+            -53.624584402908226
+          ],
+          "referenceCandela": 0.000833345930022848,
+          "isotropicReferenceLumens": 0.010472133806634932,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 713.3379552140874,
+          "referenceLuxAtOverheadCloud": 1.6377011487029043e-9,
+          "normalRawIncidentRGB": [
+            2.731179762201711e-13,
+            0,
+            1.23595513697529e-14
+          ],
+          "rawBackscatterSourceRGB": [
+            1.1262864691487925e-14,
+            0,
+            5.096843373385405e-16
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 4.632475501753829
+        },
+        {
+          "type": "chrysanthemum",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 192,
+          "clusterPosition": [
+            7.3496539931037,
+            159.54942277441336,
+            -59.886917516258734
+          ],
+          "referenceCandela": 1146.024058024393,
+          "isotropicReferenceLumens": 14401.363046106384,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 653.4069999982898,
+          "referenceLuxAtOverheadCloud": 0.0026842698236509473,
+          "normalRawIncidentRGB": [
+            2.8229174700602825e-8,
+            1.241847783105164e-7,
+            2.5141795878179452e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            1.1641173510635521e-9,
+            5.121143522703328e-9,
+            1.0367997339313568e-9
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.2851082051804537
+        },
+        {
+          "type": "chrysanthemum",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 192,
+          "clusterPosition": [
+            7.524963841603418,
+            159.18389906632345,
+            -61.75138167509953
+          ],
+          "referenceCandela": 1375.649131611434,
+          "isotropicReferenceLumens": 17286.916823150637,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 653.7725237063798,
+          "referenceLuxAtOverheadCloud": 0.0032185061960689773,
+          "normalRawIncidentRGB": [
+            7.112932046678466e-8,
+            1.378910062072526e-7,
+            2.9424956894983065e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            2.9332375814364716e-9,
+            5.686362232830238e-9,
+            1.2134291292269131e-9
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.1900880391833646
+        },
+        {
+          "type": "chrysanthemum",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 192,
+          "clusterPosition": [
+            7.981364751240109,
+            154.95527141742406,
+            -66.49464402094034
+          ],
+          "referenceCandela": 1190.531416171297,
+          "isotropicReferenceLumens": 14960.659003646397,
+          "proxyFalloffRadius": 8.800000000000004,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 658.0011513552793,
+          "referenceLuxAtOverheadCloud": 0.0027497141791141236,
+          "normalRawIncidentRGB": [
+            6.221038820724461e-8,
+            1.1738080748317971e-7,
+            2.5111196721304034e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            2.56543781731268e-9,
+            4.840560736269131e-9,
+            1.0355378830333271e-9
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.1857879667676379
+        },
+        {
+          "type": "chrysanthemum",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 192,
+          "clusterPosition": [
+            9.946120320982846,
+            141.92570253513432,
+            -69.74277532035786
+          ],
+          "referenceCandela": 27.94885141693612,
+          "isotropicReferenceLumens": 351.21562515087675,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 671.030720237569,
+          "referenceLuxAtOverheadCloud": 0.00006206963035594782,
+          "normalRawIncidentRGB": [
+            2.1462338896866657e-9,
+            2.4305469493214384e-9,
+            5.52495702382927e-10
+          ],
+          "rawBackscatterSourceRGB": [
+            8.85065942211733e-11,
+            1.002311228113675e-10,
+            2.27838695375772e-11
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.0877331256772496
+        },
+        {
+          "type": "willow",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 160,
+          "clusterPosition": [
+            8.639934035822886,
+            189.20601244958846,
+            -70.37937347042075
+          ],
+          "referenceCandela": 436.80230683678366,
+          "isotropicReferenceLumens": 5489.019672918057,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 623.7504103231148,
+          "referenceLuxAtOverheadCloud": 0.0011226987384673022,
+          "normalRawIncidentRGB": [
+            7.387316063825482e-8,
+            3.36117444058924e-8,
+            9.315803795507967e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            3.046388319494903e-9,
+            1.3860842648572742e-9,
+            3.8416598970649094e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.8277674763872436
+        },
+        {
+          "type": "willow",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 160,
+          "clusterPosition": [
+            8.816330765832227,
+            188.91211094347685,
+            -72.19041672269431
+          ],
+          "referenceCandela": 586.973466032765,
+          "isotropicReferenceLumens": 7376.126114962691,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 624.0443118292264,
+          "referenceLuxAtOverheadCloud": 0.0015072580486480008,
+          "normalRawIncidentRGB": [
+            9.917702063430181e-8,
+            4.512481447520229e-8,
+            1.2506756950287536e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            4.089871268702488e-9,
+            1.8608613270222508e-9,
+            5.157548148601556e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.827767476387243
+        },
+        {
+          "type": "willow",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 160,
+          "clusterPosition": [
+            9.2064398369111,
+            185.36392163771265,
+            -76.16604264227276
+          ],
+          "referenceCandela": 610.5257291639541,
+          "isotropicReferenceLumens": 7672.09258227612,
+          "proxyFalloffRadius": 8.799999999999997,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 627.5925011349906,
+          "referenceLuxAtOverheadCloud": 0.0015500598939447046,
+          "normalRawIncidentRGB": [
+            1.0199336618175828e-7,
+            4.640623097182849e-8,
+            1.2861913306314206e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            4.2060119902487915e-9,
+            1.9137045005646135e-9,
+            5.304007859441888e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.8277674763872471
+        },
+        {
+          "type": "willow",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 160,
+          "clusterPosition": [
+            9.491074876544786,
+            173.9018282989017,
+            -78.98708711167635
+          ],
+          "referenceCandela": 550.9844928501334,
+          "isotropicReferenceLumens": 6923.8753399195075,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 639.0545944738016,
+          "referenceLuxAtOverheadCloud": 0.0013491599883236722,
+          "normalRawIncidentRGB": [
+            8.877422689563618e-8,
+            4.0391619885580606e-8,
+            1.1194908579955787e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            3.660879885881179e-9,
+            1.6656734050876763e-9,
+            4.6165668885879487e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.8277674763872462
+        },
+        {
+          "type": "palm",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 12,
+          "clusterPosition": [
+            8.596106155687947,
+            189.8947444242604,
+            -70.48610231556249
+          ],
+          "referenceCandela": 390.29074174461147,
+          "isotropicReferenceLumens": 4904.53810811593,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 623.0616783484429,
+          "referenceLuxAtOverheadCloud": 0.0010053705699984644,
+          "normalRawIncidentRGB": [
+            1.6427330887299216e-7,
+            1.0055962460948658e-9,
+            7.612640143206831e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            6.7743181018887044e-9,
+            4.1468872209657923e-11,
+            3.139307674453816e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 4.538771677692133
+        },
+        {
+          "type": "palm",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 12,
+          "clusterPosition": [
+            8.59788958979565,
+            192.48756789689816,
+            -72.85454074179415
+          ],
+          "referenceCandela": 525.6581658303276,
+          "isotropicReferenceLumens": 6605.615328288169,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 620.4688548758052,
+          "referenceLuxAtOverheadCloud": 0.001365411141744467,
+          "normalRawIncidentRGB": [
+            1.85106167553202e-7,
+            1.2631942460285012e-8,
+            1.0621393814324382e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            7.633425479950639e-9,
+            5.209172266499231e-10,
+            4.380060332217242e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 3.765780013351631
+        },
+        {
+          "type": "palm",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 12,
+          "clusterPosition": [
+            8.615578702858523,
+            196.21423049034928,
+            -79.2275576616998
+          ],
+          "referenceCandela": 494.15670877751455,
+          "isotropicReferenceLumens": 6209.756344070202,
+          "proxyFalloffRadius": 8.799999999999997,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 616.7421922823539,
+          "referenceLuxAtOverheadCloud": 0.001299144249838933,
+          "normalRawIncidentRGB": [
+            1.7138466578157048e-7,
+            1.342368947887686e-8,
+            1.014114035660607e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            7.067576904339804e-9,
+            5.535673643805144e-10,
+            4.1820129613792227e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 3.6644777215381628
+        },
+        {
+          "type": "palm",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 12,
+          "clusterPosition": [
+            9.697757957315511,
+            189.25995632467132,
+            -86.9246264418246
+          ],
+          "referenceCandela": 294.38203791797395,
+          "isotropicReferenceLumens": 3699.3137906875954,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 623.696466448032,
+          "referenceLuxAtOverheadCloud": 0.0007567714514812322,
+          "normalRawIncidentRGB": [
+            9.605084831047869e-8,
+            8.941301221756419e-9,
+            5.9355023367920775e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            3.96095388152505e-9,
+            3.6872221748339347e-10,
+            2.4476880145526764e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 3.525607519302262
+        },
+        {
+          "type": "ring",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 72,
+          "clusterPosition": [
+            5.603508111931244,
+            119.99869373614395,
+            -45.686941748102875
+          ],
+          "referenceCandela": 543.7580344793427,
+          "isotropicReferenceLumens": 6833.064985802913,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 692.9577290365593,
+          "referenceLuxAtOverheadCloud": 0.0011323800275138155,
+          "normalRawIncidentRGB": [
+            6.718679969465197e-8,
+            3.66363595045228e-8,
+            3.87040246232217e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            2.770655540464862e-9,
+            1.510813625667431e-9,
+            1.5960801935495897e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.6481216077394485
+        },
+        {
+          "type": "ring",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 72,
+          "clusterPosition": [
+            5.768609043838541,
+            119.47462039934874,
+            -47.545234410483985
+          ],
+          "referenceCandela": 509.4555146701264,
+          "isotropicReferenceLumens": 6402.006808873904,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 693.4818023733545,
+          "referenceLuxAtOverheadCloud": 0.0010593418486775858,
+          "normalRawIncidentRGB": [
+            6.283400665609637e-8,
+            3.427995969278972e-8,
+            3.611766828584161e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            2.5911546533325497e-9,
+            1.4136401894626954e-9,
+            1.4894237885958507e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.6476164667328927
+        },
+        {
+          "type": "ring",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 72,
+          "clusterPosition": [
+            6.1377224195227615,
+            114.66996913287068,
+            -52.03972802366159
+          ],
+          "referenceCandela": 423.06673208137585,
+          "isotropicReferenceLumens": 5316.413349940366,
+          "proxyFalloffRadius": 8.800000000000004,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 698.2864536398326,
+          "referenceLuxAtOverheadCloud": 0.0008676441476090268,
+          "normalRawIncidentRGB": [
+            5.1448851850685924e-8,
+            2.8080973907355216e-8,
+            2.9591533508128244e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            2.121652572804498e-9,
+            1.158005832866839e-9,
+            1.220298431206172e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.6471439098257523
+        },
+        {
+          "type": "ring",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 72,
+          "clusterPosition": [
+            -0.6532447502897522,
+            95.70747199336044,
+            -58.04752202172495
+          ],
+          "referenceCandela": 0.08412574396467899,
+          "isotropicReferenceLumens": 1.0571552768688457,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 717.2489507793429,
+          "referenceLuxAtOverheadCloud": 1.635268513686718e-7,
+          "normalRawIncidentRGB": [
+            9.104751056290284e-12,
+            5.4622347205959e-12,
+            6.19200866131343e-13
+          ],
+          "rawBackscatterSourceRGB": [
+            3.754625770733349e-13,
+            2.2525214715865124e-13,
+            2.5534663329767246e-14
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.5465946384146612
+        },
+        {
+          "type": "heart",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 64,
+          "clusterPosition": [
+            7.366989849288303,
+            159.69076491986223,
+            -59.942497201199416
+          ],
+          "referenceCandela": 483.30838187466617,
+          "isotropicReferenceLumens": 6073.432247663286,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 653.2656578528411,
+          "referenceLuxAtOverheadCloud": 0.0011325168469341173,
+          "normalRawIncidentRGB": [
+            1.8861371206428224e-7,
+            7.564643198324724e-11,
+            8.548877792346272e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            7.778069929116524e-9,
+            3.1195146493555275e-12,
+            3.525394233356616e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 4.626217962008103
+        },
+        {
+          "type": "heart",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 64,
+          "clusterPosition": [
+            7.630342839708233,
+            159.95015863469504,
+            -62.13715988055102
+          ],
+          "referenceCandela": 454.96704248797164,
+          "isotropicReferenceLumens": 5717.284473222748,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 653.0062641380082,
+          "referenceLuxAtOverheadCloud": 0.001066952887351555,
+          "normalRawIncidentRGB": [
+            1.7792069471743667e-7,
+            4.179980461302357e-12,
+            8.052281519432198e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            7.337110277950361e-9,
+            1.7237442588092358e-13,
+            3.320607397076766e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 4.632108482499804
+        },
+        {
+          "type": "heart",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 64,
+          "clusterPosition": [
+            8.280671019585686,
+            157.05857729741638,
+            -67.4336305328212
+          ],
+          "referenceCandela": 382.85199474921154,
+          "isotropicReferenceLumens": 4811.060056465284,
+          "proxyFalloffRadius": 8.800000000000004,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 655.8978454752869,
+          "referenceLuxAtOverheadCloud": 0.0008899354471990821,
+          "normalRawIncidentRGB": [
+            1.4841374966251506e-7,
+            0,
+            6.716245442053142e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            6.1203001133025235e-9,
+            0,
+            2.769651587769797e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 4.632475501753827
+        },
+        {
+          "type": "heart",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 64,
+          "clusterPosition": [
+            12.763332722301522,
+            138.6261539777977,
+            -70.63319179998739
+          ],
+          "referenceCandela": 0.5557908583551876,
+          "isotropicReferenceLumens": 6.984273910164091,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 674.3302687949056,
+          "referenceLuxAtOverheadCloud": 0.000001222267011475914,
+          "normalRawIncidentRGB": [
+            2.0383639154150542e-10,
+            0,
+            9.224315393474404e-12
+          ],
+          "rawBackscatterSourceRGB": [
+            8.405824211594224e-12,
+            0,
+            3.803931824119839e-13
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 4.632475501753831
+        },
+        {
+          "type": "crossette",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 180,
+          "clusterPosition": [
+            5.611334430066113,
+            120.02945088252248,
+            -45.66312800829076
+          ],
+          "referenceCandela": 402.44738209443716,
+          "isotropicReferenceLumens": 5057.302956177313,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 692.9269718901808,
+          "referenceLuxAtOverheadCloud": 0.0008381739785957026,
+          "normalRawIncidentRGB": [
+            9.045681881869905e-9,
+            3.870897435756213e-8,
+            7.846160676334036e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            3.7302667692446183e-10,
+            1.5962843111580557e-9,
+            3.2356070906876123e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.2828473743739437
+        },
+        {
+          "type": "crossette",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 180,
+          "clusterPosition": [
+            5.810386585429229,
+            119.68539064353266,
+            -47.358195354184005
+          ],
+          "referenceCandela": 375.85179536915155,
+          "isotropicReferenceLumens": 4723.092956681043,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 693.2710321291706,
+          "referenceLuxAtOverheadCloud": 0.0007820067853550646,
+          "normalRawIncidentRGB": [
+            1.9218436802849843e-8,
+            3.293193105245778e-8,
+            7.112015509399715e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            7.925316974299672e-10,
+            1.3580500580973774e-9,
+            2.9328596189347667e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.1697799554935115
+        },
+        {
+          "type": "crossette",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 180,
+          "clusterPosition": [
+            6.34257194503344,
+            115.42994362749255,
+            -51.878731447422545
+          ],
+          "referenceCandela": 719.1940249458146,
+          "isotropicReferenceLumens": 9037.658661101783,
+          "proxyFalloffRadius": 8.800000000000004,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 697.5264791452107,
+          "referenceLuxAtOverheadCloud": 0.0014781709847039224,
+          "normalRawIncidentRGB": [
+            3.327738302444486e-8,
+            6.314949503357551e-8,
+            1.3502284907632906e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            1.3722958388831932e-9,
+            2.6041647926007918e-9,
+            5.568084900350749e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.1867048250665662
+        },
+        {
+          "type": "crossette",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 180,
+          "clusterPosition": [
+            7.532913667553494,
+            101.75119058490456,
+            -57.44339991125121
+          ],
+          "referenceCandela": 12.345108459589365,
+          "isotropicReferenceLumens": 155.13320817766063,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 711.2052321877987,
+          "referenceLuxAtOverheadCloud": 0.000024406473009676613,
+          "normalRawIncidentRGB": [
+            1.0404280385863161e-9,
+            8.976887787184309e-10,
+            2.1344893082392435e-10
+          ],
+          "rawBackscatterSourceRGB": [
+            4.290526893177239e-11,
+            3.701897396025747e-11,
+            8.802227007110767e-12
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.1841440112285535
+        },
+        {
+          "type": "strobe",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 160,
+          "clusterPosition": [
+            7.323467533135431,
+            159.49094738622887,
+            -59.87251467527589
+          ],
+          "referenceCandela": 324.00672677210434,
+          "isotropicReferenceLumens": 4071.5886101636734,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 653.4654753864744,
+          "referenceLuxAtOverheadCloud": 0.000758767519823564,
+          "normalRawIncidentRGB": [
+            1.3361941111824147e-8,
+            7.560017652516998e-11,
+            3.382384042524055e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            5.510209794348586e-10,
+            3.1176071624417145e-12,
+            1.3948307003741942e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 12.382595437688506
+        },
+        {
+          "type": "strobe",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 160,
+          "clusterPosition": [
+            7.594834249923765,
+            159.39931606077707,
+            -61.61139797570124
+          ],
+          "referenceCandela": 342.65317082760515,
+          "isotropicReferenceLumens": 4305.906736805011,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 653.5571067119262,
+          "referenceLuxAtOverheadCloud": 0.0008022092623206668,
+          "normalRawIncidentRGB": [
+            1.4004607390497079e-8,
+            4.172937340354045e-12,
+            3.5871425799914826e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            5.775233116454644e-10,
+            1.720839809993949e-13,
+            1.4792692178910163e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 12.421054470993834
+        },
+        {
+          "type": "strobe",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 160,
+          "clusterPosition": [
+            9.628134628397119,
+            153.3581367953769,
+            -66.20103642965421
+          ],
+          "referenceCandela": 290.74787312837003,
+          "isotropicReferenceLumens": 3653.645529067778,
+          "proxyFalloffRadius": 8.800000000000004,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 659.5982859773263,
+          "referenceLuxAtOverheadCloud": 0.0006682785315356978,
+          "normalRawIncidentRGB": [
+            1.1660890955675774e-8,
+            0,
+            2.9887703210676535e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            4.80872913726108e-10,
+            0,
+            1.2325119051476698e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 12.4231729570382
+        },
+        {
+          "type": "strobe",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 160,
+          "clusterPosition": [
+            7.769029955746728,
+            141.9840215892727,
+            -70.56195654060805
+          ],
+          "referenceCandela": 277.46076006949136,
+          "isotropicReferenceLumens": 3486.6747419750172,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 670.9724011834305,
+          "referenceLuxAtOverheadCloud": 0.0006163001278981047,
+          "normalRawIncidentRGB": [
+            1.0753912101401892e-8,
+            0,
+            2.7563051096362495e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            4.4347083475971806e-10,
+            0,
+            1.1366476834635072e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 12.423172957038194
+        },
+        {
+          "type": "fan",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 9,
+          "clusterPosition": [
+            -0.7460957998257104,
+            2.901925212846444,
+            -0.5239061210106957
+          ],
+          "referenceCandela": 40.295458324709585,
+          "isotropicReferenceLumens": 506.3676633837652,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 810.0544975598568,
+          "referenceLuxAtOverheadCloud": 0.00006140837774638888,
+          "normalRawIncidentRGB": [
+            4.040648482411862e-9,
+            1.8384653215251e-9,
+            5.09547556156319e-10
+          ],
+          "rawBackscatterSourceRGB": [
+            1.6662864068157867e-10,
+            7.581480517283057e-11,
+            2.1012769859720117e-11
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.827767476387243
+        },
+        {
+          "type": "fan",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 9,
+          "clusterPosition": [
+            -1.8064111203507836,
+            6.351781091730729,
+            -1.43419782337207
+          ],
+          "referenceCandela": 222.7176917688697,
+          "isotropicReferenceLumens": 2798.753057142228,
+          "proxyFalloffRadius": 2.4,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 806.6046416809726,
+          "referenceLuxAtOverheadCloud": 0.00034232079590396764,
+          "normalRawIncidentRGB": [
+            2.2524581420793627e-8,
+            1.024851877223421e-8,
+            2.8404711437701188e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            9.288707989337582e-10,
+            4.226293773017602e-10,
+            1.1713561514738568e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.827767476387243
+        },
+        {
+          "type": "fan",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 9,
+          "clusterPosition": [
+            -0.6903082060652157,
+            22.153838523124733,
+            -5.3664704499329865
+          ],
+          "referenceCandela": 383.83610013151895,
+          "isotropicReferenceLumens": 4823.426689422945,
+          "proxyFalloffRadius": 8.8,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 790.8025842495786,
+          "referenceLuxAtOverheadCloud": 0.00061377565490976,
+          "normalRawIncidentRGB": [
+            4.038621047432424e-8,
+            1.837542853530775e-8,
+            5.092918856758166e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            1.6654503312794845e-9,
+            7.577676435125561e-10,
+            2.1002226496491673e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.8277674763872438
+        },
+        {
+          "type": "fan",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 9,
+          "clusterPosition": [
+            25.472754165131526,
+            34.450833954058005,
+            -7.794858009748299
+          ],
+          "referenceCandela": 4.250766797143853,
+          "isotropicReferenceLumens": 53.41671096812217,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 778.5055888186453,
+          "referenceLuxAtOverheadCloud": 0.000007013645488809411,
+          "normalRawIncidentRGB": [
+            4.6149527215281435e-10,
+            2.099769523614442e-10,
+            5.819704166960809e-11
+          ],
+          "rawBackscatterSourceRGB": [
+            1.9031185270018354e-11,
+            8.659049233989197e-12,
+            2.3999350567876356e-12
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.8277674763872436
+        },
+        {
+          "type": "bouquet",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 104,
+          "clusterPosition": [
+            0.04194468698158454,
+            2.540315059479521,
+            -0.35479001356814577
+          ],
+          "referenceCandela": 608.2555474776508,
+          "isotropicReferenceLumens": 7643.5646378441015,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 810.4161077132237,
+          "referenceLuxAtOverheadCloud": 0.0009261257291067961,
+          "normalRawIncidentRGB": [
+            6.09387295214457e-8,
+            2.7726673441314236e-8,
+            7.684702304118546e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            2.5129970372874113e-9,
+            1.1433951570542233e-9,
+            3.1690247358848295e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.8277674763872436
+        },
+        {
+          "type": "bouquet",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 104,
+          "clusterPosition": [
+            0.16318301341595476,
+            6.836093639085446,
+            -1.382123778222785
+          ],
+          "referenceCandela": 707.8542751536719,
+          "isotropicReferenceLumens": 8895.159162539614,
+          "proxyFalloffRadius": 2.4,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 806.1203291336178,
+          "referenceLuxAtOverheadCloud": 0.001089291493847249,
+          "normalRawIncidentRGB": [
+            7.167497633133396e-8,
+            3.2611586724226803e-8,
+            9.038600904326458e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            2.955739389100649e-9,
+            1.3448396686770835e-9,
+            3.7273467090911625e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.8277674763872431
+        },
+        {
+          "type": "bouquet",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 104,
+          "clusterPosition": [
+            1.213643220023826,
+            15.836594601684553,
+            -5.480937992827002
+          ],
+          "referenceCandela": 341.1856259246899,
+          "isotropicReferenceLumens": 4287.465023661764,
+          "proxyFalloffRadius": 8.8,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 797.1198281710188,
+          "referenceLuxAtOverheadCloud": 0.0005369619372625526,
+          "normalRawIncidentRGB": [
+            3.5331896339509786e-8,
+            1.6075752802217484e-8,
+            4.455542597315826e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            1.457020051454916e-9,
+            6.629334001773087e-10,
+            1.8373808306295815e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.827767476387247
+        },
+        {
+          "type": "display-saturn",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 256,
+          "clusterPosition": [
+            11.59456358790037,
+            258.38541250099775,
+            -94.41431447499302
+          ],
+          "referenceCandela": 2336.1593601379736,
+          "isotropicReferenceLumens": 29357.04433369796,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 554.5710102717055,
+          "referenceLuxAtOverheadCloud": 0.007596055649222328,
+          "normalRawIncidentRGB": [
+            3.2655459157905316e-7,
+            2.4107544610207656e-7,
+            4.378855699458717e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            1.3466488842074777e-8,
+            9.941491832448807e-9,
+            1.805756615844162e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.6012900136266472
+        },
+        {
+          "type": "display-saturn",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 256,
+          "clusterPosition": [
+            11.83293568713591,
+            257.96698465626247,
+            -96.82867842570126
+          ],
+          "referenceCandela": 2354.635427176085,
+          "isotropicReferenceLumens": 29589.221439594614,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 554.9894381164409,
+          "referenceLuxAtOverheadCloud": 0.0076445906960166884,
+          "normalRawIncidentRGB": [
+            4.782096574840841e-7,
+            2.042524980406799e-7,
+            3.802840066037405e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            1.9720454658261497e-8,
+            8.422983650391737e-9,
+            1.568218749271218e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.737647197213803
+        },
+        {
+          "type": "display-saturn",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 256,
+          "clusterPosition": [
+            12.39178568618709,
+            253.61756209400437,
+            -102.52485801014238
+          ],
+          "referenceCandela": 1848.571638532622,
+          "isotropicReferenceLumens": 23229.83631699413,
+          "proxyFalloffRadius": 8.799999999999997,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 559.3388606786989,
+          "referenceLuxAtOverheadCloud": 0.005908623245486256,
+          "normalRawIncidentRGB": [
+            6.020947385591269e-7,
+            9.247262298201968e-8,
+            2.571838706799835e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            2.482923923829006e-8,
+            3.813394690190092e-9,
+            1.060577255437298e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 2.8305839032199533
+        },
+        {
+          "type": "display-saturn",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 256,
+          "clusterPosition": [
+            13.400917885477655,
+            239.0967775375557,
+            -107.40711135621167
+          ],
+          "referenceCandela": 545.3566446462631,
+          "isotropicReferenceLumens": 6853.153713628319,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 573.8596452351476,
+          "referenceLuxAtOverheadCloud": 0.0016560339577207657,
+          "normalRawIncidentRGB": [
+            1.1335638901011596e-7,
+            2.8200369166371005e-8,
+            2.1258656712753792e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            4.674601390233622e-9,
+            1.1629294657441416e-9,
+            8.766664772205285e-9
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 3.565858292143244
+        },
+        {
+          "type": "display-heart",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 256,
+          "clusterPosition": [
+            12.016354001214568,
+            268.3620375256518,
+            -97.80827991003596
+          ],
+          "referenceCandela": 2336.1593601379736,
+          "isotropicReferenceLumens": 29357.04433369796,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 544.5943852470515,
+          "referenceLuxAtOverheadCloud": 0.00787691475933311,
+          "normalRawIncidentRGB": [
+            3.3862873060973196e-7,
+            2.4998905052896374e-7,
+            4.540760979231044e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            1.3964403318634614e-8,
+            1.03090718869105e-8,
+            1.8725232668039366e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.6012900136266472
+        },
+        {
+          "type": "display-heart",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 256,
+          "clusterPosition": [
+            12.28502307115279,
+            268.35513540362246,
+            -100.3202063292198
+          ],
+          "referenceCandela": 2354.635427176085,
+          "isotropicReferenceLumens": 29589.221439594614,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 544.6012873690809,
+          "referenceLuxAtOverheadCloud": 0.007939009959312357,
+          "normalRawIncidentRGB": [
+            4.966271425602572e-7,
+            2.1211895844264383e-7,
+            3.9493004084148434e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            2.0479956633346484e-8,
+            8.747381481447882e-9,
+            1.6286162024778976e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.737647197213803
+        },
+        {
+          "type": "display-heart",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 256,
+          "clusterPosition": [
+            12.895491320671999,
+            265.04841099371004,
+            -106.26557631848873
+          ],
+          "referenceCandela": 1848.571638532622,
+          "isotropicReferenceLumens": 23229.83631699413,
+          "proxyFalloffRadius": 8.799999999999997,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 547.9080117789932,
+          "referenceLuxAtOverheadCloud": 0.006157734840865898,
+          "normalRawIncidentRGB": [
+            6.274794643506609e-7,
+            9.637133198459296e-8,
+            2.680269184881078e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            2.5876056938748167e-8,
+            3.9741700173039345e-9,
+            1.1052919175757544e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 2.8305839032199533
+        },
+        {
+          "type": "display-heart",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 256,
+          "clusterPosition": [
+            13.28198594539145,
+            251.51839710090218,
+            -111.58414531968639
+          ],
+          "referenceCandela": 545.3566446462631,
+          "isotropicReferenceLumens": 6853.153713628319,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 561.4380256718011,
+          "referenceLuxAtOverheadCloud": 0.0017301229284608678,
+          "normalRawIncidentRGB": [
+            1.1842781773862651e-7,
+            2.94620198205055e-8,
+            2.220974348716562e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            4.8837374432764766e-9,
+            1.2149575336219915e-9,
+            9.158874827299893e-9
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 3.565858292143244
+        },
+        {
+          "type": "display-flower",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 256,
+          "clusterPosition": [
+            12.416300149960252,
+            278.163025045755,
+            -101.03653183270846
+          ],
+          "referenceCandela": 3021.8736458522644,
+          "isotropicReferenceLumens": 37973.984183544315,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 534.7933977269483,
+          "referenceLuxAtOverheadCloud": 0.010565844798096281,
+          "normalRawIncidentRGB": [
+            4.683470230521549e-7,
+            3.4187641973224825e-7,
+            5.026290891700004e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            1.931373841553831e-8,
+            1.4098331826941335e-8,
+            2.0727465469954804e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.3214200483170768
+        },
+        {
+          "type": "display-flower",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 256,
+          "clusterPosition": [
+            12.704059553369701,
+            277.737807913483,
+            -103.62984956605911
+          ],
+          "referenceCandela": 2354.635427176085,
+          "isotropicReferenceLumens": 29589.221439594614,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 535.2186148592202,
+          "referenceLuxAtOverheadCloud": 0.008219800073247643,
+          "normalRawIncidentRGB": [
+            5.141920521217169e-7,
+            2.1962126752327167e-7,
+            4.0889808619382354e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            2.1204300019478875e-8,
+            9.056762406197838e-9,
+            1.686217758766943e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.737647197213803
+        },
+        {
+          "type": "display-flower",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 256,
+          "clusterPosition": [
+            13.34413508654778,
+            273.3796358639865,
+            -109.45497356194385
+          ],
+          "referenceCandela": 1848.571638532622,
+          "isotropicReferenceLumens": 23229.83631699413,
+          "proxyFalloffRadius": 8.799999999999997,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 539.5767869087167,
+          "referenceLuxAtOverheadCloud": 0.006349357348926428,
+          "normalRawIncidentRGB": [
+            6.470059934758486e-7,
+            9.937031080022263e-8,
+            2.763676463167202e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            2.6681293776231534e-8,
+            4.097842186673873e-9,
+            1.1396874891387406e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 2.8305839032199533
+        },
+        {
+          "type": "display-flower",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 256,
+          "clusterPosition": [
+            14.2500984202358,
+            258.7904859243017,
+            -114.49593899534018
+          ],
+          "referenceCandela": 545.3566446462631,
+          "isotropicReferenceLumens": 6853.153713628319,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 554.1659368484015,
+          "referenceLuxAtOverheadCloud": 0.0017758282248993796,
+          "normalRawIncidentRGB": [
+            1.2155636914226881e-7,
+            3.024032888018106e-8,
+            2.2796466484246092e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            5.012752939170392e-9,
+            1.2470535155438057e-9,
+            9.400828206530211e-9
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 3.565858292143244
+        },
+        {
+          "type": "display-chase",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 208,
+          "clusterPosition": [
+            11.420976170380065,
+            248.52122504787332,
+            -90.94700885354806
+          ],
+          "referenceCandela": 495.03580468336816,
+          "isotropicReferenceLumens": 6220.803389028724,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 564.43519772483,
+          "referenceLuxAtOverheadCloud": 0.0015538476493397158,
+          "normalRawIncidentRGB": [
+            1.9131521117601603e-8,
+            4.402652474321501e-8,
+            2.823183308903088e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            7.889474602586659e-10,
+            1.8155699521570115e-9,
+            1.1642269779346098e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 5.046940001741193
+        },
+        {
+          "type": "display-chase",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 208,
+          "clusterPosition": [
+            16.4692490662148,
+            250.1227773653548,
+            -92.2701447943037
+          ],
+          "referenceCandela": 823.3528446136468,
+          "isotropicReferenceLumens": 10346.556991801965,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 562.8336454073485,
+          "referenceLuxAtOverheadCloud": 0.002599117349196715,
+          "normalRawIncidentRGB": [
+            4.466510668343969e-8,
+            7.792206567204101e-8,
+            3.925562537609249e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            1.841903854036031e-9,
+            3.213357444615603e-9,
+            1.6188271570753385e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 4.1954013294621015
+        },
+        {
+          "type": "display-chase",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 208,
+          "clusterPosition": [
+            9.501513438714067,
+            243.3448212727533,
+            -99.73015995145735
+          ],
+          "referenceCandela": 1672.0240645311692,
+          "isotropicReferenceLumens": 21011.27407102587,
+          "proxyFalloffRadius": 8.799999999999997,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 569.61160149995,
+          "referenceLuxAtOverheadCloud": 0.0051532934225176135,
+          "normalRawIncidentRGB": [
+            1.815474001552141e-7,
+            1.3089813858119175e-7,
+            7.382719837169956e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            7.48666869657544e-9,
+            5.397989702512721e-9,
+            3.044492923240543e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 3.9795046433104178
+        },
+        {
+          "type": "display-chase",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 208,
+          "clusterPosition": [
+            9.635025663033328,
+            229.30194817255017,
+            -104.96117837679537
+          ],
+          "referenceCandela": 768.1841135075158,
+          "isotropicReferenceLumens": 9653.286270398397,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 583.6544746001531,
+          "referenceLuxAtOverheadCloud": 0.002255037055079476,
+          "normalRawIncidentRGB": [
+            1.574715976982028e-7,
+            3.991207929482733e-8,
+            2.653428421130554e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            6.493828499217958e-9,
+            1.6458980652785661e-9,
+            1.0942232982734991e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 3.2685203493831985
+        },
+        {
+          "type": "display-vfan",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 128,
+          "clusterPosition": [
+            -1.2662584860216788,
+            3.186084476750226,
+            -0.2948847161823375
+          ],
+          "referenceCandela": 26.4407814207993,
+          "isotropicReferenceLumens": 332.2646586670263,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 809.770338295953,
+          "referenceLuxAtOverheadCloud": 0.00004032278839578082,
+          "normalRawIncidentRGB": [
+            2.1934427051195373e-9,
+            1.3599344771741128e-9,
+            1.7547541640956298e-10
+          ],
+          "rawBackscatterSourceRGB": [
+            9.045339577493564e-11,
+            5.608110538046008e-11,
+            7.236271661994852e-12
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.511030522816561
+        },
+        {
+          "type": "display-vfan",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 128,
+          "clusterPosition": [
+            -4.657901073781666,
+            7.504656449383538,
+            -0.7118233432123976
+          ],
+          "referenceCandela": 101.2129115337604,
+          "isotropicReferenceLumens": 1271.8789572915814,
+          "proxyFalloffRadius": 2.4,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 805.4517663233197,
+          "referenceLuxAtOverheadCloud": 0.00015601158232910462,
+          "normalRawIncidentRGB": [
+            8.553686782637012e-9,
+            5.2421568934154466e-9,
+            6.746889707536108e-10
+          ],
+          "rawBackscatterSourceRGB": [
+            3.5273773692782016e-10,
+            2.161765571025359e-10,
+            2.782288698679935e-11
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.5229793011623096
+        },
+        {
+          "type": "display-vfan",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 128,
+          "clusterPosition": [
+            -9.51467895432736,
+            18.776334943639725,
+            -1.3088727813261254
+          ],
+          "referenceCandela": 395.06879674767583,
+          "isotropicReferenceLumens": 4964.5809181002305,
+          "proxyFalloffRadius": 8.8,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 794.1800878290635,
+          "referenceLuxAtOverheadCloud": 0.0006263754701614818,
+          "normalRawIncidentRGB": [
+            3.506605575397081e-8,
+            2.0836402026248924e-8,
+            2.6631404895556256e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            1.44605729248215e-9,
+            8.59253498897867e-10,
+            1.0982283701497594e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.5550690451301543
+        },
+        {
+          "type": "display-vfan",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 128,
+          "clusterPosition": [
+            2.958121535361468,
+            29.694445599376163,
+            0.22442330658074622
+          ],
+          "referenceCandela": 734.6308112154388,
+          "isotropicReferenceLumens": 9231.643038460532,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 783.2619771733271,
+          "referenceLuxAtOverheadCloud": 0.0011974435527742147,
+          "normalRawIncidentRGB": [
+            6.772851601738088e-8,
+            3.963152011328034e-8,
+            5.047399024355416e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            2.7929948889343585e-9,
+            1.6343283394646526e-9,
+            2.081451138515895e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.5711368296157242
+        },
+        {
+          "type": "display-helix",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 192,
+          "clusterPosition": [
+            -10.914478823095521,
+            278.15546397525026,
+            -103.43396031975232
+          ],
+          "referenceCandela": 1432.2481381997352,
+          "isotropicReferenceLumens": 17998.160916343786,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 534.800958797453,
+          "referenceLuxAtOverheadCloud": 0.0050076493645199935,
+          "normalRawIncidentRGB": [
+            1.3124204277019795e-7,
+            1.4805464086621165e-7,
+            6.438315745465532e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            5.412171655678961e-9,
+            6.105491151116058e-9,
+            2.6550386791017454e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 3.5713783258834866
+        },
+        {
+          "type": "display-helix",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 192,
+          "clusterPosition": [
+            -10.130838765091756,
+            277.7227861681017,
+            -106.04613335229702
+          ],
+          "referenceCandela": 1652.9290358712067,
+          "isotropicReferenceLumens": 20771.31886399297,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 535.2336366046015,
+          "referenceLuxAtOverheadCloud": 0.005769888373790316,
+          "normalRawIncidentRGB": [
+            1.8602004390535507e-7,
+            1.6352693277376097e-7,
+            7.093304404761628e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            7.67111199858079e-9,
+            6.743538974381459e-9,
+            2.9251435160738853e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 3.414905466120223
+        },
+        {
+          "type": "display-helix",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 192,
+          "clusterPosition": [
+            -8.217044499202476,
+            273.42074330133084,
+            -112.37574975851888
+          ],
+          "referenceCandela": 1592.2583180355175,
+          "isotropicReferenceLumens": 20008.90813823049,
+          "proxyFalloffRadius": 8.799999999999997,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 539.5356794713724,
+          "referenceLuxAtOverheadCloud": 0.005469821911614524,
+          "normalRawIncidentRGB": [
+            2.7379175202907803e-7,
+            1.308597702976634e-7,
+            6.248553271447618e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            1.1290649921420938e-8,
+            5.396407467641897e-9,
+            2.5767842522798796e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 3.173246350823979
+        },
+        {
+          "type": "display-helix",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 192,
+          "clusterPosition": [
+            -6.183830434758827,
+            258.95136094140537,
+            -118.81584351503643
+          ],
+          "referenceCandela": 881.0416355341409,
+          "isotropicReferenceLumens": 11071.495718803173,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 554.0050618312979,
+          "referenceLuxAtOverheadCloud": 0.0028705754532579006,
+          "normalRawIncidentRGB": [
+            1.927658061349919e-7,
+            6.745552015378659e-8,
+            1.9549193793624682e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            7.949294373409541e-9,
+            2.7817370599347773e-9,
+            8.061714852037959e-9
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.8917223036855366
+        },
+        {
+          "type": "display-vortex",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 192,
+          "clusterPosition": [
+            12.010231096893287,
+            268.2735349824053,
+            -97.78799816049532
+          ],
+          "referenceCandela": 1636.7616498037112,
+          "isotropicReferenceLumens": 20568.153498803396,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 544.682887790298,
+          "referenceLuxAtOverheadCloud": 0.005516936408806348,
+          "normalRawIncidentRGB": [
+            4.885024146268838e-7,
+            1.0891931536071131e-7,
+            2.3344879530986608e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            2.014490834163328e-8,
+            4.491624931374959e-9,
+            9.626983292547171e-9
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 2.4596099196926136
+        },
+        {
+          "type": "display-vortex",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 192,
+          "clusterPosition": [
+            12.222869612633286,
+            267.8204736320637,
+            -100.08242479683264
+          ],
+          "referenceCandela": 1765.3273219709022,
+          "isotropicReferenceLumens": 22183.75738354052,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 545.1359491406396,
+          "referenceLuxAtOverheadCloud": 0.005940398743492414,
+          "normalRawIncidentRGB": [
+            4.903562572310849e-7,
+            1.2469123594536732e-7,
+            2.8290086607024343e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            2.0221357276629785e-8,
+            5.142028870098765e-9,
+            1.1666292419673315e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 2.2929449239799684
+        },
+        {
+          "type": "display-vortex",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 192,
+          "clusterPosition": [
+            12.66738168658568,
+            263.4603363985863,
+            -105.71366862912613
+          ],
+          "referenceCandela": 1602.5701665158101,
+          "isotropicReferenceLumens": 20138.490647952964,
+          "proxyFalloffRadius": 8.799999999999997,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 549.4960863741169,
+          "referenceLuxAtOverheadCloud": 0.005307473645992711,
+          "normalRawIncidentRGB": [
+            3.690715212057788e-7,
+            1.3196024114552645e-7,
+            2.524443404447145e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            1.5219805969385706e-8,
+            5.441788787567969e-9,
+            1.0410323362489623e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.9316133030450473
+        },
+        {
+          "type": "display-vortex",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 192,
+          "clusterPosition": [
+            13.16888744976371,
+            249.25935664573188,
+            -110.93483083845261
+          ],
+          "referenceCandela": 713.2719272618799,
+          "isotropicReferenceLumens": 8963.239386791021,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 563.6970661269713,
+          "referenceLuxAtOverheadCloud": 0.002244727270050457,
+          "normalRawIncidentRGB": [
+            1.4062305641813167e-7,
+            6.403115010838591e-8,
+            7.089530983108149e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            5.799026775389225e-9,
+            2.6405225671771096e-9,
+            2.923587428917147e-9
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.7401650809574585
+        },
+        {
+          "type": "display-waterfall",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 193,
+          "clusterPosition": [
+            14.256710468355328,
+            239.2911066944791,
+            -86.51829472301607
+          ],
+          "referenceCandela": 67.07136452699777,
+          "isotropicReferenceLumens": 842.8436242570369,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 573.6653160782241,
+          "referenceLuxAtOverheadCloud": 0.00020380740325817712,
+          "normalRawIncidentRGB": [
+            7.804723255696865e-9,
+            7.3077640493064596e-9,
+            6.25027015331362e-9
+          ],
+          "rawBackscatterSourceRGB": [
+            3.218519088342996e-10,
+            3.0135825852161477e-10,
+            2.577492261632309e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.0637389258091314
+        },
+        {
+          "type": "display-waterfall",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 193,
+          "clusterPosition": [
+            28.28517670072805,
+            241.47465341200186,
+            -84.36311976098371
+          ],
+          "referenceCandela": 119.90681159695929,
+          "isotropicReferenceLumens": 1506.793433713531,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 571.4817693607014,
+          "referenceLuxAtOverheadCloud": 0.00036714624735963386,
+          "normalRawIncidentRGB": [
+            1.4259932644935116e-8,
+            1.3116263684066074e-8,
+            1.1147526839190495e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            5.880524384091203e-10,
+            5.408897106517252e-10,
+            4.59702756193973e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.0788868005208898
+        },
+        {
+          "type": "display-waterfall",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 193,
+          "clusterPosition": [
+            56.998609935808794,
+            241.72012138464683,
+            -79.64734434246645
+          ],
+          "referenceCandela": 294.76473368216966,
+          "isotropicReferenceLumens": 3704.1228874930243,
+          "proxyFalloffRadius": 8.799999999999997,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 571.2363013880564,
+          "referenceLuxAtOverheadCloud": 0.0009033247826567803,
+          "normalRawIncidentRGB": [
+            3.6763933220483344e-8,
+            3.195441116196679e-8,
+            2.5621677422862838e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            1.516074522518452e-9,
+            1.3177390012705551e-9,
+            1.0565891340305802e-9
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.1305129526416
+        },
+        {
+          "type": "display-waterfall",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 193,
+          "clusterPosition": [
+            87.51038710023121,
+            232.15169030681875,
+            -74.43333533193321
+          ],
+          "referenceCandela": 567.6510424113753,
+          "isotropicReferenceLumens": 7133.31337856866,
+          "proxyFalloffRadius": 20,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 580.8047324658845,
+          "referenceLuxAtOverheadCloud": 0.0016827559968609505,
+          "normalRawIncidentRGB": [
+            7.249334664631017e-8,
+            5.8877446539603155e-8,
+            4.235430228344196e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            2.989487420821846e-9,
+            2.4279936565628703e-9,
+            1.7466106856922214e-9
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.196670270238242
+        },
+        {
+          "type": "display-double",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 180,
+          "clusterPosition": [
+            12.873754772087025,
+            288.03732394855234,
+            -104.5042111210537
+          ],
+          "referenceCandela": 313.74247988301977,
+          "isotropicReferenceLumens": 3942.6042796781535,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 524.919098824151,
+          "referenceLuxAtOverheadCloud": 0.0011386456093884537,
+          "normalRawIncidentRGB": [
+            2.3004499290880583e-8,
+            3.4025685331424886e-8,
+            1.6295450470509785e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            9.486616970233774e-10,
+            1.4031543995260493e-9,
+            6.719933132055777e-9
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 3.975349294164636
+        },
+        {
+          "type": "display-double",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 180,
+          "clusterPosition": [
+            13.292713632868463,
+            287.5249823117607,
+            -106.99133025623655
+          ],
+          "referenceCandela": 290.99544416210006,
+          "isotropicReferenceLumens": 3656.7565984310095,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 525.4314404609426,
+          "referenceLuxAtOverheadCloud": 0.0010540326820862405,
+          "normalRawIncidentRGB": [
+            2.721007030760347e-8,
+            2.973950697391083e-8,
+            1.508396152350023e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            1.1220914286262835e-9,
+            1.2264005748515846e-9,
+            6.220338185057409e-9
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 3.9751986663166616
+        },
+        {
+          "type": "display-double",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 180,
+          "clusterPosition": [
+            14.572400003780718,
+            277.4998468008158,
+            -110.56939404778896
+          ],
+          "referenceCandela": 2008.7335298589226,
+          "isotropicReferenceLumens": 25242.490001697137,
+          "proxyFalloffRadius": 8.800000000000004,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 535.4565759718874,
+          "referenceLuxAtOverheadCloud": 0.007006059411625572,
+          "normalRawIncidentRGB": [
+            3.7973190499745477e-7,
+            2.111224955225025e-7,
+            2.8382724402171584e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            1.565941987494638e-8,
+            8.706289250189587e-9,
+            1.1704494480427458e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.50556937251323
+        },
+        {
+          "type": "display-double",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 180,
+          "clusterPosition": [
+            16.416015356998674,
+            268.8792752638403,
+            -117.09265338118671
+          ],
+          "referenceCandela": 844.092519525997,
+          "isotropicReferenceLumens": 10607.179433171885,
+          "proxyFalloffRadius": 19.999999999999993,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 544.0771475088629,
+          "referenceLuxAtOverheadCloud": 0.0028514718047860828,
+          "normalRawIncidentRGB": [
+            2.200231283512262e-7,
+            5.354790226035098e-8,
+            2.43471027537746e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            9.073334380670922e-9,
+            2.2082134102559725e-9,
+            1.0040281044132314e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 2.371787119521628
+        },
+        {
+          "type": "display-brocade",
+          "phaseSeconds": 0.05,
+          "actualStarCount": 256,
+          "clusterPosition": [
+            13.230146655938897,
+            297.9481026068227,
+            -107.66428140820096
+          ],
+          "referenceCandela": 2345.1780448334416,
+          "isotropicReferenceLumens": 29470.376468035258,
+          "proxyFalloffRadius": 2,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 515.0083201658806,
+          "referenceLuxAtOverheadCloud": 0.008841935228061155,
+          "normalRawIncidentRGB": [
+            3.1466736686676847e-7,
+            2.9369761696720805e-7,
+            5.72837262595283e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            1.2976282355688671e-8,
+            1.2111529844697969e-8,
+            2.3622716703392565e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.799622568224976
+        },
+        {
+          "type": "display-brocade",
+          "phaseSeconds": 0.3,
+          "actualStarCount": 256,
+          "clusterPosition": [
+            13.505101324864375,
+            297.59176918916273,
+            -110.23125484859294
+          ],
+          "referenceCandela": 1789.886284950261,
+          "isotropicReferenceLumens": 22492.374414243466,
+          "proxyFalloffRadius": 2.3999999999999986,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 515.3646535835405,
+          "referenceLuxAtOverheadCloud": 0.006739011262529066,
+          "normalRawIncidentRGB": [
+            2.5828992282143985e-7,
+            2.149427795405912e-7,
+            4.704278660911031e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            1.0651384036207157e-8,
+            8.863830480445705e-9,
+            1.9399548415730335e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.9390738812697603
+        },
+        {
+          "type": "display-brocade",
+          "phaseSeconds": 1.1,
+          "actualStarCount": 256,
+          "clusterPosition": [
+            14.08894646019557,
+            293.6490460982878,
+            -115.83781999530352
+          ],
+          "referenceCandela": 1688.1198140496347,
+          "isotropicReferenceLumens": 21213.5392247908,
+          "proxyFalloffRadius": 8.800000000000004,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 519.3073766744155,
+          "referenceLuxAtOverheadCloud": 0.006259711012684763,
+          "normalRawIncidentRGB": [
+            3.284799606063302e-7,
+            1.914862843249402e-7,
+            2.571158764895902e-7
+          ],
+          "rawBackscatterSourceRGB": [
+            1.3545887390407317e-8,
+            7.896529333129649e-9,
+            1.0602968603579243e-8
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.4576461008640724
+        },
+        {
+          "type": "display-brocade",
+          "phaseSeconds": 2.5,
+          "actualStarCount": 256,
+          "clusterPosition": [
+            14.620018160187206,
+            279.9368708835971,
+            -121.30594289173787
+          ],
+          "referenceCandela": 1082.8406169788402,
+          "isotropicReferenceLumens": 13607.376509237454,
+          "proxyFalloffRadius": 20.000000000000007,
+          "cloudBaseMetres": 812.9564227727033,
+          "verticalSeparationMetres": 533.0195518891062,
+          "referenceLuxAtOverheadCloud": 0.0038113449597634913,
+          "normalRawIncidentRGB": [
+            2.3277257063870378e-7,
+            1.2114017086927078e-7,
+            1.4979499002696726e-8
+          ],
+          "rawBackscatterSourceRGB": [
+            9.599097076203041e-9,
+            4.995589715795344e-9,
+            6.177259832858681e-10
+          ],
+          "pathFlags": {
+            "diffuse": true,
+            "smoke": true,
+            "specular": false
+          },
+          "maxColourChannel": 1.6964889843939048
+        }
+      ],
+      "scope": "actual production CPU getLightClusters at four phases; no renderer/absolute calibration or exact temporal peak"
+    },
+    "calibrationCandidates": {
+      "peonyAt1_1s": {
+        "type": "peony",
+        "phaseSeconds": 1.1,
+        "actualStarCount": 224,
+        "clusterPosition": [
+          6.269593275628795,
+          115.2442422563116,
+          -51.8818162367031
+        ],
+        "referenceCandela": 1229.9285640455464,
+        "isotropicReferenceLumens": 15455.738164982928,
+        "proxyFalloffRadius": 8.800000000000004,
+        "cloudBaseMetres": 812.9564227727033,
+        "verticalSeparationMetres": 697.7121805163916,
+        "referenceLuxAtOverheadCloud": 0.0025265463973619833,
+        "normalRawIncidentRGB": [
+          4.2134991443365626e-7,
+          0,
+          1.9067569202715655e-8
+        ],
+        "rawBackscatterSourceRGB": [
+          1.737566724722164e-8,
+          0,
+          7.863102052010152e-10
+        ],
+        "pathFlags": {
+          "diffuse": true,
+          "smoke": true,
+          "specular": false
+        },
+        "maxColourChannel": 4.63247550175383
+      },
+      "candidates": [
+        {
+          "authorGain": 1,
+          "nominalOrdinaryStarRangeCd": [
+            5,
+            10
+          ],
+          "referenceLuxAtOverheadCloud": 0.0025265463973619833,
+          "isotropicReferenceClusterLumens": 15455.738164982928
+        },
+        {
+          "authorGain": 4,
+          "nominalOrdinaryStarRangeCd": [
+            20,
+            40
+          ],
+          "referenceLuxAtOverheadCloud": 0.010106185589447933,
+          "isotropicReferenceClusterLumens": 61822.95265993171
+        },
+        {
+          "authorGain": 16,
+          "nominalOrdinaryStarRangeCd": [
+            80,
+            160
+          ],
+          "referenceLuxAtOverheadCloud": 0.04042474235779173,
+          "isotropicReferenceClusterLumens": 247291.81063972684
+        },
+        {
+          "authorGain": 64,
+          "nominalOrdinaryStarRangeCd": [
+            320,
+            640
+          ],
+          "referenceLuxAtOverheadCloud": 0.16169896943116693,
+          "isotropicReferenceClusterLumens": 989167.2425589074
+        }
+      ],
+      "note": "bounded authored candidates; these numbers do not calibrate consumer shell/star photometry. gain64 is stress only, not a recommended default."
+    }
+  },
+  "sourceSHA256": {
+    "../fireworks.js": "1d6508b6039efd5afab6217e3aeba4c587e7a5bd61126b5454941af854e07e18",
+    "../fireworks-physics.js": "cf4f24782bdbb224bc75155a0f655b3beaaa4fb4eab9eb0b5195c14f8e11c12e",
+    "../sky.js": "358346c6aed9eb8495056b597296d4e6405840a5e3e926d7ff3b29b35f1e37cc",
+    "../water.js": "872c60cd379d46c861faeb052c850c4e4fbd05fce616a37b3086601262dee926",
+    "../local-lights.js": "5c13bcea1183daf7a508f6635f839f32507fbcc14c4854d98d69be9251c67fd7",
+    "../indirect-lighting.js": "4ec4e09ff429323003ea41f55b0ccbdc5446c8b0734342ecfcfb6a1370d09faa",
+    "../scene-radiometry.js": "f942645604dae00fe6ad713c605ad38509bf71cf7fbf10fe5e28b904eb5bf66d",
+    "../weather.js": "1dcb854daf7dfe356f0c07066dcc2165b93f41d8fb72a5068bcf6f414ca2d7c6",
+    "./transient-light-proof.mjs": "17ea0a004f41f016fde4a163ef2b03407314029ca1dc02bdb887a1fb8358b944"
+  },
+  "limits": [
+    "proof of candidate scalar transport/bounds and reads of current production CPU clusters, not implemented transient cloud/GI",
+    "reference cd/RGB and current22 atmosphere gain are not an absolute sky/pyrotechnic photometric calibration",
+    "finite cluster radius is a smoothing proxy, not a guaranteed bound on burning-star spatial support",
+    "cloud/air/smoke source transmittance and main/mirror composition require actual GPU fixtures before integration",
+    "Node calculations are not GPU cost/FPS or photoreal acceptance"
+  ]
+}

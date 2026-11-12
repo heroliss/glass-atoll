@@ -1,0 +1,86 @@
+{
+  "schema": "glass-atoll.auto-show.fw-capacity-cpu.v1",
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "checks": [
+    {
+      "name": "actual small two-event producer preserves old attributes, shaders, ledger and proxy values",
+      "passed": true,
+      "evidence": {
+        "instances": 2564,
+        "ledger": 2564,
+        "capacity": 14000,
+        "actualFactory": true,
+        "physicalUpdatesPerFactory": 2
+      }
+    },
+    {
+      "name": "more than 14000 emitted rows grow complete optical and ledger buffers without truncation",
+      "passed": true,
+      "evidence": {
+        "rows": 28001,
+        "showsInFixture": 32,
+        "opticalCapacity": 56000,
+        "ledgerCapacity": 56000,
+        "completeIds": 32
+      }
+    },
+    {
+      "name": "32-way cluster reduction is exactly the old per-event scan, conserving every proxy input",
+      "passed": true,
+      "evidence": {
+        "inputs": 32,
+        "outputs": 2,
+        "exactOldNumericOrder": true
+      }
+    },
+    {
+      "name": "prepared rays own only actual rows and release independently after growth",
+      "passed": true,
+      "evidence": {
+        "rows": 14001,
+        "opticalCapacity": 28000,
+        "privateBytesPerView": 686049,
+        "noSourceRequestAllocated": true
+      }
+    },
+    {
+      "name": "hard limits are explicit and leave published arrays, ledger and request versions unchanged on rejection",
+      "passed": true,
+      "evidence": {
+        "opticalLimit": 262144,
+        "ledgerLimit": 131072,
+        "rejectionsBeforePublication": true
+      }
+    },
+    {
+      "name": "ledger covers 32 ultra chrysanthemum records, shrink keeps correct prefix and powered shutter guard remains before renderer access",
+      "passed": true,
+      "evidence": {
+        "ultraReferenceRows": 104448,
+        "ledgerCapacity": 112000,
+        "shrinkCount": 1,
+        "poweredGuardUnchanged": true
+      }
+    }
+  ],
+  "limits": {
+    "initialRows": 14000,
+    "opticalRows": 262144,
+    "ledgerRows": 131072
+  },
+  "noGPU": true,
+  "noNativeContext": true,
+  "largeRowsArePrivateCapacityFixtures": true,
+  "no32ShowPerformanceClaim": true,
+  "sourceSHA256": "e1b8e6cb6d6deb65fe4737802946814460fb2a122f5e61eaaf0d4a1f796d3a4b",
+  "baselineSHA256": "2986a5e2866e38103fac444a18b4024b61bdd1c35f74f56d4c08656c82730291",
+  "scriptSHA256": "ac4f39cea2aa795c1f7fe5f93aaedde3ff16023abd74aac61c673466110b972b",
+  "externalLimits": [
+    "SourceT maxSources18000 and SH maxSources14000 remain unchanged; larger full-source requests are not admitted by this change.",
+    "Pathological contact subdivision may exceed the explicit optical ceiling and is rejected, never silently truncated."
+  ]
+}

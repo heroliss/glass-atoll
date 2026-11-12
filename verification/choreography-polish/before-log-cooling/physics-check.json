@@ -1,0 +1,204 @@
+{
+  "schema": "glass-atoll.choreography-polish.physics-check.v1",
+  "passed": true,
+  "summary": "7/7",
+  "actualGPU": false,
+  "sourceSHA256": "66cf244ea9ac4d1b2059a9ca762a6995a1806157729189dee46b48eb9fee73e4",
+  "baselineSHA256": "ebfa1bf33168b144f056f871f6cfa468e27477e045e9dcefd4a08cb389474b9b",
+  "elapsedMilliseconds": 427.98889999999994,
+  "checks": [
+    {
+      "name": "Strict inverse recovers the complete CRLF physics source and only the eight declared edits",
+      "passed": true,
+      "details": {
+        "edits": 8,
+        "baselineSHA256": "ebfa1bf33168b144f056f871f6cfa468e27477e045e9dcefd4a08cb389474b9b",
+        "currentSHA256": "66cf244ea9ac4d1b2059a9ca762a6995a1806157729189dee46b48eb9fee73e4",
+        "registryIds": 20
+      }
+    },
+    {
+      "name": "Other eight native trajectories, bodies, rocket, schedules and event metadata remain exact",
+      "passed": true,
+      "details": {
+        "events": 48,
+        "poses": 1584,
+        "scope": "Scalar sustained emission is intentionally changed separately; these assertions cover trajectories and event construction."
+      }
+    },
+    {
+      "name": "Three diagnostic smiley layouts retain every original body, rocket and pose",
+      "passed": true,
+      "details": {
+        "bodies": 1224,
+        "registryCountMetadata": "ring definition.count intentionally now72; explicit diagnostic actualStarCount remains its old120/144"
+      }
+    },
+    {
+      "name": "New contours are stratified, arclength sampled, seeded and within the unchanged speed/lifetime/intensity domains",
+      "passed": true,
+      "details": {
+        "bodyCases": 680,
+        "maxSpeed": 20.978590405417112,
+        "maxDepth": 0.20939769448712542,
+        "minLifeFraction": 0.8806845745886676,
+        "maxLifeFraction": 1.109912858896423,
+        "minStratumGap": 0.6567623387556552,
+        "maxStratumGap": 1.3111541319545381,
+        "polylineEdges": 2048,
+        "budgets": [
+          {
+            "type": "ring",
+            "seed": 0,
+            "oldHeadCount": 120,
+            "newHeadCount": 72,
+            "oldPeakReferenceSum": 937.1442466601729,
+            "newPeakReferenceSum": 527.3804504598957
+          },
+          {
+            "type": "ring",
+            "seed": 1,
+            "oldHeadCount": 120,
+            "newHeadCount": 72,
+            "oldPeakReferenceSum": 911.4733159076422,
+            "newPeakReferenceSum": 543.8519585260656
+          },
+          {
+            "type": "ring",
+            "seed": 42,
+            "oldHeadCount": 120,
+            "newHeadCount": 72,
+            "oldPeakReferenceSum": 923.9651550538838,
+            "newPeakReferenceSum": 549.7536279156338
+          },
+          {
+            "type": "ring",
+            "seed": 341070,
+            "oldHeadCount": 120,
+            "newHeadCount": 72,
+            "oldPeakReferenceSum": 882.7924810163677,
+            "newPeakReferenceSum": 544.1453179798555
+          },
+          {
+            "type": "ring",
+            "seed": 4294967295,
+            "oldHeadCount": 120,
+            "newHeadCount": 72,
+            "oldPeakReferenceSum": 907.8151774127036,
+            "newPeakReferenceSum": 548.1236429547425
+          },
+          {
+            "type": "heart",
+            "seed": 0,
+            "oldHeadCount": 144,
+            "newHeadCount": 64,
+            "oldPeakReferenceSum": 1133.3169998973608,
+            "newPeakReferenceSum": 477.7230378612876
+          },
+          {
+            "type": "heart",
+            "seed": 1,
+            "oldHeadCount": 144,
+            "newHeadCount": 64,
+            "oldPeakReferenceSum": 1075.975092742592,
+            "newPeakReferenceSum": 474.0736836567521
+          },
+          {
+            "type": "heart",
+            "seed": 42,
+            "oldHeadCount": 144,
+            "newHeadCount": 64,
+            "oldPeakReferenceSum": 1104.9568993970752,
+            "newPeakReferenceSum": 488.00883036106825
+          },
+          {
+            "type": "heart",
+            "seed": 341070,
+            "oldHeadCount": 144,
+            "newHeadCount": 64,
+            "oldPeakReferenceSum": 1064.043722935021,
+            "newPeakReferenceSum": 484.97449468821287
+          },
+          {
+            "type": "heart",
+            "seed": 4294967295,
+            "oldHeadCount": 144,
+            "newHeadCount": 64,
+            "oldPeakReferenceSum": 1075.6589070521295,
+            "newPeakReferenceSum": 485.317711122334
+          }
+        ],
+        "scope": "Authored finite-polyline arclength; heart radial jitter±1%; ring .985..999 keeps sqrt(.999^2+.01^2)*21<21; local depth±.01 contour units. No brightness compensation for fewer points."
+      }
+    },
+    {
+      "name": "Per-frame queries and user optical gain cannot regenerate or reorder contour randomness",
+      "passed": true,
+      "details": {
+        "queryComparisons": 12,
+        "opticalScales": [
+          0,
+          1,
+          64
+        ],
+        "perFrameRandomCalls": 0
+      }
+    },
+    {
+      "name": "Sustained scalar fade starts earlier, stays bounded and has a zero-slope extinction without extending life",
+      "passed": true,
+      "details": {
+        "sampleCount": 5005,
+        "report": [
+          {
+            "life": 0.78,
+            "at70PercentOld": 0.5954428423497231,
+            "at70PercentNew": 0.33820795553447847,
+            "lastStepEnvelope": 5.091298826378979e-10,
+            "oneSidedSlopeEstimate": 0.00006527306187665356
+          },
+          {
+            "life": 2.8,
+            "at70PercentOld": 0.5954428423497231,
+            "at70PercentNew": 0.33820795553447836,
+            "lastStepEnvelope": 5.091298826345854e-10,
+            "oneSidedSlopeEstimate": 0.000018183210094092336
+          },
+          {
+            "life": 3.6,
+            "at70PercentOld": 0.5954428423497231,
+            "at70PercentNew": 0.3382079555344783,
+            "lastStepEnvelope": 5.091298826417629e-10,
+            "oneSidedSlopeEstimate": 0.000014142496740048967
+          },
+          {
+            "life": 6.2,
+            "at70PercentOld": 0.5954428423497231,
+            "at70PercentNew": 0.3382079555344783,
+            "lastStepEnvelope": 5.091298826340641e-10,
+            "oneSidedSlopeEstimate": 0.000008211772300549421
+          },
+          {
+            "life": 11.8,
+            "at70PercentOld": 0.5954428423497231,
+            "at70PercentNew": 0.33820795553447836,
+            "lastStepEnvelope": 5.091298826419756e-10,
+            "oneSidedSlopeEstimate": 0.000004314660022389624
+          }
+        ],
+        "fadeStartsAtLifeFraction": 0.45,
+        "fadeShape": "cubic smoothstep times unchanged positive exponential decay; C1 terminal zero, unnormalized"
+      }
+    },
+    {
+      "name": "Strobe complete pulse envelope, rocket envelope and experimental burn profiles remain exact",
+      "passed": true,
+      "details": {
+        "strobeSamples": 9920,
+        "rocketSamples": 402,
+        "profileSamples": 14400,
+        "poweredNative160": "Their unprofiled sustained scalar fade is intentionally covered by the new ordinary fade; all compiled body/profile metadata remains exact."
+      }
+    }
+  ]
+}

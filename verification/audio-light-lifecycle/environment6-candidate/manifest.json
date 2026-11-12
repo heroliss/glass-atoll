@@ -1,0 +1,67 @@
+{
+  "schema": "glass-atoll.environment6-route-candidate.v1",
+  "productionChanged": false,
+  "receiverSources": 20,
+  "environmentSources": 6,
+  "smokeSources": 20,
+  "source": "fireworks.getLightClusters() unchanged: at most two merged whole-show cloud proxies; exact I and RGB moment sums",
+  "variants": {
+    "native20": {
+      "/main.js": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\audio-light-lifecycle\\environment6-candidate\\main.js",
+      "/water.js": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\audio-light-lifecycle\\environment6-candidate\\water.js",
+      "/aerial-perspective.js": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\audio-light-lifecycle\\environment6-candidate\\aerial-perspective.js",
+      "/local-lights.js": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\audio-light-lifecycle\\environment6-candidate\\local-lights-native20.js"
+    },
+    "diffuse4": {
+      "/main.js": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\audio-light-lifecycle\\environment6-candidate\\main.js",
+      "/water.js": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\audio-light-lifecycle\\environment6-candidate\\water.js",
+      "/aerial-perspective.js": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\audio-light-lifecycle\\environment6-candidate\\aerial-perspective.js",
+      "/local-lights.js": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\audio-light-lifecycle\\environment6-candidate\\local-lights-diffuse4.js"
+    }
+  },
+  "staticModule": "/verification/audio-light-lifecycle/environment6-candidate/qa-environment-lights.js",
+  "adapterSHA256": "d1c9fe9d76f0c4774faca9f36dded5f9c931b2bc76b92d4d737e401693e3674f",
+  "entries": [
+    {
+      "input": "main.js",
+      "output": "main.js",
+      "inputSHA256": "50fe915ff0ad3d9a8c57aaf1952bbef2922026485697da0052056f5fd06a2495",
+      "outputSHA256": "07208af7ab7f8730d3fac589ca67859a4230d4df682d31a44047853625c1d1a1",
+      "description": "Only water and aerial receive six-source adapter; island, GI and smoke retain full localLights."
+    },
+    {
+      "input": "water.js",
+      "output": "water.js",
+      "inputSHA256": "0ad7035ba16e3fc29bcf2c90b5cdf14605a8ab6314ad31401468c4e0da0a98fb",
+      "outputSHA256": "777222ddb6ea9ea50105b2feea140aaa856f0d07276ada803d888640745a2892",
+      "description": "One seabed local-source loop is six; other water physics and object loops unchanged."
+    },
+    {
+      "input": "aerial-perspective.js",
+      "output": "aerial-perspective.js",
+      "inputSHA256": "3a098341dcabad61a299e56ac02e7857f924012d9cb2d59639554417eb6c2180",
+      "outputSHA256": "6cdefab860ef21fe4475df64873da4e7a75ed3c8d2a88fbbe5a9e1243a5c6400",
+      "description": "Opaque/background air source loops and CPU bound use six borrowed environment records."
+    },
+    {
+      "input": "local-lights.js",
+      "output": "local-lights-native20.js",
+      "inputSHA256": "55aac00977aa728a97fcb1bd336e78035b047c6f7a10083ae7a15d87bfe987a2",
+      "outputSHA256": "55aac00977aa728a97fcb1bd336e78035b047c6f7a10083ae7a15d87bfe987a2",
+      "description": "Byte-identical full 20-source native receiver path."
+    },
+    {
+      "input": "verification/audio-light-lifecycle/local-lights-diffuse-chunk-candidate.js",
+      "output": "local-lights-diffuse4.js",
+      "inputSHA256": "caf9444515a858c0ecd6e0a13f6ce878b9f3a91ee7b2c451263ebf0d3c064de2",
+      "outputSHA256": "caf9444515a858c0ecd6e0a13f6ce878b9f3a91ee7b2c451263ebf0d3c064de2",
+      "description": "Existing four-native-light, sixteen-diffuse receiver candidate."
+    }
+  ],
+  "limits": [
+    "Route only main, water, aerial and optionally local-lights response bodies; the QA adapter module remains served at its own static path.",
+    "No time smoothing or additive persistence; clusters follow actual fireworks current heads/tails.",
+    "Two global environment proxies are coarse and can have spatial error versus 16 local island proxies.",
+    "No GPU or first-frame performance result is claimed."
+  ]
+}

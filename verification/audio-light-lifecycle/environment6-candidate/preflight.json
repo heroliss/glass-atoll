@@ -1,0 +1,52 @@
+{
+  "schema": "glass-atoll.environment6-preflight.v1",
+  "passed": true,
+  "checks": [
+    {
+      "name": "route files parse and source inputs remain unchanged",
+      "passed": true,
+      "evidence": {
+        "routeFiles": 5,
+        "sourcePins": true
+      }
+    },
+    {
+      "name": "island and smoke stay at twenty; water and air use six",
+      "passed": true,
+      "evidence": {
+        "island": 20,
+        "environment": 6,
+        "smoke": 20,
+        "waterLoops": 1,
+        "airLoops": 3
+      }
+    },
+    {
+      "name": "environment copies fixtures once, conserves cluster RGB and extinguishes",
+      "passed": true,
+      "evidence": {
+        "receivers": 16,
+        "fixtures": 4,
+        "environmentProxies": 2,
+        "extinctionZero": true
+      }
+    },
+    {
+      "name": "actual launched fireworks conserve RGB through two merged cloud proxies",
+      "passed": true,
+      "evidence": {
+        "sampledPhases": 15,
+        "nonzeroPhases": 11,
+        "mergedPhases": 9,
+        "lastClusterCount": 0,
+        "extinctionZero": true
+      }
+    }
+  ],
+  "actualGPU": false,
+  "limits": [
+    "No browser, GPU shader compilation, first-frame timing or pixel comparison was performed.",
+    "Two cloud clusters preserve total I/RGB but may be spatially inaccurate for simultaneous far-separated shows.",
+    "Source records follow actual physical firework state without temporal smoothing, with zero after expiration."
+  ]
+}

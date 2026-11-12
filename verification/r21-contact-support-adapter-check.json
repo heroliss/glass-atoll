@@ -1,0 +1,145 @@
+{
+  "schema": "glass-atoll.r21-contact-support-adapter-check.v1",
+  "started": "2026-10-29T05:20:22.547Z",
+  "completed": "2026-10-29T05:20:22.700Z",
+  "passed": true,
+  "counts": {
+    "passed": 12,
+    "total": 12
+  },
+  "sources": {
+    "adapter": "d68b44a240f2f266221fa3a5393ebf726874d5a612b85d8d52c60f2114308d32",
+    "airSupport": "32149ec6c94ae99ab7552347e4eabfd4aa687827b81cdc6e94ac698045527855",
+    "physics": "2cdffbced09c8a151f9fb3cb1531a905633af6978c41f9fc3ea2c1a13006419d",
+    "tailField": "fec6dab3486b0dd6ef3c780c0a1af38f685f635629ceec31204a48835d2f1389"
+  },
+  "checks": [
+    {
+      "name": "Actual 25degree layered bodies preserve pre-contact exposure after current air light ends",
+      "passed": true,
+      "details": {
+        "cases": 32,
+        "maxBoundaryUnderestimateSeconds": 1.0331469013635797e-9,
+        "maxUncertaintySeconds": 1.9868213740892315e-9
+      }
+    },
+    {
+      "name": "Actual fixed-lag tail lanes use the field trajectory and retain a valid above-water history anchor",
+      "passed": true,
+      "details": {
+        "cases": 12,
+        "maxUncertaintySeconds": 1.4901164746561335e-9
+      }
+    },
+    {
+      "name": "Recommended 78degree real bodies and tails take the unchanged high-air fast path",
+      "passed": true,
+      "details": {
+        "cases": 576,
+        "diagnostics": {
+          "currentQueries": 0,
+          "surfaceQueries": 0,
+          "viewQueries": 576,
+          "fastAbove": 576,
+          "planeSolves": 0,
+          "boundedSolves": 0,
+          "partialRows": 0,
+          "emptyRows": 0,
+          "maximumIntervals": 0,
+          "maximumUnresolvedSeconds": 0,
+          "evaluations": 0,
+          "surface": "test.flat-mean-sea",
+          "clearanceMetres": 0.03,
+          "scope": "air-source centre support over static terrain/mean sea; finite root brackets; smoke and material unchanged"
+        }
+      }
+    },
+    {
+      "name": "No adapter sample asks for a future or unborn physical pose",
+      "passed": true,
+      "details": {
+        "calls": 2,
+        "earliest": 2.5521171944387895,
+        "latest": 7.220687565801686,
+        "physicalNow": 7.270687565801686
+      }
+    },
+    {
+      "name": "A near-surface newborn clipped to an instant does not enter an empty plane-piece solve",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Zero shutter contact and current support use a consistent strict endpoint convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Raised .003/.033 endpoint keeps the exact shared subtraction convention at S0",
+      "passed": true,
+      "details": {
+        "height": 0.003,
+        "y": 0.033,
+        "numericalClearance": 3.469446951953614e-18,
+        "oldAdditionPredicate": false,
+        "currentActive": true,
+        "instantaneousActive": true
+      }
+    },
+    {
+      "name": "An elevated static surface is used for both current and historical support",
+      "passed": true,
+      "details": {
+        "interval": {
+          "from": 0,
+          "to": 0.009999997615814209,
+          "anchorTime": 0.004999998807907104,
+          "anchorClearanceLowerBound": 2.3841574547933675e-9
+        }
+      }
+    },
+    {
+      "name": "Committed wind changes remain causal and are split into valid plane pieces",
+      "passed": true,
+      "details": {
+        "status": "bounded",
+        "diagnostics": {
+          "currentQueries": 0,
+          "surfaceQueries": 0,
+          "viewQueries": 1,
+          "fastAbove": 0,
+          "planeSolves": 1,
+          "boundedSolves": 0,
+          "partialRows": 1,
+          "emptyRows": 0,
+          "maximumIntervals": 1,
+          "maximumUnresolvedSeconds": 1.4901160860780749e-9,
+          "evaluations": 113,
+          "surface": "test.flat-mean-sea",
+          "clearanceMetres": 0.03,
+          "scope": "air-source centre support over static terrain/mean sea; finite root brackets; smoke and material unchanged"
+        }
+      }
+    },
+    {
+      "name": "Future, NaN and unsorted wind histories cannot be treated as committed bounds",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Same-width past windows cannot silently reuse a causal-end window cache entry",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Unadmitted motor forcing rejects its contact speed bound explicitly",
+      "passed": true,
+      "details": null
+    }
+  ],
+  "limits": [
+    "Actual adapter imported with sampler-call tracing only; no production edits, renderer, browser or GPU.",
+    "Actual25degree/default78degree fixtures use current physics constructor and explicitly bounded mean-sea or raised-plane surfaces.",
+    "No new chemical extinction, material transfer, wave collision, general arbitrary heightfield proof or full nonlinear optical path claim."
+  ]
+}

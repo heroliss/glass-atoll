@@ -1,0 +1,100 @@
+{
+  "status": "done",
+  "result": {
+    "date": "2026-10-26T22:43:49.763Z",
+    "passed": false,
+    "passedCount": 9,
+    "total": 10,
+    "checks": [
+      {
+        "name": "perspective depth blit restores caller draw/read bindings and rectangles",
+        "passed": true,
+        "restored": {
+          "target": true,
+          "readMatchesActualEntry": true,
+          "readMatchesIntendedSentinel": true,
+          "entryMatchedSentinel": true,
+          "viewport": [
+            1,
+            2,
+            5,
+            4
+          ],
+          "scissor": [
+            2,
+            1,
+            3,
+            5
+          ],
+          "test": true
+        }
+      },
+      {
+        "name": "perspective actual opaque/sky depth values copy without reconstruction",
+        "passed": true,
+        "maximumError": 0,
+        "minimum": 0.9547739028930664,
+        "maximum": 1
+      },
+      {
+        "name": "perspective independent image is not the attached source",
+        "passed": true
+      },
+      {
+        "name": "oblique depth blit restores caller draw/read bindings and rectangles",
+        "passed": false,
+        "restored": {
+          "target": true,
+          "readMatchesActualEntry": true,
+          "readMatchesIntendedSentinel": false,
+          "entryMatchedSentinel": false,
+          "viewport": [
+            1,
+            2,
+            5,
+            4
+          ],
+          "scissor": [
+            2,
+            1,
+            3,
+            5
+          ],
+          "test": true
+        }
+      },
+      {
+        "name": "oblique actual opaque/sky depth values copy without reconstruction",
+        "passed": true,
+        "maximumError": 0,
+        "minimum": 0.8487605452537537,
+        "maximum": 1
+      },
+      {
+        "name": "oblique independent image is not the attached source",
+        "passed": true
+      },
+      {
+        "name": "resizing retains depth storage type and dimensions",
+        "passed": true
+      },
+      {
+        "name": "unresolved multisample input is explicitly rejected",
+        "passed": true
+      },
+      {
+        "name": "no WebGL errors from copy or sampling",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "name": "outer renderer target and basic flags restored",
+        "passed": true
+      }
+    ],
+    "limits": [
+      "Actual isolated GPU depth snapshot test; not production smoke composition or FPS.",
+      "Single-sample 2D depth only. Custom oblique depth is copied in its stored representation."
+    ]
+  }
+}

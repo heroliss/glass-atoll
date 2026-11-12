@@ -1,0 +1,789 @@
+{
+  "schema": "glass-atoll.audio-palette-offline.v1",
+  "date": "2026-10-31T09:31:30.409Z",
+  "passed": true,
+  "total": 5,
+  "passedCount": 5,
+  "checks": [
+    {
+      "name": "all_six_local_recordings_decode_non_silent_finite_without_fullscale_samples",
+      "passed": true,
+      "detail": [
+        {
+          "id": "richwise",
+          "file": "./assets/audio/fireworks/burst-richwise-preview-mono.ogg",
+          "sha256": "aab4b8c8cc3cebddc08277526d0bc10fce9af624abe3e02bcc72184baeec80cd",
+          "duration": 3.4,
+          "channels": 1,
+          "peak": 0.8707963228225708,
+          "peakDbfs": -1.201668271103898,
+          "rmsDbfs": -27.082449668398834,
+          "nonFinite": 0,
+          "seamDifference": 0.000007746233450234286,
+          "samples": 163200,
+          "fullscaleSamples": 0
+        },
+        {
+          "id": "firecracker",
+          "file": "./assets/audio/fireworks/firecracker-iliyabylich04-mono.ogg",
+          "sha256": "36cceaf36ebfa0c44d3e963d641a0f523682a5f2bc0002dddef735ab7db7c816",
+          "duration": 0.37733333333333335,
+          "channels": 1,
+          "peak": 0.8897935152053833,
+          "peakDbfs": -1.0142152740921657,
+          "rmsDbfs": -28.050220014119947,
+          "nonFinite": 0,
+          "seamDifference": 0.0035147214225617063,
+          "samples": 18112,
+          "fullscaleSamples": 0
+        },
+        {
+          "id": "bang",
+          "file": "./assets/audio/fireworks/bang-qubodup-mono.ogg",
+          "sha256": "fc4c02ccb08a7bbdc21248415298191199996e28bf9ee57ddc4e8950d683c3fd",
+          "duration": 1.1,
+          "channels": 1,
+          "peak": 0.8917690515518188,
+          "peakDbfs": -0.9949520744331715,
+          "rmsDbfs": -21.155066294885856,
+          "nonFinite": 0,
+          "seamDifference": 0.0008699168465682305,
+          "samples": 52800,
+          "fullscaleSamples": 0
+        },
+        {
+          "id": "boom-a",
+          "file": "./assets/audio/fireworks/boom-lovebird-a-mono.ogg",
+          "sha256": "d3bd71ae090d33f315bf901667d1dfba96ea96928bfec0e13f25b55e98a6dc7d",
+          "duration": 0.5373333333333333,
+          "channels": 1,
+          "peak": 0.5381292104721069,
+          "peakDbfs": -5.382268662971354,
+          "rmsDbfs": -19.989282764193696,
+          "nonFinite": 0,
+          "seamDifference": 0.0001062868886947399,
+          "samples": 25792,
+          "fullscaleSamples": 0
+        },
+        {
+          "id": "boom-b",
+          "file": "./assets/audio/fireworks/boom-lovebird-b-mono.ogg",
+          "sha256": "edc3d355fe06e04d6d49d45c411b9dd123c02583c94700595a8ca057d97fbbd1",
+          "duration": 0.6173333333333333,
+          "channels": 1,
+          "peak": 0.46187517046928406,
+          "peakDbfs": -6.709507679425792,
+          "rmsDbfs": -22.30407202582127,
+          "nonFinite": 0,
+          "seamDifference": 0.001973325517610647,
+          "samples": 29632,
+          "fullscaleSamples": 0
+        },
+        {
+          "id": "crackle",
+          "file": "./assets/audio/fireworks/crackle-16fthumaf-mono.ogg",
+          "sha256": "3351d444c5a51e82a146563b2ea2e2dd0bb9e424b6c9022864e4d68e94ba9386",
+          "duration": 3.25,
+          "channels": 1,
+          "peak": 0.7485619783401489,
+          "peakDbfs": -2.515444715054986,
+          "rmsDbfs": -35.722993766964606,
+          "nonFinite": 0,
+          "seamDifference": 0.007578956076031318,
+          "samples": 156000,
+          "fullscaleSamples": 0
+        }
+      ]
+    },
+    {
+      "name": "repeatable_seed_palette_covers_four_distinct_main_accents",
+      "passed": true,
+      "detail": {
+        "variants": [
+          "firecracker",
+          "boom-b",
+          "boom-a",
+          "bang"
+        ],
+        "rates": [
+          0.97,
+          1.03
+        ]
+      }
+    },
+    {
+      "name": "protected_baseline_four_main_is_current_gain12_headroomPoint7",
+      "passed": true,
+      "detail": {
+        "peak": 1.0744750499725342,
+        "clippedSamples": 8,
+        "gain": 12,
+        "headroom": 0.7,
+        "attack": 0.0005
+      }
+    },
+    {
+      "name": "protected_baseline_double_energy2_is_current_gain12_headroomPoint7",
+      "passed": true,
+      "detail": {
+        "peak": 1.015875220298767,
+        "clippedSamples": 3,
+        "gain": 12,
+        "headroom": 0.7,
+        "attack": 0.0005
+      }
+    },
+    {
+      "name": "protected_baseline_dense_48_is_current_gain12_headroomPoint7",
+      "passed": true,
+      "detail": {
+        "peak": 1.3313539028167725,
+        "clippedSamples": 145,
+        "gain": 12,
+        "headroom": 0.7,
+        "attack": 0.0005
+      }
+    }
+  ],
+  "reports": [],
+  "baselineStress": [
+    {
+      "scenario": {
+        "id": "four_main",
+        "count": 4,
+        "energy": 1.15,
+        "protectedBaseline": true,
+        "distance": 0,
+        "seed": 1,
+        "sameSeed": true
+      },
+      "peak": 1.0744750499725342,
+      "peakDBFS": 0.6239267067389793,
+      "rms": 0.07671165255263833,
+      "clippedSamples": 8,
+      "nonfinite": 0,
+      "starts": [
+        {
+          "when": 0.735,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.735,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.735,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.735,
+          "duration": 3.4,
+          "rate": 1
+        }
+      ],
+      "audio": {
+        "scheduled": 4,
+        "discarded": 0,
+        "recordedPlays": 4,
+        "synthesizedPlays": 0,
+        "activeVoices": 4,
+        "outputReady": true,
+        "recordingLoaded": true,
+        "recordingDuration": 3.4,
+        "relativeBurstGain": 12,
+        "postCompressorHeadroomGain": 0.7,
+        "compressorAttackSeconds": 0.0005,
+        "source": {
+          "title": "Single Firework",
+          "author": "richwise",
+          "source": "https://freesound.org/people/richwise/sounds/455453/",
+          "license": "CC0 1.0",
+          "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "file": "./assets/audio/fireworks/burst-richwise-preview-mono.ogg",
+          "kind": "real recording, trimmed mono from compressed public HQ preview",
+          "subjectiveReview": "not performed by agent; listening acceptance pending"
+        },
+        "loadError": null,
+        "lastArrival": {
+          "kind": "burst",
+          "distance": 0,
+          "soundSpeed": 348.46093109558205,
+          "delay": 0,
+          "physicalEventTime": 0.75,
+          "expectedArrival": 0.75,
+          "audioTime": 0.735,
+          "source": "CC0 recorded preview trim"
+        },
+        "spatial": "HRTF; inverse pressure-distance once in PannerNode; temperature-dependent propagation delay",
+        "limits": [
+          "real compressed preview recording; subjective background/timbre listening pending",
+          "launch/crackle and failed-load burst explicitly synthesized",
+          "fixed listener at emission scheduling; moving receiver sound-cone not solved",
+          "distance lowpass is an approximation; no absolute sound-pressure calibration",
+          "linear post-compressor headroom lowers all pyro SFX3.10dB; not an arbitrary-source peak limiter"
+        ]
+      },
+      "completed": {
+        "scheduled": 4,
+        "discarded": 0,
+        "recordedPlays": 4,
+        "synthesizedPlays": 0,
+        "activeVoices": 0,
+        "outputReady": true,
+        "recordingLoaded": true,
+        "recordingDuration": 3.4,
+        "relativeBurstGain": 12,
+        "postCompressorHeadroomGain": 0.7,
+        "compressorAttackSeconds": 0.0005,
+        "source": {
+          "title": "Single Firework",
+          "author": "richwise",
+          "source": "https://freesound.org/people/richwise/sounds/455453/",
+          "license": "CC0 1.0",
+          "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "file": "./assets/audio/fireworks/burst-richwise-preview-mono.ogg",
+          "kind": "real recording, trimmed mono from compressed public HQ preview",
+          "subjectiveReview": "not performed by agent; listening acceptance pending"
+        },
+        "loadError": null,
+        "lastArrival": {
+          "kind": "burst",
+          "distance": 0,
+          "soundSpeed": 348.46093109558205,
+          "delay": 0,
+          "physicalEventTime": 0.75,
+          "expectedArrival": 0.75,
+          "audioTime": 0.735,
+          "source": "CC0 recorded preview trim"
+        },
+        "spatial": "HRTF; inverse pressure-distance once in PannerNode; temperature-dependent propagation delay",
+        "limits": [
+          "real compressed preview recording; subjective background/timbre listening pending",
+          "launch/crackle and failed-load burst explicitly synthesized",
+          "fixed listener at emission scheduling; moving receiver sound-cone not solved",
+          "distance lowpass is an approximation; no absolute sound-pressure calibration",
+          "linear post-compressor headroom lowers all pyro SFX3.10dB; not an arbitrary-source peak limiter"
+        ]
+      },
+      "warnings": [],
+      "expectedFirstArrival": 0.75,
+      "scheduleOffset": -0.015000000000000013,
+      "ambient": {
+        "leaves": {
+          "duration": 17,
+          "sampleRate": 48000,
+          "channels": 1,
+          "sourceName": "Rustling leaves — Gravity Sound",
+          "recorded": true,
+          "file": "leaf-rustle.ogg"
+        },
+        "ocean": {
+          "duration": 48,
+          "sampleRate": 48000,
+          "channels": 2,
+          "sourceName": "Beach sounds South Carolina — Anthropic42",
+          "recorded": true,
+          "file": "ocean-shore.ogg"
+        }
+      }
+    },
+    {
+      "scenario": {
+        "id": "double_energy2",
+        "count": 2,
+        "energy": 2,
+        "protectedBaseline": true,
+        "distance": 0,
+        "seed": 1,
+        "sameSeed": true
+      },
+      "peak": 1.015875220298767,
+      "peakDBFS": 0.1368073388063435,
+      "rms": 0.06606576491293095,
+      "clippedSamples": 3,
+      "nonfinite": 0,
+      "starts": [
+        {
+          "when": 0.735,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.735,
+          "duration": 3.4,
+          "rate": 1
+        }
+      ],
+      "audio": {
+        "scheduled": 2,
+        "discarded": 0,
+        "recordedPlays": 2,
+        "synthesizedPlays": 0,
+        "activeVoices": 2,
+        "outputReady": true,
+        "recordingLoaded": true,
+        "recordingDuration": 3.4,
+        "relativeBurstGain": 12,
+        "postCompressorHeadroomGain": 0.7,
+        "compressorAttackSeconds": 0.0005,
+        "source": {
+          "title": "Single Firework",
+          "author": "richwise",
+          "source": "https://freesound.org/people/richwise/sounds/455453/",
+          "license": "CC0 1.0",
+          "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "file": "./assets/audio/fireworks/burst-richwise-preview-mono.ogg",
+          "kind": "real recording, trimmed mono from compressed public HQ preview",
+          "subjectiveReview": "not performed by agent; listening acceptance pending"
+        },
+        "loadError": null,
+        "lastArrival": {
+          "kind": "burst",
+          "distance": 0,
+          "soundSpeed": 348.46093109558205,
+          "delay": 0,
+          "physicalEventTime": 0.75,
+          "expectedArrival": 0.75,
+          "audioTime": 0.735,
+          "source": "CC0 recorded preview trim"
+        },
+        "spatial": "HRTF; inverse pressure-distance once in PannerNode; temperature-dependent propagation delay",
+        "limits": [
+          "real compressed preview recording; subjective background/timbre listening pending",
+          "launch/crackle and failed-load burst explicitly synthesized",
+          "fixed listener at emission scheduling; moving receiver sound-cone not solved",
+          "distance lowpass is an approximation; no absolute sound-pressure calibration",
+          "linear post-compressor headroom lowers all pyro SFX3.10dB; not an arbitrary-source peak limiter"
+        ]
+      },
+      "completed": {
+        "scheduled": 2,
+        "discarded": 0,
+        "recordedPlays": 2,
+        "synthesizedPlays": 0,
+        "activeVoices": 0,
+        "outputReady": true,
+        "recordingLoaded": true,
+        "recordingDuration": 3.4,
+        "relativeBurstGain": 12,
+        "postCompressorHeadroomGain": 0.7,
+        "compressorAttackSeconds": 0.0005,
+        "source": {
+          "title": "Single Firework",
+          "author": "richwise",
+          "source": "https://freesound.org/people/richwise/sounds/455453/",
+          "license": "CC0 1.0",
+          "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "file": "./assets/audio/fireworks/burst-richwise-preview-mono.ogg",
+          "kind": "real recording, trimmed mono from compressed public HQ preview",
+          "subjectiveReview": "not performed by agent; listening acceptance pending"
+        },
+        "loadError": null,
+        "lastArrival": {
+          "kind": "burst",
+          "distance": 0,
+          "soundSpeed": 348.46093109558205,
+          "delay": 0,
+          "physicalEventTime": 0.75,
+          "expectedArrival": 0.75,
+          "audioTime": 0.735,
+          "source": "CC0 recorded preview trim"
+        },
+        "spatial": "HRTF; inverse pressure-distance once in PannerNode; temperature-dependent propagation delay",
+        "limits": [
+          "real compressed preview recording; subjective background/timbre listening pending",
+          "launch/crackle and failed-load burst explicitly synthesized",
+          "fixed listener at emission scheduling; moving receiver sound-cone not solved",
+          "distance lowpass is an approximation; no absolute sound-pressure calibration",
+          "linear post-compressor headroom lowers all pyro SFX3.10dB; not an arbitrary-source peak limiter"
+        ]
+      },
+      "warnings": [],
+      "expectedFirstArrival": 0.75,
+      "scheduleOffset": -0.015000000000000013,
+      "ambient": {
+        "leaves": {
+          "duration": 17,
+          "sampleRate": 48000,
+          "channels": 1,
+          "sourceName": "Rustling leaves — Gravity Sound",
+          "recorded": true,
+          "file": "leaf-rustle.ogg"
+        },
+        "ocean": {
+          "duration": 48,
+          "sampleRate": 48000,
+          "channels": 2,
+          "sourceName": "Beach sounds South Carolina — Anthropic42",
+          "recorded": true,
+          "file": "ocean-shore.ogg"
+        }
+      }
+    },
+    {
+      "scenario": {
+        "id": "dense_48",
+        "count": 48,
+        "energy": 1.15,
+        "protectedBaseline": true,
+        "distance": 0,
+        "seed": 1,
+        "sameSeed": true
+      },
+      "peak": 1.3313539028167725,
+      "peakDBFS": 2.4858703147602697,
+      "rms": 0.13829995836154205,
+      "clippedSamples": 145,
+      "nonfinite": 0,
+      "starts": [
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        },
+        {
+          "when": 0.7348999999994412,
+          "duration": 3.4,
+          "rate": 1
+        }
+      ],
+      "audio": {
+        "scheduled": 24,
+        "discarded": 24,
+        "recordedPlays": 24,
+        "synthesizedPlays": 0,
+        "activeVoices": 24,
+        "outputReady": true,
+        "recordingLoaded": true,
+        "recordingDuration": 3.4,
+        "relativeBurstGain": 12,
+        "postCompressorHeadroomGain": 0.7,
+        "compressorAttackSeconds": 0.0005,
+        "source": {
+          "title": "Single Firework",
+          "author": "richwise",
+          "source": "https://freesound.org/people/richwise/sounds/455453/",
+          "license": "CC0 1.0",
+          "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "file": "./assets/audio/fireworks/burst-richwise-preview-mono.ogg",
+          "kind": "real recording, trimmed mono from compressed public HQ preview",
+          "subjectiveReview": "not performed by agent; listening acceptance pending"
+        },
+        "loadError": null,
+        "lastArrival": {
+          "kind": "burst",
+          "distance": 0,
+          "soundSpeed": 348.46093109558205,
+          "delay": 0,
+          "physicalEventTime": 0.75,
+          "expectedArrival": 0.75,
+          "audioTime": 0.7348999999994412,
+          "source": "CC0 recorded preview trim"
+        },
+        "spatial": "HRTF; inverse pressure-distance once in PannerNode; temperature-dependent propagation delay",
+        "limits": [
+          "real compressed preview recording; subjective background/timbre listening pending",
+          "launch/crackle and failed-load burst explicitly synthesized",
+          "fixed listener at emission scheduling; moving receiver sound-cone not solved",
+          "distance lowpass is an approximation; no absolute sound-pressure calibration",
+          "linear post-compressor headroom lowers all pyro SFX3.10dB; not an arbitrary-source peak limiter"
+        ]
+      },
+      "completed": {
+        "scheduled": 24,
+        "discarded": 24,
+        "recordedPlays": 24,
+        "synthesizedPlays": 0,
+        "activeVoices": 0,
+        "outputReady": true,
+        "recordingLoaded": true,
+        "recordingDuration": 3.4,
+        "relativeBurstGain": 12,
+        "postCompressorHeadroomGain": 0.7,
+        "compressorAttackSeconds": 0.0005,
+        "source": {
+          "title": "Single Firework",
+          "author": "richwise",
+          "source": "https://freesound.org/people/richwise/sounds/455453/",
+          "license": "CC0 1.0",
+          "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "file": "./assets/audio/fireworks/burst-richwise-preview-mono.ogg",
+          "kind": "real recording, trimmed mono from compressed public HQ preview",
+          "subjectiveReview": "not performed by agent; listening acceptance pending"
+        },
+        "loadError": null,
+        "lastArrival": {
+          "kind": "burst",
+          "distance": 0,
+          "soundSpeed": 348.46093109558205,
+          "delay": 0,
+          "physicalEventTime": 0.75,
+          "expectedArrival": 0.75,
+          "audioTime": 0.7348999999994412,
+          "source": "CC0 recorded preview trim"
+        },
+        "spatial": "HRTF; inverse pressure-distance once in PannerNode; temperature-dependent propagation delay",
+        "limits": [
+          "real compressed preview recording; subjective background/timbre listening pending",
+          "launch/crackle and failed-load burst explicitly synthesized",
+          "fixed listener at emission scheduling; moving receiver sound-cone not solved",
+          "distance lowpass is an approximation; no absolute sound-pressure calibration",
+          "linear post-compressor headroom lowers all pyro SFX3.10dB; not an arbitrary-source peak limiter"
+        ]
+      },
+      "warnings": [],
+      "expectedFirstArrival": 0.75,
+      "scheduleOffset": -0.015100000000558778,
+      "ambient": {
+        "leaves": {
+          "duration": 17,
+          "sampleRate": 48000,
+          "channels": 1,
+          "sourceName": "Rustling leaves — Gravity Sound",
+          "recorded": true,
+          "file": "leaf-rustle.ogg"
+        },
+        "ocean": {
+          "duration": 48,
+          "sampleRate": 48000,
+          "channels": 2,
+          "sourceName": "Beach sounds South Carolina — Anthropic42",
+          "recorded": true,
+          "file": "ocean-shore.ogg"
+        }
+      }
+    }
+  ],
+  "assets": [
+    {
+      "id": "richwise",
+      "file": "./assets/audio/fireworks/burst-richwise-preview-mono.ogg",
+      "sha256": "aab4b8c8cc3cebddc08277526d0bc10fce9af624abe3e02bcc72184baeec80cd",
+      "duration": 3.4,
+      "channels": 1,
+      "peak": 0.8707963228225708,
+      "peakDbfs": -1.201668271103898,
+      "rmsDbfs": -27.082449668398834,
+      "nonFinite": 0,
+      "seamDifference": 0.000007746233450234286,
+      "samples": 163200,
+      "fullscaleSamples": 0
+    },
+    {
+      "id": "firecracker",
+      "file": "./assets/audio/fireworks/firecracker-iliyabylich04-mono.ogg",
+      "sha256": "36cceaf36ebfa0c44d3e963d641a0f523682a5f2bc0002dddef735ab7db7c816",
+      "duration": 0.37733333333333335,
+      "channels": 1,
+      "peak": 0.8897935152053833,
+      "peakDbfs": -1.0142152740921657,
+      "rmsDbfs": -28.050220014119947,
+      "nonFinite": 0,
+      "seamDifference": 0.0035147214225617063,
+      "samples": 18112,
+      "fullscaleSamples": 0
+    },
+    {
+      "id": "bang",
+      "file": "./assets/audio/fireworks/bang-qubodup-mono.ogg",
+      "sha256": "fc4c02ccb08a7bbdc21248415298191199996e28bf9ee57ddc4e8950d683c3fd",
+      "duration": 1.1,
+      "channels": 1,
+      "peak": 0.8917690515518188,
+      "peakDbfs": -0.9949520744331715,
+      "rmsDbfs": -21.155066294885856,
+      "nonFinite": 0,
+      "seamDifference": 0.0008699168465682305,
+      "samples": 52800,
+      "fullscaleSamples": 0
+    },
+    {
+      "id": "boom-a",
+      "file": "./assets/audio/fireworks/boom-lovebird-a-mono.ogg",
+      "sha256": "d3bd71ae090d33f315bf901667d1dfba96ea96928bfec0e13f25b55e98a6dc7d",
+      "duration": 0.5373333333333333,
+      "channels": 1,
+      "peak": 0.5381292104721069,
+      "peakDbfs": -5.382268662971354,
+      "rmsDbfs": -19.989282764193696,
+      "nonFinite": 0,
+      "seamDifference": 0.0001062868886947399,
+      "samples": 25792,
+      "fullscaleSamples": 0
+    },
+    {
+      "id": "boom-b",
+      "file": "./assets/audio/fireworks/boom-lovebird-b-mono.ogg",
+      "sha256": "edc3d355fe06e04d6d49d45c411b9dd123c02583c94700595a8ca057d97fbbd1",
+      "duration": 0.6173333333333333,
+      "channels": 1,
+      "peak": 0.46187517046928406,
+      "peakDbfs": -6.709507679425792,
+      "rmsDbfs": -22.30407202582127,
+      "nonFinite": 0,
+      "seamDifference": 0.001973325517610647,
+      "samples": 29632,
+      "fullscaleSamples": 0
+    },
+    {
+      "id": "crackle",
+      "file": "./assets/audio/fireworks/crackle-16fthumaf-mono.ogg",
+      "sha256": "3351d444c5a51e82a146563b2ea2e2dd0bb9e424b6c9022864e4d68e94ba9386",
+      "duration": 3.25,
+      "channels": 1,
+      "peak": 0.7485619783401489,
+      "peakDbfs": -2.515444715054986,
+      "rmsDbfs": -35.722993766964606,
+      "nonFinite": 0,
+      "seamDifference": 0.007578956076031318,
+      "samples": 156000,
+      "fullscaleSamples": 0
+    }
+  ],
+  "sources": {
+    "../../fireworks-audio.js": "08a57e13433c7c8e7135b947c26fa5ba4e512975fae380a9b0d6b1d72b0176f0",
+    "../../audio.js": "ce962c76cfe93fca69c7b42125ed8bf4551c5e053f8376fe220880aa98e90272",
+    "protectedBaseline": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+  },
+  "conditions": {
+    "sampleRate": 48000,
+    "seconds": 7,
+    "temperature": 29,
+    "listener": [
+      -188.28059078348676,
+      12,
+      -126.35772214387782
+    ],
+    "forward": [
+      0.7986368514168929,
+      0.3972994652580746,
+      0.4520313202252246
+    ],
+    "masterVolume": 0.75,
+    "graph": "actual production soundscape master + pyro buses; no copied mix equations",
+    "protectedBaseline": "Preserved pre-palette primary-only production factory, gain12/headroom.7/attack.0005; explicit unchanged main asset URL."
+  },
+  "limits": [
+    "Browser OfflineAudioContext verifies PCM and scheduling, not subjective listening or speaker calibration.",
+    "Sample peaks are Float32 pre-WAV, not intersample true peak.",
+    "Dense stress is bounded by current 24-source limiter; it intentionally discards excess events."
+  ],
+  "browser": {
+    "version": "156.0.8078.74",
+    "pageErrors": []
+  },
+  "captureFiles": []
+}

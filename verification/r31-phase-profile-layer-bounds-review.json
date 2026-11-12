@@ -1,0 +1,101 @@
+{
+  "schema": "glass-atoll.r31-phase-profile-layer-bounds-independent-preflight.v1",
+  "actualGPU": false,
+  "browserActions": 0,
+  "nativeContextCalls": 0,
+  "physicalReplays": 0,
+  "productionEdits": 0,
+  "frozenNativeFilesEdited": 0,
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "checks": [
+    {
+      "name": "Frozen profile source/pins and new main entry preserve the prior native entry, bridge and normal production bytes",
+      "passed": true,
+      "evidence": {
+        "profileSHA256": "698825a0ef921dbd0884c5850f1303f323d1b7629f136009d3ef3b217ce1c33d",
+        "mainSHA256": "bd51038a3018bbcfea92440f80e824673aa3c00c4711b94b7f8ee8ad0e6dadfa",
+        "sources": 34,
+        "cachedFunctions": 12,
+        "ownerCPU": "7/7",
+        "native9eccAndOldEntryUnchanged": true,
+        "bridgeUnchanged": true,
+        "productionFrameChanged": false
+      }
+    },
+    {
+      "name": "Complete optics/physical input/capture and all native work ceilings remain byte-identical to the admitted native helper",
+      "passed": true,
+      "evidence": {
+        "nativeSize": [
+          1209,
+          1292
+        ],
+        "readbackBytes": 6248112,
+        "allSourcePacketsPreserved": true,
+        "unchangedSHAndPerEyeT": true,
+        "unchangedCaptureAndFormat": true,
+        "drawCap": 143,
+        "renderCap": 41,
+        "elementCap": 19279476,
+        "numericalDraws": 18,
+        "operationCaps": {
+          "blits": 10,
+          "mipmaps": 5,
+          "clears": 32
+        }
+      }
+    },
+    {
+      "name": "Actual extracted timer functions execute exactly three distinct sequential non-overlapping intervals",
+      "passed": true,
+      "evidence": {
+        "fakeDriverOnly": true,
+        "sequence": [
+          "B0",
+          "E0",
+          "B1",
+          "E1",
+          "B2",
+          "E2"
+        ],
+        "overlappingQueries": 0,
+        "ownedQueriesDisposed": 3
+      }
+    },
+    {
+      "name": "Midphase and end-call exception CPU witnesses close or retire every owned query without result polling",
+      "passed": true,
+      "evidence": {
+        "fakeDriverOnly": true,
+        "faultVariants": 2,
+        "resultPolls": 0,
+        "allOwnedQueriesRetired": true,
+        "deleteActiveQuerySemantics": "Modeled WebGL2 deleteQuery implicitly ends an active query; no native injected fault was run"
+      }
+    },
+    {
+      "name": "Real profile flow closes each phase before the next and requires all completed nondisjoint results plus aggregateSUM before image readback",
+      "passed": true,
+      "evidence": {
+        "phaseOrder": [
+          "photometry",
+          "water",
+          "lens+same-capture"
+        ],
+        "distinctSequentialQueries": 3,
+        "allReadyAndNonDisjointRequired": true,
+        "aggregateCeilingMs": 100,
+        "readbackOnlyAfterAggregatePass": true,
+        "continuousWholeFrameQuery": false,
+        "interQueryGapsExcluded": true,
+        "comparisonWithPrior59msCausal": false,
+        "automaticRetry": false
+      }
+    }
+  ],
+  "scope": "Source, closed pins and actual extracted timer functions on a CPU fake driver only. Ready for one separately owned root profile frame; no new native runtime/timing or numerical/visual/FPS claim. Query sums exclude transition gaps; instrumentation/cold program effects remain confounders."
+}

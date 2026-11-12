@@ -1,0 +1,581 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-25T19:39:20.128Z",
+  "kind": "Independent exact continuous one-second sliding rAF callback counts",
+  "method": {
+    "measuredEvent": "render-loop frameStart performance.now() callback timestamp, not hardware display-present time",
+    "reconstruction": "N intervals reconstruct N+1 events: t[0]=0, t[i]=sum(intervals[0..i-1]). Absolute first event=raw.previous-sum(intervals).",
+    "exactWindow": "For all continuous starts 0<=s<=lastEvent-1000 ms, FPS(s)=number of timestamps in (s,s+1000 ms] / exactly 1.000 seconds.",
+    "endpointConvention": "Left excluded, right included. The first known event is the origin and is not counted in the first window.",
+    "exhaustiveMinimum": "Evaluate start, every eligible left-exit event, and final complete-window start. Independently audit every left-exit/right-entry breakpoint and adjacent interval midpoint using direct event scanning.",
+    "edgePolicy": "Only complete 1000 ms windows inside the first-to-last known events. No unknown head/tail extrapolation or zero padding.",
+    "resolution": "Integer callback count per exact second: 1 FPS quantization. This is not non-overlapping bins or reciprocal of one frame interval.",
+    "average": "Raw interval count / complete recorded elapsedSeconds, matching benchmark. A separate count/sum(intervals) value is retained.",
+    "quantiles": "Sorted original intervals, order statistic index floor(p*(N-1)), matching benchmark.",
+    "slowFrames": "Strict interval >1000/60 ms; not a rounded 16.67 ms comparison."
+  },
+  "internalBoundaryValidation": [
+    {
+      "name": "uniform 100 Hz",
+      "expectedMinimumFps": 100,
+      "actualMinimumFps": 100
+    },
+    {
+      "name": "1100 ms event-free gap",
+      "expectedMinimumFps": 0,
+      "actualMinimumFps": 0
+    },
+    {
+      "name": "single exact right-boundary event",
+      "expectedMinimumFps": 1,
+      "actualMinimumFps": 1
+    }
+  ],
+  "datasets": [
+    {
+      "label": "正午海岛",
+      "sourceFile": "render-benchmark-final-noon.json",
+      "sourceSha256": "91dd101ce9c4a091bd45f0ee79c85db991e0ba49f06db72ed1414138c66b447e",
+      "sourceDate": "2026-10-25T19:14:08.106Z",
+      "recordingElapsedSeconds": 12.003,
+      "frameIntervalCount": 1372,
+      "reconstructedFrameEventCount": 1373,
+      "observedFrameEventSpanSeconds": 12.001100000023841,
+      "averageFps": 114.30475714404731,
+      "averageFpsOverObservedIntervalSpan": 114.3228537381802,
+      "frameMilliseconds": {
+        "mean": 8.74715743441971,
+        "median": 8.300000071525574,
+        "p95": 13.800000071525574,
+        "p99": 17.799999952316284,
+        "maximum": 23.899999976158146
+      },
+      "over60HzBudget": {
+        "strictThresholdMilliseconds": 16.666666666666668,
+        "count": 30,
+        "denominator": 1372,
+        "fraction": 0.021865889212827987,
+        "percent": 2.186588921282799
+      },
+      "rollingOneSecond": {
+        "minimumFps": 111,
+        "framesInWindow": 111,
+        "windowMilliseconds": 1000,
+        "firstWorstWindow": {
+          "startFromFirstKnownFrameMs": 8785.300000071526,
+          "endFromFirstKnownFrameMs": 9785.300000071526
+        },
+        "candidateStartsChecked": 1259,
+        "independentAudit": {
+          "breakpoints": 2503,
+          "breakpointsAndMidpoints": 5005,
+          "minimumFps": 111,
+          "allCountsAgree": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 28425.100000023835,
+        "lastKnownFramePerformanceNowMs": 40426.20000004768,
+        "unobservedHeadMs": 1.3999999761508661,
+        "unobservedTailMs": 0.500000000007276
+      },
+      "configuration": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "output": [
+          1440,
+          900
+        ],
+        "internalResolutionAtEnd": [
+          1224,
+          765
+        ],
+        "renderScaleAtStart": 0.85,
+        "renderScaleAtEnd": 0.85,
+        "endpointsEqual": true,
+        "scaleTraceLimitation": "Only endpoint scale snapshots are recorded. Equal endpoints do not establish no intermediate change; differing endpoints prove adaptive scale during the run.",
+        "sunAtStart": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "sunAtEnd": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "antialias": "MSAA + SMAA",
+        "upscaler": "EASU 12-tap + RCAS 5-tap",
+        "cameraAtEnd": [
+          -48,
+          12.000000000000004,
+          -40.00000000000001
+        ],
+        "targetAtEnd": [
+          0,
+          2.5,
+          0
+        ]
+      },
+      "gpuMillisecondsFromSource": {
+        "count": 1365,
+        "maximum": 11.761,
+        "mean": 8.48763589743591,
+        "median": 8.186,
+        "minimum": 7.212,
+        "p95": 10.054,
+        "p99": 10.975
+      },
+      "sourceConsistency": {
+        "intervalCountMatches": true,
+        "averageMatches": true,
+        "p95Matches": true,
+        "p99Matches": true,
+        "slowCountMatches": true,
+        "observedBoundariesInsideRecording": true
+      },
+      "renderVersionScope": "最后叶形参数修正之前"
+    },
+    {
+      "label": "仰视天空",
+      "sourceFile": "render-benchmark-sky.json",
+      "sourceSha256": "f3fbe2d20fe744891873bae994e8f3e6ec5bccde6a437671d474e7213d64f2dc",
+      "sourceDate": "2026-10-25T19:18:15.534Z",
+      "recordingElapsedSeconds": 8.003,
+      "frameIntervalCount": 1148,
+      "reconstructedFrameEventCount": 1149,
+      "observedFrameEventSpanSeconds": 7.999100000023842,
+      "averageFps": 143.44620767212294,
+      "averageFpsOverObservedIntervalSpan": 143.51614556594845,
+      "frameMilliseconds": {
+        "mean": 6.967857142877911,
+        "median": 6.900000095367432,
+        "p95": 7.300000071525574,
+        "p99": 9.799999952316284,
+        "maximum": 17.600000023841858
+      },
+      "over60HzBudget": {
+        "strictThresholdMilliseconds": 16.666666666666668,
+        "count": 1,
+        "denominator": 1148,
+        "fraction": 0.0008710801393728223,
+        "percent": 0.08710801393728224
+      },
+      "rollingOneSecond": {
+        "minimumFps": 141,
+        "framesInWindow": 141,
+        "windowMilliseconds": 1000,
+        "firstWorstWindow": {
+          "startFromFirstKnownFrameMs": 6888.100000023842,
+          "endFromFirstKnownFrameMs": 7888.100000023842
+        },
+        "candidateStartsChecked": 1007,
+        "independentAudit": {
+          "breakpoints": 1713,
+          "breakpointsAndMidpoints": 3425,
+          "minimumFps": 141,
+          "allCountsAgree": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 279854.3000000715,
+        "lastKnownFramePerformanceNowMs": 287853.40000009537,
+        "unobservedHeadMs": 3.399999976158142,
+        "unobservedTailMs": 0.5
+      },
+      "configuration": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "output": [
+          1440,
+          900
+        ],
+        "internalResolutionAtEnd": [
+          1426,
+          891
+        ],
+        "renderScaleAtStart": 0.965,
+        "renderScaleAtEnd": 0.99,
+        "endpointsEqual": false,
+        "scaleTraceLimitation": "Only endpoint scale snapshots are recorded. Equal endpoints do not establish no intermediate change; differing endpoints prove adaptive scale during the run.",
+        "sunAtStart": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "sunAtEnd": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "antialias": "MSAA + SMAA",
+        "upscaler": "EASU 12-tap + RCAS 5-tap",
+        "cameraAtEnd": [
+          -1.7763568394002505e-15,
+          2.0000000000000355,
+          35
+        ],
+        "targetAtEnd": [
+          8,
+          45.00000000000002,
+          0
+        ]
+      },
+      "gpuMillisecondsFromSource": {
+        "count": 1143,
+        "maximum": 12.513,
+        "mean": 6.665205599300089,
+        "median": 6.435,
+        "minimum": 5.322,
+        "p95": 8.116,
+        "p99": 8.85
+      },
+      "sourceConsistency": {
+        "intervalCountMatches": true,
+        "averageMatches": true,
+        "p95Matches": true,
+        "p99Matches": true,
+        "slowCountMatches": true,
+        "observedBoundariesInsideRecording": true
+      },
+      "renderVersionScope": "最后叶形参数修正之前"
+    },
+    {
+      "label": "低太阳海岛",
+      "sourceFile": "render-benchmark-low-sun.json",
+      "sourceSha256": "4e548acf023033fc8ec0eed62543daa91344b4f60e600ea556b61c5ece7d62dd",
+      "sourceDate": "2026-10-25T19:20:46.324Z",
+      "recordingElapsedSeconds": 8.002200000047683,
+      "frameIntervalCount": 910,
+      "reconstructedFrameEventCount": 911,
+      "observedFrameEventSpanSeconds": 7.996100000023842,
+      "averageFps": 113.71872734930113,
+      "averageFpsOverObservedIntervalSpan": 113.80548017124431,
+      "frameMilliseconds": {
+        "mean": 8.786923076949277,
+        "median": 7.899999976158142,
+        "p95": 16.299999952316284,
+        "p99": 19.800000071525577,
+        "maximum": 27.300000071525577
+      },
+      "over60HzBudget": {
+        "strictThresholdMilliseconds": 16.666666666666668,
+        "count": 40,
+        "denominator": 910,
+        "fraction": 0.04395604395604396,
+        "percent": 4.395604395604396
+      },
+      "rollingOneSecond": {
+        "minimumFps": 109,
+        "framesInWindow": 109,
+        "windowMilliseconds": 1000,
+        "firstWorstWindow": {
+          "startFromFirstKnownFrameMs": 437.2999999523163,
+          "endFromFirstKnownFrameMs": 1437.2999999523163
+        },
+        "candidateStartsChecked": 785,
+        "independentAudit": {
+          "breakpoints": 1564,
+          "breakpointsAndMidpoints": 3127,
+          "minimumFps": 109,
+          "allCountsAgree": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 430644.7000000477,
+        "lastKnownFramePerformanceNowMs": 438640.8000000715,
+        "unobservedHeadMs": 2.600000023841858,
+        "unobservedTailMs": 3.5
+      },
+      "configuration": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "output": [
+          1440,
+          900
+        ],
+        "internalResolutionAtEnd": [
+          1123,
+          702
+        ],
+        "renderScaleAtStart": 0.85,
+        "renderScaleAtEnd": 0.78,
+        "endpointsEqual": false,
+        "scaleTraceLimitation": "Only endpoint scale snapshots are recorded. Equal endpoints do not establish no intermediate change; differing endpoints prove adaptive scale during the run.",
+        "sunAtStart": {
+          "azimuth": 100,
+          "elevation": 8,
+          "intensity": 1
+        },
+        "sunAtEnd": {
+          "azimuth": 100,
+          "elevation": 8,
+          "intensity": 1
+        },
+        "antialias": "MSAA + SMAA",
+        "upscaler": "EASU 12-tap + RCAS 5-tap",
+        "cameraAtEnd": [
+          -47.99999999999999,
+          12.000000000000002,
+          -40
+        ],
+        "targetAtEnd": [
+          0,
+          2.5,
+          0
+        ]
+      },
+      "gpuMillisecondsFromSource": {
+        "count": 893,
+        "maximum": 13.537,
+        "mean": 8.60163941769316,
+        "median": 8.014,
+        "minimum": 6.408,
+        "p95": 11.858,
+        "p99": 12.893
+      },
+      "sourceConsistency": {
+        "intervalCountMatches": true,
+        "averageMatches": true,
+        "p95Matches": true,
+        "p99Matches": true,
+        "slowCountMatches": true,
+        "observedBoundariesInsideRecording": true
+      },
+      "renderVersionScope": "最后叶形参数修正之前"
+    },
+    {
+      "label": "实际用户窗口",
+      "sourceFile": "render-benchmark-user-window.json",
+      "sourceSha256": "74a71d311360efa6199b6178eef76a4df01fa61153385aa8fdf0708493747ef8",
+      "sourceDate": "2026-10-25T19:29:24.686Z",
+      "recordingElapsedSeconds": 10.008299999952316,
+      "frameIntervalCount": 1130,
+      "reconstructedFrameEventCount": 1131,
+      "observedFrameEventSpanSeconds": 9.991299999952316,
+      "averageFps": 112.9062877816796,
+      "averageFpsOverObservedIntervalSpan": 113.09839560471539,
+      "frameMilliseconds": {
+        "mean": 8.841858407037448,
+        "median": 8.5,
+        "p95": 14.200000047683716,
+        "p99": 16.5,
+        "maximum": 19.59999990463257
+      },
+      "over60HzBudget": {
+        "strictThresholdMilliseconds": 16.666666666666668,
+        "count": 12,
+        "denominator": 1130,
+        "fraction": 0.010619469026548672,
+        "percent": 1.0619469026548671
+      },
+      "rollingOneSecond": {
+        "minimumFps": 111,
+        "framesInWindow": 111,
+        "windowMilliseconds": 1000,
+        "firstWorstWindow": {
+          "startFromFirstKnownFrameMs": 569.7999999523163,
+          "endFromFirstKnownFrameMs": 1569.7999999523163
+        },
+        "candidateStartsChecked": 1019,
+        "independentAudit": {
+          "breakpoints": 2030,
+          "breakpointsAndMidpoints": 4059,
+          "minimumFps": 111,
+          "allCountsAgree": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 947004.7000000477,
+        "lastKnownFramePerformanceNowMs": 956996,
+        "unobservedHeadMs": 8.000000000116415,
+        "unobservedTailMs": 8.999999999883585
+      },
+      "configuration": {
+        "viewport": [
+          1270,
+          1292
+        ],
+        "output": [
+          1270,
+          1292
+        ],
+        "internalResolutionAtEnd": [
+          965,
+          982
+        ],
+        "renderScaleAtStart": 0.76,
+        "renderScaleAtEnd": 0.76,
+        "endpointsEqual": true,
+        "scaleTraceLimitation": "Only endpoint scale snapshots are recorded. Equal endpoints do not establish no intermediate change; differing endpoints prove adaptive scale during the run.",
+        "sunAtStart": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "sunAtEnd": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "antialias": "MSAA + SMAA",
+        "upscaler": "EASU 12-tap + RCAS 5-tap",
+        "cameraAtEnd": [
+          -47.99999999999999,
+          12.000000000000002,
+          -40
+        ],
+        "targetAtEnd": [
+          0,
+          2.5,
+          0
+        ]
+      },
+      "gpuMillisecondsFromSource": {
+        "count": 1125,
+        "maximum": 11.463,
+        "mean": 8.223515555555558,
+        "median": 7.969,
+        "minimum": 6.922,
+        "p95": 9.823,
+        "p99": 10.572
+      },
+      "sourceConsistency": {
+        "intervalCountMatches": true,
+        "averageMatches": true,
+        "p95Matches": true,
+        "p99Matches": true,
+        "slowCountMatches": true,
+        "observedBoundariesInsideRecording": true
+      },
+      "renderVersionScope": "最后叶形参数修正之前"
+    },
+    {
+      "label": "最终叶形海岛",
+      "sourceFile": "render-benchmark-crown-final.json",
+      "sourceSha256": "83b9bc9544b233b90dd14468f2b29451a3287649feaeaa1f7ef42f94809bc1d0",
+      "sourceDate": "2026-10-25T19:37:55.878Z",
+      "recordingElapsedSeconds": 12.000899999976156,
+      "frameIntervalCount": 1265,
+      "reconstructedFrameEventCount": 1266,
+      "observedFrameEventSpanSeconds": 11.986600000023842,
+      "averageFps": 105.40876100980039,
+      "averageFpsOverObservedIntervalSpan": 105.53451353990988,
+      "frameMilliseconds": {
+        "mean": 9.475573122548491,
+        "median": 9.100000023841858,
+        "p95": 16.09999990463257,
+        "p99": 19.5,
+        "maximum": 26.899999976158146
+      },
+      "over60HzBudget": {
+        "strictThresholdMilliseconds": 16.666666666666668,
+        "count": 60,
+        "denominator": 1265,
+        "fraction": 0.04743083003952569,
+        "percent": 4.743083003952568
+      },
+      "rollingOneSecond": {
+        "minimumFps": 102,
+        "framesInWindow": 102,
+        "windowMilliseconds": 1000,
+        "firstWorstWindow": {
+          "startFromFirstKnownFrameMs": 9135.600000023842,
+          "endFromFirstKnownFrameMs": 10135.600000023842
+        },
+        "candidateStartsChecked": 1161,
+        "independentAudit": {
+          "breakpoints": 2306,
+          "breakpointsAndMidpoints": 4611,
+          "minimumFps": 102,
+          "allCountsAgree": true
+        }
+      },
+      "boundaries": {
+        "firstKnownFramePerformanceNowMs": 18673.100000023842,
+        "lastKnownFramePerformanceNowMs": 30659.700000047684,
+        "unobservedHeadMs": 6.399999976158142,
+        "unobservedTailMs": 7.899999976158142
+      },
+      "configuration": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "output": [
+          1440,
+          900
+        ],
+        "internalResolutionAtEnd": [
+          1325,
+          828
+        ],
+        "renderScaleAtStart": 0.92,
+        "renderScaleAtEnd": 0.92,
+        "endpointsEqual": true,
+        "scaleTraceLimitation": "Only endpoint scale snapshots are recorded. Equal endpoints do not establish no intermediate change; differing endpoints prove adaptive scale during the run.",
+        "sunAtStart": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "sunAtEnd": {
+          "azimuth": 100,
+          "elevation": 48,
+          "intensity": 1
+        },
+        "antialias": "MSAA + SMAA",
+        "upscaler": "EASU 12-tap + RCAS 5-tap",
+        "cameraAtEnd": [
+          -48,
+          12.000000000000004,
+          -40.00000000000001
+        ],
+        "targetAtEnd": [
+          0,
+          2.5,
+          0
+        ],
+        "audioEnabledAtStart": true,
+        "audioEnabledAtEnd": true
+      },
+      "gpuMillisecondsFromSource": {
+        "count": 1254,
+        "maximum": 12.643,
+        "mean": 9.229936204146732,
+        "median": 8.94,
+        "minimum": 7.757,
+        "p95": 10.752,
+        "p99": 11.776
+      },
+      "sourceConsistency": {
+        "intervalCountMatches": true,
+        "averageMatches": true,
+        "p95Matches": true,
+        "p99Matches": true,
+        "slowCountMatches": true,
+        "observedBoundariesInsideRecording": true
+      },
+      "renderVersionScope": "最终叶形"
+    }
+  ],
+  "limitations": [
+    "Five samples are 8-12 seconds, specific viewpoints/configurations and explicitly different leaf-form source revisions; not exhaustive angles or long-duration guarantees.",
+    "rAF callback cadence is not evidence every frame physically reached the display, and does not measure input latency or audio/video synchrony.",
+    "Sky .965->.99 and low-sun .85->.78 are adaptive-scale runs; equal endpoints in other runs do not prove constant scale throughout.",
+    "One-second callback FPS above 60 does not imply every frame interval stayed below 16.667 ms.",
+    "No real-phone, arbitrary-hardware or arbitrary operating-system-load 60 FPS guarantee follows."
+  ],
+  "versionScopeNotes": [
+    "The first four runs precede the final leaflet extra-droop parameter correction; they are retained as earlier-version evidence, not measurements of identical final source.",
+    "The fifth run is explicitly supplied by the root renderer agent as the final-leaf-form current-source run; audio is enabled in both endpoint snapshots.",
+    "The source JSON files are hashed. This report does not fabricate a complete renderer-source hash captured at the time of older benchmarks.",
+    "Different viewpoints, output dimensions, adaptive scales and measurement windows prevent isolating the performance effect of the leaf-form change alone."
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "schema": "glass-atoll.r40-dense-joint-input-independent-check.v1",
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "actualGPU": false,
+  "browserUsed": false,
+  "physicalReplay": false,
+  "largeOracleRerun": false,
+  "fixtureModuleSHA256": "cd73543e3fa9d86b1457cc0770289d57a01acce8e6c877485f329ec0da3918cf",
+  "fixtureJSONSHA256": "f6386b3c73870fabd2b3ffa48e85493c9fcb4557d0046311645500ece7a82ad4",
+  "fixtureDigest": "96780577818e0d25e0b31ba3dc207fec22db86abf66702380431eefe5c416303",
+  "sourceSHA256": "7520a75402adc3c9333f78c8ae156a40fb46db3edf481e46fac07a4998709b44",
+  "checks": [
+    {
+      "name": "New complete literal preserves original MAIN and every original physical/ledger value exactly",
+      "passed": true,
+      "originalMAINExact": true,
+      "wholePhysicalEpochExact": true,
+      "physicalDigest": "1a426fddfd9c2ceb4be3e02d34176a2688eb897b75415bad859fac1c73ec0735",
+      "requestedAndCommittedClocksSeparate": true,
+      "opticalGeneration": 156,
+      "ledgerGeneration": 51,
+      "cpuReferencesOnly": true
+    },
+    {
+      "name": "All distinct view rays/ordering/masks and complete physical/quantized T references retain per-eye identity",
+      "passed": true,
+      "summaries": [
+        {
+          "kind": "main",
+          "sourceVersion": 101,
+          "rows": 2418,
+          "minT": 0.8433434535574992,
+          "maximumOriginalVsPackedDoubleDifference": 8.439195466891647e-7
+        },
+        {
+          "kind": "reflection",
+          "sourceVersion": 102,
+          "rows": 2418,
+          "minT": 0.8442186037949624,
+          "maximumOriginalVsPackedDoubleDifference": 8.58247777846266e-7
+        }
+      ],
+      "differingReferenceComponents": 7254,
+      "noMAINReferenceSubstitution": true
+    },
+    {
+      "name": "Complete packed SH inputs, all groups and raw/ideal bounds recompute without packet mass",
+      "passed": true,
+      "fullPaddedLedgerWords": 112000,
+      "packetUploadWords": 16384,
+      "sourceUploadWords": 112640,
+      "groupRows": 2413,
+      "rawBound": 0.6956810329010831,
+      "idealBound": 0.6941886598748978,
+      "packetMassIndependent": true
+    },
+    {
+      "name": "ALL 19956 reference coefficients retain signed fourth components, row association and positive angular/group bounds",
+      "passed": true,
+      "coefficients": 19956,
+      "negativeC1": 9504,
+      "negativeFourthChannels": 3703,
+      "minimumAngular": 3.430152555535804e-7,
+      "maximumAngular": 0.019524217646589147,
+      "maximumOwnGroupRatio": 0.20870260832957238,
+      "selectedStored256vs512": 5.997528767202504e-16,
+      "noCoefficientClampOrAlphaInterpretation": true,
+      "oracleRecomputed": false
+    },
+    {
+      "name": "Stored partial probes use exact global addresses and original64 accumulation, never index-zipped across consumers",
+      "passed": true,
+      "sets": [
+        {
+          "kind": "main",
+          "addresses": [
+            0,
+            62867,
+            15616,
+            31232,
+            46848,
+            62464,
+            62720,
+            15615
+          ]
+        },
+        {
+          "kind": "reflection",
+          "addresses": [
+            0,
+            62867,
+            15616,
+            31232,
+            46848,
+            62464,
+            62720,
+            15615
+          ]
+        },
+        {
+          "kind": "SH",
+          "addresses": [
+            0,
+            63193,
+            15616,
+            31232,
+            46848,
+            62464,
+            62976,
+            15615
+          ]
+        }
+      ],
+      "negativeSHPartialC1": 43,
+      "actualFutureReadAddressesMustBeMappedByAddress": true,
+      "partialNumericalOracleRerun": false
+    },
+    {
+      "name": "Final e29 planner captures this complete joint epoch and atomically models exactly two T fields plus SH once",
+      "passed": true,
+      "ownedInputBytes": 8109495,
+      "counts": {
+        "packets": 1663,
+        "mainCount": 2418,
+        "reflectionCount": 2418,
+        "ledgerCount": 2413,
+        "mainSubmitted": true,
+        "reflectionSubmitted": true
+      },
+      "allThreeJobs": [
+        {
+          "name": "Tmain",
+          "pairs": 4021134,
+          "partialCells": 62868,
+          "draws": 7,
+          "allocationBytes": 4706304,
+          "readBytes": 38816
+        },
+        {
+          "name": "Tmirror",
+          "pairs": 4021134,
+          "partialCells": 62868,
+          "draws": 7,
+          "allocationBytes": 4706304,
+          "readBytes": 38816
+        },
+        {
+          "name": "SH",
+          "pairs": 4012819,
+          "partialCells": 63194,
+          "draws": 7,
+          "allocationBytes": 9916416,
+          "readBytes": 80208
+        }
+      ],
+      "work": {
+        "logicalPairs": 12055087,
+        "conservativeSlots": 12091520,
+        "draws": 21,
+        "reductionFetches": 315318,
+        "rasterTexels": 198146,
+        "uploadBytes": 2768896,
+        "gpuNumericalBytes": 19329024,
+        "cpuUploadBytes": 2768896,
+        "readbackBytes": 157840,
+        "ownedInputBytes": 8109495
+      },
+      "retained2TRequired": true,
+      "cpuModelOnly": true
+    }
+  ],
+  "limits": [
+    "Checks full alreadycomputed reference arrays, structural/numerical algebra and exact packing/bounds; does not independently repeat all2413-by1663-by256 Laplace nodes.",
+    "Stored convergence witnesses are crosschecked without rerunning their512-node integrals.",
+    "CPU3job plan is not hardware completion/publication/frame-time admission.",
+    "Future runtime must audit its ACTUAL partial addresses; stored probe arrays are not implicitly aligned to another probe order."
+  ]
+}

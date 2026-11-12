@@ -1,0 +1,3227 @@
+{
+  "state": {
+    "ready": true,
+    "time": 34.49197017173171,
+    "fps": 0,
+    "gpuMs": 12.209,
+    "renderScale": 1,
+    "graphicsContextInterrupted": false,
+    "pausedRenderCached": true,
+    "pausedSteadyFrames": 39867,
+    "parameters": {
+      "sun": {
+        "azimuth": 100,
+        "elevation": 48,
+        "intensity": 1
+      },
+      "quality": "high",
+      "paused": true,
+      "sound": false,
+      "wind": 1.8,
+      "current": 0.16,
+      "lens": {
+        "focal": 28,
+        "aperture": 8,
+        "exposure": 0,
+        "dof": false,
+        "vignette": true,
+        "antialias": "smaa",
+        "automatic": false,
+        "manualExposureEV": 0,
+        "temporal": true,
+        "glintAA": true,
+        "opticalBloom": true,
+        "opticalFlare": false,
+        "focusMode": "target",
+        "focusDistance": 60
+      },
+      "weather": {
+        "humidity": 0.68,
+        "temperature": 29,
+        "cloudBase": "auto",
+        "thickness": 950,
+        "coverage": 0.35,
+        "shear": 1.1
+      },
+      "air": {
+        "enabled": true,
+        "aerosolScale": 8,
+        "shadows": true
+      },
+      "graphics": {
+        "indirect": "low",
+        "shadows": "recommended",
+        "targetFps": 60,
+        "hdr": true,
+        "hdrMode": "auto",
+        "displayName": "auto",
+        "systemCalibration": true,
+        "peakNits": 1270,
+        "paperWhiteNits": 280,
+        "displayTransform": "legacy",
+        "waveResolution": 512
+      },
+      "sea": {
+        "swellHeight": 0.16,
+        "windSea": 1,
+        "clarity": 0.9
+      },
+      "director": {
+        "mode": "off",
+        "periodSeconds": 240
+      },
+      "qualityPreset": "medium",
+      "renderSampling": {
+        "indirect": "low",
+        "antialias": "smaa",
+        "temporal": true,
+        "glintAA": true,
+        "opticalBloom": true,
+        "dprCap": 1.65,
+        "msaaSamples": 8,
+        "shadowSize": 4096,
+        "shadowHz": 45,
+        "waveResolution": 512,
+        "cloudSteps": 64,
+        "atmosphereSteps": 8,
+        "airSteps": 6,
+        "airShadowTaps": 1,
+        "causticsGrid": 1280,
+        "causticsSize": 1536,
+        "causticsHz": 24,
+        "reflectionScale": 1,
+        "reflectionSamples": 2
+      },
+      "qualityCustom": false
+    },
+    "lens": {
+      "displayTransform": {
+        "kind": "hdr",
+        "requested": true,
+        "effective": "legacy",
+        "reason": "render-declined",
+        "error": null,
+        "adapter": {
+          "requested": "legacy",
+          "preparation": {
+            "status": "idle",
+            "reason": "selected-legacy",
+            "peakNits": 1270,
+            "error": null
+          },
+          "sdr": {
+            "effective": "none",
+            "peakNits": 100,
+            "reason": "awaiting-render",
+            "error": null
+          },
+          "hdr": {
+            "effective": "legacy",
+            "peakNits": 1270,
+            "reason": "selected-legacy",
+            "error": null
+          },
+          "variant": "aces2-ocio26-accurate-atan-v1",
+          "supportedTargets": [
+            100,
+            700,
+            1270
+          ],
+          "preparablePeakRange": {
+            "min": 100,
+            "max": 10000,
+            "integerOnly": true
+          },
+          "lastError": null,
+          "revision": 4,
+          "disposed": false,
+          "frames": {
+            "sdr": 0,
+            "hdr": 0
+          },
+          "fallbackFrames": {
+            "sdr": 0,
+            "hdr": 2496
+          },
+          "output": null
+        }
+      },
+      "storageEV": 12,
+      "historyEV": 12,
+      "dynamicLighting": false,
+      "sceneAttachments": [
+        "RGBA16F radiance",
+        "RGBA16F motion/coverage",
+        "R16F foliage depth",
+        "R8 local reactive"
+      ],
+      "motion": {
+        "enabled": true,
+        "frames": 2573,
+        "groups": 1,
+        "hasPrevious": true,
+        "extraScenePasses": 0,
+        "attachment": "RGBA16F: unjittered UV velocity.xy, previous linear depth, MSAA coverage; R16F: current linear depth; normalize both by coverage",
+        "limits": [
+          "analytic rest-mesh wind and camera motion only; no arbitrary model-matrix animation",
+          "missing-coverage bridge retains conservative camera-only fallback"
+        ]
+      },
+      "bloom": {
+        "enabled": true,
+        "bloom": true,
+        "flare": false,
+        "strength": 0.018,
+        "budget": {
+          "direct": 0.982,
+          "bloom": 0.018,
+          "ghost": 0,
+          "veil": 0,
+          "total": 0.018
+        },
+        "levels": 4,
+        "passes": 5,
+        "operatorPeakBoundRGB": [
+          1,
+          1,
+          1
+        ],
+        "model": "single threshold-free linear HDR PSF; opt-in affine ghost/veil share at most 1.8% radiance redistribution",
+        "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+      },
+      "hdr": {
+        "enabled": true,
+        "available": true,
+        "apiAvailable": true,
+        "displayHDR": true,
+        "mode": "float-canvas-external-copy",
+        "width": 1209,
+        "height": 1292,
+        "maxHz": 120,
+        "maxBridgeWidth": 1440,
+        "paperWhiteNits": 280,
+        "peakNits": 1270,
+        "sdrWhiteNits": 280,
+        "headroom": 4.535714285714286,
+        "whiteScale": 1,
+        "calibrationSource": "windows-dxgi",
+        "displayName": "Q27G4XM",
+        "calibrationAdjustments": [],
+        "presentedFrames": 2496,
+        "skippedFrames": 77,
+        "lastPresentCpuMs": 0.19999999925494194,
+        "lastUploadCpuMs": 0,
+        "lastPresentationTimestamp": 388110.69999999925,
+        "errors": [],
+        "requiresRedraw": false,
+        "readback": null,
+        "presentationObserverActive": false,
+        "presentationObserverError": null,
+        "displayTransform": {
+          "kind": "hdr",
+          "requested": true,
+          "effective": "legacy",
+          "reason": "render-declined",
+          "error": null,
+          "adapter": {
+            "requested": "legacy",
+            "preparation": {
+              "status": "idle",
+              "reason": "selected-legacy",
+              "peakNits": 1270,
+              "error": null
+            },
+            "sdr": {
+              "effective": "none",
+              "peakNits": 100,
+              "reason": "awaiting-render",
+              "error": null
+            },
+            "hdr": {
+              "effective": "legacy",
+              "peakNits": 1270,
+              "reason": "selected-legacy",
+              "error": null
+            },
+            "variant": "aces2-ocio26-accurate-atan-v1",
+            "supportedTargets": [
+              100,
+              700,
+              1270
+            ],
+            "preparablePeakRange": {
+              "min": 100,
+              "max": 10000,
+              "integerOnly": true
+            },
+            "lastError": null,
+            "revision": 4,
+            "disposed": false,
+            "frames": {
+              "sdr": 0,
+              "hdr": 0
+            },
+            "fallbackFrames": {
+              "sdr": 0,
+              "hdr": 2496
+            },
+            "output": null
+          }
+        },
+        "source": "pre-OutputPass, scene-linear sRGB floating-point target",
+        "output": "sRGB-encoded rgba16float, extended, opaque",
+        "noExplicitCPUReadback": true,
+        "absoluteNitsCalibrated": false,
+        "systemReportedCalibration": true,
+        "peakRelativeToBrowserWhite": 4.535714285714286,
+        "shoulder": "same fitted SDR ACES anchor through exposed peak 1; C1 bounded highlight extension; nit scale divided by browser/Windows SDR white",
+        "limits": "System-reported luminance is not a photometer measurement and scene lux is not calibrated. This is not an official ACES HDR ODT. Extended sRGB canvas is not a native 80-nit scRGB swap chain. External-image copy is not guaranteed zero-copy. PBO copies pixels through CPU. HDR enlargement is linear, not SDR FSR1."
+      },
+      "width": 1209,
+      "height": 1292,
+      "outputWidth": 1209,
+      "outputHeight": 1292,
+      "upscaler": "native resolution",
+      "samples": 8,
+      "maxSamples": 8,
+      "sampleSupport": [
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ]
+      ],
+      "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+      "temporal": {
+        "enabled": true,
+        "active": true,
+        "waterEnabled": true,
+        "stillFrames": 41,
+        "frozen": true,
+        "historyFrames": 396,
+        "historyWeight": 0.84,
+        "artificialJitter": false,
+        "jitterPixels": [
+          0,
+          0
+        ],
+        "lastResetReason": "firework illumination",
+        "scope": "analytic wind/camera foliage motion, MSAA coverage, independent short water radiance history",
+        "maximumMissingCoverageFrames": 2,
+        "metadata": "R8 age; nearest valid depth, bilinear RGB",
+        "historyBytes": 28116504
+      },
+      "shutterSeconds": 0.008333333333333333,
+      "focalMm": 28,
+      "cameraFocalMm": 27.999999999999993,
+      "verticalFovDegrees": 65.4704525442152,
+      "exposureScale": 3.04,
+      "aperture": 8,
+      "focusMode": "target",
+      "focusMetres": 254.16530054277666,
+      "sensorHeightMm": 36,
+      "depthOfField": false,
+      "vignette": true,
+      "sceneStats": {
+        "triangles": 2137210,
+        "calls": 35
+      }
+    },
+    "caustics": {
+      "quality": "high",
+      "gridSegments": 1280,
+      "maxHz": 24
+    },
+    "performance": {
+      "enabled": false,
+      "targetFps": 60,
+      "referenceBudgetMs": 16.666666666666668,
+      "scale": 1,
+      "minimumScale": 0.6,
+      "smoothedCostMs": null,
+      "lastGpuMs": null,
+      "slowFrameFraction": 0,
+      "changes": []
+    },
+    "camera": [
+      104.99999999999997,
+      4.999999999999993,
+      -229.99999999999997
+    ],
+    "target": [
+      15,
+      65,
+      0
+    ],
+    "ripples": [
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ]
+    ],
+    "triangles": 2137210,
+    "drawCalls": 35,
+    "leaves": []
+  },
+  "fireworks": {
+    "time": 34.49197017173171,
+    "active": 1,
+    "queued": 0,
+    "launches": 1,
+    "rejected": 0,
+    "skippedAutomatic": 0,
+    "maxActive": 4,
+    "maxQueued": 16,
+    "launchPolicy": "immediate",
+    "lastLaunch": {
+      "id": "42-28.34060",
+      "type": "chrysanthemum",
+      "time": 28.34060000000147,
+      "azimuth": 103.57043438516149,
+      "elevation": 78,
+      "origin": [
+        29.1333907886949,
+        1.4726530582491102,
+        7.032197776581528
+      ],
+      "seed": 42,
+      "burstOrientation": {
+        "yawDegrees": 32.42154328152537,
+        "tiltDegrees": -21.852727313060313,
+        "rollDegrees": 1.3458509743213654
+      },
+      "effectProfile": "powered-bees-v1"
+    },
+    "settings": {
+      "type": "chrysanthemum",
+      "autoLaunch": false,
+      "autoDirection": true,
+      "azimuth": 110,
+      "elevation": 78,
+      "autoFrame": false,
+      "persistentSmoke": true,
+      "cloudIllumination": true,
+      "resolvedSmokeLighting": true,
+      "intensityScale": 1,
+      "intervalSeconds": 7.5,
+      "launchSpreadDegrees": 0,
+      "burstTiltDegrees": 27,
+      "burstRollDegrees": 20,
+      "starDragModel": "bounded-descent",
+      "clusterModel": "moments",
+      "finiteClusterPhase": true,
+      "effectProfile": "powered-bees-v1"
+    },
+    "windSegments": 2,
+    "activeEvents": [
+      {
+        "id": "42-28.34060",
+        "type": "chrysanthemum",
+        "pattern": "chrysanthemum",
+        "smileyLayout": null,
+        "intensityScale": 1,
+        "actualStarCount": 192,
+        "calibreMm": 120,
+        "heightInfo": {
+          "inputMode": "definition-rise",
+          "referenceRiseMetres": 160,
+          "referenceElevationDegrees": 80,
+          "explicitWorldHeight": null,
+          "calibratedRiseMetres": 160,
+          "actualBurstWorldY": 159.56618393454391,
+          "actualBurstRiseMetres": 158.0935308762948,
+          "productReference": {
+            "calibreMm": 120,
+            "riseMetres": 160,
+            "referenceWidthMetres": 120,
+            "source": "https://ojiyaenka.base.shop/items/34029650",
+            "evidence": "supplier product-scale example",
+            "widthCalibrated": false
+          },
+          "widthCalibrated": false,
+          "visibleApex": null
+        },
+        "paletteMode": "effect-profile",
+        "effectProfile": "powered-bees-v1",
+        "layerProfile": {
+          "schema": "glass-atoll.compiled-layer-profile.v1",
+          "layerCounts": {
+            "radial": 160,
+            "motor": 32
+          },
+          "referencePeakBudget": 1474.5702995359898,
+          "maximumLife": 4.767665558419424,
+          "limits": {
+            "maximumBodySeconds": 4.773,
+            "maximumRadialBodySeconds": 4.773,
+            "maximumMotorBodySeconds": 1.908,
+            "intrinsicSpeed": 19,
+            "motorIntrinsicSpeed": 8.55,
+            "maximumCombinedIntrinsicSpeedMetresPerSecond": 31.72,
+            "maximumIntegratedAccelerationMetresPerSecond": 12.72,
+            "maximumMotorEndSeconds": 1.06,
+            "maximumMotorAccelerationMetresPerSecondSquared": 12,
+            "maximumIgnitionDelaySeconds": 0,
+            "tailDurationSeconds": 0.35,
+            "motorTailDurationSeconds": 0.18,
+            "propulsionKind": "finite-held-author-acceleration-v1",
+            "bodyCount": 192,
+            "motorBodyCount": 32,
+            "radialBodyCount": 160,
+            "vectorBodyCount": 32,
+            "legacyBodyCount": 160,
+            "layerCount": 2,
+            "lifeVariationFraction": 0.06,
+            "intensityVariationFraction": 0,
+            "maximumOpticalShutterSeconds": 0.016666666666666666,
+            "requiredStarDragModel": "bounded-descent",
+            "requiredBodyDragPerSecond": 0.613125
+          },
+          "photometry": "32 motor peakY values normalized to existing I0 once;160 radial scalar appearances remain native; no measured photometry",
+          "material": "Native per-family material allocation is unchanged; burn descriptor CDF is not the production smoke scheduler",
+          "trailRecipeId": "powered-bee-gold-v1",
+          "motorBodyIds": [
+            4,
+            11,
+            15,
+            18,
+            26,
+            34,
+            41,
+            45,
+            48,
+            56,
+            61,
+            70,
+            77,
+            81,
+            87,
+            91,
+            101,
+            107,
+            109,
+            116,
+            125,
+            131,
+            135,
+            142,
+            147,
+            153,
+            158,
+            164,
+            172,
+            179,
+            182,
+            189
+          ],
+          "propulsionKind": "finite-held-author-acceleration-v1",
+          "motionProfile": {
+            "schema": "glass-atoll.powered-bees-motion.v1",
+            "motorBodyCount": 32,
+            "radialBodyCount": 160,
+            "vectorBodyCount": 32,
+            "legacyBodyCount": 160,
+            "seedNamespace": "glass-atoll.bee-selection-v1",
+            "thrustSeedNamespace": "glass-atoll.thrust-v1",
+            "maximumMotorEndSeconds": 1.0572114924155176,
+            "maximumActualIntegratedAccelerationMetresPerSecond": 10.783557222638278,
+            "maximumMotorBodySeconds": 1.9029806863479317,
+            "maximumOpticalShutterSeconds": 0.016666666666666666,
+            "bodyClock": "relative to unchanged body.birth",
+            "model": "finite piecewise-held world acceleration"
+          }
+        },
+        "aerodynamics": {
+          "model": "effective-linear-drag-matched-terminal",
+          "starDragModel": "bounded-descent",
+          "terminalSpeedMetresPerSecond": 16,
+          "dragPerSecond": 0.613125,
+          "childTerminalSpeedMetresPerSecond": 16,
+          "gravityMetresPerSecondSquared": 9.81,
+          "buoyancy": "dense burning body; no invented hot-gas lift",
+          "calibration": "authored terminal-speed reference, not measured particle properties"
+        },
+        "burstOrientation": {
+          "yawDegrees": 32.42154328152537,
+          "tiltDegrees": -21.852727313060313,
+          "rollDegrees": 1.3458509743213654
+        }
+      }
+    ],
+    "model": "analytic linear-drag segments; deterministic world-space events; authored reference photometry, not CFD",
+    "capacityPolicy": "complete events, immediate acceptance or explicit rejection; automatic full slots skip without queue",
+    "clusterModel": "moments",
+    "clusterIlluminationModel": "spatial-moment finite-radius point proxy; not exact area emission",
+    "records": 1740,
+    "contactSupport": {
+      "currentQueries": 2028,
+      "surfaceQueries": 0,
+      "viewQueries": 288,
+      "fastAbove": 288,
+      "planeSolves": 0,
+      "boundedSolves": 0,
+      "partialRows": 0,
+      "emptyRows": 0,
+      "maximumIntervals": 0,
+      "maximumUnresolvedSeconds": 0,
+      "evaluations": 0,
+      "surface": "glass-atoll.atoll-air-surface.v1",
+      "clearanceMetres": 0.03,
+      "scope": "air-source centre support over static terrain/mean sea; finite root brackets; smoke and material unchanged"
+    },
+    "lastRender": {
+      "instances": 1740,
+      "reflection": false,
+      "time": 34.49197017173171,
+      "rendered": true,
+      "skipped": false,
+      "storageEV": 12,
+      "rawPerCandela": 0.000036,
+      "width": 1209,
+      "height": 1292,
+      "mediumQueries": 0,
+      "sourceTransmission": {
+        "backend": "gpu",
+        "requested": true,
+        "effective": true,
+        "reason": "experimental-ready",
+        "mediumQueries": 0,
+        "instances": 1740,
+        "activeRayCount": 1740,
+        "sourceVersion": 521,
+        "recordsGeneration": 2245,
+        "densityRevision": 1122,
+        "cameraKey": "104.99999999999997,4.999999999999993,-229.99999999999997",
+        "reflection": false,
+        "vectorSources": 300,
+        "transmissionTimePolicy": "one T per source optical midpoint anchor; T(t) is not shutter-integrated"
+      },
+      "sourceVisibility": {
+        "mode": "conservative",
+        "inputRecords": 1740,
+        "luminousSources": 1740,
+        "depthCulled": 0,
+        "quadCulled": 0,
+        "conservativeRetained": 0,
+        "mediumQueries": 0,
+        "renderedRecords": 1740
+      },
+      "vectorExposure": {
+        "physicalNow": 34.49197017173171,
+        "shutterSeconds": 0.008333333333333333,
+        "from": 34.483636838398375,
+        "to": 34.49197017173171,
+        "anchor": 34.48780350506504,
+        "durationSeconds": 0.00833333333333286,
+        "mode": "causal-end",
+        "units": "physical seconds; requested shutter may differ from represented endpoint width"
+      },
+      "legacyShutterSeconds": 0.008333333333333333,
+      "temporalModel": "8 referenceRGB bin means with joint motion kernel; Eulerian replenished tail field; midpoint T approximation"
+    },
+    "lastRenderByView": {
+      "main": {
+        "instances": 1740,
+        "reflection": false,
+        "time": 34.49197017173171,
+        "rendered": true,
+        "skipped": false,
+        "storageEV": 12,
+        "rawPerCandela": 0.000036,
+        "width": 1209,
+        "height": 1292,
+        "mediumQueries": 0,
+        "sourceTransmission": {
+          "backend": "gpu",
+          "requested": true,
+          "effective": true,
+          "reason": "experimental-ready",
+          "mediumQueries": 0,
+          "instances": 1740,
+          "activeRayCount": 1740,
+          "sourceVersion": 521,
+          "recordsGeneration": 2245,
+          "densityRevision": 1122,
+          "cameraKey": "104.99999999999997,4.999999999999993,-229.99999999999997",
+          "reflection": false,
+          "vectorSources": 300,
+          "transmissionTimePolicy": "one T per source optical midpoint anchor; T(t) is not shutter-integrated"
+        },
+        "sourceVisibility": {
+          "mode": "conservative",
+          "inputRecords": 1740,
+          "luminousSources": 1740,
+          "depthCulled": 0,
+          "quadCulled": 0,
+          "conservativeRetained": 0,
+          "mediumQueries": 0,
+          "renderedRecords": 1740
+        },
+        "vectorExposure": {
+          "physicalNow": 34.49197017173171,
+          "shutterSeconds": 0.008333333333333333,
+          "from": 34.483636838398375,
+          "to": 34.49197017173171,
+          "anchor": 34.48780350506504,
+          "durationSeconds": 0.00833333333333286,
+          "mode": "causal-end",
+          "units": "physical seconds; requested shutter may differ from represented endpoint width"
+        },
+        "legacyShutterSeconds": 0.008333333333333333,
+        "temporalModel": "8 referenceRGB bin means with joint motion kernel; Eulerian replenished tail field; midpoint T approximation"
+      },
+      "reflection": {
+        "instances": 0,
+        "reflection": true,
+        "time": 34.49197017173171,
+        "rendered": true,
+        "skipped": false,
+        "storageEV": 12,
+        "rawPerCandela": 0.000036,
+        "width": 1209,
+        "height": 1292,
+        "mediumQueries": 0,
+        "sourceTransmission": {
+          "backend": "cpu",
+          "requested": true,
+          "effective": false,
+          "reason": "no-active-source-rays",
+          "mediumQueries": 0,
+          "instances": 0,
+          "activeRayCount": 0,
+          "sourceVersion": null,
+          "recordsGeneration": 2245,
+          "densityRevision": null,
+          "cameraKey": "104.99999999999997,-4.999999999999993,-229.99999999999997",
+          "reflection": true
+        },
+        "sourceVisibility": {
+          "mode": "conservative",
+          "inputRecords": 1740,
+          "luminousSources": 1740,
+          "depthCulled": 1740,
+          "quadCulled": 0,
+          "conservativeRetained": 0,
+          "mediumQueries": 0,
+          "renderedRecords": 0
+        }
+      }
+    },
+    "quality": {
+      "trailSegments": 8
+    },
+    "opticalCapacity": 14000,
+    "physicalLedgerCapacity": 14000,
+    "radianceBound": {
+      "maximumRawRadiance": 0.00012082016919740103,
+      "maxRawRadiance": 0.00012082016919740103,
+      "globalFiniteSurfaceCeiling": 3130.6307922132723,
+      "globalReferenceOnly": true,
+      "ownSmokeRawBound": 0.00012082016919740103,
+      "maximumEmissionRGBChannel": 2.0772850837641945,
+      "visibleSources": 0,
+      "nearPlaneFallbackSources": 0,
+      "method": "32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers",
+      "conservative": true
+    },
+    "warnings": [],
+    "units": "reference cd + approximate emission RGB, linear scene reference once *2^storageEV; not measured pyrotechnic photometry",
+    "renderer": "independent instanced premult effects, four-segment finite air; water-hit reflection origin; sorted short segments",
+    "tailIntegration": {
+      "spatialSamples": "positive adaptive N/N+1",
+      "requested": "adaptive",
+      "effective": "adaptive-with-legacy8-budget-fallback",
+      "mode": "adaptive",
+      "estimates": {
+        "scope": "CPU projected estimates; GPU branch validated by independent fixtures, not runtime readback",
+        "tails": 1548,
+        "clipped": 0,
+        "adaptive": 1548,
+        "legacyFallback": 0,
+        "reasons": {
+          "degenerate": 0,
+          "globalBudget": 0,
+          "localBudget": 0
+        },
+        "maximumN": 9,
+        "maximumLocalBound": 9,
+        "minimumStepPixels": 0.5,
+        "maximumStepSigma": 0.5,
+        "supportSigma": 6,
+        "maxLocalSamplesPerLevel": 128,
+        "maxGlobalSamples": 65536,
+        "vectorTails": 268,
+        "vectorTemporalBins": 8,
+        "vectorJointKernel": "8 time-bin colour means, each with its shifted positive spatial kernel; not a separable mean-colour approximation"
+      },
+      "shutter": "<=1px: trace-preserving isotropic variance; >1px:3-point independent quadrature",
+      "kernelEvaluations": "candidate: up to8 temporal bins times2 spatial levels times128 local samples =2048 Gaussian evaluations; zero motion shortcuts once",
+      "extraPasses": 0
+    },
+    "profileOptics": {
+      "model": "causal8-bin referenceRGB shutter, actual past midpoint, fixed-lag optical tail field with detached-age spectrum",
+      "properties": "source colour/I shared by current ledger, local/cloud/smoke/GI proxies; candidate reflection uses same shutter as main",
+      "attributes": 13,
+      "estimatedVaryingComponents": 54,
+      "limits": [
+        "finite8-bin joint spatial-time quadrature; first-order midpoint motion proxy",
+        "one optical-anchor smoke T, not T(t)",
+        "N-lag tail-field quadrature; bin-integrated instantaneous field, not continuous material-particle history",
+        "receiver lighting instantaneous; depth/occlusion and camera history not integrated",
+        "candidate air-centre support clips causal history at bounded static terrain/mean sea; legacy scalar shutter, spatial kernel crossing, wave contact and chemical extinction remain approximations"
+      ]
+    },
+    "limits": [
+      "linear drag/burn model; no chemical or shock/fluid solve",
+      "grey smoke thin sprites; centre-depth sorting and shared near-air visibility approximation",
+      "resolved opaque depth/defocus occlusion approximation; root owns one shared bloom/vignette",
+      "subpixel tail shutter variance is a bounded angular approximation, not exact time-space convolution",
+      "star/cross-spectrum RGB is approximate CIE fit + authored bands and gamut compression"
+    ],
+    "lightingField": {
+      "requestedEnabled": true,
+      "effective": true,
+      "supported": true,
+      "reason": "ready",
+      "requiredPairs": 864000,
+      "maxBakePairs": 1048576,
+      "version": 372,
+      "reused": true,
+      "hidden": false,
+      "awaitingSmoke": false
+    },
+    "bounds": {
+      "min": [
+        -4.250680332133765,
+        0,
+        -41.747313692768664
+      ],
+      "max": [
+        171.1093477450184,
+        203.51229472429134,
+        89.93519790557201
+      ],
+      "centre": [
+        83.42933370644232,
+        101.75614736214567,
+        24.093942106401673
+      ],
+      "center": [
+        83.42933370644232,
+        101.75614736214567,
+        24.093942106401673
+      ],
+      "radius": 149.59000418812542,
+      "active": true,
+      "predicted": true,
+      "model": "Native sampled/smoke forecast union admitted powered analytic source/tail/stretch/shutter enclosure; full committed wind ranges; maximum1/60s shutter",
+      "poweredAnalytic": [
+        {
+          "eventId": "42-28.34060",
+          "effectProfile": "powered-bees-v1",
+          "min": [
+            -4.250680332133765,
+            0.03,
+            -41.747313692768664
+          ],
+          "max": [
+            171.1093477450184,
+            203.51229472429134,
+            89.93519790557201
+          ],
+          "windRanges": [
+            [
+              0,
+              1.6848
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0.6335999999999999
+            ]
+          ],
+          "maximumShutterSeconds": 0.016666666666666666
+        }
+      ]
+    },
+    "audio": {
+      "scheduled": 0,
+      "discarded": 2,
+      "recordedPlays": 0,
+      "synthesizedPlays": 0,
+      "activeVoices": 0,
+      "outputReady": false,
+      "recordingLoaded": false,
+      "recordingDuration": 0,
+      "relativeBurstGain": 12,
+      "postCompressorHeadroomGain": 0.7,
+      "compressorAttackSeconds": 0.0005,
+      "source": {
+        "title": "Single Firework",
+        "author": "richwise",
+        "source": "https://freesound.org/people/richwise/sounds/455453/",
+        "license": "CC0 1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "file": "./assets/audio/fireworks/burst-richwise-preview-mono.ogg",
+        "kind": "real recording, trimmed mono from compressed public HQ preview",
+        "subjectiveReview": "not performed by agent; listening acceptance pending"
+      },
+      "loadError": null,
+      "lastArrival": null,
+      "spatial": "HRTF; inverse pressure-distance once in PannerNode; temperature-dependent propagation delay",
+      "limits": [
+        "real compressed preview recording; subjective background/timbre listening pending",
+        "launch/crackle and failed-load burst explicitly synthesized",
+        "fixed listener at emission scheduling; moving receiver sound-cone not solved",
+        "distance lowpass is an approximation; no absolute sound-pressure calibration",
+        "linear post-compressor headroom lowers all pyro SFX3.10dB; not an arbitrary-source peak limiter"
+      ]
+    }
+  },
+  "smoke": {
+    "requestedPhysicalTime": 34.49197017173171,
+    "committedPhysicalTime": 34.45,
+    "behindSeconds": 0.041970171731705364,
+    "state": {
+      "version": "pyro-smoke-state-v1",
+      "time": 34.45,
+      "requestedTime": 34.49197017173171,
+      "revision": 1122,
+      "packetCount": 500,
+      "capacity": 4096,
+      "peakPacketCount": 500,
+      "pendingEmissions": 41,
+      "pendingWindEvents": 0,
+      "profileCount": 1,
+      "acceptedSources": 500,
+      "lastEmissionId": 540,
+      "totalTickSteps": 689,
+      "lastAdvanceSteps": 0,
+      "fixedStep": 0.05,
+      "maxStepsPerAdvance": 200,
+      "ledger": {
+        "emitted": 7.401199538374027,
+        "airborne": 7.401199538374027,
+        "pendingMass": 0.3020885090913026,
+        "residual": 0,
+        "deposited": 0,
+        "escaped": 0,
+        "explicitlyCleared": 0
+      },
+      "merges": 0,
+      "forcedMerges": 0,
+      "preferredSameSourceMerges": 0,
+      "preferredSameProfileMerges": 0,
+      "maximumMergeDistanceMetres": 0,
+      "maximumMergeNormalizedDistance": 0,
+      "maximumSampledMergePeakRelativeError": 0,
+      "maximumSampledMergeColumnRelativeError": 0,
+      "maximumSampledMergeOpticalDepthError": 0,
+      "recentMerges": [],
+      "units": "relative dry mass; metres; physical seconds; authored m2/reference-mass optical profiles. NOT calibrated kg/PM.",
+      "limits": [
+        "no age deletion; no deposition/domain/RH chemistry implemented",
+        "uniform piecewise-held wind and prescribed thermal/diffusion surrogate; no Navier-Stokes or shear",
+        "same-profile capacity merges conserve instantaneous spatial moments; no velocity/thermal variance or position-velocity cross covariance, so future heterogeneous thermal separation is not preserved",
+        "sampled peak/column diagnostics are not global optical bounds; differential-thermal-travel gate only limits preferred merges",
+        "forcedMerges signal visual approximation, not an accepted appearance",
+        "no camera/P/C/UTC or renderer dependency",
+        "erf columns have finite numerical approximation error; not an unbiased ray renderer",
+        "pending queues, profiles and recent merge log are bounded; no retained old source/active-event archive"
+      ]
+    },
+    "events": {
+      "version": "pyro-smoke-trajectory-v1",
+      "releaseErrors": 0,
+      "lastReleaseError": null,
+      "sourceModel": "trajectory-v1",
+      "poweredSmoke": {
+        "effectProfile": "powered-bees-v1",
+        "registeredEvents": 1,
+        "maxPendingPoweredPlans": 16384,
+        "pendingPlans": 2104,
+        "activeCoverage": [
+          {
+            "eventId": "42-28.34060",
+            "bodyCount": 192,
+            "motorBodyIds": [
+              4,
+              11,
+              15,
+              18,
+              26,
+              34,
+              41,
+              45,
+              48,
+              56,
+              61,
+              70,
+              77,
+              81,
+              87,
+              91,
+              101,
+              107,
+              109,
+              116,
+              125,
+              131,
+              135,
+              142,
+              147,
+              153,
+              158,
+              164,
+              172,
+              179,
+              182,
+              189
+            ],
+            "materializedBodies": 192,
+            "materializedMotorBodies": 32
+          }
+        ],
+        "completedCoverage": [],
+        "materialTiming": "uniform-per-life; bee CDF scheduler not admitted",
+        "sourceKernel": "force-knot quadrature aged to one original cell end",
+        "windHistory": {
+          "samples": 1,
+          "oldestTime": 0,
+          "throughTime": 34.49197017173171,
+          "maxSamples": 1024
+        },
+        "limits": [
+          "extra CPU queries; not a frame-rate promise",
+          "one Gaussian per original cell loses multimodal path shape",
+          "density capacity remains fixed; no age deletion or material loss at air-contact"
+        ]
+      },
+      "revision": 91116,
+      "epoch": 0,
+      "closedThrough": 34.49197017173171,
+      "nextEmissionId": 541,
+      "nextSerial": 1,
+      "registeredEvents": 1,
+      "emissionsLifetime": 541,
+      "materializedArea": 7.703288047465329,
+      "allocatedArea": 20.349999999999955,
+      "reservedArea": 12.646711952534625,
+      "cancelledReservedArea": 0,
+      "accountingResidual": 1.7763568394002505e-15,
+      "pendingEvents": 1,
+      "pendingPlans": 2104,
+      "rememberedEventKeys": 0,
+      "tombstones": 0,
+      "duplicates": 0,
+      "staleEvents": 0,
+      "clears": 0,
+      "clearedEventRecords": 0,
+      "queueCapacity": 8192,
+      "maxPendingEvents": 128,
+      "maxPendingPlans": 2048,
+      "maxRememberedEvents": 2048,
+      "fault": null,
+      "recentSources": [
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/75\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 75,
+          "time": 34.45969356787279,
+          "emissionId": 509,
+          "mass": 0.005490239123533405,
+          "position": [
+            87.64184994644333,
+            161.7010932799982,
+            19.82669612957112
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 4.553535727221751
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.159693567872786,
+              34.45969356787279
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.0002917002013920301,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.32144360396408295,
+              0.016656201397019246,
+              0.05362283663435018,
+              0.016656201397019246,
+              0.132482706051733,
+              0.01736178451037187,
+              0.05362283663435018,
+              0.01736178451037187,
+              0.32589438505751855
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/164\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 164,
+          "time": 34.46069853240512,
+          "emissionId": 510,
+          "mass": 0.014623156157878996,
+          "position": [
+            89.23236946870648,
+            157.0952862485405,
+            20.91495844335524
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": true,
+            "cellIndex": 2,
+            "rootLife": 1.70961724884063
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.16069853240512,
+              34.46069853240512
+            ],
+            "depositTime": 34.46069853240512,
+            "integrationBreaks": [
+              34.26697017173171,
+              34.35431069208197,
+              34.39197017173171
+            ],
+            "quadratureNodes": 20,
+            "subintervals": 4,
+            "materialWeighting": "uniform-per-life duration fractions",
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129661833,
+            "buoyantVelocityVariance": 0.0002917002013920058,
+            "limits": "one Gaussian matches the positive common-end sampled mixture; no exact multimodal field or future thermal/velocity cross-covariance claim",
+            "birthCovariance": [
+              0.31807310329622107,
+              0.08857439090874973,
+              0.07507828204333364,
+              0.08857439090874973,
+              0.28928896694369466,
+              0.1382637136043349,
+              0.07507828204333364,
+              0.1382637136043349,
+              0.38736088812399877
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/20\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 20,
+          "time": 34.461319713386516,
+          "emissionId": 511,
+          "mass": 0.0062238180477906715,
+          "position": [
+            91.35465800937696,
+            167.0285906442482,
+            19.983155732867314
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 4.016826939353487
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.16131971338652,
+              34.461319713386516
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.2967723366729858,
+              0.07935443693531413,
+              -0.035897060026152984,
+              0.07935443693531413,
+              0.36230002865895117,
+              -0.10640053652405676,
+              -0.035897060026152984,
+              -0.10640053652405676,
+              0.3181317314308745
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/109\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 109,
+          "time": 34.46232467791885,
+          "emissionId": 512,
+          "mass": 0.013760594137920825,
+          "position": [
+            91.61344040409438,
+            159.91363565336968,
+            21.957017344174375
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": true,
+            "cellIndex": 2,
+            "rootLife": 1.816782018961385
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.162324677918846,
+              34.46232467791885
+            ],
+            "depositTime": 34.46232467791885,
+            "integrationBreaks": [
+              34.26697017173171,
+              34.39197017173171,
+              34.398962679632284
+            ],
+            "quadratureNodes": 20,
+            "subintervals": 4,
+            "materialWeighting": "uniform-per-life duration fractions",
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662999,
+            "buoyantVelocityVariance": 0.00029170020139204815,
+            "limits": "one Gaussian matches the positive common-end sampled mixture; no exact multimodal field or future thermal/velocity cross-covariance claim",
+            "birthCovariance": [
+              0.4208099286183977,
+              -0.015459818753923434,
+              0.0332230526154699,
+              -0.015459818753923434,
+              0.127591801766852,
+              -0.0034081996210912876,
+              0.0332230526154699,
+              -0.0034081996210912876,
+              0.27732408941090314
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/54\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 54,
+          "time": 34.463950823432576,
+          "emissionId": 513,
+          "mass": 0.005292091831113493,
+          "position": [
+            87.28585920515145,
+            164.72794370922165,
+            20.127680442336743
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 4.724029891737503
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.16395082343258,
+              34.463950823432576
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.33918242150738565,
+              -0.06305738064078231,
+              0.05350024247429158,
+              -0.06305738064078231,
+              0.18456444680338807,
+              -0.04876361770186563,
+              0.05350024247429158,
+              -0.04876361770186563,
+              0.311372878867824
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/143\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 143,
+          "time": 34.464955787964904,
+          "emissionId": 514,
+          "mass": 0.0064869243495443915,
+          "position": [
+            84.28045386795877,
+            155.8193238786534,
+            21.007047225570158
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 3.8539065129926895
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.16495578796491,
+              34.464955787964904
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.6022011947538546,
+              0.3984585336799654,
+              0.06416509668298728,
+              0.3984585336799654,
+              0.6050206898192908,
+              0.07696278863981883,
+              0.06416509668298728,
+              0.07696278863981883,
+              0.2823935726221188
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/88\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 88,
+          "time": 34.466581933478636,
+          "emissionId": 515,
+          "mass": 0.0055930475958623875,
+          "position": [
+            87.35142773408886,
+            160.7021574910641,
+            21.280507565620326
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 4.469835017762845
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.16658193347863,
+              34.466581933478636
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.0002917002013920301,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.335233819943386,
+              0.04666017387514865,
+              0.02110976877615639,
+              0.04666017387514865,
+              0.16046472273723755,
+              0.01509930711423271,
+              0.02110976877615639,
+              0.01509930711423271,
+              0.2768311550384451
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/177\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 177,
+          "time": 34.467586898010964,
+          "emissionId": 516,
+          "mass": 0.006601615105089753,
+          "position": [
+            86.36444614755938,
+            151.72897151091823,
+            22.924064088554214
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 3.7869520718839484
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.16758689801097,
+              34.467586898010964
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.3979002107991171,
+              0.3988507063764669,
+              -0.03152143662349308,
+              0.3988507063764669,
+              1.3708867308893664,
+              -0.09829809649827312,
+              -0.03152143662349308,
+              -0.09829809649827312,
+              0.2777685639499784
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/33\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 33,
+          "time": 34.46820807899236,
+          "emissionId": 517,
+          "mass": 0.005923502747913095,
+          "position": [
+            90.16109509842815,
+            164.84654884940045,
+            21.7138277697526
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 4.220475800202461
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.168208078992365,
+              34.46820807899236
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.271336104722031,
+              0.009004454728353387,
+              -0.0013728761035324273,
+              0.009004454728353387,
+              0.1877738481955501,
+              -0.00925226931545369,
+              -0.0013728761035324273,
+              -0.00925226931545369,
+              0.27141065948242493
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/122\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 122,
+          "time": 34.4692130435247,
+          "emissionId": 518,
+          "mass": 0.006418757700499088,
+          "position": [
+            85.65410010476981,
+            158.24769149818823,
+            21.937032611149853
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 3.894834665289847
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.16921304352469,
+              34.4692130435247
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.4552662493172906,
+              0.18869238298326407,
+              0.006216081982307553,
+              0.18869238298326407,
+              0.31927170496371093,
+              0.006331036151393953,
+              0.006216081982307553,
+              0.006331036151393953,
+              0.2702085629484746
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/67\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 67,
+          "time": 34.47083918903842,
+          "emissionId": 519,
+          "mass": 0.006404903884384052,
+          "position": [
+            86.61573714033158,
+            163.46599844993065,
+            21.977542976965463
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 3.9032591981517615
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.170839189038425,
+              34.47083918903842
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.3790003958506208,
+              -0.033093798199021356,
+              0.0034081063167619996,
+              -0.033093798199021356,
+              0.1371374938883603,
+              -0.001034741037475685,
+              0.0034081063167619996,
+              -0.001034741037475685,
+              0.2701065609769169
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/156\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 156,
+          "time": 34.47184415357075,
+          "emissionId": 520,
+          "mass": 0.0055524399699908855,
+          "position": [
+            86.52969627818865,
+            155.1825886767052,
+            23.407316192302194
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 4.50252504036366
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.17184415357075,
+              34.47184415357075
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.3846474933392368,
+              0.25550629258306934,
+              -0.04638534110773996,
+              0.25550629258306934,
+              0.6965175907203313,
+              -0.10337554002659899,
+              -0.04638534110773996,
+              -0.10337554002659899,
+              0.2887670903829941
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/12\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 12,
+          "time": 34.47246533455215,
+          "emissionId": 521,
+          "mass": 0.0057058735054912515,
+          "position": [
+            92.92810602505854,
+            165.52174747248247,
+            22.378663860467597
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 4.3814500927755144
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.17246533455215,
+              34.47246533455215
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.37265822980426144,
+              0.09936086409453056,
+              0.009899651550637094,
+              0.09936086409453056,
+              0.223259237970844,
+              0.009581676346665463,
+              0.009899651550637094,
+              0.009581676346665463,
+              0.2709546541082066
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/101\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 101,
+          "time": 34.47347029908448,
+          "emissionId": 522,
+          "mass": 0.014398926574573485,
+          "position": [
+            90.8741296344314,
+            159.44659772345358,
+            25.226437586634347
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": true,
+            "cellIndex": 2,
+            "rootLife": 1.7362405364401639
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.17347029908448,
+              34.47347029908448
+            ],
+            "depositTime": 34.47347029908448,
+            "integrationBreaks": [
+              34.26697017173171,
+              34.365403728581775,
+              34.39197017173171
+            ],
+            "quadratureNodes": 20,
+            "subintervals": 4,
+            "materialWeighting": "uniform-per-life duration fractions",
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662932,
+            "buoyantVelocityVariance": 0.0002917002013920497,
+            "limits": "one Gaussian matches the positive common-end sampled mixture; no exact multimodal field or future thermal/velocity cross-covariance claim",
+            "birthCovariance": [
+              0.2922367353384909,
+              -0.0317673916399968,
+              0.09233375683324287,
+              -0.0317673916399968,
+              0.17178407475820423,
+              -0.13269088822433509,
+              0.09233375683324287,
+              -0.13269088822433509,
+              0.6549314830751546
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/190\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 190,
+          "time": 34.47447526361681,
+          "emissionId": 523,
+          "mass": 0.006420715646577094,
+          "position": [
+            89.50095978691967,
+            150.02471182405625,
+            23.9777330592216
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 3.893646966491593
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.17447526361681,
+              34.47447526361681
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.27106655726608375,
+              0.041884720463142455,
+              -0.006358153672128918,
+              0.041884720463142455,
+              1.7719427251134698,
+              -0.2496907551867807,
+              -0.006358153672128918,
+              -0.2496907551867807,
+              0.3079033732213739
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/46\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 46,
+          "time": 34.47509644459821,
+          "emissionId": 524,
+          "mass": 0.0055597534101838614,
+          "position": [
+            88.96343630598149,
+            164.29122728883277,
+            22.988911698294803
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 4.496602305096341
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.17509644459821,
+              34.47509644459821
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.27771000882231356,
+              -0.015820650553666927,
+              -0.00817568985310309,
+              -0.015820650553666927,
+              0.15955321362846928,
+              0.01677621066097095,
+              -0.00817568985310309,
+              0.01677621066097095,
+              0.27866949780662476
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/135\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 135,
+          "time": 34.47610140913054,
+          "emissionId": 525,
+          "mass": 0.01348024946888923,
+          "position": [
+            89.83282918646637,
+            155.9153262650682,
+            21.9310979049477
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": true,
+            "cellIndex": 2,
+            "rootLife": 1.8545650848448278
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.17610140913054,
+              34.47610140913054
+            ],
+            "depositTime": 34.47610140913054,
+            "integrationBreaks": [
+              34.26697017173171,
+              34.39197017173171,
+              34.414705623750386
+            ],
+            "quadratureNodes": 20,
+            "subintervals": 4,
+            "materialWeighting": "uniform-per-life duration fractions",
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129663007,
+            "buoyantVelocityVariance": 0.00029170020139204897,
+            "limits": "one Gaussian matches the positive common-end sampled mixture; no exact multimodal field or future thermal/velocity cross-covariance claim",
+            "birthCovariance": [
+              0.270539771543915,
+              -0.01953203797828155,
+              -0.006047771813354583,
+              -0.01953203797828155,
+              0.8923600321372364,
+              0.2351891190089677,
+              -0.006047771813354583,
+              0.2351891190089677,
+              0.34225068642885426
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/80\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 80,
+          "time": 34.47772755464427,
+          "emissionId": 526,
+          "mass": 0.0053690774215346335,
+          "position": [
+            85.55434563561727,
+            162.8111253459183,
+            24.313493871115238
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 4.656293444331503
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.17772755464427,
+              34.47772755464427
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.45967334288459666,
+              -0.011322275406168987,
+              -0.09911744641268025,
+              -0.011322275406168987,
+              0.1277656955603961,
+              0.00591667236298648,
+              -0.09911744641268025,
+              0.00591667236298648,
+              0.32179572434354964
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/169\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 169,
+          "time": 34.478732519176596,
+          "emissionId": 527,
+          "mass": 0.006269397678416756,
+          "position": [
+            86.73380324059316,
+            153.51574852623918,
+            24.741025857321024
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 3.9876238966409585
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.1787325191766,
+              34.478732519176596
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.3691217450916845,
+              0.29003618396452885,
+              -0.08520583807277558,
+              0.29003618396452885,
+              0.9757531359715877,
+              -0.24931740359563304,
+              -0.08520583807277558,
+              -0.24931740359563304,
+              0.34324361405227943
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/25\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 25,
+          "time": 34.47935370015799,
+          "emissionId": 528,
+          "mass": 0.006548117028352677,
+          "position": [
+            90.97308134652229,
+            165.9514057519902,
+            23.45992044938992
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 3.817891447534086
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.179353700157996,
+              34.47935370015799
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.28356893494167895,
+              0.04004455540761358,
+              0.0163107509919709,
+              0.04004455540761358,
+              0.24526906864345943,
+              0.04813618568038222,
+              0.0163107509919709,
+              0.04813618568038222,
+              0.2896065939637489
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/114\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 114,
+          "time": 34.48035866469033,
+          "emissionId": 529,
+          "mass": 0.006534641283308051,
+          "position": [
+            84.75103601168475,
+            159.428178066649,
+            25.657975225428107
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 3.825764707828639
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.180358664690324,
+              34.48035866469033
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.0002917002013920301,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.5356991099411279,
+              0.16489203811753983,
+              -0.18701922714167404,
+              0.16489203811753983,
+              0.22942131279689282,
+              -0.11606354849058945,
+              -0.18701922714167404,
+              -0.11606354849058945,
+              0.4016383458281874
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/59\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 59,
+          "time": 34.481984810204054,
+          "emissionId": 530,
+          "mass": 0.005784289937924562,
+          "position": [
+            88.222294271378,
+            163.57026427669894,
+            24.690480678899778
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 4.322051672425353
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.18198481020406,
+              34.481984810204054
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.2965419149099559,
+              -0.016093123951994682,
+              -0.042968398342315445,
+              -0.016093123951994682,
+              0.13684755116675093,
+              0.026052971795269372,
+              -0.042968398342315445,
+              0.026052971795269372,
+              0.33956104193564385
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/148\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 148,
+          "time": 34.48298977473639,
+          "emissionId": 531,
+          "mass": 0.006161145824995523,
+          "position": [
+            85.9645822981285,
+            155.84448917805904,
+            25.52366677338406
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 4.057686785885831
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.182989774736384,
+              34.48298977473639
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.422796471518391,
+              0.2669157041818613,
+              -0.13578981348760408,
+              0.2669157041818613,
+              0.5933570954507574,
+              -0.2372072687778302,
+              -0.13578981348760408,
+              -0.2372072687778302,
+              0.3906760422133078
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/4\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 4,
+          "time": 34.483610955717786,
+          "emissionId": 532,
+          "mass": 0.013849218063575822,
+          "position": [
+            96.57649599436073,
+            162.50640955153867,
+            23.904345596211478
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": true,
+            "cellIndex": 2,
+            "rootLife": 1.805156066229567
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.18361095571778,
+              34.483610955717786
+            ],
+            "depositTime": 34.483610955717786,
+            "integrationBreaks": [
+              34.26697017173171,
+              34.39197017173171,
+              34.39411853266069
+            ],
+            "quadratureNodes": 20,
+            "subintervals": 4,
+            "materialWeighting": "uniform-per-life duration fractions",
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662954,
+            "buoyantVelocityVariance": 0.00029170020139204897,
+            "limits": "one Gaussian matches the positive common-end sampled mixture; no exact multimodal field or future thermal/velocity cross-covariance claim",
+            "birthCovariance": [
+              1.129854128323518,
+              0.11829115391054917,
+              0.29813572058965215,
+              0.11829115391054917,
+              0.14272798371101877,
+              0.04077995724159235,
+              0.29813572058965215,
+              0.04077995724159235,
+              0.3734939133786449
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/93\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 93,
+          "time": 34.484615920250114,
+          "emissionId": 533,
+          "mass": 0.006495085226502472,
+          "position": [
+            85.63498128981288,
+            161.53803298398276,
+            26.758390338540448
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 3.849064196723746
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.18461592025012,
+              34.484615920250114
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.4491340844810697,
+              0.04604281939224325,
+              -0.19920358383804743,
+              0.04604281939224325,
+              0.13892421091573753,
+              -0.05120128120515226,
+              -0.19920358383804743,
+              -0.05120128120515226,
+              0.4915215933297986
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/182\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 182,
+          "time": 34.48562088478244,
+          "emissionId": 534,
+          "mass": 0.014251143708893625,
+          "position": [
+            90.49186418651978,
+            152.85217139351963,
+            23.273682834082923
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": true,
+            "cellIndex": 2,
+            "rootLife": 1.7542451687157155
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.185620884782445,
+              34.48562088478244
+            ],
+            "depositTime": 34.48562088478244,
+            "integrationBreaks": [
+              34.26697017173171,
+              34.37290565869659,
+              34.39197017173171
+            ],
+            "quadratureNodes": 20,
+            "subintervals": 4,
+            "materialWeighting": "uniform-per-life duration fractions",
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662388,
+            "buoyantVelocityVariance": 0.00029170020139202376,
+            "limits": "one Gaussian matches the positive common-end sampled mixture; no exact multimodal field or future thermal/velocity cross-covariance claim",
+            "birthCovariance": [
+              0.27371824335867084,
+              0.07444050944467093,
+              0.0005672936050549813,
+              0.07444050944467093,
+              1.7045120822588384,
+              0.006299677484249462,
+              0.0005672936050549813,
+              0.006299677484249462,
+              0.2703766831849351
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/38\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 38,
+          "time": 34.48624206576384,
+          "emissionId": 535,
+          "mass": 0.006408031699853227,
+          "position": [
+            89.86641407729049,
+            165.51744412116415,
+            25.392593168492784
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 3.9013539837158753
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.18624206576384,
+              34.48624206576384
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.2700074987011232,
+              0.0007935115237531559,
+              0.0009091683846337514,
+              0.0007935115237531559,
+              0.21105910925840762,
+              0.09620807366788083,
+              0.0009091683846337514,
+              0.09620807366788083,
+              0.38023071033883055
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/127\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 127,
+          "time": 34.487247030296174,
+          "emissionId": 536,
+          "mass": 0.006514116454501832,
+          "position": [
+            85.28190231810748,
+            157.9228161062003,
+            27.665471230269
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 3.8378190157657954
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.18724703029617,
+              34.487247030296174
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.0002917002013920301,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.47895748415010353,
+              0.2162880050320856,
+              -0.25564529584022855,
+              0.2162880050320856,
+              0.3509655195758958,
+              -0.2646136904740043,
+              -0.25564529584022855,
+              -0.2646136904740043,
+              0.582764663831301
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/72\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 72,
+          "time": 34.4888731758099,
+          "emissionId": 537,
+          "mass": 0.0058567778031799606,
+          "position": [
+            88.26321073408839,
+            162.5722171439315,
+            27.079610478052683
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 4.2685587263402995
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.1888731758099,
+              34.4888731758099
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.2949660659432737,
+              0.001330443937200416,
+              -0.07884036991153377,
+              0.001330443937200416,
+              0.1271607282127321,
+              -0.004201410522337729,
+              -0.07884036991153377,
+              -0.004201410522337729,
+              0.5189700997309779
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/161\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 161,
+          "time": 34.489878140342235,
+          "emissionId": 538,
+          "mass": 0.005669112703955662,
+          "position": [
+            86.33665111622975,
+            154.02764511758647,
+            26.950598130782254
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 4.409861173258395
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.18987814034223,
+              34.489878140342235
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.39262026532401234,
+              0.30187995017445624,
+              -0.16988388512400743,
+              0.30187995017445624,
+              0.8702908328786411,
+              -0.4182386870650066,
+              -0.16988388512400743,
+              -0.4182386870650066,
+              0.5053651278486891
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/17\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 17,
+          "time": 34.49049932132363,
+          "emissionId": 539,
+          "mass": 0.006282343456460114,
+          "position": [
+            92.52935483598358,
+            167.6265077643807,
+            25.18788706687545
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 3.9794067569312173
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.19049932132363,
+              34.49049932132363
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.3415461713987703,
+              0.13213866486181564,
+              0.08260950816926628,
+              0.13213866486181564,
+              0.37113680441519026,
+              0.15257154786853414,
+              0.08260950816926628,
+              0.15257154786853414,
+              0.36538359225305916
+            ]
+          }
+        },
+        {
+          "key": "[\"42-28.34060\",\"logical-family-continuous-v1\",\"42-28.34060/combustion/body/106\",2]",
+          "eventId": "42-28.34060",
+          "component": "logical-burn",
+          "bodyId": 106,
+          "time": 34.49150428585596,
+          "emissionId": 540,
+          "mass": 0.006095523845862642,
+          "position": [
+            86.93222253040972,
+            159.7964831724489,
+            28.246552846889415
+          ],
+          "sourceProfile": {
+            "requested": "powered-bees-v1",
+            "effective": "logical-family-continuous-v1",
+            "coverage": "all-logical",
+            "materialTiming": "uniform-per-life",
+            "motor": false,
+            "cellIndex": 2,
+            "rootLife": 4.101370223819045
+          },
+          "kernel": {
+            "kernelModel": "past-segment-v2",
+            "window": [
+              34.19150428585596,
+              34.49150428585596
+            ],
+            "quadratureNodes": 5,
+            "normalizedWeightSum": 1,
+            "sigmaPerp": 0.3,
+            "agedToBirth": true,
+            "temperatureVariance": 0.007315129129662524,
+            "buoyantVelocityVariance": 0.00029170020139203325,
+            "limits": "birth moments of this sampled representative segment only; delayed source cell and discarded future thermal/velocity cross-covariance are approximations",
+            "birthCovariance": [
+              0.3541996034275678,
+              0.083278300782926,
+              -0.17776549771640604,
+              0.083278300782926,
+              0.20945690766244396,
+              -0.1758204075199496,
+              -0.17776549771640604,
+              -0.1758204075199496,
+              0.6453054752276237
+            ]
+          }
+        }
+      ],
+      "parameters": {
+        "burstArea": 20,
+        "launchArea": 0.35,
+        "fanLaunchArea": 0.1,
+        "bouquetLaunchArea": 2,
+        "centralFraction": 0.2,
+        "trajectorySlots": 12,
+        "releaseAges": [
+          0.35,
+          0.65
+        ],
+        "centrePackets": 3,
+        "launchPackets": 9
+      },
+      "limits": [
+        "powered-bees-v1 uses all 192 logical bodies; ordinary recipe limits below apply only to noncandidate events",
+        "authored reference material, not measured kg/PM or per-star yield",
+        "3centre+12root+9launch=24 aerial kernels; fan retains81 and bouquet9",
+        "root-only sparse deposition0.35/0.65s; no child/long-burn continuous source solve",
+        "all future reservations have clocks/matter/IDs of logical roots but no world positions or emission IDs",
+        "future source model changes require a fresh host/explicit epoch protocol; legacy9 is a separate unchanged branch",
+        "provider must retain active descriptor and causal wind until due; absent/pruned sources reject without retiming",
+        "predictable input/provider/capacity failures are pre-commit; unexpected queue failures fault-lock and disclose partial acceptance"
+      ]
+    },
+    "sourceModel": "trajectory-v1",
+    "cancelledReservedArea": 0,
+    "columns": {
+      "sourceTime": 34.45,
+      "sourceRevision": 1122,
+      "columnKernel": "scalar",
+      "columnOriginCache": false,
+      "packetCount": 500,
+      "profileCount": 1,
+      "nodeCount": 127,
+      "leafCount": 64,
+      "leafSize": 8,
+      "kSigma": 5,
+      "errorBudget": 0.00001,
+      "builds": 124,
+      "lastBuildMs": 0.8999999985098839,
+      "totalBuildMs": 14.299999993294477,
+      "lastUpdateMs": 0.8999999985098839,
+      "refits": 100,
+      "structuralRebuilds": 24,
+      "qualityRebuilds": 0,
+      "lastUpdateKind": "structural-rebuild",
+      "treeQuality": 2.1309714181260104,
+      "treeQualityGrowth": 1,
+      "refitRebuildThreshold": 2.5,
+      "lastFallbackGrowth": null,
+      "trackedNewPacketRecords": 500,
+      "trackedNewNodeRecords": 127,
+      "rays": 0,
+      "zeroLengthRays": 0,
+      "visitedNodes": 0,
+      "bboxTests": 0,
+      "kernelsEvaluated": 0,
+      "omittedPackets": 0,
+      "skippedNodes": 0,
+      "zeroExtinctionPackets": 0,
+      "approximateKernels": 0,
+      "exactFallbackKernels": 0,
+      "maximumApproximationBound": 0,
+      "maximumCombinedErrorBound": 0,
+      "originWhitenHits": 0,
+      "originWhitenMisses": 0,
+      "totalQueryMs": 0,
+      "maximumQueryMs": 0,
+      "maximumOmittedBound": 0,
+      "mediumDomain": "unbounded full-SPD Gaussian; no halfspace, ground absorption or physical packet deletion",
+      "omissionBound": "Each missed 5-sigma AABB: sum M*trace(invSigma)/(2pi)*max(extinctionRGB)*exp(-12.5); only omitted when cumulative upper bound <= budget.",
+      "numericMethod": "binary64 Cholesky whitening + erf series/continued fraction + close-endpoint four-node quadrature",
+      "errorBoundIncludesRoundoff": false,
+      "units": "metres, relative dry mass, authored m2/reference-mass profiles; tau dimensionless"
+    },
+    "rendering": {
+      "version": "pyro-smoke-renderer-stageA-v3-local",
+      "lastRender": {
+        "packets": 500,
+        "instances": 500,
+        "culled": 0,
+        "fullScreenFallbacks": 0,
+        "projectionMode": "ellipsoid",
+        "proxyRasterPixelUpperBound": 852677,
+        "proxyRasterViewportLayers": 0.5458781788802761,
+        "reflection": false,
+        "width": 1209,
+        "height": 1292,
+        "storageEV": 12,
+        "supportSigma": 5,
+        "offProxyOpticalDepthUpperBound": 0.000009906601706793872,
+        "debugMode": 0,
+        "stateRevision": 1122,
+        "extraOffscreenTargets": 0,
+        "frontAirEnabled": true,
+        "frontAirCells": 4,
+        "localLightingEnabled": true,
+        "localLightingSources": 4,
+        "legacyClusterSources": 0,
+        "samplerCount": 2,
+        "finiteClusterPhase": true,
+        "resolvedPyroField": true,
+        "resolvedFieldVersion": 372,
+        "vertexSamplers": 3
+      },
+      "projectionMode": "ellipsoid",
+      "lightFieldBakeMode": "tiled64",
+      "maxPackets": 4096,
+      "packets": 500,
+      "supportSigma": 5,
+      "anisotropy": 0.32,
+      "resolvedLighting": {
+        "requestedEnabled": true,
+        "enabled": true,
+        "effective": true,
+        "supported": true,
+        "reason": "ready",
+        "requiredPairs": 864000,
+        "maxBakePairs": 1048576,
+        "version": 372,
+        "reused": true,
+        "ledgerVersion": 372,
+        "packetVersion": 123,
+        "rawBound": 0.03126128266581579,
+        "bakeMode": "tiled64",
+        "tileCount": 27,
+        "tileSources": 64,
+        "partialTexels": 13500,
+        "partialCapacityTexels": 20480,
+        "packetCapacity": 4096,
+        "sourceCapacity": 14000,
+        "maxReductionIterations": 219,
+        "bakePasses": 2,
+        "allocatedBytes": 1695744,
+        "sourceTextureBytes": 450560,
+        "packetTextureBytes": 65536,
+        "partialTargetBytes": 983040,
+        "finalTargetBytes": 196608,
+        "fixedCapacityTargets": true,
+        "field": {
+          "requestedEnabled": true,
+          "enabled": true,
+          "effective": true,
+          "supported": true,
+          "reason": "ready",
+          "requiredPairs": 864000,
+          "maxBakePairs": 1048576,
+          "version": 372,
+          "reused": true,
+          "ledgerVersion": 372,
+          "packetVersion": 123,
+          "rawBound": 0.03126128266581579,
+          "bakeMode": "tiled64",
+          "tileCount": 27,
+          "tileSources": 64,
+          "partialTexels": 13500,
+          "partialCapacityTexels": 20480,
+          "packetCapacity": 4096,
+          "sourceCapacity": 14000,
+          "maxReductionIterations": 219,
+          "bakePasses": 2,
+          "allocatedBytes": 1695744,
+          "sourceTextureBytes": 450560,
+          "packetTextureBytes": 65536,
+          "partialTargetBytes": 983040,
+          "finalTargetBytes": 196608,
+          "fixedCapacityTargets": true,
+          "tiled": {
+            "allocated": true,
+            "bakes": 372,
+            "tileSources": 64,
+            "lastPlan": {
+              "supported": true,
+              "requiredPairs": 864000,
+              "maxBakePairs": 1048576,
+              "tileCount": 27,
+              "tileSources": 64,
+              "partialTexels": 13500,
+              "partialCapacityTexels": 20480,
+              "packetCapacity": 4096,
+              "sourceCapacity": 14000,
+              "maxReductionIterations": 219
+            },
+            "allocatedBytes": 1695744,
+            "fixedCapacityTargets": true,
+            "model": "complete-source64wide map/reduce; same isotropic Gaussian SH1; FP32summation order differs"
+          },
+          "bakes": 372,
+          "zeroReuses": 0,
+          "zeroTargetValid": false,
+          "allocated": true,
+          "packetCount": 500,
+          "sourceCount": 1728,
+          "target": {
+            "width": 256,
+            "height": 16,
+            "attachments": 3,
+            "type": "RGBA32F"
+          },
+          "anisotropy": 0.32,
+          "maxPackets": 4096,
+          "maxSources": 14000,
+          "vertexTextures": 3,
+          "extraFragmentSamplers": 0,
+          "model": "trace-isotropic normalized Gaussian packet/emitter SH1; raw once; no packet mass",
+          "bound": {
+            "supported": true,
+            "maxRGB": 0.03126128266581579,
+            "maximumRGB": [
+              0.021936183804752447,
+              0.03126128266581579,
+              0.006398985701012949
+            ],
+            "rawBeforeStorageExposure": true,
+            "ledgerVersion": 372,
+            "packetVersion": 123,
+            "anisotropy": 0.32,
+            "margin": {
+              "sourceCount": 1728,
+              "gammaSum": 0.00010294781868951778,
+              "arithmeticOperations": 96,
+              "arithmeticRelativeError": 0.000005722078640434115,
+              "shaderRelativeError": 0.002,
+              "totalFactor": 1.0021088878273783,
+              "groupSumPrecision": "binary64 positive-sum gamma(count-1) applied after uploaded-row verification"
+            },
+            "diagnostics": {
+              "sources": 1728,
+              "packets": 500,
+              "groups": 1,
+              "evaluatedGroups": 500,
+              "maximumPacket": 491,
+              "maximumChannel": 1,
+              "packetMassUsed": false,
+              "cameraOrExposureUsed": false
+            },
+            "method": "max over uploaded packets/channels of sum(group RGB)*min(1/b,2/dAABB²)*(1+3|g|)/(4pi), with declared FP32/special-function margin",
+            "limits": "Bound for normalized isotropic Gaussian packet/emitter SH1 model only. No incoming smoke shadow, anisotropic conditional-ray field, scene-wide energy conservation, packet-count multiplier or measured photometry."
+          }
+        }
+      },
+      "neutralExtinctionOnly": true,
+      "frontAirOptIn": true,
+      "localLightingOptIn": true,
+      "samplerCount": 2,
+      "limits": [
+        "no app/event/source integration",
+        "true finite Gaussian columns withFloat32/erf and finite proxy-tail error; no unbiased-renderer claim",
+        "back-to-front latent-centre order; S at optical conditional mean, overlapping/source-varying scattering is approximate",
+        "optional four-cell front-air T/S restores front in-scatter at a conditional-mean thin layer; overlapping volumes are not a joint RTE integration",
+        "optional shared6 localIncident sources replace legacy2 clusters; borrowed stored RGB is not multiplied by P again",
+        "no smoke self-shadow, smoke source-path attenuation or multiple scattering; shared torch scene-shadow PCF is reused when active",
+        "air is sun/key-only, exponential height, flat local worldY clamped at0; no smoke/local-light sourced air illumination added by this module",
+        "opaque depth must be independently resolved; no centre-depth discard",
+        "whole-space Gaussian matches state; no ground-fold/deposition model implicitly applied",
+        "no density/P/C coupling; P applied once to own raw lighting including air, borrowed local uniforms must already match this frame P",
+        "proxy culling affects rendering only; physical state mass is never deleted",
+        "far/subpixel footprint filtering and volumeDOF are not solved; per-source PSF remains caller-owned"
+      ]
+    },
+    "explicitlyCleared": 0,
+    "clears": 0,
+    "lastUpdateMs": 1.699999999254942,
+    "limits": [
+      "Physical transport uses fixed20Hz state commits; it is not a fluid/turbulence/settling solver.",
+      "Source-path extinction is queried at emitter/tail anchors; it is not exact per-pixel convolution through a varying medium.",
+      "Whole-space neutral Gaussian medium; scattering, overlap order and clear-air folding retain the renderer StageA approximations."
+    ]
+  },
+  "sourceT": {
+    "count": 1740,
+    "densityRevision": 1122,
+    "sourceVersion": 521,
+    "cameraKey": "104.99999999999997,4.999999999999993,-229.99999999999997",
+    "width": 256,
+    "height": 71,
+    "pairs": 870000,
+    "tileCount": 8,
+    "opticallyAdmitted": false,
+    "layout": {
+      "mode": "legacy-max",
+      "partialStride": 18000,
+      "mapDraw": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 563,
+        "rasterTexels": 144128,
+        "paddingTexels": 130208
+      },
+      "outputDraw": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 71,
+        "rasterTexels": 18176,
+        "paddingTexels": 16436
+      },
+      "activePartialTexels": 13920,
+      "neutralOutput": false,
+      "validOutputCount": 1740,
+      "outsideCountMayBeStale": false
+    },
+    "effective": true,
+    "supported": true,
+    "reason": "experimental-ready",
+    "prepares": 521,
+    "draws": 1042,
+    "allocated": true,
+    "bytes": {
+      "packetInput": 262144,
+      "sourceInput": 864256,
+      "partialTarget": 18432000,
+      "transmissionTarget": 290816,
+      "total": 19849216
+    },
+    "gpuNumericalBytes": 19849216,
+    "cpuInputBufferBytes": 1126400,
+    "caps": {
+      "maxSources": 18000,
+      "maxPackets": 4096,
+      "maxPairs": 1048576
+    },
+    "layoutMode": "legacy-max",
+    "layoutPlan": {
+      "schema": "glass-atoll.smoke-transmission-layout.v1",
+      "supported": true,
+      "reason": "ready",
+      "count": 1740,
+      "packets": 500,
+      "pairs": 870000,
+      "maxPairs": 1048576,
+      "tileCount": 8,
+      "maxTiles": 64,
+      "maxSources": 18000,
+      "maxPackets": 4096,
+      "tilePackets": 64,
+      "layoutMode": "legacy-max",
+      "action": "map-reduce",
+      "allocation": {
+        "packet": {
+          "width": 256,
+          "height": 64,
+          "logicalCapacity": 16384,
+          "texelCapacity": 16384
+        },
+        "source": {
+          "width": 256,
+          "height": 211,
+          "logicalCapacity": 54000,
+          "texelCapacity": 54016
+        },
+        "partial": {
+          "width": 256,
+          "height": 4500,
+          "logicalCapacity": 1152000,
+          "texelCapacity": 1152000
+        },
+        "output": {
+          "width": 256,
+          "height": 71,
+          "logicalCapacity": 18000,
+          "texelCapacity": 18176
+        }
+      },
+      "partialCapacityTexels": 1152000,
+      "partialCapacityBound": {
+        "rectangular": 1152000,
+        "pairEnvelope": 34384,
+        "compactCapacity": 34384
+      },
+      "partialStride": 18000,
+      "activePartialTexels": 13920,
+      "mapDomainTexels": 144000,
+      "mapDraw": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 563,
+        "rasterTexels": 144128,
+        "paddingTexels": 130208
+      },
+      "outputDraw": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 71,
+        "rasterTexels": 18176,
+        "paddingTexels": 16436
+      },
+      "mapRequired": true,
+      "reduceRequired": true,
+      "reduceTileCount": 8,
+      "neutralOutput": false,
+      "fullOutputWrite": true,
+      "validOutputCount": 1740,
+      "outsideCountMayBeStale": false,
+      "freshGenerationRequired": true,
+      "publishAfter": "completed-map-and-reduction",
+      "publication": {
+        "orderedCount": 1740,
+        "inactiveRowsNeutral": true,
+        "neutralRGB": [
+          1,
+          1,
+          1
+        ],
+        "allAllocatedOutputsNeutral": false,
+        "validReadExtent": "metadata.count only",
+        "staleGenerationAllowed": false,
+        "partialResultAllowed": false
+      },
+      "limits": [
+        "Exact numerical layout only: no packet/source reduction, new pair allowance or frame-time admission.",
+        "For nonempty active-count output, texels beyond metadata.count may retain old values and are not valid reads.",
+        "Zero count or zero density requires one fresh full allocated neutral-output pass; no previous texture may substitute for that pass."
+      ]
+    },
+    "allocationPlan": {
+      "schema": "glass-atoll.smoke-transmission-layout.v1",
+      "supported": true,
+      "reason": "ready",
+      "count": 0,
+      "packets": 0,
+      "pairs": 0,
+      "maxPairs": 1048576,
+      "tileCount": 0,
+      "maxTiles": 64,
+      "maxSources": 18000,
+      "maxPackets": 4096,
+      "tilePackets": 64,
+      "layoutMode": "legacy-max",
+      "action": "neutral",
+      "allocation": {
+        "packet": {
+          "width": 256,
+          "height": 64,
+          "logicalCapacity": 16384,
+          "texelCapacity": 16384
+        },
+        "source": {
+          "width": 256,
+          "height": 211,
+          "logicalCapacity": 54000,
+          "texelCapacity": 54016
+        },
+        "partial": {
+          "width": 256,
+          "height": 4500,
+          "logicalCapacity": 1152000,
+          "texelCapacity": 1152000
+        },
+        "output": {
+          "width": 256,
+          "height": 71,
+          "logicalCapacity": 18000,
+          "texelCapacity": 18176
+        }
+      },
+      "partialCapacityTexels": 1152000,
+      "partialCapacityBound": {
+        "rectangular": 1152000,
+        "pairEnvelope": 34384,
+        "compactCapacity": 34384
+      },
+      "partialStride": 18000,
+      "activePartialTexels": 0,
+      "mapDomainTexels": 0,
+      "mapDraw": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 0,
+        "rasterTexels": 0,
+        "paddingTexels": 0
+      },
+      "outputDraw": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 71,
+        "rasterTexels": 18176,
+        "paddingTexels": 18176
+      },
+      "mapRequired": false,
+      "reduceRequired": true,
+      "reduceTileCount": 0,
+      "neutralOutput": true,
+      "fullOutputWrite": true,
+      "validOutputCount": 0,
+      "outsideCountMayBeStale": false,
+      "freshGenerationRequired": true,
+      "publishAfter": "completed-neutral-output-pass",
+      "publication": {
+        "orderedCount": 0,
+        "inactiveRowsNeutral": true,
+        "neutralRGB": [
+          1,
+          1,
+          1
+        ],
+        "allAllocatedOutputsNeutral": true,
+        "validReadExtent": "metadata.count only",
+        "staleGenerationAllowed": false,
+        "partialResultAllowed": false
+      },
+      "limits": [
+        "Exact numerical layout only: no packet/source reduction, new pair allowance or frame-time admission.",
+        "For nonempty active-count output, texels beyond metadata.count may retain old values and are not valid reads.",
+        "Zero count or zero density requires one fresh full allocated neutral-output pass; no previous texture may substitute for that pass."
+      ]
+    },
+    "capabilityCache": {
+      "probes": 1,
+      "cached": true,
+      "contextInvalid": false
+    },
+    "packing": {
+      "maximumMeanQuantizationMetres": 0.000015247535884554964,
+      "maximumEndpointQuantizationMetres": 0.000015242902804857295,
+      "maximumOriginQuantizationMetres": 0,
+      "maximumDirectionQuantization": 2.979961000182385e-8,
+      "maximumLengthQuantizationMetres": 0.000015246567102167319,
+      "maximumCholeskyRelativeQuantization": 5.907458532670073e-8,
+      "maximumNormalizationRelativeQuantization": 5.6873811037830714e-8,
+      "activeRays": 1740,
+      "zeroLengthRays": 0,
+      "inactiveRows": 0,
+      "maximumWhitenedCoordinateBound": 1082.094805672088,
+      "maximumWhitenedDirectionBound": 3.670981022059231,
+      "originalDoubleReflectionOrigins": true
+    },
+    "model": "full-SPD finite Gaussian extinction;64packet tau tiles then exp(-sum tau); no SH1/SSA/P/C",
+    "prototype": true,
+    "limits": [
+      "No universalCPU1e-5 error guarantee; Float32 input/kernel/summation/exp require separate oracle admission.",
+      "Original-double reflection water-hit origins supplied by caller; normalised per-source ray, nearer endpoint reversal and cross-product perpendicular distance.",
+      "Each prepare replaces the borrowed T texture; sorted FW row ordering/sourceVersion must match and draw immediately. Only metadata.count output rows are valid; nonempty active-count requests may leave unused capacity texels stale.",
+      "Explicit constructor caps only; unsupported dispatch requires caller CPU fallback.",
+      "Fixed capabilities are cached for one live context; observed loss/replacement requires a new field before GPU reuse."
+    ]
+  },
+  "gl": {
+    "label": "diagnostic",
+    "errors": [],
+    "programLive": true,
+    "programDeletePending": false,
+    "vertexArrayLive": true
+  }
+}

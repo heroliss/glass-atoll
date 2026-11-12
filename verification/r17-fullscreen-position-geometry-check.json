@@ -1,0 +1,137 @@
+{
+  "scope": "Actual Three CPU computeBoundingSphere and Float32 XY bit preservation; no GPU, shader or native image proof",
+  "threeRevision": "180",
+  "passed": true,
+  "checks": [
+    {
+      "name": "legacy two-component attribute reproduces real Three NaN sphere",
+      "passed": true,
+      "actual": {
+        "itemSize": 2,
+        "count": 3,
+        "xyBits": [
+          3212836864,
+          3212836864,
+          1077936128,
+          3212836864,
+          3212836864,
+          1077936128
+        ],
+        "finite": false,
+        "centre": [
+          1,
+          1,
+          null
+        ],
+        "radius": null,
+        "errorCount": 1,
+        "errorMessages": [
+          "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values."
+        ]
+      }
+    },
+    {
+      "name": "three-component proposal has finite exact bounds and identical XY bits",
+      "passed": true,
+      "actual": {
+        "itemSize": 3,
+        "count": 3,
+        "xyBits": [
+          3212836864,
+          3212836864,
+          1077936128,
+          3212836864,
+          3212836864,
+          1077936128
+        ],
+        "finite": true,
+        "centre": [
+          1,
+          1,
+          0
+        ],
+        "radius": 2.8284271247461903,
+        "errorCount": 0,
+        "errorMessages": []
+      }
+    },
+    {
+      "name": "current production geometry: pyro-smoke-transmission-gpu.js",
+      "passed": true,
+      "sourceSHA256": "16d7546cc73df5d14ab5bed3f07bb5a7f13fbec4638e1e2344e3ebb7d73abcf2",
+      "actual": {
+        "itemSize": 3,
+        "count": 3,
+        "xyBits": [
+          3212836864,
+          3212836864,
+          1077936128,
+          3212836864,
+          3212836864,
+          1077936128
+        ],
+        "finite": true,
+        "centre": [
+          1,
+          1,
+          0
+        ],
+        "radius": 2.8284271247461903,
+        "errorCount": 0,
+        "errorMessages": []
+      }
+    },
+    {
+      "name": "current production geometry: pyro-smoke-light-tiles.js",
+      "passed": true,
+      "sourceSHA256": "836196409a114f0b87f753a7fb72e680e68414cf163309398b495d2494d21c2d",
+      "actual": {
+        "itemSize": 3,
+        "count": 3,
+        "xyBits": [
+          3212836864,
+          3212836864,
+          1077936128,
+          3212836864,
+          3212836864,
+          1077936128
+        ],
+        "finite": true,
+        "centre": [
+          1,
+          1,
+          0
+        ],
+        "radius": 2.8284271247461903,
+        "errorCount": 0,
+        "errorMessages": []
+      }
+    },
+    {
+      "name": "current production geometry: pyro-smoke-light-field.js",
+      "passed": true,
+      "sourceSHA256": "6e37c2cc59c8f32b329840392dfba85a48c16c8beec92623d1e65b6458bffa6c",
+      "actual": {
+        "itemSize": 3,
+        "count": 3,
+        "xyBits": [
+          3212836864,
+          3212836864,
+          1077936128,
+          3212836864,
+          3212836864,
+          1077936128
+        ],
+        "finite": true,
+        "centre": [
+          1,
+          1,
+          0
+        ],
+        "radius": 2.8284271247461903,
+        "errorCount": 0,
+        "errorMessages": []
+      }
+    }
+  ]
+}

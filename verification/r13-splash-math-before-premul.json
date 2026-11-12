@@ -1,0 +1,73 @@
+{
+  "schema": "glass-atoll.r13-splash-optics-math.v1",
+  "passed": true,
+  "checks": [
+    {
+      "name": "Fresnel reflection is applied once and thin-sheet reflection conserves energy",
+      "passed": true,
+      "evidence": {
+        "normalFresnel": 0.02037,
+        "oldReflectionWeight": 0.00141080583,
+        "newReflectionWeight": 0.02037,
+        "suppressionFactor": 14.438556721870082,
+        "maximumClosure": 2.220446049250313e-16
+      }
+    },
+    {
+      "name": "fallback finite-sun Gaussian preserves its angular irradiance under footprint filtering",
+      "passed": true,
+      "evidence": [
+        {
+          "sigmaRadians": 0.002325,
+          "integratedIrradiance": 3.600000150000002,
+          "expected": 3.6
+        },
+        {
+          "sigmaRadians": 0.01,
+          "integratedIrradiance": 3.6000001500000014,
+          "expected": 3.6
+        },
+        {
+          "sigmaRadians": 0.05,
+          "integratedIrradiance": 3.600000150000002,
+          "expected": 3.6
+        },
+        {
+          "sigmaRadians": 0.2,
+          "integratedIrradiance": 3.600000150000002,
+          "expected": 3.6
+        }
+      ]
+    },
+    {
+      "name": "production cube defaults to disc absent independently of the live solar uniform; explicit metadata suppresses double-counting",
+      "passed": true,
+      "evidence": {
+        "sharedRatio": true,
+        "productionCubeHasSun": false,
+        "liveSolarUniformNotMetadata": true,
+        "explicitMetadataSupported": true
+      }
+    },
+    {
+      "name": "metric geometry timing and bounded lifetime are unchanged",
+      "passed": true,
+      "evidence": {
+        "maximumDropDiameterMetres": 0.0037047306936234233,
+        "maximumCrownRadiusMetres": 0.1,
+        "gravity": 9.81
+      }
+    }
+  ],
+  "sourceSHA256": "bb2c68d1d647376d7a33837e35a2afb68f4e038f8dd79878410ce465afc872fc",
+  "sources": [
+    "https://pbr-book.org/4ed/Reflection_Models/Specular_Reflection_and_Transmission",
+    "https://pbr-book.org/4ed/Reflection_Models/Dielectric_BSDF",
+    "https://arxiv.org/abs/0810.1888"
+  ],
+  "limits": [
+    "CPU contracts and equations only; actual GL helper and full scene visible acceptance remain separate.",
+    "Fallback Gaussian is an energy-normalized angular approximation to a finite solar disc; not spectral wave optics.",
+    "No fluid-dynamics claim or arbitrary-distance visibility guarantee."
+  ]
+}

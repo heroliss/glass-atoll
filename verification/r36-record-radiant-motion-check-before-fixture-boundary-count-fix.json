@@ -1,0 +1,60 @@
+{
+  "schema": "glass-atoll.r36-recorder-cpu-check.v1",
+  "passed": false,
+  "checks": 7,
+  "total": 8,
+  "actualGPU": false,
+  "browserUsed": false,
+  "actualRecording": false,
+  "sourceSHA256": "bad8f0e722de6d65bc3d816d2f6decbc26d43325228b674f144fe483959eea53",
+  "results": [
+    {
+      "name": "source is verification-only with fixed one-event and approved audio contracts",
+      "passed": true,
+      "detail": {
+        "audioSHA": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+        "actualGPU": false
+      }
+    },
+    {
+      "name": "actual recorder positive CPU flow preserves source, runs one event and cleans all tracks/tap",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n98 !== 97\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r36-record-radiant-motion-check.mjs:37:716\n    at async file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r36-record-radiant-motion-check.mjs:37:1"
+    },
+    {
+      "name": "wrong profile and unavailable codec reject before source fetch, capture or launch",
+      "passed": true,
+      "detail": {
+        "cases": 2
+      }
+    },
+    {
+      "name": "changed served audio hash rejects without recording or app mutation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "recorder constructor failure stops native media stand-ins and leaves scene paused",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "encoder failure stops one launched event capture and pauses without clearing matter",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "250 ms metadata watcher cancels context interruption without a readback or second launch",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "30 second total deadline cancels a stalled source fetch without launching",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "limits": [
+    "Static source and CPU-only native-media stand-ins; no browser encoding, real track audio, playback/decode, renderer frame rate or visual acceptance is established."
+  ]
+}

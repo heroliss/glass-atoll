@@ -1,0 +1,91 @@
+{
+  "schema": "glass-atoll.r28-lifetime-counts-independent-cpu.v1",
+  "dateUTC": "2026-10-29T13:56:45.786Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 3,
+    "total": 3
+  },
+  "studySHA256": "d24d312212f06e5832df5a50e6f7dcda0b78a82a55df2f84f2b44a1eba947f09",
+  "checks": [
+    {
+      "name": "Saved native study provenance and replay controls match pinned R27 N8/contact scenario",
+      "passed": true,
+      "evidence": {
+        "generatorSHA256": "eb8c57c8f6eb2607c33afc914bcf6086ef126033d9d2276d3d81ce024553ab97",
+        "checkpointCount": 203,
+        "anchoredPhase": 1.18,
+        "anchorPackets": 755,
+        "anchorMain": 1734,
+        "anchorReflection": 0,
+        "anchorLight": 1728,
+        "scope": "Saved reconstruction source/assertions and count association reviewed; this check does not independently rerun its physical producer"
+      }
+    },
+    {
+      "name": "Every saved phase counts distinct main/reflection/SH work arithmetically and keeps no-GPU scope",
+      "passed": true,
+      "evidence": {
+        "phases": 203,
+        "mainMirrorCountsAssumedEqual": false,
+        "allReflectionRows": 0,
+        "fullScope": "Fixed camera culling reconstruction; reflection0 is not a universal reflection workload claim"
+      }
+    },
+    {
+      "name": "Saved sampled maxima, threshold counts and full joint requested work are independently recomputed",
+      "passed": true,
+      "evidence": {
+        "sampledMainMaximum": {
+          "phase": 2.7,
+          "time": 161.82687017173075,
+          "densityTime": 161.8,
+          "packetCount": 1652,
+          "main": 1358,
+          "reflection": 0,
+          "lightSources": 1440,
+          "mainPairs": 2243416,
+          "reflectionPairs": 0,
+          "lightPairs": 2378880
+        },
+        "sampledLightMaximum": {
+          "phase": 3.9,
+          "time": 163.02687017173076,
+          "densityTime": 163,
+          "packetCount": 2301,
+          "main": 837,
+          "reflection": 0,
+          "lightSources": 1399,
+          "mainPairs": 1925937,
+          "reflectionPairs": 0,
+          "lightPairs": 3219099
+        },
+        "sampledJointMaximum": {
+          "phase": 3.85,
+          "time": 162.97687017173075,
+          "densityTime": 162.95000000000002,
+          "packetCount": 2258,
+          "main": 862,
+          "reflection": 0,
+          "lightSources": 1422,
+          "mainPairs": 1946396,
+          "reflectionPairs": 0,
+          "lightPairs": 3210876,
+          "totalDifferentKernelPairs": 5157272
+        },
+        "mainAbove1_4m": 56,
+        "lightAbove1_4m": 64,
+        "afterExtinctionSmokePackets": 2645,
+        "limits": "20Hz sampled maxima only; SourceT and SH pairs have different costs. No continuous maximum, cross-camera, multi-event or frame-time claim."
+      }
+    }
+  ],
+  "limits": [
+    "Read-only source/provenance/count arithmetic audit of the owner reconstruction; no duplicate physical run, per-phase oracle or GPU execution.",
+    "The native1.30464m SH gate is unchanged and remains a single phase. Later requests exceed1.4m even for one event, so current promotion is a partial repair.",
+    "Historical3.986m N10/no-contact data is a different scenario. Future larger request allowances require separately bounded measurements and explicit aggregate policy."
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "schema": "glass-atoll.r23-transmission-gpu-fixture-preflight.v1",
+  "dateUTC": "2026-10-29T07:23:31.539Z",
+  "passed": true,
+  "counts": {
+    "checks": 8,
+    "passed": 8
+  },
+  "actualGPU": false,
+  "productionEdits": 0,
+  "authorizedFixtureEdit": "supported Three sentinel setup plus explicit private receipt-registry VM binding and success/failure/lock/pause assertions; no production or GPU execution",
+  "checks": [
+    {
+      "name": "archived GPU baseline is modified only in import-relative paths",
+      "passed": true,
+      "evidence": {
+        "baselineSHA256": "2a35974fac7f6d75d6fa128fa04e869160d0ca40c9671569fe356bfef03ee294",
+        "importsOnly": true
+      }
+    },
+    {
+      "name": "native R21 capture restore and state comparison are copied exactly",
+      "passed": true,
+      "evidence": {
+        "exactGuardSource": true
+      }
+    },
+    {
+      "name": "first phase is at most four actual draws with13x65 caps and bounded first-fault gates",
+      "passed": true,
+      "evidence": {
+        "firstMaximumDraws": 4,
+        "pairs": 325,
+        "timingStopUnit": "next synchronous prepare; already submitted second pass cannot be recalled"
+      }
+    },
+    {
+      "name": "reflected5x65 fixture includes full-SPD positive rows, inactive and exact-zero rays with neutral outputs",
+      "passed": true,
+      "evidence": {
+        "rows": 5,
+        "packets": 65,
+        "active": [
+          1,
+          1,
+          1,
+          0,
+          1
+        ],
+        "maximumInputError": 3.459623298951442e-8
+      }
+    },
+    {
+      "name": "separate row-wrap phase covers source texture and valid output row boundaries with a positive last row",
+      "passed": true,
+      "evidence": {
+        "rows": 257,
+        "packets": 65,
+        "pairs": 16705,
+        "witnesses": [
+          84,
+          85,
+          86,
+          169,
+          170,
+          171,
+          254,
+          255,
+          256
+        ],
+        "neutralRows": 43,
+        "lastRowT": [
+          0.8106779523287191,
+          0.7409405682314203,
+          0.8869790244588416,
+          1
+        ],
+        "maximumInputError": 6.961373655300918e-8
+      }
+    },
+    {
+      "name": "empty and nonempty oracle scopes follow count plus complete neutral allocation rules",
+      "passed": true,
+      "evidence": {
+        "validReadExtent": "count",
+        "emptyAllocation": "fresh all-T1"
+      }
+    },
+    {
+      "name": "sentinel setup stays within the vendored Three target viewport contract",
+      "passed": true,
+      "evidence": {
+        "rawViewport": [
+          1,
+          0,
+          2,
+          1
+        ],
+        "rawScissor": [
+          1,
+          0,
+          1,
+          1
+        ],
+        "distinctREADandDRAW": true,
+        "unsupportedCacheDesyncRemoved": true
+      }
+    },
+    {
+      "name": "main hook owns trusted factories, updates only its phase receipt and restores lock/pause on all paths",
+      "passed": true,
+      "evidence": {
+        "cases": 12,
+        "successfulFrozenReceipts": 3,
+        "returnedFailureRetirements": 4,
+        "thrownFailureRetirements": 2,
+        "blockedBeforeHelper": 3,
+        "trustedFactories": true,
+        "lockAndPriorPauseRestored": true,
+        "contextLossForcesPause": true,
+        "unrelatedPhasePreserved": true
+      }
+    }
+  ],
+  "metrics": {
+    "fixture": {
+      "rows": 5,
+      "packets": 65,
+      "active": [
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "maximumInputError": 3.459623298951442e-8
+    },
+    "rowWrap": {
+      "rows": 257,
+      "packets": 65,
+      "pairs": 16705,
+      "witnesses": [
+        84,
+        85,
+        86,
+        169,
+        170,
+        171,
+        254,
+        255,
+        256
+      ],
+      "neutralRows": 43,
+      "lastRowT": [
+        0.8106779523287191,
+        0.7409405682314203,
+        0.8869790244588416,
+        1
+      ],
+      "maximumInputError": 6.961373655300918e-8
+    },
+    "lockReceipt": {
+      "cases": 12,
+      "successfulFrozenReceipts": 3,
+      "returnedFailureRetirements": 4,
+      "thrownFailureRetirements": 2,
+      "blockedBeforeHelper": 3,
+      "trustedFactories": true,
+      "lockAndPriorPauseRestored": true,
+      "contextLossForcesPause": true,
+      "unrelatedPhasePreserved": true
+    }
+  },
+  "sourceSHA256": {
+    "verification/r23-transmission-layout-gpu-check.js": "a9a206c84441621aaceb958026082b3c1e3c1b376ddb9b34a503b2233543e6c2",
+    "verification/r23-legacy-transmission-gpu.js": "3482a295236e5fc110970e7623b69f6d574bb28aff1f93138e7975506f37a1a4",
+    "verification/baselines/r23-before-active-transmission-layout/pyro-smoke-transmission-gpu.js": "2a35974fac7f6d75d6fa128fa04e869160d0ca40c9671569fe356bfef03ee294",
+    "main.js": "0890c1efaa4def20d518b79b95d1cf6cf0c4f141da573b2ce68f81004edb3ea6"
+  },
+  "limits": [
+    "No actual GPU/context/browser call; source audit, CPU oracle and exact hook slices only.",
+    "Each synchronous field prepare can submit two passes before timing is readable; >25ms stops the next prepare.",
+    "The distinct READ/DRAW/PACK sentinel is supported Three state, not an intentional renderer-private viewport-cache inconsistency.",
+    "Actual GL state restoration, pixels and timing remain root dispatch acceptance."
+  ]
+}

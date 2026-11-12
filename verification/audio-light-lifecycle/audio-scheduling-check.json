@@ -1,0 +1,103 @@
+{
+  "schema": "glass-atoll.audio-scheduling.v1",
+  "date": "2026-10-31T16:37:59.545Z",
+  "passed": true,
+  "total": 8,
+  "passedCount": 8,
+  "checks": [
+    {
+      "name": "unready_output_can_initialize_later_using_same_context",
+      "passed": true,
+      "evidence": {
+        "decoded": 6,
+        "outputReady": true
+      }
+    },
+    {
+      "name": "batch_primary_priority_retains_24_distinct_events_and_no_accents",
+      "passed": true,
+      "evidence": {
+        "scheduled": 24,
+        "dropped": 24,
+        "retired": 0
+      }
+    },
+    {
+      "name": "pause_stops_all_future_primary_body_and_two_tail_sources",
+      "passed": true,
+      "evidence": {
+        "layers": {
+          "primary": 1,
+          "low-body": 1,
+          "crackle-tail": 1,
+          "late-crackle": 1
+        },
+        "allSourcesStopped": true
+      }
+    },
+    {
+      "name": "selected_variant_is_the_primary_and_all_layers_share_spatial_origin",
+      "passed": true,
+      "evidence": {
+        "variant": "boom-b",
+        "origin": [
+          125,
+          75,
+          -300
+        ],
+        "physicalArrival": 1.9571850725258741,
+        "scheduled": 1.9571428725258742,
+        "panners": 3
+      }
+    },
+    {
+      "name": "aerial_launch_has_ascent_and_ground_fan_does_not_add_it",
+      "passed": true,
+      "evidence": {
+        "primaries": 2,
+        "ascent": 1
+      }
+    },
+    {
+      "name": "old_events_and_muted_events_are_discarded_without_late_replay",
+      "passed": true,
+      "evidence": {
+        "sources": 0,
+        "discarded": 2
+      }
+    },
+    {
+      "name": "all_failed_recordings_schedule_honestly_labelled_synthesized_fallbacks",
+      "passed": true,
+      "evidence": {
+        "sources": [
+          "synthesis-burst",
+          "synthesis-crackle"
+        ],
+        "recorded": 0,
+        "synthesized": 2,
+        "warnings": 6
+      }
+    },
+    {
+      "name": "four_synthesized_kinds_are_finite_repeatable_and_fade_out",
+      "passed": true,
+      "evidence": {
+        "launch": {
+          "duration": 0.62
+        },
+        "ascent": {
+          "duration": 1.35
+        },
+        "burst": {
+          "duration": 1.45
+        },
+        "crackle": {
+          "duration": 0.48
+        }
+      }
+    }
+  ],
+  "sourceHash": "b3f57d21b550b7889c918a4a8ac9b58543412b553ec3a726c78e9bbbbe424b94",
+  "limits": "Mock AudioNodes verify production event scheduling, priority and cancellation. Browser PCM render and human listening are separate."
+}

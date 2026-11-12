@@ -1,0 +1,73 @@
+{
+  "schema": "glass-atoll.near-head-shutter-gpu-preflight.v1",
+  "passed": true,
+  "summary": {
+    "passed": 6,
+    "total": 6
+  },
+  "helperSHA": "67ca6a525ed7b7a53b20b751620876f5848818639897252ea28c2e7383013b5a",
+  "productionSHA": "b7580d2e7388a7e95d5e5963a9de0612c65baed69d33b051092dcabbb6c3c9ff",
+  "checks": [
+    {
+      "name": "fixed production/source/shader/cached function pins are complete and current",
+      "passed": true,
+      "evidence": {
+        "pins": {
+          "fireworks": "b7580d2e7388a7e95d5e5963a9de0612c65baed69d33b051092dcabbb6c3c9ff",
+          "fixture": "9b9f84178ad5c3759cc6dd41a04bda1ac353b8b243f328525ef38d92862ede5a",
+          "vertex": "14ff1165ccfaee66634bd7c7b24c1764142598ccecb92d46bb80897231fc7c7b",
+          "fragment": "ca0668e71c9b420da2c8b090bb7bb0277f01f8cb4e3f0bc4573dde2cbe49aff1",
+          "factory": "37849a95244aa1bb2d455d1bdf9bd86d9c1311172a4827210e303081a5ebbd64",
+          "pixel": "8cc47b5dec8991212083b5e07b855d887d282632fd68d5d1e33aef04a5eeb19a",
+          "plan": "d671db10aa3356b44f7b3e5633453ac9559d81a4de1db070dc9a68a1526ad84a",
+          "gaussian": "6aedab60bc11efbdc90ee49a952e232dbacb3aae712ad9052b887ea161c3beae",
+          "level": "2676aef31124422ec47dcd66eb147c54a2716a53f57aa3d703595b134fb7acf2"
+        },
+        "helperSHA": "67ca6a525ed7b7a53b20b751620876f5848818639897252ea28c2e7383013b5a"
+      }
+    },
+    {
+      "name": "fixed actual GL draw/read/timer and cleanup scope is explicit",
+      "passed": true,
+      "evidence": {
+        "draws": 4,
+        "readBytes": 262144,
+        "numericalTargetBytes": 65536,
+        "msPerDraw": 25
+      }
+    },
+    {
+      "name": "a submitted draw remains actualGPU on subsequent GL failure; final context loss cannot pass",
+      "passed": true,
+      "evidence": {
+        "actualSubmittedFaultRetained": true,
+        "finalHealthCases": 3
+      }
+    },
+    {
+      "name": "real complete CPU capture and all source guards reach deliberate context boundary without GL",
+      "passed": true,
+      "evidence": {
+        "actualContextCalls": 0,
+        "deliberateBoundaryCalls": 1
+      }
+    },
+    {
+      "name": "closed options reject before any renderer access and active lifecycle resets",
+      "passed": true,
+      "evidence": {
+        "invalidOptions": 3,
+        "retryAfterCPUFailure": true
+      }
+    },
+    {
+      "name": "fetched source drift rejects before deliberate context boundary",
+      "passed": true,
+      "evidence": {
+        "nativeAccesses": 0
+      }
+    }
+  ],
+  "actualGPU": false,
+  "scope": "CPU shader capture/pins/pre-context lifecycle; no native context or GPU"
+}

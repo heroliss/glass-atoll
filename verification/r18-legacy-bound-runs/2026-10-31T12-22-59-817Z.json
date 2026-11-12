@@ -1,0 +1,68 @@
+{
+  "schema": "glass-atoll.r18-legacy-bound-check.v1",
+  "started": "2026-10-31T12:22:59.817Z",
+  "completed": "2026-10-31T12:23:00.128Z",
+  "passed": false,
+  "counts": {
+    "passed": 3,
+    "total": 6
+  },
+  "sourceSHA256": "6b3b308d99e4c794e034d77cac34b9bcb52c29b23a4b07209ac61372c19fddda",
+  "frozenFactorySHA256": "3fb39738c83705d77dd5b6c55db8d15f76fbba6ec4e24d17130a9e9a3de477fe",
+  "frozenPhysicsSHA256": "fb6be290ea34ced9a36925c0ec24e2e3745c1108bded80d4a8aee0d72fe63236",
+  "preScalarFactorySHA256": "22881d28ac39ddd5f97903f80b7a16b598db256f40f3d44c8281a452ded26e4f",
+  "metrics": {
+    "factoryBudgets": 2,
+    "sourceBounds": 512,
+    "sourceTraceRows": 0,
+    "legacyRecordComparisons": 2,
+    "maximumAbsoluteDifference": 0
+  },
+  "checks": [
+    {
+      "name": "Frozen full factory uses exact 3fb source and original fb6 physics; all helper imports resolve",
+      "passed": true,
+      "details": {
+        "factorySHA256": "3fb39738c83705d77dd5b6c55db8d15f76fbba6ec4e24d17130a9e9a3de477fe",
+        "physicsSHA256": "fb6be290ea34ced9a36925c0ec24e2e3745c1108bded80d4a8aee0d72fe63236",
+        "normalizersUsed": false
+      }
+    },
+    {
+      "name": "Scalar public source bounds preserve every output under mutable cameras and optics",
+      "passed": true,
+      "details": {
+        "cases": 512,
+        "includes": "Float32 endpoints, DOF, zero/large shutter, view offset and reused camera object"
+      }
+    },
+    {
+      "name": "All10 native legacy types retain exact records, clusters and camera-free scalar reference",
+      "passed": false,
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  [\n    {\n      colour: [\n        0.63,\n        0.65,\n...\n      eventId: '42-0.00000',\n+     intensity: 1.2276957954800116,\n-     intensity: 4.700748853535586,\n      kind: 'star',\n      opticalDepth: undefined,\n      position: [\n        75.07901428586925,\n        127.10584894158757,\n...\n      eventId: '42-0.00000',\n+     intensity: 2.949563270686912,\n-     intensity: 6.464421650055825,\n      kind: 'star',\n      opticalDepth: undefined,\n      position: [\n        72.0266986329716,\n        127.16608098000185,\n...\n      eventId: '42-0.00000',\n+     intensity: 1.0639078032953229,\n-     intensity: 3.9016629096937505,\n      kind: 'star',\n      opticalDepth: undefined,\n      position: [\n        74.31238947819536,\n        131.50679674147185,\n...\n      eventId: '42-0.00000',\n+     intensity: 1.2976301609080456,\n-     intensity: 5.286331170534517,\n      kind: 'star',\n      opticalDepth: undefined,\n      position: [\n        76.3254435571941,\n        131.50741500076268,\n...\n      eventId: '42-0.00000',\n+     intensity: 0.35470517172853067,\n-     intensity: 4.84705635514438,\n      kind: 'star',\n      opticalDepth: undefined,\n      position: [\n        68.7763561972205,\n        130.93855419671078,\n...\n      eventId: '42-0.00000',\n+     intensity: 2.489500800426994,\n-     intensity: 5.846410642045074,\n      kind: 'star',\n      opticalDepth: undefined,\n      position: [\n        78.11743259346406,\n        129.11292145921462,\n...\n      eventId: '42-0.00000',\n+     intensity: 2.3724017746332167,\n-     intensity: 6.866555117755975,\n      kind: 'star',\n      opticalDepth: undefined,\n      position: [\n        71.97107880004684,\n        129.88595274110503,\n...\n      eventId: '42-0.00000',\n+     intensity: 1.1329604343179867,\n-     intensity: 5.985290977515335,\n      kind: 'star',\n      opticalDepth: undefined,\n      position: [\n        71.40280004239301,\n        126.83296425699206,\n...\n      eventId: '42-0.00000',\n+     intensity: 0.31060825310979384,\n-     intensity: 3.384707703257614,\n      kind: 'star',\n      opticalDepth: undefined,\n      position: [\n        79.26759204994592,\n        127.8274338281366,\n...\n      eventId: '42-0.00000',\n+     intensity: 3.3706601595139984,\n-     intensity: 6.562412914497578,\n      kind: 'star',\n      opticalDepth: undefined,\n      position: [\n        66.7111150198705,\n        130.4636617431025,\n...\n      eventId: '42-0.00000',\n+     intensity: 0.24019503554716104,\n-     intensity: 3.6362899387353074,\n      kind: 'star',\n      opticalDepth: undefined,\n      position: [\n        76.66024637871527,\n        127.12844521515882,\n...\n      eventId: '42-0.00000',\n+     intensity: 1.3299124356556076,\n-     intensity: 3.8588303285437986,\n      kind: 'star',\n      opticalDepth: undefined,\n      position: [\n        75.44416598595271,\n        127.64672053107759,\n...\n      eventId: '42-0.00000',\n+     intensity: 1.4153329056819755,\n-     intensity: 5.103759735547504,\n "
+    },
+    {
+      "name": "Factory scalar budgets and full source traces exactly match frozen R17 across reused mutable view contexts",
+      "passed": false,
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n    conservative: true,\n    globalFiniteSurfaceCeiling: 40.833173858626445,\n    globalReferenceOnly: true,\n+   kernelOutsideBudgetSources: 0,\n    maxRawRadiance: 0.10285104505315613,\n    maximumEmissionRGBChannel: 1.8277674763872431,\n    maximumRawRadiance: 0.10285104505315613,\n+   method: '32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport unless Float32 kernel support proves legacy8/fallback taps outside; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers',\n-   method: '32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers',\n    nearPlaneFallbackSources: 0,\n    ownSmokeRawBound: 0,\n    visibleSources: 11\n  }\n"
+    },
+    {
+      "name": "Published scalar bound results and trace arrays remain independent after another camera query",
+      "passed": true,
+      "details": {
+        "retainedTraceRows": 2112
+      }
+    },
+    {
+      "name": "Historical1.06percent aggregate difference is reproduced and attributed separately from R18 projection regression",
+      "passed": false,
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n    conservative: true,\n    globalFiniteSurfaceCeiling: 6765.43761069894,\n    globalReferenceOnly: true,\n+   kernelOutsideBudgetSources: 0,\n    maxRawRadiance: 1.2833420877542283,\n    maximumEmissionRGBChannel: 1.8277674763872431,\n    maximumRawRadiance: 1.2833420877542283,\n+   method: '32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport unless Float32 kernel support proves legacy8/fallback taps outside; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers',\n-   method: '32x32 conservative source overlap bins; actual pixel-integrated Gaussian peak and projected shutter/stretch extent; near crossings cover viewport; legacy globalFiniteSurfaceCeiling is a spherical reference only; root separately budgets ambient/air/receivers',\n    nearPlaneFallbackSources: 0,\n    ownSmokeRawBound: 0.0008020958603566998,\n    visibleSources: 4224\n  }\n"
+    }
+  ],
+  "details": {},
+  "limits": [
+    "CPU full-factory/public scalar budget/source-trace comparison only; no shader peak, native image, GPU or FPS proof.",
+    "Frozen R17 imports original fb6 physics; pre-scalar factory intentionally imports current physics only to reproduce the old failing test.",
+    "Only in-memory diagnostic record access/injection is added; no production file or source normalizer changed."
+  ]
+}

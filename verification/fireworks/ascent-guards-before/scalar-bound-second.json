@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-27T13:42:07.157Z",
+  "passed": false,
+  "passedCount": 6,
+  "total": 7,
+  "metrics": {
+    "sources": 12491,
+    "maximumAbsoluteError": 0,
+    "maximumRelativeError": 0,
+    "maximumPeakUnderRelative": 0,
+    "visibilityChanges": 0,
+    "nearFallbackChanges": 0
+  },
+  "tests": [
+    {
+      "name": "12000 random camera/source cases preserve peak and every public field",
+      "passed": true
+    },
+    {
+      "name": "exact cull/near-plane boundaries and independent shutter/stretch endpoints",
+      "passed": true
+    },
+    {
+      "name": "Float32 vector map endpoint rounding retained",
+      "passed": true
+    },
+    {
+      "name": "blue overlapping source peak sum is unchanged",
+      "passed": true
+    },
+    {
+      "name": "public outputs retain independent arrays across subsequent calls",
+      "passed": true
+    },
+    {
+      "name": "factory aggregator and mutable camera/optics contexts match old full records",
+      "passed": true
+    },
+    {
+      "name": "shader/upload/raw Gaussian projection unchanged; authorized depth-bin rejection verified independently",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nfalse !== true\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/scalar-bound-check.mjs:84:10\n    at test (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/scalar-bound-check.mjs:12:64)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/scalar-bound-check.mjs:73:1"
+    }
+  ],
+  "limits": [
+    "CPU exact old/new projection/budget comparisons, not GPU peak verification or scene FPS",
+    "No reduction of sources, endpoints, frequency, binning or margins. GPU7-case bound fixture must be rerun by root."
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "glass-atoll.r28-production-root-audit.v1",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "Actual main is the reviewed three-route staging plus exactly one locked lazy production QA method",
+      "passed": true,
+      "evidence": {
+        "mainSHA256": "9914304570bad04935f07877b8e96dcce3c1b07b1338f7df6c524ac2d1ec04f9",
+        "dailyRoutes": 3
+      }
+    },
+    {
+      "name": "Seven deployed modules equal reviewed staging with only declared dependency import relocations",
+      "passed": true,
+      "evidence": {
+        "comparedNonMain": 6,
+        "relocations": 2
+      }
+    },
+    {
+      "name": "Production QA method rejects unsafe ownership states, overrides untrusted factory and restores all finally paths",
+      "passed": true,
+      "evidence": {
+        "earlyGuards": 4,
+        "finallyCases": 3,
+        "trustedOverrides": true
+      }
+    },
+    {
+      "name": "All remaining inherited runtime pins and accepted audio are unchanged",
+      "passed": true,
+      "evidence": {
+        "unchanged": 26,
+        "audioUnchanged": true,
+        "newModule": "pyro-smoke-light-native-state.js"
+      }
+    }
+  ]
+}

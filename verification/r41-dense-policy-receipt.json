@@ -1,0 +1,50 @@
+{
+  "schema": "glass-atoll.r41-explicit-dense-policy-receipt.v1",
+  "passed": true,
+  "actualGPU": false,
+  "capabilityOnly": true,
+  "normalDefaultPolicyChanged": false,
+  "oldDefaults": {
+    "SourceT": {
+      "maxSources": 64,
+      "maxPackets": 48,
+      "maxPairs": 3072
+    },
+    "SH": {
+      "maxPackets": 4096,
+      "maxSources": 14000,
+      "maxBakePairs": 1048576,
+      "maxMapDraws": 64
+    }
+  },
+  "newExplicitMaxRequestPairs": 12000000,
+  "files": [
+    {
+      "path": "pyro-smoke-transmission-pack.js",
+      "beforeSHA256": "8b52f7db7293d41cb977b2235fa95900d494425089211054422151408a10d3a2",
+      "afterSHA256": "92131c1617517a56e875fecc8a7214e489c5a6aa63ea6f624a0b34b10cb9bf86",
+      "explicitCeilingOnly": true
+    },
+    {
+      "path": "pyro-smoke-light-tiles.js",
+      "beforeSHA256": "3840487aef7d42ea11be02efc7b2f06defbf5275bccf57e131c893bf9bace663",
+      "afterSHA256": "836196409a114f0b87f753a7fb72e680e68414cf163309398b495d2494d21c2d",
+      "explicitCeilingOnly": true
+    }
+  ],
+  "checks": {
+    "passed": 5,
+    "total": 5,
+    "script": "verification/r41-dense-policy-check.mjs",
+    "scriptSHA256": "9fe58338fa7316cb5e9907d57d8cdedae374bd6f96d5beedd1bdd299024aca96",
+    "report": "verification/r41-dense-policy-check.json",
+    "reportSHA256": "e3440b3547a477dc0fde78ba2cc5669c5afdae3940394b89e53d0da947bdb442"
+  },
+  "unchangedOpticalSources": {
+    "pyro-smoke-transmission-gpu.js": "16d7546cc73df5d14ab5bed3f07bb5a7f13fbec4638e1e2344e3ebb7d73abcf2",
+    "pyro-smoke-light-field.js": "6e37c2cc59c8f32b329840392dfba85a48c16c8beec92623d1e65b6458bffa6c",
+    "smoke-transmission-layout.js": "79b76d3ece575ab9eb4678e42825ff19b758200627512b0bfed78ab5b81508a5",
+    "smoke-transmission-rectangles.js": "3080bdaf0630010dd0f7e91ff84b050eac889235f7b0a587c831ea4090898832"
+  },
+  "scope": "Three literals only; no main/FW/renderer route/shader/packing formula changed. Explicit4m remains bit-identical planning/packing behavior, optional12m matches independently verified R39 copies. No browser/GPU or live pilot performed."
+}

@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "local GET reads real display data",
+      "passed": true,
+      "displays": [
+        {
+          "deviceName": "\\\\.\\DISPLAY5",
+          "peakNits": 700,
+          "sdrWhiteNits": 280
+        },
+        {
+          "deviceName": "\\\\.\\DISPLAY6",
+          "peakNits": 1270,
+          "sdrWhiteNits": 280
+        }
+      ]
+    },
+    {
+      "name": "five-second cache reuses original native report",
+      "passed": true,
+      "cache": {
+        "ageMs": 8,
+        "ttlMs": 5000
+      }
+    },
+    {
+      "name": "write methods rejected",
+      "passed": true,
+      "status": 405
+    },
+    {
+      "name": "cross-origin native access rejected",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "HEAD has no response body",
+      "passed": true
+    }
+  ],
+  "note": "Ephemeral loopback test server only, closed in finally. Production port5186/owned process not changed."
+}

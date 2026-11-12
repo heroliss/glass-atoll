@@ -1,0 +1,1071 @@
+{
+  "status": "done",
+  "result": {
+    "schema": "glass-atoll.transient-GI-GPU.v1",
+    "passed": true,
+    "counts": {
+      "checks": 14,
+      "passed": 14
+    },
+    "checks": [
+      {
+        "id": "default_opt_out_lookup_is_bit_identical_to_frozen_solar_factory",
+        "passed": true,
+        "maximumAbsoluteDifference": 0
+      },
+      {
+        "id": "existing_40_sample_GPU_CPU_lookup_helper_still_passes_default",
+        "passed": true,
+        "samples": 40,
+        "maxError": 7.699093429458514e-8
+      },
+      {
+        "id": "disabled_null_local_increment_restores_old_zero_solar_pixels",
+        "passed": true
+      },
+      {
+        "id": "actual_native_diffuse_receiver_gets_visible_one_hop_without_native_direct_lights",
+        "passed": true,
+        "off": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "on": [
+          0.0065946318209171295,
+          0.0027853641659021378,
+          0.0010951799340546131,
+          1
+        ],
+        "scene": "one native MeshStandardMaterial receiver, no direct/ambient/environment lights; only custom GI hook"
+      },
+      {
+        "id": "enabled_transient_GPU_matches_actual_CPU_lookup",
+        "passed": true,
+        "maximumAbsoluteError": 1.9363926746784887e-9,
+        "samples": 32
+      },
+      {
+        "id": "GI_stored_P_applies_once_to_native_receiver_and_lookup",
+        "passed": true,
+        "P0": [
+          0.0065946318209171295,
+          0.0027853641659021378,
+          0.0010951799340546131,
+          1
+        ],
+        "P2": [
+          0.026378527283668518,
+          0.011141456663608551,
+          0.0043807197362184525,
+          1
+        ]
+      },
+      {
+        "id": "raw_SH_bound_covers_actual_reflected_receiver_and_lookup",
+        "passed": true,
+        "bound": {
+          "maxRGB": 0.008637592904291717,
+          "maximumRawIrradianceRGB": [
+            0.027135662734508514,
+            0.013098567724227905,
+            0.006008611060678959
+          ],
+          "component": "combined",
+          "rawBeforeStorageExposure": true,
+          "maximumDiffuseAlbedo": 1,
+          "numericalSafety": 1.000005,
+          "method": "maximum over18 SH1 a0+norm(a1) irradiance envelopes; convex spatial interpolation/fade; diffuse albedo/pi once",
+          "limits": [
+            "combined includes base and local one-hop once; do not also budget its components",
+            "raw reference RGB, not absolute spectral/photometric calibration",
+            "SH/proxy geometry and water-interface transport remain approximations"
+          ]
+        },
+        "patch": [
+          0.0065946318209171295,
+          0.0027853641659021378,
+          0.0010951799340546131,
+          1
+        ]
+      },
+      {
+        "id": "same_time_off_is_immediate_no_point18s_afterglow",
+        "passed": true,
+        "off": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "oldOff": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "id": "two_Hz_solar_slots_do_not_filter_or_step_constant_local_envelope",
+        "passed": true,
+        "maximumDifference": 0
+      },
+      {
+        "id": "zero_raw_source_envelope_clears_increment_even_when_enabled",
+        "passed": true
+      },
+      {
+        "id": "capped_near_source_response_stays_passive_and_finite_on_GPU",
+        "passed": true,
+        "capture": {
+          "slot": 4,
+          "safetyScale": 0.17387783949680946,
+          "capCount": 1,
+          "unscaledUnitCapture": 72.27126039019916,
+          "sourceSolidAngle": 12.566370614359172,
+          "minimumReceiverDistance": 0.1080000000000001,
+          "maxUnscaledPatchIncident": 71.25933051386123
+        },
+        "bound": {
+          "maxRGB": 0.8990526575337611,
+          "maximumRawIrradianceRGB": [
+            2.8244431018829346,
+            1.3633778095245361,
+            0.6254124045372009
+          ],
+          "component": "combined",
+          "rawBeforeStorageExposure": true,
+          "maximumDiffuseAlbedo": 1,
+          "numericalSafety": 1.000005,
+          "method": "maximum over18 SH1 a0+norm(a1) irradiance envelopes; convex spatial interpolation/fade; diffuse albedo/pi once",
+          "limits": [
+            "combined includes base and local one-hop once; do not also budget its components",
+            "raw reference RGB, not absolute spectral/photometric calibration",
+            "SH/proxy geometry and water-interface transport remain approximations"
+          ]
+        },
+        "reflectedPowerRGB": [
+          5.840286088150618,
+          2.8191456154832313,
+          1.2932062052333522
+        ]
+      },
+      {
+        "id": "same61_vectors_no_new_GI_sampler_and_WebGL2_budget",
+        "passed": true,
+        "uniformVectors": 61,
+        "newSamplers": 0,
+        "textureUnitLimit": 16
+      },
+      {
+        "id": "all_transient_GI_readbacks_are_finite_nonnegative",
+        "passed": true
+      },
+      {
+        "id": "transient_GI_fixture_restores_parent_render_state",
+        "passed": true
+      }
+    ],
+    "legacyParity": {
+      "passed": true,
+      "samples": 40,
+      "nonFinite": 0,
+      "maxError": 7.699093429458514e-8,
+      "rmsError": 1.1767631915252792e-8,
+      "tolerance": 0.0002,
+      "rows": [
+        {
+          "p": [
+            -20,
+            1,
+            0
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -20,
+            1,
+            0
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -20,
+            1,
+            0
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -20,
+            1,
+            0
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -10,
+            8,
+            -5
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -10,
+            8,
+            -5
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -10,
+            8,
+            -5
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -10,
+            8,
+            -5
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            0,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            0,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            1.1663089861020266,
+            1.1259705111712899,
+            1.033016568742106
+          ],
+          "gpu": [
+            1.1663089990615845,
+            1.125970482826233,
+            1.033016562461853
+          ]
+        },
+        {
+          "p": [
+            0,
+            2,
+            0
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0.46475951633397744,
+            0.4486851077430355,
+            0.4116441421871708
+          ],
+          "gpu": [
+            0.4647595286369324,
+            0.4486851096153259,
+            0.4116441309452057
+          ]
+        },
+        {
+          "p": [
+            0,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0.46475951633397755,
+            0.4486851077430356,
+            0.41164414218717094
+          ],
+          "gpu": [
+            0.4647595286369324,
+            0.4486851096153259,
+            0.4116441309452057
+          ]
+        },
+        {
+          "p": [
+            15,
+            1,
+            8
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            15,
+            1,
+            8
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            15,
+            1,
+            8
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            15,
+            1,
+            8
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            25,
+            5,
+            -12
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            25,
+            5,
+            -12
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            25,
+            5,
+            -12
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            25,
+            5,
+            -12
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            0,
+            15,
+            0
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            0,
+            15,
+            0
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0.2802126773315448,
+            0.2705211167518178,
+            0.24818837911764335
+          ],
+          "gpu": [
+            0.28021273016929626,
+            0.2705211937427521,
+            0.24818842113018036
+          ]
+        },
+        {
+          "p": [
+            0,
+            15,
+            0
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0.10789188546881827,
+            0.1041602829918807,
+            0.09556138342088695
+          ],
+          "gpu": [
+            0.10789190977811813,
+            0.10416031628847122,
+            0.09556140750646591
+          ]
+        },
+        {
+          "p": [
+            0,
+            15,
+            0
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0.1078918854688183,
+            0.10416028299188072,
+            0.09556138342088698
+          ],
+          "gpu": [
+            0.10789190977811813,
+            0.10416031628847122,
+            0.09556140750646591
+          ]
+        },
+        {
+          "p": [
+            -34,
+            0.2,
+            -24
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -34,
+            0.2,
+            -24
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -34,
+            0.2,
+            -24
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            -34,
+            0.2,
+            -24
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            34,
+            18,
+            24
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            34,
+            18,
+            24
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            34,
+            18,
+            24
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            34,
+            18,
+            24
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            39,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            39,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            39,
+            2,
+            0
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            39,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            100,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            100,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            -1,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            100,
+            2,
+            0
+          ],
+          "n": [
+            1,
+            0,
+            0
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "p": [
+            100,
+            2,
+            0
+          ],
+          "n": [
+            0,
+            0,
+            1
+          ],
+          "cpu": [
+            0,
+            0,
+            0
+          ],
+          "gpu": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scope": "actual identical uniform bank and GLSL versus CPU lookup; not a path-traced lighting reference or frame-time benchmark"
+    },
+    "parentLockDeclared": true,
+    "pixelRatio": 1,
+    "limits": [
+      "isolated flat terrain transport and native receiver, not actual island/grove appearance or frame-time acceptance",
+      "shared legacy40 helper isDPR1-only; helper rejects otherDPR before mutation",
+      "source radiometry is authored raw reference; no absolute measured lamp/fireworks calibration",
+      "per-source nonnegative SH cone softens angular response, visibility/rest patches remain coarse",
+      "no main integration, PMREM feedback, full spectral transport, water-interface bounce or smoke self-shadow"
+    ]
+  }
+}

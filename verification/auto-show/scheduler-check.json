@@ -1,0 +1,121 @@
+{
+  "passed": true,
+  "counts": {
+    "passed": 15,
+    "total": 15
+  },
+  "scope": "Actual CPU scheduler/helper and real sampled trajectories; no browser, GPU, optical-capacity, audio, performance or rendered-visibility acceptance",
+  "sourceSHA256": {
+    "fireworks-physics.js": "8425fd82af1dfbf12a5cea42e72558625da1b349984463507267b834bde24b45",
+    "firework-auto-show.js": "34cc3dfe13b24a0591d4ad934ea57fc4f110cbe455dbece3091e6fe3e59ccf63"
+  },
+  "checks": [
+    {
+      "name": "library defaults remain manual/random-off with four complete slots",
+      "passed": true,
+      "evidence": {
+        "maxActive": 4,
+        "automatic": false
+      }
+    },
+    {
+      "name": "uniform interval helper handles edges and degenerate range",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "automatic one-to-five-second gaps vary and stay in configured interval",
+      "passed": true,
+      "evidence": {
+        "launches": 21,
+        "minimumGap": 1.093588593415916,
+        "maximumGap": 4.9360039019957185,
+        "distinctTypes": 9,
+        "firstGaps": [
+          1.1038801977410913,
+          1.1304168812930584,
+          4.103606219403446,
+          4.086624411866069,
+          1.443433259613812,
+          3.690730571746826,
+          2.2492087772116065,
+          1.184160040691495
+        ]
+      }
+    },
+    {
+      "name": "equal random endpoints collapse to fixed schedule without changing event choices",
+      "passed": true,
+      "evidence": {
+        "launches": 9,
+        "next": 18
+      }
+    },
+    {
+      "name": "frame partitions preserve launch schedule, random aim, types and actual poses",
+      "passed": true,
+      "evidence": {
+        "launches": 9,
+        "active": 6,
+        "finalTime": 20
+      }
+    },
+    {
+      "name": "signed aim maps negative/zero/positive and sixty-five-degree boundaries geometrically",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "automatic closed tilt intervals ignore manual cone and retain moved muzzle origin",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "asymmetric automatic tilt stays inside range with varied draws",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "manual launches retain ordinary cone independently of automatic tilt settings",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "thirty-two complete events are admitted and thirty-third immediately rejects without queue",
+      "passed": true,
+      "evidence": {
+        "active": 32,
+        "rejected": 1,
+        "queued": 0
+      }
+    },
+    {
+      "name": "automatic one-second show can exceed four concurrent complete events",
+      "passed": true,
+      "evidence": {
+        "maximumConcurrent": 9,
+        "launches": 11
+      }
+    },
+    {
+      "name": "repeated true/UI echo does not reset scheduled launch or add a current-time launch",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "interval reconfigure schedules future slot while stop retains airborne event",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "invalid range edits are atomic including schedule and subsequent random sequence",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "very large clock catch-up is bounded and leaves no deferred backlog",
+      "passed": true,
+      "evidence": null
+    }
+  ]
+}

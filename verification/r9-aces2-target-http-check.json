@@ -1,0 +1,578 @@
+{
+  "schema": "glass-atoll.r9-ACES2-target-actual-HTTP.v1",
+  "dateUTC": "2026-10-27T16:49:09.023Z",
+  "actualHTTP": true,
+  "actualCPU": true,
+  "actualGPU": false,
+  "productionPort5186Untouched": true,
+  "productionServerRestarted": false,
+  "checks": [
+    {
+      "name": "valid JSON reaches only numeric backend argument",
+      "passed": true,
+      "status": 200,
+      "bytes": 237,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "numeric argument only; response explicitlyCPU-notGPU",
+      "passed": true,
+      "status": "cpu-ready",
+      "peakNits": 1200,
+      "actualGPU": false,
+      "gpuAdmission": "required",
+      "productionIntegrated": false,
+      "descriptorURL": "/fixture-only/no-assets",
+      "service": {
+        "runningPeak": null,
+        "queuedPeaks": [],
+        "scope": "injected protocol witness"
+      }
+    },
+    {
+      "name": "method GET denied",
+      "passed": true,
+      "status": 405,
+      "code": "METHOD_NOT_ALLOWED",
+      "bytes": 82,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "AllowPOST GET",
+      "passed": true
+    },
+    {
+      "name": "method HEAD denied",
+      "passed": true,
+      "status": 405,
+      "bytes": 0,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "AllowPOST HEAD",
+      "passed": true
+    },
+    {
+      "name": "method OPTIONS denied",
+      "passed": true,
+      "status": 405,
+      "code": "METHOD_NOT_ALLOWED",
+      "bytes": 82,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "AllowPOST OPTIONS",
+      "passed": true
+    },
+    {
+      "name": "method PUT denied",
+      "passed": true,
+      "status": 405,
+      "code": "METHOD_NOT_ALLOWED",
+      "bytes": 82,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "AllowPOST PUT",
+      "passed": true
+    },
+    {
+      "name": "missingOrigin denied",
+      "passed": true,
+      "status": 403,
+      "code": "LOCAL_SAME_ORIGIN_REQUIRED",
+      "bytes": 106,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "Origin exact null",
+      "passed": true,
+      "status": 403,
+      "code": "LOCAL_SAME_ORIGIN_REQUIRED",
+      "bytes": 106,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "Origin exact http://outside.invalid",
+      "passed": true,
+      "status": 403,
+      "code": "LOCAL_SAME_ORIGIN_REQUIRED",
+      "bytes": 106,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "Origin exact http://127.0.0.1:14266",
+      "passed": true,
+      "status": 403,
+      "code": "LOCAL_SAME_ORIGIN_REQUIRED",
+      "bytes": 106,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "Origin exact https://127.0.0.1:14265",
+      "passed": true,
+      "status": 403,
+      "code": "LOCAL_SAME_ORIGIN_REQUIRED",
+      "bytes": 106,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "Origin exact http://127.0.0.1:14265/",
+      "passed": true,
+      "status": 403,
+      "code": "LOCAL_SAME_ORIGIN_REQUIRED",
+      "bytes": 106,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "nonloopbackHost denied",
+      "passed": true,
+      "status": 403,
+      "code": "LOCAL_SAME_ORIGIN_REQUIRED",
+      "bytes": 106,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "credentialsHost denied",
+      "passed": true,
+      "status": 403,
+      "code": "LOCAL_SAME_ORIGIN_REQUIRED",
+      "bytes": 106,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "cross-site denied even spoofmatchingOrigin",
+      "passed": true,
+      "status": 403,
+      "code": "LOCAL_SAME_ORIGIN_REQUIRED",
+      "bytes": 106,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "localhost sameorigin alias allowed",
+      "passed": true,
+      "status": 200,
+      "bytes": 237,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "UTF8 charset JSON accepted",
+      "passed": true,
+      "status": 200,
+      "bytes": 237,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "contenttype text/plain rejected",
+      "passed": true,
+      "status": 415,
+      "code": "JSON_REQUIRED",
+      "bytes": 98,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "contenttype application/x-www-form-urlencoded rejected",
+      "passed": true,
+      "status": 415,
+      "code": "JSON_REQUIRED",
+      "bytes": 98,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "contenttype application/json; charset=latin1 rejected",
+      "passed": true,
+      "status": 415,
+      "code": "JSON_REQUIRED",
+      "bytes": 98,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "compressed body rejected",
+      "passed": true,
+      "status": 415,
+      "code": "JSON_REQUIRED",
+      "bytes": 98,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "queryoptions rejected",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_REQUEST",
+      "bytes": 99,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "strictonefield {\"peakNits\":\"1200\"}",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_BODY",
+      "bytes": 106,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "strictonefield {\"peakNits\":1200,\"out\":\"evil\"}",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_BODY",
+      "bytes": 106,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "strictonefield {\"peakNits\":1200,\"peakNits\":700}",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_BODY",
+      "bytes": 106,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "strictonefield [1200]",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_BODY",
+      "bytes": 106,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "strictonefield null",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_BODY",
+      "bytes": 106,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "strictonefield {\"command\":\"run\"}",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_BODY",
+      "bytes": 106,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "finiteinteger 99",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_PEAK",
+      "bytes": 103,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "finiteinteger 10001",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_PEAK",
+      "bytes": 103,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "finiteinteger 1200.5",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_PEAK",
+      "bytes": 103,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "finiteinteger 1e309",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_PEAK",
+      "bytes": 103,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "malformedJSON rejected",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_JSON",
+      "bytes": 94,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "invalidUTF8 rejected",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_JSON",
+      "bytes": 92,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "legal integer exponent accepted",
+      "passed": true,
+      "status": 200,
+      "bytes": 237,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "exact64bytes accepted",
+      "passed": true,
+      "status": 200,
+      "bytes": 237,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "known length65 rejected",
+      "passed": true,
+      "status": 413,
+      "code": "BODY_TOO_LARGE",
+      "bytes": 97,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "chunked cumulative65 rejected",
+      "passed": true,
+      "status": 413,
+      "code": "BODY_TOO_LARGE",
+      "bytes": 97,
+      "noNewBackendCall": true
+    },
+    {
+      "name": "bounded bodyreadtimeout408 withoutbackend",
+      "passed": true,
+      "status": 408
+    },
+    {
+      "name": "aborted body creates no job and server staysalive",
+      "passed": true
+    },
+    {
+      "name": "backenderror QUEUE_FULL",
+      "passed": true,
+      "status": 429,
+      "code": "QUEUE_FULL",
+      "bytes": 89,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "private error text not exposed QUEUE_FULL",
+      "passed": true,
+      "retryAfter": "2"
+    },
+    {
+      "name": "backenderror CACHE_FULL",
+      "passed": true,
+      "status": 409,
+      "code": "CACHE_FULL",
+      "bytes": 115,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "private error text not exposed CACHE_FULL",
+      "passed": true,
+      "retryAfter": null
+    },
+    {
+      "name": "backenderror SERVICE_BUSY",
+      "passed": true,
+      "status": 503,
+      "code": "SERVICE_BUSY",
+      "bytes": 102,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "private error text not exposed SERVICE_BUSY",
+      "passed": true,
+      "retryAfter": "2"
+    },
+    {
+      "name": "backenderror HASH_MISMATCH",
+      "passed": true,
+      "status": 409,
+      "code": "HASH_MISMATCH",
+      "bytes": 107,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "private error text not exposed HASH_MISMATCH",
+      "passed": true,
+      "retryAfter": null
+    },
+    {
+      "name": "backenderror READY_MISMATCH",
+      "passed": true,
+      "status": 409,
+      "code": "READY_MISMATCH",
+      "bytes": 100,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "private error text not exposed READY_MISMATCH",
+      "passed": true,
+      "retryAfter": null
+    },
+    {
+      "name": "backenderror INVALID_PACKAGE",
+      "passed": true,
+      "status": 409,
+      "code": "INVALID_PACKAGE",
+      "bytes": 98,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "private error text not exposed INVALID_PACKAGE",
+      "passed": true,
+      "retryAfter": null
+    },
+    {
+      "name": "backenderror EXPORTER_SEAL_CHANGED",
+      "passed": true,
+      "status": 503,
+      "code": "EXPORTER_SEAL_CHANGED",
+      "bytes": 110,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "private error text not exposed EXPORTER_SEAL_CHANGED",
+      "passed": true,
+      "retryAfter": "2"
+    },
+    {
+      "name": "backenderror PYTHON_UNAVAILABLE",
+      "passed": true,
+      "status": 503,
+      "code": "PYTHON_UNAVAILABLE",
+      "bytes": 112,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "private error text not exposed PYTHON_UNAVAILABLE",
+      "passed": true,
+      "retryAfter": "2"
+    },
+    {
+      "name": "backenderror EXPORT_FAILED",
+      "passed": true,
+      "status": 503,
+      "code": "EXPORT_FAILED",
+      "bytes": 90,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "private error text not exposed EXPORT_FAILED",
+      "passed": true,
+      "retryAfter": "2"
+    },
+    {
+      "name": "backenderror TARGET_UNAVAILABLE",
+      "passed": true,
+      "status": 500,
+      "code": "TARGET_UNAVAILABLE",
+      "bytes": 98,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "private error text not exposed TARGET_UNAVAILABLE",
+      "passed": true,
+      "retryAfter": null
+    },
+    {
+      "name": "backenderror TARGET_UNAVAILABLE",
+      "passed": true,
+      "status": 500,
+      "code": "TARGET_UNAVAILABLE",
+      "bytes": 98,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "private error text not exposed TARGET_UNAVAILABLE",
+      "passed": true,
+      "retryAfter": null
+    },
+    {
+      "name": "backenderror TARGET_UNAVAILABLE",
+      "passed": true,
+      "status": 500,
+      "code": "TARGET_UNAVAILABLE",
+      "bytes": 98,
+      "noNewBackendCall": false
+    },
+    {
+      "name": "private error text not exposed TARGET_UNAVAILABLE",
+      "passed": true,
+      "retryAfter": null
+    },
+    {
+      "name": "disconnected client does not cancel shared job/otherwaiter",
+      "passed": true,
+      "backendWaiterCalls": 2
+    },
+    {
+      "name": "actual1200 parallel HTTP requests share real backendPromise",
+      "passed": true
+    },
+    {
+      "name": "actualHTTP1200 cache14/14 and963fixtures stay CPU-only",
+      "passed": true
+    },
+    {
+      "name": "returned descriptorURL actuallyserves sealed bytes sameport",
+      "passed": true,
+      "bytes": 11814,
+      "sha256": "570c3d5f6d7095031e054cdfaa277eb35f5a2bdb5823a005c2e5835fd226bc8a"
+    },
+    {
+      "name": "all temporarylisteners closed",
+      "passed": true
+    }
+  ],
+  "sourceSHA256": "7008221153d422efb4e7142ea21538c0e8b1501fce469a38d4737ef71355015e",
+  "backendSHA256": "0d769e87dfdc92386d035412fa8952f7374b5f91c9a60566cae26ece32c535a3",
+  "limits": [
+    "Actual loopback HTTP, one real1200 cache reuse; injected backends only for explicit error/disconnection protocol witnesses.",
+    "No actual new GPU target, native HDR bridge, browser CORS implementation or visual acceptance tested.",
+    "Queue saturation mapping uses injected QUEUE_FULL; original service singlequeue/limit protocol has its independent CPU/VM report."
+  ],
+  "protocolPort": 14265,
+  "actualPort": 9238,
+  "actual1200": {
+    "peakNits": 1200,
+    "status": "cpu-ready",
+    "cache": {
+      "reused": true,
+      "packageBytes": 1928001,
+      "generatedCount": 0,
+      "reusedCount": 1
+    },
+    "cpuChecks": {
+      "passed": 14,
+      "total": 14
+    },
+    "assetBaseURL": "/vendor/aces2-generated/1200/",
+    "descriptorURL": "/vendor/aces2-generated/1200/candidate-export-report.json",
+    "candidateDescriptorSHA256": "570c3d5f6d7095031e054cdfaa277eb35f5a2bdb5823a005c2e5835fd226bc8a",
+    "readyMarkerSHA256": "464985f0f8b9e2eccc0761b46779d03e4ac435711483047d5a5ce61c1687f46a",
+    "fixtures": {
+      "sampleCount": 963,
+      "width": 64,
+      "height": 16,
+      "paddedPixels": 61,
+      "stride": 4,
+      "dtype": "float32 little-endian RGBA",
+      "input": {
+        "url": "/vendor/aces2-generated/1200/aces2-1200-gpu-input.f32",
+        "sha256": "9aa238a027e45d80d6e9d6f246bc24c07fa0780a871a90da904876e7a0e7d158",
+        "bytes": 16384
+      },
+      "expected": {
+        "url": "/vendor/aces2-generated/1200/aces2-1200-cpu-expected.f32",
+        "sha256": "8bed71645641438e578fdc2c7a47152b0ad1e0091f09564c04b7f6c6d59f0370",
+        "bytes": 16384
+      },
+      "oracle": {
+        "url": "/vendor/aces2-generated/1200/aces2-1200-cpu.json",
+        "sha256": "bf130fb6d5c8b9be100fb6e1bf998b4fa9d055c7aac5e9dcf3013d664ba12667",
+        "bytes": 1745438
+      },
+      "inputRounding": "explicit float32 before all CPU calls; same uploaded values",
+      "layout": "row-major flipYfalse; readPixels bottom-row equals texture row0; opaque black padding"
+    }
+  },
+  "listenersClosed": true,
+  "counts": {
+    "passed": 73,
+    "total": 73
+  },
+  "passed": true
+}

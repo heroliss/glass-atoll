@@ -1,0 +1,85 @@
+{
+  "schema": "glass-atoll.r27-production-actual-independent-artifact-audit.v1",
+  "dateUTC": "2026-10-29T12:57:38.831Z",
+  "actualGPURunByThisAudit": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "productionReceiptSHA256": "e55220fb5c9fcaf0e8f6e12be4ab01cb5c53060e636b3f4c243de6ea8cfbf987",
+  "candidateReceiptSHA256": "86a90df6d76f2c5e418c2743652561a4003574df5404444005699f6481e8f0e1",
+  "fixtureDigest": "b400c7e03f674a15a1590d92fcc016b91638322e4ebc6b8eca2b2534d5aa860d",
+  "checks": [
+    {
+      "name": "Exact deployed four-module/factory/helper pins and unchanged immutable native artifact match the saved production phase",
+      "passed": true,
+      "evidence": {
+        "helperSHA256": "0cd559395aa464e61ac7629ef32581dc5876d1d14db9934a5aee3c566069cb19",
+        "factorySHA256": "5f2f922ca6e7a4818966bcf92fdcb14f2d344b2caada1cbd4f0819ec737d834f",
+        "artifactDigest": "b400c7e03f674a15a1590d92fcc016b91638322e4ebc6b8eca2b2534d5aa860d",
+        "currentSourcePins": 14
+      }
+    },
+    {
+      "name": "Production uses the exact live constructor, one complete request and four original map/reduction draws",
+      "passed": true,
+      "evidence": {
+        "constructor": {
+          "maxSources": 18000,
+          "maxPackets": 4096,
+          "maxPairs": 1048576,
+          "maxRequestPairs": 1400000,
+          "maxMapPairs": 1000000,
+          "maxMapDraws": 8
+        },
+        "completeNativePairs": 1309170,
+        "conservative64Slots": 1331712,
+        "actualDraws": 4,
+        "readbackBytes": 27856,
+        "unsubmittedReflectionRows": 0,
+        "independentUnrenderedSHPotentialPairs": 1304640
+      }
+    },
+    {
+      "name": "All1734 production RGBA outputs are bit-identical to candidate and reproduce every offline reference error",
+      "passed": true,
+      "evidence": {
+        "rows": 1734,
+        "RGBAWords": 6936,
+        "changedNumericValues": 0,
+        "changedFloat32Words": 0,
+        "maximumPhysicalTError": 1.6361973009804132e-7,
+        "maximumPackedDoubleTError": 9.640012998968217e-8
+      }
+    },
+    {
+      "name": "All seven sampled partials match candidate bitwise and independent correctly addressed packet-tile CPU references",
+      "passed": true,
+      "evidence": {
+        "partialSamples": 7,
+        "changedFloat32WordsVsCandidate": 0,
+        "maximumPackedDoubleTauError": 1.2305995901115696e-9,
+        "scope": "Bounded CPU references only, no complete partial texture readback or new numerical draw"
+      }
+    },
+    {
+      "name": "Clean errors/full declared state restoration and one retrospective timing interval are present without a speed/FPS claim",
+      "passed": true,
+      "evidence": {
+        "productionGPUms": 0.853696,
+        "productionCpuSubmitMs": 18.299999997019768,
+        "candidateGPUms": 0.468992,
+        "timingScope": "Two isolated first-prepare numerical units with QA guards/packing/first compile; not a causal A/B speed or whole-scene FPS benchmark",
+        "restorationScope": "Declared native READ/DRAW/MRT/pixel-store/buffers/Three state and descriptors; not undocumented driver cache identity"
+      }
+    }
+  ],
+  "limits": [
+    "Saved receipts and bounded CPU reference computations only; no browser/GL/GPU work by this audit.",
+    "All native numerical rows are validated for this fixed phase; arbitrary larger requests, dynamic multi-event smoke, aggregate main/mirror/SH cost and60fps remain separate.",
+    "Production SourceT per-request repair does not repair the independent resolved-lighting cap or guarantee the whole dense-smoke scene is fast."
+  ]
+}

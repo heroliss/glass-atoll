@@ -1,0 +1,170 @@
+{
+  "schema": "glass-atoll.r18-transmission-fixed-capability-cache-cpu.v1",
+  "actualGPU": false,
+  "checks": [
+    {
+      "name": "actual factory limits partial viewport to active tile prefix and keeps output full size",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n1 !== 2\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-active-partial-check.mjs:27:431\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-active-partial-check.mjs:6:78)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-active-partial-check.mjs:27:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "all reduce reads remain inside the rendered active prefix including unaligned last rows",
+      "passed": true,
+      "evidence": {
+        "stride": 14000,
+        "reason": "reduce index=tile*maxSources+source, tile<packed.tileCount and source<packed.count; max index<maxSources*tileCount"
+      }
+    },
+    {
+      "name": "shrinking density after large dispatch cannot make reduce sample stale omitted tiles",
+      "passed": false,
+      "error": "TypeError: Cannot read properties of undefined (reading 'tiles')\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-active-partial-check.mjs:29:147\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-active-partial-check.mjs:6:78)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-active-partial-check.mjs:29:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "exception restores independent READ DRAW MRT buffers actual viewport scissor and target metadata",
+      "passed": true
+    },
+    {
+      "name": "default DRAW with eight queried BACK aliases restores exactly one selection on success and failure",
+      "passed": true,
+      "evidence": {
+        "queriedBuffers": [
+          1029,
+          1029,
+          1029,
+          1029,
+          1029,
+          1029,
+          1029,
+          1029
+        ],
+        "restoredArgument": [
+          1029
+        ],
+        "exceptionRestored": true
+      }
+    },
+    {
+      "name": "independent READ selection restores after rebinding READ while offscreen MRT remains complete",
+      "passed": true,
+      "evidence": {
+        "separateBindings": true,
+        "readSelection": 102,
+        "drawSelection": [
+          100,
+          101,
+          102
+        ],
+        "exceptionRestored": true
+      }
+    },
+    {
+      "name": "sealed history retains active-prefix XYZ and DRAW READ fixes; capability change preserves complete actual-state snapshot and restore body",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n1 !== 2\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-active-partial-check.mjs:36:1517\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-active-partial-check.mjs:6:78)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-active-partial-check.mjs:36:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "shader text geometry target allocation loops texture samples and render passes remain byte-exact",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ \"  function ensure(){if(resources)return;const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute([-1,-1,0,3,-1,0,-1,3,0],3));const vertex='precision highp float;in vec2 position;void main(){gl_Position=vec4(position,0.,1.);}',makeTexture=(data,size)=>{const t=new THREE.DataTexture(data,size.width,size.height,THREE.RGBAFormat,THREE.FloatType);t.needsUpdate=true;t.minFilter=t.magFilter=THREE.NearestFilter;t.generateMipmaps=false;t.flipY=false;t.unpackAlignment=1;return t;},makeTarget=size=>{const t=new THREE.WebGLRenderTarget(size.width,size.height,{type:THREE.FloatType,format:THREE.RGBAFormat,depthBuffer:false,stencilBuffer:false,samples:0});t.texture.colorSpace=THREE.NoColorSpace;t.texture.minFilter=t.texture.magFilter=THREE.NearestFilter;t.texture.generateMipmaps=false;return t;},packetTexture=makeTexture(packetData,packetSize),sourceTexture=makeTexture(sourceData,sourceSize),partial=makeTarget(partialSize),output=makeTarget(outputSize),uniforms={uPackets:{value:packetTexture},uSources:{value:sourceTexture},uPacketWidth:{value:packetSize.width},uSourceWidth:{value:sourceSize.width},uPartialWidth:{value:partialSize.width},uPacketCount:{value:0},uSourceCount:{value:0},uTileCount:{value:0},uSourceStride:{value:Math.max(1,maxSources)},uPartial:{value:partial.texture},uOutputWidth:{value:outputSize.width}};\\n\" +\n+   '    const partialFragment=/*glsl*/`precision highp float;precision highp int;precision highp sampler2D;uniform sampler2D uPackets,uSources;uniform int uPacketWidth,uSourceWidth,uPartialWidth,uPacketCount,uSourceCount,uSourceStride,uTileCount;out vec4 colour;${smokeGaussianColumnGLSL}\\n' +\n- \"  function ensure(){if(resources)return;const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute([-1,-1,0,3,-1,0,-1,3,0],3));const vertex='precision highp float;in vec2 position;void main(){gl_Position=vec4(position,0.,1.);}',makeTexture=(data,size)=>{const t=new THREE.DataTexture(data,size.width,size.height,THREE.RGBAFormat,THREE.FloatType);t.needsUpdate=true;t.minFilter=t.magFilter=THREE.NearestFilter;t.generateMipmaps=false;t.flipY=false;t.unpackAlignment=1;return t;},makeTarget=size=>{const t=new THREE.WebGLRenderTarget(size.width,size.height,{type:THREE.FloatType,format:THREE.RGBAFormat,depthBuffer:false,stencilBuffer:false,samples:0});t.texture.colorSpace=THREE.NoColorSpace;t.texture.minFilter=t.texture.magFilter=THREE.NearestFilter;t.texture.generateMipmaps=false;return t;},packetTexture=makeTexture(packetData,packetSize),sourceTexture=makeTexture(sourceData,sourceSize),partial=makeTarget(partialSize),output=makeTarget(outputSize),uniforms={uPackets:{value:packetTexture},uSources:{value:sourceTexture},uPacketWidth:{value:packetSize.width},uSourceWidth:{value:sourceSize.width},uPartialWidth:{value:partialSize.width},uPacketCount:{value:0},uSourceCount:{value:0},uTileCount:{value:0},uPartial:{value:partial.texture},uOutputWidth:{value:outputSize.width}};\\n\" +\n-   '    const partialFragment=/*glsl*/`precision highp float;precision highp int;precision highp sampler2D;uniform sampler2D uPackets,uSources;uniform int uPacketWidth,uSourceWidth,uPartialWidth,uPacketCount,uSourceCount;out vec4 colour;${smokeGaussianColumnGLSL}\\n' +\n    '      vec4 packetTexel(int i){return texelFetch(uPackets,ivec2(i%uPacketWidth,i/uPacketWidth),0);}vec4 sourceTexel(int i){return texelFetch(uSources,ivec2(i%uSourceWidth,i/uSourceWidth),0);}\\n' +\n    '      float stableErfDifference(float a,float b,float width){if(width<1e-3/(1.+max(abs(a),abs(b)))){float h=width*.5,m=a+h,q=h*.5773502691896258;return 1.1283791670955126*h*(exp(-(m-q)*(m-q))+exp(-(m+q)*(m+q)));}return max(0.,smokeErfDifference(a,b));}\\n' +\n    '      float finiteTau(vec3 start,vec3 end,vec3 direction,float distance,vec3 mean,vec4 chol0,vec2 chol1,float norm){vec3 qa=smokeWhiten(start-mean,chol0,chol1),qb=smokeWhiten(end-mean,chol0,chol1);bool reverse=dot(qb,qb)<dot(qa,qa);vec3 q=reverse?qb:qa,v=smokeWhiten(reverse?-direction:direction,chol0,chol1);float A=dot(v,v),b=dot(q,v)/A,root=sqrt(A*.5);vec3 crossed=cross(q,v);float rho2=dot(crossed,crossed)/A;float difference=stableErfDifference(root*b,root*(distance+b),root*distance);return max(0.,norm*exp(-.5*rho2)*sqrt(1.5707963267948966/A)*difference);}\\n' +\n+   '      void main(){int index=int(gl_FragCoord.x)+int(gl_FragCoord.y)*uPartialWidth,source=index%uSourceStride,tile=index/uSourceStride;vec3 tau=vec3(0.);if(source<uSourceCount&&tile<uTileCount){vec4 start=sourceTexel(source*3),end=sourceTexel(source*3+1),dir=sourceTexel(source*3+2);if(end.w>.5&&start.w>0.){vec3 direction=normalize(dir.xyz);for(int j=0;j<64;j++){int p=tile*64+j;if(p>=uPacketCount)break;vec4 a=packetTexel(p*4),b=packetTexel(p*4+1),c=packetTexel(p*4+2),d=packetTexel(p*4+3);vec3 ext=vec3(c.zw,d.x);if(a.w<=0.||max(max(ext.r,ext.g),ext.b)<=0.)continue;tau+=ext*finiteTau(start.xyz,end.xyz,direction,start.w,a.xyz,b,c.xy,a.w);}}}colour=vec4(tau,0.);}`;\\n' +\n+   '    const reduceFragment=/*glsl*/`precision highp float;precision highp int;precision highp sampler2D;uniform sampler2D uPartial;uniform int uPartialWidth,uOutputWidth,uSourceCount,uTileCount,uSourceStride;out vec4 colour;void main(){int source=int(gl_FragCoord.x)+int(gl_FragCoord.y)*uOutputWidth;vec3 tau=vec3(0.);if(source<uSourceCount){for(int tile=0;tile<${Math.ceil(maxPackets/64)};tile++){if(tile>=uTileCount)break;int index=tile*uSourceStride+source;tau+=texelFetch(uPartial,ivec2(index%uPartialWidth,index/uPartialWidth),0).rgb;}}colour=vec4(exp(-max(tau,vec3(0.))),1.);}`;\\n' +\n+   \"    const makeMaterial=(name,fragmentShader)=>new THREE.RawShaderMaterial({name,glslVersion:THREE.GLSL3,uniforms,vertexShader:vertex,fragmentShader,depthTest:false,depthWrite:false,blending:THREE.NoBlending,toneMapped:false}),partialMaterial=makeMaterial('GPU source extinction /64packet tiles',partialFragment),reduceMaterial=makeMaterial('GPU source extinction /tau reduction to T',reduceFragment),scene=new THREE.Scene(),mesh=new THREE.Mesh(geometry,partialMaterial),camera=new THREE.Camera();mesh.frustumCulled=false;scene.add(mesh);resources={geometry,packetTexture,sourceTexture,partial,output,uniforms,partialMaterial,reduceMaterial,scene,mesh,camera,checked:{partial:false,output:false}};}\\n\"\n-   '      void main(){int index=int(gl_FragCoord.x)+int(gl_FragCoord.y)*uPartialWidth,source=index%${maxSources},tile=index/${maxSources};vec3 tau=vec3(0.);if(source<uSourceCount){vec4 start=sourceTexel(source*3),end=sourceTexel(source*3+1),dir=sourceTexel(source*3+2);if(end.w>.5&&start.w>0.){vec3 direction=normalize(dir.xyz);for(int j=0;j<64;j++){int p=tile*64+j;if(p>=uPacketCount)break;vec4 a=packetTexel(p*4),b=packetTexel(p*4+1),c=packetTexel(p*4+2),d=packetTexel(p*4+3);vec3 ext=vec3(c.zw,d.x);if(a.w<=0.||max(max(ext.r,ext.g),ext.b)<=0.)continue;tau+=ext*finiteTau(start.xyz,end.xyz,direction,start.w,a.xyz,b,c.xy,a.w);}}}colour=vec4(tau,0.);}`;\\n' +\n-   '    const reduceFragment=/*glsl*/`precision highp float;precision highp int;precision highp sampler2D;uniform sampler2D uPartial;uniform int uPartialWidth,uOutputWidth,uSourceCount,uTileCount;out vec4 colour;void main(){int source=int(gl_FragCoord.x)+int(gl_FragCoord.y)*uOutputWidth;vec3 tau=vec3(0.);if(source<uSourceCount){for(int tile=0;tile<${Math.ceil(maxPackets/64)};tile++){if(tile>=uTileCount)break;int index=tile*${maxSources}+source;tau+=texelFetch(uPartial,ivec2(index%uPartialWidth,index/uPartialWidth),0).rgb;}}colour=vec4(exp(-max(tau,vec3(0.))),1.);}`;\\n' +\n-   \"    const makeMaterial=(name,fragmentShader)=>new THREE.RawShaderMaterial({name,glslVersion:THREE.GLSL3,uniforms,vertexShader:vertex,fragmentShader,depthTest:false,depthWrite:false,blending:THREE.NoBlending,toneMapped:false}),partialMaterial=makeMaterial('GPU source extinction /64packet tiles',partialFragment),reduceMaterial=makeMaterial('GPU source extinction /tau reduction to T',reduceFragment),scene=new THREE.Scene(),mesh=new THREE.Mesh(geometry,partialMaterial),camera=new THREE.Camera();mesh.frustumCulled=false;scene.add(mesh);resources={geometry,packetTexture,sourceTexture,partial,output,uniforms,partialMaterial,reduceMaterial,scene,mesh,camera,checked:false};}\\n\"\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-active-partial-check.mjs:37:210\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-active-partial-check.mjs:6:78)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-active-partial-check.mjs:37:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "fixed capabilities are probed once while all independent actual-state queries continue EVERY prepare",
+      "passed": true,
+      "evidence": [
+        {
+          "version": 1,
+          "fixedParameterQueries": 3,
+          "extensionQueries": 1,
+          "actualStateParameterQueries": 12
+        },
+        {
+          "version": 2,
+          "fixedParameterQueries": 0,
+          "extensionQueries": 0,
+          "actualStateParameterQueries": 12
+        },
+        {
+          "version": 3,
+          "fixedParameterQueries": 0,
+          "extensionQueries": 0,
+          "actualStateParameterQueries": 12
+        }
+      ]
+    },
+    {
+      "name": "unsupported extension VTF and texture capacity are cached without repeated extension probes or allocation",
+      "passed": true,
+      "evidence": [
+        {
+          "options": {
+            "floatTarget": false
+          },
+          "reason": "float-target-or-vertex-texture-unavailable",
+          "capabilityProbes": 1
+        },
+        {
+          "options": {
+            "vertexTextureUnits": 0
+          },
+          "reason": "float-target-or-vertex-texture-unavailable",
+          "capabilityProbes": 1
+        },
+        {
+          "options": {
+            "maximumTexture": 1
+          },
+          "reason": "texture-size-capacity",
+          "capabilityProbes": 1
+        }
+      ]
+    },
+    {
+      "name": "loss before prepare or between prepares permanently invalidates old field even after restore",
+      "passed": true,
+      "evidence": [
+        {
+          "mode": "initial-lost",
+          "restoredOldField": "explicit CPU fallback; zero further draws or capability queries"
+        },
+        {
+          "mode": "between-prepares-event",
+          "restoredOldField": "explicit CPU fallback; zero further draws or capability queries"
+        }
+      ]
+    },
+    {
+      "name": "context loss during first draw restores actual state and never exposes stale T or reuses resources",
+      "passed": true,
+      "evidence": {
+        "restored": true,
+        "completedDrawsBeforeLoss": 1,
+        "texture": null
+      }
+    },
+    {
+      "name": "changed renderer context identity rejects old field without probing or drawing the replacement",
+      "passed": true
+    },
+    {
+      "name": "actual old/new factories keep packed input bytes metadata target dimensions viewports and numerical budgets exact",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n    cameraKey: '-4,2,3',\n    count: 8,\n    densityRevision: 8,\n    effective: true,\n    height: 1,\n-   layout: {\n-     activePartialTexels: 8,\n-     mapDraw: {\n-       height: 1,\n-       paddingTexels: 120,\n-       rasterTexels: 128,\n-       width: 128,\n-       x: 0,\n-       y: 0\n-     },\n-     mode: 'active-count',\n-     neutralOutput: false,\n-     outputDraw: {\n-       height: 1,\n-       paddingTexels: 56,\n-       rasterTexels: 64,\n-       width: 64,\n-       x: 0,\n-       y: 0\n-     },\n-     outsideCountMayBeStale: true,\n-     partialStride: 8,\n-     validOutputCount: 8\n-   },\n    opticallyAdmitted: false,\n    pairs: 64,\n    reason: 'experimental-ready',\n    sourceVersion: 1,\n    supported: true,\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-active-partial-check.mjs:47:554\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-active-partial-check.mjs:6:78)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-smoke-active-partial-check.mjs:47:1"
+    }
+  ],
+  "passed": false,
+  "counts": {
+    "passed": 9,
+    "total": 14
+  },
+  "sourceSHA256": "235930f8d031c9d922afdeaff506cc62c583bcf68fdfd549b69ab7e4bb719dc8",
+  "baselineSHA256": "28b173aa16267c1dc0be96283fea576199f2ea0c0cd9b76e0d6886b519e72369",
+  "beforeStateFixSHA256": "7107029518b02ec18c6472baf98154ff4686db85fafb5c13353807189ea4242c",
+  "beforeCapabilitySHA256": "d6bc32aa8cf27e899bbf00ff9662dab335bc196a3a9ec5469500c9822202724b",
+  "limits": [
+    "Actual factory exercised with realThree objects and a nonGPU renderer/state fixture; not actual FBO/VTF/pixel or performance acceptance.",
+    "Root must rerun bounded current-renderer GL restoration and optical admission.",
+    "Output target padding, partial allocation/viewport/index stride, XYZ geometry, shader and pack are unchanged.",
+    "Only fixed capabilities are cached; observed context loss/replacement permanently rejects the old field and requires host recreation/reload."
+  ]
+}

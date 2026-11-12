@@ -1,0 +1,130 @@
+{
+  "schema": "glass-atoll.r37-projection-rejection-peer-audit.v1",
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "Archived candidate and production baseline identities; restore is byte-exact",
+      "passed": true
+    },
+    {
+      "name": "216 finite measured samples, complete ABBA groups and equal arms",
+      "passed": true
+    },
+    {
+      "name": "Stored aggregates reproduce bit-exactly and every phase is slower",
+      "passed": true
+    },
+    {
+      "name": "Equivalence is separate from performance admission; no renderer/GPU benchmark",
+      "passed": true
+    }
+  ],
+  "scope": "Read-only stored samples/source/archive/restore audit only. No new timing, factory execution, browser, renderer or GPU.",
+  "arms": {
+    "off": {
+      "count": 108,
+      "mean": 13.823164814814767,
+      "median": 12.867749999999546
+    },
+    "on": {
+      "count": 108,
+      "mean": 17.528521296296304,
+      "median": 16.64289999999994
+    }
+  },
+  "phaseRatios": [
+    {
+      "phase": 0.7,
+      "samples": 72,
+      "meanRatio": 1.2920867063333907,
+      "medianRatio": 1.3250514983515986
+    },
+    {
+      "phase": 1.7,
+      "samples": 72,
+      "meanRatio": 1.2034465791022912,
+      "medianRatio": 1.1815449249123895
+    },
+    {
+      "phase": 2.5,
+      "samples": 72,
+      "meanRatio": 1.3075395665056344,
+      "medianRatio": 1.217654916943112
+    }
+  ],
+  "breakdown": {
+    "off": {
+      "boundsMs": 11.937917592592541,
+      "estimatesMs": 1.8852472222222312
+    },
+    "on": {
+      "boundsMs": 14.387376851851876,
+      "estimatesMs": 3.1411444444444316
+    }
+  },
+  "onOffMeanRatio": 1.2680541345720178,
+  "onOffMedianRatio": 1.2933807386684173,
+  "decision": "Reject this measured candidate; retain complete baseline production and prioritize actual CPU subphase profiling.",
+  "caveats": [
+    "Representative cloned mirrored camera lacks the actual water oblique clipping projection. This is not an exact native mirror replay.",
+    "No sample removed; JIT/GC/scheduling are included. Individual key/copy/WeakMap costs were not isolated.",
+    "Private-generation immutable-row ownership might permit a different future implementation; no such implementation or benefit is admitted here."
+  ],
+  "inputs": [
+    {
+      "path": "fireworks.js",
+      "bytes": 107129,
+      "sha256": "03fdb7038bffbfc769924ffff6ee57a51b5e9f8b2d3c72169d06e72b9d45c735"
+    },
+    {
+      "path": "verification/baselines/r37-before-source-projection-reuse/fireworks.js",
+      "bytes": 107129,
+      "sha256": "03fdb7038bffbfc769924ffff6ee57a51b5e9f8b2d3c72169d06e72b9d45c735"
+    },
+    {
+      "path": "verification/baselines/r37-rejected-source-projection-reuse/fireworks.js",
+      "bytes": 111815,
+      "sha256": "3d8d6bffe8a26e58a6f44c90e3aef1bdd09b11b43b3cf3b621d3f6e2a4d2809f"
+    },
+    {
+      "path": "verification/r37-projection-reuse-cpu-abba.mjs",
+      "bytes": 4105,
+      "sha256": "eec6a58e931fd9dfb4a9919dce96bfacb82674941c33997b628f1411b1687264"
+    },
+    {
+      "path": "verification/r37-projection-reuse-cpu-abba.json",
+      "bytes": 59985,
+      "sha256": "017a8b007b06bab0df942765fdb1ec78d2b7f399981b6c1a44a0b89693d6a905"
+    },
+    {
+      "path": "verification/r37-projection-cpu-fixture.mjs",
+      "bytes": 3075,
+      "sha256": "8206f3999065ed36810acf5e0fb62072cae128a1fc7fc8218c3808fbf7b7fd9c"
+    },
+    {
+      "path": "verification/r37-projection-reuse-check.json",
+      "bytes": 2486,
+      "sha256": "8d9a864add6a213e94a3cc2134413e5ac776c468629b96d1a52ca1131d1af35e"
+    },
+    {
+      "path": "verification/r37-projection-rejection-restore.json",
+      "bytes": 875,
+      "sha256": "810952ae8050042f5d1cd5aeb9c41c065d16ca5eb00dae6751bbf53a84a7c0f8"
+    },
+    {
+      "path": "verification/R37-PROJECTION-REUSE-CPU-RESULT.md",
+      "bytes": 3399,
+      "sha256": "ce69b5f758ae916b27bf75f5394f454bf2b52cf99ce5a008bf3d09820428935b"
+    },
+    {
+      "path": "verification/R37-PROJECTION-REJECTION-PEER.md",
+      "bytes": 2967,
+      "sha256": "af427dea55fcd8cd8a98179e70c4b6a2bd256848885f9142c1dbdb611f4a360f"
+    }
+  ],
+  "actualGPU": false
+}

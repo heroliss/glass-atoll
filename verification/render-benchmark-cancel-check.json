@@ -1,0 +1,73 @@
+{
+  "schema": "glass-atoll.render-benchmark-cancel-CPU.v1",
+  "dateUTC": "2026-10-27T16:34:33.395Z",
+  "passed": true,
+  "counts": {
+    "passed": 8,
+    "total": 8
+  },
+  "checks": [
+    {
+      "name": "normal completion preserves every historical report field and statistic",
+      "passed": true,
+      "evidence": {
+        "legacyFieldsCompared": [
+          "date",
+          "elapsedSeconds",
+          "initial",
+          "final",
+          "frames",
+          "averageFps",
+          "frameMs",
+          "gpuMs",
+          "cpuMs",
+          "framesOver16_67ms",
+          "raw"
+        ],
+        "frames": 2,
+        "averageFps": 0.25
+      }
+    },
+    {
+      "name": "cancel returns invalid partial evidence with no FPS claim and no terminal snapshot",
+      "passed": true,
+      "evidence": {
+        "partialFrames": 1,
+        "finalSnapshotCalled": false,
+        "averageFps": null
+      }
+    },
+    {
+      "name": "repeated cancel resolves once and leaves no pending timeout",
+      "passed": true
+    },
+    {
+      "name": "cancel before first frame is explicit, bounded, and serializable",
+      "passed": true
+    },
+    {
+      "name": "a stale cancelled timeout cannot finish or cancel a subsequent run",
+      "passed": true
+    },
+    {
+      "name": "completion followed by cancel cannot resolve twice or mutate a settled report",
+      "passed": true
+    },
+    {
+      "name": "concurrent start remains rejected without replacing its owner or timer",
+      "passed": true
+    },
+    {
+      "name": "historical duration clamp is preserved and cancellation clears long timers",
+      "passed": true
+    }
+  ],
+  "sourceSHA256": "0a2bf5fe92ab322d044ced2a2fa1af66e635c27084d6325af9484d8128b6244e",
+  "baselineSHA256": "37c315c0764013869ba446ba7579079f43c767adea092f37cda97f12cc9b2f7d",
+  "actualGPU": false,
+  "limits": [
+    "Tests the actual benchmark source and preserved baseline with deterministic clock/timer/snapshot seams.",
+    "No WebGL calls, context restoration, browser timing, renderer FPS or GPU-time accuracy is verified here.",
+    "Cancellation keeps partial raw statistics as invalid diagnostic evidence; averageFps and terminal snapshot are null."
+  ]
+}

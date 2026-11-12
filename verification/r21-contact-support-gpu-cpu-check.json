@@ -1,0 +1,81 @@
+{
+  "schema": "glass-atoll.r21-contact-GPU-helper-CPU-only.v1",
+  "dateUTC": "2026-10-29T03:49:22.963Z",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 2,
+    "total": 2
+  },
+  "helperSHA256": "db6398a7ddaa010ab7a7f4f1d95c44a63052c365c97683892f5f67d0f6d9c0b9",
+  "dependencySHA256": {
+    "../fireworks.js": "73648d67def9f5be7a2c5174e8787e24500d9fbc5c8388071c2cd0015043b0aa",
+    "../fireworks-physics.js": "35bbded2c937d335890c14a9a33abc0487db93a34b8458042db2720719374291",
+    "../firework-air-support.js": "32149ec6c94ae99ab7552347e4eabfd4aa687827b81cdc6e94ac698045527855",
+    "../firework-contact-support.js": "34a876701db5d5d85b6bf557ad920de0e72f19b332c162cc5896e352b9fff8ae",
+    "../firework-contact-optics.js": "789ed0bfbe1fb81ddcfa8385a297576ebf334211ab3a34ef569ceb7b85f7a8fb",
+    "./r18-vector-shutter-gpu-check.js": "d97d379d28d3e7281a6dc31c8bf2da56f0671fb933addc3afdaac4a7097918a6"
+  },
+  "checks": [
+    {
+      "name": "Actual detached contact fixture constructs without a GPU host",
+      "passed": true,
+      "evidence": {
+        "bodyId": 186,
+        "contact": 4.585368255141361,
+        "now": 4.5874515884746945,
+        "headPosition": [
+          215.9582533418016,
+          0.08155868298162572,
+          70.21710045315687
+        ]
+      }
+    },
+    {
+      "name": "All four bounded cases fill actual attributes and isolate source186 or empty S0 without GL",
+      "passed": true,
+      "evidence": [
+        {
+          "reflection": false,
+          "S": 0.008333333333333333,
+          "selectedRow": 1167,
+          "originalFilledRows": 2112,
+          "selectedInstances": 1,
+          "predictedPeak": 0.0015313524428752015,
+          "projectedBound": 0.008918227931510378,
+          "rasterShutter": 0.008333333333333748,
+          "shapeZ": 9.099102020263672,
+          "radius": 0.010581254959106445
+        },
+        {
+          "reflection": false,
+          "S": 0,
+          "selectedInstances": 0,
+          "originalFilledRows": 2111
+        },
+        {
+          "reflection": true,
+          "S": 0.008333333333333333,
+          "selectedRow": 1484,
+          "originalFilledRows": 2112,
+          "selectedInstances": 1,
+          "predictedPeak": 0.00153032038962893,
+          "projectedBound": 0.008908201149413684,
+          "rasterShutter": 0.008333333333333748,
+          "shapeZ": 9.099102020263672,
+          "radius": 0.010581254959106445
+        },
+        {
+          "reflection": true,
+          "S": 0,
+          "selectedInstances": 0,
+          "originalFilledRows": 2111
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Only real factory construction, no-op renderer fill, trace-to-attribute row selection and independent pixel prediction; no GL calls, shader execution, state-restoration proof or actual GPU result.",
+    "Root owns renderer-lock admission, source review and bounded actual GPU execution."
+  ]
+}

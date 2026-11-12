@@ -1,0 +1,164 @@
+{
+  "date": "2026-11-12T10:09:59.767Z",
+  "passed": true,
+  "checksPassed": 17,
+  "total": 17,
+  "sourceSHA256": "872c60cd379d46c861faeb052c850c4e4fbd05fce616a37b3086601262dee926",
+  "checks": [
+    {
+      "name": "solar entry remains on mean sea plane",
+      "passed": true,
+      "evidence": {
+        "maxPlaneError": 3.552713678800501e-15
+      }
+    },
+    {
+      "name": "reverse refracted path reaches actual seabed hit",
+      "passed": true,
+      "evidence": {
+        "maxReverseError": 3.66205343881779e-15
+      }
+    },
+    {
+      "name": "solar ray obeys Snell and remains unit length",
+      "passed": true,
+      "evidence": {
+        "maxUnitError": 0,
+        "maxSnellError": 2.220446049250313e-16
+      }
+    },
+    {
+      "name": "air-to-water solar path stays bounded at horizon",
+      "passed": true,
+      "evidence": {
+        "maxPathRatio": 1.5123442632539348
+      }
+    },
+    {
+      "name": "water shadow ingress differs from straight air projection",
+      "passed": true,
+      "evidence": {
+        "refractedX": 1.7092235835155258,
+        "straightAirX": 3.4641016151377535
+      }
+    },
+    {
+      "name": "missing first-frame map falls back to lit",
+      "passed": true,
+      "evidence": {
+        "enabled": false,
+        "mapSize": [
+          1,
+          1
+        ],
+        "bias": 0,
+        "normalBiasMetres": 0,
+        "pcfTapsPerQuery": 9,
+        "queriesPerWaterFragment": 3,
+        "updates": 1,
+        "packing": "Three.js RGBADepthPacking; ordinary non-reversed directional shadow",
+        "limits": [
+          "receives the existing caster map; does not add missing terrain casters",
+          "plane solar-refraction interface at mean sea level",
+          "three independent PCF queries, including one volume midpoint",
+          "main renderer requests up to 60 Hz in high quality, 30 Hz balanced; actual rate is frame limited"
+        ]
+      }
+    },
+    {
+      "name": "delayed real map binds without scene mutation",
+      "passed": true,
+      "evidence": {
+        "enabled": true,
+        "mapSize": [
+          3072,
+          3072
+        ],
+        "bias": -0.00012,
+        "normalBiasMetres": 0.035,
+        "pcfTapsPerQuery": 9,
+        "queriesPerWaterFragment": 3,
+        "updates": 2,
+        "packing": "Three.js RGBADepthPacking; ordinary non-reversed directional shadow",
+        "limits": [
+          "receives the existing caster map; does not add missing terrain casters",
+          "plane solar-refraction interface at mean sea level",
+          "three independent PCF queries, including one volume midpoint",
+          "main renderer requests up to 60 Hz in high quality, 30 Hz balanced; actual rate is frame limited"
+        ]
+      }
+    },
+    {
+      "name": "matrix is shared so post-shadow-pass updates are visible",
+      "passed": true,
+      "evidence": {
+        "referenceShared": true
+      }
+    },
+    {
+      "name": "unavailable map returns to safe fallback",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "name": "RGBA packed-depth known limits and midpoint",
+      "passed": true,
+      "evidence": {
+        "white": 1,
+        "half": 0.5
+      }
+    },
+    {
+      "name": "packed depth compared before PCF averaging",
+      "passed": true,
+      "evidence": {
+        "type": "source wiring, not a GPU result"
+      }
+    },
+    {
+      "name": "bed, surface and volume query separate solar paths",
+      "passed": true,
+      "evidence": {
+        "type": "source wiring, not a GPU result"
+      }
+    },
+    {
+      "name": "sky reflection is not darkened by tree visibility",
+      "passed": true,
+      "evidence": {
+        "skyAssignment": "vec3 skyReflection=textureLod(uSkyCube,R,reflectionLod).rgb*uSkyCubeScale;"
+      }
+    },
+    {
+      "name": "ambient bed term is independent of tree occlusion",
+      "passed": true,
+      "evidence": {
+        "type": "source wiring"
+      }
+    },
+    {
+      "name": "temporal slope variance has the physical squared-time units",
+      "passed": true,
+      "evidence": {
+        "computed": 0.000023635729225738418,
+        "exported": 0.000023619889856221493,
+        "exposureSeconds": 0.008333333333333333
+      }
+    },
+    {
+      "name": "glint AA adds only pixel/temporal normal variance to NDF",
+      "passed": true,
+      "evidence": {
+        "type": "source wiring; finite-frame alias requires actual rendered comparison"
+      }
+    },
+    {
+      "name": "reflection MSAA and colour mips retain independent depth",
+      "passed": true,
+      "evidence": {
+        "type": "source wiring; actual framebuffer support/timing require GPU test"
+      }
+    }
+  ],
+  "limits": "CPU optics/binding math and explicit source wiring; does not claim GPU compilation, visible shadows, no flicker or >=60 fps."
+}

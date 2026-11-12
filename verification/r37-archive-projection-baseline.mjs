@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
+const root=new URL('../',import.meta.url),read=p=>fs.readFileSync(new URL(p,root)),sha=b=>crypto.createHash('sha256').update(b).digest('hex'),pin=b=>({sha256:sha(b),bytes:b.length});
+const previousPath='verification/r36-final-manifest.json',previousBytes=read(previousPath),previous=JSON.parse(previousBytes);assert.equal(sha(previousBytes),'87cb9a288371eb593c6867ab32beea62f49629944e7314a777dead57bc24ff78');
+const directory='verification/baselines/r37-before-source-projection-reuse/',paths=['main.js','fireworks.js'];
+const sources=Object.fromEntries(paths.map(path=>{const bytes=read(path);assert.deepEqual(pin(bytes),previous.source[path],path);return[path,bytes];}));
+fs.mkdirSync(new URL(directory,root));
+for(const [path,bytes]of Object.entries(sources))fs.writeFileSync(new URL(directory+path,root),bytes,{flag:'wx'});
+const receipt={schema:'glass-atoll.r37-source-projection-baseline.v1',previous:{path:previousPath,...pin(previousBytes)},sources:Object.fromEntries(Object.entries(sources).map(([path,bytes])=>[path,pin(bytes)])),approvedAudio:pin(read('fireworks-audio.js')),purpose:'Before one CPU source-projection reuse candidate; no scene settings, shader math, emission or clock changes'};
+fs.writeFileSync(new URL(directory+'manifest.json',root),JSON.stringify(receipt,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({passed:true,paths,directory}));

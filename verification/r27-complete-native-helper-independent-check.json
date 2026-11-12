@@ -1,0 +1,129 @@
+{
+  "schema": "glass-atoll.r27-native-helper-independent-preflight.v1",
+  "dateUTC": "2026-10-29T12:29:41.609Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "helperSHA256": "991bae4f1bf56a081ce179b58ba86530f7738b0aee9689201c28f5ed79695021",
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "Reviewed helper source and complete named native guards match the admitted R26 contract",
+      "passed": true,
+      "evidence": {
+        "sourceSHA256": "991bae4f1bf56a081ce179b58ba86530f7738b0aee9689201c28f5ed79695021",
+        "guards": [
+          "READ/DRAW/MRT",
+          "logical/actual viewport-scissor",
+          "PACK/UNPACK/PBO/COPY_READ",
+          "renderer/XR/shadow/clear/tone",
+          "exact descriptor cleanup"
+        ],
+        "onlineAllPairs": false
+      }
+    },
+    {
+      "name": "Context-free pre-yield private capture preserves original IDs/data and all-row oracle/pack ownership, including negative zero",
+      "passed": true,
+      "evidence": {
+        "privateAllRows": true,
+        "declaredPayloadReservation": 33473274,
+        "reservationNotHeapGuarantee": true,
+        "uploadBytes": 1126400,
+        "readbackBytes": 27856,
+        "canonicalEntireArtifact": true
+      }
+    },
+    {
+      "name": "Every map cell belongs to the complete global schedule; bounded partial samples and all output rows map within fixed live allocation",
+      "passed": true,
+      "evidence": {
+        "samples": [
+          {
+            "address": 0,
+            "x": 0,
+            "y": 0,
+            "tile": 0,
+            "source": 0
+          },
+          {
+            "address": 15615,
+            "x": 255,
+            "y": 60,
+            "tile": 9,
+            "source": 9
+          },
+          {
+            "address": 15616,
+            "x": 0,
+            "y": 61,
+            "tile": 9,
+            "source": 10
+          },
+          {
+            "address": 20735,
+            "x": 255,
+            "y": 80,
+            "tile": 11,
+            "source": 1661
+          },
+          {
+            "address": 20736,
+            "x": 0,
+            "y": 81,
+            "tile": 11,
+            "source": 1662
+          },
+          {
+            "address": 20807,
+            "x": 71,
+            "y": 81,
+            "tile": 11,
+            "source": 1733
+          },
+          {
+            "address": 19074,
+            "x": 130,
+            "y": 74,
+            "tile": 11,
+            "source": 0
+          }
+        ],
+        "mapDraws": 3,
+        "reductionDraws": 1,
+        "allFinalRows": 1734,
+        "activeOutputViewport": [
+          0,
+          0,
+          256,
+          7
+        ],
+        "fullOutputTarget": [
+          256,
+          71
+        ],
+        "otherConsumersExecuted": false
+      }
+    },
+    {
+      "name": "A stale injected factory fails source/cached-function guards before context access or construction",
+      "passed": true,
+      "evidence": {
+        "contextCalls": 0,
+        "constructs": 0,
+        "actualDraws": 0,
+        "scope": "Real helper executes private capture/hash rejection with filesystem-backed fetch shim only; no graphics context"
+      }
+    }
+  ],
+  "limits": [
+    "Read-only helper review and CPU context-free capture/pin rejection only. No actual shader/FBO/timer/readback executed.",
+    "One isolated complete main SourceT request only; all logical rows/packets retained, but reflection and SH are disclosed separately and not dispatched.",
+    "Four queued draws share one retrospective timing interval; it cannot preempt maps already queued.",
+    "Full native GPU admission remains root-owned. Passing this preflight does not promote production, prove whole-frame budgets, remove every smoke bottleneck or establish FPS."
+  ]
+}

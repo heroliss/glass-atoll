@@ -1,0 +1,282 @@
+{
+  "schema": "glass-atoll.r25-smoke-prefix-independent-check.v1",
+  "replayedBeforeFixtureFix": true,
+  "replayNote": "Reproduces the three initial fixture assumptions after the original report was overwritten; not a byte-identical original timestamp/artifact.",
+  "dateUTC": "2026-10-29T09:25:56.858Z",
+  "scope": "Actual smoke factories and exact vendored WebGLAttributes executed against inert byte storage; no GPU pixels/timing/driver claim",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "counts": {
+    "passed": 5,
+    "total": 8
+  },
+  "passed": false,
+  "priorFixtureFailure": null,
+  "checks": [
+    {
+      "name": "only upload-range helper and its two call sites differ; shader source is unchanged",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Strict inverse equals the exact original source bytes\n+ actual - expected\n\n+ '0e6c4f4444e93bbccc45084947cfee1f33cdbc77f666a6d86786f0573117b011'\n- '0221cab9bdd44ed04178fd8d838d5aa31d2521d1d0b5af27a8a228bdc40c2e0e'\n",
+      "stack": "AssertionError [ERR_ASSERTION]: Strict inverse equals the exact original source bytes\n+ actual - expected\n\n+ '0e6c4f4444e93bbccc45084947cfee1f33cdbc77f666a6d86786f0573117b011'\n- '0221cab9bdd44ed04178fd8d838d5aa31d2521d1d0b5af27a8a228bdc40c2e0e'\n\n    at [replayed-module]:56:536\n    at check ([replayed-module]:17:68)\n    at [replayed-module]:54:1"
+    },
+    {
+      "name": "actual r180 attributes: initial full allocation, ranged update consumption and empty-range full fallback",
+      "passed": true,
+      "evidence": {
+        "fullInitialBytes": 48,
+        "warmPrefixBytes": 24,
+        "noRangeFallbackBytes": 48
+      }
+    },
+    {
+      "name": "0/1/shrink/regrow/full capacity keep identical actual factory CPU and uploaded valid prefixes",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n1088 !== 0\n",
+      "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n1088 !== 0\n\n    at [replayed-module]:63:166\n    at check ([replayed-module]:17:68)\n    at [replayed-module]:61:1"
+    },
+    {
+      "name": "main/mirror order and camera-relative data remain identical in both proxy modes",
+      "passed": true,
+      "evidence": {
+        "independentViewDraws": 8
+      }
+    },
+    {
+      "name": "resolved activation/index prefix, shrink, disable fallback and reactivation are unchanged",
+      "passed": true,
+      "evidence": {
+        "firstAllocation": 1152,
+        "warmResolvedPerInstance": 72,
+        "warmLegacyPerInstance": 68
+      }
+    },
+    {
+      "name": "no-render state updates and early/late failures retain a correct next prefix",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n540 !== 476\n",
+      "stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n540 !== 476\n\n    at [replayed-module]:74:294\n    at check ([replayed-module]:17:68)\n    at [replayed-module]:72:1"
+    },
+    {
+      "name": "render exceptions before/after upload restore state and do not lose pending positive ranges at zero",
+      "passed": true,
+      "evidence": {
+        "pendingPositivePrefixBytes": 544,
+        "zeroDoesNotClearPendingRange": true,
+        "zeroAfterConsumedUploadBytes": 0
+      }
+    },
+    {
+      "name": "all-culled/no-instance render uses zero new dirty bytes after a normal upload",
+      "passed": true,
+      "evidence": {
+        "culledInstances": 0,
+        "candidateDirtyBytes": 0
+      }
+    }
+  ],
+  "runs": [
+    {
+      "label": "sequence-0-2",
+      "count": 0,
+      "threw": false,
+      "baselineBytes": 1136,
+      "candidateBytes": 1136
+    },
+    {
+      "label": "legacy-sphere-warm",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1136,
+      "candidateBytes": 1136
+    },
+    {
+      "label": "legacy-sphere-false",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "legacy-sphere-true",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "legacy-sphere-false",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "legacy-sphere-true",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "ellipsoid-warm",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1136,
+      "candidateBytes": 1136
+    },
+    {
+      "label": "ellipsoid-false",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "ellipsoid-true",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "ellipsoid-false",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "ellipsoid-true",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "resolved-first",
+      "count": 6,
+      "threw": false,
+      "baselineBytes": 1200,
+      "candidateBytes": 1200
+    },
+    {
+      "label": "resolved-shrink",
+      "count": 2,
+      "threw": false,
+      "baselineBytes": 1152,
+      "candidateBytes": 144
+    },
+    {
+      "label": "resolved-disabled-legacy-fallback",
+      "count": 5,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 340
+    },
+    {
+      "label": "resolved-reactivated",
+      "count": 9,
+      "threw": false,
+      "baselineBytes": 1152,
+      "candidateBytes": 648
+    },
+    {
+      "label": "resolved-zero",
+      "count": 0,
+      "threw": false,
+      "baselineBytes": 1152,
+      "candidateBytes": 0
+    },
+    {
+      "label": "failure-warm",
+      "count": 4,
+      "threw": false,
+      "baselineBytes": 1136,
+      "candidateBytes": 1136
+    },
+    {
+      "label": "late-failure-regrow",
+      "count": 7,
+      "threw": false,
+      "baselineBytes": 1152,
+      "candidateBytes": 540
+    },
+    {
+      "label": "throw-warm",
+      "count": 4,
+      "threw": false,
+      "baselineBytes": 1136,
+      "candidateBytes": 1136
+    },
+    {
+      "label": "throw-before-upload",
+      "count": 8,
+      "threw": true,
+      "baselineBytes": 0,
+      "candidateBytes": 0
+    },
+    {
+      "label": "zero-after-unconsumed-positive",
+      "count": 0,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "throw-after-upload",
+      "count": 3,
+      "threw": true,
+      "baselineBytes": 1088,
+      "candidateBytes": 204
+    },
+    {
+      "label": "zero-after-consumed-positive",
+      "count": 0,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 0
+    },
+    {
+      "label": "throw-recovery-regrow",
+      "count": 9,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 612
+    },
+    {
+      "label": "cull-warm",
+      "count": 3,
+      "threw": false,
+      "baselineBytes": 1136,
+      "candidateBytes": 1136
+    },
+    {
+      "label": "all-behind-camera",
+      "count": 0,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 0
+    },
+    {
+      "label": "cull-regrow",
+      "count": 5,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 340
+    }
+  ],
+  "sourceSHA256": {
+    "baseline": "0221cab9bdd44ed04178fd8d838d5aa31d2521d1d0b5af27a8a228bdc40c2e0e",
+    "candidate": "4f152a1470d8351b997728691bc2e0ec15ee0962b55926179917cb42ce7ee3dd",
+    "threeModule": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+    "actualAttributes": "e16c4481076694456b0080cbb16e04b6aa0c032453a285778f3f977d655d5485",
+    "audio": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+  },
+  "limits": [
+    "First buffer allocation remains full capacity, even with zero instances, including first resolved-index allocation.",
+    "Zero instances preserve pending unconsumed positive ranges; those pending bytes may upload once after an earlier failed/skipped renderer call.",
+    "Warm successful positive updates transfer only the active prefix; no smoke/raster/physical model was altered.",
+    "The inert renderer models attribute update ordering and GL-shaped state only; it is not a hardware or complete Three renderer acceptance test."
+  ]
+}

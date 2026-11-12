@@ -1,0 +1,137 @@
+{
+  "schema": "glass-atoll.r31-native-scene-smoke-workstream-receipt.v1",
+  "revision": "r31-one-fresh-native-sdr-scene-v1",
+  "pendingHardware": false,
+  "actualGPUByChild": false,
+  "browserActionsByChild": 0,
+  "productionEditsByChild": 0,
+  "overallGoalComplete": false,
+  "helper": {
+    "path": "verification/r31-native-scene-gpu-check.js",
+    "sha256": "9ecc4755b9d9907831443d5dce0032f3d8b1f64bd92b45faf20c2e56d5aa3762"
+  },
+  "pins": {
+    "moduleSHA256": "c3b77f26b5063a6385ee469b682c00c83829870f2205c0d8e3341c1c2823d6bb",
+    "manifestSHA256": "b4c5b34a16701379c096105c2c4ad14d2ad8ecea7843fb9b3616b1182fb49a73",
+    "pending": false,
+    "sources": 34,
+    "functions": 12
+  },
+  "ownCPU": {
+    "path": "verification/r31-native-scene-preflight.json",
+    "sha256": "ab580ebad79ad21f3d02317697a4b42872c32016ed800172724ec3a10c791c95",
+    "passed": true,
+    "counts": {
+      "passed": 10,
+      "total": 10
+    },
+    "contextCalls": 0
+  },
+  "independentReviewPending": false,
+  "capture": {
+    "schema": "glass-atoll.r31-native-normalized-sdr-capture.v1",
+    "width": 1209,
+    "height": 1292,
+    "source": "explicitRGBA16F",
+    "owned": "RGBA8",
+    "readType": "UNSIGNED_BYTE",
+    "readbackBytes": 6248112,
+    "gpuCaptureTextureNumericBytes": 6248112,
+    "readbackCount": 1,
+    "rowOrder": "bottom-up",
+    "statisticsDomain": "normalized encoded-sRGB0..1",
+    "floatPreservationClaim": false,
+    "silentFallback": false
+  },
+  "work": {
+    "drawCap": 143,
+    "rendererInvocationCap": 41,
+    "elementCap": 19279476,
+    "blitCap": 10,
+    "mipCap": 5,
+    "clearCap": 32,
+    "wholeQueryGuardMs": 100,
+    "numericalDraws": 18,
+    "aggregateDifferentKernelPairs": 9671103,
+    "sourceTPairsEachEye": 3226002,
+    "sharedSHPairs": 3219099,
+    "steadyStateFPSClaim": false
+  },
+  "unchanged": {
+    "R30v5HelperSHA256": "614604b3bc91df210310b9d11b3a0356626a33a40182b6923d33a1b94f00ebf2",
+    "physicalReplay": "2d3f10a0bf185fef8edcc5b093a413a80736e0bb2ccff6e395b9dc38681b759b",
+    "completeBrowserReference": "d8cfff62755b26d021fd7da13eafd031ca45c098d6e2844bf8aec832cca8c193",
+    "noProductionKernelChange": true,
+    "fullMatterAndSourceCoverage": true
+  },
+  "limits": [
+    "Hardware and visual acceptance pending root-only execution after independent review.",
+    "One complete native single-event SDR frame only; no HDR display transport/steady FPS or two-event above4m repair.",
+    "Root separate original-presentation rebuild excluded from measured transaction."
+  ],
+  "hardwarePassed": true,
+  "performanceTargetMet": false,
+  "actual": {
+    "path": "verification/r31-native-scene-actual-gpu.json",
+    "sha256": "873ecd6a1084655595cd91d82fa2b86003b0a04b5724ffc97a0239922f2682e4",
+    "counts": {
+      "passed": 6,
+      "total": 6
+    },
+    "work": {
+      "actualDraws": 107,
+      "renderCalls": 41,
+      "elements": 10441410,
+      "nativeOps": {
+        "blits": 10,
+        "mipmaps": 4,
+        "clears": 16
+      },
+      "numericalStages": 18,
+      "cpuFallbackQueries": 0
+    },
+    "timing": {
+      "gpuMs": 59.307392,
+      "cpuSubmitMs": 313.90000000596046,
+      "performanceTargetMet": false,
+      "steadyStateFPSClaim": false
+    },
+    "image": {
+      "bytes": 6248112,
+      "sha256": "dcee8e86f4e6927020e4ca5ed7d61384579c0379be5ebfb968f935b7ba8d85fc",
+      "statistics": {
+        "minimumRGB": 0,
+        "maximumRGB": 1,
+        "meanRGB": 0.0003617820714418532,
+        "nonblackChannels": 15265
+      },
+      "visualAcceptanceClaimed": false
+    },
+    "restored": true
+  },
+  "ownSavedReceiptAudit": {
+    "path": "verification/r31-native-smoke-actual-audit.json",
+    "sha256": "c38c43fb56384c4e69a164b79e255d459c5b0d560cc84f942048c08c356acf41",
+    "counts": {
+      "passed": 6,
+      "total": 6
+    },
+    "actualGPU": false
+  },
+  "independentSource": {
+    "path": "verification/r31-native-scene-layer-bounds-review.json",
+    "sha256": "9438f6057ff242992de29cbd3a5e403d0fa05eab9bd4dd17ded214021b0bead1",
+    "counts": {
+      "passed": 5,
+      "total": 5
+    }
+  },
+  "independentActual": {
+    "path": "verification/r31-native-actual-layer-bounds-audit.json",
+    "sha256": "366a9582505e103c725a0722efa66600d4b5a3b830923458c21cd7345f562baa",
+    "counts": {
+      "passed": 6,
+      "total": 6
+    }
+  }
+}

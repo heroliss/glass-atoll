@@ -1,0 +1,94 @@
+{
+  "schema": "glass-atoll.r29-final-independent-external-audit.v1",
+  "dateUTC": "2026-10-29T16:42:30.020259+00:00",
+  "manifestSHA256": "35b47da69cb0e486158048ec802a2d472658e33ca115c4c79f16cf989d0394c7",
+  "actualGPU": false,
+  "browserActions": 0,
+  "frozenArtifactEdits": 0,
+  "passed": false,
+  "counts": {
+    "passed": 6,
+    "total": 7
+  },
+  "checks": [
+    {
+      "name": "Final manifest identity and all runtime source bytes match; exactly three capacity/main deltas",
+      "passed": true,
+      "evidence": {
+        "runtimePins": 33,
+        "delta": [
+          "main.js",
+          "pyro-smoke-light-tiles.js",
+          "pyro-smoke-transmission-pack.js"
+        ],
+        "unchangedR28Pins": 30
+      }
+    },
+    {
+      "name": "All frozen artifact SHA256 and lengths, including the archived previous manifest, match",
+      "passed": true,
+      "evidence": {
+        "artifacts": 145,
+        "archivedPreviousManifestIncluded": true,
+        "selfHashCycleAvoided": true
+      }
+    },
+    {
+      "name": "Current passing statuses/counts match all 21 saved reports and only three actual GPU receipts",
+      "passed": true,
+      "evidence": {
+        "currentPassingReports": 21,
+        "actualGPUReports": [
+          "r29-source-peak-actual-gpu.json",
+          "r29-light-peak-actual-gpu.json",
+          "r29-joint-peak-actual-gpu.json"
+        ],
+        "CPUReportNotGPUClaim": true
+      }
+    },
+    {
+      "name": "All seven named failed historical receipts remain failed with exact bytes and counts",
+      "passed": true,
+      "evidence": {
+        "retainedFailed": 7,
+        "allExplicitlyFalse": true,
+        "ownGuardFailureRetained": true
+      }
+    },
+    {
+      "name": "Actual receipt metadata and corrected calibrated-promotion status match three exact hardware results",
+      "passed": false,
+      "error": ""
+    },
+    {
+      "name": "All checkpoint links resolve and material limits distinguish BVH queries, fresh scene work and sampled compute gates",
+      "passed": true,
+      "evidence": {
+        "checkpointLinks": 13,
+        "nextPlans": 2,
+        "noContinuousSmokePerformanceClaim": true,
+        "existingBVHSemanticsDisclosed": true
+      }
+    },
+    {
+      "name": "Restoration/automatic HDR and saved server evidence are qualified without screenshot/FPS or current-mirror GPU claims",
+      "passed": true,
+      "evidence": {
+        "intentRestoration": {
+          "passed": 28,
+          "total": 28,
+          "exact": 27
+        },
+        "automaticDerivedPeakNits": {
+          "before": 700,
+          "after": 1270
+        },
+        "OSSettingsChanged": false,
+        "serverPIDFromSavedEvidence": 23820,
+        "liveStateRequeried": false,
+        "sceneMirrorFPSAccepted": false
+      }
+    }
+  ],
+  "scope": "External read-only post-seal audit; this new receipt is intentionally outside the already fixed manifest artifact set. No report reruns or frozen artifact modifications."
+}

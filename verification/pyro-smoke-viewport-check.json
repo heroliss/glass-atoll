@@ -1,0 +1,41 @@
+{
+  "schema": "glass-atoll.smoke-viewport-source.v2-finite-phase-compat",
+  "passed": true,
+  "counts": {
+    "checks": 5,
+    "passed": 5
+  },
+  "checks": [
+    {
+      "id": "only_render_state_setup_and_finally_changed",
+      "passed": true
+    },
+    {
+      "id": "complete_column_geometry_sort_lighting_shader_are_byte_unchanged",
+      "passed": true
+    },
+    {
+      "id": "RT_viewport_uses_physical_metadata_not_public_DPR_multiplier",
+      "passed": true
+    },
+    {
+      "id": "public_and_actual_rectangles_are_restored_separately",
+      "passed": true
+    },
+    {
+      "id": "caller_target_metadata_and_raw_read_draw_bindings_restore",
+      "passed": true
+    }
+  ],
+  "sourceSHA256": "cd7257e8dc80d15b26328e15bc0cd5625cc534c972a9df9f0188fe72d0a96c5b",
+  "normalized97SHA256": "97fd2ba3f69cf028b27af88bdba767a206ee9cc839d35121aec61fd960a310bc",
+  "baselineSHA256": "9826822561ec4a5af5d9b61843a6ae714ab8a74706b763f9a53d3f2248632818",
+  "preservedOriginalProof": "baselines/smoke-before-finite-phase/pyro-smoke-viewport-check.json",
+  "noGPU": true,
+  "limits": [
+    "source scope proof only; DPR actual pixel coverage/state requires root GPU helper",
+    "seven exact authorized optional-phase edits removed first; no broad physics or shader stripping",
+    "all remaining physical/render formula bytes outside state setup/finally match accepted local-light baseline",
+    "original97fd viewport proof/report preserved; v2 does not retroactively call new shader GPU accepted"
+  ]
+}

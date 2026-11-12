@@ -1,0 +1,641 @@
+{
+  "state": {
+    "ready": true,
+    "time": 296.07830880196366,
+    "fps": 0,
+    "gpuMs": 69.482,
+    "renderScale": 1,
+    "graphicsContextInterrupted": false,
+    "pausedRenderCached": true,
+    "pausedSteadyFrames": 55855,
+    "parameters": {
+      "sun": {
+        "azimuth": 100,
+        "elevation": 48,
+        "intensity": 1
+      },
+      "quality": "high",
+      "paused": true,
+      "sound": false,
+      "wind": 1.8,
+      "current": 0.16,
+      "lens": {
+        "focal": 28,
+        "aperture": 8,
+        "exposure": 0,
+        "dof": false,
+        "vignette": true,
+        "antialias": "smaa",
+        "automatic": false,
+        "manualExposureEV": 0,
+        "temporal": true,
+        "glintAA": true,
+        "opticalBloom": true,
+        "opticalFlare": false,
+        "focusMode": "target",
+        "focusDistance": 60
+      },
+      "weather": {
+        "humidity": 0.68,
+        "temperature": 29,
+        "cloudBase": "auto",
+        "thickness": 950,
+        "coverage": 0.35,
+        "shear": 1.1
+      },
+      "air": {
+        "enabled": true,
+        "aerosolScale": 8,
+        "shadows": true
+      },
+      "graphics": {
+        "indirect": "low",
+        "shadows": "recommended",
+        "targetFps": 60,
+        "hdr": true,
+        "hdrMode": "auto",
+        "displayName": "auto",
+        "systemCalibration": true,
+        "peakNits": 1270,
+        "paperWhiteNits": 280,
+        "displayTransform": "legacy",
+        "waveResolution": 512,
+        "hdrHeadroom": 4
+      },
+      "sea": {
+        "swellHeight": 0.16,
+        "windSea": 1,
+        "clarity": 0.9
+      },
+      "director": {
+        "mode": "off",
+        "periodSeconds": 240
+      },
+      "qualityPreset": "medium",
+      "renderSampling": {
+        "indirect": "low",
+        "antialias": "smaa",
+        "temporal": true,
+        "glintAA": true,
+        "opticalBloom": true,
+        "dprCap": 1.65,
+        "msaaSamples": 8,
+        "shadowSize": 4096,
+        "shadowHz": 45,
+        "waveResolution": 512,
+        "cloudSteps": 64,
+        "atmosphereSteps": 8,
+        "airSteps": 6,
+        "airShadowTaps": 1,
+        "causticsGrid": 1280,
+        "causticsSize": 1536,
+        "causticsHz": 24,
+        "reflectionScale": 1,
+        "reflectionSamples": 2
+      },
+      "qualityCustom": false
+    },
+    "lens": {
+      "displayTransform": {
+        "kind": "hdr",
+        "requested": true,
+        "effective": "legacy",
+        "reason": "render-declined",
+        "error": null,
+        "adapter": {
+          "requested": "legacy",
+          "preparation": {
+            "status": "idle",
+            "reason": "selected-legacy",
+            "peakNits": 1270,
+            "error": null
+          },
+          "sdr": {
+            "effective": "none",
+            "peakNits": 100,
+            "reason": "awaiting-render",
+            "error": null
+          },
+          "hdr": {
+            "effective": "legacy",
+            "peakNits": 1270,
+            "reason": "selected-legacy",
+            "error": null
+          },
+          "variant": "aces2-ocio26-accurate-atan-v1",
+          "supportedTargets": [
+            100,
+            700,
+            1270
+          ],
+          "preparablePeakRange": {
+            "min": 100,
+            "max": 10000,
+            "integerOnly": true
+          },
+          "lastError": null,
+          "revision": 1,
+          "disposed": false,
+          "frames": {
+            "sdr": 0,
+            "hdr": 0
+          },
+          "fallbackFrames": {
+            "sdr": 0,
+            "hdr": 19631
+          },
+          "output": null
+        }
+      },
+      "storageEV": 11.5,
+      "historyEV": 11.5,
+      "dynamicLighting": false,
+      "sceneAttachments": [
+        "RGBA16F radiance",
+        "RGBA16F motion/coverage",
+        "R16F foliage depth",
+        "R8 local reactive"
+      ],
+      "motion": {
+        "enabled": true,
+        "frames": 21829,
+        "groups": 1,
+        "hasPrevious": true,
+        "extraScenePasses": 0,
+        "attachment": "RGBA16F: unjittered UV velocity.xy, previous linear depth, MSAA coverage; R16F: current linear depth; normalize both by coverage",
+        "limits": [
+          "analytic rest-mesh wind and camera motion only; no arbitrary model-matrix animation",
+          "missing-coverage bridge retains conservative camera-only fallback"
+        ]
+      },
+      "bloom": {
+        "enabled": true,
+        "bloom": true,
+        "flare": false,
+        "strength": 0.018,
+        "budget": {
+          "direct": 0.982,
+          "bloom": 0.018,
+          "ghost": 0,
+          "veil": 0,
+          "total": 0.018
+        },
+        "levels": 4,
+        "passes": 5,
+        "operatorPeakBoundRGB": [
+          1,
+          1,
+          1
+        ],
+        "model": "single threshold-free linear HDR PSF; opt-in affine ghost/veil share at most 1.8% radiance redistribution",
+        "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+      },
+      "hdr": {
+        "enabled": true,
+        "available": true,
+        "apiAvailable": true,
+        "displayHDR": true,
+        "mode": "float-canvas-external-copy",
+        "width": 1209,
+        "height": 1292,
+        "maxHz": 120,
+        "maxBridgeWidth": 1440,
+        "paperWhiteNits": 280,
+        "peakNits": 1270,
+        "sdrWhiteNits": 280,
+        "headroom": 4.535714285714286,
+        "whiteScale": 1,
+        "calibrationSource": "windows-dxgi",
+        "displayName": "Q27G4XM",
+        "calibrationAdjustments": [],
+        "presentedFrames": 19631,
+        "skippedFrames": 2198,
+        "lastPresentCpuMs": 0.10000000894069672,
+        "lastUploadCpuMs": 0,
+        "lastPresentationTimestamp": 743967.599999994,
+        "errors": [],
+        "requiresRedraw": false,
+        "readback": null,
+        "presentationObserverActive": false,
+        "presentationObserverError": null,
+        "displayTransform": {
+          "kind": "hdr",
+          "requested": true,
+          "effective": "legacy",
+          "reason": "render-declined",
+          "error": null,
+          "adapter": {
+            "requested": "legacy",
+            "preparation": {
+              "status": "idle",
+              "reason": "selected-legacy",
+              "peakNits": 1270,
+              "error": null
+            },
+            "sdr": {
+              "effective": "none",
+              "peakNits": 100,
+              "reason": "awaiting-render",
+              "error": null
+            },
+            "hdr": {
+              "effective": "legacy",
+              "peakNits": 1270,
+              "reason": "selected-legacy",
+              "error": null
+            },
+            "variant": "aces2-ocio26-accurate-atan-v1",
+            "supportedTargets": [
+              100,
+              700,
+              1270
+            ],
+            "preparablePeakRange": {
+              "min": 100,
+              "max": 10000,
+              "integerOnly": true
+            },
+            "lastError": null,
+            "revision": 1,
+            "disposed": false,
+            "frames": {
+              "sdr": 0,
+              "hdr": 0
+            },
+            "fallbackFrames": {
+              "sdr": 0,
+              "hdr": 19631
+            },
+            "output": null
+          }
+        },
+        "source": "pre-OutputPass, scene-linear sRGB floating-point target",
+        "output": "sRGB-encoded rgba16float, extended, opaque",
+        "noExplicitCPUReadback": true,
+        "absoluteNitsCalibrated": false,
+        "systemReportedCalibration": true,
+        "peakRelativeToBrowserWhite": 4.535714285714286,
+        "shoulder": "same fitted SDR ACES anchor through exposed peak 1; C1 bounded highlight extension; nit scale divided by browser/Windows SDR white",
+        "limits": "System-reported luminance is not a photometer measurement and scene lux is not calibrated. This is not an official ACES HDR ODT. Extended sRGB canvas is not a native 80-nit scRGB swap chain. External-image copy is not guaranteed zero-copy. PBO copies pixels through CPU. HDR enlargement is linear, not SDR FSR1."
+      },
+      "width": 1209,
+      "height": 1292,
+      "outputWidth": 1209,
+      "outputHeight": 1292,
+      "upscaler": "native resolution",
+      "samples": 8,
+      "maxSamples": 8,
+      "sampleSupport": [
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ]
+      ],
+      "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+      "temporal": {
+        "enabled": true,
+        "active": true,
+        "waterEnabled": true,
+        "stillFrames": 41,
+        "frozen": true,
+        "historyFrames": 456,
+        "historyWeight": 0.84,
+        "artificialJitter": false,
+        "jitterPixels": [
+          0,
+          0
+        ],
+        "lastResetReason": "QA smoke source profile",
+        "scope": "analytic wind/camera foliage motion, MSAA coverage, independent short water radiance history",
+        "maximumMissingCoverageFrames": 2,
+        "metadata": "R8 age; nearest valid depth, bilinear RGB",
+        "historyBytes": 28116504
+      },
+      "shutterSeconds": 0.008333333333333333,
+      "focalMm": 28,
+      "cameraFocalMm": 27.999999999999993,
+      "verticalFovDegrees": 65.4704525442152,
+      "exposureScale": 4.29920922961421,
+      "aperture": 8,
+      "focusMode": "target",
+      "focusMetres": 554.9042321386725,
+      "sensorHeightMm": 36,
+      "depthOfField": false,
+      "vignette": true,
+      "sceneStats": {
+        "triangles": 2137210,
+        "calls": 35
+      }
+    },
+    "caustics": {
+      "quality": "high",
+      "gridSegments": 1280,
+      "maxHz": 24
+    },
+    "performance": {
+      "enabled": false,
+      "targetFps": 60,
+      "referenceBudgetMs": 16.666666666666668,
+      "scale": 1,
+      "minimumScale": 0.6,
+      "smoothedCostMs": null,
+      "lastGpuMs": null,
+      "slowFrameFraction": 0,
+      "changes": []
+    },
+    "camera": [
+      -26.367924748274802,
+      133.02981104670693,
+      -41.77529599679609
+    ],
+    "target": [
+      79.63207525172518,
+      133.02981104670693,
+      104.22470400320394
+    ],
+    "ripples": [
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ]
+    ],
+    "triangles": 2137210,
+    "drawCalls": 35,
+    "leaves": []
+  },
+  "air": {
+    "enabled": true,
+    "shadows": true,
+    "quality": "high",
+    "dimensions": [
+      1209,
+      1292
+    ],
+    "integrationDimensions": [
+      605,
+      646
+    ],
+    "steps": 6,
+    "treeShadowTapsPerStep": 1,
+    "frames": 21829,
+    "time": 296.07830880196366,
+    "coefficients": {
+      "humidity": 0.68,
+      "kappa": 0.6,
+      "aerosolScale": 8,
+      "radiusGrowth": 1.3152060571428128,
+      "areaGrowth": 1.7297669727451437,
+      "normalizedMieScale": 13.83813578196115,
+      "wetMie550": 0.00005529719058471676,
+      "betaRayleighRGB": [
+        0.000005802,
+        0.000013558,
+        0.0000331
+      ],
+      "betaMieExtinctionRGB": [
+        0.00005529719058471676,
+        0.00005529719058471676,
+        0.00005529719058471676
+      ],
+      "betaMieScatteringRGB": [
+        0.000049767471526245085,
+        0.000049767471526245085,
+        0.000049767471526245085
+      ],
+      "singleScatteringAlbedo": 0.9,
+      "asymmetry": 0.76,
+      "aerosolHeight": 1200,
+      "rayleighHeight": 8000,
+      "units": "inverse metres at sea level; scale is an environmental control, not measured aerosol mass",
+      "model": "bulk hygroscopic radius growth and geometric-area extinction proxy; no Mie size-distribution solve"
+    },
+    "maxDistanceMetres": 12000,
+    "samplingOverride": {
+      "steps": 6,
+      "shadowTaps": 1
+    },
+    "globalSourceModel": "atmosphere",
+    "globalSource": {
+      "rawRGB": [
+        0,
+        0,
+        0
+      ],
+      "storedRGB": [
+        0,
+        0,
+        0
+      ],
+      "rawDiffuseRGB": [
+        4.106621954698917e-9,
+        3.585544828043239e-9,
+        3.2733897133013483e-9
+      ],
+      "storedDiffuseRGB": [
+        0.000011894047670014605,
+        0.000010384847102598054,
+        0.000009480749317085889
+      ],
+      "direction": [
+        -0.5249567118995889,
+        -0.7901894077745367,
+        -0.31626120608209124
+      ],
+      "storageEV": 11.5,
+      "reference": "sky22-source single-scattering reference; no native PBR3.6 gain"
+    },
+    "backgroundLocalScattering": 0,
+    "localLightsEnabled": true,
+    "localLightCount": 6,
+    "declaredSamplerBudget": {
+      "integration": 5,
+      "composite": 8
+    },
+    "estimatedTargetBytes": 18749504,
+    "lastCpuSubmitMilliseconds": 0,
+    "gpuMilliseconds": null,
+    "source": "Shared scene sunlight after upper-atmosphere attenuation plus finite local incident RGB already multiplied by sceneScale; each uses Rayleigh/HG phase once",
+    "integration": "Quadratically spaced finite-distance analytic segments; half-res RGB scattering/transmission, depth-aware 4-neighbour reconstruction",
+    "limits": [
+      "At most8-step direct/local single scattering plus the shared uniform-hemisphere diffuse-air closure; no angular multiple-scattering solve",
+      "Local incident uses shared punctual finite-radius/range/cone falloff; source-to-sample air extinction is not separately integrated",
+      "Only the shared flashlight has local source shadows; ground lamps and two burst clusters retain their shared lighting approximation",
+      "Sky depth bypasses the pass to avoid duplicate sky extinction",
+      "Opaque depth-edge fallback uses one midpoint; local sky fallback uses the configured segment count",
+      "No temporal random jitter/history; the pass does not hide motion with accumulation",
+      "Hygroscopic area growth is a prescribed aerosol proxy, not measured composition or a full Mie calculation",
+      "CPU submission time is not GPU cost or scene FPS"
+    ]
+  },
+  "water": {
+    "farField": {
+      "mode": "curved",
+      "earthRadiusMetres": 6360000,
+      "nearGridHalfExtentMetres": 96,
+      "farHalfExtentMetres": 65536,
+      "requiredCameraFarMetres": 120000,
+      "vertices": 410881,
+      "additionalScenePasses": 0,
+      "additionalSamplers": 0,
+      "axisBytes": 5128,
+      "model": "shared spherical-Earth datum with logarithmic outer grid; analytic bed preserves local water depth"
+    },
+    "optics": {
+      "clarity": 0.9,
+      "absorption": [
+        0.16,
+        0.035,
+        0.018
+      ],
+      "scattering": [
+        0.004,
+        0.009,
+        0.014
+      ],
+      "extinction": [
+        0.164,
+        0.044000000000000004,
+        0.032
+      ],
+      "particleMultiplier": 1,
+      "coefficientUnit": "m^-1",
+      "beamEfoldDistanceMetres": [
+        6.097560975609756,
+        22.727272727272727,
+        31.25
+      ],
+      "reference": "authored linear-RGB effective coefficients; clarity changes only suspended-particle scattering; not measured full-spectrum/NTU/Secchi data",
+      "revision": 0
+    },
+    "submergedProps": {
+      "count": 0,
+      "maximum": 36,
+      "revision": 0,
+      "bounds": [],
+      "probesPerIntersectedBound": 4,
+      "bisectionSteps": 6,
+      "additionalSamplers": 0,
+      "additionalTargets": 0,
+      "model": "finite real sphere bounds choose search intervals; real auxiliary RGB/depth verifies nearest wet ray hit; one-pixel finite-resolution tolerance",
+      "limits": [
+        "Screen-visible auxiliary surfaces only; offscreen/occluded surfaces retain analytic bed without clamped sampling",
+        "Captured native RGB has no sun/ambient/local decomposition; incoming water attenuation uses one receiver-depth solar-path approximation",
+        "Thin/grazing/subpixel geometry may be missed by the bounded search; sphere bounds alone never create a coloured surface"
+      ]
+    },
+    "lighting": {
+      "ambientIntensity": 1,
+      "skyColourStored": [
+        0.0000950538184422647,
+        0.00005997396917069884,
+        0.00003814711934525402
+      ],
+      "sunIrradianceStored": 0,
+      "source": "shared skyTintPhysical and scene storage exposure; solar intensity included once"
+    },
+    "treeShadow": {
+      "enabled": false,
+      "mapSize": [
+        4096,
+        4096
+      ],
+      "bias": -0.00012,
+      "normalBiasMetres": 0.035,
+      "pcfTapsPerQuery": 9,
+      "queriesPerWaterFragment": 3,
+      "updates": 21830,
+      "packing": "Three.js RGBADepthPacking; ordinary non-reversed directional shadow",
+      "limits": [
+        "receives the existing caster map; does not add missing terrain casters",
+        "plane solar-refraction interface at mean sea level",
+        "three independent PCF queries, including one volume midpoint",
+        "main renderer requests up to 60 Hz in high quality, 30 Hz balanced; actual rate is frame limited"
+      ]
+    },
+    "reflection": {
+      "directionMode": "geometric",
+      "legacyFloorsRadians": [
+        0.006,
+        0.012
+      ],
+      "geometricSource": "curved macro-frame reflection; incoming Smith visibility; fixed2m environment approximation retained",
+      "size": [
+        1209,
+        1292
+      ],
+      "samples": 2,
+      "colourMipmaps": true,
+      "depthMipmaps": false,
+      "filter": "linear mipmapped colour; independent non-mipmapped depth"
+    },
+    "glintAA": {
+      "enabled": 1,
+      "temporalSlopeVarianceAtReferenceWind": 0.000023619889856221493,
+      "model": "pixel normal variance plus statistical 1/120 s temporal slope variance; only direct-sun NDF"
+    }
+  }
+}

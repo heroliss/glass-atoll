@@ -1,0 +1,149 @@
+{
+  "schema": "glass-atoll.r10-exact-transmission-check.v1",
+  "dateUTC": "2026-10-27T21:27:29.253Z",
+  "passed": true,
+  "counts": {
+    "passed": 7,
+    "total": 7
+  },
+  "sourceSHA256": {
+    "columns": "0c2a14e9b8bd4181c022a70eb0fc34d04b65f25bce8e28d20201eef6c3a11e7d",
+    "fireworks": "b37ea388471b6f50a307327fab95ccc10d7f9aaa1dc46ed921fc1abd9c890e43"
+  },
+  "checks": [
+    {
+      "name": "fixed3columns and2FW edit inverses restore every baseline byte; missing/duplicate reject",
+      "passed": true,
+      "evidence": {
+        "columnEdits": 3,
+        "FWEdits": 2,
+        "baselineFW": "927b044a20fd6497ee052a84a70e73b4a1d4bfaf5193f6cde12943ba89db2a0d"
+      }
+    },
+    {
+      "name": "actual Gaussian kernel and original public query/between code are unchanged",
+      "passed": true,
+      "evidence": {
+        "finiteColumnByteExact": true,
+        "queryByteExact": true,
+        "erfFunctionsByteExact": true
+      }
+    },
+    {
+      "name": "broadSPD finite rays T and all nontiming counters match old public results bitexact",
+      "passed": true,
+      "evidence": {
+        "rays": 1078,
+        "maximumTError": 0,
+        "counterError": 0
+      }
+    },
+    {
+      "name": "Array output ownership, endpoint aliasing and old public results remain independent",
+      "passed": true,
+      "evidence": {
+        "freshPublicArrays": true,
+        "callerOutLifetime": true,
+        "endpointAliasSupported": true
+      }
+    },
+    {
+      "name": "new API validates finite domain, output ownership and option bounds before computation",
+      "passed": true,
+      "evidence": {
+        "rejected": 7
+      }
+    },
+    {
+      "name": "realFW+realhost main/mirror active Float32 upload attributes remain bitexact",
+      "passed": true,
+      "evidence": {
+        "renderedViews": 10,
+        "Float32ComponentsCompared": 498864,
+        "actualGL": false,
+        "scope": "Actual factory records, real host source/columns and typed upload arrays; renderer submit is a CPU stub"
+      }
+    },
+    {
+      "name": "bounded warmed actual two-chrys48packet main/mirror source-ray workload compares old/new",
+      "passed": true,
+      "evidence": {
+        "workload": "Actual factory two-chrys event seed42/43 atburst+1.4, real default host density snapshot, main+water-hitmirror CPU rays",
+        "packets": 48,
+        "sourceRecords": 3456,
+        "raysPerBlock": 6912,
+        "blocksPerMode": 6,
+        "warmupBlocksPerMode": 1,
+        "before": {
+          "meanMs": 43.096433333333344,
+          "medianMs": 42.64599999999996,
+          "p95Ms": 47.1649000000001,
+          "samples": [
+            41.59050000000002,
+            41.74530000000004,
+            42.476,
+            42.64599999999996,
+            42.95589999999993,
+            47.1649000000001
+          ]
+        },
+        "after": {
+          "meanMs": 32.74340000000001,
+          "medianMs": 32.6943,
+          "p95Ms": 34.15730000000008,
+          "samples": [
+            32.191599999999994,
+            32.213100000000054,
+            32.35809999999992,
+            32.6943,
+            32.846000000000004,
+            34.15730000000008
+          ]
+        },
+        "kind": "Node CPU old/new only; not sceneFPS or actualGPU"
+      }
+    }
+  ],
+  "metrics": {
+    "benchmark": {
+      "workload": "Actual factory two-chrys event seed42/43 atburst+1.4, real default host density snapshot, main+water-hitmirror CPU rays",
+      "packets": 48,
+      "sourceRecords": 3456,
+      "raysPerBlock": 6912,
+      "blocksPerMode": 6,
+      "warmupBlocksPerMode": 1,
+      "before": {
+        "meanMs": 43.096433333333344,
+        "medianMs": 42.64599999999996,
+        "p95Ms": 47.1649000000001,
+        "samples": [
+          41.59050000000002,
+          41.74530000000004,
+          42.476,
+          42.64599999999996,
+          42.95589999999993,
+          47.1649000000001
+        ]
+      },
+      "after": {
+        "meanMs": 32.74340000000001,
+        "medianMs": 32.6943,
+        "p95Ms": 34.15730000000008,
+        "samples": [
+          32.191599999999994,
+          32.213100000000054,
+          32.35809999999992,
+          32.6943,
+          32.846000000000004,
+          34.15730000000008
+        ]
+      },
+      "kind": "Node CPU old/new only; not sceneFPS or actualGPU"
+    }
+  },
+  "limits": [
+    "No approximate erfc, lower smoke frequency, fewer records or changed error budget.",
+    "Typed upload comparison is CPU with real source/host modules, not GPU screenshot acceptance.",
+    "Node benchmark is bounded and warmed; actual browser hotwindow/profile must be repeated before claiming improvement."
+  ]
+}

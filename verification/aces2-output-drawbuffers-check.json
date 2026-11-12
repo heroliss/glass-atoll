@@ -1,0 +1,58 @@
+{
+  "schema": "glass-atoll.aces2-default-framebuffer-drawbuffers-offline-QA.v1",
+  "dateUTC": "2026-10-27T12:04:31.014Z",
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "complete_module_has_only_the_one_approved_cardinality_change",
+      "passed": true,
+      "evidence": {
+        "baselineSHA256": "fa6f4e3336e5f00d1672d20a3ddeb50d7401dcaaded99f7ecbeeea4bf27b53e9",
+        "entireOtherSourceUntouched": true,
+        "negativeCases": 3
+      }
+    },
+    {
+      "name": "observed_all_BACK_driver_response_snapshots_exactly_one_default_entry",
+      "passed": true,
+      "evidence": {
+        "actualDriverResponseModeled": "BACK in all8 slots, as recorded in root trace",
+        "legacyInvalidLength": 8,
+        "fixedLength": 1,
+        "noMAXQueryForDefault": true,
+        "noGPUClaim": true
+      }
+    },
+    {
+      "name": "offscreen_snapshot_and_trailing_NONE_logic_are_identical",
+      "passed": true,
+      "evidence": {
+        "nonDefaultCases": 3,
+        "MAXDrawBuffersQueryAndTrimUnchanged": true
+      }
+    },
+    {
+      "name": "colour_vendor_admission_and_original_GPU_failure_reports_preserved",
+      "passed": true,
+      "evidence": {
+        "old137ReportSHA256": "ea1846154a99f7a7bbb265c51a91ab03822a995e08c8e87794ab6cbf3fa13599",
+        "firstFailureReportSHA256": "c17a502f436e4387db3530ac04096ebf7207973e7b19972fc1aa879883516d88",
+        "actualDefaultTraceSHA256": "aab907b515699affe4e4767c5bae95a748679a33e509ee8362406c0e4fe0fe6c",
+        "traceBytes": 32054,
+        "notReclassifiedAsFixedGPU": true
+      }
+    }
+  ],
+  "moduleSHA256": "8888e2dc0d48ba507b876075391dc58f7f8b260b7bb512f07a0afd7e3ec36cd2",
+  "noGPU": true,
+  "actualFixGPUValidated": false,
+  "limits": [
+    "The actual first-call trace found default drawBuffers eightBACK INVALID_OPERATION. These checks only validate the narrow source/protocol repair.",
+    "The prior137/137 module fixture used offscreen targets and did not establish default-canvas correctness.",
+    "Root must rerun137 and the actual native frame/calltrace before claiming the1282 repair verified."
+  ]
+}

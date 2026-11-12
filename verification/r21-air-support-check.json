@@ -1,0 +1,323 @@
+{
+  "schema": "glass-atoll.r21-air-support-check.v1",
+  "started": "2026-10-29T05:20:22.440Z",
+  "completed": "2026-10-29T05:20:22.452Z",
+  "passed": true,
+  "counts": {
+    "passed": 17,
+    "total": 17
+  },
+  "sourceSHA256": "32149ec6c94ae99ab7552347e4eabfd4aa687827b81cdc6e94ac698045527855",
+  "checks": [
+    {
+      "name": "Disconnected positive intervals remain distinct, with complete certain/possible/uncertain coverage",
+      "passed": true,
+      "details": {
+        "intervals": [
+          {
+            "from": 0,
+            "to": 0.2999999988824129,
+            "anchorTime": 0.14999999944120646,
+            "anchorClearanceLowerBound": 4.470348326235384e-10
+          },
+          {
+            "from": 0.7000000011175871,
+            "to": 1,
+            "anchorTime": 0.8500000005587935,
+            "anchorClearanceLowerBound": 4.4703485482799903e-10
+          }
+        ],
+        "uncertainty": 3.725290298461914e-9,
+        "evaluations": {
+          "samples": 59,
+          "bounds": 115,
+          "analyticPoses": 0,
+          "total": 174
+        }
+      }
+    },
+    {
+      "name": "Endpoint and instantaneous support use the same strict clearance >0 rule",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Every external sample and interval-bound query is causal and inside the requested exposure",
+      "passed": true,
+      "details": {
+        "samples": 59,
+        "bounds": 115,
+        "maximumSample": 0.9
+      }
+    },
+    {
+      "name": "Certified high altitude uses the surface/trajectory bound without sampling either function",
+      "passed": true,
+      "details": {
+        "bounds": 1,
+        "samples": 0,
+        "anchorLowerClearance": 88.6429999999983
+      }
+    },
+    {
+      "name": "A bounded continuous ridge crossing cannot be missed by positive endpoint samples",
+      "passed": true,
+      "details": {
+        "analyticCrossings": [
+          0.497,
+          0.513
+        ],
+        "intervals": [
+          {
+            "from": 0,
+            "to": 0.49699999764561653,
+            "anchorTime": 0.24849999882280827,
+            "anchorClearanceLowerBound": 4.916376117408034e-9
+          },
+          {
+            "from": 0.513000002130866,
+            "to": 1,
+            "anchorTime": 0.756500001065433,
+            "anchorClearanceLowerBound": 2.6812018495129114e-9
+          }
+        ],
+        "evaluations": {
+          "samples": 156,
+          "bounds": 309,
+          "analyticPoses": 0,
+          "total": 465
+        }
+      }
+    },
+    {
+      "name": "A narrow positive island between ordinary coarse-grid samples is retained in possible and inner support",
+      "passed": true,
+      "details": {
+        "inner": {
+          "from": 0.5007210001349449,
+          "to": 0.5007409993559122,
+          "anchorTime": 0.5007309997454286,
+          "anchorClearanceLowerBound": 2.698879361808729e-15
+        },
+        "possible": {
+          "from": 0.5007209982722998,
+          "to": 0.5007410012185574
+        },
+        "unresolvedSeconds": 3.725290298461914e-9
+      }
+    },
+    {
+      "name": "Tangency and large unresolved intervals are reported rather than filled or silently dropped",
+      "passed": true,
+      "details": {
+        "unresolved": {
+          "schema": "glass-atoll.air-support.v1",
+          "model": "declared-continuous-clearance-enclosure",
+          "status": "uncertain",
+          "physicalNow": 1,
+          "from": 0,
+          "to": 1,
+          "durationSeconds": 1,
+          "timeToleranceSeconds": 1e-8,
+          "instantaneous": false,
+          "currentActive": true,
+          "currentClearance": 0.21000000000000002,
+          "intervals": [],
+          "possibleIntervals": [
+            {
+              "from": 0,
+              "to": 1
+            }
+          ],
+          "negativeIntervals": [],
+          "unresolvedBrackets": [
+            {
+              "from": 0,
+              "to": 1
+            }
+          ],
+          "totalUnresolvedSeconds": 1,
+          "maximumUnresolvedBracketSeconds": 1,
+          "evaluations": {
+            "samples": 1,
+            "bounds": 1,
+            "analyticPoses": 0,
+            "total": 2
+          },
+          "policy": "strict clearance > 0; intervals are certified-positive inner support; possibleIntervals retains every unresolved bracket; no dropped interval or support renormalization",
+          "limits": "Certification is conditional on the declared continuous clearance enclosure. Bounded root time is numerical support uncertainty, not exact chemical extinction, collision response, nonlinear shutter integration or smoke accounting."
+        }
+      }
+    },
+    {
+      "name": "Interval and evaluation overflow reject atomically, retaining no partial public result or input mutation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Invalid domains, callbacks, contradictory bounds and asynchronous results are rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Ballistic and tiny-drag plane roots match an independent quadratic solution",
+      "passed": true,
+      "details": [
+        {
+          "drag": 0,
+          "contact": 2.1315138874973143,
+          "innerEnd": 2.1315138862790137,
+          "uncertainty": 1.3879648541603729e-9
+        },
+        {
+          "drag": 1e-10,
+          "contact": 2.1315138874973143,
+          "innerEnd": 2.1315138862790137,
+          "uncertainty": 1.3879648541603729e-9
+        }
+      ]
+    },
+    {
+      "name": "Positive-drag flat-plane contact agrees with independent production ODE samples and brackets",
+      "passed": true,
+      "details": [
+        {
+          "drag": 0.075,
+          "windY": -0.5,
+          "errorSeconds": 6.731344370791703e-10,
+          "bracket": 1.3969838619232178e-9
+        },
+        {
+          "drag": 0.075,
+          "windY": 0,
+          "errorSeconds": 1.3854721814254845e-9,
+          "bracket": 1.3969838619232178e-9
+        },
+        {
+          "drag": 0.075,
+          "windY": 0.8,
+          "errorSeconds": 8.0890583120663e-10,
+          "bracket": 1.3969838619232178e-9
+        },
+        {
+          "drag": 0.613125,
+          "windY": -0.5,
+          "errorSeconds": 9.551586188649708e-10,
+          "bracket": 1.3969838619232178e-9
+        },
+        {
+          "drag": 0.613125,
+          "windY": 0,
+          "errorSeconds": 3.007372129104624e-11,
+          "bracket": 1.3969838619232178e-9
+        },
+        {
+          "drag": 0.613125,
+          "windY": 0.8,
+          "errorSeconds": 9.184919491644905e-11,
+          "bracket": 1.3969838619232178e-9
+        },
+        {
+          "drag": 1.35,
+          "windY": -0.5,
+          "errorSeconds": 1.3135785792428578e-9,
+          "bracket": 1.3969838619232178e-9
+        },
+        {
+          "drag": 1.35,
+          "windY": 0,
+          "errorSeconds": 6.95070667688924e-10,
+          "bracket": 1.3969838619232178e-9
+        },
+        {
+          "drag": 1.35,
+          "windY": 0.8,
+          "errorSeconds": 3.487787836320422e-10,
+          "bracket": 1.3969838619232178e-9
+        }
+      ]
+    },
+    {
+      "name": "Held-wind changes and a vertical minimum preserve disconnected visible intervals",
+      "passed": true,
+      "details": {
+        "contacts": [
+          0.39057649561441377,
+          1.919058581871219
+        ],
+        "intervals": [
+          {
+            "from": 0,
+            "to": 0.3905764948576689,
+            "anchorTime": 0.19528824742883444,
+            "anchorClearanceLowerBound": 1.535184984773925e-9
+          },
+          {
+            "from": 1.9190585830585816,
+            "to": 3,
+            "anchorTime": 2.459529291529291,
+            "anchorClearanceLowerBound": 3.0449264277471477e-9
+          }
+        ],
+        "uncertainty": 3.5395408826133234e-9
+      }
+    },
+    {
+      "name": "Plane endpoints, constant surface equality and near-surface uncertainty follow declared conventions",
+      "passed": true,
+      "details": {
+        "nearStatus": "uncertain",
+        "possible": [
+          {
+            "from": 0,
+            "to": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Plane piece gaps, discontinuity and future endpoints are rejected before publishing support",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "An admitted tiny pose seam cannot hide positive support immediately before a piece boundary",
+      "passed": true,
+      "details": {
+        "status": "uncertain",
+        "intervals": [
+          {
+            "from": 0.5000038146972656,
+            "to": 0.9999999981373549,
+            "anchorTime": 0.7500019064173102,
+            "anchorClearanceLowerBound": 5.238864897449957e-16
+          }
+        ],
+        "uncertainty": 0.000007631257176399231
+      }
+    },
+    {
+      "name": "Unrepresentable root precision remains uncertain instead of claiming a narrower time bracket",
+      "passed": true,
+      "details": {
+        "bracket": 2.384185791015625e-7,
+        "tolerance": 1e-8
+      }
+    },
+    {
+      "name": "Constant light keeps original full-exposure normalization and strictly positive local anchors",
+      "passed": true,
+      "details": {
+        "innerMean": 4.199999984353781,
+        "analyticMean": 4.2,
+        "errorBound": 2.60770320892334e-8
+      }
+    }
+  ],
+  "limits": [
+    "CPU pure support primitive only; no production wiring, GPU or browser.",
+    "Generic proof is conditional on caller-supplied continuous clearance/trajectory/surface bounds.",
+    "Intervals are inner positive support; every ambiguous root interval remains explicit with finite width. Status uncertain requires caller handling.",
+    "No material extinction, smoke deletion, terrain-bound discovery, powered-force solve or nonlinear shutter-image claim."
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "schema": "glass-atoll.r32-water-zero-direct-source-cpu-candidate-proof.v1",
+  "actualGPU": false,
+  "newNativeContextCalls": 0,
+  "newBrowserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 10,
+    "total": 10
+  },
+  "sourcePins": {
+    "production": "d7d5b76dadf35e2e507b640b8975fb3819821b29d113ceeebf195080fd88b045",
+    "candidate": "a3568265430dbef481f72743485d64a0565e1a8d3f6bd84668f03d4aae98491b",
+    "transformer": "76e74bd3aad214a8e2e81c5032d914c43d69c4ff99116cc423da4a983dc1783f"
+  },
+  "metadata": {
+    "revision": "r32-water-exact-zero-direct-source-v1",
+    "expectedProductionSHA256": "d7d5b76dadf35e2e507b640b8975fb3819821b29d113ceeebf195080fd88b045",
+    "guard": "uSunIrradiance==0.0 && uSubmergedCount==0 && uDebugMode==0.0",
+    "patches": [
+      "solar-entry-and-two-shadows",
+      "volume-solar-entry-and-shadow",
+      "solar-cloud-and-caustic",
+      "volume-solar-transmission",
+      "direct-solar-glint-only"
+    ],
+    "changedEquations": false,
+    "qualityChanges": false,
+    "productionEdits": false,
+    "actualGPU": false,
+    "limitation": "Exact source inverse and CPU finite-equation evidence only; GPU compile, derivative/raster parity and speed remain unverified"
+  },
+  "checks": [
+    {
+      "name": "Pinned current source; complete reversible candidate and staged bytes",
+      "passed": true,
+      "evidence": {
+        "sourceSHA256": "d7d5b76dadf35e2e507b640b8975fb3819821b29d113ceeebf195080fd88b045",
+        "candidateSHA256": "a3568265430dbef481f72743485d64a0565e1a8d3f6bd84668f03d4aae98491b",
+        "bytes": [
+          35237,
+          35889
+        ]
+      }
+    },
+    {
+      "name": "LF and CRLF exact reverse; source drift and repeat reject",
+      "passed": true,
+      "evidence": {
+        "newlineVariants": 2,
+        "negativeCases": 4
+      }
+    },
+    {
+      "name": "Only five guarded solar blocks; exact uniform predicate, no varying object-hit guard",
+      "passed": true,
+      "evidence": {
+        "guard": "uSunIrradiance==0.0 && uSubmergedCount==0 && uDebugMode==0.0",
+        "blocks": 5
+      }
+    },
+    {
+      "name": "Normal render sums, props/debug/foam/reactivity and local-light Newton block remain byte exact",
+      "passed": true,
+      "evidence": {
+        "unchangedLines": 31,
+        "localNewtonByteExact": true,
+        "flashSpecularByteExact": true
+      }
+    },
+    {
+      "name": "Provider geometry/view Beer and reflection source paths unchanged",
+      "passed": true,
+      "evidence": {
+        "vertexUnchanged": true,
+        "viewRayAndBeerUnchanged": true,
+        "reflectionUnchanged": true,
+        "volumeMidpointKept": true
+      }
+    },
+    {
+      "name": "Actual baseline/candidate factories generate equivalent resources and unchanged expanded vertex",
+      "passed": true,
+      "evidence": {
+        "geometrySHA256": "868f0678eb6627797c6618cb1f4ea9a6636344682b0b2c206507fd1c0eb301e2",
+        "uniforms": 52,
+        "inertContextAccesses": 2,
+        "rendererRenderCalls": 0,
+        "expandedFragmentSHA256": [
+          "6739274b2a3b4e7aaa148806f964005dcbf3f8de5eb757641a4c3a6a86ffd62e",
+          "2c6842ecea9398c7bd8990a55a1ee40fadcdb52af20142d03fef22812743b0e9"
+        ],
+        "actualNativeContextCalls": 0
+      }
+    },
+    {
+      "name": "Expanded actual fragment enabled operations retain order and complete unchanged local/debug tail",
+      "passed": true,
+      "evidence": {
+        "orderedOperations": 27,
+        "debugFoamFlashReactiveTailByteExact": true
+      }
+    },
+    {
+      "name": "Guard rejects every nonzero key, props and debug mode without epsilon or user-option branch",
+      "passed": true,
+      "evidence": {
+        "fallbackCases": 33,
+        "negativeZeroAcceptedAsZero": true,
+        "scope": "CPU predicate plus exact enabled shader operation order; no GPU branch execution claim"
+      }
+    },
+    {
+      "name": "Independent Float32 zero-direct-source composition keeps ambient/local/reflection/foam order",
+      "passed": true,
+      "evidence": {
+        "finiteCases": 20000,
+        "minimum": 0.08907591551542282,
+        "maximum": 22.410234451293945,
+        "bitwiseFloat32Equal": true,
+        "scope": "Independent finite scalar RGB-channel composition witness; not full GPU shader, Snell or derivative validation"
+      }
+    },
+    {
+      "name": "Production water source and companion production files untouched",
+      "passed": true,
+      "evidence": {
+        "waterSHA256": "d7d5b76dadf35e2e507b640b8975fb3819821b29d113ceeebf195080fd88b045",
+        "mainSHA256": "e43f1445109226a16f5fbd6ba70656a5faa6401c076ce16ce57369e055680674",
+        "sunSHA256": "8c7773d93682c0fc8202dab0611c0d7ed4424a42169bc0e7e9bb5662be8bbedd",
+        "audioSHA256": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+      }
+    }
+  ],
+  "limits": [
+    "Actual JavaScript factories and expanded shader source are exercised with an inert facade; no WebGL context exists.",
+    "Finite zero-source composition and enabled source-order proofs do not establish GPU compile, pixel equality, derivative legality on every driver or speedup.",
+    "No tolerance or source/quality/capacity/photometry/physics change is introduced. Singular pre-existing intermediate shader cases are not claimed to be numerically equivalent."
+  ]
+}

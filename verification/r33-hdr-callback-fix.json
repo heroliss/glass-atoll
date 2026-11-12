@@ -1,0 +1,16 @@
+{
+  "schema": "glass-atoll.r33-hdr-callback-atomic-publish-fix.v1",
+  "passed": true,
+  "actualGPU": false,
+  "beforeMainSHA256": "6286ef916de9db77c46268da983af46153baf5caa28dcf51916f39970159d3a3",
+  "afterMainSHA256": "328f997e0b7595388a4564427c0cb8db10beeedb8f881e0bbec3cbb6af1e232b",
+  "reason": "Independent review found HDR/display-transform callbacks could publish while stale request was awaiting, and interrupted contexts were not deferred.",
+  "changes": [
+    "Suppress only transaction-internal callback UI publications while displaySettingsApplying",
+    "Publish latest transform/HDR UI after both request checks",
+    "Block/defer calibration on interrupted context",
+    "Request one normal redraw only for changed accepted mapping"
+  ],
+  "waterAndAudioUnchanged": true,
+  "limits": "Source-level correction only; independent asynchronous checks and actual current-screen validation follow."
+}

@@ -1,0 +1,76 @@
+{
+  "schema": "glass-atoll.r22-native-powered-smoke-cpu.v1",
+  "dateUTC": "2026-10-29T05:24:38.909Z",
+  "passed": true,
+  "counts": {
+    "checks": 4,
+    "passed": 4
+  },
+  "checks": [
+    {
+      "name": "native candidate provider reserves all actual 192 heads and covers every one of 32 motor IDs",
+      "passed": true,
+      "evidence": {
+        "packets": 2634,
+        "actualBodyQueries": 14775,
+        "motorBodies": 32,
+        "logicalBodies": 192,
+        "eventMaterial": 20.35,
+        "sourceConsumeMilliseconds": {
+          "p50": 0.1308999999999969,
+          "p95": 1.4254999999999995,
+          "p99": 2.320300000000003,
+          "maximum": 9.0912,
+          "total": 236.2550000000013
+        },
+        "frameRateClaim": false
+      }
+    },
+    {
+      "name": "zero optical gain cannot change native smoke material, IDs, timing or actual motor paths",
+      "passed": true,
+      "evidence": {
+        "packets": 2634,
+        "identicalAtGainZero": true
+      }
+    },
+    {
+      "name": "actual 30 and 60 Hz source routes preserve common-end moments and unique emission IDs",
+      "passed": true,
+      "evidence": {
+        "maximumMomentDifference": 1.4210854715202004e-13
+      }
+    },
+    {
+      "name": "actual clear before burst cancels motor material without revived late burst or body reads",
+      "passed": true,
+      "evidence": {
+        "cancelledReferenceMaterial": 19.999999999999954,
+        "lateBodyQueries": 0
+      }
+    }
+  ],
+  "metrics": {
+    "native": {
+      "packets": 2634,
+      "actualBodyQueries": 14775,
+      "motorBodies": 32,
+      "logicalBodies": 192,
+      "eventMaterial": 20.35,
+      "sourceConsumeMilliseconds": {
+        "p50": 0.1308999999999969,
+        "p95": 1.4254999999999995,
+        "p99": 2.320300000000003,
+        "maximum": 9.0912,
+        "total": 236.2550000000013
+      },
+      "frameRateClaim": false
+    }
+  },
+  "limits": [
+    "Actual native producer/provider and CPU state accepted; no GPU, renderer, browser or visual/performance admission.",
+    "Single-event consumed CPU timings are observations, not a 60 fps guarantee.",
+    "Uniform per-life material allocation; bee-CDF material scheduler is not admitted.",
+    "Fixed downstream capacity 4096 and ordinary 2048-plan cap are unchanged; candidate plan cap is separately bounded at 16384."
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "schema": "glass-atoll.r16-firework-visibility.v1",
+  "dateUTC": "2026-10-28T15:11:21.147Z",
+  "passed": false,
+  "passedCount": 8,
+  "total": 9,
+  "sourceSHA256": "59b16a127228ede30ef7b2b839725ef05b2c1f850ae0cc147680bad32979ca1f",
+  "baselineSHA256": "911fba3ebd274e7a86642431d6296af0f28f2c57fef03ee93cb3cd6ca6b8d957",
+  "checks": [
+    {
+      "name": "baseline is exact prior911 source; shader literals and emission/audio paths unchanged",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "complete depth clipping rejects entire actual quad even if trail reaches across plane",
+      "passed": true,
+      "evidence": {
+        "depthCases": 3
+      }
+    },
+    {
+      "name": "side clipping includes PSF, long tail, shutter and lens defocus; not centre-only",
+      "passed": true,
+      "evidence": [
+        {
+          "clipped": true,
+          "reason": "complete-quad-outside"
+        },
+        {
+          "clipped": false,
+          "reason": "conservative-retain"
+        },
+        {
+          "clipped": false,
+          "reason": "conservative-retain"
+        },
+        {
+          "clipped": false,
+          "reason": "conservative-retain"
+        },
+        {
+          "clipped": false,
+          "reason": "conservative-retain"
+        }
+      ]
+    },
+    {
+      "name": "near-crossing endpoint and uncertain clip plane retain potential coverage",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "16000 deterministic rounded-FP32 quad witnesses: no visible sprite falsely rejected",
+      "passed": true,
+      "evidence": {
+        "samples": 16000,
+        "rejected": 9374,
+        "side": 4699,
+        "depth": 4675,
+        "retained": 6626,
+        "visible": 6267
+      }
+    },
+    {
+      "name": "actual Three factory:none mode preserves cached geometry bytes and query count exactly vs baseline",
+      "passed": true,
+      "evidence": {
+        "records": 103
+      }
+    },
+    {
+      "name": "actual Three factory:visible-row attributes byte-identical, offscreen medium queries omitted; source ledger unchanged",
+      "passed": true,
+      "evidence": [
+        {
+          "reflection": false,
+          "before": 102,
+          "after": 0,
+          "visibility": {
+            "mode": "conservative",
+            "inputRecords": 103,
+            "luminousSources": 102,
+            "depthCulled": 2,
+            "quadCulled": 100,
+            "conservativeRetained": 0,
+            "mediumQueries": 0,
+            "renderedRecords": 1
+          }
+        },
+        {
+          "reflection": true,
+          "before": 102,
+          "after": 0,
+          "visibility": {
+            "mode": "conservative",
+            "inputRecords": 103,
+            "luminousSources": 102,
+            "depthCulled": 2,
+            "quadCulled": 100,
+            "conservativeRetained": 0,
+            "mediumQueries": 0,
+            "renderedRecords": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "actual four-show source/light/audio ledgers intact across camera masks and runtime mode toggles",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(partial.afterQueries>0&&partial.afterQueries<la.count)\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-firework-visibility-check.mjs:117:82\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-firework-visibility-check.mjs:8:68)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r16-firework-visibility-check.mjs:107:1"
+    },
+    {
+      "name": "invalid cull modes fail before mutation and no instance capacity is silently bypassed",
+      "passed": true,
+      "evidence": null
+    }
+  ],
+  "limits": [
+    "CPU-only exact-Float32 vertex reconstruction and actual Three factory geometry; no GPU raster proof or main-scene FPS acceptance in this child.",
+    "Outward interval model assumes binary32 highp operations;8unit-roundoff per elementary operation, gamma7 matrix-dot bound and FTZ padding retain numerical uncertainty.",
+    "The side extent deliberately overbounds both shutter branches plus1pixel guard; near endpoint/cancellation/overflow cases retain sources.",
+    "Culling changes only per-camera upload and medium-query masks; all physical records and unattenuated luminous ledgers remain complete."
+  ]
+}

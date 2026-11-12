@@ -1,0 +1,114 @@
+{
+  "schema": "glass-atoll.r19-eulerian-tail-field-detached-oracle.v1",
+  "dateUTC": "2026-10-28T22:30:49.266Z",
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "productionChanged": false,
+  "productionHistoryAdmitted": false,
+  "checks": [
+    {
+      "name": "proposed per-node8Y-bin formula equals exact time mean of instantaneous N-lag RGB field",
+      "passed": true,
+      "evidence": {
+        "cases": 648,
+        "maxAbsoluteError": 1.0547118733938987e-15,
+        "scope": "Exact aggregate per-node reference RGB means, before spatial kernel and medium; not production code admission"
+      }
+    },
+    {
+      "name": "retired nodes need no duplicate releases and their view-only bins remain positive after instantaneous tail is zero",
+      "passed": true,
+      "evidence": [
+        {
+          "layerId": "outer",
+          "now": 0.6958333333333333,
+          "currentRGB": [
+            0,
+            0,
+            0
+          ],
+          "viewMeanRGB": [
+            0.00005246944243841479,
+            0.00001349132186778876,
+            2.377818810065197e-7
+          ]
+        },
+        {
+          "layerId": "middle",
+          "now": 0.7895833333333333,
+          "currentRGB": [
+            0,
+            0,
+            0
+          ],
+          "viewMeanRGB": [
+            0.00012242869902296785,
+            0.00003147975102484043,
+            5.548243890152126e-7
+          ]
+        },
+        {
+          "layerId": "inner",
+          "now": 0.9020833333333332,
+          "currentRGB": [
+            0,
+            0,
+            0
+          ],
+          "viewMeanRGB": [
+            0.00020987776975366312,
+            0.00005396528747115607,
+            9.511275240260969e-7
+          ]
+        }
+      ]
+    },
+    {
+      "name": "analytic Eulerian derivative matches independent central differences across held/changing wind and parent bodies",
+      "passed": true,
+      "evidence": {
+        "cases": 72,
+        "maxAbsoluteError": 2.1952494044796822e-8,
+        "minimumActualEmberDifference": 2.700618701509158,
+        "oracle": "Offline two-sided finite differences only; proposed production formula itself samples past release/current state, not future"
+      }
+    },
+    {
+      "name": "a release crossing a wind knot has explicit one-sided derivatives and is not falsely called differentiable",
+      "passed": true,
+      "evidence": {
+        "left": [
+          13.981282991405791,
+          -5.039158465838382,
+          -2.254738862622292
+        ],
+        "right": [
+          13.185594032257185,
+          -5.1452503270581955,
+          -1.989509209572757
+        ],
+        "maxError": 0.0000037943721027389188,
+        "scope": "Kink policy must remain explicit; a first-order shutter kernel is still an approximation across it"
+      }
+    },
+    {
+      "name": "canonical replacement view grid remains inside existing14k instance cap without appending current/history duplicates",
+      "passed": true,
+      "evidence": {
+        "conservativeRows": 13196,
+        "cap": 14000,
+        "maximumHistoricalTailAge": 6.196000000000001,
+        "minimumEventRetentionAfterBurst": 9.775,
+        "scope": "Only192-root canonical candidates and max4 events; no bees/split additions or automatically widened GPU source caps"
+      }
+    }
+  ],
+  "limits": [
+    "Detached proposal arithmetic/kinematics oracle, not actual FW integration or GPU evidence.",
+    "Ground visibility interval, nonlinear spatial trajectory shutter, T(t), camera/depth history and receiver exposure remain separate problems.",
+    "Current ledger/cluster/source matter must not be replaced by historical view RGB."
+  ]
+}

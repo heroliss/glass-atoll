@@ -1,0 +1,54 @@
+{
+  "schema": "glass-atoll.r38-fw-mode-rejection-peer-audit.v1",
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "Archived FW exact identity and closed inverse; only two ignored-summary callers changed",
+      "passed": true
+    },
+    {
+      "name": "Mode is separate from physics settings; changed mode rebuilds records before new optical rows; unchanged mode is noop",
+      "passed": true
+    },
+    {
+      "name": "Partial contacts, old public wrapper, per-row ownership and upload/shader source remain unchanged",
+      "passed": true
+    },
+    {
+      "name": "All prior production source pins restored; rejected archive manifest entries intact; no native candidate admission",
+      "passed": true
+    }
+  ],
+  "pins": {
+    "candidateFW": "3f1093fa5fba26abfb2f53b15e390baf9f1a9b0fc0e5e1938d0feb2270004605",
+    "candidateLayer": "411ebd75fec379582e5d94086e40241d9f8c388c3c96a668bbbbb5af5d948715",
+    "restoredFW": "03fdb7038bffbfc769924ffff6ee57a51b5e9f8b2d3c72169d06e72b9d45c735",
+    "restoredLayer": "411242962dc8681e2eb487acc7f03937ebe32331ec06414f9e78a5674778c537",
+    "restoredMain": "08b43c653b3929bd7bd13d8b53493850958e3b18ce1a8ffddfbf9904940cbedf",
+    "approvedAudio": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+    "archiveManifest": "01db0dfc657846503f85f6ba031aa36643a7d5b82e27a043c062ccea597a193e",
+    "restoreReceipt": "f96614f3eab2a3ca58249486c5126d025a35850b32c18b29daa77548d713143c"
+  },
+  "allPreviousProductionPinsChecked": 112,
+  "allArchiveEntriesChecked": 134,
+  "issues": [],
+  "ownerStoredEquivalence": {
+    "passed": true,
+    "counts": {
+      "passed": 5,
+      "total": 5
+    },
+    "runAgain": false
+  },
+  "modeInvalidationReason": "updateRecords does not call the window writer; it recreates private current records at the same committed time and increments recordsGeneration. New p identities invalidate opticalView/contact caches, while body anchor cache also tests generation. Switching assignment follows that refresh; old rgbTaps are never repopulated in place. Invalid mode rejects before mutation; same mode does not refresh.",
+  "sourceScope": "New constructor default summary and separate getter/setter; two full-support opticalViewRecord sites. Partial contact/force-partition optical records retain the old public window API. No shader, kernel, bins, mass, I0, physics or audio rewrite.",
+  "decision": "Candidate withdrawn because complete CPU-flow evidence was mixed; exactness is not performance admission. No new native A/B is justified by these reports.",
+  "actualGPU": false,
+  "browserActions": 0,
+  "newFactoryOrBenchmarkRuns": 0,
+  "performanceAdmissionPassed": false
+}

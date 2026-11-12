@@ -1,0 +1,246 @@
+{
+  "schema": "glass-atoll.r35-live-scale-envelope-cpu-check.v1",
+  "passed": false,
+  "counts": {
+    "passed": 5,
+    "total": 6
+  },
+  "actualGPU": false,
+  "browserActions": 0,
+  "nativeContextCalls": 0,
+  "inertEffectsRenderCalls": 8,
+  "sourcePins": {
+    "fireworks.js": "c643c387ff08db221404efc56e214d999ec9d0b3e573985641094a3a649bb665",
+    "firework-show-envelope.js": "eb100d09a6a2ccc03a6d5e091802393802e0397a2b43ea04caca6e022be38ac5",
+    "fireworks-physics.js": "247bdf9de104354258cd7b63a960501fb2295d3fe2372019d77139ac15a384cc",
+    "firework-layer-profile.js": "2cf3bf64de718a69a26fbe13bd90dff15d3a72301db4bc54f1f47fba62e33b9c",
+    "firework-scale-calibration.js": "e1e2fd9c704f9670eedd25e04120573d463a139173ba68d009b80884df7e9aee",
+    "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+  },
+  "checks": [
+    {
+      "name": "Both whole-file inverses recover archived sources exactly; old line endings and all shaders are unchanged",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n... Skipped lines\n\n  \"import {FIREWORK_TYPES,createFireworkEvent} from './fireworks-physics.js';\\n\" +\n    \"import {getFireworkEffectProfileLimits,validateFireworkEffectProfile} from './firework-layer-profile.js';\\n\" +\n    '\\n' +\n    '// Pure physical-centre forecast for the current authored display simulation.\\n' +\n    '// Constants below are upper limits from the generator expressions, NOT fitted\\n' +\n...\n    \"  if(powered&&(kMin!==profileLimits.requiredBodyDragPerSecond||kMax!==kMin||canonical.heads.filter(b=>b.thrustProfile).length!==profileLimits.motorBodyCount))throw new RangeError('Powered generator drag/count violates the published envelope contract');\\n\" +\n+   \"  if(scaled&&(kMin!==profileLimits.requiredBodyDragPerSecond||kMax!==kMin||canonical.heads.length!==192||canonical.heads.some(b=>b.parentBody||b.thrustProfile)))throw new RangeError('Scaled generator drag/count/propulsion violates the published envelope contract');\\n\" +\n    '  const bodySeconds=profileLimits?.maximumBodySeconds??limits.maximumBodySeconds??definition.burn*limits.lifeMultiplier;\\n' +\n    '  const birthDelay=profileLimits?.maximumIgnitionDelaySeconds??limits.maximumBirthDelaySeconds??0;\\n' +\n    \"  for(const b of canonical.heads)if(b.birth-canonical.burstTime+b.life>bodySeconds+birthDelay+1e-10)throw new Error('Generator lifetime exceeds its published envelope contract');\\n\" +\n    '  const S=profileLimits?.intrinsicSpeed??limits.intrinsicSpeed,bodyF=factors(kMin,bodySeconds).F,bodyH=factors(kMax,bodySeconds).H;\\n' +\n    '  let burst=launch.map(r=>r.slice()),burstVelocity=[[0,0],[0,0],[0,0]],carrierSeconds=[0,0],muzzleSpeed=0;\\n' +\n...\n    '    const low=factors(k,carrierSeconds[0]),high=factors(k,carrierSeconds[1]),F=[low.F,high.F],E=[high.E,low.E],H=[low.H,high.H];\\n' +\n+   '    const maxRise=verticalTravelUpper(muzzleSpeed*cone.components[1]['... 7337 more characters\n-   '    const maxRise=verticalTravelUpper(muzzleSpeed*cone.components[1][1],wind[1][1],k,k,carrierSeconds[1]);\\n' +\n-   '    for(let c=0;c<3;c++){\\n' +\n-   '      const initial=scale(cone.components[c],muzzleSpeed);\\n' +\n-   '      burst[c]=sum(sum(launch[c],product(initial,F)),product(wind[c],H));\\n' +\n-   '      burstVelocity[c]=sum(product(initial,E),product(wind[c],[1-low.'... 7071 more characters\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r35-live-scale-envelope-check.mjs:24:227\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r35-live-scale-envelope-check.mjs:12:78)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r35-live-scale-envelope-check.mjs:23:7"
+    },
+    {
+      "name": "All13 old style branches retain exact pure envelopes and actual-factory bounds/descriptors under four causal wind phases",
+      "passed": true,
+      "evidence": {
+        "styles": 13,
+        "envelopeCases": 39,
+        "liveCases": 52,
+        "descriptorCases": 13,
+        "oldInvalidUnusedOptionStillIgnored": true
+      }
+    },
+    {
+      "name": "New pure family uses explicit76 contract or19*declared compiled alpha, with0..1 shutter support and unchanged old19 limits",
+      "passed": true,
+      "evidence": {
+        "familyMax": [
+          505.744485598796,
+          493.7130359657858,
+          449.4761343156909
+        ],
+        "knownMax": [
+          268.07574916698127,
+          262.52665311893315,
+          211.80739788387618
+        ],
+        "knownShutterPadding": [
+          1.1906628125796714,
+          1.1594202422978568,
+          1.2006112079189373
+        ],
+        "familyBound": 76,
+        "knownBound": 49.4
+      }
+    },
+    {
+      "name": "Continuous actual-event source/tail/causal shutter/stretch supports enclose full future lives and arbitrary held-wind switches, including explicit height",
+      "passed": true,
+      "evidence": {
+        "cases": 18,
+        "bodyPoints": 31266,
+        "fieldPoints": 93798,
+        "proxyPoints": 458460,
+        "maxSupportPadding": 244.51924834633476,
+        "explicitHeightIncluded": true,
+        "scope": "Analytic interval/derivative enclosure plus actual-model witnesses; sampled checks are not themselves an all-seed proof."
+      }
+    },
+    {
+      "name": "Live known-event bounds cover future wind histories, invalidate same-bucket wind extrema and shutter keys, and accept explicit height",
+      "passed": true,
+      "evidence": {
+        "eventId": "341070-0.00000",
+        "small": {
+          "familyIntrinsicSpeedMetresPerSecond": 76,
+          "knownSourceIntrinsicSpeedMetresPerSecond": 48.64823960229514,
+          "sourceRadialScaleAlpha": 2.5604336632786917,
+          "scaleBasis": "19*compiled alpha hard-input relation; per-body actual kick components, not sampled trajectory maxima",
+          "bodyCount": 192,
+          "bodyMaximumSeconds": 4.876,
+          "windRanges": [
+            [
+              -5,
+              4
+            ],
+            [
+              -1,
+              0.5
+            ],
+            [
+              -4,
+              6
+            ]
+          ],
+          "opticalShutterSeconds": 0.008333333333333333,
+          "opticalMaximumShutterSeconds": 1,
+          "maximumComponentPaddingMetres": [
+            29.01205417299527,
+            60.0773053849303,
+            15.725516746889273
+          ],
+          "maximumOpticalComponentPaddingMetres": [
+            21.32526347461412,
+            44.33340228517449,
+            11.337950720301102
+          ],
+          "arithmeticPaddingMetres": 0.00001
+        },
+        "big": {
+          "familyIntrinsicSpeedMetresPerSecond": 76,
+          "knownSourceIntrinsicSpeedMetresPerSecond": 48.64823960229514,
+          "sourceRadialScaleAlpha": 2.5604336632786917,
+          "scaleBasis": "19*compiled alpha hard-input relation; per-body actual kick components, not sampled trajectory maxima",
+          "bodyCount": 192,
+          "bodyMaximumSeconds": 4.876,
+          "windRanges": [
+            [
+              -5,
+              4
+            ],
+            [
+              -1,
+              0.5
+            ],
+            [
+              -4,
+              6
+            ]
+          ],
+          "opticalShutterSeconds": 1,
+          "opticalMaximumShutterSeconds": 1,
+          "maximumComponentPaddingMetres": [
+            156.58707703595587,
+            260.26315144609055,
+            121.22483266481183
+          ],
+          "maximumOpticalComponentPaddingMetres": [
+            154.30771096205476,
+            244.51924834633476,
+            119.45928402969037
+          ],
+          "arithmeticPaddingMetres": 0.00001
+        },
+        "futurePoints": 816,
+        "selectedOrdinaryStyleDoesNotHideActiveScaledEvent": true
+      }
+    },
+    {
+      "name": "Actual provider, ledger, main/reflection fill and contact-aware optical rows use real scaled states and gold tails without extra motion paths",
+      "passed": true,
+      "evidence": {
+        "descriptorRoots": 192,
+        "descriptorAlpha": 2.6393893584643755,
+        "actualOpticalRows": 9282,
+        "uploadedRows": 9282,
+        "contactLocalRows": 0,
+        "inertRendererCalls": 8,
+        "views": [
+          {
+            "age": 0.01,
+            "kind": "main",
+            "instances": 267,
+            "recordsGeneration": 2,
+            "ledgerRecordGeneration": 1,
+            "distinctCounterDomains": true,
+            "CPUAttenuationQueries": 0
+          },
+          {
+            "age": 0.01,
+            "kind": "reflection",
+            "instances": 267,
+            "recordsGeneration": 2,
+            "ledgerRecordGeneration": 1,
+            "distinctCounterDomains": true,
+            "CPUAttenuationQueries": 0
+          },
+          {
+            "age": 0.7,
+            "kind": "main",
+            "instances": 2112,
+            "recordsGeneration": 3,
+            "ledgerRecordGeneration": 2,
+            "distinctCounterDomains": true,
+            "CPUAttenuationQueries": 0
+          },
+          {
+            "age": 0.7,
+            "kind": "reflection",
+            "instances": 2112,
+            "recordsGeneration": 3,
+            "ledgerRecordGeneration": 2,
+            "distinctCounterDomains": true,
+            "CPUAttenuationQueries": 0
+          },
+          {
+            "age": 2.5,
+            "kind": "main",
+            "instances": 2096,
+            "recordsGeneration": 4,
+            "ledgerRecordGeneration": 3,
+            "distinctCounterDomains": true,
+            "CPUAttenuationQueries": 0
+          },
+          {
+            "age": 2.5,
+            "kind": "reflection",
+            "instances": 2096,
+            "recordsGeneration": 4,
+            "ledgerRecordGeneration": 3,
+            "distinctCounterDomains": true,
+            "CPUAttenuationQueries": 0
+          },
+          {
+            "age": 4.8,
+            "kind": "main",
+            "instances": 166,
+            "recordsGeneration": 5,
+            "ledgerRecordGeneration": 4,
+            "distinctCounterDomains": true,
+            "CPUAttenuationQueries": 0
+          },
+          {
+            "age": 4.8,
+            "kind": "reflection",
+            "instances": 166,
+            "recordsGeneration": 5,
+            "ledgerRecordGeneration": 4,
+            "distinctCounterDomains": true,
+            "CPUAttenuationQueries": 0
+          }
+        ],
+        "noRealGPU": true,
+        "noPhysicalMutationByOptics": true
+      }
+    }
+  ],
+  "limitations": [
+    "Known fixed event/compiled alpha and declared held-wind component ranges only; no future user wind prediction or measured120m/supplier physics.",
+    "World-space source/tail/shutter/stretch endpoints only; camera Gaussian/DOF/bloom and persistent smoke still require separate framing margins.",
+    "CPU actual factories and inert render calls do not establish GPU equality, image quality, GPU load or FPS."
+  ]
+}

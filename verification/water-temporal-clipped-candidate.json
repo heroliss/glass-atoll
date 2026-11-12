@@ -1,0 +1,426 @@
+{
+  "checks": [
+    {
+      "id": "fresh_water_initializes_R8_type16_and_physical_depth",
+      "maximumDepthError": 0.000026702880859375,
+      "maximumError": 0,
+      "metadataFirst": 16,
+      "nonFinite": 0,
+      "passed": true
+    },
+    {
+      "actual": 2.325134038925171,
+      "current": 2.319999933242798,
+      "expected": 2.325134099536797,
+      "expectedHistoryWeight": 0.513417119032592,
+      "id": "only_water_uses_its_short_history_with_vegetation_disabled",
+      "passed": true
+    },
+    {
+      "id": "HDR_above_one_survives_and_foreign_history_is_bounded",
+      "maximumError": 0,
+      "nonFinite": 0,
+      "passed": true
+    },
+    {
+      "id": "non_water_sand_sky_and_leaf_bypass_when_only_water_is_enabled",
+      "maximumError": 0,
+      "nonFinite": 0,
+      "passed": true
+    },
+    {
+      "id": "water_off_does_not_fall_into_the_vegetation_coverage_path",
+      "maximumError": 0,
+      "nonFinite": 0,
+      "passed": true
+    },
+    {
+      "cases": [
+        {
+          "freshType16": true,
+          "kind": "depth",
+          "maximumError": 0,
+          "nonFinite": 0
+        },
+        {
+          "freshType16": true,
+          "kind": "metadata_type",
+          "maximumError": 0,
+          "nonFinite": 0
+        },
+        {
+          "freshType16": true,
+          "kind": "offscreen_camera",
+          "maximumError": 0,
+          "nonFinite": 0
+        }
+      ],
+      "id": "depth_camera_and_type_invalidation_reject_stale_history",
+      "passed": true
+    },
+    {
+      "cases": [
+        {
+          "actual": [
+            0.4000000059604645,
+            0.5,
+            0.6000000238418579
+          ],
+          "kind": "adjacent_leaf",
+          "maximumError": 2.384185793236071e-8,
+          "reprojectionPixels": 0.25
+        },
+        {
+          "actual": [
+            0.4000000059604645,
+            0.5,
+            0.6000000238418579
+          ],
+          "kind": "adjacent_leaf",
+          "maximumError": 2.384185793236071e-8,
+          "reprojectionPixels": 0.75
+        },
+        {
+          "actual": [
+            0.4000000059604645,
+            0.5,
+            0.6000000238418579
+          ],
+          "kind": "adjacent_wrong_depth",
+          "maximumError": 2.384185793236071e-8,
+          "reprojectionPixels": 0.25
+        },
+        {
+          "actual": [
+            0.4000000059604645,
+            0.5,
+            0.6000000238418579
+          ],
+          "kind": "adjacent_wrong_depth",
+          "maximumError": 2.384185793236071e-8,
+          "reprojectionPixels": 0.75
+        }
+      ],
+      "id": "bilinear_history_rejects_same_depth_leaf_and_wrong_depth_neighbours",
+      "passed": true
+    },
+    {
+      "id": "alternating_spatial_glint_fixture_reduces_frequency_preserving_mean",
+      "maximumSpatialMeanError": 1.5692785382270813e-7,
+      "meanError": -5.786617596204024e-7,
+      "passed": true,
+      "rawStd": 1,
+      "resolvedStd": 0.32151302944680815,
+      "stdRatio": 0.32151302944680815
+    },
+    {
+      "frames": [
+        {
+          "errorFraction": 0.5134170055389404,
+          "frame": 1,
+          "seconds": 0.016666666666666666,
+          "value": 2.973165988922119
+        },
+        {
+          "errorFraction": 0.26359713077545166,
+          "frame": 2,
+          "seconds": 0.03333333333333333,
+          "value": 3.4728057384490967
+        },
+        {
+          "errorFraction": 0.13533532619476318,
+          "frame": 3,
+          "seconds": 0.05,
+          "value": 3.7293293476104736
+        },
+        {
+          "errorFraction": 0.06948351860046387,
+          "frame": 4,
+          "seconds": 0.06666666666666667,
+          "value": 3.861032962799072
+        },
+        {
+          "errorFraction": 0.03567397594451904,
+          "frame": 5,
+          "seconds": 0.08333333333333333,
+          "value": 3.928652048110962
+        },
+        {
+          "errorFraction": 0.018315672874450684,
+          "frame": 6,
+          "seconds": 0.1,
+          "value": 3.963368654251098
+        },
+        {
+          "errorFraction": 0.009403586387634276,
+          "frame": 7,
+          "seconds": 0.11666666666666668,
+          "value": 3.981192827224731
+        }
+      ],
+      "id": "real_spatial_step_settles_within_five_frames_without_long_trail",
+      "note": "Synthetic 60Hz sequence; no water velocity or reflection motion vectors are supplied.",
+      "passed": true
+    },
+    {
+      "id": "renderer_state_and_physical_viewport_restored",
+      "passed": true
+    }
+  ],
+  "fixture": {
+    "currentWaterAlpha": 0.7,
+    "depthMetres": 10,
+    "dimensions": [
+      32,
+      32
+    ],
+    "historyMetadata": "actual normalized R8 type 16",
+    "motionDeltaSeconds": 0.016666666666666666
+  },
+  "glErrors": [],
+  "kind": "Actual short-history water-radiance GPU resolve",
+  "limits": [
+    "Synthetic GPU functionality and radiance sequences, not a perceptual or scene-FPS verdict",
+    "Camera-depth reprojection has no wave/reflection/caustic motion vectors; valid geometry does not guarantee correct radiance correspondence",
+    "A 25ms-style short history can soften moving glints; real camera/wind footage remains necessary",
+    "Partial MSAA pixels at water/vegetation boundaries may have mixed tags outside the exact-water class"
+  ],
+  "passed": true,
+  "passedCount": 10,
+  "preexistingGlErrors": [],
+  "sequences": {
+    "alternatingGlints": {
+      "frames": 64,
+      "maximumSpatialMeanError": 1.5692785382270813e-7,
+      "raw": [
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3
+      ],
+      "rawMean": 2,
+      "rawStd": 1,
+      "resolved": [
+        1.678471326828003,
+        2.321504592895508,
+        1.678483009338379,
+        2.321510553359986,
+        1.6784862279891968,
+        2.321512222290039,
+        1.678486943244934,
+        2.3215126991271973,
+        1.6784871816635132,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764,
+        1.6784873008728027,
+        2.3215129375457764
+      ],
+      "resolvedMean": 1.9999994213382404,
+      "resolvedStd": 0.32151302944680815,
+      "stdRatio": 0.32151302944680815,
+      "warmup": 16
+    },
+    "isolatedHighlight": {
+      "diagnosticOnly": true,
+      "frames": 40,
+      "note": "A sparse highlight may lose mean energy under spatial history clipping. A checker mean pass is not a general unbiasedness proof; assess this diagnostic before claiming physical radiance conservation.",
+      "raw": [
+        3,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        3,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        3,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        3,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224
+      ],
+      "rawMean": 0.5500000026077032,
+      "relativeMeanBias": -0.32671990903464276,
+      "resolved": [
+        1.5624322891235352,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        1.5624322891235352,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        1.5624322891235352,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        1.5624322891235352,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343,
+        0.20000001788139343
+      ],
+      "resolvedMean": 0.3703040517866611,
+      "warmup": 8
+    },
+    "realStep": [
+      {
+        "errorFraction": 0.5134170055389404,
+        "frame": 1,
+        "seconds": 0.016666666666666666,
+        "value": 2.973165988922119
+      },
+      {
+        "errorFraction": 0.26359713077545166,
+        "frame": 2,
+        "seconds": 0.03333333333333333,
+        "value": 3.4728057384490967
+      },
+      {
+        "errorFraction": 0.13533532619476318,
+        "frame": 3,
+        "seconds": 0.05,
+        "value": 3.7293293476104736
+      },
+      {
+        "errorFraction": 0.06948351860046387,
+        "frame": 4,
+        "seconds": 0.06666666666666667,
+        "value": 3.861032962799072
+      },
+      {
+        "errorFraction": 0.03567397594451904,
+        "frame": 5,
+        "seconds": 0.08333333333333333,
+        "value": 3.928652048110962
+      },
+      {
+        "errorFraction": 0.018315672874450684,
+        "frame": 6,
+        "seconds": 0.1,
+        "value": 3.963368654251098
+      },
+      {
+        "errorFraction": 0.009403586387634276,
+        "frame": 7,
+        "seconds": 0.11666666666666668,
+        "value": 3.981192827224731
+      }
+    ]
+  },
+  "shaderErrors": [],
+  "total": 10
+}

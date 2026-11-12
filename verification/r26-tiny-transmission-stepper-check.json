@@ -1,0 +1,137 @@
+{
+  "schema": "glass-atoll.r26-tiny-stepper-cpu-check.v1",
+  "dateUTC": "2026-10-29T11:37:02.013Z",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 8,
+    "total": 8
+  },
+  "checks": [
+    {
+      "name": "Fixed capture reservation rejects before Three allocation, context access or input generation; constructor owns frozen plan only",
+      "passed": true,
+      "evidence": {
+        "minimumReservation": 131072,
+        "actualGPU": false
+      }
+    },
+    {
+      "name": "R24 joint accounting and fixed exact rectangle schedule stay within original complete request and per-map budgets",
+      "passed": true,
+      "evidence": {
+        "work": {
+          "pairs": 1040,
+          "reductionReads": 32,
+          "draws": 3,
+          "uploadBytes": 9216,
+          "rasterTexels": 172
+        },
+        "ownedBytes": 99717,
+        "actualRasterTexels": 48
+      }
+    },
+    {
+      "name": "Fully expanded shaders, material/geometry, original fixture and every padded packed byte match actual production factory",
+      "passed": true,
+      "evidence": {
+        "shaderHashes": {
+          "vertex": "cef7868f43608ec1925a56094c133480e1e16b41a6bbc46601c75653c24cd0a1",
+          "map": "b25e7171cacf0423be41743dc24875e1b6f3598ec2b4aa3a0eacc0286e41680f",
+          "reduce": "988790649b092aaa2d2ae31d7809b6b84e38613a5ef91b0d3a72fa9405020aed"
+        },
+        "packetUploadBytes": 8192,
+        "sourceUploadBytes": 1024,
+        "syntheticFinalRowsEqual": 16
+      }
+    },
+    {
+      "name": "Two exact half-row maps preserve original64-packet association, unchanged prefix and complete reduction without extra clears/draws",
+      "passed": true,
+      "evidence": {
+        "draws": 3,
+        "readbackBytes": 1024,
+        "prefixUnchanged": true,
+        "association": "Float32 synthetic tag loop64 then two-tile sum; not GPU optics"
+      }
+    },
+    {
+      "name": "Submit/read/accept enforce strict checked progression and wrong-call or cancellation retires without another render",
+      "passed": true,
+      "evidence": {
+        "invalidSequences": 6,
+        "cancellationStages": 3,
+        "noImplicitAcceptance": true
+      }
+    },
+    {
+      "name": "Every submit and read preserves distinct READ/DRAW, PACK/UNPACK/PBO/COPY_READ, target rectangles and supported Three state",
+      "passed": true,
+      "evidence": {
+        "stages": 3,
+        "ownedReadbacks": 3,
+        "scope": "Modeled native binding contract only, not hardware state acceptance"
+      }
+    },
+    {
+      "name": "Injected render, read, GL, FBO, link, loss/replacement faults restore bindings and stop all later submissions",
+      "passed": true,
+      "evidence": {
+        "cases": [
+          {
+            "fault": "renderIndex",
+            "renderCalls": 1
+          },
+          {
+            "fault": "read",
+            "renderCalls": 1
+          },
+          {
+            "fault": "errorAfterRender",
+            "renderCalls": 1
+          },
+          {
+            "fault": "fbo",
+            "renderCalls": 0
+          },
+          {
+            "fault": "link",
+            "renderCalls": 1
+          },
+          {
+            "fault": "lossAfterRender",
+            "renderCalls": 1
+          },
+          {
+            "fault": "replacement",
+            "renderCalls": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "All seven owned Three resources dispose exactly once; returned pixels and diagnostics cannot mutate retained plan or inputs",
+      "passed": true,
+      "evidence": {
+        "ownedResources": 7,
+        "disposalCount": 7,
+        "noBorrowedRendererDisposal": true
+      }
+    }
+  ],
+  "revision": "r26-exact-half-row-v1",
+  "sourceSHA256": "1b987d6e3e0f708af46d6c6209f8786abe5b6cf503f39f5261d3b02c56d36426",
+  "factorySHA256": "819b86819adfd346e08a950ca635a884f985723420e3f267b47e33c790905ff7",
+  "pins": {
+    "pyro-smoke-transmission-gpu.js": "235930f8d031c9d922afdeaff506cc62c583bcf68fdfd549b69ab7e4bb719dc8",
+    "pyro-smoke-transmission-pack.js": "c4c64278c6fe994c68ed9727ce82b3396295cbde109d7fb85362d3429e7f0fe8",
+    "smoke-transmission-layout.js": "373739ec71f3505974a5ba5842fbc18f41821df42a6e0730db47fc3b7c72b9da",
+    "verification/r24-joint-work-planner.js": "2e6ef3291045a4015e704fbbb25b398206d72a874afeca10a0bbb129d2cdb54a",
+    "pyro-smoke-renderer.js": "4f152a1470d8351b997728691bc2e0ec15ee0962b55926179917cb42ce7ee3dd"
+  },
+  "limits": [
+    "Real vendored Three objects with synthetic Float32-tag fake renderer/GL, no browser/context/GPU hardware calls.",
+    "Expanded shader/packing identity and modeled address/sum order/state/fault/lifecycle proof; not GPU numerical or hardware-state acceptance.",
+    "Fixed16x65 and3072 complete request only; no native capacity, production import, live publication or speed admission."
+  ]
+}

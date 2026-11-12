@@ -1,0 +1,34 @@
+// Actual factory CPU framing regression; no graphics context or GPU.
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import * as THREE from '../vendor/three.module.js';
+import {FIREWORK_TYPES} from '../fireworks-physics.js';
+import {compileSeededBeeThrust} from '../firework-thrust-profile.js';
+import {getFireworkShowEnvelope} from '../firework-show-envelope.js';
+const root=new URL('../',import.meta.url),source=fs.readFileSync(new URL('../fireworks.js',import.meta.url),'utf8'),baseline=fs.readFileSync(new URL('./baselines/r22-before-powered-runtime/fireworks.js',import.meta.url),'utf8'),checks=[];
+async function factory(text){const needle='api.configure({});return api;';assert.equal(text.split(needle).length,2);const code=text.replaceAll(/from '\.\/([^']+)'/g,(_,file)=>'from '+JSON.stringify(new URL(file,root).href)).replace(needle,'api.configure({});api.__qa=simulation;return api;');return(await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'))).createFireworks;}
+const make=await factory(source),makeOld=await factory(baseline),owned=[],newF=(options={},old=false)=>{const f=(old?makeOld:make)(THREE,options);owned.push(f);return f;},check=(name,fn)=>{try{checks.push({name,passed:true,evidence:fn()??null});}catch(e){checks.push({name,passed:false,error:String(e.stack??e)});}};
+const powered=f=>{f.configure({type:'chrysanthemum',effectProfile:'powered-bees-v1',autoDirection:false,azimuth:119,elevation:25,launchSpreadDegrees:15,burstTiltDegrees:45,burstRollDegrees:30});const result=f.launch({seed:42});assert.equal(result.accepted,true);return f.__qa.active[0];};
+const contains=(outer,inner)=>{for(let c=0;c<3;c++){assert(outer.min[c]<=inner.min[c]);assert(outer.max[c]>=inner.max[c]);}};
+check('All ten ordinary live bounds retain exact pre-R22 public values at four wind phases',()=>{
+  let comparisons=0;for(const type of FIREWORK_TYPES){const a=newF(),b=newF({},true),settings={type:type.id,autoDirection:false,azimuth:119,elevation:78,launchSpreadDegrees:0,burstTiltDegrees:0,burstRollDegrees:0};a.configure(settings);b.configure(settings);a.launch({seed:42});b.launch({seed:42});for(const [time,wind]of [[.1,[0,0,0]],[1,[3,0,-1]],[2,[-2,.1,1]],[4,[0,0,0]]]){a.update({time,windVector:wind});b.update({time,windVector:wind});assert.deepEqual(a.getBounds(),b.getBounds());comparisons++;}}
+  return{comparisons,scope:'All legacy types retain sampled/smoke forecast contract exactly; no new powered metadata appears'};
+});
+check('Powered live bounds union exact actual muzzle/jitter launch and all committed wind ranges',()=>{
+  const f=newF(),event=powered(f);f.update({time:1,windVector:[4,.2,2]});f.update({time:2,windVector:[-3,-.4,-1]});f.update({time:3,windVector:[0,0,0]});const bound=f.getBounds(),expected=getFireworkShowEnvelope({type:event.type,effectProfile:event.effectProfile,starDragModel:'bounded-descent',origin:event.origin,muzzleOffsetMetres:0,azimuth:event.azimuth,elevation:event.elevation,launchSpreadDegrees:0,burstTiltDegrees:0,burstRollDegrees:0,wind:{min:[-3,-.4,-1],max:[4,.2,2]},shutterSeconds:1/60});
+  contains(bound,expected);assert.equal(bound.poweredAnalytic.length,1);assert.deepEqual(bound.poweredAnalytic[0].min,expected.min);assert.deepEqual(bound.poweredAnalytic[0].max,expected.max);assert.deepEqual(bound.poweredAnalytic[0].windRanges,[[-3,4],[-.4,.2],[-1,2]]);assert.equal(bound.poweredAnalytic[0].maximumShutterSeconds,1/60);assert.match(bound.model,/powered analytic/);assert.strictEqual(f.getBounds(),bound);
+  return{actualOrigin:event.origin,actualAzimuth:event.azimuth,actualElevation:event.elevation,windRanges:bound.poweredAnalytic[0].windRanges};
+});
+check('Selecting ordinary style does not remove an active powered event from live analytic framing',()=>{
+  const f=newF(),event=powered(f);f.configure({effectProfile:'legacy',type:'peony'});const bound=f.getBounds();assert.equal(f.diagnostics().settings.effectProfile,'legacy');assert.equal(bound.poweredAnalytic.length,1);assert.equal(bound.poweredAnalytic[0].eventId,event.id);return{selectedType:f.diagnostics().settings.type,livePoweredEvents:bound.poweredAnalytic.length};
+});
+check('Historical wind extrema invalidate a same-bucket/same-current-wind cached powered forecast',()=>{
+  const f=newF();powered(f);f.update({time:1.01,windVector:[0,0,0]});const first=f.getBounds();f.update({time:1.02,windVector:[-5,0,2]});f.update({time:1.03,windVector:[0,0,0]});const second=f.getBounds();assert.notStrictEqual(second,first);assert.deepEqual(second.poweredAnalytic[0].windRanges,[[-5,0],[0,0],[0,2]]);contains(second,first);return{oldRanges:first.poweredAnalytic[0].windRanges,newRanges:second.poweredAnalytic[0].windRanges};
+});
+check('Immutable motor object identity invalidates cached past-sample and whole live bound identities',()=>{
+  const f=newF(),event=powered(f);f.update({time:event.burstTime+.4,windVector:[0,0,0]});const first=f.getBounds(),body=event.heads.find(b=>b.thrustProfile),previous=body.thrustProfile;
+  const replacement=compileSeededBeeThrust({eventSeed:event.seed,bodyId:body.id,timeScale:previous.authoring.timeScale,frame:{right:[0,0,-1],up:[0,1,0],forward:[1,0,0]}});assert.equal(replacement.id,previous.id);assert.notStrictEqual(replacement,previous);body.thrustProfile=replacement;const second=f.getBounds();assert.notStrictEqual(second,first);assert.equal(second.poweredAnalytic.length,1);return{samePublicScheduleId:previous.id,distinctImmutableObject:true,scope:'Read-only production identity check using an explicit private QA replacement; no public schedule mutation API is introduced'};
+});
+for(const f of owned)f.dispose();
+const bytes=fs.readFileSync(new URL('../fireworks.js',import.meta.url)),report={schema:'glass-atoll.r22-live-powered-bounds-cpu.v1',dateUTC:new Date().toISOString(),passed:checks.every(c=>c.passed),counts:{passed:checks.filter(c=>c.passed).length,total:checks.length},sourceSHA256:crypto.createHash('sha256').update(bytes).digest('hex'),lineEndings:{CRLF:(bytes.toString().match(/\r\n/g)||[]).length,LF:(bytes.toString().match(/\n/g)||[]).length},checks,limits:['Native definition-rise apex powered candidate only; production admission rejects custom height/unsupported flight separately.','Committed wind components must remain in the show envelope admitted -50..50m/s domain; main UI uses a narrower range.','Analytic physical/motor proxy support is combined with incumbent sampled smoke coverage; persistent smoke and camera Gaussian/DOF/bloom remain separate margins.','Actual source factory CPU, not GPU/image/FPS acceptance.']};fs.writeFileSync(new URL('./r22-live-powered-bounds-check.json',import.meta.url),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));if(!report.passed)process.exitCode=1;

@@ -1,0 +1,357 @@
+{
+  "schema": "glass-atoll.lighting-choreography.choreography-check.v1",
+  "passed": true,
+  "summary": {
+    "passed": 9,
+    "total": 9
+  },
+  "sourceSHA256": {
+    "complex-fireworks.js": "de7aa3e517c6d416f3fe6fbbe96d0b7b2a00e2518969c5d820f534ff205f96d4",
+    "complex-fireworks-style.js": "41ecb458cfec9248f301b9f5d0cdb7c5e597aa97e645d091cd2335cf71875b34",
+    "complex-fireworks-motion.js": "f567bac68b5bda55ee40fcf7201270b350d09588f1790a64733c39ecf8666ef5",
+    "fireworks-physics.js": "cf4f24782bdbb224bc75155a0f655b3beaaa4fb4eab9eb0b5195c14f8e11c12e",
+    "firework-show-envelope.js": "d422bb4c546a455723bad1c783f56303d56e9ad4df2e60d08a7fdffb84ddaf62",
+    "fireworks.js": "a3515591221bd11d3aac643da29f054f8154bd12caff71ca4d175e6d1295a31a"
+  },
+  "beforeSHA256": {
+    "complex-fireworks.js": "c399c997c865862ac00fd711141ed7a564e0c3d5957abbb029529bb376544acc",
+    "complex-fireworks-style.js": "fb7c2a460dc6703765864c1d731fef9017c291b3660ce6e7b96956e1c4fd5585",
+    "complex-fireworks-motion.js": "2be614e78310cabb1d13a7a0e5dece14e7b31e6ae973bf2aa4e0dc4f0b63bfe8"
+  },
+  "checks": [
+    {
+      "name": "128-shot sweep keeps the same directions and four cycles at a 1.5x faster cadence",
+      "passed": true,
+      "evidence": {
+        "shots": 128,
+        "centreCrossings": 8,
+        "roundTripSeconds": 3.175,
+        "previousRoundTripSeconds": 4.7625,
+        "maximumAdjacentDegrees": 8.13517953414105,
+        "maximumSimultaneousHeads": 41,
+        "previousMaximumSimultaneousHeads": 24
+      }
+    },
+    {
+      "name": "sustained named styles retain useful middle and late emission with monotone finite cooling",
+      "passed": true,
+      "evidence": {
+        "rows": [
+          {
+            "profile": "sustained-comet-v1",
+            "life": 2.3,
+            "at74Percent": 0.11,
+            "at84Percent": 0.014
+          },
+          {
+            "profile": "sustained-comet-v1",
+            "life": 4.1,
+            "at74Percent": 0.11,
+            "at84Percent": 0.014
+          },
+          {
+            "profile": "sustained-comet-v1",
+            "life": 8.1,
+            "at74Percent": 0.11,
+            "at84Percent": 0.014
+          },
+          {
+            "profile": "waterfall-filament-v1",
+            "life": 2.3,
+            "at74Percent": 0.11,
+            "at84Percent": 0.014
+          },
+          {
+            "profile": "waterfall-filament-v1",
+            "life": 4.1,
+            "at74Percent": 0.11,
+            "at84Percent": 0.014
+          },
+          {
+            "profile": "waterfall-filament-v1",
+            "life": 8.1,
+            "at74Percent": 0.11,
+            "at84Percent": 0.014
+          }
+        ],
+        "peakUnchanged": 1,
+        "sourceI0Unchanged": true,
+        "scope": "Brighter middle/late emission intentionally increases light integral; it is not energy-normalized."
+      }
+    },
+    {
+      "name": "legacy unnamed styles and their sampled envelopes remain exact while profile admission stays bounded",
+      "passed": true,
+      "evidence": {
+        "legacyStyles": 12,
+        "samples": 3084,
+        "defaultTailCap": 0.88,
+        "sustainedTailCap": 1.2,
+        "waterfallTailCap": 2.2
+      }
+    },
+    {
+      "name": "waterfall high launch has a horizontal carrier, longer fall, full 2.2-second released tails and unchanged source budget",
+      "passed": true,
+      "evidence": {
+        "carrierHorizontalMetres": 128.94126844944293,
+        "currentLife": [
+          7.6035543665289875,
+          8.096006915345788
+        ],
+        "previousLife": [
+          5.6035543665289875,
+          6.096006915345788
+        ],
+        "dropAt93PercentMetres": [
+          115.25175682186418,
+          138.18135688269945
+        ],
+        "tailCarrierCount": 192,
+        "maxTailSeconds": 2.2
+      }
+    },
+    {
+      "name": "analytic coast matches production motion and its airborne cap encloses all source and full-lag tail ages",
+      "passed": true,
+      "evidence": {
+        "events": 90,
+        "trajectories": 17280,
+        "poses": 432000,
+        "minimumBodyY": 1.0299999999999763,
+        "minimumTailY": 1.0299999999999763,
+        "cappedBodies": 6912,
+        "observed": [
+          {
+            "elevation": 25,
+            "minimumLife": 2.2091171380928913
+          },
+          {
+            "elevation": 40,
+            "minimumLife": 5.2995888572137675
+          },
+          {
+            "elevation": 60,
+            "minimumLife": 7.6035543665289875
+          },
+          {
+            "elevation": 80,
+            "minimumLife": 7.6035543665289875
+          },
+          {
+            "elevation": 90,
+            "minimumLife": 7.6035543665289875
+          }
+        ],
+        "proof": "Vertical velocity is bounded below by min(initialVy,-g/k). Each source y has at most one interior maximum; reserve worst detached-tail drop for the full lag. Covers zero vertical wind, including arbitrary horizontal wind."
+      }
+    },
+    {
+      "name": "published physical envelopes contain current bodies and released tails at launch-angle and wind extremes",
+      "passed": true,
+      "evidence": {
+        "positions": 121355,
+        "summaries": [
+          {
+            "type": "display-saturn",
+            "maximumObservedBodyHorizon": 5.09064882897446,
+            "maximumActualTailSeconds": 0.63,
+            "declaredTailSeconds": 1.2
+          },
+          {
+            "type": "display-heart",
+            "maximumObservedBodyHorizon": 5.09064882897446,
+            "maximumActualTailSeconds": 0.63,
+            "declaredTailSeconds": 1.2
+          },
+          {
+            "type": "display-flower",
+            "maximumObservedBodyHorizon": 5.09064882897446,
+            "maximumActualTailSeconds": 0.63,
+            "declaredTailSeconds": 1.2
+          },
+          {
+            "type": "display-chase",
+            "maximumObservedBodyHorizon": 5.401819528715684,
+            "maximumActualTailSeconds": 0.15,
+            "declaredTailSeconds": 1.2
+          },
+          {
+            "type": "display-vfan",
+            "maximumObservedBodyHorizon": 16.8,
+            "maximumActualTailSeconds": 1.0499999999999998,
+            "declaredTailSeconds": 1.2
+          },
+          {
+            "type": "display-helix",
+            "maximumObservedBodyHorizon": 5.8,
+            "maximumActualTailSeconds": 1.0499999999999998,
+            "declaredTailSeconds": 1.2
+          },
+          {
+            "type": "display-vortex",
+            "maximumObservedBodyHorizon": 5.61587239105627,
+            "maximumActualTailSeconds": 1.17,
+            "declaredTailSeconds": 1.2
+          },
+          {
+            "type": "display-waterfall",
+            "maximumObservedBodyHorizon": 10.93650975992282,
+            "maximumActualTailSeconds": 2.2,
+            "declaredTailSeconds": 2.2
+          },
+          {
+            "type": "display-double",
+            "maximumObservedBodyHorizon": 4.9,
+            "maximumActualTailSeconds": 0.63,
+            "declaredTailSeconds": 1.2
+          },
+          {
+            "type": "display-brocade",
+            "maximumObservedBodyHorizon": 7.2,
+            "maximumActualTailSeconds": 1.2,
+            "declaredTailSeconds": 1.2
+          }
+        ],
+        "scope": "Finite independent counterexample search supplements unchanged analytic envelope formulas and updated generator limits."
+      }
+    },
+    {
+      "name": "all complex event lifetimes retain complete actual tail support and smoke horizons",
+      "passed": true,
+      "evidence": [
+        {
+          "type": "display-saturn",
+          "bodyCount": 256,
+          "eventEndAfterBurst": 9.775,
+          "tailEndAfterBurst": 5.240648828974461,
+          "retentionMargin": 4.5343511710255395
+        },
+        {
+          "type": "display-heart",
+          "bodyCount": 256,
+          "eventEndAfterBurst": 9.774999999999999,
+          "tailEndAfterBurst": 5.240648828974459,
+          "retentionMargin": 4.5343511710255395
+        },
+        {
+          "type": "display-flower",
+          "bodyCount": 256,
+          "eventEndAfterBurst": 9.774999999999999,
+          "tailEndAfterBurst": 5.240648828974459,
+          "retentionMargin": 4.5343511710255395
+        },
+        {
+          "type": "display-chase",
+          "bodyCount": 208,
+          "eventEndAfterBurst": 9.775,
+          "tailEndAfterBurst": 5.541583827074618,
+          "retentionMargin": 4.2334161729253825
+        },
+        {
+          "type": "display-vfan",
+          "bodyCount": 128,
+          "eventEndAfterBurst": 19.200000000000003,
+          "tailEndAfterBurst": 17.85,
+          "retentionMargin": 1.3500000000000014
+        },
+        {
+          "type": "display-helix",
+          "bodyCount": 192,
+          "eventEndAfterBurst": 9.774999999999999,
+          "tailEndAfterBurst": 6.850000000000001,
+          "retentionMargin": 2.924999999999997
+        },
+        {
+          "type": "display-vortex",
+          "bodyCount": 192,
+          "eventEndAfterBurst": 9.774999999999999,
+          "tailEndAfterBurst": 5.970000000000001,
+          "retentionMargin": 3.804999999999998
+        },
+        {
+          "type": "display-waterfall",
+          "bodyCount": 193,
+          "eventEndAfterBurst": 13.236509759922821,
+          "tailEndAfterBurst": 13.13650975992282,
+          "retentionMargin": 0.10000000000000142
+        },
+        {
+          "type": "display-double",
+          "bodyCount": 180,
+          "eventEndAfterBurst": 9.774999999999999,
+          "tailEndAfterBurst": 5.494999999999999,
+          "retentionMargin": 4.279999999999999
+        },
+        {
+          "type": "display-brocade",
+          "bodyCount": 256,
+          "eventEndAfterBurst": 9.775,
+          "tailEndAfterBurst": 8.4,
+          "retentionMargin": 1.375
+        }
+      ]
+    },
+    {
+      "name": "primary and child flash source lifetimes are brief while peak intensity and anchored identity remain",
+      "passed": true,
+      "evidence": {
+        "rows": [
+          {
+            "type": "display-flower",
+            "count": 1,
+            "lifeSeconds": 0.075,
+            "radiusMetres": 0.04,
+            "peakReferenceIntensity": [
+              12000
+            ]
+          },
+          {
+            "type": "display-double",
+            "count": 12,
+            "lifeSeconds": 0.075,
+            "radiusMetres": 0.04,
+            "peakReferenceIntensity": [
+              2600,
+              2600,
+              2600,
+              2600,
+              2600,
+              2600,
+              2600,
+              2600,
+              2600,
+              2600,
+              2600,
+              2600
+            ]
+          },
+          {
+            "type": "display-brocade",
+            "count": 1,
+            "lifeSeconds": 0.075,
+            "radiusMetres": 0.04,
+            "peakReferenceIntensity": [
+              15000
+            ]
+          }
+        ],
+        "scope": "Source contract only; tiny direct display share and environment-light routing are verified by the root optical work."
+      }
+    },
+    {
+      "name": "actual CPU factory keeps the silver curtain after the former prune time and emits extended vertical tails",
+      "passed": true,
+      "evidence": {
+        "actualTailRecords": 1493,
+        "recordsAboveOneThousandthSourceI0": 917,
+        "maximumVisibleBodyTailSpanMetres": 27.33711955696333,
+        "oldPruneAfterBurst": 11.88650975992282,
+        "lateQueryAfterBurst": 12.08650975992282,
+        "latePositiveTailRecords": 97,
+        "contextCalls": 0
+      }
+    }
+  ],
+  "scope": "CPU construction, analytic vertical clearance, declared physical bounds, source envelopes, and actual renderer records. No browser, GPU, frame-rate or subjective final appearance claim."
+}

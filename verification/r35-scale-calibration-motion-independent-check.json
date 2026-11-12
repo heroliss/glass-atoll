@@ -1,0 +1,96 @@
+{
+  "schema": "glass-atoll.r35-scale-calibration-motion-independent-check.v1",
+  "actualGPU": false,
+  "browserActions": 0,
+  "nativeContextCalls": 0,
+  "productionEdits": 0,
+  "productionAdmitted": false,
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "prototypeSHA256": "3f2c09a7f7bebb483e8be5ac912480eb5c532c3ec2ba2f75d2c335f6623404d3",
+  "checks": [
+    {
+      "name": "Actual old compiler/body sampler independently reaches120m for multiple seeds, rotations and shared piecewise wind without mutating inputs",
+      "passed": true,
+      "cases": 21,
+      "maxWidthErrorMetres": 4.263256414560601e-14,
+      "minAlpha": 2.5416156170227615,
+      "maxAlpha": 2.7707460659707586,
+      "examples": [
+        {
+          "seed": 341070,
+          "orientation": null,
+          "alpha": 2.6347670343794403,
+          "width": 120,
+          "eligible": 64,
+          "maximumIntrinsic": 49.925666438938926
+        },
+        {
+          "seed": 341070,
+          "orientation": {
+            "yawDegrees": 47,
+            "tiltDegrees": -27,
+            "rollDegrees": 20
+          },
+          "alpha": 2.62104754027322,
+          "width": 120.00000000000001,
+          "eligible": 64,
+          "maximumIntrinsic": 49.66569852620866
+        },
+        {
+          "seed": 341070,
+          "orientation": {
+            "yawDegrees": 153,
+            "tiltDegrees": 45,
+            "rollDegrees": 30
+          },
+          "alpha": 2.628362904731305,
+          "width": 120,
+          "eligible": 64,
+          "maximumIntrinsic": 49.80431588442214
+        }
+      ],
+      "scope": "Finite actual-model sample evidence at ordinary world coordinates, not a proof for all seeds/epochs/positions or contact-visible width."
+    },
+    {
+      "name": "0x and64x retain identical alpha/kicks/eligible source identities using independent pre-gain curves",
+      "passed": true,
+      "gains": [
+        0,
+        1,
+        64
+      ],
+      "alpha": 2.6024644653258706,
+      "zeroGainIsGeometryOnly": true
+    },
+    {
+      "name": "Degenerate and cap-overrun source geometries reject atomically rather than clamping",
+      "passed": true,
+      "rejections": [
+        "Degenerate outer width",
+        "Required radial scale exceeds independently declared cap4; never clamp away the target"
+      ],
+      "noClamp": true
+    },
+    {
+      "name": "Compiler-basis mistakes in ignition delay and original layer kick relation are rejected, not silently hidden by rescaling",
+      "passed": true,
+      "negativeCases": 2
+    },
+    {
+      "name": "Versioned cap/domain and import graph stay separate from native physics; source remains stable during audit",
+      "passed": true,
+      "noPhysicsImportCycle": true,
+      "sourceStable": true,
+      "noProductionAdmission": true
+    }
+  ],
+  "limits": [
+    "Free-flight pre-contact geometry, not physical measured120m width or absolute photometry.",
+    "No callback-based wind/future sampling is used by calibration; actual sampler evaluation occurs only in CPU verification.",
+    "A shared carrier is preserved; finite-star kick centroid and mass COM are not required to be invariant."
+  ]
+}

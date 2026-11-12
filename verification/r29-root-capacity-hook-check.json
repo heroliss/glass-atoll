@@ -1,0 +1,59 @@
+{
+  "schema": "glass-atoll.r29-root-capacity-hook-cpu.v1",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "checks": [
+    {
+      "name": "Staged main differs only by four explicit daily budgets and three diagnostic methods",
+      "passed": true,
+      "evidence": {
+        "dailyBudgetEdits": 4,
+        "methods": [
+          "async runR29SourcePeakCheck(",
+          "async runR29LightPeakCheck(",
+          "async runR29JointPeakCheck("
+        ],
+        "stagedSHA256": "7c2495ac7470cd5287fe5ead14ef3c0532182a552b2f75e9f6d0052c59c6a520"
+      }
+    },
+    {
+      "name": "Source method preserves exclusive ownership and trusted factories on success and every failure path",
+      "passed": true,
+      "evidence": {
+        "earlyGuards": 5,
+        "finallyPaths": 3,
+        "trustedOverrides": true
+      }
+    },
+    {
+      "name": "Light method preserves exclusive ownership and trusted factories on success and every failure path",
+      "passed": true,
+      "evidence": {
+        "earlyGuards": 5,
+        "finallyPaths": 3,
+        "trustedOverrides": true
+      }
+    },
+    {
+      "name": "Joint method preserves exclusive ownership and trusted factories on success and every failure path",
+      "passed": true,
+      "evidence": {
+        "earlyGuards": 5,
+        "finallyPaths": 3,
+        "trustedOverrides": true
+      }
+    },
+    {
+      "name": "Only two pack capacity literals and one light capacity literal change actual algorithms; other staged modules only relocate imports",
+      "passed": true,
+      "evidence": {
+        "opticalShaderOrSchedulerEdits": 0,
+        "capacityLiterals": 3
+      }
+    }
+  ]
+}

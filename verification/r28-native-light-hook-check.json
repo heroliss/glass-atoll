@@ -1,0 +1,36 @@
+{
+  "schema": "glass-atoll.r28-native-light-hook-check.v1",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 3,
+    "total": 3
+  },
+  "checks": [
+    {
+      "name": "Only one paused exclusive lazy QA method was added; every other main byte is unchanged",
+      "passed": true,
+      "evidence": {
+        "mainSHA256": "705a018f27c6cebf2eda8cd1b3558da4f30def3dbe12c9a1ebe134ad81919a4c",
+        "productionPolicyUnchanged": true
+      }
+    },
+    {
+      "name": "All four unsafe states reject before imports, factory or rendering",
+      "passed": true,
+      "evidence": {
+        "earlyGuards": 4,
+        "finallyCases": 3,
+        "trustedOverrides": true
+      }
+    },
+    {
+      "name": "Original physical/lighting implementations, package and accepted audio are unchanged before hardware candidate phase",
+      "passed": true,
+      "evidence": {
+        "unchanged": 8,
+        "audioUnchanged": true
+      }
+    }
+  ]
+}

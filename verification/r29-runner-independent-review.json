@@ -1,0 +1,194 @@
+{
+  "schema": "glass-atoll.r29-runner-independent-review.v1",
+  "dateUTC": "2026-10-29T16:16:03.344Z",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 7,
+    "total": 7
+  },
+  "runtimeSHA256": "3535ebae18ff359b52daec0a7eedfaca746d2c0ff3703360aeffaa7f9bf3896d",
+  "pinsModuleSHA256": "3e3e36a7822446b9bf8c68bfd1fb0bb45834e40ef177745b653b3def2b96a59d",
+  "pinsManifestSHA256": "f740c21294afd21d5d44ec8c875b55ec3c0d7ec1998db14d07fece9114c01864",
+  "checks": [
+    {
+      "name": "All mandatory cached paths are enumerable: no skipped mandatory fetch via count-preserving extra key",
+      "passed": true,
+      "evidence": {
+        "requiredPath": "../main.js",
+        "requiredFetchWouldBeSkipped": true,
+        "extraEnumerablePath": "../index.html",
+        "rejectedBeforeCapture": true
+      }
+    },
+    {
+      "name": "Cached pin-map exact data descriptors reject hidden/symbol/prototype/getter omissions without invoking accessors",
+      "passed": true,
+      "evidence": {
+        "rejected": [
+          "symbol-extra",
+          "non-enumerable-extra",
+          "getter",
+          "custom-prototype",
+          "null-prototype",
+          "missing-function",
+          "phase-extra",
+          "phase-nonfinite",
+          "schema"
+        ],
+        "accessorCalls": 0,
+        "prototypeKindRejected": true
+      }
+    },
+    {
+      "name": "Every fixed source, cached imported function/math string and whole artifact identity matches current frozen pins",
+      "passed": true,
+      "evidence": {
+        "sharedSources": 16,
+        "cachedFunctions": 17,
+        "jobs": [
+          {
+            "kind": "source",
+            "digest": "7a1c6261ae3489b158b539487a4bcbd0d7958bdbd3a980671bc30d93e8e82c15"
+          },
+          {
+            "kind": "joint",
+            "digest": "51c7e73d5667f5ab6da82937ee48d71979f0c9c885adcafa133ab39e07aab401"
+          },
+          {
+            "kind": "light",
+            "digest": "61be84b2d72760799334e3291ecc3b2bb9b13d3c5ffa28b32a445c1867ff147e"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Full native peak copies own references/words before yield; joint shares only its one owned snapshot and ledger",
+      "passed": true,
+      "evidence": [
+        {
+          "kind": "source",
+          "packets": 1652,
+          "T": 1366,
+          "SH": 1440,
+          "draws": 5,
+          "readBytes": 21984,
+          "reservation": 37857960,
+          "mirror": {
+            "kind": "reflection",
+            "count": 0,
+            "requested": true,
+            "submitted": false
+          }
+        },
+        {
+          "kind": "light",
+          "packets": 2301,
+          "T": 845,
+          "SH": 1409,
+          "draws": 6,
+          "readBytes": 110832,
+          "reservation": 38164170,
+          "mirror": {
+            "kind": "reflection",
+            "count": 0,
+            "requested": true,
+            "submitted": false
+          }
+        },
+        {
+          "kind": "joint",
+          "packets": 2258,
+          "T": 871,
+          "SH": 1431,
+          "draws": 10,
+          "readBytes": 122832,
+          "reservation": 38145402,
+          "mirror": {
+            "kind": "reflection",
+            "count": 0,
+            "requested": true,
+            "submitted": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "Final native numerical validators inspect every row including signed fourth SH channel and reject last-row corruption",
+      "passed": true,
+      "evidence": [
+        {
+          "kind": "source",
+          "kernel": "transmission",
+          "rows": 1366,
+          "physicalError": 5.0762915093649497e-8
+        },
+        {
+          "kind": "light",
+          "kernel": "light",
+          "rows": 2301,
+          "negative": 9932,
+          "negativeFourth": 2267,
+          "C0error": 5.7894125070445334e-8,
+          "C1error": 4.7148713779276756e-8
+        },
+        {
+          "kind": "joint",
+          "kernel": "transmission",
+          "rows": 871,
+          "physicalError": 3.216070865175169e-8
+        },
+        {
+          "kind": "joint",
+          "kernel": "light",
+          "rows": 2258,
+          "negative": 9734,
+          "negativeFourth": 2184,
+          "C0error": 5.8446885009386826e-8,
+          "C1error": 4.7608086483140274e-8
+        }
+      ]
+    },
+    {
+      "name": "Real exported runner reaches only existing-context boundary after full ownership/pins and rejects stale factory before context",
+      "passed": true,
+      "evidence": [
+        {
+          "staleFactory": false,
+          "contexts": 1,
+          "draws": 0,
+          "ownedBeforeFirstAwait": true
+        },
+        {
+          "staleFactory": true,
+          "contexts": 0,
+          "draws": 0,
+          "ownedBeforeFirstAwait": true
+        }
+      ]
+    },
+    {
+      "name": "Whole-job render/timer/native-state/resource contract preserves the established bounded numerical-only route",
+      "passed": true,
+      "evidence": {
+        "oneRetrospectiveTimer": true,
+        "maxDraws": [
+          5,
+          6,
+          10
+        ],
+        "noOnlineOracle": true,
+        "noSceneDraw": true,
+        "allRowsAndEightPartials": true,
+        "notNormalFrameAcceptance": true,
+        "guardSourceSHA256": "a1c510a4f54e9c031f60f0010b8f1e560870ed6c4436010484848bd62a33f093"
+      }
+    }
+  ],
+  "retainedFailure": "baselines/r29-independent-before-enumerable-guard-repair/r29-runner-independent-review.json",
+  "limits": [
+    "CPU-only frozen-source/cached pin, native ownership, all-row validator falsification and exported pre-context runner review. No actual GL, browser, GPU timing, or new oracle quadrature.",
+    "The fixed joint shares one owned physical generation and computes two complete independent kernels; it is not a normal evolving frame, nonzero mirror or accumulated fireworks performance claim.",
+    "The 96MiB reservation describes bounded captured numeric/canonical data, not full JavaScript heap or graphics-driver allocation. Existing R28 native-state guard lineage is retained; this suite does not inject real-context failures."
+  ]
+}

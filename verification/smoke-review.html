@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>烟迹 · 原始实景对照</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101719;color:#e5eeeb;font:14px/1.5 system-ui,"Microsoft YaHei",sans-serif}header{padding:20px 26px 16px;border-bottom:1px solid #34433f;background:#15201d}h1{font-size:22px;font-weight:550;margin:0 0 5px}p{margin:0;color:#aebeb7}nav{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:15px}button,select,a{font:inherit}button,select{padding:8px 13px;color:inherit;background:#202d28;border:1px solid #43564c;border-radius:5px;cursor:pointer}button[aria-pressed=true]{background:#d5e7dc;color:#14271c;border-color:#d5e7dc}button:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid #bde6cd;outline-offset:3px}label{display:flex;align-items:center;gap:7px}.stage{height:calc(100dvh - 205px);min-height:400px;overflow:auto;background:#080e10;touch-action:pan-x pan-y;text-align:center}.stage.fit{display:flex;align-items:center;justify-content:center}.stage img{display:block;margin:auto;max-width:none;image-rendering:auto;cursor:zoom-in}.stage.fit img{max-width:100%;max-height:100%;width:auto!important}.caption{padding:10px 26px;color:#b5c9bd;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}a{color:#b9dccb}#error{padding:30px;color:#ffd4b3}.sep{height:22px;width:1px;background:#4b5f53;margin:0 5px}@media(max-width:650px){header{padding:14px}.stage{height:70dvh}.caption{padding:10px 14px}.sep{display:none}}
+</style>
+<header><h1>烟迹，靠近看看。</h1><p>真实网页原始截图。各候选保持同一发烟花、时刻、视角和摄影曝光，未做图片增强；本页不代表最终效果。</p><nav id="variants" aria-label="烟迹方案"></nav><nav><label>机位 <select id="angle" aria-label="观察机位"></select></label><label>查看 <select id="zoom" aria-label="图片缩放"><option value="1" selected>原始像素 · 100%</option><option value="2">200%</option><option value="fit">完整画面</option></select></label><span class="sep"></span><a id="original" target="_blank" rel="noopener">打开原图</a><a id="report" target="_blank" rel="noopener">验证记录</a></nav></header>
+<main><div class="stage" id="stage"><img id="image" alt="烟花烟迹的真实场景对照"></div><div class="caption"><span id="caption">正在读取原图</span><span>点击图像可切换完整画面与原始像素</span></div><p id="error" hidden></p></main>
+<script type="module">
+const $=s=>document.querySelector(s),q=new URLSearchParams(location.search),candidate=q.get('report')||'pyro-smoke-kernel-scene-first.json';
+const labels={point20:'原烟核',segment20:'沿燃烧段展开',point05:'减少中心烟团',segment05:'细烟迹 + 减少中心',samples12:'12 条轨迹',samples48:'48 条轨迹',brownian:'旧扩散',taylor10:'有限相关扩散（候选）',proxy:'平均光源',resolved:'逐星受光（候选）'},angles={front:'离岛全景',oblique:'侧面',detail:'烟迹近景'};
+try{
+ if(!/^[a-zA-Z0-9.-]+\.json$/.test(candidate))throw Error('无效记录文件');
+ const r=await fetch(candidate).then(x=>{if(!x.ok)throw Error('记录尚未保存');return x.json()}),items=Object.entries(r.images).map(([key,path])=>{const at=key.indexOf('_');return{key,angle:key.slice(0,at),variant:key.slice(at+1),src:'./'+path.replaceAll('\\','/').split('/').pop()}}),vs=[...new Set(items.map(x=>x.variant))],as=[...new Set(items.map(x=>x.angle))];
+ let variant=['resolved','taylor10','samples48','segment05',vs[0]].find(v=>vs.includes(v));
+ for(const v of vs){const b=document.createElement('button');b.textContent=labels[v]||v;b.dataset.variant=v;b.addEventListener('click',()=>{variant=v;show()});$('#variants').append(b)}
+ for(const a of as)$('#angle').add(new Option(angles[a]||a,a));$('#angle').value=as.includes('detail')?'detail':as[0];$('#report').href=candidate;
+ function show(){const item=items.find(x=>x.variant===variant&&x.angle===$('#angle').value);if(!item)return;$('#image').src=item.src;$('#original').href=item.src;$('#image').alt=(labels[variant]||variant)+'，'+(angles[item.angle]||item.angle)+'，原始实景图';for(const b of $('#variants').children)b.setAttribute('aria-pressed',b.dataset.variant===variant?'true':'false');$('#caption').textContent=(labels[variant]||variant)+' · '+(angles[item.angle]||item.angle)+' · 源强与总烟量保持一致';zoom()}
+ function zoom(){const value=$('#zoom').value;$('#stage').classList.toggle('fit',value==='fit');if(value!=='fit'&&$('#image').naturalWidth)$('#image').style.width=$('#image').naturalWidth*Number(value)+'px'}
+ $('#image').addEventListener('load',zoom);$('#image').addEventListener('click',()=>{$('#zoom').value=$('#zoom').value==='fit'?'1':'fit';zoom()});$('#angle').addEventListener('change',show);$('#zoom').addEventListener('change',zoom);show();
+}catch(e){$('#error').hidden=false;$('#error').textContent=String(e.message);$('#caption').textContent='无法读取对照记录'}
+</script>
+</html>

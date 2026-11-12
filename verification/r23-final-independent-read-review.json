@@ -1,0 +1,99 @@
+{
+  "schema": "glass-atoll.r23-final-independent-read-review.v1",
+  "dateUTC": "2026-10-29T07:23:31.434Z",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "sources": {
+    "main": "0890c1efaa4def20d518b79b95d1cf6cf0c4f141da573b2ce68f81004edb3ea6",
+    "gpu": "235930f8d031c9d922afdeaff506cc62c583bcf68fdfd549b69ab7e4bb719dc8",
+    "planner": "373739ec71f3505974a5ba5842fbc18f41821df42a6e0730db47fc3b7c72b9da",
+    "pack": "c4c64278c6fe994c68ed9727ce82b3396295cbde109d7fb85362d3429e7f0fe8"
+  },
+  "checks": [
+    {
+      "name": "Independent layout/source CPU audit is6/6 against the final promoted source",
+      "passed": true,
+      "evidence": {
+        "counts": {
+          "passed": 6,
+          "total": 6
+        },
+        "sourceSHA256": "235930f8d031c9d922afdeaff506cc62c583bcf68fdfd549b69ab7e4bb719dc8"
+      }
+    },
+    {
+      "name": "Tiny and native helper preflights are5/5 and6/6 with unchanged helper fingerprints",
+      "passed": true,
+      "evidence": {
+        "tiny": {
+          "passed": 5,
+          "total": 5
+        },
+        "native": {
+          "passed": 6,
+          "total": 6
+        },
+        "helperSHA256": "a9a206c84441621aaceb958026082b3c1e3c1b376ddb9b34a503b2233543e6c2",
+        "nativeHelperSHA256": "3cd9b8bd44ce87e85ee1a63b7b0904eea001f6940150459c065a682f4885bb64"
+      }
+    },
+    {
+      "name": "Promotion changes only the default layout string from the previously reviewed R23 GPU source",
+      "passed": true,
+      "evidence": {
+        "promotedDefault": "active-count",
+        "previousReviewedSHA256": "b19d06ede525be6277524f5d4c7ebb47bd204e7f31728ef8b3a1d9e95e674dd7",
+        "finalSHA256": "235930f8d031c9d922afdeaff506cc62c583bcf68fdfd549b69ab7e4bb719dc8"
+      }
+    },
+    {
+      "name": "Actual extracted GPU and route setters block frozen workload and renderer-lock mutations before side effects",
+      "passed": true,
+      "evidence": {
+        "blockedCalls": 4,
+        "configureCalls": 0,
+        "historyResets": 0,
+        "scope": "Actual method source evaluated in an isolated closure with inert stubs; no main app or renderer execution"
+      }
+    },
+    {
+      "name": "Actual frozen workload signature distinguishes enabled layout mode, constructor caps and CPU transmission route",
+      "passed": true,
+      "evidence": {
+        "capturedConfiguration": {
+          "layoutMode": "active-count",
+          "caps": {
+            "maxSources": 18000,
+            "maxPackets": 4096,
+            "maxPairs": 1048576
+          },
+          "route": "fast"
+        },
+        "independentChangesDetected": [
+          "layoutMode",
+          "maxPairs",
+          "route"
+        ],
+        "scope": "Actual signature function executed with inert physical/renderer stubs only"
+      }
+    },
+    {
+      "name": "Approved audio and the unchanged global pair admission limit remain pinned",
+      "passed": true,
+      "evidence": {
+        "audioSHA256": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+        "maxPairs": 1048576,
+        "remainingWork": "Over-budget native SourceT requests still use the CPU fallback; this stage does not resolve that path"
+      }
+    }
+  ],
+  "limits": [
+    "Final source/CPU read review only; root-owned actual GPU/native/image receipts are separate and were not rerun here.",
+    "Isolated method/signature source extraction verifies the stated guards without importing the live main application.",
+    "Physical/visual island goal remains active; 1m-pair CPU fallback, persistent smoke fill and wider photoreal acceptance remain outside this promotion."
+  ]
+}

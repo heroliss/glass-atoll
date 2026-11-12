@@ -1,0 +1,157 @@
+{
+  "schema": "glass-atoll.r21-contact-wiring-independent-cpu.v1",
+  "dateUTC": "2026-10-29T03:23:47.903Z",
+  "passed": false,
+  "counts": {
+    "passed": 4,
+    "total": 5
+  },
+  "sourceSHA256": {
+    "fireworks.js": "c3a502462fe9430e511e8d79d32125be22595ad45eeb2d47a7107fee21981aa1",
+    "firework-contact-optics.js": "789ed0bfbe1fb81ddcfa8385a297576ebf334211ab3a34ef569ceb7b85f7a8fb",
+    "firework-contact-support.js": "b5c977ceb05ef3d174c8d3891ca4cc1228bcae8f8e08f7f1b81a184ad78bdbbe",
+    "firework-air-support.js": "32149ec6c94ae99ab7552347e4eabfd4aa687827b81cdc6e94ac698045527855",
+    "firework-tail-field.js": "4c19f88ad0083e3e0426464a1ee90facc9a107a5577f873ffe1cbc2a68d4977e"
+  },
+  "baselineSHA256": "c78afe6600a31d07b27751cec70e21fe28be68e2095bfc613cf071e42f2ae262",
+  "checks": [
+    {
+      "name": "new production preserves vertex/fragment shader byte-exact against pre-contact source",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ '  const vertex=/* glsl */`precision highp float;\\n' +\n+   '    in vec3 position,aCentre,aVelocity,aStretch,aColour,aSmokeLight;in vec4 aShape,aTemporal0,aTemporal1,aTemporal2,aTemporal3,aTemporal4,aTemporal5;\\n' +\n+   '    uniform mat4 uViewProjection,uProjection;uniform vec3 uEye;uniform vec2 uSize;\\n' +\n+   '    uniform highp sampler2D uSourceTransmission;uniform vec2 uSourceTransmissionSize;uniform float uSourceTransmissionEnabled;\\n' +\n+   '    uniform float uFocalMm,uAperture,uFocus,uSensorHeightMm,uDof,uShutter,uLegacyShutter,uTrailAdaptive;\\n' +\n+   '    flat out vec4 vTrailSampling;flat out vec2 vTrailCentre;out vec2 vOffset,vMotion;out vec3 vWorld,vColour,vSmokeLight,vTrailShutter;out vec4 vShape,vTemporal0,vTemporal1,vTemporal2,vTemporal3,vTemporal4,vTemporal5;out float vSigma,vOriginalSigma,vOmega,vDistance;\\n' +\n+   '    vec2 projectPixels(vec3 p){vec4 c=uViewProjection*vec4(p,1.);return c.xy/max(c.w,1e-5)*uSize*.5;}\\n' +\n+   '    void main(){\\n' +\n+   '      vec4 clip=uViewProjection*vec4(aCentre,1.);float depth=max(clip.w,.001);vec2 ndc=clip.xy/depth;\\n' +\n+   '      float pixelScale=abs(uProjection[1][1])*uSize.y*.5/depth,worldSigma=aShape.y*pixelScale*.70710678;\\n' +\n+   '      float f=uFocalMm,s=depth*1000.,focus=max(f+1.,uFocus*1000.);\\n' +\n+   '      float coc=abs(f*f*(s-focus)/(uAperture*max(s,f+1.)*(focus-f)))/uSensorHeightMm*uSize.y*.5*uDof;\\n' +\n+   '      if(aShape.x>.5)worldSigma=aShape.y*pixelScale*.5;\\n' +\n+   '      float sigma=sqrt(.0784+worldSigma*worldSigma+coc*coc*.25);\\n' +\n+   '      bool vectorEmission=aShape.w<0.;float exposureSeconds=vectorEmission?uShutter:uLegacyShutter;\\n' +\n+   '      vec2 shutter=projectPixels(aCentre+aVelocity*exposureSeconds*.5)-projectPixels(aCentre-aVelocity*exposureSeconds*.5);\\n' +\n+   '      bool trail=dot(aStretch,aStretch)>1e-12;vec2 motion=shutter;float explicitShutter=0.;\\n' +\n+   '      if(trail){\\n' +\n+   '        motion=projectPixels(aCentre+aStretch*.5)-projectPixels(aCentre-aStretch*.5);\\n' +\n+   '        // A uniform shutter segment has covariance m*mT/12. When its length\\n' +\n+   '        // is at most1pixel use an isotropic trace-preserving approximation\\n' +\n+   '        // (half its trace per axis), never subtract a spatial tail tangent.\\n' +\n+   '        // Wider near-view shutter footprints use explicit3-point quadrature.\\n' +\n+   '        if(vectorEmission){if(exposureSeconds>0.)explicitShutter=1.;}\\n' +\n+   '        else if(length(shutter)<=1.)sigma=sqrt(sigma*sigma+dot(shutter,shutter)/24.);\\n' +\n+   '        else explicitShutter=1.;\\n' +\n+   '      }\\n' +\n+   '      // Each complete source selects ONE path. No per-pixel legacy/adaptive mix.\\n' +\n+   '      // Continuous N/N+1 blend keeps both midpoint spacings strictly below.5px.\\n' +\n+   '      vTrailSampling=vec4(8.,8.,0.,0.);\\n' +\n+   '      if(trail&&uTrailAdaptive>.5){\\n' +\n+   '        float L=length(motion);\\n' +\n+   '        if(L>1e-4){\\n' +\n+   '          vec2 axis=motion/L;float targetStep=.5*max(1.,sigma);float x=max(7.,L/targetStep),n0=floor(x)+1.,n1=n0+1.,f=fract(x),blend=clamp(f*f*f*(f*(f*6.-15.)+10.),0.,1.);\\n' +\n+   '          float support=.5*(abs(axis.x)+abs(axis.y))+6.*sigma+.02;\\n' +\n+   '          if(explicitShutter>.5)support+=.38729833462*abs(dot(shutter,axis));\\n' +\n+   '          float maxLocal=min(n1,ceil(2.*support*n1/L)+4.);\\n' +\n+   '          // Global index range is bounded for highp float precision. Local\\n' +\n+   '          // work is bounded independently of the complete segment length.\\n' +\n+   '          if(n1<=65536.&&maxLocal<=128.)vTrailSampling=vec4(n0,n1,blend,1.);\\n' +\n+   '        }\\n' +\n+   '      }\\n' +\n+   '      // Adaptive integration uses the physical projected centre, independent\\n' +\n+   \"      // of the expanded quad's implementation-dependent raster snapping.\\n\" +\n+   '      vTrailCentre=(ndc*.5+.5)*uSize;\\n' +\n+   '      vec2 extent=3.65*vec2(sigma)+abs(motion)*.5+abs(shutter)*.5*explicitShutter+vec2(.65);\\n' +\n+   '      clip.xy+=position.xy*extent*2./uSize*clip.w;gl_Position=clip;\\n' +\n+   '      if(clip.w<=.01)gl_Position=vec4(3.,3.,3.,1.);\\n' +\n+   '      vOffset=position.xy*extent;vMotion=motion;vTrailShutter=vec3(shutter,trail?(explicitShutter>.5?2.:1.):0.);vWorld=aCentre;vShape=aShape;vColour=aColour;vSmokeLight=aSmokeLight;vTemporal0=aTemporal0;vTemporal1=aTemporal1;vTemporal2=aTemporal2;vTemporal3=aTemporal3;vTemporal4=aTemporal4;vTemporal5=aTemporal5;vSigma=sigma;vOriginalSigma=max(.28,worldSigma);\\n' +\n+   '      if(uSourceTransmissionEnabled>.5&&aShape.x<.5){\\n' +\n+   '        int sourceWidth=max(1,int(uSourceTransmissionSize.x));\\n' +\n+   '        vColour*=texelFetch(uSourceTransmission,ivec2(gl_InstanceID%sourceWidth,gl_InstanceID/sourceWidth),0).rgb;\\n' +\n+   '      }\\n' +\n+   '      vec2 slope=ndc/vec2(uProjection[0][0],uProjection[1][1]);\\n' +\n+   '      vOmega=4./(uSize.x*uSize.y*abs(uProjection[0][0]*uProjection[1][1]))/pow(1.+dot(slope,slope),1.5);\\n' +\n+   '      vDistance=max(length(aCentre-uEye),aShape.y);\\n' +\n+   '    }`;\\n' +\n+   '  const fragment=/* glsl */`precision highp float;precision highp int;\\n' +\n+   '    uniform vec3 uEye,uBetaR,uBetaME,uBetaMS,uSunDirection,uRawSunRGB;uniform vec2 uSize,uHeights;\\n' +\n+   '    uniform float uStorageScale,uRawPerCandela,uPlaneY,uAirEnabled,uG,uVignette,uFocalMm,uSensorHeightMm;\\n' +\n+   '    #ifndef REFLECTION_PASS\\n' +\n+   '      uniform highp sampler2D uDepth;\\n' +\n+   '    #endif\\n' +\n+   '    flat in vec4 vTrailSampling;flat in vec2 vTrailCentre;in vec2 vOffset,vMotion;in vec3 vWorld,vColour,vSmokeLight,vTrailShutter;in vec4 vShape,vTemporal0,vTemporal1,vTemporal2,vTemporal3,vTemporal4,vTemporal5;in float vSigma,vOriginalSigma,vOmega,vDistance;\\n' +\n+   '    out vec4 outColour;\\n' +\n+   '    float erfApprox(float x){float s=sign(x);x=abs(x);float t=1./(1.+.3275911*x);return s*(1.-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-.284496736)*t+.254829592)*t*exp(-x*x));}\\n' +\n+   '    float integratedGaussian(vec2 p,float sigma){vec2 a=(p-vec2(.5))/(sigma*1.41421356237),b=(p+vec2(.5))/(sigma*1.41421356237);return max(0.,.25*(erfApprox(b.x)-erfApprox(a.x))*(erfApprox(b.y)-erfApprox(a.y)));}\\n' +\n+   '    vec3 referenceRGBTap(int i){\\n' +\n+   '      if(i==0)return vTemporal0.xyz;if(i==1)return vec3(vTemporal0.w,vTemporal1.xy);\\n' +\n+   '      if(i==2)return vec3(vTemporal1.zw,vTemporal2.x);if(i==3)return vTemporal2.yzw;\\n' +\n+   '      if(i==4)return vTemporal3.xyz;if(i==5)return vec3(vTemporal3.w,vTemporal4.xy);\\n' +\n+   '      if(i==6)return vec3(vTemporal4.zw,vTemporal5.x);return vTemporal5.yzw;\\n' +\n+   '    }\\n' +\n+   '    float vectorSpatialKernel(float n,vec2 temporalShift){\\n' +\n+   '      vec2 pixelOffset=gl_FragCoord.xy-vTrailCentre-temporalShift;\\n' +\n+   '      float L=length(vMotion);if(L<=1e-4)return integratedGaussian(pixelOffset,vSigma);\\n' +\n+   '      vec2 axis=vMotion/L;float support=.5*(abs(axis.x)+abs(axis.y))+6.*vSigma+.02;\\n' +\n+   '      float along=dot(pixelOffset,axis);\\n' +\n+   '      int lo=int(clamp(ceil(n*(.5+(along-support)/L)-.5),0.,n));\\n' +\n+   '      int hi=int(clamp(floor(n*(.5+(along+support)/L)-.5),-1.,n-1.));float kernel=0.;\\n' +\n+   '      for(int k=0;k<128;k++){int i=lo+k;if(i>hi)break;kernel+=integratedGaussian(pixelOffset-vMotion*((float(i)+.5)/n-.5),vSigma);}\\n' +\n+   '      return kernel/n;\\n' +\n+   '    }\\n' +\n+   '    float vectorKernel(vec2 temporalShift){\\n' +\n+   '      // Fragment coordinates remain exact after fixed-subpixel quad raster snapping.\\n' +\n+   '      vec2 pixelOffset=gl_FragCoord.xy-vTrailCentre;\\n' +\n+   '      if(vTrailShutter.z<.5)return integratedGaussian(pixelOffset-temporalShift,vSigma);\\n' +\n+   '      if(vTrailSampling.w>.5){float k=vectorSpatialKernel(vTrailSampling.x,temporalShift);return vTrailSampling.z==0.?k:mix(k,vectorSpatialKernel(vTrailSampling.y,temporalShift),vTrailSampling.z);}\\n' +\n+   '      float k=0.;for(int j=0;j<8;j++)k+=integratedGaussian(pixelOffset-vMotion*((float(j)+.5)/8.-.5)-temporalShift,vSigma)*.125;return k;\\n' +\n+   '    }\\n' +\n+   '    float adaptiveSpatialKernel(float n){\\n' +\n+   '      vec2 pixelOffset=gl_FragCoord.xy-vTrailCentre;\\n' +\n+   '      float L=length(vMotion);vec2 axis=vMotion/L;\\n' +\n+   '      float support=.5*(abs(axis.x)+abs(axis.y))+6.*vSigma+.02;\\n' +\n+   '      if(vTrailShutter.z>1.5)support+=.38729833462*abs(dot(vTrailShutter.xy,axis));\\n' +\n+   '      float along=dot(pixelOffset,axis);\\n' +\n+   '      int lo=int(clamp(ceil(n*(.5+(along-support)/L)-.5),0.,n));\\n' +\n+   '      int hi=int(clamp(floor(n*(.5+(along+support)/L)-.5),-1.,n-1.));\\n' +\n+   '      float kernel=0.;\\n' +\n+   '      for(int k=0;k<128;k++){\\n' +\n+   '        int i=lo+k;if(i>hi)break;\\n' +\n+   '        vec2 q=pixelOffset-vMotion*((float(i)+.5)/n-.5);\\n' +\n+   '        if(vTrailShutter.z<1.5)kernel+=integratedGaussian(q,vSigma);\\n' +\n+   '        else{\\n' +\n+   '          float b=integratedGaussian(q,vSigma)*(4./9.);\\n' +\n+   '          b+=(integratedGaussian(q-vTrailShutter.xy*.38729833462,vSigma)+integratedGaussian(q+vTrailShutter.xy*.38729833462,vSigma))*(5./18.);\\n' +\n+   '          kernel+=b;\\n' +\n+   '        }\\n' +\n+   '      }\\n' +\n+   '      // Keep the COMPLETE global quadrature weight. Never renormalize the\\n' +\n+   '      // pixel-local subset; omitted6sigma tails have an explicit error bound.\\n' +\n+   '      return kernel/n;\\n' +\n+   '    }\\n' +\n+   '    void finiteAir(vec3 start,vec3 endpoint,out vec3 T,out vec3 S){\\n' +\n+   '      T=vec3(1.);S=vec3(0.);if(uAirEnabled<.5)return;\\n' +\n+   '      vec3 ray=endpoint-start;float distance=length(ray);if(distance<1e-5)return;vec3 direction=ray/distance;\\n' +\n+   '      float mu=clamp(dot(direction,uSunDirection),-1.,1.),phaseR=3./(16.*3.14159265359)*(1.+mu*mu),phaseM=(1.-uG*uG)/(12.56637061436*pow(max(1e-4,1.+uG*uG-2.*uG*mu),1.5));\\n' +\n+   '      for(int i=0;i<4;i++){float a=float(i)/4.,b=float(i+1)/4.,ds=(b*b-a*a)*distance;vec3 p=start+direction*((a*a+b*b)*.5*distance);float h=max(0.,p.y);vec3 r=uBetaR*exp(-h/uHeights.x),m=uBetaMS*exp(-h/uHeights.y),extinction=r+uBetaME*exp(-h/uHeights.y);vec3 integral=(vec3(1.)-exp(-extinction*ds))/max(extinction,vec3(1e-12));integral=mix(integral,vec3(ds),lessThan(extinction*ds,vec3(1e-5)));S+=T*uRawSunRGB*(r*phaseR+m*phaseM)*integral;T*=exp(-extinction*ds);}\\n' +\n+   '    }\\n' +\n+   '    void main(){\\n' +\n+   '      #ifndef REFLECTION_PASS\\n' +\n+   '        float obstacle=textureLod(uDepth,gl_FragCoord.xy/uSize,0.).r;\\n' +\n+   '        if(gl_FragCoord.z>obstacle+1e-6)discard;\\n' +\n+   '      #endif\\n' +\n+   '      vec3 origin=uEye;\\n' +\n+   '      #ifdef REFLECTION_PASS\\n' +\n+   '        float denominator=vWorld.y-uEye.y;\\n' +\n+   '        if(abs(denominator)<1e-6)discard;\\n' +\n+   '        float t=(uPlaneY-uEye.y)/denominator;if(t<0.||t>1.)discard;\\n' +\n+   '        origin=mix(uEye,vWorld,t);\\n' +\n+   '      #endif\\n' +\n+   '      vec3 T,S;finiteAir(origin,vWorld,T,S);\\n' +\n+   '      vec3 rgb;float alpha=0.;\\n' +\n+   '      if(vShape.x<.5){\\n' +\n+   '        if(vShape.w<0.){\\n' +\n+   '          vec3 integral=vec3(0.);vec2 shutterMotion=vTrailShutter.z<.5?vMotion:vTrailShutter.xy;\\n' +\n+   '          if(dot(shutterMotion,shutterMotion)<1e-20){vec3 mean=vec3(0.);for(int i=0;i<8;i++)mean+=referenceRGBTap(i)*.125;integral=mean*vectorKernel(vec2(0.));}\\n' +\n+   '          else for(int i=0;i<8;i++){float t=(float(i)'... 2068 more characters\n- '  const vertex=/* glsl */`precision highp float;\\r\\n' +\n-   '    in vec3 position,aCentre,aVelocity,aStretch,aColour,aSmokeLight;in vec4 aShape,aTemporal0,aTemporal1,aTemporal2,aTemporal3,aTemporal4,aTemporal5;\\r\\n' +\n-   '    uniform mat4 uViewProjection,uProjection;uniform vec3 uEye;uniform vec2 uSize;\\r\\n' +\n-   '    uniform highp sampler2D uSourceTransmission;uniform vec2 uSourceTransmissionSize;uniform float uSourceTransmissionEnabled;\\r\\n' +\n-   '    uniform float uFocalMm,uAperture,uFocus,uSensorHeightMm,uDof,uShutter,uLegacyShutter,uTrailAdaptive;\\r\\n' +\n-   '    flat out vec4 vTrailSampling;flat out vec2 vTrailCentre;out vec2 vOffset,vMotion;out vec3 vWorld,vColour,vSmokeLight,vTrailShutter;out vec4 vShape,vTemporal0,vTemporal1,vTemporal2,vTemporal3,vTemporal4,vTemporal5;out float vSigma,vOriginalSigma,vOmega,vDistance;\\r\\n' +\n-   '    vec2 projectPixels(vec3 p){vec4 c=uViewProjection*vec4(p,1.);return c.xy/max(c.w,1e-5)*uSize*.5;}\\r\\n' +\n-   '    void main(){\\r\\n' +\n-   '      vec4 clip=uViewProjection*vec4(aCentre,1.);float depth=max(clip.w,.001);vec2 ndc=clip.xy/depth;\\r\\n' +\n-   '      float pixelScale=abs(uProjection[1][1])*uSize.y*.5/depth,worldSigma=aShape.y*pixelScale*.70710678;\\r\\n' +\n-   '      float f=uFocalMm,s=depth*1000.,focus=max(f+1.,uFocus*1000.);\\r\\n' +\n-   '      float coc=abs(f*f*(s-focus)/(uAperture*max(s,f+1.)*(focus-f)))/uSensorHeightMm*uSize.y*.5*uDof;\\r\\n' +\n-   '      if(aShape.x>.5)worldSigma=aShape.y*pixelScale*.5;\\r\\n' +\n-   '      float sigma=sqrt(.0784+worldSigma*worldSigma+coc*coc*.25);\\r\\n' +\n-   '      bool vectorEmission=aShape.w<0.;float exposureSeconds=vectorEmission?uShutter:uLegacyShutter;\\r\\n' +\n-   '      vec2 shutter=projectPixels(aCentre+aVelocity*exposureSeconds*.5)-projectPixels(aCentre-aVelocity*exposureSeconds*.5);\\r\\n' +\n-   '      bool trail=dot(aStretch,aStretch)>1e-12;vec2 motion=shutter;float explicitShutter=0.;\\r\\n' +\n-   '      if(trail){\\r\\n' +\n-   '        motion=projectPixels(aCentre+aStretch*.5)-projectPixels(aCentre-aStretch*.5);\\r\\n' +\n-   '        // A uniform shutter segment has covariance m*mT/12. When its length\\r\\n' +\n-   '        // is at most1pixel use an isotropic trace-preserving approximation\\r\\n' +\n-   '        // (half its trace per axis), never subtract a spatial tail tangent.\\r\\n' +\n-   '        // Wider near-view shutter footprints use explicit3-point quadrature.\\r\\n' +\n-   '        if(vectorEmission){if(exposureSeconds>0.)explicitShutter=1.;}\\r\\n' +\n-   '        else if(length(shutter)<=1.)sigma=sqrt(sigma*sigma+dot(shutter,shutter)/24.);\\r\\n' +\n-   '        else explicitShutter=1.;\\r\\n' +\n-   '      }\\r\\n' +\n-   '      // Each complete source selects ONE path. No per-pixel legacy/adaptive mix.\\r\\n' +\n-   '      // Continuous N/N+1 blend keeps both midpoint spacings strictly below.5px.\\r\\n' +\n-   '      vTrailSampling=vec4(8.,8.,0.,0.);\\r\\n' +\n-   '      if(trail&&uTrailAdaptive>.5){\\r\\n' +\n-   '        float L=length(motion);\\r\\n' +\n-   '        if(L>1e-4){\\r\\n' +\n-   '          vec2 axis=motion/L;float targetStep=.5*max(1.,sigma);float x=max(7.,L/targetStep),n0=floor(x)+1.,n1=n0+1.,f=fract(x),blend=clamp(f*f*f*(f*(f*6.-15.)+10.),0.,1.);\\r\\n' +\n-   '          float support=.5*(abs(axis.x)+abs(axis.y))+6.*sigma+.02;\\r\\n' +\n-   '          if(explicitShutter>.5)support+=.38729833462*abs(dot(shutter,axis));\\r\\n' +\n-   '          float maxLocal=min(n1,ceil(2.*support*n1/L)+4.);\\r\\n' +\n-   '          // Global index range is bounded for highp float precision. Local\\r\\n' +\n-   '          // work is bounded independently of the complete segment length.\\r\\n' +\n-   '          if(n1<=65536.&&maxLocal<=128.)vTrailSampling=vec4(n0,n1,blend,1.);\\r\\n' +\n-   '        }\\r\\n' +\n-   '      }\\r\\n' +\n-   '      // Adaptive integration uses the physical projected centre, independent\\r\\n' +\n-   \"      // of the expanded quad's implementation-dependent raster snapping.\\r\\n\" +\n-   '      vTrailCentre=(ndc*.5+.5)*uSize;\\r\\n' +\n-   '      vec2 extent=3.65*vec2(sigma)+abs(motion)*.5+abs(shutter)*.5*explicitShutter+vec2(.65);\\r\\n' +\n-   '      clip.xy+=position.xy*extent*2./uSize*clip.w;gl_Position=clip;\\r\\n' +\n-   '      if(clip.w<=.01)gl_Position=vec4(3.,3.,3.,1.);\\r\\n' +\n-   '      vOffset=position.xy*extent;vMotion=motion;vTrailShutter=vec3(shutter,trail?(explicitShutter>.5?2.:1.):0.);vWorld=aCentre;vShape=aShape;vColour=aColour;vSmokeLight=aSmokeLight;vTemporal0=aTemporal0;vTemporal1=aTemporal1;vTemporal2=aTemporal2;vTemporal3=aTemporal3;vTemporal4=aTemporal4;vTemporal5=aTemporal5;vSigma=sigma;vOriginalSigma=max(.28,worldSigma);\\r\\n' +\n-   '      if(uSourceTransmissionEnabled>.5&&aShape.x<.5){\\r\\n' +\n-   '        int sourceWidth=max(1,int(uSourceTransmissionSize.x));\\r\\n' +\n-   '        vColour*=texelFetch(uSourceTransmission,ivec2(gl_InstanceID%sourceWidth,gl_InstanceID/sourceWidth),0).rgb;\\r\\n' +\n-   '      }\\r\\n' +\n-   '      vec2 slope=ndc/vec2(uProjection[0][0],uProjection[1][1]);\\r\\n' +\n-   '      vOmega=4./(uSize.x*uSize.y*abs(uProjection[0][0]*uProjection[1][1]))/pow(1.+dot(slope,slope),1.5);\\r\\n' +\n-   '      vDistance=max(length(aCentre-uEye),aShape.y);\\r\\n' +\n-   '    }`;\\r\\n' +\n-   '  const fragment=/* glsl */`precision highp float;precision highp int;\\r\\n' +\n-   '    uniform vec3 uEye,uBetaR,uBetaME,uBetaMS,uSunDirection,uRawSunRGB;uniform vec2 uSize,uHeights;\\r\\n' +\n-   '    uniform float uStorageScale,uRawPerCandela,uPlaneY,uAirEnabled,uG,uVignette,uFocalMm,uSensorHeightMm;\\r\\n' +\n-   '    #ifndef REFLECTION_PASS\\r\\n' +\n-   '      uniform highp sampler2D uDepth;\\r\\n' +\n-   '    #endif\\r\\n' +\n-   '    flat in vec4 vTrailSampling;flat in vec2 vTrailCentre;in vec2 vOffset,vMotion;in vec3 vWorld,vColour,vSmokeLight,vTrailShutter;in vec4 vShape,vTemporal0,vTemporal1,vTemporal2,vTemporal3,vTemporal4,vTemporal5;in float vSigma,vOriginalSigma,vOmega,vDistance;\\r\\n' +\n-   '    out vec4 outColour;\\r\\n' +\n-   '    float erfApprox(float x){float s=sign(x);x=abs(x);float t=1./(1.+.3275911*x);return s*(1.-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-.284496736)*t+.254829592)*t*exp(-x*x));}\\r\\n' +\n-   '    float integratedGaussian(vec2 p,float sigma){vec2 a=(p-vec2(.5))/(sigma*1.41421356237),b=(p+vec2(.5))/(sigma*1.41421356237);return max(0.,.25*(erfApprox(b.x)-erfApprox(a.x))*(erfApprox(b.y)-erfApprox(a.y)));}\\r\\n' +\n-   '    vec3 referenceRGBTap(int i){\\r\\n' +\n-   '      if(i==0)return vTemporal0.xyz;if(i==1)return vec3(vTemporal0.w,vTemporal1.xy);\\r\\n' +\n-   '      if(i==2)return vec3(vTemporal1.zw,vTemporal2.x);if(i==3)return vTemporal2.yzw;\\r\\n' +\n-   '      if(i==4)return vTemporal3.xyz;if(i==5)return vec3(vTemporal3.w,vTemporal4.xy);\\r\\n' +\n-   '      if(i==6)return vec3(vTemporal4.zw,vTemporal5.x);return vTemporal5.yzw;\\r\\n' +\n-   '    }\\r\\n' +\n-   '    float vectorSpatialKernel(float n,vec2 temporalShift){\\r\\n' +\n-   '      vec2 pixelOffset=gl_FragCoord.xy-vTrailCentre-temporalShift;\\r\\n' +\n-   '      float L=length(vMotion);if(L<=1e-4)return integratedGaussian(pixelOffset,vSigma);\\r\\n' +\n-   '      vec2 axis=vMotion/L;float support=.5*(abs(axis.x)+abs(axis.y))+6.*vSigma+.02;\\r\\n' +\n-   '      float along=dot(pixelOffset,axis);\\r\\n' +\n-   '      int lo=int(clamp(ceil(n*(.5+(along-support)/L)-.5),0.,n));\\r\\n' +\n-   '      int hi=int(clamp(floor(n*(.5+(along+support)/L)-.5),-1.,n-1.));float kernel=0.;\\r\\n' +\n-   '      for(int k=0;k<128;k++){int i=lo+k;if(i>hi)break;kernel+=integratedGaussian(pixelOffset-vMotion*((float(i)+.5)/n-.5),vSigma);}\\r\\n' +\n-   '      return kernel/n;\\r\\n' +\n-   '    }\\r\\n' +\n-   '    float vectorKernel(vec2 temporalShift){\\r\\n' +\n-   '      // Fragment coordinates remain exact after fixed-subpixel quad raster snapping.\\r\\n' +\n-   '      vec2 pixelOffset=gl_FragCoord.xy-vTrailCentre;\\r\\n' +\n-   '      if(vTrailShutter.z<.5)return integratedGaussian(pixelOffset-temporalShift,vSigma);\\r\\n' +\n-   '      if(vTrailSampling.w>.5){float k=vectorSpatialKernel(vTrailSampling.x,temporalShift);return vTrailSampling.z==0.?k:mix(k,vectorSpatialKernel(vTrailSampling.y,temporalShift),vTrailSampling.z);}\\r\\n' +\n-   '      float k=0.;for(int j=0;j<8;j++)k+=integratedGaussian(pixelOffset-vMotion*((float(j)+.5)/8.-.5)-temporalShift,vSigma)*.125;return k;\\r\\n' +\n-   '    }\\r\\n' +\n-   '    float adaptiveSpatialKernel(float n){\\r\\n' +\n-   '      vec2 pixelOffset=gl_FragCoord.xy-vTrailCentre;\\r\\n' +\n-   '      float L=length(vMotion);vec2 axis=vMotion/L;\\r\\n' +\n-   '      float support=.5*(abs(axis.x)+abs(axis.y))+6.*vSigma+.02;\\r\\n' +\n-   '      if(vTrailShutter.z>1.5)support+=.38729833462*abs(dot(vTrailShutter.xy,axis));\\r\\n' +\n-   '      float along=dot(pixelOffset,axis);\\r\\n' +\n-   '      int lo=int(clamp(ceil(n*(.5+(along-support)/L)-.5),0.,n));\\r\\n' +\n-   '      int hi=int(clamp(floor(n*(.5+(along+support)/L)-.5),-1.,n-1.));\\r\\n' +\n-   '      float kernel=0.;\\r\\n' +\n-   '      for(int k=0;k<128;k++){\\r\\n' +\n-   '        int i=lo+k;if(i>hi)break;\\r\\n' +\n-   '        vec2 q=pixelOffset-vMotion*((float(i)+.5)/n-.5);\\r\\n' +\n-   '        if(vTrailShutter.z<1.5)kernel+=integratedGaussian(q,vSigma);\\r\\n' +\n-   '        else{\\r\\n' +\n-   '          float b=integratedGaussian(q,vSigma)*(4./9.);\\r\\n' +\n-   '          b+=(integratedGaussian(q-vTrailShutter.xy*.38729833462,vSigma)+integratedGaussian(q+vTrailShutter.xy*.38729833462,vSigma))*(5./18.);\\r\\n' +\n-   '          kernel+=b;\\r\\n' +\n-   '        }\\r\\n' +\n-   '      }\\r\\n' +\n-   '      // Keep the COMPLETE global quadrature weight. Never renormalize the\\r\\n' +\n-   '      // pixel-local subset; omitted6sigma tails have an explicit error bound.\\r\\n' +\n-   '      return kernel/n;\\r\\n' +\n-   '    }\\r\\n' +\n-   '    void finiteAir(vec3 start,vec3 endpoint,out vec3 T,out vec3 S){\\r\\n' +\n-   '      T=vec3(1.);S=vec3(0.);if(uAirEnabled<.5)return;\\r\\n' +\n-   '      vec3 ray=endpoint-start;float distance=length(ray);if(distance<1e-5)return;vec3 direction=ray/distance;\\r\\n' +\n-   '      float mu=clamp(dot(direction,uSunDirection),-1.,1.),phaseR=3./(16.*3.14159265359)*(1.+mu*mu),phaseM=(1.-uG*uG)/(12.56637061436*pow(max(1e-4,1.+uG*uG-2.*uG*mu),1.5));\\r\\n' +\n-   '      for(int i=0;i<4;i++){float a=float(i)/4.,b=float(i+1)/4.,ds=(b*b-a*a)*distance;vec3 p=start+direction*((a*a+b*b)*.5*distance);float h=max(0.,p.y);vec3 r=uBetaR*exp(-h/uHeights.x),m=uBetaMS*exp(-h/uHeights.y),extinction=r+uBetaME*exp(-h/uHeights.y);vec3 integral=(vec3(1.)-exp(-extinction*ds))/max(extinction,vec3(1e-12));integral=mix(integral,vec3(ds),lessThan(extinction*ds,vec3(1e-5)));S+=T*uRawSunRGB*(r*phaseR+m*phaseM)*integral;T*=exp(-extinction*ds);}\\r\\n' +\n-   '    }\\r\\n' +\n-   '    void main(){\\r\\n' +\n-   '      #ifndef REFLECTION_PASS\\r\\n' +\n-   '        float obstacle=textureLod(uDepth,gl_FragCoord.xy/uSize,0.).r;\\r\\n' +\n-   '        if(gl_FragCoord.z>obstacle+1e-6)discard;\\r\\n' +\n-   '      #endif\\r\\n' +\n-   '      vec3 origin=uEye;\\r\\n' +\n-   '      #ifdef REFLECTION_PASS\\r\\n' +\n-   '        float denominator=vWorld.y-uEye.y;\\r\\n' +\n-   '        if(abs(denominator)<1e-6)discard;\\r\\n' +\n-   '        float t=(uPlaneY-uEye.y)/denominator;if(t<0.||t>1.)discard;\\r\\n' +\n-   '        origin=mix(uEye,vWorld,t);\\r\\n' +\n-   '      #endif\\r\\n' +\n-   '      vec3 T,S;finiteAir(origin,vWorld,T,S);\\r\\n' +\n-   '      vec3 rgb;float alpha=0.;\\r\\n' +\n-   '      if(vShape.x<.5){\\r\\n' +\n-   '        if(vShape.w<0.){\\r\\n' +\n-   '          vec3 integral=vec3(0.);vec2 shutterMotion=vTrailShutter.z<.5?vMotion:vTrailShutter.xy;\\r\\n' +\n-   '          if(dot(shutterMotion,shutterMotion)<1e-20){vec3 mean=vec3(0.);for(in'... 2235 more characters\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r21-contact-wiring-independent-check.mjs:30:196\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r21-contact-wiring-independent-check.mjs:16:192)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r21-contact-wiring-independent-check.mjs:30:1"
+    },
+    {
+      "name": "enabled air surface at actual78 high-air preserves old records ledger clusters framing and all main/mirror uploads",
+      "passed": true,
+      "evidence": {
+        "cases": 9,
+        "views": 72
+      }
+    },
+    {
+      "name": "actual low25 profile head keeps pre-contact history at every supported shutter, current ledger remains air-only",
+      "passed": true,
+      "evidence": {
+        "bodyId": 186,
+        "hit": 4.585368255141361,
+        "evidence": [
+          {
+            "S": 0,
+            "now": 4.585369255141361,
+            "currentY": 0.02998350170452424,
+            "targetViewRows": 0,
+            "allViewRows": 1727,
+            "currentLedger": 1727,
+            "sourceVersion": 1
+          },
+          {
+            "S": 0.008333333333333333,
+            "now": 4.5874515884746945,
+            "currentY": -0.004370786502207125,
+            "targetViewRows": 1,
+            "allViewRows": 1728,
+            "currentLedger": 1727,
+            "sourceVersion": 3
+          },
+          {
+            "S": 0.1,
+            "now": 4.610368255141362,
+            "currentY": -0.3823624025533645,
+            "targetViewRows": 1,
+            "allViewRows": 1728,
+            "currentLedger": 1724,
+            "sourceVersion": 5
+          },
+          {
+            "S": 0.5,
+            "now": 4.710368255141361,
+            "currentY": -2.02995992463851,
+            "targetViewRows": 1,
+            "allViewRows": 1728,
+            "currentLedger": 1710,
+            "sourceVersion": 7
+          },
+          {
+            "S": 1,
+            "now": 4.835368255141361,
+            "currentY": -4.085496165234954,
+            "targetViewRows": 1,
+            "allViewRows": 1728,
+            "currentLedger": 1694,
+            "sourceVersion": 9
+          }
+        ],
+        "causalAdapterQueries": 5156
+      }
+    },
+    {
+      "name": "synthetic constant-lit crossing retains mathematically normalized past light while currently below water",
+      "passed": true,
+      "evidence": [
+        {
+          "S": 0,
+          "currentY": 0.029998999999999998,
+          "visible": 0
+        },
+        {
+          "S": 0.008333333333333333,
+          "currentY": 0.027916666666666645,
+          "visible": 1
+        },
+        {
+          "S": 0.1,
+          "currentY": 0.004999999999999949,
+          "visible": 1
+        },
+        {
+          "S": 0.5,
+          "currentY": -0.09500000000000003,
+          "visible": 1
+        },
+        {
+          "S": 1,
+          "currentY": -0.22000000000000008,
+          "visible": 1
+        }
+      ]
+    },
+    {
+      "name": "actual factory disconnected equal-width terrain support uses distinct exact local anchors and weights in all consumers",
+      "passed": true,
+      "evidence": {
+        "rows": [
+          {
+            "anchor": 0.1837499998509884,
+            "from": 0,
+            "to": 0.3674999997019768,
+            "weight": 0.3674999997019768,
+            "position": [
+              0.7349999994039536,
+              0.5,
+              -100
+            ]
+          },
+          {
+            "anchor": 0.8162500001490116,
+            "from": 0.6325000002980232,
+            "to": 1,
+            "weight": 0.3674999997019768,
+            "position": [
+              3.2650000005960464,
+              0.5,
+              -100
+            ]
+          }
+        ],
+        "currentLedger": 1,
+        "framing": 2
+      }
+    }
+  ],
+  "limits": [
+    "Actual source factory with private read-only instrumentation, real Three geometry, no-context renderer and mock GPU sourceT contract only; no actual GPU/native/frame timing.",
+    "Authored offline contact search samples future analytic poses only to locate a fixture; runtime adapter trace is checked causal.",
+    "Static terrain/mean-plane air-center source history only. Spatial tail crossing, moving waves, legacy scalar exposure and chemical extinction remain incomplete.",
+    "No multi-event capacity or real projected Float32 fragment oracle is established here."
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schema": "glass-atoll.r43-smoke-support-cpu.v1",
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "checks": [
+    {
+      "name": "explicit five-sigma is exactly the archived factory in both native eyes and proxy modes",
+      "passed": true,
+      "evidence": {
+        "comparisons": 4
+      }
+    },
+    {
+      "name": "default four-sigma reduces real native proxy work without removing packets or changing shaders and optical attributes",
+      "passed": true,
+      "evidence": {
+        "rows": [
+          {
+            "eye": "main",
+            "packets": 1663,
+            "instances": 1663,
+            "fiveSigmaPixels": 1462292,
+            "fourSigmaPixels": 991136,
+            "ratio": 0.6777962267454106,
+            "fiveSigmaOffProxyBound": 0.00001832391099673009,
+            "fourSigmaOffProxyBound": 0.0016494659021317275
+          },
+          {
+            "eye": "reflection",
+            "packets": 1663,
+            "instances": 1663,
+            "fiveSigmaPixels": 1453559,
+            "fourSigmaPixels": 986645,
+            "ratio": 0.6787787767816786,
+            "fiveSigmaOffProxyBound": 0.00001832391099673009,
+            "fourSigmaOffProxyBound": 0.001649465902131727
+          }
+        ],
+        "physicalInputUnchanged": true
+      }
+    },
+    {
+      "name": "runtime four-to-five restoration is exact, including legacy sphere radii; invalid changes are atomic",
+      "passed": true,
+      "evidence": {
+        "modes": 2,
+        "rejectedPerMode": 6
+      }
+    },
+    {
+      "name": "host constructor and setter forward proxy-only settings without altering state, ledger or column results",
+      "passed": true,
+      "evidence": {
+        "stateAndSchedulersUnchanged": true
+      }
+    },
+    {
+      "name": "patch inverse contains only proxy default, option and setter additions",
+      "passed": true,
+      "evidence": {
+        "exactInverse": true
+      }
+    }
+  ],
+  "noGPU": true,
+  "noPhysicalReplay": true,
+  "noTimingBenchmark": true,
+  "sourcePins": {
+    "pyro-smoke-renderer.js": "e40405976a0602d94f62ced95eaa7bed62b9eb6f169f38a640221c453024c8ff",
+    "pyro-smoke.js": "a4e46fa9ac93bdcbafb576cdbd6d71b07e2e4fd252b90ec573ff4f966314caf0",
+    "verification/r39-dense-native-fixture.json": "6e31dec4286912fca696b8a987e5b3aea4495c1fdfb62c9e6f95928fdcaf783e"
+  },
+  "limits": [
+    "Proxy work upper bounds are not measured GPU time or frame-rate gains.",
+    "Four sigma omits faint Gaussian outskirts; the reported summed off-proxy bound is retained, not a global image-error certificate.",
+    "All physical puffs and source/lighting distributions remain unchanged; this does not reduce P times N work."
+  ]
+}

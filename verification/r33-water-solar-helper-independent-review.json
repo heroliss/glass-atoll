@@ -1,0 +1,220 @@
+{
+  "schema": "glass-atoll.r33-water-solar-helper-independent-review.v1",
+  "actualGPU": false,
+  "browserActions": 0,
+  "nativeContextCalls": 0,
+  "productionEdits": 0,
+  "ownerReportsRegenerated": 0,
+  "passed": true,
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "sourcePins": {
+    "helper": "1d5c7b27dd76d842facd001b1cadc775954c1c67f486ae0d28dfa053ca7bfbf4",
+    "pinsModule": "560a4fe012ca31f0c7b4e448241250b6a262945622a3398f053e5882ef1d7ced",
+    "pinsManifest": "e1780618a29b1d5ce70bddadeca9bd51c763a560dd552449043cc67fd34d12c6",
+    "main": "328f997e0b7595388a4564427c0cb8db10beeedb8f881e0bbec3cbb6af1e232b"
+  },
+  "checks": [
+    {
+      "name": "Final frozen23-source/nine-function pins match actual production epoch and inherited R32 functions",
+      "passed": true,
+      "evidence": {
+        "helper": "1d5c7b27dd76d842facd001b1cadc775954c1c67f486ae0d28dfa053ca7bfbf4",
+        "sources": 23,
+        "functions": 9,
+        "main": "328f997e0b7595388a4564427c0cb8db10beeedb8f881e0bbec3cbb6af1e232b",
+        "borrowBridgeUnchanged": true,
+        "R32Unchanged": true
+      }
+    },
+    {
+      "name": "Fixed plans express three fallback pairs or warmA,warmB,A1,B1,B2,A2 without extra draws, reads or a higher per-draw threshold",
+      "passed": true,
+      "evidence": {
+        "controls": {
+          "draws": 6,
+          "elements": 14745600,
+          "readBytes": 319488,
+          "uniformReads": 36,
+          "nativeROI": [
+            588,
+            256,
+            32,
+            32
+          ]
+        },
+        "timing": {
+          "draws": 6,
+          "elements": 14745600,
+          "readBytes": 159744,
+          "uniformReads": 12,
+          "viewport": [
+            1209,
+            1292
+          ],
+          "scissor": false,
+          "samples": 0
+        },
+        "perDrawCeilingMs": 100,
+        "aggregateCeiling": "600ms derived from six independent100ms guards, not one silently raised100ms frame guard"
+      }
+    },
+    {
+      "name": "Actual shared material clones receive distinct private control/reset values while source values, texture and non-control uniforms remain untouched",
+      "passed": true,
+      "evidence": {
+        "controls": [
+          {
+            "control": "positive",
+            "irradiance": 1,
+            "debug": 0,
+            "count": 0,
+            "sun": [
+              0.309426373877638,
+              0.9282791216329139,
+              0.20628424925175867
+            ],
+            "colour": [
+              1,
+              0.97,
+              0.9
+            ],
+            "bound0": [
+              0,
+              1,
+              2,
+              1
+            ],
+            "syntheticPositiveKey": true,
+            "actualDaylightClaim": false,
+            "actualPropHitClaim": false
+          },
+          {
+            "control": "debug15",
+            "irradiance": 0,
+            "debug": 15,
+            "count": 0,
+            "sun": [
+              0.10783277320343841,
+              -0.9704949588309456,
+              0.21566554640687682
+            ],
+            "colour": [
+              0.3,
+              0.4,
+              0.5
+            ],
+            "bound0": [
+              0,
+              1,
+              2,
+              1
+            ],
+            "syntheticPositiveKey": false,
+            "actualDaylightClaim": false,
+            "actualPropHitClaim": false
+          },
+          {
+            "control": "props1",
+            "irradiance": 0,
+            "debug": 0,
+            "count": 1,
+            "sun": [
+              0.10783277320343841,
+              -0.9704949588309456,
+              0.21566554640687682
+            ],
+            "colour": [
+              0.3,
+              0.4,
+              0.5
+            ],
+            "bound0": [
+              1000000,
+              -1000000,
+              1000000,
+              1
+            ],
+            "syntheticPositiveKey": false,
+            "actualDaylightClaim": false,
+            "actualPropHitClaim": false
+          },
+          {
+            "control": "zero",
+            "irradiance": 0,
+            "debug": 0,
+            "count": 0,
+            "sun": [
+              0.10783277320343841,
+              -0.9704949588309456,
+              0.21566554640687682
+            ],
+            "colour": [
+              0.3,
+              0.4,
+              0.5
+            ],
+            "bound0": [
+              0,
+              1,
+              2,
+              1
+            ],
+            "syntheticPositiveKey": false,
+            "actualDaylightClaim": false,
+            "actualPropHitClaim": false
+          }
+        ],
+        "allNonControlUniformsRetained": true,
+        "sourceSnapshotPreserved": true,
+        "farPropDeliberatelyNotAHit": true,
+        "positiveDeliberatelyNotActualDaylight": true
+      }
+    },
+    {
+      "name": "Actual root entry holds one lock across import/helper, rejects pending display/interaction work and restores/unlocks on changed scene or thrown helper",
+      "passed": true,
+      "evidence": {
+        "onlyClosedExports": true,
+        "heldDuringDeferredImport": true,
+        "postImportIntentChangeNeverBorrows": true,
+        "helperSuccessAndFailureRestore": true,
+        "jobFunctionSHA256": "ba8a9a019d0dc56b6c8d2388f65654000eb1253af061bd205c3c2d722106779b",
+        "displayPendingBlockedBeforeImport": true
+      }
+    },
+    {
+      "name": "Real stage ordering verifies linked uniform values after readiness and before raw reads; full draw, formats, positive parity and no scene simulation are explicit",
+      "passed": true,
+      "evidence": {
+        "actualUniformUploadsChecked": true,
+        "perDrawTimerBeforeReadAndNextStage": true,
+        "strictStoredWordParity": true,
+        "declaredNumericStorageBytes": 35926644,
+        "noNewRendererOrSceneUpdates": true,
+        "noPerformanceConclusionBeforeActualEvidence": true
+      }
+    },
+    {
+      "name": "Full inherited cleanup is byte-identical to admitted R32; cache/native restore and unpatch precede private disposal with final health check",
+      "passed": true,
+      "evidence": {
+        "R32CleanupByteIdentical": true,
+        "nativeAndDescriptorRestoreBeforeDisposal": true,
+        "borrowedSourceAndTextureNotDisposed": true,
+        "sourceMeshHookNotCalled": true,
+        "finalContextProgramVAOHealthRetained": true,
+        "noHistoricalReportRegeneration": true
+      }
+    }
+  ],
+  "limits": [
+    "CPU/source review only; no new renderer, browser, GL, live scene replay or performance measurement.",
+    "Fixed controls establish three explicitly synthetic fallback situations only after actual root execution; they are not daylight or real-prop-hit visual validation.",
+    "Full-native timing is single-sample isolated water including clear, not whole-frame, normal MSAA, or FPS. Warm/ABBA two samples per variant can describe this attempt but cannot establish statistical speedup.",
+    "Timing reads only warmA/warmB/A2 32x32ROI; neither whole-image pixel identity nor intermediate A1/B1/B2 pixel identity is claimed.",
+    "Six independent at-most100ms query admissions imply at most600ms sum; this does not relax the earlier composed-frame100ms guard or permit retries."
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "schema": "glass-atoll.r23-transmission-layout-GPU.v1",
+  "dateUTC": "2026-10-29T06:22:16.859Z",
+  "phase": "row-wrap",
+  "caps": {
+    "maxSources": 513,
+    "maxPackets": 65,
+    "maxPairs": 33345
+  },
+  "actualGPU": true,
+  "drawBudget": 4,
+  "maxReadbackTexels": 768,
+  "actualDraws": 4,
+  "readbackCalls": 2,
+  "readbackBytes": 24576,
+  "checks": [
+    {
+      "name": "legacy 257x65 prepare restores full native/renderer state",
+      "passed": true
+    },
+    {
+      "name": "legacy 257x65 read restores READ/DRAW/PACK/MRT/XR state",
+      "passed": true
+    },
+    {
+      "name": "legacy 257x65 independent original-double and packed-double T gates",
+      "passed": true,
+      "maximumPhysicalTError": 1.479172628826575e-7,
+      "maximumGPUVsQuantizedDoubleTError": 1.5954250043304086e-7,
+      "physicalTolerance": 0.00001,
+      "kernelTolerance": 0.000008,
+      "minimum": 0.5169900059700012,
+      "maximum": 1
+    },
+    {
+      "name": "current 257x65 prepare restores full native/renderer state",
+      "passed": true
+    },
+    {
+      "name": "current 257x65 read restores READ/DRAW/PACK/MRT/XR state",
+      "passed": true
+    },
+    {
+      "name": "current 257x65 independent original-double and packed-double T gates",
+      "passed": true,
+      "maximumPhysicalTError": 1.479172628826575e-7,
+      "maximumGPUVsQuantizedDoubleTError": 1.5954250043304086e-7,
+      "physicalTolerance": 0.00001,
+      "kernelTolerance": 0.000008,
+      "minimum": 0.5169900059700012,
+      "maximum": 1
+    },
+    {
+      "name": "257x65 old/current valid prefix bitwise equal",
+      "passed": true
+    },
+    {
+      "name": "257x65 packet/source Float32 upload buffers exactly equal",
+      "passed": true
+    },
+    {
+      "name": "requested bounded sequence completed",
+      "passed": true,
+      "expectedCases": 1,
+      "completedCases": 1
+    },
+    {
+      "name": "outer complete renderer/native state restored after disposal",
+      "passed": true
+    },
+    {
+      "name": "draw budget and shader/GL/context guards",
+      "passed": true,
+      "actualDraws": 4,
+      "drawBudget": 4
+    }
+  ],
+  "cases": [
+    {
+      "count": 257,
+      "packets": 65,
+      "pairs": 16705,
+      "reflection": true,
+      "inactiveRows": 29,
+      "zeroLengthRows": 15,
+      "rowWrapWitnesses": [
+        84,
+        85,
+        86,
+        169,
+        170,
+        171,
+        254,
+        255,
+        256
+      ],
+      "sourceStrideComparison": [
+        513,
+        257
+      ],
+      "outputRow256MustRemainActive": true,
+      "legacy": {
+        "draws": 2,
+        "submitMs": 92.69999999925494,
+        "status": {
+          "count": 257,
+          "densityRevision": 1001,
+          "sourceVersion": 1,
+          "cameraKey": "0,-2,2",
+          "width": 256,
+          "height": 3,
+          "pairs": 16705,
+          "tileCount": 2,
+          "opticallyAdmitted": false,
+          "effective": true,
+          "supported": true,
+          "reason": "experimental-ready"
+        }
+      },
+      "current": {
+        "draws": 2,
+        "submitMs": 5.5,
+        "status": {
+          "count": 257,
+          "densityRevision": 1001,
+          "sourceVersion": 1,
+          "cameraKey": "0,-2,2",
+          "width": 256,
+          "height": 3,
+          "pairs": 16705,
+          "tileCount": 2,
+          "opticallyAdmitted": false,
+          "layout": {
+            "mode": "active-count",
+            "partialStride": 257,
+            "mapDraw": {
+              "x": 0,
+              "y": 0,
+              "width": 256,
+              "height": 3,
+              "rasterTexels": 768,
+              "paddingTexels": 254
+            },
+            "outputDraw": {
+              "x": 0,
+              "y": 0,
+              "width": 256,
+              "height": 2,
+              "rasterTexels": 512,
+              "paddingTexels": 255
+            },
+            "activePartialTexels": 514,
+            "neutralOutput": false,
+            "validOutputCount": 257,
+            "outsideCountMayBeStale": true
+          },
+          "effective": true,
+          "supported": true,
+          "reason": "experimental-ready"
+        }
+      }
+    }
+  ],
+  "draws": [
+    {
+      "draw": 1,
+      "material": "GPU source extinction /64packet tiles",
+      "target": {
+        "width": 256,
+        "height": 5
+      },
+      "gpuMs": 0.251904
+    },
+    {
+      "draw": 2,
+      "material": "GPU source extinction /tau reduction to T",
+      "target": {
+        "width": 256,
+        "height": 3
+      },
+      "gpuMs": 0.355328
+    },
+    {
+      "draw": 3,
+      "material": "GPU source extinction /64packet tiles",
+      "target": {
+        "width": 256,
+        "height": 5
+      },
+      "gpuMs": 0.238592
+    },
+    {
+      "draw": 4,
+      "material": "GPU source extinction /tau reduction to T",
+      "target": {
+        "width": 256,
+        "height": 3
+      },
+      "gpuMs": 0.600064
+    }
+  ],
+  "shaderErrors": [],
+  "glErrors": [],
+  "timerAvailable": true,
+  "passed": true,
+  "counts": {
+    "passed": 11,
+    "total": 11
+  },
+  "limits": [
+    "Only the existing root-owned renderer under explicit parentLocked; no context/canvas resize, live show/audio/physical updates or native stress expansion.",
+    "First phase is one5x65 input on baseline/current, at most4draws. Empty-shrink is separately explicit and at most20draws under13x65/845caps. Row-wrap is separately root-admitted only after first passes: one257x65input,513x65/33345caps, at most4draws; not native admission.",
+    "Each synchronous prepare may contain two draws before timers become readable; any >25ms/incomplete/disjoint result stops the NEXT prepare. First shader/GL/context fault throws inside the render wrapper and prevents a later pass.",
+    "No claim for universal Float32 error or FPS; only bounded original-double1e-5, packed-double8e-6 and exact old/current valid-prefix comparison.",
+    "Only metadata.count is a valid read extent for nonempty active-count outputs. After count0 or packet0, the entire allocated output must be freshlyT1.",
+    "No VTF/material integration draw is added; existing instance-row/version ownership and live native admission remain separate."
+  ]
+}

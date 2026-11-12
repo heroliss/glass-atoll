@@ -1,0 +1,74 @@
+{
+  "schema": "glass-atoll.r26-row-straddle-independent-read-audit.v1",
+  "dateUTC": "2026-10-29T11:35:52.789Z",
+  "actualGPURunByThisAudit": false,
+  "productionEdits": 0,
+  "decision": "No remaining source/CPU blocker found for fixed root-owned129x65 admission",
+  "passed": false,
+  "counts": {
+    "passed": 3,
+    "total": 4
+  },
+  "manualReview": [
+    "All private original inputs and full padded buffers/oracles exist before first await; fetched source and cached factory/kernel pins precede context/factory work.",
+    "One synchronous prepare submits exactly map(0,0,256,1), map(0,1,2,1), reduction(0,0,256,1). No yield or public T between maps.",
+    "One owned whole-prepare timer is awaited only after complete state restore; <=25ms result is retrospective and cannot preempt already queued maps.",
+    "Read258partial+129final texels in owned existing-context targets, restore full state afterward; all129 compare against independent original/quantized-double oracles.",
+    "GL/shader/context/FBO faults stop later numerical draws; descriptors and only owned resources are restored/disposed in finally.",
+    "No native input, production route, VTF, clear, extra reference draw or generalized throughput/FPS claim."
+  ],
+  "checks": [
+    {
+      "name": "Frozen row helper and complete candidate match the independently reviewed versions",
+      "passed": true,
+      "evidence": {
+        "helperSHA256": "5e346e9af8e0d10f14c867f55dcbc396bb3aa2aa9b9324bf7cf16d2ce5b3d949",
+        "candidateSHA256": "a20a08491c738cd96c525e12743b40532a13c2fe8d095984b1541a79a9ffb4b6"
+      }
+    },
+    {
+      "name": "Native state capture/restore and equality guard exactly reuse the hardware-tested fixed tiny guard",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n  'function capture(THREE,r,g){const t=r.getRenderTarget(),n=g.getParameter(g.MAX_DRAW_BUFFERS);return{target:t,face:r.getActiveCubeFace(),mip:r.getActiveMipmapLevel(),viewport:r.getViewport(new THREE.Vector4()),scissor:r.getScissor(new THREE.Vector4()),test:r.getScissorTest(),actualViewport:Array.from(g.getParameter(g.VIEWPORT)),actualScissor:Array.from(g.getParameter(g.SCISSOR_BOX)),actualTest:g.isEnabled(g.SCISSOR_TEST),draw:g.getParameter(g.DRAW_FRAMEBUFFER_BINDING),read:g.getParameter(g.READ_FRAMEBUFFER_BINDING),readBuffer:g.getParameter(g.READ_BUFFER),drawBuffers:Array.from({length:n},(_,i)=>g.getParameter(g.DRAW_BUFFER0+i)),clear:r.getClearColor(new THREE.Color()).clone(),alpha:r.getClearAlpha(),auto:r.autoClear,autoColour:r.autoClearColor,autoDepth:r.autoClearDepth,autoStencil:r.autoClearStencil,tone:r.toneMapping,exposure:r.toneMappingExposure,output:r.outputColorSpace,xr:r.xr.enabled,shadow:{...r.shadowMap},targetViewport:t?.viewport.clone(),targetScissor:t?.scissor.clone(),targetTest:t?.scissorTest,packBuffer:g.getParameter(g.PIXEL_PACK_BUFFER_BINDING),unpackBuffer:g.getParameter(g.PIXEL_UNPACK_BUFFER_BINDING),copyReadBuffer:g.getParameter(g.COPY_READ_BUFFER_BINDING),pack:PACK_NAMES.map(k=>g.getParameter(g[k])),unpack:UNPACK_NAMES.map(k=>g.getParameter(g[k]))};}\\n' +\n    'function restore(THREE,r,g,p){\\n' +\n    ' r.autoClear=p.auto;r.autoClearColor=p.autoColour;r.autoClearDepth=p.autoDepth;r.autoClearStencil=p.autoStencil;r.toneMapping=p.tone;r.toneMappingExposure=p.exposure;r.outputColorSpace=p.output;r.xr.enabled=p.xr;Object.assign(r.shadowMap,p.shadow);r.setClearColor(p.clear,p.alpha);r.setViewport(p.viewport);r.setScissor(p.scissor);r.setScissorTest(p.test);\\n' +\n    ' try{if(p.target?.viewport)p.target.viewport.fromArray(p.actualViewport);if(p.target?.scissor){p.target.scissor.fromArray(p.actualScissor);p.target.scissorTest=p.actualTest;}r.setRenderTarget(p.target,p.face,p.mip);}finally{if(p.targetViewport)p.target.viewport.copy(p.targetViewport);if(p.targetScissor){p.target.scissor.copy(p.targetScissor);p.target.scissorTest=p.targetTest;}}\\n' +\n    ' r.state.bindFramebuffer(g.DRAW_FRAMEBUFFER,p.draw);g.bindFramebuffer(g.DRAW_FRAMEBUFFER,p.draw);let n=p.draw===null?1:p.drawBuffers.length;while(n>1&&p.drawBuffers[n-1]===g.NONE)n--;g.drawBuffers(p.drawBuffers.slice(0,n));r.state.bindFramebuffer(g.READ_FRAMEBUFFER,p.read);g.bindFramebuffer(g.READ_FRAMEBUFFER,p.read);g.readBuffer(p.readBuffer);\\n' +\n    ' g.bindBuffer(g.PIXEL_PACK_BUFFER,p.packBuffer);g.bindBuffer(g.PIXEL_UNPACK_BUFFER,p.unpackBuffer);g.bindBuffer(g.COPY_READ_BUFFER,p.copyReadBuffer);PACK_NAMES.forEach((k,i)=>g.pixelStorei(g[k],p.pack[i]));UNPACK_NAMES.forEach((k,i)=>g.pixelStorei(g[k],p.unpack[i]));r.state.viewport(new THREE.Vector4().fromArray(p.actualViewport));r.state.scissor(new THREE.Vector4().fromArray(p.actualScissor));r.state.setScissorTest(p.actualTest);\\n' +\n    '}\\n' +\n+   \"function sameState(a,b){return a.target===b.target&&a.face===b.face&&a.mip===b.mip&&a.viewport.equals(b.viewport)&&a.scissor.equals(b.scissor)&&a.clear.equals(b.clear)&&['test','actualTest','draw','read','readBuffer','alpha','auto','autoColour','autoDepth','autoStencil','tone','exposure','output','xr','targetTest','packBuffer','unpackBuffer','copyReadBuffer'].every(k=>a[k]===b[k])&&['actualViewport','actualScissor','drawBuffers','pack','unpack'].every(k=>JSON.stringify(a[k])===JSON.stringify(b[k]))&&JSON.stringify(a.shadow)===JSON.stringify(b.shadow)&&(!a.targetViewport||a.targetViewport.equals(b.targetViewport))&&(!a.targetScissor||a.targetScissor.equals(b.targetScissor));}\\r\"\n-   \"function sameState(a,b){return a.target===b.target&&a.face===b.face&&a.mip===b.mip&&a.viewport.equals(b.viewport)&&a.scissor.equals(b.scissor)&&a.clear.equals(b.clear)&&['test','actualTest','draw','read','readBuffer','alpha','auto','autoColour','autoDepth','autoStencil','tone','exposure','output','xr','targetTest','packBuffer','unpackBuffer','copyReadBuffer'].every(k=>a[k]===b[k])&&['actualViewport','actualScissor','drawBuffers','pack','unpack'].every(k=>JSON.stringify(a[k])===JSON.stringify(b[k]))&&JSON.stringify(a.shadow)===JSON.stringify(b.shadow)&&(!a.targetViewport||a.targetViewport.equals(b.targetViewport))&&(!a.targetScissor||a.targetScissor.equals(b.targetScissor));}\"\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r26-row-straddle-independent-read-audit.mjs:9:102\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r26-row-straddle-independent-read-audit.mjs:3:68)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r26-row-straddle-independent-read-audit.mjs:8:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "Independent candidate-copy and both exact main-hook executable CPU checks are current and passing",
+      "passed": true,
+      "evidence": {
+        "candidateCopies": {
+          "passed": 4,
+          "total": 4
+        },
+        "mainHooksAndStepper": {
+          "passed": 8,
+          "total": 8
+        }
+      }
+    },
+    {
+      "name": "Complete row-straddle source assertions and two packet64 witnesses agree with owner CPU fixture",
+      "passed": true,
+      "evidence": {
+        "ownerPreflight": {
+          "passed": 7,
+          "total": 7
+        },
+        "tailWitnesses": [
+          {
+            "source": 127,
+            "physicalTChange": 0.0028049052730939605,
+            "quantizedTChange": 0.002804905000732605
+          },
+          {
+            "source": 128,
+            "physicalTChange": 0.0011628125586666815,
+            "quantizedTChange": 0.0011628125712521697
+          }
+        ],
+        "readbackBytes": 6192,
+        "prepareCalls": 1,
+        "retrospectiveUnitTimer": true
+      }
+    }
+  ]
+}

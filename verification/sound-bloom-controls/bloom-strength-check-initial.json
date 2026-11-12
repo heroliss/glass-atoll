@@ -1,0 +1,41 @@
+{
+  "schema": "glass-atoll.bloom-strength.cpu.v1",
+  "date": "2026-10-31T16:02:53.420Z",
+  "passed": false,
+  "checks": [
+    {
+      "name": "Former full-strength budgets remain exact without a strength argument",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n    bloom: 0.013,\n    direct: 0.982,\n    ghost: 0.003,\n+   total: 0.018000000000000002,\n-   total: 0.018,\n    veil: 0.002\n  }\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/sound-bloom-controls/bloom-strength-check.mjs:11:10\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/sound-bloom-controls/bloom-strength-check.mjs:8:68)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/sound-bloom-controls/bloom-strength-check.mjs:9:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "Amount scales bloom only; every combination remains a nonnegative unit mixture",
+      "passed": true,
+      "evidence": {
+        "combinations": 24,
+        "productionDefaultBudget": {
+          "direct": 0.9865,
+          "bloom": 0.013499999999999998,
+          "ghost": 0,
+          "veil": 0,
+          "total": 0.013499999999999998
+        }
+      }
+    },
+    {
+      "name": "Actual factory retains chosen amount across toggles and bypasses zero without render work",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 0.013499999999999998\n- 0.0135\n       ^\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/sound-bloom-controls/bloom-strength-check.mjs:34:49\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/sound-bloom-controls/bloom-strength-check.mjs:8:68)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/sound-bloom-controls/bloom-strength-check.mjs:27:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "Malformed amounts reject atomically in both budget and factory",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Missing expected exception.\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/sound-bloom-controls/bloom-strength-check.mjs:54:14\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/sound-bloom-controls/bloom-strength-check.mjs:8:68)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/sound-bloom-controls/bloom-strength-check.mjs:46:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    }
+  ],
+  "sourcePins": {
+    "optical-bloom.js": "6cf900929e39796944e97516c9c9cf8840ac9a08115699d72505ac91561a4b29",
+    "lens.js": "97855562aa4fdcf76f85e2713137b181a2424677ffb14c1dc10682e1c4d129d2"
+  },
+  "scope": "Pure unit-mixture algebra and actual Three factory configuration/bypass. No shader execution, GPU/scene readback or visual acceptance."
+}

@@ -1,0 +1,378 @@
+{
+  "schema": "glass-atoll.transient-GI-contract-proof.v1",
+  "dateUTC": "2026-10-26T23:09:22.918Z",
+  "researchOnly": true,
+  "runtimeChanges": false,
+  "noGPU": true,
+  "passed": true,
+  "counts": {
+    "checks": 16,
+    "passed": 16
+  },
+  "checks": [
+    {
+      "id": "actual_setup_exposes_173_patch_18_probe_static_weight_fixture",
+      "passed": true,
+      "surfels": 173,
+      "probes": 18,
+      "foliageVolumes": 13,
+      "weightsBytes": 99648,
+      "actualGeometry": "synthetic48 triangles, not the app grove"
+    },
+    {
+      "id": "same_six_raw_local_sources_cover_lamps_torch_and_two_pyro_envelopes",
+      "passed": true,
+      "rawSources": [
+        {
+          "position": [
+            -21,
+            1.108,
+            5.3
+          ],
+          "rawRGB": [
+            0.0010530000000000001,
+            0.0007770196604318949,
+            0.00039620401549842946
+          ],
+          "radius": 0.065,
+          "range": 45,
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "spot": false,
+          "cosOuter": -1,
+          "cosInner": 1,
+          "ground": true
+        },
+        {
+          "position": [
+            18,
+            1.108,
+            5.3
+          ],
+          "rawRGB": [
+            0.0010530000000000001,
+            0.0007770196604318949,
+            0.00039620401549842946
+          ],
+          "radius": 0.065,
+          "range": 45,
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "spot": false,
+          "cosOuter": -1,
+          "cosInner": 1,
+          "ground": true
+        },
+        {
+          "position": [
+            -1.5,
+            1.108,
+            -13.7
+          ],
+          "rawRGB": [
+            0.0010530000000000001,
+            0.0007770196604318949,
+            0.00039620401549842946
+          ],
+          "radius": 0.065,
+          "range": 45,
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "spot": false,
+          "cosOuter": -1,
+          "cosInner": 1,
+          "ground": true
+        },
+        {
+          "position": [
+            0.19,
+            1.84,
+            9.9
+          ],
+          "rawRGB": [
+            0.02142,
+            0.019019313184978414,
+            0.01517340920515053
+          ],
+          "radius": 0.025,
+          "range": 45,
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "spot": true,
+          "cosOuter": 0.9210609940028851,
+          "cosInner": 0.9859211602132415,
+          "ground": false
+        },
+        {
+          "position": [
+            -4,
+            110,
+            -5
+          ],
+          "rawRGB": [
+            0.0432,
+            0.03024,
+            0.012960000000000001
+          ],
+          "radius": 8,
+          "range": 280,
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "spot": false,
+          "cosOuter": -1,
+          "cosInner": 1,
+          "ground": false
+        },
+        {
+          "position": [
+            8,
+            95,
+            4
+          ],
+          "rawRGB": [
+            0.00432,
+            0.00864,
+            0.0288
+          ],
+          "radius": 5,
+          "range": 280,
+          "direction": [
+            0,
+            0,
+            0
+          ],
+          "spot": false,
+          "cosOuter": -1,
+          "cosInner": 1,
+          "ground": false
+        }
+      ]
+    },
+    {
+      "id": "zero_sources_create_zero_increment_no_solar_or_PMREM_duplicate",
+      "passed": true
+    },
+    {
+      "id": "positive_light_naively_added_as_signed_SH_can_darkens_baseline",
+      "passed": true,
+      "base": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "increment": [
+        0.2,
+        0.4,
+        0,
+        0
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "old": 1,
+      "naive": 0.7999999999999999,
+      "note": "this is a falsifying counterexample, not an accepted illumination behaviour"
+    },
+    {
+      "id": "transient_cone_projection_preserves_a0_and_prevents_negative_increment",
+      "passed": true,
+      "bounds": {
+        "irradianceRGB": [
+          0.000005945615388594287,
+          0.000005072459985223722,
+          0.000004043791660094326
+        ],
+        "maxDiffuseRawRadiance": 0.0000018925481576360419
+      }
+    },
+    {
+      "id": "full_normal_sphere_Y00_integral_is_preserved_not_generic_energy_loss",
+      "passed": true,
+      "maximumIntegralDifference": 1.3305162422213103e-21,
+      "note": "unclipped SH integral over normal sphere=4pi*a0; hemispherical or clipped-before integrals can differ; not a total physical transport power identity"
+    },
+    {
+      "id": "projected_nonnegative_increment_is_monotonic_when_combined_with_old_SH",
+      "passed": true
+    },
+    {
+      "id": "cone_of_combined_sources_is_not_a_proof_of_per_light_monotonicity",
+      "passed": true,
+      "sourceA": [
+        0.25,
+        0.5,
+        0,
+        0
+      ],
+      "sourceB": [
+        0.25,
+        0,
+        0.5,
+        0
+      ],
+      "normal": [
+        -0.2810846377148202,
+        -0.9596829822606673,
+        0
+      ],
+      "before": 0.17972884057129496,
+      "after": 0.06132240101931985,
+      "conclusion": "project each source unit response before envelope summation if individual-light monotonicity is required"
+    },
+    {
+      "id": "per_source_cone_then_raw_envelope_sum_preserves_a0_and_each_light_monotonicity",
+      "passed": true,
+      "bound": {
+        "irradianceRGB": [
+          0.000005940817266257762,
+          0.0000050674402537512515,
+          0.000004040575395068828
+        ],
+        "maxDiffuseRawRadiance": 0.0000018910208678612067
+      },
+      "normalSphereIntegral": "same4pi*a0 per source/channel as original raw SH"
+    },
+    {
+      "id": "static_ground_unit_responses_equal_full_current_raw_six_source_result",
+      "passed": true,
+      "maxAbsoluteSHDifference": 3.3881317890172014e-21,
+      "staticSources": 3,
+      "dynamicSources": 3
+    },
+    {
+      "id": "current_envelope_switches_immediately_no_two_Hz_or_point18s_history",
+      "passed": true,
+      "samePhysicalTime": true,
+      "sequence": [
+        "off",
+        "on",
+        "off"
+      ],
+      "offMaximum": 0
+    },
+    {
+      "id": "stored_P_changes_do_not_change_raw_light_records_or_GI_result",
+      "passed": true,
+      "rawResponseSHA256": "d308b3e2157088b9ede802c4700611c4fad7a19556e4696ada15d0ad9a05aa9e",
+      "storageEVs": [
+        -12,
+        0,
+        12,
+        21
+      ]
+    },
+    {
+      "id": "pointwise_SH_bound_covers_all_probes_normals_and_convex_interpolation",
+      "passed": true,
+      "bound": {
+        "irradianceRGB": [
+          0.000005945615388594287,
+          0.000005072459985223722,
+          0.000004043791660094326
+        ],
+        "maxDiffuseRawRadiance": 0.0000018925481576360419
+      },
+      "receiverAlbedoBound": 1,
+      "conversion": "surface radiance <= maxE/pi; published interpolation weights and edge fade are convex <=1"
+    },
+    {
+      "id": "direct_patch_visibility_zero_removes_that_source_before_probe_gather",
+      "passed": true
+    },
+    {
+      "id": "finite_inverse_square_cone_range_share_local_semantics",
+      "passed": true,
+      "groundNearDenominator": 0.01,
+      "sourceCount": 6,
+      "finiteVisibilityEnd": "actual source.position, not solar160m endpoint"
+    },
+    {
+      "id": "rest_ground_proxy_height_matters_for_near_ground_lamp_irradiance",
+      "passed": true,
+      "flatGroundDistanceMetres": 5,
+      "lampHeight": 0.108,
+      "existingPatchHeightOffset": 0.065,
+      "trueUnitPointE": 0.0008633956906868908,
+      "existingProxyPointE": 0.0003439618401678982,
+      "ratio": 0.3983826232607819,
+      "limit": "source evaluation at the existing raised surfel is an important near-ground approximation; same data reuse is not exact near-field area transport"
+    }
+  ],
+  "metrics": {
+    "cpuCost": {
+      "allSixCurrentFrame": {
+        "samples": 48,
+        "minMs": 0.8559000000000196,
+        "medianMs": 0.9375999999999749,
+        "p95Ms": 1.1041000000000167,
+        "maxMs": 1.198699999999974,
+        "meanMs": 0.9625499999999979
+      },
+      "threeGroundCachedThreeDynamic": {
+        "samples": 48,
+        "minMs": 0.4012000000000171,
+        "medianMs": 0.47280000000000655,
+        "p95Ms": 0.5990999999999644,
+        "maxMs": 0.8746999999999616,
+        "meanMs": 0.4845291666666706
+      },
+      "visibilityCallsPerFrame": {
+        "allSix": 614,
+        "cachedThree": 266,
+        "perSourcePositive": 266
+      },
+      "scope": "actual private production visibility/probeWeights, but synthetic173-patch/13-porous-volume Node fixture; not app/GPU/.2ms guarantee",
+      "sampleBatch": "48 short samples after8 warmup; no high-CPU long run",
+      "perSourcePositiveGroundCache": {
+        "samples": 48,
+        "minMs": 0.439200000000028,
+        "medianMs": 0.4963999999999942,
+        "p95Ms": 0.6091999999999871,
+        "maxMs": 0.782100000000014,
+        "meanMs": 0.5077729166666636
+      }
+    },
+    "resources": {
+      "existingWeightsBytes": 99648,
+      "existingUniformVec4": 61,
+      "newRTs": 0,
+      "newSamplers": 0,
+      "transientFloat64SHBytes": 1728,
+      "separateBaseFloat32Bytes": 864,
+      "exitanceScratchBytes": 4152,
+      "threeGroundUnitSHBytes": 5184
+    }
+  },
+  "sourceSHA256": {
+    "../indirect-lighting.js": "e32d061031bee939c759af444b1d91be9e594062cae69f31a08e0d12662d407d",
+    "../local-lights.js": "c3199796173a445a48f0823b9166c1df416cc9ccb899519cd458df4b38ea97d9",
+    "../main.js": "637fe579f1763acfec3021866cc341a582a6e1fbde5261865e1649fd32a8e471",
+    "../water.js": "7f3ba0f5eaa599ac8cf60dcc299a440d134a708ea336ae7e8999081a883df4c8",
+    "./transient-gi-contract-proof.mjs": "5258233661b58632a2c47231a7d8e493304469a230c7cf3f5b2366f0404b2954"
+  },
+  "limits": [
+    "read-only in-memory instrumentation to observe production geometry/weights; no production API added",
+    "synthetic48-triangle173-patch fixture is not actual palms/island, timings cannot be called actual app cost",
+    "one-hop local finite sources, no water/sky/specular/medium bounce or source-to-smoke extinction",
+    "new transient cone projection preserves SH a0/normal-sphere integral and monotonicity, changes angular/hemispherical response",
+    "existing porous canopy/terrain visibility, rest frames and18 probes remain coarse and can leak"
+  ]
+}

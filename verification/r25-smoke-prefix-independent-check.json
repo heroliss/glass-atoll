@@ -1,0 +1,411 @@
+{
+  "schema": "glass-atoll.r25-smoke-prefix-independent-check.v1",
+  "dateUTC": "2026-10-29T09:37:19.779Z",
+  "scope": "Actual smoke factories and exact vendored WebGLAttributes executed against inert byte storage; no GPU pixels/timing/driver claim",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "counts": {
+    "passed": 8,
+    "total": 8
+  },
+  "passed": true,
+  "priorFixtureFailure": {
+    "counts": {
+      "passed": 5,
+      "total": 8
+    },
+    "failures": [
+      "only upload-range helper and its two call sites differ; shader source is unchanged",
+      "0/1/shrink/regrow/full capacity keep identical actual factory CPU and uploaded valid prefixes",
+      "no-render state updates and early/late failures retain a correct next prefix"
+    ],
+    "reason": "Fixture corrected to include inserted comment in inverse and retain r180 full initial allocations at zero and first delayed resolved-index use."
+  },
+  "checks": [
+    {
+      "name": "only upload-range helper and its two call sites differ; shader source is unchanged",
+      "passed": true,
+      "evidence": {
+        "baselineSHA256": "0221cab9bdd44ed04178fd8d838d5aa31d2521d1d0b5af27a8a228bdc40c2e0e",
+        "candidateSHA256": "4f152a1470d8351b997728691bc2e0ec15ee0962b55926179917cb42ce7ee3dd",
+        "vendoredAttributeFunctionSHA256": "e16c4481076694456b0080cbb16e04b6aa0c032453a285778f3f977d655d5485"
+      }
+    },
+    {
+      "name": "actual r180 attributes: initial full allocation, ranged update consumption and empty-range full fallback",
+      "passed": true,
+      "evidence": {
+        "fullInitialBytes": 48,
+        "warmPrefixBytes": 24,
+        "noRangeFallbackBytes": 48
+      }
+    },
+    {
+      "name": "0/1/shrink/regrow/full capacity keep identical actual factory CPU and uploaded valid prefixes",
+      "passed": true,
+      "evidence": {
+        "counts": [
+          0,
+          4,
+          1,
+          0,
+          7,
+          2,
+          16,
+          1,
+          0
+        ],
+        "bytes": [
+          {
+            "count": 0,
+            "baselineDynamicBytes": 1088,
+            "candidateDynamicBytes": 1088
+          },
+          {
+            "count": 4,
+            "baselineDynamicBytes": 1088,
+            "candidateDynamicBytes": 272
+          },
+          {
+            "count": 1,
+            "baselineDynamicBytes": 1088,
+            "candidateDynamicBytes": 68
+          },
+          {
+            "count": 0,
+            "baselineDynamicBytes": 1088,
+            "candidateDynamicBytes": 0
+          },
+          {
+            "count": 7,
+            "baselineDynamicBytes": 1088,
+            "candidateDynamicBytes": 476
+          },
+          {
+            "count": 2,
+            "baselineDynamicBytes": 1088,
+            "candidateDynamicBytes": 136
+          },
+          {
+            "count": 16,
+            "baselineDynamicBytes": 1088,
+            "candidateDynamicBytes": 1088
+          },
+          {
+            "count": 1,
+            "baselineDynamicBytes": 1088,
+            "candidateDynamicBytes": 68
+          },
+          {
+            "count": 0,
+            "baselineDynamicBytes": 1088,
+            "candidateDynamicBytes": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "main/mirror order and camera-relative data remain identical in both proxy modes",
+      "passed": true,
+      "evidence": {
+        "independentViewDraws": 8
+      }
+    },
+    {
+      "name": "resolved activation/index prefix, shrink, disable fallback and reactivation are unchanged",
+      "passed": true,
+      "evidence": {
+        "firstAllocation": 1152,
+        "warmResolvedPerInstance": 72,
+        "warmLegacyPerInstance": 68
+      }
+    },
+    {
+      "name": "no-render state updates and early/late failures retain a correct next prefix",
+      "passed": true,
+      "evidence": {
+        "noContextOrUploadsDuringSetState": true,
+        "earlyAndLateFailuresBeforeRender": true,
+        "delayedFirstResolvedIndexAllocationBytes": 64
+      }
+    },
+    {
+      "name": "render exceptions before/after upload restore state and do not lose pending positive ranges at zero",
+      "passed": true,
+      "evidence": {
+        "pendingPositivePrefixBytes": 544,
+        "zeroDoesNotClearPendingRange": true,
+        "zeroAfterConsumedUploadBytes": 0
+      }
+    },
+    {
+      "name": "all-culled/no-instance render uses zero new dirty bytes after a normal upload",
+      "passed": true,
+      "evidence": {
+        "culledInstances": 0,
+        "candidateDirtyBytes": 0
+      }
+    }
+  ],
+  "runs": [
+    {
+      "label": "sequence-0-2",
+      "count": 0,
+      "threw": false,
+      "baselineBytes": 1136,
+      "candidateBytes": 1136
+    },
+    {
+      "label": "sequence-4-3",
+      "count": 4,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 272
+    },
+    {
+      "label": "sequence-1-4",
+      "count": 1,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 68
+    },
+    {
+      "label": "sequence-0-5",
+      "count": 0,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 0
+    },
+    {
+      "label": "sequence-7-6",
+      "count": 7,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 476
+    },
+    {
+      "label": "sequence-2-7",
+      "count": 2,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 136
+    },
+    {
+      "label": "sequence-16-8",
+      "count": 16,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 1088
+    },
+    {
+      "label": "sequence-1-9",
+      "count": 1,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 68
+    },
+    {
+      "label": "sequence-0-10",
+      "count": 0,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 0
+    },
+    {
+      "label": "legacy-sphere-warm",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1136,
+      "candidateBytes": 1136
+    },
+    {
+      "label": "legacy-sphere-false",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "legacy-sphere-true",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "legacy-sphere-false",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "legacy-sphere-true",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "ellipsoid-warm",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1136,
+      "candidateBytes": 1136
+    },
+    {
+      "label": "ellipsoid-false",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "ellipsoid-true",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "ellipsoid-false",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "ellipsoid-true",
+      "count": 8,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "resolved-first",
+      "count": 6,
+      "threw": false,
+      "baselineBytes": 1200,
+      "candidateBytes": 1200
+    },
+    {
+      "label": "resolved-shrink",
+      "count": 2,
+      "threw": false,
+      "baselineBytes": 1152,
+      "candidateBytes": 144
+    },
+    {
+      "label": "resolved-disabled-legacy-fallback",
+      "count": 5,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 340
+    },
+    {
+      "label": "resolved-reactivated",
+      "count": 9,
+      "threw": false,
+      "baselineBytes": 1152,
+      "candidateBytes": 648
+    },
+    {
+      "label": "resolved-zero",
+      "count": 0,
+      "threw": false,
+      "baselineBytes": 1152,
+      "candidateBytes": 0
+    },
+    {
+      "label": "failure-warm",
+      "count": 4,
+      "threw": false,
+      "baselineBytes": 1136,
+      "candidateBytes": 1136
+    },
+    {
+      "label": "late-failure-regrow",
+      "count": 7,
+      "threw": false,
+      "baselineBytes": 1152,
+      "candidateBytes": 540
+    },
+    {
+      "label": "throw-warm",
+      "count": 4,
+      "threw": false,
+      "baselineBytes": 1136,
+      "candidateBytes": 1136
+    },
+    {
+      "label": "throw-before-upload",
+      "count": 8,
+      "threw": true,
+      "baselineBytes": 0,
+      "candidateBytes": 0
+    },
+    {
+      "label": "zero-after-unconsumed-positive",
+      "count": 0,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 544
+    },
+    {
+      "label": "throw-after-upload",
+      "count": 3,
+      "threw": true,
+      "baselineBytes": 1088,
+      "candidateBytes": 204
+    },
+    {
+      "label": "zero-after-consumed-positive",
+      "count": 0,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 0
+    },
+    {
+      "label": "throw-recovery-regrow",
+      "count": 9,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 612
+    },
+    {
+      "label": "cull-warm",
+      "count": 3,
+      "threw": false,
+      "baselineBytes": 1136,
+      "candidateBytes": 1136
+    },
+    {
+      "label": "all-behind-camera",
+      "count": 0,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 0
+    },
+    {
+      "label": "cull-regrow",
+      "count": 5,
+      "threw": false,
+      "baselineBytes": 1088,
+      "candidateBytes": 340
+    }
+  ],
+  "sourceSHA256": {
+    "baseline": "0221cab9bdd44ed04178fd8d838d5aa31d2521d1d0b5af27a8a228bdc40c2e0e",
+    "candidate": "4f152a1470d8351b997728691bc2e0ec15ee0962b55926179917cb42ce7ee3dd",
+    "threeModule": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+    "actualAttributes": "e16c4481076694456b0080cbb16e04b6aa0c032453a285778f3f977d655d5485",
+    "audio": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+  },
+  "limits": [
+    "First buffer allocation remains full capacity, even with zero instances, including first resolved-index allocation.",
+    "Zero instances preserve pending unconsumed positive ranges; those pending bytes may upload once after an earlier failed/skipped renderer call.",
+    "Warm successful positive updates transfer only the active prefix; no smoke/raster/physical model was altered.",
+    "The inert renderer models attribute update ordering and GL-shaped state only; it is not a hardware or complete Three renderer acceptance test."
+  ]
+}

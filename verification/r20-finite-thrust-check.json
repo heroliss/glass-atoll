@@ -1,0 +1,127 @@
+{
+  "schema": "glass-atoll.r20-finite-thrust-cpu.v1",
+  "started": "2026-10-29T04:35:01.316Z",
+  "completed": "2026-10-29T04:35:01.728Z",
+  "passed": true,
+  "counts": {
+    "passed": 10,
+    "total": 10
+  },
+  "helperSHA256": "c9b1d306d3681594e9cc2f20ddb00ddb6719c0b3d66079f5ce13e895b0d2471a",
+  "checks": [
+    {
+      "name": "finite immutable cells and protected output/cache ownership",
+      "passed": true,
+      "evidence": {
+        "immutable": true,
+        "responseCacheKeysBound": 4
+      }
+    },
+    {
+      "name": "constant-force response agrees with independent RK4 over k0/small/normal/high drag",
+      "passed": true,
+      "evidence": {
+        "cases": 35,
+        "maxPositionError": 8.286704655802168e-13,
+        "maxVelocityError": 1.2452261444195756e-12,
+        "oracle": "RK4 differential equations, force-cell aligned, h<=.0002 and k*h<=.25"
+      }
+    },
+    {
+      "name": "correlated seeded schedules agree with independent ODE and preserve finite mean-envelope area",
+      "passed": true,
+      "evidence": {
+        "cases": 108,
+        "maxError": 1.0196288258157438e-12,
+        "maxCells": 11
+      }
+    },
+    {
+      "name": "k→0, subnormal k*dt, short ages and drag cache eviction remain stable",
+      "passed": true,
+      "evidence": {
+        "cases": 20,
+        "underflowExample": {
+          "k": 5e-324,
+          "t": 1e-100,
+          "p": 6e-200,
+          "v": 1.2e-99
+        },
+        "maximumAge": 3600
+      }
+    },
+    {
+      "name": "right-hand force selection and cutoff retain continuous pose and inertial velocity",
+      "passed": true,
+      "evidence": {
+        "boundaries": 3,
+        "cutoffVelocity": [
+          0.5363034627671157,
+          2.955431476199687,
+          0
+        ],
+        "afterCutoffVelocity": [
+          0.41966222551073507,
+          2.31265139375954,
+          0
+        ]
+      }
+    },
+    {
+      "name": "future force cells cannot affect any earlier response or acceleration",
+      "passed": true,
+      "evidence": {
+        "earlierQueries": 12,
+        "atBoundaryPoseIdentical": true,
+        "rightHandNewForcesDiffer": true
+      }
+    },
+    {
+      "name": "motor contribution superposes with actual ballistic/wind/gravity pose and independent full ODE",
+      "passed": true,
+      "evidence": {
+        "cases": 12,
+        "maxError": 1.3660184094987926e-12,
+        "scope": "Detached composition with actual base sampler; production sampleBody has no thrust import yet"
+      }
+    },
+    {
+      "name": "frame rotation and keyed seeds are deterministic without Math.random or query-order dependence",
+      "passed": true,
+      "evidence": {
+        "seedReplay": true,
+        "rateSequences": [
+          30,
+          60,
+          120,
+          "irregular past-order"
+        ],
+        "rotationQueries": 5
+      }
+    },
+    {
+      "name": "declared heading-step and impulse-kernel motion bounds enclose all sampled trajectories",
+      "passed": true,
+      "evidence": {
+        "profiles": 72,
+        "queries": 2016,
+        "maxStepDegrees": 22.294273636071015,
+        "warning": "Heading step is not a continuous angular-rate bound; numerical enclosures use stated tolerance"
+      }
+    },
+    {
+      "name": "invalid data, accessors, spoof profiles and unbounded clocks are rejected without getter execution",
+      "passed": true,
+      "evidence": {
+        "rejections": 17,
+        "getterCalls": 0
+      }
+    }
+  ],
+  "limits": [
+    "New pure helper only; no scene/sampleBody/smoke/framing/optical pipeline integration or native GPU run.",
+    "Authored effective acceleration/drag; no calibrated thrust, mass, fuel, photometry, continuous attitude or real bee fit.",
+    "Prefix tables use known immutable force cells only; queried response never uses a cell portion after the requested relative age.",
+    "Piecewise-held acceleration may jump; position/velocity remain continuous. Independent ODE is a numerical oracle with finite tolerance."
+  ]
+}

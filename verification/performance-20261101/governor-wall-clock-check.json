@@ -1,0 +1,59 @@
+{
+  "schema": "glass-atoll.governor-wall-clock-check.v1",
+  "passed": true,
+  "checks": [
+    {
+      "name": "steady 60 Hz does not lower visual resolution",
+      "passed": true,
+      "frames": 600,
+      "scale": 1
+    },
+    {
+      "name": "one long visible stall does not lower resolution",
+      "passed": true,
+      "stallSeconds": 20,
+      "scale": 1
+    },
+    {
+      "name": "sustained one FPS triggers bounded wall-clock adaptation",
+      "passed": true,
+      "firstChange": {
+        "frame": 8,
+        "scale": 0.6
+      },
+      "scale": 0.6
+    },
+    {
+      "name": "stale low GPU sample cannot hide sustained one FPS",
+      "passed": true,
+      "firstChange": {
+        "frame": 15,
+        "scale": 0.92
+      },
+      "state": {
+        "enabled": true,
+        "targetFps": 60,
+        "referenceBudgetMs": 16.666666666666668,
+        "scale": 0.92,
+        "minimumScale": 0.6,
+        "smoothedCostMs": 10,
+        "lastGpuMs": 10,
+        "slowFrameFraction": 1,
+        "severeFrameFraction": 1,
+        "changes": [
+          {
+            "seconds": 16,
+            "scale": 0.92,
+            "costMs": 10,
+            "reason": "severe frame pacing"
+          }
+        ]
+      }
+    },
+    {
+      "name": "frozen physical simulation does not alter governor",
+      "passed": true,
+      "scale": 1
+    }
+  ]
+}

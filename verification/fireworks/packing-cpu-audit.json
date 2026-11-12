@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-26T17:03:02.293Z",
+  "sourceSHA256": "22881d28ac39ddd5f97903f80b7a16b598db256f40f3d44c8281a452ded26e4f",
+  "passed": true,
+  "reports": [
+    {
+      "name": "production",
+      "records": 3492,
+      "windSegments": 317,
+      "meanMirrorMs": 1.7130007142857089,
+      "meanMainMs": 1.706960714285717,
+      "meanTotalMs": 3.4199614285714257,
+      "p95TotalMs": 3.9565000000000055,
+      "p99TotalMs": 4.667099999999891,
+      "capacityBytesPerCamera": 1512000,
+      "usedBytesPerCamera": 377136,
+      "scope": "Node repeated fillRecords via actual render wiring; no GL calls/uploads/GPU/frame FPS; per-physical-frame update intentionally excluded"
+    },
+    {
+      "name": "zeroShutterOnly",
+      "records": 3492,
+      "windSegments": 317,
+      "meanMirrorMs": 1.194527857142873,
+      "meanMainMs": 1.713449999999997,
+      "meanTotalMs": 2.90797785714287,
+      "p95TotalMs": 3.3049000000000888,
+      "p99TotalMs": 3.6440999999999804,
+      "capacityBytesPerCamera": 1512000,
+      "usedBytesPerCamera": 377136,
+      "scope": "Node repeated fillRecords via actual render wiring; no GL calls/uploads/GPU/frame FPS; per-physical-frame update intentionally excluded"
+    },
+    {
+      "name": "zeroShutterScalarPackRange",
+      "records": 3492,
+      "windSegments": 317,
+      "meanMirrorMs": 1.0540007142857348,
+      "meanMainMs": 1.5646607142857094,
+      "meanTotalMs": 2.6186614285714445,
+      "p95TotalMs": 3.23070000000007,
+      "p99TotalMs": 3.790099999999711,
+      "capacityBytesPerCamera": 1512000,
+      "usedBytesPerCamera": 377136,
+      "scope": "Node repeated fillRecords via actual render wiring; no GL calls/uploads/GPU/frame FPS; per-physical-frame update intentionally excluded"
+    }
+  ],
+  "equality": [
+    {
+      "candidate": "zeroShutterOnly",
+      "bitwiseDifferentFloat32Values": 0,
+      "passed": true
+    },
+    {
+      "candidate": "zeroShutterScalarPackRange",
+      "bitwiseDifferentFloat32Values": 0,
+      "passed": true
+    }
+  ],
+  "limits": "read-only QA candidates, not runtime changes or browser frame profiling; partial ranges save bytes only if actual renderer performs bufferSubData ranges; camera depth order remains independently sorted"
+}

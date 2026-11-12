@@ -1,0 +1,73 @@
+{
+  "schema": "glass-atoll.r31-disabled-shadow-layer-bounds-independent-review.v1",
+  "actualGPU": false,
+  "browserActions": 0,
+  "nativeContextCalls": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "Exact transform and inverse preserve every unrelated source byte and the enabled computation tail",
+      "passed": true,
+      "evidence": {
+        "originalSHA256": "82a14b72b003cf4105f6cedb804e9ebd6c4b21da065d6ac51106db66ea2ca0d5",
+        "candidateSHA256": "8c7773d93682c0fc8202dab0611c0d7ed4424a42169bc0e7e9bb5662be8bbedd",
+        "wholeModuleExactInverse": true,
+        "enabledProjectionDerivativeFrustumPCFComparisonMixOrderByteExact": true,
+        "productionEdits": 0
+      }
+    },
+    {
+      "name": "Disabled visibility remains exactly one and old disabled path already excluded texture reads",
+      "passed": true,
+      "evidence": {
+        "disabledResult": 1,
+        "thresholdPreserved": "<0.5 (including exact0.5 remains enabled)",
+        "oldDisabledPCFtextureReads": 0,
+        "newDisabledPCFtextureReads": 0,
+        "actuallySkippedWork": [
+          "matrix projection",
+          "perspective division",
+          "dFdx/dFdy footprint",
+          "radius arithmetic"
+        ],
+        "newlyRemovedNineTextureTaps": false,
+        "nonfiniteInputEquivalenceClaim": "No undefined-behavior or actual driver-output guarantee; comparison is well-defined source-path equivalence"
+      }
+    },
+    {
+      "name": "The new derivative bypass is uniform; enabled derivatives remain before varying frustum/PCF branches",
+      "passed": true,
+      "evidence": {
+        "guardInput": "draw-uniform uSunShadowEnabled, bindingwrites0/1",
+        "newVaryingBranchBeforeDerivatives": false,
+        "enabledDerivativeOrderingPreserved": true,
+        "outerCallSiteDivergence": "No claim to repair any preexisting non-uniform caller control flow",
+        "primarySpecification": "https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf",
+        "sections": "3.10.2 uniform/non-uniform control flow;8.13 derivative restrictions",
+        "driverCompileOrPixelProof": false
+      }
+    },
+    {
+      "name": "Actual unchanged JS binding functions preserve ready-state0/1, matrix reference and fallback without a context",
+      "passed": true,
+      "evidence": {
+        "moduleExportsUnchanged": true,
+        "uniformReadySequence": [
+          0,
+          1,
+          0
+        ],
+        "sameMatrixReference": true,
+        "fallbackRetained": true,
+        "CPUThreeObjectsOnly": true,
+        "nativeContextCalls": 0
+      }
+    }
+  ],
+  "decision": "No source-level blocker to the precise disabled-shadow early-return promotion. Only existing disabled projection/derivative/radius work is removed. Actual normal-render compile/health remains separate; no measured GPU benefit, pixel-parity proof, quality change or performance-gate pass is claimed."
+}

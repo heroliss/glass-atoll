@@ -1,0 +1,4990 @@
+{
+  "schema": "glass-atoll.ascent-envelope-author-CPU-study.v1",
+  "passed": true,
+  "counts": {
+    "passed": 13,
+    "total": 13
+  },
+  "checks": [
+    {
+      "name": "ten real types two seeds use unchanged events; ground types have no carrier",
+      "passed": true,
+      "evidence": {
+        "events": 20,
+        "aerial": 16,
+        "ground": 4
+      }
+    },
+    {
+      "name": "finite input profile and shutter guard rejection",
+      "passed": true,
+      "evidence": {
+        "rejectedCases": 7
+      }
+    },
+    {
+      "name": "both profiles bounded nonnegative with separate plateau fade and exact dark support",
+      "passed": true,
+      "evidence": {
+        "samples": 140070
+      }
+    },
+    {
+      "name": "attack fade and support joins are smooth with zero limiting slope",
+      "passed": true,
+      "evidence": {
+        "maximumOneSidedSlope": 5.88418203051333e-9,
+        "analytic": "quintic smoothstep has zero first and second endpoint derivatives; nonoverlapping factors"
+      }
+    },
+    {
+      "name": "independent Simpson area matches analytic attack plateau fade integral without renormalization",
+      "passed": true,
+      "evidence": {
+        "maximumAbsoluteEmissionSecondsError": 1.176836406102666e-12,
+        "peakMultiplierStaysAtMostOne": true
+      }
+    },
+    {
+      "name": "real physical sampler currently reports one before burst and prototype does not mutate event",
+      "passed": true,
+      "evidence": {
+        "baselineCarrierConstantConfirmed": true,
+        "eventAndTrajectoryUnchangedByPrototype": true,
+        "baselineResolveBurstIsOutsideMutationAssertion": true
+      }
+    },
+    {
+      "name": "all existing star strobe and split body envelopes delegate exactly unchanged",
+      "passed": true,
+      "evidence": {
+        "comparisons": 41760,
+        "noAuthorSourceRNGOrColourChange": true
+      }
+    },
+    {
+      "name": "shutter uses the same central clock for main and zero-shutter reflection",
+      "passed": true,
+      "evidence": {
+        "windows": 16,
+        "maximumInstantaneousVsMainMean": 0.0010961266409113476,
+        "meaning": "camera temporal average is intentionally distinct from instantaneous physical clusters/ledger"
+      }
+    },
+    {
+      "name": "unchanged unmodulated source peak remains conservative; instantaneousE is not a shutter bound",
+      "passed": true,
+      "evidence": {
+        "instantaneousE": 0.000045146604938271606,
+        "maximumShutterWeight": 0.0009693394901442161,
+        "oldPeakOneStillSafe": true,
+        "doNotTightenWithCurrentSampleOnly": true
+      }
+    },
+    {
+      "name": "tail uses emission at past birth and naturally outlives head without relighting coast",
+      "passed": true,
+      "evidence": {
+        "headAtBurnout": 0,
+        "tailAtBurnout": 1.6045432218293874,
+        "tailAtBurnoutPlusHalfSecond": 0
+      }
+    },
+    {
+      "name": "frame rate samples converge to the same explicit physical-time envelope with no state",
+      "passed": true,
+      "evidence": [
+        {
+          "fps": 30,
+          "maximumEmissionSecondsQuadratureError": 0.00008514914499802018
+        },
+        {
+          "fps": 60,
+          "maximumEmissionSecondsQuadratureError": 0.0000027098962309679564
+        },
+        {
+          "fps": 120,
+          "maximumEmissionSecondsQuadratureError": 4.0824218761059683e-7
+        }
+      ]
+    },
+    {
+      "name": "no speed wind or thrust is inferred from decorative brightness",
+      "passed": true,
+      "evidence": {
+        "envelopeReadsLifeAndAgeOnly": true,
+        "flightDragAndGravityUntouched": true
+      }
+    },
+    {
+      "name": "production physics FW audio and smoke sources remain byteexact",
+      "passed": true,
+      "evidence": {
+        "fireworks-physics.js": "3bbac1976fccf39dbb9fefdfd04bfdb5ae7fa8e26edbbe1169373d01130486df",
+        "fireworks.js": "963bc4fef5167bebebf84f1075072166f222ff4e4e1b8b4384b470ed44bb5310",
+        "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+        "pyro-smoke-trajectory-events.js": "a40d150973d9e7a0cd720bebe160c4ff8a7795ddbd10ea09bc37436da8b3b219",
+        "pyro-smoke-ring-burn.js": "1a94df8702783e3b843108ccd627997da80059f3814ce71d44bbc9ac410d4eb5"
+      }
+    }
+  ],
+  "study": [
+    {
+      "type": "peony",
+      "seed": 42,
+      "carrier": true,
+      "flightSeconds": 4.658378958306491,
+      "burstWorldY": 121.50000000000011,
+      "burstVelocity": [
+        6.598827177635715,
+        -2.842170943040401e-14,
+        1.6452724013072157
+      ],
+      "referenceCandela": 18,
+      "profiles": [
+        {
+          "profile": "through-burst-v1",
+          "life": 4.658378958306491,
+          "attackEnd": 0.12,
+          "fadeStart": 4.258378958306491,
+          "burnout": 4.658378958306491,
+          "coastSeconds": 0,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.398378958306491,
+          "integralVsLegacy": 0.9441865931631891,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 54.698697580986675,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 54.28179470304801,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 53.86582880209036,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 53.03669951253761,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 41.29520840319046,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 28.86020862441481,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 17.323718577158672,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.258378958306491,
+              "E": 1,
+              "verticalVelocity": 3.983453041120015,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.458378958306491,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 1.9767888517360461,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 4.657378958306491,
+              "E": 1.5566464843765573e-7,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0.0000018492960234393502,
+                "tail": 1.6171678969788439,
+                "total": 1.6171697462748673
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.158378958306491,
+              "E": 0,
+              "verticalVelocity": -4.81417016211654,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "profile": "early-burnout-preview-v1",
+          "life": 4.658378958306491,
+          "attackEnd": 0.12,
+          "fadeStart": 3.9083789583064914,
+          "burnout": 4.308378958306491,
+          "coastSeconds": 0.35,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.0483789583064915,
+          "integralVsLegacy": 0.8690531608828667,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 54.698697580986675,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 54.28179470304801,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 53.86582880209036,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 53.03669951253761,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 41.29520840319046,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 28.86020862441481,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 17.323718577158672,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3.9083789583064914,
+              "E": 0.9999999999999993,
+              "verticalVelocity": 7.568364800297701,
+              "records": {
+                "head": 11.879999999999994,
+                "tail": 6.119999999999999,
+                "total": 17.999999999999993
+              }
+            },
+            {
+              "age": 4.108378958306491,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 5.5083282281254355,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.308378958306491,
+              "E": 0,
+              "verticalVelocity": 3.478961604859535,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 4.657378958306491,
+              "E": 0,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0,
+                "tail": 0.020778392789595517,
+                "total": 0.020778392789595517
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 0.020258479070961337,
+                "total": 0.02025847907096134
+              }
+            },
+            {
+              "age": 5.158378958306491,
+              "E": 0,
+              "verticalVelocity": -4.81417016211654,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "peony",
+      "seed": 14271,
+      "carrier": true,
+      "flightSeconds": 4.658378958306491,
+      "burstWorldY": 121.50000000000011,
+      "burstVelocity": [
+        6.598827177635715,
+        -2.842170943040401e-14,
+        1.6452724013072157
+      ],
+      "referenceCandela": 18,
+      "profiles": [
+        {
+          "profile": "through-burst-v1",
+          "life": 4.658378958306491,
+          "attackEnd": 0.12,
+          "fadeStart": 4.258378958306491,
+          "burnout": 4.658378958306491,
+          "coastSeconds": 0,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.398378958306491,
+          "integralVsLegacy": 0.9441865931631891,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 54.698697580986675,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 54.28179470304801,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 53.86582880209036,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 53.03669951253761,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 41.29520840319046,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 28.86020862441481,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 17.323718577158672,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.258378958306491,
+              "E": 1,
+              "verticalVelocity": 3.983453041120015,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.458378958306491,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 1.9767888517360461,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 4.657378958306491,
+              "E": 1.5566464843765573e-7,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0.0000018492960234393502,
+                "tail": 1.6171678969788439,
+                "total": 1.6171697462748673
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.158378958306491,
+              "E": 0,
+              "verticalVelocity": -4.81417016211654,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "profile": "early-burnout-preview-v1",
+          "life": 4.658378958306491,
+          "attackEnd": 0.12,
+          "fadeStart": 3.9083789583064914,
+          "burnout": 4.308378958306491,
+          "coastSeconds": 0.35,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.0483789583064915,
+          "integralVsLegacy": 0.8690531608828667,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 54.698697580986675,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 54.28179470304801,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 53.86582880209036,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 53.03669951253761,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 41.29520840319046,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 28.86020862441481,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 17.323718577158672,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3.9083789583064914,
+              "E": 0.9999999999999993,
+              "verticalVelocity": 7.568364800297701,
+              "records": {
+                "head": 11.879999999999994,
+                "tail": 6.119999999999999,
+                "total": 17.999999999999993
+              }
+            },
+            {
+              "age": 4.108378958306491,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 5.5083282281254355,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.308378958306491,
+              "E": 0,
+              "verticalVelocity": 3.478961604859535,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 4.657378958306491,
+              "E": 0,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0,
+                "tail": 0.020778392789595517,
+                "total": 0.020778392789595517
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 0.020258479070961337,
+                "total": 0.02025847907096134
+              }
+            },
+            {
+              "age": 5.158378958306491,
+              "E": 0,
+              "verticalVelocity": -4.81417016211654,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "chrysanthemum",
+      "seed": 42,
+      "carrier": true,
+      "flightSeconds": 5.33112119266109,
+      "burstWorldY": 161.50000000000023,
+      "burstVelocity": [
+        7.375248094551923,
+        0,
+        1.8388558778876052
+      ],
+      "referenceCandela": 18,
+      "profiles": [
+        {
+          "profile": "through-burst-v1",
+          "life": 5.33112119266109,
+          "attackEnd": 0.12,
+          "fadeStart": 4.93112119266109,
+          "burnout": 5.33112119266109,
+          "coastSeconds": 0,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 5.07112119266109,
+          "integralVsLegacy": 0.9512297712612648,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 64.2982989000053,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 63.85982119987568,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 63.42232896550669,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 62.55029203980649,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 50.20117599826099,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 37.122662050194634,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 24.989155924018974,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.93112119266109,
+              "E": 1,
+              "verticalVelocity": 3.9834530411200433,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.13112119266109,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 1.9767888517360461,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.33012119266109,
+              "E": 1.5566464843765573e-7,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0.0000018492960234393502,
+                "tail": 1.6171678969788439,
+                "total": 1.6171697462748673
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.83112119266109,
+              "E": 0,
+              "verticalVelocity": -4.814170162116497,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "profile": "early-burnout-preview-v1",
+          "life": 5.33112119266109,
+          "attackEnd": 0.12,
+          "fadeStart": 4.58112119266109,
+          "burnout": 4.9811211926610905,
+          "coastSeconds": 0.35,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.721121192661091,
+          "integralVsLegacy": 0.8855775402668138,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 64.2982989000053,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 63.85982119987568,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 63.42232896550669,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 62.55029203980649,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 50.20117599826099,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 37.122662050194634,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 24.989155924018974,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.58112119266109,
+              "E": 1,
+              "verticalVelocity": 7.568364800297758,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.78112119266109,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 5.508328228125464,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.9811211926610905,
+              "E": 0,
+              "verticalVelocity": 3.478961604859535,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.33012119266109,
+              "E": 0,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0,
+                "tail": 0.020778392789595517,
+                "total": 0.020778392789595517
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 0.020258479070961337,
+                "total": 0.02025847907096134
+              }
+            },
+            {
+              "age": 5.83112119266109,
+              "E": 0,
+              "verticalVelocity": -4.814170162116497,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "chrysanthemum",
+      "seed": 14271,
+      "carrier": true,
+      "flightSeconds": 5.33112119266109,
+      "burstWorldY": 161.50000000000023,
+      "burstVelocity": [
+        7.375248094551923,
+        0,
+        1.8388558778876052
+      ],
+      "referenceCandela": 18,
+      "profiles": [
+        {
+          "profile": "through-burst-v1",
+          "life": 5.33112119266109,
+          "attackEnd": 0.12,
+          "fadeStart": 4.93112119266109,
+          "burnout": 5.33112119266109,
+          "coastSeconds": 0,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 5.07112119266109,
+          "integralVsLegacy": 0.9512297712612648,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 64.2982989000053,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 63.85982119987568,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 63.42232896550669,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 62.55029203980649,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 50.20117599826099,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 37.122662050194634,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 24.989155924018974,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.93112119266109,
+              "E": 1,
+              "verticalVelocity": 3.9834530411200433,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.13112119266109,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 1.9767888517360461,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.33012119266109,
+              "E": 1.5566464843765573e-7,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0.0000018492960234393502,
+                "tail": 1.6171678969788439,
+                "total": 1.6171697462748673
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.83112119266109,
+              "E": 0,
+              "verticalVelocity": -4.814170162116497,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "profile": "early-burnout-preview-v1",
+          "life": 5.33112119266109,
+          "attackEnd": 0.12,
+          "fadeStart": 4.58112119266109,
+          "burnout": 4.9811211926610905,
+          "coastSeconds": 0.35,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.721121192661091,
+          "integralVsLegacy": 0.8855775402668138,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 64.2982989000053,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 63.85982119987568,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 63.42232896550669,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 62.55029203980649,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 50.20117599826099,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 37.122662050194634,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 24.989155924018974,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.58112119266109,
+              "E": 1,
+              "verticalVelocity": 7.568364800297758,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.78112119266109,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 5.508328228125464,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.9811211926610905,
+              "E": 0,
+              "verticalVelocity": 3.478961604859535,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.33012119266109,
+              "E": 0,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0,
+                "tail": 0.020778392789595517,
+                "total": 0.020778392789595517
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 0.020258479070961337,
+                "total": 0.02025847907096134
+              }
+            },
+            {
+              "age": 5.83112119266109,
+              "E": 0,
+              "verticalVelocity": -4.814170162116497,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "willow",
+      "seed": 42,
+      "carrier": true,
+      "flightSeconds": 5.775024273694912,
+      "burstWorldY": 191.5000000000001,
+      "burstVelocity": [
+        7.866523417686042,
+        2.842170943040401e-14,
+        1.9613445730507737
+      ],
+      "referenceCandela": 18,
+      "profiles": [
+        {
+          "profile": "through-burst-v1",
+          "life": 5.775024273694912,
+          "attackEnd": 0.12,
+          "fadeStart": 5.375024273694912,
+          "burnout": 5.775024273694912,
+          "coastSeconds": 0,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 5.515024273694912,
+          "integralVsLegacy": 0.9549785442142135,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 70.90298812494711,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 70.44966657964943,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 69.9973638612187,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 69.09580575097002,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 56.32863340592513,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 42.80737074791068,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 30.2631073900003,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.375024273694912,
+              "E": 1,
+              "verticalVelocity": 3.983453041120015,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.575024273694912,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 1.9767888517360745,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 5.775024273694912,
+              "E": 0,
+              "verticalVelocity": 2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.774024273694912,
+              "E": 1.5566464843765573e-7,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0.0000018492960234393502,
+                "tail": 1.6171678969788439,
+                "total": 1.6171697462748673
+              }
+            },
+            {
+              "age": 5.775024273694912,
+              "E": 0,
+              "verticalVelocity": 2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 6.275024273694912,
+              "E": 0,
+              "verticalVelocity": -4.814170162116483,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "profile": "early-burnout-preview-v1",
+          "life": 5.775024273694912,
+          "attackEnd": 0.12,
+          "fadeStart": 5.025024273694912,
+          "burnout": 5.425024273694913,
+          "coastSeconds": 0.35,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 5.165024273694913,
+          "integralVsLegacy": 0.8943727383487314,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 70.90298812494711,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 70.44966657964943,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 69.9973638612187,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 69.09580575097002,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 56.32863340592513,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 42.80737074791068,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 30.2631073900003,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.025024273694912,
+              "E": 1,
+              "verticalVelocity": 7.568364800297786,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.225024273694912,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 5.5083282281254355,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 5.425024273694913,
+              "E": 0,
+              "verticalVelocity": 3.4789616048595917,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.774024273694912,
+              "E": 0,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0,
+                "tail": 0.020778392789595517,
+                "total": 0.020778392789595517
+              }
+            },
+            {
+              "age": 5.775024273694912,
+              "E": 0,
+              "verticalVelocity": 2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 0.020258479070961337,
+                "total": 0.02025847907096134
+              }
+            },
+            {
+              "age": 6.275024273694912,
+              "E": 0,
+              "verticalVelocity": -4.814170162116483,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "willow",
+      "seed": 14271,
+      "carrier": true,
+      "flightSeconds": 5.775024273694912,
+      "burstWorldY": 191.5000000000001,
+      "burstVelocity": [
+        7.866523417686042,
+        2.842170943040401e-14,
+        1.9613445730507737
+      ],
+      "referenceCandela": 18,
+      "profiles": [
+        {
+          "profile": "through-burst-v1",
+          "life": 5.775024273694912,
+          "attackEnd": 0.12,
+          "fadeStart": 5.375024273694912,
+          "burnout": 5.775024273694912,
+          "coastSeconds": 0,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 5.515024273694912,
+          "integralVsLegacy": 0.9549785442142135,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 70.90298812494711,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 70.44966657964943,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 69.9973638612187,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 69.09580575097002,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 56.32863340592513,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 42.80737074791068,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 30.2631073900003,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.375024273694912,
+              "E": 1,
+              "verticalVelocity": 3.983453041120015,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.575024273694912,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 1.9767888517360745,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 5.775024273694912,
+              "E": 0,
+              "verticalVelocity": 2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.774024273694912,
+              "E": 1.5566464843765573e-7,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0.0000018492960234393502,
+                "tail": 1.6171678969788439,
+                "total": 1.6171697462748673
+              }
+            },
+            {
+              "age": 5.775024273694912,
+              "E": 0,
+              "verticalVelocity": 2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 6.275024273694912,
+              "E": 0,
+              "verticalVelocity": -4.814170162116483,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "profile": "early-burnout-preview-v1",
+          "life": 5.775024273694912,
+          "attackEnd": 0.12,
+          "fadeStart": 5.025024273694912,
+          "burnout": 5.425024273694913,
+          "coastSeconds": 0.35,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 5.165024273694913,
+          "integralVsLegacy": 0.8943727383487314,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 70.90298812494711,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 70.44966657964943,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 69.9973638612187,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 69.09580575097002,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 56.32863340592513,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 42.80737074791068,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 30.2631073900003,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.025024273694912,
+              "E": 1,
+              "verticalVelocity": 7.568364800297786,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.225024273694912,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 5.5083282281254355,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 5.425024273694913,
+              "E": 0,
+              "verticalVelocity": 3.4789616048595917,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.774024273694912,
+              "E": 0,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0,
+                "tail": 0.020778392789595517,
+                "total": 0.020778392789595517
+              }
+            },
+            {
+              "age": 5.775024273694912,
+              "E": 0,
+              "verticalVelocity": 2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 0.020258479070961337,
+                "total": 0.02025847907096134
+              }
+            },
+            {
+              "age": 6.275024273694912,
+              "E": 0,
+              "verticalVelocity": -4.814170162116483,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "palm",
+      "seed": 42,
+      "carrier": true,
+      "flightSeconds": 5.775024273694912,
+      "burstWorldY": 191.5000000000001,
+      "burstVelocity": [
+        7.866523417686042,
+        2.842170943040401e-14,
+        1.9613445730507737
+      ],
+      "referenceCandela": 18,
+      "profiles": [
+        {
+          "profile": "through-burst-v1",
+          "life": 5.775024273694912,
+          "attackEnd": 0.12,
+          "fadeStart": 5.375024273694912,
+          "burnout": 5.775024273694912,
+          "coastSeconds": 0,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 5.515024273694912,
+          "integralVsLegacy": 0.9549785442142135,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 70.90298812494711,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 70.44966657964943,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 69.9973638612187,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 69.09580575097002,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 56.32863340592513,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 42.80737074791068,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 30.2631073900003,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.375024273694912,
+              "E": 1,
+              "verticalVelocity": 3.983453041120015,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.575024273694912,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 1.9767888517360745,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 5.775024273694912,
+              "E": 0,
+              "verticalVelocity": 2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.774024273694912,
+              "E": 1.5566464843765573e-7,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0.0000018492960234393502,
+                "tail": 1.6171678969788439,
+                "total": 1.6171697462748673
+              }
+            },
+            {
+              "age": 5.775024273694912,
+              "E": 0,
+              "verticalVelocity": 2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 6.275024273694912,
+              "E": 0,
+              "verticalVelocity": -4.814170162116483,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "profile": "early-burnout-preview-v1",
+          "life": 5.775024273694912,
+          "attackEnd": 0.12,
+          "fadeStart": 5.025024273694912,
+          "burnout": 5.425024273694913,
+          "coastSeconds": 0.35,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 5.165024273694913,
+          "integralVsLegacy": 0.8943727383487314,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 70.90298812494711,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 70.44966657964943,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 69.9973638612187,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 69.09580575097002,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 56.32863340592513,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 42.80737074791068,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 30.2631073900003,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.025024273694912,
+              "E": 1,
+              "verticalVelocity": 7.568364800297786,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.225024273694912,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 5.5083282281254355,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 5.425024273694913,
+              "E": 0,
+              "verticalVelocity": 3.4789616048595917,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.774024273694912,
+              "E": 0,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0,
+                "tail": 0.020778392789595517,
+                "total": 0.020778392789595517
+              }
+            },
+            {
+              "age": 5.775024273694912,
+              "E": 0,
+              "verticalVelocity": 2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 0.020258479070961337,
+                "total": 0.02025847907096134
+              }
+            },
+            {
+              "age": 6.275024273694912,
+              "E": 0,
+              "verticalVelocity": -4.814170162116483,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "palm",
+      "seed": 14271,
+      "carrier": true,
+      "flightSeconds": 5.775024273694912,
+      "burstWorldY": 191.5000000000001,
+      "burstVelocity": [
+        7.866523417686042,
+        2.842170943040401e-14,
+        1.9613445730507737
+      ],
+      "referenceCandela": 18,
+      "profiles": [
+        {
+          "profile": "through-burst-v1",
+          "life": 5.775024273694912,
+          "attackEnd": 0.12,
+          "fadeStart": 5.375024273694912,
+          "burnout": 5.775024273694912,
+          "coastSeconds": 0,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 5.515024273694912,
+          "integralVsLegacy": 0.9549785442142135,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 70.90298812494711,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 70.44966657964943,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 69.9973638612187,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 69.09580575097002,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 56.32863340592513,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 42.80737074791068,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 30.2631073900003,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.375024273694912,
+              "E": 1,
+              "verticalVelocity": 3.983453041120015,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.575024273694912,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 1.9767888517360745,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 5.775024273694912,
+              "E": 0,
+              "verticalVelocity": 2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.774024273694912,
+              "E": 1.5566464843765573e-7,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0.0000018492960234393502,
+                "tail": 1.6171678969788439,
+                "total": 1.6171697462748673
+              }
+            },
+            {
+              "age": 5.775024273694912,
+              "E": 0,
+              "verticalVelocity": 2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 6.275024273694912,
+              "E": 0,
+              "verticalVelocity": -4.814170162116483,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "profile": "early-burnout-preview-v1",
+          "life": 5.775024273694912,
+          "attackEnd": 0.12,
+          "fadeStart": 5.025024273694912,
+          "burnout": 5.425024273694913,
+          "coastSeconds": 0.35,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 5.165024273694913,
+          "integralVsLegacy": 0.8943727383487314,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 70.90298812494711,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 70.44966657964943,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 69.9973638612187,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 69.09580575097002,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 56.32863340592513,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 42.80737074791068,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 30.2631073900003,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.025024273694912,
+              "E": 1,
+              "verticalVelocity": 7.568364800297786,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.225024273694912,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 5.5083282281254355,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 5.425024273694913,
+              "E": 0,
+              "verticalVelocity": 3.4789616048595917,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.774024273694912,
+              "E": 0,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0,
+                "tail": 0.020778392789595517,
+                "total": 0.020778392789595517
+              }
+            },
+            {
+              "age": 5.775024273694912,
+              "E": 0,
+              "verticalVelocity": 2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 0.020258479070961337,
+                "total": 0.02025847907096134
+              }
+            },
+            {
+              "age": 6.275024273694912,
+              "E": 0,
+              "verticalVelocity": -4.814170162116483,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ring",
+      "seed": 42,
+      "carrier": true,
+      "flightSeconds": 4.658378958306491,
+      "burstWorldY": 121.50000000000011,
+      "burstVelocity": [
+        6.598827177635715,
+        -2.842170943040401e-14,
+        1.6452724013072157
+      ],
+      "referenceCandela": 18,
+      "profiles": [
+        {
+          "profile": "through-burst-v1",
+          "life": 4.658378958306491,
+          "attackEnd": 0.12,
+          "fadeStart": 4.258378958306491,
+          "burnout": 4.658378958306491,
+          "coastSeconds": 0,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.398378958306491,
+          "integralVsLegacy": 0.9441865931631891,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 54.698697580986675,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 54.28179470304801,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 53.86582880209036,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 53.03669951253761,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 41.29520840319046,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 28.86020862441481,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 17.323718577158672,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.258378958306491,
+              "E": 1,
+              "verticalVelocity": 3.983453041120015,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.458378958306491,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 1.9767888517360461,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 4.657378958306491,
+              "E": 1.5566464843765573e-7,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0.0000018492960234393502,
+                "tail": 1.6171678969788439,
+                "total": 1.6171697462748673
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.158378958306491,
+              "E": 0,
+              "verticalVelocity": -4.81417016211654,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "profile": "early-burnout-preview-v1",
+          "life": 4.658378958306491,
+          "attackEnd": 0.12,
+          "fadeStart": 3.9083789583064914,
+          "burnout": 4.308378958306491,
+          "coastSeconds": 0.35,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.0483789583064915,
+          "integralVsLegacy": 0.8690531608828667,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 54.698697580986675,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 54.28179470304801,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 53.86582880209036,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 53.03669951253761,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 41.29520840319046,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 28.86020862441481,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 17.323718577158672,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3.9083789583064914,
+              "E": 0.9999999999999993,
+              "verticalVelocity": 7.568364800297701,
+              "records": {
+                "head": 11.879999999999994,
+                "tail": 6.119999999999999,
+                "total": 17.999999999999993
+              }
+            },
+            {
+              "age": 4.108378958306491,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 5.5083282281254355,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.308378958306491,
+              "E": 0,
+              "verticalVelocity": 3.478961604859535,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 4.657378958306491,
+              "E": 0,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0,
+                "tail": 0.020778392789595517,
+                "total": 0.020778392789595517
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 0.020258479070961337,
+                "total": 0.02025847907096134
+              }
+            },
+            {
+              "age": 5.158378958306491,
+              "E": 0,
+              "verticalVelocity": -4.81417016211654,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ring",
+      "seed": 14271,
+      "carrier": true,
+      "flightSeconds": 4.658378958306491,
+      "burstWorldY": 121.50000000000011,
+      "burstVelocity": [
+        6.598827177635715,
+        -2.842170943040401e-14,
+        1.6452724013072157
+      ],
+      "referenceCandela": 18,
+      "profiles": [
+        {
+          "profile": "through-burst-v1",
+          "life": 4.658378958306491,
+          "attackEnd": 0.12,
+          "fadeStart": 4.258378958306491,
+          "burnout": 4.658378958306491,
+          "coastSeconds": 0,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.398378958306491,
+          "integralVsLegacy": 0.9441865931631891,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 54.698697580986675,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 54.28179470304801,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 53.86582880209036,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 53.03669951253761,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 41.29520840319046,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 28.86020862441481,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 17.323718577158672,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.258378958306491,
+              "E": 1,
+              "verticalVelocity": 3.983453041120015,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.458378958306491,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 1.9767888517360461,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 4.657378958306491,
+              "E": 1.5566464843765573e-7,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0.0000018492960234393502,
+                "tail": 1.6171678969788439,
+                "total": 1.6171697462748673
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.158378958306491,
+              "E": 0,
+              "verticalVelocity": -4.81417016211654,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "profile": "early-burnout-preview-v1",
+          "life": 4.658378958306491,
+          "attackEnd": 0.12,
+          "fadeStart": 3.9083789583064914,
+          "burnout": 4.308378958306491,
+          "coastSeconds": 0.35,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.0483789583064915,
+          "integralVsLegacy": 0.8690531608828667,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 54.698697580986675,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 54.28179470304801,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 53.86582880209036,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 53.03669951253761,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 41.29520840319046,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 28.86020862441481,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 17.323718577158672,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3.9083789583064914,
+              "E": 0.9999999999999993,
+              "verticalVelocity": 7.568364800297701,
+              "records": {
+                "head": 11.879999999999994,
+                "tail": 6.119999999999999,
+                "total": 17.999999999999993
+              }
+            },
+            {
+              "age": 4.108378958306491,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 5.5083282281254355,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.308378958306491,
+              "E": 0,
+              "verticalVelocity": 3.478961604859535,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 4.657378958306491,
+              "E": 0,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0,
+                "tail": 0.020778392789595517,
+                "total": 0.020778392789595517
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 0.020258479070961337,
+                "total": 0.02025847907096134
+              }
+            },
+            {
+              "age": 5.158378958306491,
+              "E": 0,
+              "verticalVelocity": -4.81417016211654,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heart",
+      "seed": 42,
+      "carrier": true,
+      "flightSeconds": 5.33112119266109,
+      "burstWorldY": 161.50000000000023,
+      "burstVelocity": [
+        7.375248094551923,
+        0,
+        1.8388558778876052
+      ],
+      "referenceCandela": 18,
+      "profiles": [
+        {
+          "profile": "through-burst-v1",
+          "life": 5.33112119266109,
+          "attackEnd": 0.12,
+          "fadeStart": 4.93112119266109,
+          "burnout": 5.33112119266109,
+          "coastSeconds": 0,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 5.07112119266109,
+          "integralVsLegacy": 0.9512297712612648,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 64.2982989000053,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 63.85982119987568,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 63.42232896550669,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 62.55029203980649,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 50.20117599826099,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 37.122662050194634,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 24.989155924018974,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.93112119266109,
+              "E": 1,
+              "verticalVelocity": 3.9834530411200433,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.13112119266109,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 1.9767888517360461,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.33012119266109,
+              "E": 1.5566464843765573e-7,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0.0000018492960234393502,
+                "tail": 1.6171678969788439,
+                "total": 1.6171697462748673
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.83112119266109,
+              "E": 0,
+              "verticalVelocity": -4.814170162116497,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "profile": "early-burnout-preview-v1",
+          "life": 5.33112119266109,
+          "attackEnd": 0.12,
+          "fadeStart": 4.58112119266109,
+          "burnout": 4.9811211926610905,
+          "coastSeconds": 0.35,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.721121192661091,
+          "integralVsLegacy": 0.8855775402668138,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 64.2982989000053,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 63.85982119987568,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 63.42232896550669,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 62.55029203980649,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 50.20117599826099,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 37.122662050194634,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 24.989155924018974,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.58112119266109,
+              "E": 1,
+              "verticalVelocity": 7.568364800297758,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.78112119266109,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 5.508328228125464,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.9811211926610905,
+              "E": 0,
+              "verticalVelocity": 3.478961604859535,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.33012119266109,
+              "E": 0,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0,
+                "tail": 0.020778392789595517,
+                "total": 0.020778392789595517
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 0.020258479070961337,
+                "total": 0.02025847907096134
+              }
+            },
+            {
+              "age": 5.83112119266109,
+              "E": 0,
+              "verticalVelocity": -4.814170162116497,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heart",
+      "seed": 14271,
+      "carrier": true,
+      "flightSeconds": 5.33112119266109,
+      "burstWorldY": 161.50000000000023,
+      "burstVelocity": [
+        7.375248094551923,
+        0,
+        1.8388558778876052
+      ],
+      "referenceCandela": 18,
+      "profiles": [
+        {
+          "profile": "through-burst-v1",
+          "life": 5.33112119266109,
+          "attackEnd": 0.12,
+          "fadeStart": 4.93112119266109,
+          "burnout": 5.33112119266109,
+          "coastSeconds": 0,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 5.07112119266109,
+          "integralVsLegacy": 0.9512297712612648,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 64.2982989000053,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 63.85982119987568,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 63.42232896550669,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 62.55029203980649,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 50.20117599826099,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 37.122662050194634,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 24.989155924018974,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.93112119266109,
+              "E": 1,
+              "verticalVelocity": 3.9834530411200433,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.13112119266109,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 1.9767888517360461,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.33012119266109,
+              "E": 1.5566464843765573e-7,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0.0000018492960234393502,
+                "tail": 1.6171678969788439,
+                "total": 1.6171697462748673
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.83112119266109,
+              "E": 0,
+              "verticalVelocity": -4.814170162116497,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "profile": "early-burnout-preview-v1",
+          "life": 5.33112119266109,
+          "attackEnd": 0.12,
+          "fadeStart": 4.58112119266109,
+          "burnout": 4.9811211926610905,
+          "coastSeconds": 0.35,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.721121192661091,
+          "integralVsLegacy": 0.8855775402668138,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 64.2982989000053,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 63.85982119987568,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 63.42232896550669,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 62.55029203980649,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 50.20117599826099,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 37.122662050194634,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 24.989155924018974,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.58112119266109,
+              "E": 1,
+              "verticalVelocity": 7.568364800297758,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.78112119266109,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 5.508328228125464,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.9811211926610905,
+              "E": 0,
+              "verticalVelocity": 3.478961604859535,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.33012119266109,
+              "E": 0,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0,
+                "tail": 0.020778392789595517,
+                "total": 0.020778392789595517
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 0.020258479070961337,
+                "total": 0.02025847907096134
+              }
+            },
+            {
+              "age": 5.83112119266109,
+              "E": 0,
+              "verticalVelocity": -4.814170162116497,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "crossette",
+      "seed": 42,
+      "carrier": true,
+      "flightSeconds": 4.658378958306491,
+      "burstWorldY": 121.50000000000011,
+      "burstVelocity": [
+        6.598827177635715,
+        -2.842170943040401e-14,
+        1.6452724013072157
+      ],
+      "referenceCandela": 18,
+      "profiles": [
+        {
+          "profile": "through-burst-v1",
+          "life": 4.658378958306491,
+          "attackEnd": 0.12,
+          "fadeStart": 4.258378958306491,
+          "burnout": 4.658378958306491,
+          "coastSeconds": 0,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.398378958306491,
+          "integralVsLegacy": 0.9441865931631891,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 54.698697580986675,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 54.28179470304801,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 53.86582880209036,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 53.03669951253761,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 41.29520840319046,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 28.86020862441481,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 17.323718577158672,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.258378958306491,
+              "E": 1,
+              "verticalVelocity": 3.983453041120015,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.458378958306491,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 1.9767888517360461,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 4.657378958306491,
+              "E": 1.5566464843765573e-7,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0.0000018492960234393502,
+                "tail": 1.6171678969788439,
+                "total": 1.6171697462748673
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.158378958306491,
+              "E": 0,
+              "verticalVelocity": -4.81417016211654,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "profile": "early-burnout-preview-v1",
+          "life": 4.658378958306491,
+          "attackEnd": 0.12,
+          "fadeStart": 3.9083789583064914,
+          "burnout": 4.308378958306491,
+          "coastSeconds": 0.35,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.0483789583064915,
+          "integralVsLegacy": 0.8690531608828667,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 54.698697580986675,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 54.28179470304801,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 53.86582880209036,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 53.03669951253761,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 41.29520840319046,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 28.86020862441481,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 17.323718577158672,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3.9083789583064914,
+              "E": 0.9999999999999993,
+              "verticalVelocity": 7.568364800297701,
+              "records": {
+                "head": 11.879999999999994,
+                "tail": 6.119999999999999,
+                "total": 17.999999999999993
+              }
+            },
+            {
+              "age": 4.108378958306491,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 5.5083282281254355,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.308378958306491,
+              "E": 0,
+              "verticalVelocity": 3.478961604859535,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 4.657378958306491,
+              "E": 0,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0,
+                "tail": 0.020778392789595517,
+                "total": 0.020778392789595517
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 0.020258479070961337,
+                "total": 0.02025847907096134
+              }
+            },
+            {
+              "age": 5.158378958306491,
+              "E": 0,
+              "verticalVelocity": -4.81417016211654,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "crossette",
+      "seed": 14271,
+      "carrier": true,
+      "flightSeconds": 4.658378958306491,
+      "burstWorldY": 121.50000000000011,
+      "burstVelocity": [
+        6.598827177635715,
+        -2.842170943040401e-14,
+        1.6452724013072157
+      ],
+      "referenceCandela": 18,
+      "profiles": [
+        {
+          "profile": "through-burst-v1",
+          "life": 4.658378958306491,
+          "attackEnd": 0.12,
+          "fadeStart": 4.258378958306491,
+          "burnout": 4.658378958306491,
+          "coastSeconds": 0,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.398378958306491,
+          "integralVsLegacy": 0.9441865931631891,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 54.698697580986675,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 54.28179470304801,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 53.86582880209036,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 53.03669951253761,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 41.29520840319046,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 28.86020862441481,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 17.323718577158672,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.258378958306491,
+              "E": 1,
+              "verticalVelocity": 3.983453041120015,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.458378958306491,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 1.9767888517360461,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 4.657378958306491,
+              "E": 1.5566464843765573e-7,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0.0000018492960234393502,
+                "tail": 1.6171678969788439,
+                "total": 1.6171697462748673
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.158378958306491,
+              "E": 0,
+              "verticalVelocity": -4.81417016211654,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "profile": "early-burnout-preview-v1",
+          "life": 4.658378958306491,
+          "attackEnd": 0.12,
+          "fadeStart": 3.9083789583064914,
+          "burnout": 4.308378958306491,
+          "coastSeconds": 0.35,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.0483789583064915,
+          "integralVsLegacy": 0.8690531608828667,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 54.698697580986675,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 54.28179470304801,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 53.86582880209036,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 53.03669951253761,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 41.29520840319046,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 28.86020862441481,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 17.323718577158672,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3.9083789583064914,
+              "E": 0.9999999999999993,
+              "verticalVelocity": 7.568364800297701,
+              "records": {
+                "head": 11.879999999999994,
+                "tail": 6.119999999999999,
+                "total": 17.999999999999993
+              }
+            },
+            {
+              "age": 4.108378958306491,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 5.5083282281254355,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.308378958306491,
+              "E": 0,
+              "verticalVelocity": 3.478961604859535,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 4.657378958306491,
+              "E": 0,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0,
+                "tail": 0.020778392789595517,
+                "total": 0.020778392789595517
+              }
+            },
+            {
+              "age": 4.658378958306491,
+              "E": 0,
+              "verticalVelocity": -2.842170943040401e-14,
+              "records": {
+                "head": 0,
+                "tail": 0.020258479070961337,
+                "total": 0.02025847907096134
+              }
+            },
+            {
+              "age": 5.158378958306491,
+              "E": 0,
+              "verticalVelocity": -4.81417016211654,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "strobe",
+      "seed": 42,
+      "carrier": true,
+      "flightSeconds": 5.33112119266109,
+      "burstWorldY": 161.50000000000023,
+      "burstVelocity": [
+        7.375248094551923,
+        0,
+        1.8388558778876052
+      ],
+      "referenceCandela": 18,
+      "profiles": [
+        {
+          "profile": "through-burst-v1",
+          "life": 5.33112119266109,
+          "attackEnd": 0.12,
+          "fadeStart": 4.93112119266109,
+          "burnout": 5.33112119266109,
+          "coastSeconds": 0,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 5.07112119266109,
+          "integralVsLegacy": 0.9512297712612648,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 64.2982989000053,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 63.85982119987568,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 63.42232896550669,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 62.55029203980649,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 50.20117599826099,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 37.122662050194634,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 24.989155924018974,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.93112119266109,
+              "E": 1,
+              "verticalVelocity": 3.9834530411200433,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.13112119266109,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 1.9767888517360461,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.33012119266109,
+              "E": 1.5566464843765573e-7,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0.0000018492960234393502,
+                "tail": 1.6171678969788439,
+                "total": 1.6171697462748673
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.83112119266109,
+              "E": 0,
+              "verticalVelocity": -4.814170162116497,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "profile": "early-burnout-preview-v1",
+          "life": 5.33112119266109,
+          "attackEnd": 0.12,
+          "fadeStart": 4.58112119266109,
+          "burnout": 4.9811211926610905,
+          "coastSeconds": 0.35,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.721121192661091,
+          "integralVsLegacy": 0.8855775402668138,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 64.2982989000053,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 63.85982119987568,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 63.42232896550669,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 62.55029203980649,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 50.20117599826099,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 37.122662050194634,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 24.989155924018974,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.58112119266109,
+              "E": 1,
+              "verticalVelocity": 7.568364800297758,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.78112119266109,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 5.508328228125464,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.9811211926610905,
+              "E": 0,
+              "verticalVelocity": 3.478961604859535,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.33012119266109,
+              "E": 0,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0,
+                "tail": 0.020778392789595517,
+                "total": 0.020778392789595517
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 0.020258479070961337,
+                "total": 0.02025847907096134
+              }
+            },
+            {
+              "age": 5.83112119266109,
+              "E": 0,
+              "verticalVelocity": -4.814170162116497,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "strobe",
+      "seed": 14271,
+      "carrier": true,
+      "flightSeconds": 5.33112119266109,
+      "burstWorldY": 161.50000000000023,
+      "burstVelocity": [
+        7.375248094551923,
+        0,
+        1.8388558778876052
+      ],
+      "referenceCandela": 18,
+      "profiles": [
+        {
+          "profile": "through-burst-v1",
+          "life": 5.33112119266109,
+          "attackEnd": 0.12,
+          "fadeStart": 4.93112119266109,
+          "burnout": 5.33112119266109,
+          "coastSeconds": 0,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 5.07112119266109,
+          "integralVsLegacy": 0.9512297712612648,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 64.2982989000053,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 63.85982119987568,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 63.42232896550669,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 62.55029203980649,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 50.20117599826099,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 37.122662050194634,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 24.989155924018974,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.93112119266109,
+              "E": 1,
+              "verticalVelocity": 3.9834530411200433,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 5.13112119266109,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 1.9767888517360461,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.33012119266109,
+              "E": 1.5566464843765573e-7,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0.0000018492960234393502,
+                "tail": 1.6171678969788439,
+                "total": 1.6171697462748673
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.83112119266109,
+              "E": 0,
+              "verticalVelocity": -4.814170162116497,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        },
+        {
+          "profile": "early-burnout-preview-v1",
+          "life": 5.33112119266109,
+          "attackEnd": 0.12,
+          "fadeStart": 4.58112119266109,
+          "burnout": 4.9811211926610905,
+          "coastSeconds": 0.35,
+          "fadeSeconds": 0.4,
+          "analyticEmissionSeconds": 4.721121192661091,
+          "integralVsLegacy": 0.8855775402668138,
+          "samples": [
+            {
+              "age": 0,
+              "E": 0,
+              "verticalVelocity": 64.2982989000053,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            },
+            {
+              "age": 0.03,
+              "E": 0.103515625,
+              "verticalVelocity": 63.85982119987568,
+              "records": {
+                "head": 1.229765625,
+                "tail": 0.0012652282094439164,
+                "total": 1.231030853209444
+              }
+            },
+            {
+              "age": 0.06,
+              "E": 0.5,
+              "verticalVelocity": 63.42232896550669,
+              "records": {
+                "head": 5.94,
+                "tail": 0.28369618143099484,
+                "total": 6.223696181430995
+              }
+            },
+            {
+              "age": 0.12,
+              "E": 1,
+              "verticalVelocity": 62.55029203980649,
+              "records": {
+                "head": 11.88,
+                "tail": 2.104760524825727,
+                "total": 13.984760524825727
+              }
+            },
+            {
+              "age": 1,
+              "E": 1,
+              "verticalVelocity": 50.20117599826099,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 2,
+              "E": 1,
+              "verticalVelocity": 37.122662050194634,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 3,
+              "E": 1,
+              "verticalVelocity": 24.989155924018974,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.58112119266109,
+              "E": 1,
+              "verticalVelocity": 7.568364800297758,
+              "records": {
+                "head": 11.88,
+                "tail": 6.119999999999999,
+                "total": 18
+              }
+            },
+            {
+              "age": 4.78112119266109,
+              "E": 0.5000000000000009,
+              "verticalVelocity": 5.508328228125464,
+              "records": {
+                "head": 5.940000000000011,
+                "tail": 5.121361475665222,
+                "total": 11.061361475665233
+              }
+            },
+            {
+              "age": 4.9811211926610905,
+              "E": 0,
+              "verticalVelocity": 3.478961604859535,
+              "records": {
+                "head": 0,
+                "tail": 1.6045432218293874,
+                "total": 1.6045432218293874
+              }
+            },
+            {
+              "age": 5.33012119266109,
+              "E": 0,
+              "verticalVelocity": 0.009810367884199422,
+              "records": {
+                "head": 0,
+                "tail": 0.020778392789595517,
+                "total": 0.020778392789595517
+              }
+            },
+            {
+              "age": 5.33112119266109,
+              "E": 0,
+              "verticalVelocity": 0,
+              "records": {
+                "head": 0,
+                "tail": 0.020258479070961337,
+                "total": 0.02025847907096134
+              }
+            },
+            {
+              "age": 5.83112119266109,
+              "E": 0,
+              "verticalVelocity": -4.814170162116497,
+              "records": {
+                "head": 0,
+                "tail": 0,
+                "total": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fan",
+      "seed": 42,
+      "carrier": false,
+      "scope": "ground stars unchanged; no fictitious engine envelope"
+    },
+    {
+      "type": "fan",
+      "seed": 14271,
+      "carrier": false,
+      "scope": "ground stars unchanged; no fictitious engine envelope"
+    },
+    {
+      "type": "bouquet",
+      "seed": 42,
+      "carrier": false,
+      "scope": "ground stars unchanged; no fictitious engine envelope"
+    },
+    {
+      "type": "bouquet",
+      "seed": 14271,
+      "carrier": false,
+      "scope": "ground stars unchanged; no fictitious engine envelope"
+    }
+  ],
+  "productionIntegrated": false,
+  "actualGPU": false,
+  "sourceSHA256": {
+    "fireworks-physics.js": "3bbac1976fccf39dbb9fefdfd04bfdb5ae7fa8e26edbbe1169373d01130486df",
+    "fireworks.js": "963bc4fef5167bebebf84f1075072166f222ff4e4e1b8b4384b470ed44bb5310",
+    "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31",
+    "pyro-smoke-trajectory-events.js": "a40d150973d9e7a0cd720bebe160c4ff8a7795ddbd10ea09bc37436da8b3b219",
+    "pyro-smoke-ring-burn.js": "1a94df8702783e3b843108ccd627997da80059f3814ce71d44bbc9ac410d4eb5"
+  },
+  "prototypeSHA256": "d15862db552e4444d962b95817a388397c610ac60e7e8d8df87407aca33bb0b1",
+  "scriptSHA256": "423d2e848bd799a528dc6a247cb0925215db21797827136f0b2dc801d12d2b5e",
+  "limits": [
+    "Author decorative light envelope only; not measured fuel/thrust/photometry, no CFD or smoke material allocation.",
+    "Through-burst profile is category-compatible with a published Japanese attached-effect example; numerical attack/fade durations are not specified by that source.",
+    "Earlycoast preview is an independent author choice, not universal aerial-shell physics.",
+    "This compares actual current CPU baseline to an unintegrated prototype; all head/tail/shutter/ledger/cluster/bound GPU acceptance is still required if root authorizes integration."
+  ]
+}

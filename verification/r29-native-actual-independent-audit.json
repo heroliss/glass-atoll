@@ -1,0 +1,548 @@
+{
+  "schema": "glass-atoll.r29-all-saved-native-actual-independent-cpu-audit.v1",
+  "dateUTC": "2026-10-29T16:24:57.698Z",
+  "actualGPUExecutedByAudit": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "fixtureRegenerated": false,
+  "passed": true,
+  "counts": {
+    "passed": 14,
+    "total": 14
+  },
+  "sourceReceipts": [
+    {
+      "kind": "source",
+      "path": "./r29-source-peak-actual-gpu.json",
+      "sha256": "e81d9057be99403d33e9d31c31cbe563aa9cc597939905babb69d1f65851bbb9"
+    },
+    {
+      "kind": "light",
+      "path": "./r29-light-peak-actual-gpu.json",
+      "sha256": "9a2db2373112b8d7ba04d0fc16186424a18628508650bff2efb421eba3952302"
+    },
+    {
+      "kind": "joint",
+      "path": "./r29-joint-peak-actual-gpu.json",
+      "sha256": "137e5231c3e8a8598a5b4e561fedec0188595f8c8f444036e1dd234e05f15e6d"
+    }
+  ],
+  "metrics": [
+    {
+      "scenario": "source",
+      "kernel": "transmission",
+      "rows": 1366,
+      "RGBAWords": 5464,
+      "maximumPhysicalTError": 9.329530670232344e-8,
+      "maximumGPUVsQuantizedDoubleTError": 9.147090251904189e-8,
+      "maximumPartialTauError": 2.999032329442132e-11,
+      "serializationDrift": 0
+    },
+    {
+      "scenario": "light",
+      "kernel": "light",
+      "rows": 2301,
+      "coefficientWords": 27612,
+      "maximumC0Normalized": 3.82611249377643e-7,
+      "maximumC1VectorNormalized": 3.0325058402924584e-7,
+      "minimumAngular": 3.3007656023561717e-10,
+      "maximumOwnGroupRatio": 0.25485097869575446,
+      "negativeC1": 9932,
+      "negativeFourth": 2267,
+      "maximumPartialC0Normalized": 2.5183564254065915e-7,
+      "maximumPartialC1VectorNormalized": 2.0473370432552222e-7,
+      "serializationDrift": 0
+    },
+    {
+      "scenario": "joint",
+      "kernel": "transmission",
+      "rows": 871,
+      "RGBAWords": 3484,
+      "maximumPhysicalTError": 1.0025062213703251e-7,
+      "maximumGPUVsQuantizedDoubleTError": 9.977936232807849e-8,
+      "maximumPartialTauError": 6.895526174496851e-17,
+      "serializationDrift": 0
+    },
+    {
+      "scenario": "joint",
+      "kernel": "light",
+      "rows": 2258,
+      "coefficientWords": 27096,
+      "maximumC0Normalized": 4.507914398520969e-7,
+      "maximumC1VectorNormalized": 3.2763281135522064e-7,
+      "minimumAngular": 3.8615248936177234e-10,
+      "maximumOwnGroupRatio": 0.25699466734977,
+      "negativeC1": 9734,
+      "negativeFourth": 2184,
+      "maximumPartialC0Normalized": 1.3672981662154621e-7,
+      "maximumPartialC1VectorNormalized": 3.3387602149718763e-7,
+      "serializationDrift": 0
+    }
+  ],
+  "checks": [
+    {
+      "name": "Final strict runtime/pin manifests/current math remain exact; immutable original and later descriptor versions stay separately archived",
+      "passed": true,
+      "evidence": {
+        "runtimeSHA256": "3535ebae18ff359b52daec0a7eedfaca746d2c0ff3703360aeffaa7f9bf3896d",
+        "sourcePins": 16,
+        "cachedFunctionPins": 17,
+        "refreshedBinding4of4": true,
+        "actualGPUExecutedByAudit": false
+      }
+    },
+    {
+      "name": "source: saved actual dispatch is bound to exact complete density, orderedsource, reference and strict code/factory identities",
+      "passed": true,
+      "evidence": {
+        "digest": "7a1c6261ae3489b158b539487a4bcbd0d7958bdbd3a980671bc30d93e8e82c15",
+        "phase": 2.681963161603079,
+        "densityRevision": 3463,
+        "packets": 1652,
+        "main": 1366,
+        "lightSources": 1440,
+        "unsubmittedReflection": 0
+      }
+    },
+    {
+      "name": "source: exact complete5/6/10draw policy, fresh generation and read/allocation bounds preserve every source and packet",
+      "passed": true,
+      "evidence": {
+        "draws": 5,
+        "prepares": 1,
+        "readBytes": 21984,
+        "numericalTextureBytes": 2707456,
+        "freshAllJobs": true,
+        "sameOwnedJointGeneration": null
+      }
+    },
+    {
+      "name": "source: ALL original/packed-double finite-ray output rows and eight independently addressed partial packet tiles pass unchanged bounds",
+      "passed": true,
+      "evidence": {
+        "rows": 1366,
+        "RGBAWords": 5464,
+        "physicalBudget": 0.00001,
+        "quantizedBudget": 0.000008,
+        "physicalError": 9.329530670232344e-8,
+        "quantizedError": 9.147090251904189e-8,
+        "maximumPartialTauError": 2.999032329442132e-11,
+        "Float32parseDrift": 0,
+        "partialDetails": [
+          {
+            "address": 0,
+            "source": 0,
+            "tile": 0,
+            "packetBegin": 0,
+            "packetEnd": 64,
+            "error": 0
+          },
+          {
+            "address": 35515,
+            "source": 1365,
+            "tile": 25,
+            "packetBegin": 1600,
+            "packetEnd": 1652,
+            "error": 0
+          },
+          {
+            "address": 15616,
+            "source": 590,
+            "tile": 11,
+            "packetBegin": 704,
+            "packetEnd": 768,
+            "error": 6.057979629750809e-18
+          },
+          {
+            "address": 31232,
+            "source": 1180,
+            "tile": 22,
+            "packetBegin": 1408,
+            "packetEnd": 1472,
+            "error": 2.999032329442132e-11
+          },
+          {
+            "address": 35328,
+            "source": 1178,
+            "tile": 25,
+            "packetBegin": 1600,
+            "packetEnd": 1652,
+            "error": 3.838820423814388e-32
+          },
+          {
+            "address": 15615,
+            "source": 589,
+            "tile": 11,
+            "packetBegin": 704,
+            "packetEnd": 768,
+            "error": 1.8810907689316597e-17
+          },
+          {
+            "address": 34150,
+            "source": 0,
+            "tile": 25,
+            "packetBegin": 1600,
+            "packetEnd": 1652,
+            "error": 1.8306934717075493e-11
+          },
+          {
+            "address": 1365,
+            "source": 1365,
+            "tile": 0,
+            "packetBegin": 0,
+            "packetEnd": 64,
+            "error": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "source: saved state/descriptors/errors and one complete retrospective timer are clean; no frame or comparative performance claim",
+      "passed": true,
+      "evidence": {
+        "savedRootGPUms": 1.912832,
+        "instrumentedColdCPUms": 17.099999994039536,
+        "draws": 5,
+        "prepares": 1,
+        "scope": "Saved independently cold numerical job; neither A/B speed claim nor complete frame/FPS evidence"
+      }
+    },
+    {
+      "name": "light: saved actual dispatch is bound to exact complete density, orderedsource, reference and strict code/factory identities",
+      "passed": true,
+      "evidence": {
+        "digest": "61be84b2d72760799334e3291ecc3b2bb9b13d3c5ffa28b32a445c1867ff147e",
+        "phase": 3.881963161603096,
+        "densityRevision": 4785,
+        "packets": 2301,
+        "main": 845,
+        "lightSources": 1409,
+        "unsubmittedReflection": 0
+      }
+    },
+    {
+      "name": "light: exact complete5/6/10draw policy, fresh generation and read/allocation bounds preserve every source and packet",
+      "passed": true,
+      "evidence": {
+        "draws": 6,
+        "prepares": 1,
+        "readBytes": 110832,
+        "numericalTextureBytes": 3919872,
+        "freshAllJobs": true,
+        "sameOwnedJointGeneration": null
+      }
+    },
+    {
+      "name": "light: ALL signed SH coefficients, angular/perpacket/global bounds and eight independent256node partial integrals retain original data",
+      "passed": true,
+      "evidence": {
+        "rows": 2301,
+        "coefficientWords": 27612,
+        "C0Normalized": 3.82611249377643e-7,
+        "C1VectorNormalized": 3.0325058402924584e-7,
+        "budget": 0.002,
+        "minimumAngular": 3.3007656023561717e-10,
+        "maximumOwnGroupRatio": 0.25485097869575446,
+        "negativeC1": 9932,
+        "negativeFourth": 2267,
+        "Float32parseDrift": 0,
+        "partialDetails": [
+          {
+            "address": 0,
+            "packet": 0,
+            "tile": 0,
+            "sourceBegin": 0,
+            "sourceEnd": 64,
+            "C0Normalized": 2.5183564254065915e-7,
+            "C1VectorNormalized": 1.0741168439194164e-7
+          },
+          {
+            "address": 52922,
+            "packet": 2300,
+            "tile": 22,
+            "sourceBegin": 1408,
+            "sourceEnd": 1409,
+            "C0Normalized": 6.362921439382976e-8,
+            "C1VectorNormalized": 8.981143315305562e-8
+          },
+          {
+            "address": 15616,
+            "packet": 1810,
+            "tile": 6,
+            "sourceBegin": 384,
+            "sourceEnd": 448,
+            "C0Normalized": 5.639131454447568e-8,
+            "C1VectorNormalized": 3.699546280552469e-8
+          },
+          {
+            "address": 31232,
+            "packet": 1319,
+            "tile": 13,
+            "sourceBegin": 832,
+            "sourceEnd": 896,
+            "C0Normalized": 1.912142701314155e-7,
+            "C1VectorNormalized": 8.895146833801266e-8
+          },
+          {
+            "address": 46848,
+            "packet": 828,
+            "tile": 20,
+            "sourceBegin": 1280,
+            "sourceEnd": 1344,
+            "C0Normalized": 5.845943902881116e-8,
+            "C1VectorNormalized": 2.0473370432552222e-7
+          },
+          {
+            "address": 52736,
+            "packet": 2114,
+            "tile": 22,
+            "sourceBegin": 1408,
+            "sourceEnd": 1409,
+            "C0Normalized": 1.8322170664866837e-8,
+            "C1VectorNormalized": 1.0654287559063785e-7
+          },
+          {
+            "address": 15615,
+            "packet": 1809,
+            "tile": 6,
+            "sourceBegin": 384,
+            "sourceEnd": 448,
+            "C0Normalized": 1.2113075264613045e-7,
+            "C1VectorNormalized": 7.766707370363794e-8
+          },
+          {
+            "address": 50622,
+            "packet": 0,
+            "tile": 22,
+            "sourceBegin": 1408,
+            "sourceEnd": 1409,
+            "C0Normalized": 5.6606570632549e-8,
+            "C1VectorNormalized": 1.7313620369058985e-8
+          }
+        ]
+      }
+    },
+    {
+      "name": "light: saved state/descriptors/errors and one complete retrospective timer are clean; no frame or comparative performance claim",
+      "passed": true,
+      "evidence": {
+        "savedRootGPUms": 1.584128,
+        "instrumentedColdCPUms": 11.800000004470348,
+        "draws": 6,
+        "prepares": 1,
+        "scope": "Saved independently cold numerical job; neither A/B speed claim nor complete frame/FPS evidence"
+      }
+    },
+    {
+      "name": "joint: saved actual dispatch is bound to exact complete density, orderedsource, reference and strict code/factory identities",
+      "passed": true,
+      "evidence": {
+        "digest": "51c7e73d5667f5ab6da82937ee48d71979f0c9c885adcafa133ab39e07aab401",
+        "phase": 3.8319631616030847,
+        "densityRevision": 4698,
+        "packets": 2258,
+        "main": 871,
+        "lightSources": 1431,
+        "unsubmittedReflection": 0
+      }
+    },
+    {
+      "name": "joint: exact complete5/6/10draw policy, fresh generation and read/allocation bounds preserve every source and packet",
+      "passed": true,
+      "evidence": {
+        "draws": 10,
+        "prepares": 2,
+        "readBytes": 122832,
+        "numericalTextureBytes": 6627328,
+        "freshAllJobs": true,
+        "sameOwnedJointGeneration": true
+      }
+    },
+    {
+      "name": "joint: ALL original/packed-double finite-ray output rows and eight independently addressed partial packet tiles pass unchanged bounds",
+      "passed": true,
+      "evidence": {
+        "rows": 871,
+        "RGBAWords": 3484,
+        "physicalBudget": 0.00001,
+        "quantizedBudget": 0.000008,
+        "physicalError": 1.0025062213703251e-7,
+        "quantizedError": 9.977936232807849e-8,
+        "maximumPartialTauError": 6.895526174496851e-17,
+        "Float32parseDrift": 0,
+        "partialDetails": [
+          {
+            "address": 0,
+            "source": 0,
+            "tile": 0,
+            "packetBegin": 0,
+            "packetEnd": 64,
+            "error": 0
+          },
+          {
+            "address": 31355,
+            "source": 870,
+            "tile": 35,
+            "packetBegin": 2240,
+            "packetEnd": 2258,
+            "error": 0
+          },
+          {
+            "address": 15616,
+            "source": 809,
+            "tile": 17,
+            "packetBegin": 1088,
+            "packetEnd": 1152,
+            "error": 2.7981340042448476e-26
+          },
+          {
+            "address": 31232,
+            "source": 747,
+            "tile": 35,
+            "packetBegin": 2240,
+            "packetEnd": 2258,
+            "error": 0
+          },
+          {
+            "address": 15615,
+            "source": 808,
+            "tile": 17,
+            "packetBegin": 1088,
+            "packetEnd": 1152,
+            "error": 6.2282540619461935e-27
+          },
+          {
+            "address": 30485,
+            "source": 0,
+            "tile": 35,
+            "packetBegin": 2240,
+            "packetEnd": 2258,
+            "error": 2.29547245444394e-31
+          },
+          {
+            "address": 870,
+            "source": 870,
+            "tile": 0,
+            "packetBegin": 0,
+            "packetEnd": 64,
+            "error": 0
+          },
+          {
+            "address": 15678,
+            "source": 0,
+            "tile": 18,
+            "packetBegin": 1152,
+            "packetEnd": 1216,
+            "error": 6.895526174496851e-17
+          }
+        ]
+      }
+    },
+    {
+      "name": "joint: ALL signed SH coefficients, angular/perpacket/global bounds and eight independent256node partial integrals retain original data",
+      "passed": true,
+      "evidence": {
+        "rows": 2258,
+        "coefficientWords": 27096,
+        "C0Normalized": 4.507914398520969e-7,
+        "C1VectorNormalized": 3.2763281135522064e-7,
+        "budget": 0.002,
+        "minimumAngular": 3.8615248936177234e-10,
+        "maximumOwnGroupRatio": 0.25699466734977,
+        "negativeC1": 9734,
+        "negativeFourth": 2184,
+        "Float32parseDrift": 0,
+        "partialDetails": [
+          {
+            "address": 0,
+            "packet": 0,
+            "tile": 0,
+            "sourceBegin": 0,
+            "sourceEnd": 64,
+            "C0Normalized": 1.3672981662154621e-7,
+            "C1VectorNormalized": 3.3387602149718763e-7
+          },
+          {
+            "address": 51933,
+            "packet": 2257,
+            "tile": 22,
+            "sourceBegin": 1408,
+            "sourceEnd": 1431,
+            "C0Normalized": 3.582510352187812e-8,
+            "C1VectorNormalized": 1.872676055322112e-7
+          },
+          {
+            "address": 15616,
+            "packet": 2068,
+            "tile": 6,
+            "sourceBegin": 384,
+            "sourceEnd": 448,
+            "C0Normalized": 1.2430963764341233e-7,
+            "C1VectorNormalized": 5.435811834474659e-8
+          },
+          {
+            "address": 31232,
+            "packet": 1878,
+            "tile": 13,
+            "sourceBegin": 832,
+            "sourceEnd": 896,
+            "C0Normalized": 1.3442297774921677e-7,
+            "C1VectorNormalized": 7.453602081158387e-8
+          },
+          {
+            "address": 46848,
+            "packet": 1688,
+            "tile": 20,
+            "sourceBegin": 1280,
+            "sourceEnd": 1344,
+            "C0Normalized": 7.063619296951412e-8,
+            "C1VectorNormalized": 2.0388147338687104e-7
+          },
+          {
+            "address": 51712,
+            "packet": 2036,
+            "tile": 22,
+            "sourceBegin": 1408,
+            "sourceEnd": 1431,
+            "C0Normalized": 8.43255001034261e-8,
+            "C1VectorNormalized": 1.049800008000868e-7
+          },
+          {
+            "address": 15615,
+            "packet": 2067,
+            "tile": 6,
+            "sourceBegin": 384,
+            "sourceEnd": 448,
+            "C0Normalized": 1.0760339661308411e-7,
+            "C1VectorNormalized": 9.49751459103059e-8
+          },
+          {
+            "address": 49676,
+            "packet": 0,
+            "tile": 22,
+            "sourceBegin": 1408,
+            "sourceEnd": 1431,
+            "C0Normalized": 2.906844395274152e-8,
+            "C1VectorNormalized": 6.863868174572092e-8
+          }
+        ]
+      }
+    },
+    {
+      "name": "joint: saved state/descriptors/errors and one complete retrospective timer are clean; no frame or comparative performance claim",
+      "passed": true,
+      "evidence": {
+        "savedRootGPUms": 3.093504,
+        "instrumentedColdCPUms": 34,
+        "draws": 10,
+        "prepares": 2,
+        "scope": "Saved independently cold numerical job; neither A/B speed claim nor complete frame/FPS evidence"
+      }
+    }
+  ],
+  "limits": [
+    "All saved valid outputs/reference errors and eight partials/kernel independently checked on CPU; this does not rerun or independently witness the hardware dispatch.",
+    "Exact Float32 decimal preservation checked after in-page JSON.stringify capture; no separate GPU signed-zero transport claim.",
+    "Primary actualzero-mirror jobs only. Real othercamera/multievent CPUcount matrices and volume/wholeframe performance remain outside this numerical acceptance."
+  ]
+}

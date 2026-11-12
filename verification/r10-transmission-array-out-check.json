@@ -1,0 +1,68 @@
+{
+  "schema": "glass-atoll.r10-transmission-array-out-preflight.v1",
+  "dateUTC": "2026-10-27T22:06:57.046Z",
+  "actualGPU": false,
+  "sourceSHA256": "d44a897ab8c7c9f58e0c7f974d07d1206b374d44dbb228bf05ebbe71131afad6",
+  "baselineSHA256": "0c2a14e9b8bd4181c022a70eb0fc34d04b65f25bce8e28d20201eef6c3a11e7d",
+  "checks": [
+    {
+      "name": "one precise preflight site restores full0c2 source; missing or duplicated site rejects",
+      "passed": true,
+      "evidence": {
+        "edits": 1,
+        "baselineSHA256": "0c2a14e9b8bd4181c022a70eb0fc34d04b65f25bce8e28d20201eef6c3a11e7d",
+        "numericAndScratchCodeUnchanged": true
+      }
+    },
+    {
+      "name": "actual inherited readonly sparseArray fixture rejects before all counters",
+      "passed": true,
+      "evidence": {
+        "globalPrototypeModified": false,
+        "counterIncrements": 0
+      }
+    },
+    {
+      "name": "inherited accessors at either prototype depth reject without invoking getters or setters",
+      "passed": true,
+      "evidence": {
+        "cases": 6,
+        "accessorInvocations": 0
+      }
+    },
+    {
+      "name": "legitimate holes and inherited writable data remain supported",
+      "passed": true,
+      "evidence": {
+        "cases": 5,
+        "maximumTError": 0
+      }
+    },
+    {
+      "name": "nonextensible holes frozen ownreadonly and integer outputs still reject before work",
+      "passed": true,
+      "evidence": {
+        "cases": 4,
+        "integerArraySupportAdded": false
+      }
+    },
+    {
+      "name": "private Float64 caller path retains exactT and output identity",
+      "passed": true,
+      "evidence": {
+        "rays": 4,
+        "maximumTError": 0
+      }
+    }
+  ],
+  "counts": {
+    "passed": 6,
+    "total": 6
+  },
+  "passed": true,
+  "limits": [
+    "Array descriptor validation only; Float64 production numerical path and shader code unchanged.",
+    "No global Array.prototype mutation. Proxy traps/prototype mutations by concurrent hostile callbacks are outside this synchronous boundary contract.",
+    "Actual GPU report captured on0c2 remains historical0c2 evidence, not relabelled as new source."
+  ]
+}

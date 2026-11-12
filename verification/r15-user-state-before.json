@@ -1,0 +1,1297 @@
+{
+  "state": {
+    "ready": true,
+    "time": 1390.9209000016629,
+    "fps": 74,
+    "gpuMs": 12.035,
+    "renderScale": 1,
+    "graphicsContextInterrupted": false,
+    "pausedRenderCached": false,
+    "pausedSteadyFrames": 0,
+    "parameters": {
+      "sun": {
+        "azimuth": 100,
+        "elevation": 48,
+        "intensity": 1
+      },
+      "quality": "high",
+      "paused": false,
+      "sound": true,
+      "wind": 1.8,
+      "current": 0.16,
+      "lens": {
+        "focal": 28,
+        "aperture": 8,
+        "exposure": 0,
+        "dof": false,
+        "vignette": true,
+        "antialias": "smaa",
+        "automatic": false,
+        "temporal": true,
+        "glintAA": true,
+        "opticalBloom": true,
+        "opticalFlare": false,
+        "focusMode": "target",
+        "focusDistance": 60
+      },
+      "weather": {
+        "humidity": 0.78,
+        "temperature": 28,
+        "cloudBase": "auto",
+        "thickness": 1450,
+        "coverage": 0.72,
+        "shear": 1.8
+      },
+      "air": {
+        "enabled": true,
+        "aerosolScale": 8,
+        "shadows": true
+      },
+      "graphics": {
+        "indirect": "low",
+        "shadows": "ultra",
+        "targetFps": 60,
+        "hdr": true,
+        "hdrMode": "auto",
+        "displayName": "auto",
+        "systemCalibration": true,
+        "peakNits": 1270,
+        "paperWhiteNits": 280,
+        "displayTransform": "legacy",
+        "waveResolution": 1024
+      },
+      "sea": {
+        "swellHeight": 0.16,
+        "windSea": 1,
+        "clarity": 0.52
+      },
+      "director": {
+        "mode": "off",
+        "periodSeconds": 120
+      },
+      "qualityPreset": "ultra",
+      "renderSampling": {
+        "indirect": "low",
+        "antialias": "smaa",
+        "temporal": true,
+        "glintAA": true,
+        "opticalBloom": true,
+        "dprCap": 2,
+        "msaaSamples": 8,
+        "shadowSize": 8192,
+        "shadowHz": 60,
+        "waveResolution": 1024,
+        "cloudSteps": 128,
+        "atmosphereSteps": 8,
+        "airSteps": 8,
+        "airShadowTaps": 2,
+        "causticsGrid": 1536,
+        "causticsSize": 2048,
+        "causticsHz": 30,
+        "reflectionScale": 1,
+        "reflectionSamples": 2
+      },
+      "qualityCustom": false
+    },
+    "lens": {
+      "displayTransform": {
+        "kind": "hdr",
+        "requested": true,
+        "effective": "legacy",
+        "reason": "render-declined",
+        "error": null,
+        "adapter": {
+          "requested": "legacy",
+          "preparation": {
+            "status": "idle",
+            "reason": "selected-legacy",
+            "peakNits": 1270,
+            "error": null
+          },
+          "sdr": {
+            "effective": "none",
+            "peakNits": 100,
+            "reason": "awaiting-render",
+            "error": null
+          },
+          "hdr": {
+            "effective": "legacy",
+            "peakNits": 1270,
+            "reason": "selected-legacy",
+            "error": null
+          },
+          "variant": "aces2-ocio26-accurate-atan-v1",
+          "supportedTargets": [
+            100,
+            700,
+            1270
+          ],
+          "preparablePeakRange": {
+            "min": 100,
+            "max": 10000,
+            "integerOnly": true
+          },
+          "lastError": null,
+          "revision": 2,
+          "disposed": false,
+          "frames": {
+            "sdr": 0,
+            "hdr": 0
+          },
+          "fallbackFrames": {
+            "sdr": 5,
+            "hdr": 83859
+          },
+          "output": null
+        }
+      },
+      "storageEV": 12,
+      "historyEV": 12,
+      "dynamicLighting": false,
+      "sceneAttachments": [
+        "RGBA16F radiance",
+        "RGBA16F motion/coverage",
+        "R16F foliage depth",
+        "R8 local reactive"
+      ],
+      "motion": {
+        "enabled": true,
+        "frames": 90464,
+        "groups": 1,
+        "hasPrevious": true,
+        "extraScenePasses": 0,
+        "attachment": "RGBA16F: unjittered UV velocity.xy, previous linear depth, MSAA coverage; R16F: current linear depth; normalize both by coverage",
+        "limits": [
+          "analytic rest-mesh wind and camera motion only; no arbitrary model-matrix animation",
+          "missing-coverage bridge retains conservative camera-only fallback"
+        ]
+      },
+      "bloom": {
+        "enabled": true,
+        "bloom": true,
+        "flare": false,
+        "strength": 0.018,
+        "budget": {
+          "direct": 0.982,
+          "bloom": 0.018,
+          "ghost": 0,
+          "veil": 0,
+          "total": 0.018
+        },
+        "levels": 4,
+        "passes": 5,
+        "operatorPeakBoundRGB": [
+          1,
+          1,
+          1
+        ],
+        "model": "single threshold-free linear HDR PSF; opt-in affine ghost/veil share at most 1.8% radiance redistribution",
+        "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+      },
+      "hdr": {
+        "enabled": true,
+        "available": true,
+        "apiAvailable": true,
+        "displayHDR": true,
+        "mode": "float-canvas-external-copy",
+        "width": 1209,
+        "height": 1292,
+        "maxHz": 120,
+        "maxBridgeWidth": 1440,
+        "paperWhiteNits": 280,
+        "peakNits": 1270,
+        "sdrWhiteNits": 280,
+        "headroom": 4.535714285714286,
+        "whiteScale": 1,
+        "calibrationSource": "windows-dxgi",
+        "displayName": "Q27G4XM",
+        "calibrationAdjustments": [],
+        "presentedFrames": 83859,
+        "skippedFrames": 6600,
+        "lastPresentCpuMs": 0.09999990463256836,
+        "lastUploadCpuMs": 0,
+        "lastPresentationTimestamp": 6419347.8000000715,
+        "errors": [],
+        "requiresRedraw": false,
+        "readback": null,
+        "presentationObserverActive": false,
+        "presentationObserverError": null,
+        "displayTransform": {
+          "kind": "hdr",
+          "requested": true,
+          "effective": "legacy",
+          "reason": "render-declined",
+          "error": null,
+          "adapter": {
+            "requested": "legacy",
+            "preparation": {
+              "status": "idle",
+              "reason": "selected-legacy",
+              "peakNits": 1270,
+              "error": null
+            },
+            "sdr": {
+              "effective": "none",
+              "peakNits": 100,
+              "reason": "awaiting-render",
+              "error": null
+            },
+            "hdr": {
+              "effective": "legacy",
+              "peakNits": 1270,
+              "reason": "selected-legacy",
+              "error": null
+            },
+            "variant": "aces2-ocio26-accurate-atan-v1",
+            "supportedTargets": [
+              100,
+              700,
+              1270
+            ],
+            "preparablePeakRange": {
+              "min": 100,
+              "max": 10000,
+              "integerOnly": true
+            },
+            "lastError": null,
+            "revision": 2,
+            "disposed": false,
+            "frames": {
+              "sdr": 0,
+              "hdr": 0
+            },
+            "fallbackFrames": {
+              "sdr": 5,
+              "hdr": 83859
+            },
+            "output": null
+          }
+        },
+        "source": "pre-OutputPass, scene-linear sRGB floating-point target",
+        "output": "sRGB-encoded rgba16float, extended, opaque",
+        "noExplicitCPUReadback": true,
+        "absoluteNitsCalibrated": false,
+        "systemReportedCalibration": true,
+        "peakRelativeToBrowserWhite": 4.535714285714286,
+        "shoulder": "same fitted SDR ACES anchor through exposed peak 1; C1 bounded highlight extension; nit scale divided by browser/Windows SDR white",
+        "limits": "System-reported luminance is not a photometer measurement and scene lux is not calibrated. This is not an official ACES HDR ODT. Extended sRGB canvas is not a native 80-nit scRGB swap chain. External-image copy is not guaranteed zero-copy. PBO copies pixels through CPU. HDR enlargement is linear, not SDR FSR1."
+      },
+      "width": 1209,
+      "height": 1292,
+      "outputWidth": 1209,
+      "outputHeight": 1292,
+      "upscaler": "native resolution",
+      "samples": 8,
+      "maxSamples": 8,
+      "sampleSupport": [
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ],
+        [
+          8,
+          4,
+          2,
+          1
+        ]
+      ],
+      "antialias": "MSAA + leaf temporal + water temporal + SMAA",
+      "temporal": {
+        "enabled": true,
+        "active": true,
+        "waterEnabled": true,
+        "stillFrames": 0,
+        "frozen": false,
+        "historyFrames": 1155,
+        "historyWeight": 0.84,
+        "artificialJitter": false,
+        "jitterPixels": [
+          0,
+          0
+        ],
+        "lastResetReason": "camera or animation cut",
+        "scope": "analytic wind/camera foliage motion, MSAA coverage, independent short water radiance history",
+        "maximumMissingCoverageFrames": 2,
+        "metadata": "R8 age; nearest valid depth, bilinear RGB",
+        "historyBytes": 28116504
+      },
+      "focalMm": 28,
+      "cameraFocalMm": 27.999999999999993,
+      "verticalFovDegrees": 65.4704525442152,
+      "exposureScale": 44.630517667044806,
+      "aperture": 8,
+      "focusMode": "target",
+      "focusMetres": 539.0343533791904,
+      "sensorHeightMm": 36,
+      "depthOfField": false,
+      "vignette": true,
+      "sceneStats": {
+        "triangles": 2137690,
+        "calls": 41
+      }
+    },
+    "caustics": {
+      "quality": "high",
+      "gridSegments": 1536,
+      "maxHz": 30
+    },
+    "performance": {
+      "enabled": false,
+      "targetFps": 60,
+      "referenceBudgetMs": 16.666666666666668,
+      "scale": 1,
+      "minimumScale": 0.6,
+      "smoothedCostMs": null,
+      "lastGpuMs": null,
+      "slowFrameFraction": 0,
+      "changes": []
+    },
+    "camera": [
+      -377.55774547018854,
+      2.4999999999999583,
+      -213.50547279615643
+    ],
+    "target": [
+      96.81767059786017,
+      0,
+      42.46278451944809
+    ],
+    "ripples": [
+      [
+        -15.801178433116297,
+        -216.7147777065319,
+        1029.5639541851092,
+        0.16000000000000003
+      ],
+      [
+        -8.43269084847405,
+        -229.11173788047353,
+        1030.1850100645943,
+        0.16000000000000003
+      ],
+      [
+        -6.641782512621671,
+        -222.3201658304801,
+        1031.3841600612727,
+        0.16000000000000003
+      ],
+      [
+        -2.0265900243079824,
+        -231.9530309108438,
+        1036.6338156245483,
+        0.16000000000000003
+      ],
+      [
+        -12.640891455099156,
+        -215.22867461974823,
+        1037.377149430343,
+        0.16000000000000003
+      ],
+      [
+        -77.17042888501253,
+        -63.4145743361172,
+        1106.619715298449,
+        0.16000000000000003
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ],
+      [
+        0,
+        0,
+        -100,
+        0
+      ]
+    ],
+    "triangles": 2137690,
+    "drawCalls": 41,
+    "leaves": []
+  },
+  "time": {
+    "utcMs": 1793116380000,
+    "date": "2026-10-27T15:53:00.000Z",
+    "observer": {
+      "latitudeDeg": 4.5,
+      "longitudeDeg": 118.6,
+      "heightM": 2,
+      "northYawDeg": 0
+    },
+    "mode": "astronomical",
+    "refraction": "standard",
+    "rate": 1,
+    "running": false,
+    "timeZoneOffsetMinutes": 480,
+    "sun": {
+      "direction": [
+        0.015186001177194803,
+        -0.9889116632986946,
+        0.14772646194929176
+      ],
+      "geometricDirection": [
+        0.015077274973485936,
+        -0.9890707459356879,
+        0.14666879461424576
+      ],
+      "altitudeDeg": -81.45970344844625,
+      "geometricAltitudeDeg": -81.52130078108925,
+      "azimuthDeg": 174.13071862827087,
+      "distanceAU": 0.9938500776670746,
+      "angularRadius": 0.004679261325439653
+    },
+    "moon": {
+      "direction": [
+        0.2844772329917508,
+        0.8970332526542047,
+        -0.33823667385718986
+      ],
+      "geometricDirection": [
+        0.2845611119389572,
+        0.8969690358900462,
+        -0.33833640393334175
+      ],
+      "altitudeDeg": 63.77080088562366,
+      "geometricAltitudeDeg": 63.762477096693516,
+      "azimuthDeg": 40.06583868308502,
+      "distanceAU": 0.002402831323597218,
+      "angularRadius": 0.004833400818489516
+    },
+    "sunDirection": [
+      0.015186001177194803,
+      -0.9889116632986946,
+      0.14772646194929176
+    ],
+    "moonDirection": [
+      0.2844772329917508,
+      0.8970332526542047,
+      -0.33823667385718986
+    ],
+    "sunGeometricDirection": [
+      0.015077274973485936,
+      -0.9890707459356879,
+      0.14666879461424576
+    ],
+    "moonGeometricDirection": [
+      0.2845611119389572,
+      0.8969690358900462,
+      -0.33833640393334175
+    ],
+    "angularRadii": {
+      "sun": 0.004679261325439653,
+      "moon": 0.004833400818489516
+    },
+    "worldToEquatorialColumns": [
+      [
+        -0.5377110129518592,
+        0.8431280746023504,
+        0.001384329302673805
+      ],
+      [
+        0.8407317093172573,
+        0.53605753577083,
+        0.07623982746430938
+      ],
+      [
+        0.0635378587833119,
+        0.04215884439400364,
+        -0.997088547893613
+      ]
+    ],
+    "moonNorth": [
+      -0.3246844741011312,
+      -0.11935345904828892,
+      -0.9382615542005759
+    ],
+    "moonSunDirection": [
+      0.014356918407737874,
+      -0.9890092480462438,
+      0.1471549733200927
+    ],
+    "moonPhase": 0.9677404769569256,
+    "moonPhaseAngleRadians": 0.3611786832616551,
+    "moonMagnitude": -12.301336190801315,
+    "moonSourceRatio": 0.0000014687813762061896,
+    "moonLibrationRadians": [
+      -0.035436260902079596,
+      -0.11391940462456625
+    ],
+    "physicalSkyRevision": 357,
+    "epochJulianYear": 2026.8204293102137,
+    "coordinates": "+X east,+Y up,-Z north; geographic azimuth north clockwise; worldToEQJ applies inverse heading; standard refraction is Astronomy Engine normal",
+    "interpolation": {
+      "utcSpanSeconds": 30,
+      "continuous": true,
+      "moonAndSun": "normalized vector interpolation between exact topocentric endpoints",
+      "rotation": "exact current-UTC Astronomy Engine transform"
+    },
+    "diagnostics": {
+      "updates": 255338,
+      "ephemerisCalls": 730
+    },
+    "limits": [
+      "Astronomy Engine nominal arcminute-class; not a measurement-grade ephemeris",
+      "standard refraction uses a prescribed atmosphere, not current humidity sounding",
+      "historical UTC/UT1 and proper motion are approximations"
+    ]
+  },
+  "local": {
+    "mode": "night",
+    "linked": false,
+    "lamps": [
+      {
+        "enabled": true,
+        "brightness": 0.45,
+        "color": "#ffdfa5"
+      },
+      {
+        "enabled": true,
+        "brightness": 0.45,
+        "color": "#ffdfa5"
+      },
+      {
+        "enabled": true,
+        "brightness": 0.45,
+        "color": "#ffdfa5"
+      }
+    ],
+    "flashlight": {
+      "enabled": false,
+      "brightness": 0.7
+    },
+    "layout": "triangle around the cay",
+    "fixture": {
+      "heightMetres": 0.173,
+      "diameterMetres": 0.13,
+      "emission": "unshielded spherical diffuser; omnidirectional point-light approximation"
+    },
+    "rawReference": 0.000036,
+    "shadowSize": 2048,
+    "shadowHz": 60,
+    "active": 3,
+    "lights": [
+      {
+        "id": 0,
+        "type": "point",
+        "position": [
+          -21,
+          0.709387901912434,
+          5.3
+        ],
+        "direction": [
+          0,
+          0,
+          0
+        ],
+        "candela": 29.25,
+        "rawRGB": [
+          0.0010530000000000001,
+          0.0007770196604318949,
+          0.00039620401549842946
+        ],
+        "radius": 0.065
+      },
+      {
+        "id": 1,
+        "type": "point",
+        "position": [
+          18,
+          0.7312298412598459,
+          5.3
+        ],
+        "direction": [
+          0,
+          0,
+          0
+        ],
+        "candela": 29.25,
+        "rawRGB": [
+          0.0010530000000000001,
+          0.0007770196604318949,
+          0.00039620401549842946
+        ],
+        "radius": 0.065
+      },
+      {
+        "id": 2,
+        "type": "point",
+        "position": [
+          -1.5,
+          0.9182470070781804,
+          -13.7
+        ],
+        "direction": [
+          0,
+          0,
+          0
+        ],
+        "candela": 29.25,
+        "rawRGB": [
+          0.0010530000000000001,
+          0.0007770196604318949,
+          0.00039620401549842946
+        ],
+        "radius": 0.065
+      },
+      {
+        "id": 3,
+        "type": "spot",
+        "position": [
+          -377.5599660157818,
+          2.339536207667553,
+          -213.29077567443855
+        ],
+        "direction": [
+          0.8800467226146225,
+          -0.004637923324047034,
+          0.4748644603278942
+        ],
+        "candela": 0,
+        "rawRGB": [
+          0,
+          0,
+          0
+        ],
+        "radius": 0.025
+      },
+      {
+        "id": 4,
+        "type": "point",
+        "position": [
+          198.02400982141558,
+          124.80443166606517,
+          68.34211157298634
+        ],
+        "direction": [
+          0,
+          0,
+          0
+        ],
+        "candela": 0,
+        "rawRGB": [
+          0,
+          0,
+          0
+        ],
+        "radius": 2
+      },
+      {
+        "id": 5,
+        "type": "point",
+        "position": [
+          71.74596680451234,
+          156.67601672221844,
+          17.403078115527016
+        ],
+        "direction": [
+          0,
+          0,
+          0
+        ],
+        "candela": 0,
+        "rawRGB": [
+          0,
+          0,
+          0
+        ],
+        "radius": 2.8567466902289222
+      }
+    ],
+    "frameStorageEV": 12
+  },
+  "api": [
+    "state",
+    "setMotionEnabled",
+    "navigation",
+    "celestial",
+    "setTime",
+    "timePreset",
+    "weatherPreset",
+    "setWeather",
+    "photometry",
+    "diagnosticCameraEV",
+    "setDiagnosticCameraEV",
+    "localLights",
+    "setLocalLights",
+    "runGroundLampsCheck",
+    "runRadiativeTransferCheck",
+    "runOpticalFlareCheck",
+    "runOpticalFlareBenchmark",
+    "runSmokeGaussianCheck",
+    "runDepthCopyCheck",
+    "runSmokeAirCheck",
+    "runSmokeLocalCheck",
+    "runSmokeViewportCheck",
+    "runSmokeFinitePhaseCheck",
+    "runTransientIndirectCheck",
+    "runResolvedSmokeFieldCheck",
+    "runResolvedSmokeFieldSupplementCheck",
+    "runSmokeFieldZeroCheck",
+    "runACES2Check",
+    "runACES2StageCheck",
+    "runACES2AtanCheck",
+    "runACES2OutputCheck",
+    "runACES2GeneratedOutputCheck",
+    "runACES2PinnedRegressionCheck",
+    "runACES2OutputPerformance",
+    "runHDRPresentationCheck",
+    "runHDRGLFrameTrace",
+    "readGLErrors",
+    "runRadianceRestoreTrace",
+    "runNearPlaneBoundSceneCheck",
+    "runTrajectorySceneCheck",
+    "runSmokeKernelSceneCheck",
+    "runSmokeSamplesSceneCheck",
+    "runSmokeDispersionSceneCheck",
+    "runResolvedSmokeFieldSceneCheck",
+    "runPalmFanBurnSceneCheck",
+    "runTransientCloudCheck",
+    "fireworks",
+    "fireworkClusters",
+    "smoke",
+    "smokeSnapshot",
+    "setSmokeReviewProfile",
+    "clearSmoke",
+    "setFireworks",
+    "director",
+    "setDirector",
+    "launchFirework",
+    "throwStone",
+    "setQuality",
+    "shaderSamplers",
+    "inspectRadiance",
+    "runFireworksCheck",
+    "runSmileyCheck",
+    "runFireworksOpticsCheck",
+    "runFireworksTrailCheck",
+    "runAdaptiveTrailCheck",
+    "runAdaptiveTrailVaryingProbe",
+    "setFireworksTrailIntegration",
+    "setFireworksTailColourMode",
+    "setFireworksPhotometryMode",
+    "setBackgroundLocalAir",
+    "fireworkFramingSources",
+    "smokeTransmissionMode",
+    "setSmokeTransmissionMode",
+    "runFireworksBoundCheck",
+    "runMomentsBoundCheck",
+    "runFireworksContactCheck",
+    "runFireworksAudioABCheck",
+    "runCelestialDiscCheck",
+    "runStarFieldCheck",
+    "runCelestialZeroCheck",
+    "runCelestialZeroCostCheck",
+    "runRadianceRangeCheck",
+    "runRadianceDefaultBufferCheck",
+    "interactions",
+    "pickFocus",
+    "night",
+    "display",
+    "refreshDisplay",
+    "setNight",
+    "nightPreset",
+    "graphics",
+    "indirectProbeState",
+    "setTransientIndirect",
+    "setGraphics",
+    "setSea",
+    "runNightCheck",
+    "runVegetationMotionCheck",
+    "runSeaStateCheck",
+    "runIndirectCheck",
+    "setLens",
+    "setRenderScale",
+    "benchmark",
+    "setFrameProbe",
+    "profileFrames",
+    "frameProfile",
+    "audio",
+    "captureAudio",
+    "stopAudioCapture",
+    "renderAudio",
+    "atmosphere",
+    "setSun",
+    "setView",
+    "setCamera",
+    "drop",
+    "float",
+    "flow",
+    "spectrum",
+    "treeShadows",
+    "waterDiagnostics",
+    "cloudShape",
+    "cloudDensityAt",
+    "setCloudBaseContinuity",
+    "runCloudBaseContinuityCheck",
+    "weather",
+    "air",
+    "setAir",
+    "leafDebug",
+    "setLeafCentroid",
+    "setPalmFrameMode",
+    "palmFrameDiagnostics",
+    "runPalmFrameCoverageCheck",
+    "runPalmFrameCostCheck",
+    "runLeafCentroidCheck",
+    "vegetationDiagnostics",
+    "leafMips",
+    "textureAudit",
+    "runAerialCheck",
+    "runRefractionPropCheck",
+    "runWaterOpticsCheck",
+    "runBackgroundAirCheck",
+    "runWaterTemporalCheck",
+    "waterVariance",
+    "replayFlicker",
+    "splashes",
+    "floatVisible",
+    "locateLeaf",
+    "focusLeaf",
+    "hydroDiagnostics",
+    "runHydroCheck",
+    "runSpectrumCheck",
+    "runTemporalCheck",
+    "runTemporalSequenceCheck",
+    "runWeatherCheck",
+    "pause",
+    "pauseAtPhysicalTime",
+    "debugFill",
+    "diagnostics",
+    "debugSand",
+    "debugWater",
+    "reflectionDiagnostics",
+    "debugBuffer",
+    "screenshot"
+  ],
+  "inputs": [
+    {
+      "id": "quality",
+      "value": "ultra",
+      "type": "select-one"
+    },
+    {
+      "id": "view-preset",
+      "value": "shore",
+      "type": "select-one"
+    },
+    {
+      "id": "director-mode",
+      "value": "off",
+      "type": "select-one"
+    },
+    {
+      "id": "director-period",
+      "value": "120",
+      "type": "select-one"
+    },
+    {
+      "id": "wind-speed",
+      "value": "1.8",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "current-speed",
+      "value": "0.16",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "swell-height",
+      "value": "0.16",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "wind-sea",
+      "value": "1",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "water-clarity",
+      "value": "52",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "weather-humidity",
+      "value": "0.78",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "weather-temperature",
+      "value": "28",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "weather-coverage",
+      "value": "0.72",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "weather-thickness",
+      "value": "1450",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "weather-auto-base",
+      "value": "on",
+      "checked": true,
+      "type": "checkbox"
+    },
+    {
+      "id": "weather-base",
+      "value": "500",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "weather-shear",
+      "value": "1.8",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "air-enabled",
+      "value": "on",
+      "checked": true,
+      "type": "checkbox"
+    },
+    {
+      "id": "air-aerosol",
+      "value": "8",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "air-shadows",
+      "value": "on",
+      "checked": true,
+      "type": "checkbox"
+    },
+    {
+      "id": "indirect-light",
+      "value": "low",
+      "type": "select-one"
+    },
+    {
+      "id": "shadow-quality",
+      "value": "ultra",
+      "type": "select-one"
+    },
+    {
+      "id": "wave-resolution",
+      "value": "1024",
+      "type": "select-one"
+    },
+    {
+      "id": "display-transform",
+      "value": "legacy",
+      "type": "select-one"
+    },
+    {
+      "id": "hdr-mode",
+      "value": "auto",
+      "type": "select-one"
+    },
+    {
+      "id": "hdr-display",
+      "value": "auto",
+      "type": "select-one"
+    },
+    {
+      "id": "hdr-system",
+      "value": "on",
+      "checked": true,
+      "type": "checkbox"
+    },
+    {
+      "id": "hdr-peak",
+      "value": "1270",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "hdr-white",
+      "value": "280",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "time-mode",
+      "value": "astronomical",
+      "type": "select-one"
+    },
+    {
+      "id": "night-date",
+      "value": "2026-10-27T23:53",
+      "checked": false,
+      "type": "datetime-local"
+    },
+    {
+      "id": "time-of-day",
+      "value": "1433",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "time-rate",
+      "value": "1",
+      "type": "select-one"
+    },
+    {
+      "id": "time-running",
+      "value": "on",
+      "checked": false,
+      "type": "checkbox"
+    },
+    {
+      "id": "observer-latitude",
+      "value": "4.5",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "observer-longitude",
+      "value": "118.6",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "observer-height",
+      "value": "2",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "time-zone",
+      "value": "8",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "sun-azimuth",
+      "value": "100",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "sun-elevation",
+      "value": "48",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "sun-intensity",
+      "value": "1",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "night-exposure",
+      "value": "on",
+      "checked": true,
+      "type": "checkbox"
+    },
+    {
+      "id": "lamp-mode",
+      "value": "night",
+      "type": "select-one"
+    },
+    {
+      "id": "lamp-select",
+      "value": "0",
+      "type": "select-one"
+    },
+    {
+      "id": "lamp-linked",
+      "value": "on",
+      "checked": false,
+      "type": "checkbox"
+    },
+    {
+      "id": "lamp-enabled",
+      "value": "on",
+      "checked": true,
+      "type": "checkbox"
+    },
+    {
+      "id": "lamp-brightness",
+      "value": "0.45",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "lamp-color",
+      "value": "#ffdfa5",
+      "checked": false,
+      "type": "color"
+    },
+    {
+      "id": "flashlight-enabled",
+      "value": "on",
+      "checked": false,
+      "type": "checkbox"
+    },
+    {
+      "id": "flashlight-brightness",
+      "value": "0.7",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "firework-type",
+      "value": "palm",
+      "type": "select-one"
+    },
+    {
+      "id": "firework-brightness",
+      "value": "1",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "firework-auto",
+      "value": "on",
+      "checked": false,
+      "type": "checkbox"
+    },
+    {
+      "id": "firework-direction",
+      "value": "on",
+      "checked": true,
+      "type": "checkbox"
+    },
+    {
+      "id": "firework-azimuth",
+      "value": "110",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "firework-elevation",
+      "value": "78",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "firework-frame",
+      "value": "on",
+      "checked": false,
+      "type": "checkbox"
+    },
+    {
+      "id": "persistent-smoke",
+      "value": "on",
+      "checked": true,
+      "type": "checkbox"
+    },
+    {
+      "id": "firework-cloud-light",
+      "value": "on",
+      "checked": true,
+      "type": "checkbox"
+    },
+    {
+      "id": "smoke-resolved-light",
+      "value": "on",
+      "checked": true,
+      "type": "checkbox"
+    },
+    {
+      "id": "lens-focal",
+      "value": "28",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "lens-exposure",
+      "value": "0",
+      "checked": false,
+      "type": "range"
+    },
+    {
+      "id": "lens-dof",
+      "value": "on",
+      "checked": false,
+      "type": "checkbox"
+    },
+    {
+      "id": "lens-aperture",
+      "value": "8",
+      "type": "select-one"
+    },
+    {
+      "id": "focus-auto",
+      "value": "on",
+      "checked": true,
+      "type": "checkbox"
+    },
+    {
+      "id": "focus-distance",
+      "value": "539.0",
+      "checked": false,
+      "type": "number"
+    },
+    {
+      "id": "antialias",
+      "value": "smaa",
+      "type": "select-one"
+    },
+    {
+      "id": "temporal-aa",
+      "value": "on",
+      "checked": true,
+      "type": "checkbox"
+    },
+    {
+      "id": "glint-aa",
+      "value": "on",
+      "checked": true,
+      "type": "checkbox"
+    },
+    {
+      "id": "optical-bloom",
+      "value": "on",
+      "checked": true,
+      "type": "checkbox"
+    },
+    {
+      "id": "optical-flare",
+      "value": "on",
+      "checked": false,
+      "type": "checkbox"
+    },
+    {
+      "id": "automatic-quality",
+      "value": "on",
+      "checked": false,
+      "type": "checkbox"
+    },
+    {
+      "id": "frame-budget",
+      "value": "60",
+      "type": "select-one"
+    }
+  ]
+}

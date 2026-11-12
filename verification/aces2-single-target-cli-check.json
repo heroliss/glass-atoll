@@ -1,0 +1,226 @@
+{
+  "schema": "glass-atoll.single-peak-aces2-cli-QA.v1",
+  "passed": true,
+  "actualGPU": false,
+  "productionIntegrated": false,
+  "scriptSHA256": "4f4d6331e0bd280558259bbdce15d27bc3c9bbf3f5f97dd96d86cca5c9de75ea",
+  "checks": [
+    {
+      "name": "integer peak boundaries and native/manual targets",
+      "passed": true,
+      "evidence": {
+        "accepted": [
+          100,
+          700,
+          1200,
+          1270,
+          10000
+        ]
+      }
+    },
+    {
+      "name": "fractional nonfinite exponential signed and outofrange peak reject",
+      "passed": true,
+      "evidence": {
+        "rejected": 10
+      }
+    },
+    {
+      "name": "only fixed project cache vendor-generated or exact QA output accepted",
+      "passed": true,
+      "evidence": {
+        "allowedRoots": 3
+      }
+    },
+    {
+      "name": "protected old oracle project root outside and normalized escape reject",
+      "passed": true,
+      "evidence": {
+        "rejected": 7
+      }
+    },
+    {
+      "name": "default refuses overwrite of existing1200 package",
+      "passed": true,
+      "evidence": {
+        "exit": 1,
+        "reason": "ACES2 export failed: FileExistsError: Output exists; --verify compares it without overwriting"
+      }
+    },
+    {
+      "name": "argparse rejects fractional peak before publication",
+      "passed": true,
+      "evidence": {
+        "exit": 2,
+        "reason": "usage: export-aces2-target.py [-h] --peak PEAK [--out OUT] [--verify]\nexport-aces2-target.py: error: argument --peak: peak must be an integer in100..10000"
+      }
+    },
+    {
+      "name": "historical output path rejected by CLI",
+      "passed": true,
+      "evidence": {
+        "exit": 1,
+        "reason": "ACES2 export failed: ValueError: --out requires a child of .cache/aces2-targets or vendor/aces2-generated, or the exact verification/aces2-generated-<peak> QA directory"
+      }
+    },
+    {
+      "name": "1200 complete package reproducible byteforbyte",
+      "passed": true,
+      "evidence": {
+        "passed": true,
+        "mode": "verified-byteexact",
+        "peakNits": 1200,
+        "output": "E:\\GPT-Projects\\个人网站\\glass-atoll\\verification\\aces2-generated-1200",
+        "cpu": {
+          "passed": 14,
+          "total": 14
+        },
+        "sampleCount": 963,
+        "actualGPU": false,
+        "productionIntegrated": false,
+        "candidateInverseExact": true,
+        "historicalAssetsUnchanged": 47,
+        "artifactManifestSHA256": "f436bd50f785f89a786f943bba1378e3bed133b175f3aae1fb130104aa9fc92d"
+      }
+    },
+    {
+      "name": "700 compatibility package regenerates deterministically",
+      "passed": true,
+      "evidence": {
+        "passed": true,
+        "mode": "verified-byteexact",
+        "peakNits": 700,
+        "output": "E:\\GPT-Projects\\个人网站\\glass-atoll\\.cache\\aces2-targets\\cli-known-700",
+        "cpu": {
+          "passed": 14,
+          "total": 14
+        },
+        "sampleCount": 963,
+        "actualGPU": false,
+        "productionIntegrated": false,
+        "candidateInverseExact": true,
+        "historicalAssetsUnchanged": 47,
+        "artifactManifestSHA256": "ebdb2e65cb158c681041169861214511657e2e5b76e1cfe13a808604605ac3b7"
+      }
+    },
+    {
+      "name": "700 official served shader and probe exactly match frozen originals",
+      "passed": true,
+      "evidence": [
+        {
+          "file": "aces2-700-official.glsl",
+          "bytes": 15364,
+          "sha256": "43d3fa65412f678490a15ae1394adeaf14d32dafd57c5612917a056937256b62"
+        },
+        {
+          "file": "aces2-700-probe.frag",
+          "bytes": 15898,
+          "sha256": "fe91af6416826ca94d371caaf3e31bf312bab644984db622099204c0bce86932"
+        }
+      ]
+    },
+    {
+      "name": "700 both raw and RGBA-upload hue tables exactly match originals",
+      "passed": true,
+      "evidence": [
+        {
+          "file": "aces2-700-table-0-raw.f32",
+          "bytes": 1452,
+          "sha256": "66306e8b43f467af0e669f673f2cd40f54681068d535f87115475775f2e5c718"
+        },
+        {
+          "file": "aces2-700-table-0-rgba.f32",
+          "bytes": 5808,
+          "sha256": "afd69bc2ba8313cbd1d45c2b8afd4cfec6aa319b76f276dd2810f14957012e61"
+        },
+        {
+          "file": "aces2-700-table-1-raw.f32",
+          "bytes": 4356,
+          "sha256": "38ba363959ba38989d1fae4400f6627c48268d19e4832be9dc995ba24570e62b"
+        },
+        {
+          "file": "aces2-700-table-1-rgba.f32",
+          "bytes": 5808,
+          "sha256": "ca6efd3e030afb28918522c3b4447e3bf484cd4645c35ddaefdd1ac5ffc69746"
+        }
+      ]
+    },
+    {
+      "name": "700 rounded GPU input and official CPU expected bytes unchanged",
+      "passed": true,
+      "evidence": [
+        {
+          "file": "aces2-700-gpu-input.f32",
+          "bytes": 16384,
+          "sha256": "0a43d6c685f0a5a54f245f5477f6289878957e45eff7ab120350934366c7ff75"
+        },
+        {
+          "file": "aces2-700-cpu-expected.f32",
+          "bytes": 16384,
+          "sha256": "4bd2d648c57f9f5bddb1f1a48d2d439e145c0385f58f12f169414a560c4f70bc"
+        }
+      ]
+    },
+    {
+      "name": "700 explicit atan candidate and probe exactly match accepted candidate assets",
+      "passed": true,
+      "evidence": [
+        {
+          "file": "aces2-700-accurate-atan.glsl",
+          "bytes": 17267,
+          "sha256": "d5540babf48b69a245a48b027863fe347d725fe4d5dbfa33d69a20a3f71e9414"
+        },
+        {
+          "file": "aces2-700-accurate-atan-probe.frag",
+          "bytes": 17801,
+          "sha256": "5de2b32d6be0c681e0a0a78bf0155c529185a82e98f4b63e740259cdc89d0490"
+        }
+      ]
+    },
+    {
+      "name": "all963 known700 CPU stage and display values remain exact",
+      "passed": true,
+      "evidence": {
+        "samples": 963,
+        "fieldsPerSample": 10
+      }
+    },
+    {
+      "name": "1200 every generated asset matches sealed actual byte hashes",
+      "passed": true,
+      "evidence": {
+        "sealedFiles": 18,
+        "manifestSHA256": "f436bd50f785f89a786f943bba1378e3bed133b175f3aae1fb130104aa9fc92d"
+      }
+    },
+    {
+      "name": "official and nonofficial candidate distinction and noGPU status explicit",
+      "passed": true,
+      "evidence": {
+        "CPU": {
+          "passed": 14,
+          "total": 14
+        },
+        "actualGPU": false,
+        "productionIntegrated": false,
+        "gray18OutputNits": [
+          14.84682559967041,
+          14.846856892108917,
+          14.846840500831604
+        ],
+        "candidateVersion": "range-reduced-taylor17-v1"
+      }
+    },
+    {
+      "name": "all47 old official files unchanged including original46file seal",
+      "passed": true,
+      "evidence": {
+        "unchangedActualFiles": 47
+      }
+    }
+  ],
+  "counts": {
+    "passed": 17,
+    "total": 17
+  }
+}

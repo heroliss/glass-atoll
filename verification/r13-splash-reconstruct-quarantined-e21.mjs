@@ -1,0 +1,7 @@
+import {readFileSync,writeFileSync} from 'node:fs';import {createHash} from 'node:crypto';import assert from 'node:assert/strict';
+const hash=s=>createHash('sha256').update(s).digest('hex');let s=readFileSync(new URL('r13-splash-local-a9-quarantined.js',import.meta.url),'utf8');assert.equal(hash(s),'a9f07358ed2c86613f11a825f407309e81777745237baae79d0d8bc1bf65410c');
+s=s.replace(/  \/\/ Live coefficient objects[\s\S]*?shared\.uWaterScattering=uniforms\.uWaterScattering\|\|\{value:new THREE\.Vector3\(\.004,\.009,\.014\)\};\r?\n/,'');
+s=s.replace('uniform vec3 uSkyColor,uCloudLightDirection,uWaterAbsorption,uWaterScattering;','uniform vec3 uSkyColor,uCloudLightDirection;');
+s=s.replace('vec3 albedo=sampleSandAlbedo(bottom.xz,bottom.y),scattering=max(vec3(0.),uWaterScattering),extinction=max(vec3(.0000001),uWaterAbsorption+scattering);','vec3 albedo=sampleSandAlbedo(bottom.xz,bottom.y),extinction=vec3(.164,.044,.032),scattering=vec3(.004,.009,.014);');
+s=s.replace("coefficientSources:{absorption:uniforms.uWaterAbsorption?'shared-water':'legacy-default-fallback',scattering:uniforms.uWaterScattering?'shared-water':'legacy-default-fallback'},",'');
+assert.equal(hash(s),'e21ef0f74ab001997b9a6defb105a86974e548c5b48780bace151e615df15abc');writeFileSync(new URL('r13-splash-local-e21-quarantined.js',import.meta.url),s);console.log(JSON.stringify({reconstructedFrom:'a9 plus exactly reversed shared-coefficient delta',sha256:hash(s),gpuExecuted:false}));

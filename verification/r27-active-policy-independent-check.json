@@ -1,0 +1,164 @@
+{
+  "schema": "glass-atoll.r27-active-policy-independent-cpu.v1",
+  "dateUTC": "2026-10-29T12:09:15.588Z",
+  "actualGPU": false,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 3,
+    "total": 3
+  },
+  "checks": [
+    {
+      "name": "Active-count global18k/4096 old and explicit candidate envelopes fit at most4maps under both conservative slot caps",
+      "passed": true,
+      "evidence": {
+        "cases": [
+          {
+            "maxRequestPairs": 1048576,
+            "maxMapPairs": 1000000,
+            "packetCountsChecked": 4096,
+            "partial": {
+              "width": 256,
+              "height": 135,
+              "logicalCapacity": 34384,
+              "texelCapacity": 34560
+            },
+            "maximumCells": 32262,
+            "maximumMaps": 4,
+            "witness": {
+              "sourceCount": 16131,
+              "packetCount": 65
+            },
+            "fullRowsPerMap": 61,
+            "allCountsUpperBound": 4,
+            "defaultMapDrawCap8Sufficient": true
+          },
+          {
+            "maxRequestPairs": 1048576,
+            "maxMapPairs": 1048576,
+            "packetCountsChecked": 4096,
+            "partial": {
+              "width": 256,
+              "height": 135,
+              "logicalCapacity": 34384,
+              "texelCapacity": 34560
+            },
+            "maximumCells": 32262,
+            "maximumMaps": 3,
+            "witness": {
+              "sourceCount": 18000,
+              "packetCount": 1
+            },
+            "fullRowsPerMap": 64,
+            "allCountsUpperBound": 3,
+            "defaultMapDrawCap8Sufficient": true
+          },
+          {
+            "maxRequestPairs": 1400000,
+            "maxMapPairs": 1000000,
+            "packetCountsChecked": 4096,
+            "partial": {
+              "width": 256,
+              "height": 156,
+              "logicalCapacity": 39875,
+              "texelCapacity": 39936
+            },
+            "maximumCells": 36000,
+            "maximumMaps": 4,
+            "witness": {
+              "sourceCount": 18000,
+              "packetCount": 65
+            },
+            "fullRowsPerMap": 61,
+            "allCountsUpperBound": 4,
+            "defaultMapDrawCap8Sufficient": true
+          },
+          {
+            "maxRequestPairs": 1400000,
+            "maxMapPairs": 1048576,
+            "packetCountsChecked": 4096,
+            "partial": {
+              "width": 256,
+              "height": 156,
+              "logicalCapacity": 39875,
+              "texelCapacity": 39936
+            },
+            "maximumCells": 36000,
+            "maximumMaps": 4,
+            "witness": {
+              "sourceCount": 18000,
+              "packetCount": 65
+            },
+            "fullRowsPerMap": 64,
+            "allCountsUpperBound": 4,
+            "defaultMapDrawCap8Sufficient": true
+          }
+        ],
+        "proofScope": "Exact global18k/4096 active-count layout and both declared conservative per-map slot caps; no timing or shader optical guarantee"
+      }
+    },
+    {
+      "name": "Historical logical≤1048576 request16131x65 needs4maps at1000000slots and remains covered by default8",
+      "passed": true,
+      "evidence": {
+        "logicalPairs": 1048515,
+        "conservativeSlots": 2064768,
+        "maps": 4,
+        "totalDraws": 5,
+        "rects": [
+          [
+            0,
+            0,
+            256,
+            61
+          ],
+          [
+            0,
+            61,
+            256,
+            61
+          ],
+          [
+            0,
+            122,
+            256,
+            4
+          ],
+          [
+            0,
+            126,
+            6,
+            1
+          ]
+        ],
+        "threeMapCapWouldRegress": true
+      }
+    },
+    {
+      "name": "Legacy-max padding has a different QA policy and cannot share the promoted active-count map-cap proof",
+      "passed": true,
+      "evidence": {
+        "logicalPairs": 4096,
+        "paddedCells": 1152000,
+        "conservativeSlots": 73728000,
+        "new8MapScheduleUnsupported": true,
+        "proposedCompatibility": "Keep explicit legacy-max historical two-pass comparator under unchanged maxPairs<=1048576; reject explicit maxRequestPairs>1048576 in that QA mode. Do not claim active-count map-cap policy applies to the comparator."
+      }
+    }
+  ],
+  "pins": {
+    "r26-transmission-layout-candidate.js": "61a2e73b960a5d555cef3b6611b5aca48cdb3c6fb125db94102f0dd9a0011b86",
+    "r26-transmission-rectangles.js": "70b1a2c95c86847d2f3b1787bf48721a1d4ed32ff599d1eb79c48f37ea2b9d28"
+  },
+  "compatibilityProposal": {
+    "maxPairs": "Retain incumbent argument/default3072 and limit1048576",
+    "maxRequestPairs": "Optional explicit active-count request allowance; effective=maxRequestPairs??maxPairs; bounded<=1400000",
+    "maxMapDraws": "Default8 maps, reduction separate; do not promote native-specific3map fixture cap",
+    "legacyMax": "Historical two-pass comparator path with oldlogical cap and no>1048576 promotion"
+  },
+  "limits": [
+    "Pure policy/allocation geometry proof only. This does not admit larger native GPU requests, total frame budgets, optical numerics or production staging.",
+    "At most4maps is a geometric upper bound under these caps; it is not a frame-time/FPS target or a permanent user-specified workload ceiling."
+  ]
+}

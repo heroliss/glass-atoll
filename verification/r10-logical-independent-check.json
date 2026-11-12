@@ -1,0 +1,83 @@
+{
+  "schema": "glass-atoll.r10-logical-independent-cpu.v1",
+  "actualGPU": false,
+  "productionIntegrated": false,
+  "moduleSHA256": "235dff6244215b5a599d3d80ea93321ccacefb8d690a07813f0c25b827800a15",
+  "checks": [
+    {
+      "name": "reviewed frozen module exactly matches235dff",
+      "passed": true
+    },
+    {
+      "name": "G2 native body coverage and family budgets contain every source without representative slots",
+      "passed": true,
+      "evidence": {
+        "nativeCases": 20,
+        "bodies": 2610
+      }
+    },
+    {
+      "name": "G3 arbitrary batches and exact parent death boundary equal whole-event sorted sequence",
+      "passed": true,
+      "evidence": {
+        "cases": 8,
+        "callbacks": 18214,
+        "childCellCallbacks": 2988
+      }
+    },
+    {
+      "name": "G3 tiny final cells retain exact end and positive full mass at physical origin4000",
+      "passed": true,
+      "evidence": {
+        "cases": 36,
+        "rebalanced": 6
+      }
+    },
+    {
+      "name": "G4 accepted-prefix boundaries cannot replay after fault clear or foreign clone",
+      "passed": true,
+      "evidence": {
+        "cases": 6,
+        "partialCounts": [
+          0,
+          1,
+          9,
+          12,
+          135,
+          1628
+        ]
+      }
+    },
+    {
+      "name": "G4 predictable sampling failure is local-readonly and leaves prior token valid",
+      "passed": true,
+      "evidence": {
+        "sampleCallsBeforeFailure": 7
+      }
+    },
+    {
+      "name": "same event can be rebuilt in pure module: outer tombstone is a required G4 scope boundary",
+      "passed": true,
+      "evidence": {
+        "notAnIntegratedDeduper": true,
+        "requiredOwner": "adapter/host event-ID watermark and tombstone; no assertion of G4 completion from pure module"
+      }
+    },
+    {
+      "name": "review did not mutate the frozen module",
+      "passed": true
+    }
+  ],
+  "counts": {
+    "passed": 8,
+    "total": 8
+  },
+  "limits": [
+    "G2/G3 and the local cursor portion of G4 only. No source provider or physical queue transaction is exercised.",
+    "No cross-event seen/tombstone, global EmissionID owner, descriptor release or host clear protocol is implemented by this pure module.",
+    "Callbacks must remain readonly. Local cursor rollback cannot undo caller side effects.",
+    "No kg/yield, visual quality, real smoke transport or GPU/FPS validation."
+  ],
+  "dateUTC": "2026-10-27T21:19:09.278Z",
+  "passed": true
+}

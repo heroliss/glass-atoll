@@ -1,0 +1,17 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>G1 近岸数值候选 · 独立 GPU 验收</title>
+<style>html{color-scheme:dark;background:#07131b;color:#cfdee8;font:15px/1.6 system-ui}body{max-width:1100px;margin:36px auto;padding:0 24px}button{font:inherit;padding:10px 18px;background:#1a5266;border:1px solid #527b8a;color:inherit;border-radius:8px;margin:8px}pre{white-space:pre-wrap;font:12px/1.5 monospace;background:#0c202b;padding:20px;max-height:72vh;overflow:auto}canvas{width:256px;height:128px;background:#051018;display:block}</style>
+<h1>G1 近岸数值候选 · 独立 GPU 验收</h1>
+<p>只运行新模块的数值门禁，不修改主场景。CPU 已有独立报告；这里的实际 GPU 结果必须运行后确认。该版本每个物理 tick 有同步验证读回，尚不代表性能验收。</p>
+<button id="run">运行基础 GPU 门禁</button><button id="quality">额外测试 192 / 256 / 384 的一个物理 tick</button><button id="download" disabled>保存结果 JSON</button>
+<canvas id="gpu" width="256" height="128"></canvas><p id="status">未运行</p><pre id="report">点击后创建独立 WebGL2 renderer。不会操作当前主场景。</pre>
+<script type="importmap">{"imports":{"three":"../vendor/three.module.js"}}</script>
+<script type="module">
+import * as THREE from 'three';import{runR13ShoreGPU}from'./r13-shore-gpu-check.js';
+const $=id=>document.getElementById(id);let latest=null;
+async function run(includeQuality=false){$('run').disabled=$('quality').disabled=true;const renderer=new THREE.WebGLRenderer({canvas:$('gpu'),antialias:false,alpha:false});renderer.setSize(256,128,false);renderer.setPixelRatio(1);
+  try{latest=await runR13ShoreGPU(THREE,renderer,{includeQuality,onProgress:label=>$('status').textContent=label});window.__r13ShoreReport=latest;$('report').textContent=JSON.stringify(latest,null,2);$('status').textContent=`${latest.passed?'通过':'未通过'} ${latest.counts.passed}/${latest.counts.total}`;$('download').disabled=false;}
+  catch(error){$('report').textContent=String(error.stack||error);$('status').textContent='初始化失败';}finally{renderer.dispose();$('run').disabled=$('quality').disabled=false;}}
+$('run').onclick=()=>run(false);$('quality').onclick=()=>run(true);$('download').onclick=()=>{const a=document.createElement('a'),url=URL.createObjectURL(new Blob([JSON.stringify(latest,null,2)],{type:'application/json'}));a.href=url;a.download='r13-shore-gpu-check.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+window.runR13ShoreGPU=run;
+</script></html>

@@ -1,0 +1,433 @@
+{
+  "checks": [
+    {
+      "maximumRawRGBError": 135.93505859375,
+      "name": "baseline detects missing captured-cube storage exposure ratio",
+      "passed": true
+    },
+    {
+      "maximumRawRGBError": 0.00006103515625,
+      "name": "candidate preserves raw splash radiance across16EV storage range",
+      "passed": true,
+      "tolerance": 0.003
+    },
+    {
+      "name": "both actual crown and instanced droplet programs draw finite nonzero close-view response",
+      "passed": true,
+      "rows": [
+        {
+          "ageSeconds": 0.11,
+          "changedPixels": 1938,
+          "maximumRawContrast": 0.7164306640625,
+          "metric": {
+            "age": 0.10999999999999945,
+            "dropCount": 96,
+            "dropDiameterRangeMetres": [
+              0.000401931471479525,
+              0.0037047306936234233
+            ],
+            "id": 1,
+            "impactHeightEstimate": 0,
+            "maximumCrownRadiusMetres": 0.1,
+            "x": 0,
+            "z": 0
+          },
+          "mode": "candidate",
+          "nonFinite": 0,
+          "reactivePixels": 1993,
+          "storageEV": -8,
+          "summedRawContrast": 122.02145385742188
+        },
+        {
+          "ageSeconds": 0.11,
+          "changedPixels": 1938,
+          "maximumRawContrast": 0.7164306640625,
+          "metric": {
+            "age": 0.10999999999999945,
+            "dropCount": 96,
+            "dropDiameterRangeMetres": [
+              0.000401931471479525,
+              0.0037047306936234233
+            ],
+            "id": 1,
+            "impactHeightEstimate": 0,
+            "maximumCrownRadiusMetres": 0.1,
+            "x": 0,
+            "z": 0
+          },
+          "mode": "candidate",
+          "nonFinite": 0,
+          "reactivePixels": 1993,
+          "storageEV": 0,
+          "summedRawContrast": 122.02279663085938
+        },
+        {
+          "ageSeconds": 0.11,
+          "changedPixels": 1938,
+          "maximumRawContrast": 0.7164306640625,
+          "metric": {
+            "age": 0.10999999999999945,
+            "dropCount": 96,
+            "dropDiameterRangeMetres": [
+              0.000401931471479525,
+              0.0037047306936234233
+            ],
+            "id": 1,
+            "impactHeightEstimate": 0,
+            "maximumCrownRadiusMetres": 0.1,
+            "x": 0,
+            "z": 0
+          },
+          "mode": "candidate",
+          "nonFinite": 0,
+          "reactivePixels": 1993,
+          "storageEV": 8,
+          "summedRawContrast": 122.02279663085938
+        }
+      ]
+    },
+    {
+      "name": "isolated actual crown and droplet draws each contribute finite radiance",
+      "parts": [
+        {
+          "changedPixels": 122,
+          "maximumRawContrast": 0.1871337890625,
+          "name": "Millimetre spherical drop impostors",
+          "nonFinite": 0,
+          "summedRawContrast": 2.3568115234375
+        },
+        {
+          "changedPixels": 1844,
+          "maximumRawContrast": 0.7164306640625,
+          "name": "Thin centimetre water crown",
+          "nonFinite": 0,
+          "summedRawContrast": 119.70547485351562
+        }
+      ],
+      "passed": true
+    },
+    {
+      "directSunControls": [
+        {
+          "defaultCubeHasDisc": 0,
+          "explicitDiscMetadataSuppressesAnalyticSun": 1,
+          "liveSolarDisk": 1,
+          "maximumAdded": 0.0315093994140625,
+          "minimumAdded": 0,
+          "nonFinite": 0,
+          "summedAdded": 0.3243865966796875
+        }
+      ],
+      "name": "disc-absent production cube receives analytic sun; explicit disc metadata suppresses duplicate source",
+      "passed": true
+    },
+    {
+      "before": 0,
+      "candidate": 1993,
+      "name": "candidate marks splash pixels reactive for actual MRT temporal bypass",
+      "passed": true
+    },
+    {
+      "candidateReactivePixels": 1993,
+      "maximumRawRGBError": 0.00048828125,
+      "name": "premultiplied candidate preserves bb2 straight-alpha RGB compositing",
+      "passed": true,
+      "straightReactivePixels": 0,
+      "tolerance": 0.003
+    },
+    {
+      "blendProbe": [
+        {
+          "name": "straight scalar",
+          "premultiplied": false,
+          "reactive": 0,
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "transparent": true,
+          "vector": false
+        },
+        {
+          "name": "opaque scalar",
+          "premultiplied": false,
+          "reactive": 0,
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "transparent": false,
+          "vector": false
+        },
+        {
+          "name": "premultiplied scalar",
+          "premultiplied": true,
+          "reactive": 0,
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "transparent": true,
+          "vector": false
+        },
+        {
+          "name": "straight vec4 alpha1",
+          "premultiplied": false,
+          "reactive": 0,
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "transparent": true,
+          "vector": true
+        }
+      ],
+      "name": "actual MRT control isolates scalar output SRC_ALPHA loss and ONE repair",
+      "passed": false
+    },
+    {
+      "error": 1282,
+      "name": "actual WebGL completes without GL errors",
+      "passed": false
+    }
+  ],
+  "knownPhase": {
+    "ageSeconds": 0.11,
+    "born": 10,
+    "camera": [
+      0.3,
+      0.35,
+      0.55
+    ],
+    "renderedTime": 10.11,
+    "target": [
+      0,
+      0.045,
+      0
+    ],
+    "viewport": [
+      256,
+      256
+    ]
+  },
+  "limits": [
+    "Isolated real-GL scene; main lens/history and actual moving water require separate scene capture.",
+    "Reflection-only droplet proxy; no resolved refracted scene/internal caustics or Navier-Stokes water entry.",
+    "No FPS or visible-at-arbitrary-distance claim."
+  ],
+  "passed": false,
+  "rows": [
+    {
+      "ageSeconds": 0.11,
+      "changedPixels": 1993,
+      "maximumRawContrast": 136.4200439453125,
+      "metric": {
+        "age": 0.10999999999999945,
+        "dropCount": 96,
+        "dropDiameterRangeMetres": [
+          0.000401931471479525,
+          0.0037047306936234233
+        ],
+        "id": 1,
+        "impactHeightEstimate": 0,
+        "maximumCrownRadiusMetres": 0.1,
+        "x": 0,
+        "z": 0
+      },
+      "mode": "before",
+      "nonFinite": 0,
+      "reactivePixels": 0,
+      "storageEV": -8,
+      "summedRawContrast": 18596.59393310547
+    },
+    {
+      "ageSeconds": 0.11,
+      "changedPixels": 1959,
+      "maximumRawContrast": 0.4849853515625,
+      "metric": {
+        "age": 0.10999999999999945,
+        "dropCount": 96,
+        "dropDiameterRangeMetres": [
+          0.000401931471479525,
+          0.0037047306936234233
+        ],
+        "id": 1,
+        "impactHeightEstimate": 0,
+        "maximumCrownRadiusMetres": 0.1,
+        "x": 0,
+        "z": 0
+      },
+      "mode": "before",
+      "nonFinite": 0,
+      "reactivePixels": 0,
+      "storageEV": 0,
+      "summedRawContrast": 63.15605163574219
+    },
+    {
+      "ageSeconds": 0.11,
+      "changedPixels": 1846,
+      "maximumRawContrast": 0.04608154296875,
+      "metric": {
+        "age": 0.10999999999999945,
+        "dropCount": 96,
+        "dropDiameterRangeMetres": [
+          0.000401931471479525,
+          0.0037047306936234233
+        ],
+        "id": 1,
+        "impactHeightEstimate": 0,
+        "maximumCrownRadiusMetres": 0.1,
+        "x": 0,
+        "z": 0
+      },
+      "mode": "before",
+      "nonFinite": 0,
+      "reactivePixels": 0,
+      "storageEV": 8,
+      "summedRawContrast": 9.241424560546877
+    },
+    {
+      "ageSeconds": 0.11,
+      "changedPixels": 1938,
+      "maximumRawContrast": 0.7164306640625,
+      "metric": {
+        "age": 0.10999999999999945,
+        "dropCount": 96,
+        "dropDiameterRangeMetres": [
+          0.000401931471479525,
+          0.0037047306936234233
+        ],
+        "id": 1,
+        "impactHeightEstimate": 0,
+        "maximumCrownRadiusMetres": 0.1,
+        "x": 0,
+        "z": 0
+      },
+      "mode": "straight",
+      "nonFinite": 0,
+      "reactivePixels": 0,
+      "storageEV": -8,
+      "summedRawContrast": 122.02749633789062
+    },
+    {
+      "ageSeconds": 0.11,
+      "changedPixels": 1938,
+      "maximumRawContrast": 0.7164306640625,
+      "metric": {
+        "age": 0.10999999999999945,
+        "dropCount": 96,
+        "dropDiameterRangeMetres": [
+          0.000401931471479525,
+          0.0037047306936234233
+        ],
+        "id": 1,
+        "impactHeightEstimate": 0,
+        "maximumCrownRadiusMetres": 0.1,
+        "x": 0,
+        "z": 0
+      },
+      "mode": "straight",
+      "nonFinite": 0,
+      "reactivePixels": 0,
+      "storageEV": 0,
+      "summedRawContrast": 122.02749633789062
+    },
+    {
+      "ageSeconds": 0.11,
+      "changedPixels": 1938,
+      "maximumRawContrast": 0.7164306640625,
+      "metric": {
+        "age": 0.10999999999999945,
+        "dropCount": 96,
+        "dropDiameterRangeMetres": [
+          0.000401931471479525,
+          0.0037047306936234233
+        ],
+        "id": 1,
+        "impactHeightEstimate": 0,
+        "maximumCrownRadiusMetres": 0.1,
+        "x": 0,
+        "z": 0
+      },
+      "mode": "straight",
+      "nonFinite": 0,
+      "reactivePixels": 0,
+      "storageEV": 8,
+      "summedRawContrast": 122.02749633789062
+    },
+    {
+      "ageSeconds": 0.11,
+      "changedPixels": 1938,
+      "maximumRawContrast": 0.7164306640625,
+      "metric": {
+        "age": 0.10999999999999945,
+        "dropCount": 96,
+        "dropDiameterRangeMetres": [
+          0.000401931471479525,
+          0.0037047306936234233
+        ],
+        "id": 1,
+        "impactHeightEstimate": 0,
+        "maximumCrownRadiusMetres": 0.1,
+        "x": 0,
+        "z": 0
+      },
+      "mode": "candidate",
+      "nonFinite": 0,
+      "reactivePixels": 1993,
+      "storageEV": -8,
+      "summedRawContrast": 122.02145385742188
+    },
+    {
+      "ageSeconds": 0.11,
+      "changedPixels": 1938,
+      "maximumRawContrast": 0.7164306640625,
+      "metric": {
+        "age": 0.10999999999999945,
+        "dropCount": 96,
+        "dropDiameterRangeMetres": [
+          0.000401931471479525,
+          0.0037047306936234233
+        ],
+        "id": 1,
+        "impactHeightEstimate": 0,
+        "maximumCrownRadiusMetres": 0.1,
+        "x": 0,
+        "z": 0
+      },
+      "mode": "candidate",
+      "nonFinite": 0,
+      "reactivePixels": 1993,
+      "storageEV": 0,
+      "summedRawContrast": 122.02279663085938
+    },
+    {
+      "ageSeconds": 0.11,
+      "changedPixels": 1938,
+      "maximumRawContrast": 0.7164306640625,
+      "metric": {
+        "age": 0.10999999999999945,
+        "dropCount": 96,
+        "dropDiameterRangeMetres": [
+          0.000401931471479525,
+          0.0037047306936234233
+        ],
+        "id": 1,
+        "impactHeightEstimate": 0,
+        "maximumCrownRadiusMetres": 0.1,
+        "x": 0,
+        "z": 0
+      },
+      "mode": "candidate",
+      "nonFinite": 0,
+      "reactivePixels": 1993,
+      "storageEV": 8,
+      "summedRawContrast": 122.02279663085938
+    }
+  ],
+  "schema": "glass-atoll.r13-splash-isolated-gpu.v2-premultiplied"
+}

@@ -1,0 +1,285 @@
+{
+  "kind": "R13 stone air parity, finite metric water transport, fixed-grid collision and bounded persistence; CPU only",
+  "passed": false,
+  "count": 12,
+  "checks": [
+    {
+      "name": "Baseline sealed; air constants, analytic path, charge and exported point collision stay exact",
+      "passed": true,
+      "evidence": {
+        "baselineSHA256": "690799e55aeb52affd569731cf25c3691fb3022713f92d5d69db0a9aa4946027",
+        "pathCases": 25
+      }
+    },
+    {
+      "name": "Default pebble remains2.5cm /21.27g; buoyancy and quadratic drag dimensions give1.03m/s settling",
+      "passed": true,
+      "evidence": {
+        "diameter": 0.025,
+        "radius": 0.0125,
+        "volumeCubicMetres": 0.00000818123086872342,
+        "areaSquareMetres": 0.0004908738521234052,
+        "massKg": 0.021271200258680893,
+        "waterDensityKgPerCubicMetre": 1025,
+        "dragCoefficient": 0.47,
+        "dragPerMetre": 5.558653846153846,
+        "gravityY": -5.9425961538461545,
+        "terminalSpeedMetresPerSecond": 1.033958942592146
+      }
+    },
+    {
+      "name": "Dissipative drag cannot reverse velocity; zero-drag buoyancy is exact constant acceleration",
+      "passed": true,
+      "evidence": {
+        "neutralFinalSpeed": 0.016995806003745093,
+        "highSpeedStep": {
+          "position": [
+            0.14642951115505656,
+            -0.14645697868819416,
+            0
+          ],
+          "velocity": [
+            20.872787556238976,
+            -20.889083323069958,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "name": "Fixed240Hz water trajectory converges quadratically to independent vertical-drag closed form",
+      "passed": true,
+      "evidence": {
+        "seconds": 5,
+        "positionMetres": -5.470889886620055,
+        "referencePosition": -5.471025099254956,
+        "positionErrorMetres": 0.00013521263490101632,
+        "velocityErrorMetresPerSecond": 0.00007411755859676461,
+        "halvedStepError": 0.00003380481746795283,
+        "convergenceRatio": 3.9998037270634192
+      }
+    },
+    {
+      "name": "Runtime air state, launch offsets and charge are byte-identical before entry",
+      "passed": true,
+      "evidence": {
+        "snapshots": 4,
+        "renderedRadiusMetres": 0.012500000186264515
+      }
+    },
+    {
+      "name": "Water entry retains the actual mesh, velocity and single surface event; no immediate disappearance",
+      "passed": true,
+      "evidence": {
+        "event": {
+          "x": 50,
+          "z": 50,
+          "id": 1,
+          "time": 0.7199999999999992,
+          "position": [
+            50,
+            0,
+            50
+          ],
+          "velocity": [
+            0,
+            -4.810504067468853,
+            0
+          ],
+          "normalSpeed": 4.810504067468853,
+          "speed": 4.810504067468853,
+          "diameter": 0.025,
+          "mass": 0.021271200258680897,
+          "energy": 0.24611788425232473,
+          "kind": "water",
+          "charge": 0
+        },
+        "underwater": {
+          "id": 1,
+          "phase": "underwater",
+          "diameterMetres": 0.025,
+          "massKg": 0.021271200258680897,
+          "enteredAt": 0.7199999999999992,
+          "age": 0.08000000000000085,
+          "position": [
+            50,
+            -0.2160212375171483,
+            50
+          ],
+          "velocity": [
+            0,
+            -1.7516773215798678,
+            0
+          ],
+          "entryPosition": [
+            50,
+            0,
+            50
+          ],
+          "entryVelocity": [
+            0,
+            -4.810504067468853,
+            0
+          ],
+          "committedTicks": 19,
+          "stepSeconds": 0.004166666666666667
+        },
+        "sceneObjects": 1
+      }
+    },
+    {
+      "name": "Water entry, catch-up, bedrest and stable orientation agree at30/60/120/144Hz and one large step",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: NaN != 0 (tol1e-8)\n    at close (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r13-stone-check.mjs:7:30)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r13-stone-check.mjs:43:264\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r13-stone-check.mjs:6:68)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r13-stone-check.mjs:41:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "Shallow water and dry land retain correctly supported visible pebble centres",
+      "passed": true,
+      "evidence": {
+        "shallow": {
+          "id": 1,
+          "phase": "resting-water",
+          "kind": "water",
+          "diameterMetres": 0.025,
+          "massKg": 0.021271200258680897,
+          "position": [
+            50,
+            0.007500000000000001,
+            50
+          ],
+          "rotation": [
+            6.479999999999993,
+            8.639999999999992,
+            3.5999999999999965,
+            "XYZ"
+          ],
+          "restTime": 0.7199999999999993,
+          "enteredAt": 0.7199999999999993
+        },
+        "land": {
+          "id": 1,
+          "phase": "resting-land",
+          "kind": "land",
+          "diameterMetres": 0.025,
+          "massKg": 0.021271200258680897,
+          "position": [
+            50,
+            0.8125,
+            50
+          ],
+          "rotation": [
+            0.91,
+            0.37,
+            0.23,
+            "XYZ"
+          ],
+          "restTime": 0.6049748152931483,
+          "enteredAt": null
+        },
+        "slopedPlaneCentre": 0.21369306393762913
+      }
+    },
+    {
+      "name": "Actual island heightfield supports every resting mesh vertex and keeps real scale/material",
+      "passed": true,
+      "evidence": {
+        "rest": {
+          "id": 1,
+          "phase": "resting-water",
+          "kind": "water",
+          "diameterMetres": 0.025,
+          "massKg": 0.021271200258680897,
+          "position": [
+            42.87222228078283,
+            -1.0682045447183703,
+            -0.9126979944084718
+          ],
+          "rotation": [
+            8.097375270670172,
+            10.796500360893562,
+            4.498541817038984,
+            "XYZ"
+          ],
+          "restTime": 1.8765366569906465,
+          "enteredAt": 0.7199999999999993
+        },
+        "minimumVertexClearanceMetres": 0.00011942743817972001,
+        "vertices": 240
+      }
+    },
+    {
+      "name": "Moving pool, persistent rests, FIFO evictions and disposal stay bounded without duplicate impacts",
+      "passed": true,
+      "evidence": {
+        "air": 0,
+        "underwater": 0,
+        "resting": 3,
+        "maxMoving": 2,
+        "maxResting": 3,
+        "stepSeconds": 0.004166666666666667,
+        "maximumUnderwaterAgeSeconds": 90,
+        "water": {
+          "diameter": 0.025,
+          "radius": 0.0125,
+          "volumeCubicMetres": 0.00000818123086872342,
+          "areaSquareMetres": 0.0004908738521234052,
+          "massKg": 0.021271200258680893,
+          "waterDensityKgPerCubicMetre": 1025,
+          "dragCoefficient": 0.47,
+          "dragPerMetre": 5.558653846153846,
+          "gravityY": -5.9425961538461545,
+          "terminalSpeedMetresPerSecond": 1.033958942592146
+        },
+        "counters": {
+          "launched": 40,
+          "waterEntries": 40,
+          "landImpacts": 0,
+          "bedContacts": 40,
+          "expiredAir": 0,
+          "expiredWater": 0,
+          "evictedResting": 37
+        },
+        "disposed": false,
+        "limits": [
+          "Air collision retains the historical centre-crossing surface event; partial immersion and entry cavity are not solved",
+          "Cd=.47 andrho_water1025kg/m3 are prescribed sphere/seawater proxies, not measured irregular-pebble data",
+          "Still-water quadratic drag and buoyancy; no wave/current advection, rebound, granular contact or bed rolling",
+          "Contacts use a locally planar sphere/heightfield support; fractional-tick previews clamp above bed until the fixed tick commits"
+        ]
+      }
+    },
+    {
+      "name": "Unreachable bed expires only at the explicit90s cap; huge catch-up remains bounded and finite",
+      "passed": true,
+      "evidence": {
+        "maximumWaterTicks": 21600,
+        "headlessCatchupMilliseconds": 29.452200000000005,
+        "counters": {
+          "launched": 1,
+          "waterEntries": 1,
+          "landImpacts": 0,
+          "bedContacts": 0,
+          "expiredAir": 0,
+          "expiredWater": 1,
+          "evictedResting": 0
+        }
+      }
+    },
+    {
+      "name": "Bad physical inputs are rejected and time cannot rewind or produce duplicate interactions",
+      "passed": true,
+      "evidence": {
+        "rewind": "ignored without state mutation",
+        "nonfiniteTime": "rejected"
+      }
+    }
+  ],
+  "runtimeSHA256": "440c87b322154587b911e947e8312405b01de4a69e5ceabd4fe1a803f088877a",
+  "baselineSHA256": "690799e55aeb52affd569731cf25c3691fb3022713f92d5d69db0a9aa4946027",
+  "limits": [
+    "No GPU/refraction screenshot or photographic acceptance. Root must confirm the same mesh is visible through actual water capture.",
+    "Still-water sphere proxy; no interface cavity, waves/current advection, irregular-stone Cd/Re solve, granular rebound/rolling or renderer enlargement.",
+    "Rate independence is fixed240Hz state integration, not exact closed-form nonlinear3D dynamics.",
+    "Metric centre/slope support uses actual heightfield; no triangle-mesh contact manifold."
+  ]
+}

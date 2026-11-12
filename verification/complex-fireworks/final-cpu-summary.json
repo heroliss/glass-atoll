@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "checks": 151,
+  "suites": [
+    {
+      "name": "automatic-light-smoke",
+      "passed": true,
+      "total": 53
+    },
+    {
+      "name": "smoke",
+      "passed": true,
+      "total": 30
+    },
+    {
+      "name": "envelope",
+      "passed": true,
+      "total": 20
+    },
+    {
+      "name": "frame",
+      "passed": true,
+      "total": 48
+    }
+  ],
+  "productionWrites": 0,
+  "gpuOrBrowserRuns": 0,
+  "sourceConsistency": "All per-file source hashes in latest smoke and automatic-light-smoke reports still match the frozen production files.",
+  "knownFailures": [],
+  "fixtureNotes": [
+    "First new smoke expiry assertion required a packet at exact birth+6.5; binary64 subtraction can put age a few ulps beyond6.5 and omit an already-transparent packet. Corrected to allow absent or zero opacity at boundary; preserved first report. No production change."
+  ],
+  "limits": [
+    "CPU numeric/queue tests do not establish browser appearance, HDR output, occlusion or frame rate.",
+    "Light smoke intentionally expires6.5s after birth; this is the inexpensive display proxy, not the persistent full smoke solver."
+  ]
+}

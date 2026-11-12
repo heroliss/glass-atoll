@@ -1,0 +1,2367 @@
+{
+  "status": "done",
+  "flare": {
+    "kind": "C1 single-pass finite-energy ghost/veil actual GPU",
+    "startedAt": "2026-10-26T22:18:36.057Z",
+    "passed": true,
+    "checks": [
+      {
+        "name": "flare-off legacy PSF matches original actual GPU A oracle",
+        "passed": true,
+        "maximumAbsoluteError": 0,
+        "maximumToleranceRatio": 0,
+        "nonFinite": 0,
+        "negative": 0,
+        "tolerance": {
+          "relative": 0.0015,
+          "absolute": 0.000002
+        },
+        "defaultState": {
+          "enabled": true,
+          "bloom": true,
+          "flare": false,
+          "strength": 0.018,
+          "budget": {
+            "direct": 0.982,
+            "bloom": 0.018,
+            "ghost": 0,
+            "veil": 0,
+            "total": 0.018
+          },
+          "levels": 4,
+          "passes": 5,
+          "operatorPeakBoundRGB": [
+            1,
+            1,
+            1
+          ],
+          "model": "single threshold-free linear HDR PSF; opt-in affine ghost/veil share at most 1.8% radiance redistribution",
+          "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+        }
+      },
+      {
+        "name": "uniform HDR never grows and agrees with Jacobian row bound (flare only)",
+        "passed": true,
+        "comparison": {
+          "passed": true,
+          "maximumAbsoluteError": 0.8865587200000391,
+          "maximumToleranceRatio": 0.43439456657734693,
+          "nonFinite": 0,
+          "negative": 0,
+          "tolerance": {
+            "relative": 0.001,
+            "absolute": 0.00002
+          }
+        },
+        "minimum": [
+          2040,
+          127.5,
+          3.984375
+        ],
+        "maximum": [
+          2040,
+          127.5,
+          3.984375
+        ],
+        "input": [
+          2048,
+          128,
+          4
+        ],
+        "operatorPeakBoundRGB": [
+          0.99652664,
+          0.99649208,
+          0.996484064
+        ],
+        "minimumHDRRetention": 0.99609375
+      },
+      {
+        "name": "uniform HDR never grows and agrees with Jacobian row bound (bloom+flare)",
+        "passed": true,
+        "comparison": {
+          "passed": true,
+          "maximumAbsoluteError": 0.8865587200000391,
+          "maximumToleranceRatio": 0.43439456657734693,
+          "nonFinite": 0,
+          "negative": 0,
+          "tolerance": {
+            "relative": 0.001,
+            "absolute": 0.00002
+          }
+        },
+        "minimum": [
+          2040,
+          127.5,
+          3.984375
+        ],
+        "maximum": [
+          2040,
+          127.5,
+          3.984375
+        ],
+        "input": [
+          2048,
+          128,
+          4
+        ],
+        "operatorPeakBoundRGB": [
+          0.99652664,
+          0.99649208,
+          0.996484064
+        ],
+        "minimumHDRRetention": 0.99609375
+      },
+      {
+        "name": "black/missing-source input produces exactly zero (flare only)",
+        "passed": true,
+        "stats": {
+          "sum": [
+            0,
+            0,
+            0
+          ],
+          "maximum": [
+            0,
+            0,
+            0
+          ],
+          "minimum": [
+            0,
+            0,
+            0
+          ],
+          "nonFinite": 0
+        },
+        "visibilityLimit": "This is an input-zero test, not an occlusion/offscreen geometry simulation."
+      },
+      {
+        "name": "black/missing-source input produces exactly zero (bloom+flare)",
+        "passed": true,
+        "stats": {
+          "sum": [
+            0,
+            0,
+            0
+          ],
+          "maximum": [
+            0,
+            0,
+            0
+          ],
+          "minimum": [
+            0,
+            0,
+            0
+          ],
+          "nonFinite": 0
+        },
+        "visibilityLimit": "This is an input-zero test, not an occlusion/offscreen geometry simulation."
+      },
+      {
+        "name": "point flux/crop and peak bound at 64,48 (flare only)",
+        "passed": true,
+        "point": [
+          64,
+          48
+        ],
+        "bloom": false,
+        "fluxRatio": [
+          0.9987847711890936,
+          0.9987684190273285,
+          0.9987007528543472
+        ],
+        "referenceRatio": [
+          0.9991857239327558,
+          0.9991855801199541,
+          0.9991862619001237
+        ],
+        "relativeFluxDifference": [
+          -0.00040095274366225286,
+          -0.0004171610926255731,
+          -0.0004855090457764888
+        ],
+        "peakRatio": [
+          0.99462890625,
+          0.99462890625,
+          0.99462890625
+        ],
+        "nonFinite": 0,
+        "tolerance": "Flux <= input +0.1%; double-reference difference <=0.15% input flux for FP16 storage/filter rounding; finite sensor crop is retained."
+      },
+      {
+        "name": "point flux/crop and peak bound at 64,48 (bloom+flare)",
+        "passed": true,
+        "point": [
+          64,
+          48
+        ],
+        "bloom": true,
+        "fluxRatio": [
+          0.9989857086911798,
+          0.9989695474505424,
+          0.9989006817340851
+        ],
+        "referenceRatio": [
+          0.9991857239327546,
+          0.9991855801199532,
+          0.999186261900123
+        ],
+        "relativeFluxDifference": [
+          -0.00020001524157486905,
+          -0.00021603266941072619,
+          -0.00028558016603796865
+        ],
+        "peakRatio": [
+          0.982421875,
+          0.982421875,
+          0.982421875
+        ],
+        "nonFinite": 0,
+        "tolerance": "Flux <= input +0.1%; double-reference difference <=0.15% input flux for FP16 storage/filter rounding; finite sensor crop is retained."
+      },
+      {
+        "name": "point flux/crop and peak bound at 90,65 (flare only)",
+        "passed": true,
+        "point": [
+          90,
+          65
+        ],
+        "bloom": false,
+        "fluxRatio": [
+          0.9976155422627926,
+          0.9975963719189167,
+          0.9975590854883194
+        ],
+        "referenceRatio": [
+          0.9979894765075035,
+          0.9979808339276535,
+          0.997972197349493
+        ],
+        "relativeFluxDifference": [
+          -0.0003739342447108829,
+          -0.0003844620087367634,
+          -0.00041311186117365395
+        ],
+        "peakRatio": [
+          0.99462890625,
+          0.99462890625,
+          0.99462890625
+        ],
+        "nonFinite": 0,
+        "tolerance": "Flux <= input +0.1%; double-reference difference <=0.15% input flux for FP16 storage/filter rounding; finite sensor crop is retained."
+      },
+      {
+        "name": "point flux/crop and peak bound at 90,65 (bloom+flare)",
+        "passed": true,
+        "point": [
+          90,
+          65
+        ],
+        "bloom": true,
+        "fluxRatio": [
+          0.9977683369070292,
+          0.9977496340870857,
+          0.9977092742919922
+        ],
+        "referenceRatio": [
+          0.9979894765075057,
+          0.9979808339276557,
+          0.9979721973494939
+        ],
+        "relativeFluxDifference": [
+          -0.0002211396004765387,
+          -0.00023119984056996223,
+          -0.0002629230575017516
+        ],
+        "peakRatio": [
+          0.982421875,
+          0.982421875,
+          0.982421875
+        ],
+        "nonFinite": 0,
+        "tolerance": "Flux <= input +0.1%; double-reference difference <=0.15% input flux for FP16 storage/filter rounding; finite sensor crop is retained."
+      },
+      {
+        "name": "point flux/crop and peak bound at 0,48 (flare only)",
+        "passed": true,
+        "point": [
+          0,
+          48
+        ],
+        "bloom": false,
+        "fluxRatio": [
+          0.99462890625,
+          0.99462890625,
+          0.99462890625
+        ],
+        "referenceRatio": [
+          0.995,
+          0.995,
+          0.995
+        ],
+        "relativeFluxDifference": [
+          -0.00037109374999999556,
+          -0.00037109374999999556,
+          -0.00037109374999999556
+        ],
+        "peakRatio": [
+          0.99462890625,
+          0.99462890625,
+          0.99462890625
+        ],
+        "nonFinite": 0,
+        "tolerance": "Flux <= input +0.1%; double-reference difference <=0.15% input flux for FP16 storage/filter rounding; finite sensor crop is retained."
+      },
+      {
+        "name": "point flux/crop and peak bound at 0,48 (bloom+flare)",
+        "passed": true,
+        "point": [
+          0,
+          48
+        ],
+        "bloom": true,
+        "fluxRatio": [
+          0.9949408918619156,
+          0.9949395842850208,
+          0.9949335008859634
+        ],
+        "referenceRatio": [
+          0.9950000000000009,
+          0.9950000000000009,
+          0.9950000000000009
+        ],
+        "relativeFluxDifference": [
+          -0.00005910813808529536,
+          -0.00006041571498005549,
+          -0.0000664991140374438
+        ],
+        "peakRatio": [
+          0.98291015625,
+          0.98291015625,
+          0.98291015625
+        ],
+        "nonFinite": 0,
+        "tolerance": "Flux <= input +0.1%; double-reference difference <=0.15% input flux for FP16 storage/filter rounding; finite sensor crop is retained."
+      },
+      {
+        "name": "point flux/crop and peak bound at 0,0 (flare only)",
+        "passed": true,
+        "point": [
+          0,
+          0
+        ],
+        "bloom": false,
+        "fluxRatio": [
+          0.99462890625,
+          0.99462890625,
+          0.99462890625
+        ],
+        "referenceRatio": [
+          0.995,
+          0.995,
+          0.995
+        ],
+        "relativeFluxDifference": [
+          -0.00037109374999999556,
+          -0.00037109374999999556,
+          -0.00037109374999999556
+        ],
+        "peakRatio": [
+          0.99462890625,
+          0.99462890625,
+          0.99462890625
+        ],
+        "nonFinite": 0,
+        "tolerance": "Flux <= input +0.1%; double-reference difference <=0.15% input flux for FP16 storage/filter rounding; finite sensor crop is retained."
+      },
+      {
+        "name": "point flux/crop and peak bound at 0,0 (bloom+flare)",
+        "passed": true,
+        "point": [
+          0,
+          0
+        ],
+        "bloom": true,
+        "fluxRatio": [
+          0.9948040880262852,
+          0.9948034882545471,
+          0.9948006719350815
+        ],
+        "referenceRatio": [
+          0.9949999999999993,
+          0.9949999999999993,
+          0.9949999999999993
+        ],
+        "relativeFluxDifference": [
+          -0.00019591197371415792,
+          -0.00019651174545221028,
+          -0.0001993280649178475
+        ],
+        "peakRatio": [
+          0.9833984375,
+          0.9833984375,
+          0.9833984375
+        ],
+        "nonFinite": 0,
+        "tolerance": "Flux <= input +0.1%; double-reference difference <=0.15% input flux for FP16 storage/filter rounding; finite sensor crop is retained."
+      },
+      {
+        "name": "off-axis visible input actually creates bounded diffuse ghosts rather than a no-op",
+        "passed": true,
+        "comparison": {
+          "passed": true,
+          "maximumAbsoluteError": 0.023944396594536954,
+          "maximumToleranceRatio": 0.8567342652813368,
+          "nonFinite": 0,
+          "negative": 0,
+          "tolerance": {
+            "relative": 0.012,
+            "absolute": 0.000002
+          }
+        },
+        "offPointFlux": 0.20821791887283325,
+        "ghostRegionPeak": 0.0013790130615234375,
+        "predictedGhostCentres": [
+          {
+            "scale": -0.72,
+            "pixel": [
+              33.638888888888886,
+              30.138888888888886
+            ]
+          },
+          {
+            "scale": -0.48,
+            "pixel": [
+              18.70833333333333,
+              21.45833333333332
+            ]
+          },
+          {
+            "scale": 0.86,
+            "pixel": [
+              88.5,
+              62.03488372093023
+            ]
+          }
+        ]
+      },
+      {
+        "name": "mixed HDR field remains finite/nonnegative and each RGB peak <= input peak",
+        "passed": true,
+        "inputMaximum": [
+          4096,
+          1,
+          256
+        ],
+        "outputMaximum": [
+          4024,
+          0.98974609375,
+          251.5
+        ],
+        "outputMinimum": [
+          0.0181121826171875,
+          0.006374359130859375,
+          0.001285552978515625
+        ],
+        "nonFinite": 0
+      },
+      {
+        "name": "P power-of-two compensation is preserved without a second display/exposure gain",
+        "passed": true,
+        "results": [
+          {
+            "P": -4,
+            "passed": true,
+            "maximumAbsoluteError": 9.5367431640625e-7,
+            "maximumToleranceRatio": 0.47638284411991133,
+            "nonFinite": 0,
+            "negative": 0,
+            "tolerance": {
+              "relative": 0.002,
+              "absolute": 0.000002
+            }
+          },
+          {
+            "P": 8,
+            "passed": true,
+            "maximumAbsoluteError": 5.9371814131736755e-8,
+            "maximumToleranceRatio": 0.029685907065868378,
+            "nonFinite": 0,
+            "negative": 0,
+            "tolerance": {
+              "relative": 0.002,
+              "absolute": 0.000002
+            }
+          }
+        ]
+      },
+      {
+        "name": "enabled path restores current target/rectangles/read-FBO and logical metadata",
+        "passed": true,
+        "currentViewport": [
+          2,
+          3,
+          31,
+          29
+        ],
+        "actualScissor": [
+          1,
+          2,
+          17,
+          19
+        ]
+      },
+      {
+        "name": "try/finally also restores caller state after an injected draw failure",
+        "passed": true,
+        "intentionalFailureCaught": true
+      },
+      {
+        "name": "cube face and allocated nonzero mip target restore without metadata mutation",
+        "passed": true,
+        "face": 4,
+        "mip": 1,
+        "framebufferComplete": true
+      },
+      {
+        "name": "both off is exact input identity with zero draws and no state change",
+        "passed": true
+      },
+      {
+        "name": "legacy bool turns flare off and restores original A budget",
+        "passed": true,
+        "state": {
+          "enabled": true,
+          "bloom": true,
+          "flare": false,
+          "strength": 0.018,
+          "budget": {
+            "direct": 0.982,
+            "bloom": 0.018,
+            "ghost": 0,
+            "veil": 0,
+            "total": 0.018
+          },
+          "levels": 4,
+          "passes": 5,
+          "operatorPeakBoundRGB": [
+            1,
+            1,
+            1
+          ],
+          "model": "single threshold-free linear HDR PSF; opt-in affine ghost/veil share at most 1.8% radiance redistribution",
+          "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+        }
+      },
+      {
+        "name": "all actual shaders compile without WebGL errors",
+        "passed": true,
+        "shaderErrors": [],
+        "glErrors": []
+      }
+    ],
+    "errors": [],
+    "shaderErrors": [],
+    "glErrors": [],
+    "fixtureSize": [
+      128,
+      96
+    ],
+    "candidateSourceSHA256": "52508e641fda1aec9594444c583f2523f9285e7dfec67ca7a25fa0157a2b9601",
+    "baselineSourceSHA256": "4bf96b00252cf79403a865b3d35b902c2aa8dcb9732c4dab4169ac96c1aaca63",
+    "limits": [
+      "Image-space input only: missing input from behind/blocked/offscreen sources is zero, but this module does not solve their visibility or offscreen lens entrance paths.",
+      "The point tests explicitly include finite-sensor crop; discarded energy is not re-normalized into view.",
+      "A positive operator bound is not measured lens behavior. Ghost scale/coating/1.8% budget are authored parameters, not a ray-traced or calibrated lens.",
+      "RGBA16F intermediates and hardware filtering are compared to a separate double raster reference; diagnostic readback wall time is not GPU time or full-scene FPS."
+    ],
+    "context": "supplied caller context (retained)",
+    "pointResults": [
+      {
+        "point": [
+          64,
+          48
+        ],
+        "bloom": false,
+        "fluxRatio": [
+          0.9987847711890936,
+          0.9987684190273285,
+          0.9987007528543472
+        ],
+        "referenceRatio": [
+          0.9991857239327558,
+          0.9991855801199541,
+          0.9991862619001237
+        ],
+        "relativeFluxDifference": [
+          -0.00040095274366225286,
+          -0.0004171610926255731,
+          -0.0004855090457764888
+        ],
+        "peakRatio": [
+          0.99462890625,
+          0.99462890625,
+          0.99462890625
+        ],
+        "nonFinite": 0,
+        "tolerance": "Flux <= input +0.1%; double-reference difference <=0.15% input flux for FP16 storage/filter rounding; finite sensor crop is retained."
+      },
+      {
+        "point": [
+          64,
+          48
+        ],
+        "bloom": true,
+        "fluxRatio": [
+          0.9989857086911798,
+          0.9989695474505424,
+          0.9989006817340851
+        ],
+        "referenceRatio": [
+          0.9991857239327546,
+          0.9991855801199532,
+          0.999186261900123
+        ],
+        "relativeFluxDifference": [
+          -0.00020001524157486905,
+          -0.00021603266941072619,
+          -0.00028558016603796865
+        ],
+        "peakRatio": [
+          0.982421875,
+          0.982421875,
+          0.982421875
+        ],
+        "nonFinite": 0,
+        "tolerance": "Flux <= input +0.1%; double-reference difference <=0.15% input flux for FP16 storage/filter rounding; finite sensor crop is retained."
+      },
+      {
+        "point": [
+          90,
+          65
+        ],
+        "bloom": false,
+        "fluxRatio": [
+          0.9976155422627926,
+          0.9975963719189167,
+          0.9975590854883194
+        ],
+        "referenceRatio": [
+          0.9979894765075035,
+          0.9979808339276535,
+          0.997972197349493
+        ],
+        "relativeFluxDifference": [
+          -0.0003739342447108829,
+          -0.0003844620087367634,
+          -0.00041311186117365395
+        ],
+        "peakRatio": [
+          0.99462890625,
+          0.99462890625,
+          0.99462890625
+        ],
+        "nonFinite": 0,
+        "tolerance": "Flux <= input +0.1%; double-reference difference <=0.15% input flux for FP16 storage/filter rounding; finite sensor crop is retained."
+      },
+      {
+        "point": [
+          90,
+          65
+        ],
+        "bloom": true,
+        "fluxRatio": [
+          0.9977683369070292,
+          0.9977496340870857,
+          0.9977092742919922
+        ],
+        "referenceRatio": [
+          0.9979894765075057,
+          0.9979808339276557,
+          0.9979721973494939
+        ],
+        "relativeFluxDifference": [
+          -0.0002211396004765387,
+          -0.00023119984056996223,
+          -0.0002629230575017516
+        ],
+        "peakRatio": [
+          0.982421875,
+          0.982421875,
+          0.982421875
+        ],
+        "nonFinite": 0,
+        "tolerance": "Flux <= input +0.1%; double-reference difference <=0.15% input flux for FP16 storage/filter rounding; finite sensor crop is retained."
+      },
+      {
+        "point": [
+          0,
+          48
+        ],
+        "bloom": false,
+        "fluxRatio": [
+          0.99462890625,
+          0.99462890625,
+          0.99462890625
+        ],
+        "referenceRatio": [
+          0.995,
+          0.995,
+          0.995
+        ],
+        "relativeFluxDifference": [
+          -0.00037109374999999556,
+          -0.00037109374999999556,
+          -0.00037109374999999556
+        ],
+        "peakRatio": [
+          0.99462890625,
+          0.99462890625,
+          0.99462890625
+        ],
+        "nonFinite": 0,
+        "tolerance": "Flux <= input +0.1%; double-reference difference <=0.15% input flux for FP16 storage/filter rounding; finite sensor crop is retained."
+      },
+      {
+        "point": [
+          0,
+          48
+        ],
+        "bloom": true,
+        "fluxRatio": [
+          0.9949408918619156,
+          0.9949395842850208,
+          0.9949335008859634
+        ],
+        "referenceRatio": [
+          0.9950000000000009,
+          0.9950000000000009,
+          0.9950000000000009
+        ],
+        "relativeFluxDifference": [
+          -0.00005910813808529536,
+          -0.00006041571498005549,
+          -0.0000664991140374438
+        ],
+        "peakRatio": [
+          0.98291015625,
+          0.98291015625,
+          0.98291015625
+        ],
+        "nonFinite": 0,
+        "tolerance": "Flux <= input +0.1%; double-reference difference <=0.15% input flux for FP16 storage/filter rounding; finite sensor crop is retained."
+      },
+      {
+        "point": [
+          0,
+          0
+        ],
+        "bloom": false,
+        "fluxRatio": [
+          0.99462890625,
+          0.99462890625,
+          0.99462890625
+        ],
+        "referenceRatio": [
+          0.995,
+          0.995,
+          0.995
+        ],
+        "relativeFluxDifference": [
+          -0.00037109374999999556,
+          -0.00037109374999999556,
+          -0.00037109374999999556
+        ],
+        "peakRatio": [
+          0.99462890625,
+          0.99462890625,
+          0.99462890625
+        ],
+        "nonFinite": 0,
+        "tolerance": "Flux <= input +0.1%; double-reference difference <=0.15% input flux for FP16 storage/filter rounding; finite sensor crop is retained."
+      },
+      {
+        "point": [
+          0,
+          0
+        ],
+        "bloom": true,
+        "fluxRatio": [
+          0.9948040880262852,
+          0.9948034882545471,
+          0.9948006719350815
+        ],
+        "referenceRatio": [
+          0.9949999999999993,
+          0.9949999999999993,
+          0.9949999999999993
+        ],
+        "relativeFluxDifference": [
+          -0.00019591197371415792,
+          -0.00019651174545221028,
+          -0.0001993280649178475
+        ],
+        "peakRatio": [
+          0.9833984375,
+          0.9833984375,
+          0.9833984375
+        ],
+        "nonFinite": 0,
+        "tolerance": "Flux <= input +0.1%; double-reference difference <=0.15% input flux for FP16 storage/filter rounding; finite sensor crop is retained."
+      }
+    ],
+    "lastState": {
+      "enabled": true,
+      "bloom": true,
+      "flare": false,
+      "strength": 0.018,
+      "budget": {
+        "direct": 0.982,
+        "bloom": 0.018,
+        "ghost": 0,
+        "veil": 0,
+        "total": 0.018
+      },
+      "levels": 4,
+      "passes": 5,
+      "operatorPeakBoundRGB": [
+        1,
+        1,
+        1
+      ],
+      "model": "single threshold-free linear HDR PSF; opt-in affine ghost/veil share at most 1.8% radiance redistribution",
+      "flareScope": "visible input image only; finite sensor crop, no offscreen-source/lens-tracing/occlusion inference"
+    },
+    "outerStateRestored": true,
+    "wallTimeMs": 178.20000004768372,
+    "cleanup": "Only own temporary resources disposed; supplied context retained and caller state restored."
+  },
+  "smiley": {
+    "date": "2026-10-26T22:18:38.162Z",
+    "passed": true,
+    "passedCount": 22,
+    "total": 22,
+    "core": {
+      "passedCount": 18,
+      "total": 18
+    },
+    "checks": [
+      {
+        "name": "actual_factory_ring_event_matches_selected_layout_at_actual_burst_plus1_1s",
+        "passed": true,
+        "evidence": {
+          "launch": {
+            "accepted": true,
+            "queued": false,
+            "id": "14271-0.00000",
+            "type": "ring",
+            "smileyLayout": "reference",
+            "actualStarCount": 120,
+            "burstTime": 4.658378958306491
+          },
+          "smileyLayout": "reference",
+          "expectedStars": 120,
+          "phaseSeconds": 5.758378958306491,
+          "diagnostic": {
+            "id": "14271-0.00000",
+            "type": "ring",
+            "pattern": "smiley",
+            "smileyLayout": "reference",
+            "actualStarCount": 120,
+            "calibreMm": 90,
+            "heightInfo": {
+              "inputMode": "definition-rise",
+              "referenceRiseMetres": 120,
+              "referenceElevationDegrees": 80,
+              "explicitWorldHeight": null,
+              "calibratedRiseMetres": 120,
+              "actualBurstWorldY": 121.5599731169882,
+              "actualBurstRiseMetres": 120.00000000000014,
+              "productReference": {
+                "calibreMm": 90,
+                "riseMetres": 120,
+                "referenceWidthMetres": 60,
+                "source": "https://san-en-fireworks.com/index/products/productse/",
+                "evidence": "supplier product-scale example",
+                "widthCalibrated": false
+              },
+              "widthCalibrated": false,
+              "visibleApex": null
+            },
+            "paletteMode": "single-colour"
+          },
+          "geometry": {
+            "instances": 135,
+            "stars": 120,
+            "smoke": 15,
+            "sumUploadedUnmodulatedCandela": 922.291473865509,
+            "physicalFNV32": "75027fe7",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          }
+        }
+      },
+      {
+        "name": "view_0_actual_GPU_finite_nonzero_inside_frame",
+        "passed": true,
+        "evidence": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.005453393328934908,
+          "rawPeakRGB": 0.005453393328934908,
+          "totalStoredPixelY": 0.27521383942787875,
+          "totalRawPixelY": 0.27521383942787875,
+          "nonzeroPixels": 2991,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 142
+        }
+      },
+      {
+        "name": "view_0_same_uploaded_world_positions_velocities_orientation_and_records",
+        "passed": true,
+        "evidence": {
+          "eventId": "14271-0.00000",
+          "geometry": {
+            "instances": 135,
+            "stars": 120,
+            "smoke": 15,
+            "sumUploadedUnmodulatedCandela": 922.291473865509,
+            "physicalFNV32": "75027fe7",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          }
+        }
+      },
+      {
+        "name": "view_30_actual_GPU_finite_nonzero_inside_frame",
+        "passed": true,
+        "evidence": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.006309038959443569,
+          "rawPeakRGB": 0.006309038959443569,
+          "totalStoredPixelY": 0.27648984316457487,
+          "totalRawPixelY": 0.27648984316457487,
+          "nonzeroPixels": 2839,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 125
+        }
+      },
+      {
+        "name": "view_30_same_uploaded_world_positions_velocities_orientation_and_records",
+        "passed": true,
+        "evidence": {
+          "eventId": "14271-0.00000",
+          "geometry": {
+            "instances": 135,
+            "stars": 120,
+            "smoke": 15,
+            "sumUploadedUnmodulatedCandela": 922.291473865509,
+            "physicalFNV32": "75027fe7",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          }
+        }
+      },
+      {
+        "name": "view_60_actual_GPU_finite_nonzero_inside_frame",
+        "passed": true,
+        "evidence": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.006580880843102932,
+          "rawPeakRGB": 0.006580880843102932,
+          "totalStoredPixelY": 0.27574006868079226,
+          "totalRawPixelY": 0.27574006868079226,
+          "nonzeroPixels": 2582,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 90
+        }
+      },
+      {
+        "name": "view_60_same_uploaded_world_positions_velocities_orientation_and_records",
+        "passed": true,
+        "evidence": {
+          "eventId": "14271-0.00000",
+          "geometry": {
+            "instances": 135,
+            "stars": 120,
+            "smoke": 15,
+            "sumUploadedUnmodulatedCandela": 922.291473865509,
+            "physicalFNV32": "75027fe7",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          }
+        }
+      },
+      {
+        "name": "view_85_actual_GPU_finite_nonzero_inside_frame",
+        "passed": true,
+        "evidence": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.010228550992906094,
+          "rawPeakRGB": 0.010228550992906094,
+          "totalStoredPixelY": 0.27852645806256865,
+          "totalRawPixelY": 0.27852645806256865,
+          "nonzeroPixels": 2271,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 68
+        }
+      },
+      {
+        "name": "view_85_same_uploaded_world_positions_velocities_orientation_and_records",
+        "passed": true,
+        "evidence": {
+          "eventId": "14271-0.00000",
+          "geometry": {
+            "instances": 135,
+            "stars": 120,
+            "smoke": 15,
+            "sumUploadedUnmodulatedCandela": 922.291473865509,
+            "physicalFNV32": "75027fe7",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          }
+        }
+      },
+      {
+        "name": "view_180_actual_GPU_finite_nonzero_inside_frame",
+        "passed": true,
+        "evidence": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.00543952127918601,
+          "rawPeakRGB": 0.00543952127918601,
+          "totalStoredPixelY": 0.27657421680138505,
+          "totalRawPixelY": 0.27657421680138505,
+          "nonzeroPixels": 2745,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 142
+        }
+      },
+      {
+        "name": "view_180_same_uploaded_world_positions_velocities_orientation_and_records",
+        "passed": true,
+        "evidence": {
+          "eventId": "14271-0.00000",
+          "geometry": {
+            "instances": 135,
+            "stars": 120,
+            "smoke": 15,
+            "sumUploadedUnmodulatedCandela": 922.291473865509,
+            "physicalFNV32": "75027fe7",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          }
+        }
+      },
+      {
+        "name": "edge_view_is_physically_thinner_no_billboard_readability_requirement",
+        "passed": true,
+        "evidence": {
+          "centreWidthRatio85to0": 0.08773359464859844,
+          "expectedOrthographicCosine": 0.08715574274765814,
+          "perspectiveAndPSF": "real perspective and raster PSF need not equal orthographic cosine exactly"
+        }
+      },
+      {
+        "name": "P_plus1_compensated_actual_pixels_are_finite_and_unchanged",
+        "passed": true,
+        "evidence": {
+          "relativeAbsoluteLinearRGBError": 0,
+          "basePeak": 0.005453393328934908,
+          "higherPeak": 0.010906786657869816,
+          "compensation": 0.5
+        }
+      },
+      {
+        "name": "reflection_variant_uses_same_event_world_records_and_is_finite",
+        "passed": true,
+        "evidence": {
+          "eventId": "14271-0.00000",
+          "geometry": {
+            "instances": 135,
+            "stars": 120,
+            "smoke": 15,
+            "sumUploadedUnmodulatedCandela": 922.291473865509,
+            "physicalFNV32": "75027fe7",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          },
+          "stats": {
+            "nonfinite": 0,
+            "negative": 0,
+            "storedPeakRGB": 0.005004137754440308,
+            "rawPeakRGB": 0.005004137754440308,
+            "totalStoredPixelY": 0.22880099408804988,
+            "totalRawPixelY": 0.22880099408804988,
+            "nonzeroPixels": 2885,
+            "outer2PixelLuminanceFraction": 0,
+            "visibleWidthPixels": 130
+          },
+          "actualVariant": {
+            "materialDefines": {
+              "REFLECTION_PASS": 1
+            },
+            "hasReflectionPassDefine": true,
+            "materialDepthTest": true,
+            "lastRenderReflection": true
+          },
+          "observer": "mirror of an above-water3.5m observer aiming at the virtual burst; air disabled, reflection shutter0 is production behavior"
+        }
+      },
+      {
+        "name": "production_reflection_respects_owned_hardware_depth_blocker",
+        "passed": true,
+        "evidence": {
+          "totalStoredPixelY": 0,
+          "actualVariant": {
+            "materialDefines": {
+              "REFLECTION_PASS": 1
+            },
+            "hasReflectionPassDefine": true,
+            "materialDepthTest": true,
+            "lastRenderReflection": true
+          },
+          "scope": "opaque depth plane1m ahead; no attached depth sampler bound to reflection variant"
+        }
+      },
+      {
+        "name": "two_tone_default_has_same_physical_event_as_mono",
+        "passed": true,
+        "evidence": {
+          "eventId": "14271-0.00000",
+          "paletteMode": "yellow-outline-green-features",
+          "geometry": {
+            "instances": 135,
+            "stars": 120,
+            "smoke": 15,
+            "sumUploadedUnmodulatedCandela": 922.291473865509,
+            "physicalFNV32": "75027fe7",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          },
+          "stats": {
+            "nonfinite": 0,
+            "negative": 0,
+            "storedPeakRGB": 0.005036070477217436,
+            "rawPeakRGB": 0.005036070477217436,
+            "totalStoredPixelY": 0.2752171578657725,
+            "totalRawPixelY": 0.2752171578657725,
+            "nonzeroPixels": 2993,
+            "outer2PixelLuminanceFraction": 0,
+            "visibleWidthPixels": 142
+          }
+        }
+      },
+      {
+        "name": "layout_dense_front_same_conditions_correct_actual_count_and_finite_GPU",
+        "passed": true,
+        "evidence": {
+          "diagnostic": {
+            "id": "14271-0.00000",
+            "type": "ring",
+            "pattern": "smiley",
+            "smileyLayout": "dense",
+            "actualStarCount": 144,
+            "calibreMm": 90,
+            "heightInfo": {
+              "inputMode": "definition-rise",
+              "referenceRiseMetres": 120,
+              "referenceElevationDegrees": 80,
+              "explicitWorldHeight": null,
+              "calibratedRiseMetres": 120,
+              "actualBurstWorldY": 121.5599731169882,
+              "actualBurstRiseMetres": 120.00000000000014,
+              "productReference": {
+                "calibreMm": 90,
+                "riseMetres": 120,
+                "referenceWidthMetres": 60,
+                "source": "https://san-en-fireworks.com/index/products/productse/",
+                "evidence": "supplier product-scale example",
+                "widthCalibrated": false
+              },
+              "widthCalibrated": false,
+              "visibleApex": null
+            },
+            "paletteMode": "single-colour"
+          },
+          "geometry": {
+            "instances": 159,
+            "stars": 144,
+            "smoke": 15,
+            "sumUploadedUnmodulatedCandela": 1096.9599890708923,
+            "physicalFNV32": "a721ab22",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          },
+          "stats": {
+            "nonfinite": 0,
+            "negative": 0,
+            "storedPeakRGB": 0.005806459113955498,
+            "rawPeakRGB": 0.005806459113955498,
+            "totalStoredPixelY": 0.3279453009673494,
+            "totalRawPixelY": 0.3279453009673494,
+            "nonzeroPixels": 3177,
+            "outer2PixelLuminanceFraction": 0,
+            "visibleWidthPixels": 142
+          },
+          "camera": [
+            0,
+            115.95831680297852,
+            215.10560989379883
+          ],
+          "phaseSeconds": 5.758378958306491,
+          "energyNormalization": false
+        }
+      },
+      {
+        "name": "layout_spaced-mouth_front_same_conditions_correct_actual_count_and_finite_GPU",
+        "passed": true,
+        "evidence": {
+          "diagnostic": {
+            "id": "14271-0.00000",
+            "type": "ring",
+            "pattern": "smiley",
+            "smileyLayout": "spaced-mouth",
+            "actualStarCount": 120,
+            "calibreMm": 90,
+            "heightInfo": {
+              "inputMode": "definition-rise",
+              "referenceRiseMetres": 120,
+              "referenceElevationDegrees": 80,
+              "explicitWorldHeight": null,
+              "calibratedRiseMetres": 120,
+              "actualBurstWorldY": 121.5599731169882,
+              "actualBurstRiseMetres": 120.00000000000014,
+              "productReference": {
+                "calibreMm": 90,
+                "riseMetres": 120,
+                "referenceWidthMetres": 60,
+                "source": "https://san-en-fireworks.com/index/products/productse/",
+                "evidence": "supplier product-scale example",
+                "widthCalibrated": false
+              },
+              "widthCalibrated": false,
+              "visibleApex": null
+            },
+            "paletteMode": "single-colour"
+          },
+          "geometry": {
+            "instances": 135,
+            "stars": 120,
+            "smoke": 15,
+            "sumUploadedUnmodulatedCandela": 922.291473865509,
+            "physicalFNV32": "c1f1aad0",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          },
+          "stats": {
+            "nonfinite": 0,
+            "negative": 0,
+            "storedPeakRGB": 0.00570652075111866,
+            "rawPeakRGB": 0.00570652075111866,
+            "totalStoredPixelY": 0.27556546833216966,
+            "totalRawPixelY": 0.27556546833216966,
+            "nonzeroPixels": 3020,
+            "outer2PixelLuminanceFraction": 0,
+            "visibleWidthPixels": 142
+          },
+          "camera": [
+            0,
+            115.95831680297852,
+            215.10560989379883
+          ],
+          "phaseSeconds": 5.758378958306491,
+          "energyNormalization": false
+        }
+      },
+      {
+        "name": "layout_compact-eyes_front_same_conditions_correct_actual_count_and_finite_GPU",
+        "passed": true,
+        "evidence": {
+          "diagnostic": {
+            "id": "14271-0.00000",
+            "type": "ring",
+            "pattern": "smiley",
+            "smileyLayout": "compact-eyes",
+            "actualStarCount": 144,
+            "calibreMm": 90,
+            "heightInfo": {
+              "inputMode": "definition-rise",
+              "referenceRiseMetres": 120,
+              "referenceElevationDegrees": 80,
+              "explicitWorldHeight": null,
+              "calibratedRiseMetres": 120,
+              "actualBurstWorldY": 121.5599731169882,
+              "actualBurstRiseMetres": 120.00000000000014,
+              "productReference": {
+                "calibreMm": 90,
+                "riseMetres": 120,
+                "referenceWidthMetres": 60,
+                "source": "https://san-en-fireworks.com/index/products/productse/",
+                "evidence": "supplier product-scale example",
+                "widthCalibrated": false
+              },
+              "widthCalibrated": false,
+              "visibleApex": null
+            },
+            "paletteMode": "single-colour"
+          },
+          "geometry": {
+            "instances": 159,
+            "stars": 144,
+            "smoke": 15,
+            "sumUploadedUnmodulatedCandela": 1096.9599890708923,
+            "physicalFNV32": "1c515495",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          },
+          "stats": {
+            "nonfinite": 0,
+            "negative": 0,
+            "storedPeakRGB": 0.005806459113955498,
+            "rawPeakRGB": 0.005806459113955498,
+            "totalStoredPixelY": 0.3275936682095931,
+            "totalRawPixelY": 0.3275936682095931,
+            "nonzeroPixels": 3148,
+            "outer2PixelLuminanceFraction": 0,
+            "visibleWidthPixels": 142
+          },
+          "camera": [
+            0,
+            115.95831680297852,
+            215.10560989379883
+          ],
+          "phaseSeconds": 5.758378958306491,
+          "energyNormalization": false
+        }
+      },
+      {
+        "name": "layout_reference_front_same_conditions_correct_actual_count_and_finite_GPU",
+        "passed": true,
+        "evidence": {
+          "diagnostic": {
+            "id": "14271-0.00000",
+            "type": "ring",
+            "pattern": "smiley",
+            "smileyLayout": "reference",
+            "actualStarCount": 120,
+            "calibreMm": 90,
+            "heightInfo": {
+              "inputMode": "definition-rise",
+              "referenceRiseMetres": 120,
+              "referenceElevationDegrees": 80,
+              "explicitWorldHeight": null,
+              "calibratedRiseMetres": 120,
+              "actualBurstWorldY": 121.5599731169882,
+              "actualBurstRiseMetres": 120.00000000000014,
+              "productReference": {
+                "calibreMm": 90,
+                "riseMetres": 120,
+                "referenceWidthMetres": 60,
+                "source": "https://san-en-fireworks.com/index/products/productse/",
+                "evidence": "supplier product-scale example",
+                "widthCalibrated": false
+              },
+              "widthCalibrated": false,
+              "visibleApex": null
+            },
+            "paletteMode": "single-colour"
+          },
+          "geometry": {
+            "instances": 135,
+            "stars": 120,
+            "smoke": 15,
+            "sumUploadedUnmodulatedCandela": 922.291473865509,
+            "physicalFNV32": "75027fe7",
+            "minimumMetres": [
+              -21.18138885498047,
+              94.77692413330078,
+              -44.89439010620117
+            ],
+            "maximumMetres": [
+              21.18138885498047,
+              137.13970947265625,
+              -44.89439010620117
+            ],
+            "spanMetres": [
+              42.36277770996094,
+              42.36278533935547,
+              0
+            ],
+            "planeZSpanMetres": 0
+          },
+          "stats": {
+            "nonfinite": 0,
+            "negative": 0,
+            "storedPeakRGB": 0.005453393328934908,
+            "rawPeakRGB": 0.005453393328934908,
+            "totalStoredPixelY": 0.27521383942787875,
+            "totalRawPixelY": 0.27521383942787875,
+            "nonzeroPixels": 2991,
+            "outer2PixelLuminanceFraction": 0,
+            "visibleWidthPixels": 142
+          },
+          "camera": [
+            0,
+            115.95831680297852,
+            215.10560989379883
+          ],
+          "phaseSeconds": 5.758378958306491,
+          "energyNormalization": false
+        }
+      },
+      {
+        "name": "same_P_all_pictured_views_fit_finite_FP16_numeric_range",
+        "passed": true,
+        "evidence": {
+          "storageEV": 0,
+          "maximumStoredPeak": 0.010228550992906094,
+          "scope": "Float32 blending/readback proves numeric range only; not a HalfFloat quantization test"
+        }
+      },
+      {
+        "name": "borrowed_renderer_state_restored",
+        "passed": true
+      }
+    ],
+    "conditions": {
+      "size": 640,
+      "seed": 14271,
+      "launch": {
+        "accepted": true,
+        "queued": false,
+        "id": "14271-0.00000",
+        "type": "ring",
+        "smileyLayout": "reference",
+        "actualStarCount": 120,
+        "burstTime": 4.658378958306491
+      },
+      "time": 5.758378958306491,
+      "secondsAfterActualBurst": 1.1,
+      "cameraEV": 16.5,
+      "storageEV": 0,
+      "rawPerCandela": 0.000036,
+      "origin": [
+        0,
+        0.7,
+        0
+      ],
+      "wind": [
+        0,
+        0,
+        0
+      ],
+      "smileyLayout": "reference",
+      "layoutFrontViews": [
+        "dense",
+        "spaced-mouth",
+        "compact-eyes",
+        "reference"
+      ],
+      "air": false,
+      "dof": false,
+      "vignette": false,
+      "bloom": false,
+      "monochrome": "explicit yellow; physical star hue is not altered in the renderer",
+      "floatExtensions": {
+        "floatColour": true,
+        "floatBlend": true
+      }
+    },
+    "layoutComparisons": [
+      {
+        "from": "dense",
+        "to": "spaced-mouth",
+        "relativeAbsoluteRawRGBDifference": 0.3232235180678888,
+        "totalRawPixelYRatio": 0.8402787523386568,
+        "uploadedUnmodulatedCandelaRatio": 0.8407703863900043,
+        "note": "RGB pixel integral includes PSF, shutter and smoke; not a proof of physical energy conservation. Fewer mouth stars intentionally lower source candela."
+      },
+      {
+        "from": "dense",
+        "to": "compact-eyes",
+        "relativeAbsoluteRawRGBDifference": 0.3171400328355053,
+        "totalRawPixelYRatio": 0.9989277700984918,
+        "uploadedUnmodulatedCandelaRatio": 1,
+        "note": "RGB pixel integral includes PSF, shutter and smoke; not a proof of physical energy conservation. Fewer mouth stars intentionally lower source candela."
+      },
+      {
+        "from": "spaced-mouth",
+        "to": "reference",
+        "relativeAbsoluteRawRGBDifference": 0.37742321981996946,
+        "totalRawPixelYRatio": 0.9987239732669732,
+        "uploadedUnmodulatedCandelaRatio": 1,
+        "note": "RGB pixel integral includes PSF, shutter and smoke; not a proof of physical energy conservation. Fewer mouth stars intentionally lower source candela."
+      },
+      {
+        "from": "compact-eyes",
+        "to": "reference",
+        "relativeAbsoluteRawRGBDifference": 0.32357000928513296,
+        "totalRawPixelYRatio": 0.840107322379009,
+        "uploadedUnmodulatedCandelaRatio": 0.8407703863900043,
+        "note": "RGB pixel integral includes PSF, shutter and smoke; not a proof of physical energy conservation. Fewer mouth stars intentionally lower source candela."
+      }
+    ],
+    "frames": [
+      {
+        "id": "mono_0",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "smileyLayout": "reference",
+        "actualStarCount": 120,
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          0,
+          115.95831680297852,
+          215.10560989379883
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 260,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 135,
+          "stars": 120,
+          "smoke": 15,
+          "sumUploadedUnmodulatedCandela": 922.291473865509,
+          "physicalFNV32": "75027fe7",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.005453393328934908,
+          "rawPeakRGB": 0.005453393328934908,
+          "totalStoredPixelY": 0.27521383942787875,
+          "totalRawPixelY": 0.27521383942787875,
+          "nonzeroPixels": 2991,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 142
+        },
+        "viewAngleDegrees": 0,
+        "projectedStarCentreWidthPixels": 139.03680889423077
+      },
+      {
+        "id": "mono_30",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "smileyLayout": "reference",
+        "actualStarCount": 120,
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          129.99999999999997,
+          115.95831680297852,
+          180.2722148777529
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 260,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 135,
+          "stars": 120,
+          "smoke": 15,
+          "sumUploadedUnmodulatedCandela": 922.291473865509,
+          "physicalFNV32": "75027fe7",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.006309038959443569,
+          "rawPeakRGB": 0.006309038959443569,
+          "totalStoredPixelY": 0.27648984316457487,
+          "totalRawPixelY": 0.27648984316457487,
+          "nonzeroPixels": 2839,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 125
+        },
+        "viewAngleDegrees": 30,
+        "projectedStarCentreWidthPixels": 120.60952547334396
+      },
+      {
+        "id": "mono_60",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "smileyLayout": "reference",
+        "actualStarCount": 120,
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          225.16660498395404,
+          115.95831680297852,
+          85.10560989379886
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 260,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 135,
+          "stars": 120,
+          "smoke": 15,
+          "sumUploadedUnmodulatedCandela": 922.291473865509,
+          "physicalFNV32": "75027fe7",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.006580880843102932,
+          "rawPeakRGB": 0.006580880843102932,
+          "totalStoredPixelY": 0.27574006868079226,
+          "totalRawPixelY": 0.27574006868079226,
+          "nonzeroPixels": 2582,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 90
+        },
+        "viewAngleDegrees": 60,
+        "projectedStarCentreWidthPixels": 69.86617306488448
+      },
+      {
+        "id": "mono_85",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "smileyLayout": "reference",
+        "actualStarCount": 120,
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          259.0106215038538,
+          115.95831680297852,
+          -22.233896991810056
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 260,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 135,
+          "stars": 120,
+          "smoke": 15,
+          "sumUploadedUnmodulatedCandela": 922.291473865509,
+          "physicalFNV32": "75027fe7",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.010228550992906094,
+          "rawPeakRGB": 0.010228550992906094,
+          "totalStoredPixelY": 0.27852645806256865,
+          "totalRawPixelY": 0.27852645806256865,
+          "nonzeroPixels": 2271,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 68
+        },
+        "viewAngleDegrees": 85,
+        "projectedStarCentreWidthPixels": 12.198199032761089
+      },
+      {
+        "id": "mono_180",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "smileyLayout": "reference",
+        "actualStarCount": 120,
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          3.184081677783118e-14,
+          115.95831680297852,
+          -304.8943901062012
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 260,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 135,
+          "stars": 120,
+          "smoke": 15,
+          "sumUploadedUnmodulatedCandela": 922.291473865509,
+          "physicalFNV32": "75027fe7",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.00543952127918601,
+          "rawPeakRGB": 0.00543952127918601,
+          "totalStoredPixelY": 0.27657421680138505,
+          "totalRawPixelY": 0.27657421680138505,
+          "nonzeroPixels": 2745,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 142
+        },
+        "viewAngleDegrees": 180,
+        "projectedStarCentreWidthPixels": 139.03680889423077
+      },
+      {
+        "id": "mirror_same_event",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "smileyLayout": "reference",
+        "actualStarCount": 120,
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          0,
+          -3.5,
+          215.10560989379883
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 286.12984719074797,
+        "focalMm": 48,
+        "reflection": true,
+        "shutterSeconds": 0,
+        "geometry": {
+          "instances": 135,
+          "stars": 120,
+          "smoke": 15,
+          "sumUploadedUnmodulatedCandela": 922.291473865509,
+          "physicalFNV32": "75027fe7",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.005004137754440308,
+          "rawPeakRGB": 0.005004137754440308,
+          "totalStoredPixelY": 0.22880099408804988,
+          "totalRawPixelY": 0.22880099408804988,
+          "nonzeroPixels": 2885,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 130
+        }
+      },
+      {
+        "id": "two_tone_front",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "smileyLayout": "reference",
+        "actualStarCount": 120,
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          0,
+          115.95831680297852,
+          215.10560989379883
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 260,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 135,
+          "stars": 120,
+          "smoke": 15,
+          "sumUploadedUnmodulatedCandela": 922.291473865509,
+          "physicalFNV32": "75027fe7",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.005036070477217436,
+          "rawPeakRGB": 0.005036070477217436,
+          "totalStoredPixelY": 0.2752171578657725,
+          "totalRawPixelY": 0.2752171578657725,
+          "nonzeroPixels": 2993,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 142
+        }
+      },
+      {
+        "id": "layout_dense",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "smileyLayout": "dense",
+        "actualStarCount": 144,
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          0,
+          115.95831680297852,
+          215.10560989379883
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 260,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 159,
+          "stars": 144,
+          "smoke": 15,
+          "sumUploadedUnmodulatedCandela": 1096.9599890708923,
+          "physicalFNV32": "a721ab22",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.005806459113955498,
+          "rawPeakRGB": 0.005806459113955498,
+          "totalStoredPixelY": 0.3279453009673494,
+          "totalRawPixelY": 0.3279453009673494,
+          "nonzeroPixels": 3177,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 142
+        },
+        "layoutComparison": true
+      },
+      {
+        "id": "layout_spaced-mouth",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "smileyLayout": "spaced-mouth",
+        "actualStarCount": 120,
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          0,
+          115.95831680297852,
+          215.10560989379883
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 260,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 135,
+          "stars": 120,
+          "smoke": 15,
+          "sumUploadedUnmodulatedCandela": 922.291473865509,
+          "physicalFNV32": "c1f1aad0",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.00570652075111866,
+          "rawPeakRGB": 0.00570652075111866,
+          "totalStoredPixelY": 0.27556546833216966,
+          "totalRawPixelY": 0.27556546833216966,
+          "nonzeroPixels": 3020,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 142
+        },
+        "layoutComparison": true
+      },
+      {
+        "id": "layout_compact-eyes",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "smileyLayout": "compact-eyes",
+        "actualStarCount": 144,
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          0,
+          115.95831680297852,
+          215.10560989379883
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 260,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 159,
+          "stars": 144,
+          "smoke": 15,
+          "sumUploadedUnmodulatedCandela": 1096.9599890708923,
+          "physicalFNV32": "1c515495",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.005806459113955498,
+          "rawPeakRGB": 0.005806459113955498,
+          "totalStoredPixelY": 0.3275936682095931,
+          "totalRawPixelY": 0.3275936682095931,
+          "nonzeroPixels": 3148,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 142
+        },
+        "layoutComparison": true
+      },
+      {
+        "id": "layout_reference",
+        "eventId": "14271-0.00000",
+        "type": "ring",
+        "pattern": "smiley",
+        "smileyLayout": "reference",
+        "actualStarCount": 120,
+        "time": 5.758378958306491,
+        "secondsAfterActualBurst": 1.1,
+        "storageEV": 0,
+        "cameraEV": 16.5,
+        "camera": [
+          0,
+          115.95831680297852,
+          215.10560989379883
+        ],
+        "target": [
+          0,
+          115.95831680297852,
+          -44.89439010620117
+        ],
+        "distanceMetres": 260,
+        "focalMm": 48,
+        "reflection": false,
+        "shutterSeconds": 0.008333333333333333,
+        "geometry": {
+          "instances": 135,
+          "stars": 120,
+          "smoke": 15,
+          "sumUploadedUnmodulatedCandela": 922.291473865509,
+          "physicalFNV32": "75027fe7",
+          "minimumMetres": [
+            -21.18138885498047,
+            94.77692413330078,
+            -44.89439010620117
+          ],
+          "maximumMetres": [
+            21.18138885498047,
+            137.13970947265625,
+            -44.89439010620117
+          ],
+          "spanMetres": [
+            42.36277770996094,
+            42.36278533935547,
+            0
+          ],
+          "planeZSpanMetres": 0
+        },
+        "stats": {
+          "nonfinite": 0,
+          "negative": 0,
+          "storedPeakRGB": 0.005453393328934908,
+          "rawPeakRGB": 0.005453393328934908,
+          "totalStoredPixelY": 0.27521383942787875,
+          "totalRawPixelY": 0.27521383942787875,
+          "nonzeroPixels": 2991,
+          "outer2PixelLuminanceFraction": 0,
+          "visibleWidthPixels": 142
+        },
+        "layoutComparison": true
+      }
+    ],
+    "shaderSHA256": {
+      "main": "30df9916486acae1a54dee3ac4f8bc4c93805823346a865f66ccb6ef585d1caa",
+      "reflection": "30df9916486acae1a54dee3ac4f8bc4c93805823346a865f66ccb6ef585d1caa"
+    },
+    "images": {
+      "mono_0": "[saved separately]",
+      "mono_30": "[saved separately]",
+      "mono_60": "[saved separately]",
+      "mono_85": "[saved separately]",
+      "mono_180": "[saved separately]",
+      "mirror_same_event": "[saved separately]",
+      "two_tone_front": "[saved separately]",
+      "layout_dense": "[saved separately]",
+      "layout_spaced-mouth": "[saved separately]",
+      "layout_compact-eyes": "[saved separately]",
+      "layout_reference": "[saved separately]",
+      "contact": "[saved separately]",
+      "layouts": "[saved separately]"
+    },
+    "limits": [
+      "Isolated actual production renderer on black; no full-island/cloud/water/air/scene-performance acceptance",
+      "Canonical comparisons cover actual uploaded Float32 positions, velocities, stretches and shapes; camera-dependent smoke lighting and shutter weights are intentionally not called body motion",
+      "All five angles use the same260m radius,48mm focal, C/P and physical event; side-view thinning is expected",
+      "Mirror uses the same physical event with the production reflection variant, inverted camera up and zero shutter; its image need not match the direct view",
+      "Float32 target requires actual float blending; finite FP16 numeric range is checked but FP16 quantization and whole-chain budget remain separate root QA",
+      "PNG is vendor ACES+sRGB at fixed C; no absolute camera or pyrotechnic photometry calibration",
+      "No sound played; locked audio remains unchanged"
+    ]
+  }
+}

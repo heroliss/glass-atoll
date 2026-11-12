@@ -1,0 +1,109 @@
+{
+  "scope": "research only, no full catalogue downloaded, no runtime asset changed",
+  "recordedUTC": "2026-10-26T13:46:18.188733+00:00",
+  "decision": "User confirmed via root: personal non-commercial use; use I/239 and I/259 with NC3IGO and ESA/author/CDS credits; HIP2 not required",
+  "files": [
+    {
+      "path": "verification/plans/assets/hip1-query-sample.tsv",
+      "bytes": 3130,
+      "sha256": "3c149b416e5bd8d8cc5f66ba68608216d2cd034b437989004af54e137a39bab4"
+    },
+    {
+      "path": "verification/plans/assets/tycho2-query-sample.tsv",
+      "bytes": 2841,
+      "sha256": "070c7e9bc52f672febe9c17a96cd5a0c086d545080ab6fdb7fba5dbd4d9bbe4e"
+    },
+    {
+      "path": "verification/plans/assets/hip2-query-sample.tsv",
+      "bytes": 2530,
+      "sha256": "19a815628c03b46c0bf43a7264242215ab425f824f59b94e614ad4b8f939178f"
+    },
+    {
+      "path": "verification/plans/assets/cds-hip1-readme.html",
+      "bytes": 78489,
+      "sha256": "b5bc68498a625791bfa1bf2487d855b8183d263386a6b77370528c2c7191d3cc"
+    },
+    {
+      "path": "verification/plans/assets/cds-tycho2-readme.html",
+      "bytes": 23974,
+      "sha256": "afdf85d6797ec0070c6ebaccbde0dfacd4512823d188ba626558da29cf3db782"
+    },
+    {
+      "path": "verification/plans/assets/cds-hip2-readme.html",
+      "bytes": 16929,
+      "sha256": "80fe61f85ab513f0ba401037058435c3af164a7b569e65282b3a037ff0d52fee"
+    },
+    {
+      "path": "verification/plans/assets/esa-hipparcos-catalogues.html",
+      "bytes": 87790,
+      "sha256": "fcaf0cbf8c001b5783608057f54e16fca4db240fe782a02bf12bb57967f8f9cf"
+    },
+    {
+      "path": "verification/plans/assets/esa-science-archive-terms.html",
+      "bytes": 101128,
+      "sha256": "ad3dcc1ee767ec492d32cbec988afce183d14b369c4561bee721ab7c8ece55a7"
+    },
+    {
+      "path": "verification/plans/assets/esa-gaia-data-license.html",
+      "bytes": 71568,
+      "sha256": "f17c7133b43b7e4d0c2898f87f35889d89d2fb8aab0c866810bf50bcdda9e533"
+    }
+  ],
+  "headOnly": [
+    {
+      "url": "https://cdsarc.cds.unistra.fr/ftp/cats/I/239/hip_main.dat",
+      "status": 200,
+      "bytes": 53316318
+    },
+    {
+      "url": "https://cdsarc.cds.unistra.fr/ftp/cats/I/259/tyc2.dat.00.gz",
+      "status": 200,
+      "bytes": 8407799,
+      "note": "first of20 only; total compressed size not measured"
+    },
+    {
+      "url": "https://cdsarc.cds.unistra.fr/ftp/cats/I/259/suppl_1.dat.gz",
+      "status": 200,
+      "bytes": 671712
+    },
+    {
+      "url": "https://archive.eso.org/ASTROM/TYC-2/data/catalog.dat",
+      "status": 200,
+      "bytes": 528301904
+    },
+    {
+      "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004851/milkyway_2020_4k.exr",
+      "status": 200,
+      "bytes": 36436668
+    }
+  ],
+  "expectedSampleFields": {
+    "HIP1": [
+      "HIP",
+      "RAICRS",
+      "DEICRS",
+      "RAhms",
+      "DEdms",
+      "Vmag",
+      "B-V",
+      "pmRA",
+      "pmDE",
+      "Proxy",
+      "CombMag",
+      "CCDM"
+    ],
+    "Tycho2": [
+      "TYC1",
+      "TYC2",
+      "TYC3",
+      "RAmdeg",
+      "DEmdeg",
+      "pmRA",
+      "pmDE",
+      "BTmag",
+      "VTmag",
+      "HIP"
+    ]
+  },
+  "unitPitfall": "HIP1 rawRAdeg/DEdeg are ASU RAICRS/DEICRS in deg; HIP2 ASU RArad/DErad returns deg even though raw hip2.dat stores rad"
+}

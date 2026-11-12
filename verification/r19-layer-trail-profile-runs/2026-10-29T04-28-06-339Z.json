@@ -1,0 +1,126 @@
+{
+  "schema": "glass-atoll.r19-layer-trail-profile-check.v1",
+  "started": "2026-10-29T04:28:06.339Z",
+  "completed": "2026-10-29T04:28:06.664Z",
+  "passed": false,
+  "counts": {
+    "passed": 10,
+    "total": 11
+  },
+  "sourceSHA256": {
+    "firework-trail-profile.js": "943bff5aef71841c2bc54a40bed8445548d9f2857b3b1565b0acb4ab3060ff7d",
+    "firework-layer-profile.js": "f543887e54619090f6f52ae4314b472babbba2b6bd3c33a2f81ebbfdd1601a04",
+    "fireworks-physics.js": "54c67c880384c74dbf1f4a4ffbcabcdb25fc363ca2c17587666f5e4d5319eff4",
+    "firework-burn-profile.js": "7308fd7a59ac918de80acbf296a0117f2d499e48d8de40bf2880d0b3c90436d7"
+  },
+  "checks": [
+    {
+      "name": "R18 pure compiler/physics/burn baselines are pinned independently and production physics has only authorized metadata addition",
+      "passed": false,
+      "error": "Expected values to be strictly equal:\n+ actual - expected\n... Skipped lines\n\n  '// Deterministic display simulation, metres/seconds and authored reference cd.\\n' +\n    '// Linear drag is an explicit approximation to the speed-dependent drag of a\\n' +\n    '// burning star. No chemical construction, recipes or pyrotechnic CFD.\\n' +\n    \"import {windResponse} from './wind-response.js';\\n\" +\n+   \"import {sampleFiniteThrustResponse,sampleFiniteThrustAcceleration,getFiniteThrustMotionBound} from './firework-thrust-profile.js';\\n\" +\n    \"import {validateFireworkEffectProfile,compileFireworkLayerProfile,sampleProfileBodyEmission,sampleProfileBodyEmissionWindow} from './firework-layer-profile.js';\\n\" +\n    'const PI=Math.PI,TAU=2*PI,G=9.81;\\n' +\n    '// Supplier examples define a nominal rise at80deg, not a universal rule for\\n' +\n    '// every shell of this calibre. Burst width is reference-only in this stage.\\n' +\n    'export const FIREWORK_HEIGHT_PROFILES=Object.freeze({\\n' +\n...\n    '}\\n' +\n+   'function sampleUnpoweredBody(body,time,timeline){\\n' +\n-   'export function sampleBody(body,time,timeline=[{time:-Infinity,wind:[0,0,0]}]){\\n' +\n    '  if(time<body.birth)return null;\\n' +\n    '  const parent=body.parentBody?sampleBody(body.parentBody,body.birth,timeline):null;\\n' +\n    '  const p=parent?.position||body.position,v=parent?add(parent.velocity,body.velocityDelta):body.velocity,dt=time-body.birth,k=body.drag===undefined?.2:body.drag,gravity=body.gravity??G;\\n' +\n    '  if(k<1e-8)return flightSegment(p,v,dt,k,zeroWind,gravity);\\n' +\n    '  const first=timeline[0],last=timeline.at(-1);\\n' +\n...\n    '}\\n' +\n+   '// The base sampler above retains its exact old arithmetic and parent lookup.\\n' +\n+   '// Only the admitted root motor path adds a zero-initial-state response.\\n' +\n+   'export function sampleBody(body,time,timeline=[{time:-Infinity,wind:[0,0,0]}]){\\n' +\n+   \"  if(body.parentBody?.thrustProfile||body.thrustProfile&&body.parentBody)throw new RangeError('Powered parent/child inheritance is not admitted');\\n\" +\n+   '  const state=sampleUnpoweredBody(body,time,timeline);\\n' +\n+   '  if(!state||!body.thrustProfile)return state;\\n' +\n+   '  const k=body.drag===undefined?.2:body.drag,effectiveDrag=k<1e-8?0:k,response=sampleFiniteThrustResponse(body.thrustProfile,time-body.birth,effectiveDrag);\\n' +\n+   '  return{position:state.position.map((v,c)=>v+response.positionDelta[c]),velocity:state.velocity.map((v,c)=>v+response.velocityDelta[c]),motorAcceleration:response.motorAcceleration};\\n' +\n+   '}\\n' +\n+   'export function bodyMotorAcceleration(body,time){\\n' +\n+   \"  if(!body||!Number.isFinite(body.birth)||!Number.isFinite(time))throw new RangeError('Motor acceleration requires finite body birth and absolute time');\\n\" +\n+   '  if(time<body.birth)return null;\\n' +\n+   '  return body.thrustProfile?sampleFiniteThrustAcceleration(body.thrustProfile,time-body.birth):[0,0,0];\\n' +\n+   '}\\n' +\n+   'export function bodyMotorMotionBound(body,time){\\n' +\n+   \"  if(!body||!Number.isFinite(body.birth)||!Number.isFinite(time))throw new RangeError('Motor bound requires finite body birth and absolute time');\\n\" +\n+   '  const age=time-body.birth;if(age<0)return null;\\n' +\n+   \"  if(!body.thrustProfile)return{age,maximumVelocityDeltaMetresPerSecond:0,maximumPositionDeltaMetres:0,maximumMotorAccelerationMetresPerSecondSquared:0,fullIntegratedAccelerationMetresPerSecond:0,model:'unpowered'};\\n\" +\n+   \"  if(body.parentBody)throw new RangeError('Powered pare"
+    },
+    {
+      "name": "Candidate recipes have9 immutable nodes, exact thermal first RGB and independently validated all-phase endpoint bounds",
+      "passed": true,
+      "details": [
+        {
+          "id": "outer",
+          "f": 0.06,
+          "D": 0.1,
+          "maximumRGB": [
+            2.5852230563071164,
+            0.8316207499306247,
+            0.23049133199015837
+          ]
+        },
+        {
+          "id": "middle",
+          "f": 0.14,
+          "D": 0.2,
+          "maximumRGB": [
+            2.5852230563071164,
+            0.8316207499306247,
+            0.23049133199015837
+          ]
+        },
+        {
+          "id": "inner",
+          "f": 0.24,
+          "D": 0.32,
+          "maximumRGB": [
+            2.5852230563071164,
+            0.8316207499306247,
+            0.23049133199015837
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Trail constructor copies source data, rejects mutation and validates a deeply frozen structural copy",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Invalid identity/allocation/duration/colour domains and sparse or accessor arrays reject",
+      "passed": true,
+      "details": {
+        "rejections": 32
+      }
+    },
+    {
+      "name": "Forged or mutable profile metadata cannot bypass derived fraction/segments/bound validation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Uniform-age sampler returns linear unit-Y chromaticity, bounded channels and endpoint-only extension",
+      "passed": true,
+      "details": {
+        "samples": 3075,
+        "extension": "chromaticity only; caller still clips intensity at0..D"
+      }
+    },
+    {
+      "name": "Head/tail fractions sum to1 and discrete release amplitudes stay within named I0 peak, includingf0/f1",
+      "passed": true,
+      "details": {
+        "cases": 45,
+        "scope": "instantaneous named reference peak allocation only; no claim of conserved time integral/physical energy"
+      }
+    },
+    {
+      "name": "Compiler adds only immutable trailProfile/recipe metadata to three-heart and does not mutate native inputs",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Legacy/two-colour compiler and events stay exactly equal to imported pre-R19 implementation with no added undefined fields",
+      "passed": true,
+      "details": {
+        "exactEvents": 22
+      }
+    },
+    {
+      "name": "Three-heart source/matter curves, windows, paths, RNG, I0, bodycount/life and retired event time remain exact",
+      "passed": true,
+      "details": {
+        "poses": 2304,
+        "emissions": 2304,
+        "cdfs": 2304,
+        "smokeSamples": 18
+      }
+    },
+    {
+      "name": "Pure module cannot circularly import FW/physics and approved audio remains untouched",
+      "passed": true,
+      "details": {
+        "audioSHA256": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+      }
+    }
+  ],
+  "limits": [
+    "Pure immutable optical recipe/compiler and unchanged source/matter/trajectory contracts only. Root owns FW current/window/ledger integration.",
+    "No GPU/native image, source temporal-release history reconstruction or measured firework photometry/energy verification.",
+    "Colour endpoints may be sampled outside0..D; caller owns luminous cutoff, not the chromaticity helper."
+  ]
+}

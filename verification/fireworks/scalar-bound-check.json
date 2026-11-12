@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-05T03:27:18.895Z",
+  "passed": false,
+  "passedCount": 5,
+  "total": 7,
+  "metrics": {
+    "sources": 12475,
+    "maximumAbsoluteError": 0.013722234979110848,
+    "maximumRelativeError": 0.01057945603668568,
+    "maximumPeakUnderRelative": 0,
+    "visibilityChanges": 0,
+    "nearFallbackChanges": 0
+  },
+  "tests": [
+    {
+      "name": "12000 random camera/source cases preserve peak and every public field",
+      "passed": true
+    },
+    {
+      "name": "exact cull/near-plane boundaries and independent shutter/stretch endpoints",
+      "passed": true
+    },
+    {
+      "name": "Float32 vector map endpoint rounding retained",
+      "passed": true
+    },
+    {
+      "name": "blue overlapping source peak sum is unchanged",
+      "passed": true
+    },
+    {
+      "name": "public outputs retain independent arrays across subsequent calls",
+      "passed": true
+    },
+    {
+      "name": "factory aggregator and mutable camera/optics contexts match old full records",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"label\":\"maximumRawRadiance\",\"actual\":1.2833420877542283,\"expected\":1.2970643227333392,\"error\":0.013722234979110848,\"relative\":0.01057945603668568}\n    at numeric (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/scalar-bound-check.mjs:17:3)\n    at compare (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/scalar-bound-check.mjs:23:38)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/scalar-bound-check.mjs:69:127\n    at test (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/scalar-bound-check.mjs:12:64)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/scalar-bound-check.mjs:62:1"
+    },
+    {
+      "name": "shader/upload/raw Gaussian projection unchanged; authorized depth-bin rejection verified independently",
+      "passed": false,
+      "error": "Error: G1 body sampler inverse lazy native-body index slot count 0\n    at normalize (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/combustion-body-sampler-normalize.mjs:14:220)\n    at normalizeAdaptiveTailSource (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/adaptive-tail-default-normalize.mjs:93:247)\n    at normalizeAscentFireworksSource (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/ascent-default-normalize.mjs:45:61)\n    at normalizeCombustionMetadataSource (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/combustion-metadata-normalize.mjs:20:142)\n    at normalizeEmissionLedgerSource (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/emission-ledger-normalize.mjs:15:242)\n    at normalizeFireworkBoundTraceSource (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/bound-trace-normalize.mjs:21:189)\n    at normalizeFireworksTrajectoryProviderSource (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/trajectory-default-normalize.mjs:12:151)\n    at normalizeFireworksMediumSource (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/medium-compat-normalize.mjs:47:18)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/scalar-bound-check.mjs:75:23\n    at test (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/fireworks/scalar-bound-check.mjs:12:64)"
+    }
+  ],
+  "limits": [
+    "CPU exact old/new projection/budget comparisons, not GPU peak verification or scene FPS",
+    "No reduction of sources, endpoints, frequency, binning or margins. GPU7-case bound fixture must be rerun by root."
+  ]
+}

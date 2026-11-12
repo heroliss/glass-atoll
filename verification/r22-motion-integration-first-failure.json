@@ -1,0 +1,141 @@
+{
+  "schema": "glass-atoll.r22-motion-integration.v1",
+  "dateUTC": "2026-10-29T04:28:39.761Z",
+  "passed": false,
+  "counts": {
+    "passed": 8,
+    "total": 10
+  },
+  "sourceSHA256": {
+    "physics": "54c67c880384c74dbf1f4a4ffbcabcdb25fc363ca2c17587666f5e4d5319eff4",
+    "tail": "fec6dab3486b0dd6ef3c780c0a1af38f685f635629ceec31204a48835d2f1389",
+    "layer": "f543887e54619090f6f52ae4314b472babbba2b6bd3c33a2f81ebbfdd1601a04",
+    "thrust": "c9b1d306d3681594e9cc2f20ddb00ddb6719c0b3d66079f5ce13e895b0d2471a"
+  },
+  "baselinePhysicsSHA256": "35bbded2c937d335890c14a9a33abc0487db93a34b8458042db2720719374291",
+  "checks": [
+    {
+      "name": "All old event/profile outputs and ordinary sampler arithmetic remain exactly equal to frozen physics",
+      "passed": true,
+      "evidence": {
+        "events": 24,
+        "poses": 504,
+        "tailPoses": 24,
+        "comparison": "deepStrictEqual complete return objects, including signed zero and unchanged old event metadata"
+      }
+    },
+    {
+      "name": "Powered actual sampler matches independent full ODE through force/wind knots, cutoff and tiny-drag branch",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   -5,\n+   -2,\n-   2,\n    4,\n-   -3\n  ]\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r22-motion-integration-check.mjs:40:401\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r22-motion-integration-check.mjs:10:78)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r22-motion-integration-check.mjs:38:1"
+    },
+    {
+      "name": "Motor response bounds include numerical margins and enclose actual extra position/velocity",
+      "passed": true,
+      "evidence": {
+        "cases": 50,
+        "beforeBirth": "null",
+        "bound": "Causal integrated absolute acceleration plus explicit numeric margins; passive base is separate"
+      }
+    },
+    {
+      "name": "Actual powered event patches exactly32 roots while160 native radial bodies and native RNG remain unchanged",
+      "passed": true,
+      "evidence": {
+        "motorCount": 32,
+        "radialCount": 160,
+        "ids": [
+          4,
+          11,
+          15,
+          18,
+          26,
+          34,
+          41,
+          45,
+          48,
+          56,
+          61,
+          70,
+          77,
+          81,
+          87,
+          91,
+          101,
+          107,
+          109,
+          116,
+          125,
+          131,
+          135,
+          142,
+          147,
+          153,
+          158,
+          164,
+          172,
+          179,
+          182,
+          189
+        ],
+        "nativeAudioEventsExact": true
+      }
+    },
+    {
+      "name": "Direct/configure/launch admission rejects unsupported motor profiles atomically before state/seed changes",
+      "passed": true,
+      "evidence": {
+        "rejections": 5,
+        "stateAndNextSeedExact": true
+      }
+    },
+    {
+      "name": "Optical0x preserves every motor schedule, lifetime and physical trajectory",
+      "passed": true,
+      "evidence": {
+        "poses": 1152,
+        "motorScheduleAndLifeExact": true
+      }
+    },
+    {
+      "name": "Committed carrier wind updates inherited burst state without rotating or resampling motor schedules",
+      "passed": true,
+      "evidence": {
+        "bodies": 192,
+        "scheduleIdentityPreserved": true
+      }
+    },
+    {
+      "name": "Physical30/60/120 replay and arbitrary past query order return exactly identical powered poses",
+      "passed": true,
+      "evidence": {
+        "rates": [
+          30,
+          60,
+          120
+        ],
+        "worldPoses": 576,
+        "pastQueries": 4
+      }
+    },
+    {
+      "name": "Eulerian tail qdot uses current prescribed motor acceleration including right-hand knots and cutoff",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"a\":[2.2749376423590046,1.5538242585333526,6.632728440967156],\"b\":[2.2749427948790903,1.5537336309989767,6.632672438063499],\"tol\":0.00006,\"error\":0.00009062753437594218}\n    at near (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r22-motion-integration-check.mjs:10:308)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r22-motion-integration-check.mjs:74:269\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r22-motion-integration-check.mjs:10:78)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r22-motion-integration-check.mjs:70:1"
+    },
+    {
+      "name": "Event retirement covers actual motor/material/luminous ends, detached tail support and maximum source shutter history",
+      "passed": true,
+      "evidence": {
+        "events": 12,
+        "minimumMargin": 3.6534219162755193,
+        "scope": "Source lifetimes/tails/source exposure and original event smoke envelope; scheduler/material-transfer admission is separate"
+      }
+    }
+  ],
+  "limits": [
+    "Actual physics/tail CPU consumers only; no GPU, native visual, smoke mass integration, full optical shutter curvature or performance acceptance.",
+    "Motion uses authored acceleration/effective linear drag with stepped directions; no measured mass/nozzle/fuel/attitude/chemical calibration.",
+    "Numerical bounds use explicit practical margins; no universal arbitrary-epoch interval-arithmetic claim."
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema": "glass-atoll.r26-independent-stepper-read-CPU.v1",
+  "dateUTC": "2026-10-29T11:04:30.655Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 8,
+    "total": 8
+  },
+  "checks": [
+    {
+      "name": "fixed stage rectangles independently enumerate exact addresses and original packet association",
+      "passed": true,
+      "evidence": {
+        "completeCells": 32,
+        "logicalPairs": 1040,
+        "conservative64Slots": 2048,
+        "actualMapFragments": 32,
+        "plusReductionFragments": 16
+      }
+    },
+    {
+      "name": "packed words reinterpret exactly, complete private identity and current R24 reservation are coherent",
+      "passed": true,
+      "evidence": {
+        "packetPaddedBytes": 8192,
+        "sourcePaddedBytes": 1024,
+        "ownedBytes": 99717,
+        "jointPlannerSHA256": "2e6ef3291045a4015e704fbbb25b398206d72a874afeca10a0bbb129d2cdb54a"
+      }
+    },
+    {
+      "name": "actual production expanded shaders, uniforms, materials and every padded upload byte match",
+      "passed": true,
+      "evidence": {
+        "shaderSHA256": {
+          "map": "b25e7171cacf0423be41743dc24875e1b6f3598ec2b4aa3a0eacc0286e41680f",
+          "reduce": "988790649b092aaa2d2ae31d7809b6b84e38613a5ef91b0d3a72fa9405020aed"
+        },
+        "actualMaterial": "Real r180 RawShaderMaterial, forceSinglePass true",
+        "syntheticTagFinalRows": 16,
+        "notClaimed": "No GLSL execution or GPU optical correctness"
+      }
+    },
+    {
+      "name": "submission/read/accept state restores each pass and yields no texture/public prepare",
+      "passed": true,
+      "evidence": {
+        "fullStateRestoredAtEachBoundary": true,
+        "readExtents": [
+          16,
+          32,
+          16
+        ],
+        "neverProductionEffective": true
+      }
+    },
+    {
+      "name": "wrong order/token and external cancel preserve first fault and forbid later render/context work",
+      "passed": true,
+      "evidence": {
+        "retiredCases": 5,
+        "firstFailureStable": true
+      }
+    },
+    {
+      "name": "render/read/FBO/link/context faults retain state where healthy and retire the job",
+      "passed": true,
+      "evidence": {
+        "faultCases": 6,
+        "noLaterSubmission": true
+      }
+    },
+    {
+      "name": "constructor preflight is allocation/context-free on invalid config and owns exactly seven disposable resources",
+      "passed": true,
+      "evidence": {
+        "resources": [
+          "BufferGeometry",
+          "DataTexture",
+          "DataTexture",
+          "WebGLRenderTarget",
+          "WebGLRenderTarget",
+          "RawShaderMaterial",
+          "RawShaderMaterial"
+        ],
+        "disposalsExactlyOnce": true
+      }
+    },
+    {
+      "name": "actual new main QA hook has only one source delta and enforces lock/pause/trusted overrides",
+      "passed": true,
+      "evidence": {
+        "earlyGuards": 4,
+        "untrustedOverridesRejectedByOrdering": true,
+        "onlyDelta": "One guarded QA method line"
+      }
+    }
+  ],
+  "sourceSHA256": {
+    "stepper": "1b987d6e3e0f708af46d6c6209f8786abe5b6cf503f39f5261d3b02c56d36426",
+    "factory": "819b86819adfd346e08a950ca635a884f985723420e3f267b47e33c790905ff7",
+    "production": "235930f8d031c9d922afdeaff506cc62c583bcf68fdfd549b69ab7e4bb719dc8",
+    "columnShaderModule": "4f152a1470d8351b997728691bc2e0ec15ee0962b55926179917cb42ce7ee3dd",
+    "main": "f85592b854cc00c47865538cc18dc61a9e1f397ccd0439c4d37b57f17b5b8ecd",
+    "ownerInertRendererProof": "724f041cd7253a70f4c99c226ad82147f8b272bb5d9f33a4599368a609824c4a",
+    "audio": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+  },
+  "limits": [
+    "Owner inert Renderer class reused as CPU plumbing, not an independent GL implementation. Assertions independently enumerate addresses/bytes/source deltas and causal transitions.",
+    "Synthetic-tag model cannot establish GPU timing, shader optical accuracy or native state restoration.",
+    "Fixed16x65 only; foundation is not a live CPU-cliff repair or permission to increase runtime work."
+  ]
+}

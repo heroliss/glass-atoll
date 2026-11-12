@@ -1,0 +1,67 @@
+{
+  "schema": "glass-atoll.r31-main-native-layer-bounds-cpu.v1",
+  "actualGPU": false,
+  "browserActions": 0,
+  "nativeContextCalls": 0,
+  "fixtureReplays": 0,
+  "productionEdits": 0,
+  "R30ReportsRegenerated": 0,
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "Only the new fixed entry and bridge are added; old R30 entry and normal production body are byte-preserved",
+      "passed": true,
+      "evidence": {
+        "mainSHA256": "5b1541d2eddff1fa8a4c26eccd735657dac8b5a5e3c97a25001403cb1b1171f1",
+        "bridgeSHA256": "cf28a659aef1e802ce945538b9686185b012217724560bf7ab4cbe0ee6235809",
+        "normalFrameAndOldR30Unchanged": true,
+        "entryOnlyFixedNamesDiffer": true
+      }
+    },
+    {
+      "name": "Actual new native install/restoration preserves originals, target semantics and interactivity without drawing",
+      "passed": true,
+      "evidence": {
+        "CPUspyOnly": true,
+        "draws": 0,
+        "nativeDimensions": [
+          1209,
+          1292
+        ],
+        "reflectionSamples": 2,
+        "originalRigSiblingPreserved": true,
+        "idempotentRestore": true
+      }
+    },
+    {
+      "name": "Native target mismatch during partial install and decoration failure both preserve rollback ownership",
+      "passed": true,
+      "evidence": {
+        "partialTargetAndPreSwapFailures": 2,
+        "draws": 0,
+        "originalObjectsRecovered": true
+      }
+    },
+    {
+      "name": "Actual bridge CPU plan routes both separately resolved native eye extents without swapping original objects",
+      "passed": true,
+      "evidence": {
+        "nativeMain": [
+          1209,
+          1292
+        ],
+        "nativeReflection": [
+          1209,
+          1292
+        ],
+        "planningSwaps": 0,
+        "CPUspyOnly": true
+      }
+    }
+  ],
+  "scope": "Focused actual extracted new main bridge/entry plus inherited CPU spy fixture. No native framebuffer, timing, current-browser ray or image proof."
+}

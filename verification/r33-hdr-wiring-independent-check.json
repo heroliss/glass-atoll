@@ -1,0 +1,104 @@
+{
+  "schema": "glass-atoll.r33-hdr-wiring-independent-cpu-check.v1",
+  "actualGPU": false,
+  "browserActions": 0,
+  "nativeCalls": 0,
+  "productionEdits": 0,
+  "ownerReportsRegenerated": 0,
+  "passed": true,
+  "counts": {
+    "passed": 8,
+    "total": 8
+  },
+  "sourcePins": {
+    "main": "328f997e0b7595388a4564427c0cb8db10beeedb8f881e0bbec3cbb6af1e232b",
+    "ui": "ab5ebeaeed382bbaf8ac4c42ce45037f3a746b493d8fb907b08de45ea348def2",
+    "policy": "d8450e111a9c09b57be98b79a6871e5dea59ad24e38e0e9edc12b0bbd7e7dbf5",
+    "functions": "03e3bd4d66d24309397db2b8863db6d537029b422ae53780e6888912bfbb39aa",
+    "HDRNotification": "ecf93b86615949410bc7532128ff74ee5a1680b60399b67e808e2f609b939c67",
+    "transformNotification": "c7e402edc442967e46f234a0e88f7bba186c30bb755a406c2b99b5564d865cde"
+  },
+  "checks": [
+    {
+      "name": "Production pure policy is exactly the candidate except header/import; UI and normal physical/light/audio paths remain limited",
+      "passed": true,
+      "evidence": {
+        "moduleExactExceptHeaderImport": true,
+        "physicalSolarRadiometryAndFrameTailUnchanged": true,
+        "UIThreeTextChangesOnly": true,
+        "waterAndAudioUnchanged": true
+      }
+    },
+    {
+      "name": "Direct owned observation capture selects actual saved leftDISPLAY6/1270 and preserves explicit/manual choice",
+      "passed": true,
+      "evidence": {
+        "autoDevice": "\\\\.\\DISPLAY6",
+        "autoPeak": 1270,
+        "explicitDevice": "\\\\.\\DISPLAY5",
+        "manualValues": [
+          1200,
+          250
+        ]
+      }
+    },
+    {
+      "name": "QA/frozen/quality/benchmark/interrupted locks defer both selection and refresh without output side effects",
+      "passed": true,
+      "evidence": {
+        "blockedModes": 5,
+        "displayOrFetchCallsWhileBlocked": 0
+      }
+    },
+    {
+      "name": "Deferred native fetch coalesces and latest own geometry is sampled after resolution",
+      "passed": true,
+      "evidence": {
+        "fetchCalls": 1,
+        "geometryCapturedAfterFetch": true,
+        "currentRightDevice": "\\\\.\\DISPLAY5"
+      }
+    },
+    {
+      "name": "User/options/geometry/report changes during setEnabled cannot publish stale calibration or notification UI",
+      "passed": true,
+      "evidence": {
+        "staleAfterEnabledCases": [
+          "geometry",
+          "options",
+          "report"
+        ],
+        "finalAndNotificationPublishCalls": 0
+      }
+    },
+    {
+      "name": "Geometry change during transform await cannot publish stale transform/HDR labels; latest pending apply succeeds",
+      "passed": true,
+      "evidence": {
+        "staleTransformPublication": false,
+        "latestPendingDevice": "\\\\.\\DISPLAY5"
+      }
+    },
+    {
+      "name": "Unchanged observation poll performs no work; changed same-name/same-peak device changes identity signature",
+      "passed": true,
+      "evidence": {
+        "unchangedPollOutputCalls": 0,
+        "sameFriendlyNameAndPeakDeviceIdentityTracked": true,
+        "hiddenPollSkipped": true
+      }
+    },
+    {
+      "name": "Actual frame guards pause normal scene while selection applies and error paths release applying without false final calibration",
+      "passed": true,
+      "evidence": {
+        "frameBeforeContextAndSceneGuard": true,
+        "priorityPendingRefreshThenApply": true,
+        "thrownTransformReleasesApplying": true,
+        "failedRequestNotFalselyCommitted": true,
+        "errorRetryPolicy": "Current production may deliberately surface an error; no automatic retry or readiness is inferred by this test"
+      }
+    }
+  ],
+  "scope": "Eight focused cases execute actual extracted production observation/guard/key/poll/refresh/apply and constructor-notification methods using CPU spies/deferred promises. No live screen, native report refresh, HDR transport or renderer is used."
+}

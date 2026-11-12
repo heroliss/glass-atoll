@@ -1,0 +1,118 @@
+{
+  "schema": "glass-atoll.r26-tiny-transmission-gpu-preflight-cpu.v1",
+  "dateUTC": "2026-10-29T11:04:30.624Z",
+  "actualGPU": false,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 8,
+    "total": 8
+  },
+  "checks": [
+    {
+      "name": "Revision and fetched/cached factory/fixture/imported-math source pins match frozen files",
+      "passed": true,
+      "evidence": {
+        "helperRevision": "r26-exact-half-row-v1",
+        "stepperSHA256": "1b987d6e3e0f708af46d6c6209f8786abe5b6cf503f39f5261d3b02c56d36426",
+        "factorySHA256": "819b86819adfd346e08a950ca635a884f985723420e3f267b47e33c790905ff7",
+        "columnGLSLSHA256": "cb3995def008e30dce34b3967c9b285b8157e67a18702d4d398c7a25fe99aa1f"
+      }
+    },
+    {
+      "name": "Actual context-free stepper plan interoperates with helper object rectangles/U32 words and complete independent oracle",
+      "passed": true,
+      "evidence": {
+        "contextAccesses": 0,
+        "fullPacketWords": 2048,
+        "fullSourceWords": 256,
+        "readbackBytes": 1024,
+        "numericCaptureReservation": 131072
+      }
+    },
+    {
+      "name": "U32 packed comparison preserves signed-zero/high-bit bytes and rejects numeric Float32 conversion regression",
+      "passed": true,
+      "evidence": {
+        "signedZeroDistinguished": true,
+        "wordConversionRegressionRejected": true,
+        "objectRectNormalization": true
+      }
+    },
+    {
+      "name": "Independent fixed packet64 T effect exceeds both final tolerances and source keeps all original IDs",
+      "passed": true,
+      "evidence": {
+        "packetIndex": 64,
+        "maximumPhysicalTChange64to65": 0.008229530691837295,
+        "maximumQuantizedTChange64to65": 0.008229530777162042,
+        "inactiveRows": [
+          3
+        ],
+        "zeroLengthRows": [
+          2
+        ]
+      }
+    },
+    {
+      "name": "Missing lock/source drift/stale factory stop before any context or injected constructor",
+      "passed": true,
+      "evidence": [
+        {
+          "mode": "missing-lock",
+          "contextCalls": 0,
+          "actualDraws": 0,
+          "privateInputBeforeYield": false
+        },
+        {
+          "mode": "drift",
+          "contextCalls": 0,
+          "actualDraws": 0,
+          "privateInputBeforeYield": true
+        },
+        {
+          "mode": "stale-factory",
+          "contextCalls": 0,
+          "actualDraws": 0,
+          "privateInputBeforeYield": true
+        }
+      ]
+    },
+    {
+      "name": "Matching source pins still require existing healthy context; concurrent guard is released after rejection",
+      "passed": true,
+      "evidence": {
+        "concurrentRejected": true,
+        "noContextCreation": true,
+        "guardReleased": true
+      }
+    },
+    {
+      "name": "Copied complete R25v2 capture/restore logic and descriptor cleanup remain exact",
+      "passed": true,
+      "evidence": {
+        "exactGuardReuse": true,
+        "copyReadPackUnpackPBOIncluded": true,
+        "scope": "Guard body equality plus prior CPU state tests; real native restoration remains a root gate"
+      }
+    },
+    {
+      "name": "Single-pass numerical material defaults and timer/read/accept ordering bound the three actual draws",
+      "passed": true,
+      "evidence": {
+        "actualRawDefaultSinglePass": true,
+        "timerBeforeReadBeforeAccept": true,
+        "clearCallsRejected": true,
+        "fullStateCheckedBeforeTimerYield": true
+      }
+    }
+  ],
+  "helperSHA256": "ee01b632a58db7d9a2b2ba7660fc69d71071b0e20f5066db0c23f14b2d9f457a",
+  "stepperSHA256": "1b987d6e3e0f708af46d6c6209f8786abe5b6cf503f39f5261d3b02c56d36426",
+  "limits": [
+    "CPU-only real Three object construction, fixed CPU packing/oracles, guard rejections and source/control-flow contracts; no renderer/context/driver/shader/FBO/timer or pixel execution.",
+    "Object-rectangle and Uint32-word interoperability are actual tests against the frozen stepper plan; no synthetic source hash bypass permits a GPU call.",
+    "The131072-byte stepper reservation accounts declared numeric/capture payload and reserve, not total JavaScript heap, driver allocation or all helper resources.",
+    "Root must wait for independent review before any existing-renderer three-draw test; no native input or performance admission follows."
+  ]
+}

@@ -1,0 +1,4059 @@
+{
+  "schema": "glass-atoll.uniform-gaussian-streak-independent-oracle.v1",
+  "passed": true,
+  "counts": {
+    "passed": 10,
+    "total": 10
+  },
+  "checks": [
+    {
+      "name": "shader_erf_approx_error_is_recorded_separately",
+      "passed": true,
+      "maximumAbsoluteError": 1.3936991385271602e-07,
+      "domain": [
+        -8,
+        8
+      ],
+      "samples": 10001
+    },
+    {
+      "name": "independent_GL16_refinement_converges",
+      "passed": true,
+      "maximumAbsoluteDifference": 1.6653345369377348e-16
+    },
+    {
+      "name": "axis_closed_form_agrees_with_numerical_reference",
+      "passed": true,
+      "maximumAbsoluteDifference": 1.1102230246251565e-16
+    },
+    {
+      "name": "local_support_drops_at_most_Q6_per_pixel_without_renormalising",
+      "passed": true,
+      "maximumObservedAbsoluteDifference": 2.5582673132684697e-11,
+      "oneSidedProbabilityBound": 9.865876450377016e-10,
+      "wholePlaneMassBound": 1.9731752900754032e-09,
+      "scope": "exact erf; excludes approximate erf, floating arithmetic and finite quad clipping"
+    },
+    {
+      "name": "positive_normalized_spatial_averages_preserve_original_point_peak_bound",
+      "passed": true,
+      "maximumExcess": 0.0,
+      "mathematicalReason": "convex combinations of pixel-box Gaussian; Gaussian peak times pixel area and total probability each bound the pixel integral"
+    },
+    {
+      "name": "approx_erf_error_not_conflated_with_spatial_quadrature",
+      "passed": true,
+      "maximumObservedError": 1.835557370544194e-07,
+      "conservativeAbsoluteBound": 5.57479675410864e-07
+    },
+    {
+      "name": "spatial_kernel_infinite_plane_flux_is_one",
+      "passed": true,
+      "samples": [
+        {
+          "length": 0.0,
+          "N0": 8,
+          "N1": 9,
+          "mix": 0.0,
+          "weightSum": 1.0
+        },
+        {
+          "length": 3.5,
+          "N0": 8,
+          "N1": 9,
+          "mix": 0.0,
+          "weightSum": 1.0
+        },
+        {
+          "length": 4.0,
+          "N0": 9,
+          "N1": 10,
+          "mix": 0.0,
+          "weightSum": 1.0
+        },
+        {
+          "length": 8.13,
+          "N0": 17,
+          "N1": 18,
+          "mix": 0.11434242560000174,
+          "weightSum": 1.0
+        },
+        {
+          "length": 17.0,
+          "N0": 35,
+          "N1": 36,
+          "mix": 0.0,
+          "weightSum": 1.0
+        },
+        {
+          "length": 30.0,
+          "N0": 61,
+          "N1": 62,
+          "mix": 0.0,
+          "weightSum": 1.0
+        },
+        {
+          "length": 30.37,
+          "N0": 61,
+          "N1": 62,
+          "mix": 0.8856575744000021,
+          "weightSum": 1.0
+        }
+      ],
+      "reason": "each pixel-box Gaussian tiles to unit flux over all pixels; all temporal/spatial weights remain positive and normalized"
+    },
+    {
+      "name": "quintic_N_transition_has_no_finite_kernel_jump",
+      "passed": true,
+      "epsilonPixels": 1e-06,
+      "transitions": [
+        {
+          "length": 3.5,
+          "leftN": [
+            8,
+            9,
+            0.0
+          ],
+          "rightN": [
+            8,
+            9,
+            7.999976003373858e-17
+          ],
+          "candidateDifference": -1.4495331701613878e-07,
+          "referencePhysicalDifference": -1.4497125599977068e-07,
+          "excessDifference": 1.793898363189328e-11
+        },
+        {
+          "length": 4.0,
+          "leftN": [
+            8,
+            9,
+            1.0
+          ],
+          "rightN": [
+            9,
+            10,
+            7.999976003373858e-17
+          ],
+          "candidateDifference": -1.1105640812525408e-07,
+          "referencePhysicalDifference": -1.1102116503902693e-07,
+          "excessDifference": -3.524308622715466e-11
+        },
+        {
+          "length": 8.5,
+          "leftN": [
+            17,
+            18,
+            1.0
+          ],
+          "rightN": [
+            18,
+            19,
+            7.999975982057662e-17
+          ],
+          "candidateDifference": -2.458483028267011e-08,
+          "referencePhysicalDifference": -2.45861771913658e-08,
+          "excessDifference": 1.346908695687432e-12
+        },
+        {
+          "length": 17.0,
+          "leftN": [
+            34,
+            35,
+            1.0
+          ],
+          "rightN": [
+            35,
+            36,
+            7.999976024690056e-17
+          ],
+          "candidateDifference": -6.144535331931156e-09,
+          "referencePhysicalDifference": -6.146544301310897e-09,
+          "excessDifference": 2.0089693797409325e-12
+        },
+        {
+          "length": 30.0,
+          "leftN": [
+            60,
+            61,
+            1.0
+          ],
+          "rightN": [
+            61,
+            62,
+            7.999976024690056e-17
+          ],
+          "candidateDifference": -1.972609627726163e-09,
+          "referencePhysicalDifference": -1.9737237053063517e-09,
+          "excessDifference": 1.114077580188777e-12
+        }
+      ],
+      "scope": "interior adaptive branch only; global/local resource fallback boundaries are separate"
+    },
+    {
+      "name": "sigma_one_policy_is_continuous_including_0999_1001",
+      "passed": true,
+      "samples": [
+        {
+          "length": 17.0,
+          "sigmaLeft": 0.999999,
+          "sigmaRight": 1.000001,
+          "Nleft": [
+            35,
+            36,
+            0.0
+          ],
+          "Nright": [
+            34,
+            35,
+            0.9999999999996069
+          ],
+          "candidateDifference": -3.997540231476249e-08,
+          "physicalDifference": -3.997540232170138e-08,
+          "excessDifference": 6.938893903907228e-18
+        },
+        {
+          "length": 17.0,
+          "sigmaLeft": 0.999,
+          "sigmaRight": 1.001,
+          "Nleft": [
+            35,
+            36,
+            0.0
+          ],
+          "Nright": [
+            34,
+            35,
+            0.9996278305720133
+          ],
+          "candidateDifference": -3.99754285864487e-05,
+          "physicalDifference": -3.997542858647646e-05,
+          "excessDifference": 2.7755575615628914e-17
+        },
+        {
+          "length": 17.23,
+          "sigmaLeft": 0.999999,
+          "sigmaRight": 1.000001,
+          "Nleft": [
+            35,
+            36,
+            0.42531938560000165
+          ],
+          "Nright": [
+            35,
+            36,
+            0.42525559826539483
+          ],
+          "candidateDifference": -3.9441778249688086e-08,
+          "physicalDifference": -3.944177826703532e-08,
+          "excessDifference": 1.734723475976807e-17
+        },
+        {
+          "length": 17.23,
+          "sigmaLeft": 0.999,
+          "sigmaRight": 1.001,
+          "Nleft": [
+            35,
+            36,
+            0.42531938560000165
+          ],
+          "Nright": [
+            35,
+            36,
+            0.3624996247426177
+          ],
+          "candidateDifference": -3.944180417699006e-05,
+          "physicalDifference": -3.944180417698659e-05,
+          "excessDifference": -3.469446951953614e-18
+        },
+        {
+          "length": 30.37,
+          "sigmaLeft": 0.999999,
+          "sigmaRight": 1.000001,
+          "Nleft": [
+            61,
+            62,
+            0.8856575744000021
+          ],
+          "Nright": [
+            61,
+            62,
+            0.8855901104839939
+          ],
+          "candidateDifference": -2.2376748081212594e-08,
+          "physicalDifference": -2.237674807947787e-08,
+          "excessDifference": -1.734723475976807e-18
+        },
+        {
+          "length": 30.37,
+          "sigmaLeft": 0.999,
+          "sigmaRight": 1.001,
+          "Nleft": [
+            61,
+            62,
+            0.8856575744000021
+          ],
+          "Nright": [
+            61,
+            62,
+            0.8085076871184307
+          ],
+          "candidateDifference": -2.237676279123052e-05,
+          "physicalDifference": -2.2376762791221846e-05,
+          "excessDifference": -8.673617379884035e-18
+        }
+      ],
+      "scope": "C0 no finite jump; max(1,sigma) is not claimed C1 for every fractionalN"
+    },
+    {
+      "name": "sigma_scaled_step_keeps_tested_broadPSF_local_budget_bounded",
+      "passed": true,
+      "samples": [
+        {
+          "length": 0.0,
+          "sigma": 0.28,
+          "N0": 8,
+          "N1": 9,
+          "conservativeCombinedLocalCalls": 17,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 0.0,
+          "sigma": 1.0,
+          "N0": 8,
+          "N1": 9,
+          "conservativeCombinedLocalCalls": 17,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 0.0,
+          "sigma": 4.0,
+          "N0": 8,
+          "N1": 9,
+          "conservativeCombinedLocalCalls": 17,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 0.0,
+          "sigma": 20.0,
+          "N0": 8,
+          "N1": 9,
+          "conservativeCombinedLocalCalls": 17,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 0.0,
+          "sigma": 1000.0,
+          "N0": 8,
+          "N1": 9,
+          "conservativeCombinedLocalCalls": 17,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 4.0,
+          "sigma": 0.28,
+          "N0": 9,
+          "N1": 10,
+          "conservativeCombinedLocalCalls": 19,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 4.0,
+          "sigma": 1.0,
+          "N0": 9,
+          "N1": 10,
+          "conservativeCombinedLocalCalls": 19,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 4.0,
+          "sigma": 4.0,
+          "N0": 8,
+          "N1": 9,
+          "conservativeCombinedLocalCalls": 17,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 4.0,
+          "sigma": 20.0,
+          "N0": 8,
+          "N1": 9,
+          "conservativeCombinedLocalCalls": 17,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 4.0,
+          "sigma": 1000.0,
+          "N0": 8,
+          "N1": 9,
+          "conservativeCombinedLocalCalls": 17,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 17.0,
+          "sigma": 0.28,
+          "N0": 35,
+          "N1": 36,
+          "conservativeCombinedLocalCalls": 25,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 17.0,
+          "sigma": 1.0,
+          "N0": 35,
+          "N1": 36,
+          "conservativeCombinedLocalCalls": 61,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 17.0,
+          "sigma": 4.0,
+          "N0": 9,
+          "N1": 10,
+          "conservativeCombinedLocalCalls": 19,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 17.0,
+          "sigma": 20.0,
+          "N0": 8,
+          "N1": 9,
+          "conservativeCombinedLocalCalls": 17,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 17.0,
+          "sigma": 1000.0,
+          "N0": 8,
+          "N1": 9,
+          "conservativeCombinedLocalCalls": 17,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 30.0,
+          "sigma": 0.28,
+          "N0": 61,
+          "N1": 62,
+          "conservativeCombinedLocalCalls": 24,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 30.0,
+          "sigma": 1.0,
+          "N0": 61,
+          "N1": 62,
+          "conservativeCombinedLocalCalls": 60,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 30.0,
+          "sigma": 4.0,
+          "N0": 16,
+          "N1": 17,
+          "conservativeCombinedLocalCalls": 33,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 30.0,
+          "sigma": 20.0,
+          "N0": 8,
+          "N1": 9,
+          "conservativeCombinedLocalCalls": 17,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 30.0,
+          "sigma": 1000.0,
+          "N0": 8,
+          "N1": 9,
+          "conservativeCombinedLocalCalls": 17,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 1000.0,
+          "sigma": 0.28,
+          "N0": 2001,
+          "N1": 2002,
+          "conservativeCombinedLocalCalls": 24,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 1000.0,
+          "sigma": 1.0,
+          "N0": 2001,
+          "N1": 2002,
+          "conservativeCombinedLocalCalls": 58,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 1000.0,
+          "sigma": 4.0,
+          "N0": 501,
+          "N1": 502,
+          "conservativeCombinedLocalCalls": 54,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 1000.0,
+          "sigma": 20.0,
+          "N0": 101,
+          "N1": 102,
+          "conservativeCombinedLocalCalls": 54,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 1000.0,
+          "sigma": 1000.0,
+          "N0": 8,
+          "N1": 9,
+          "conservativeCombinedLocalCalls": 17,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 100000.0,
+          "sigma": 0.28,
+          "N0": 200001,
+          "N1": 200002,
+          "conservativeCombinedLocalCalls": 24,
+          "wholeSourceGlobalFallback": true,
+          "localFallback": false
+        },
+        {
+          "length": 100000.0,
+          "sigma": 1.0,
+          "N0": 200001,
+          "N1": 200002,
+          "conservativeCombinedLocalCalls": 58,
+          "wholeSourceGlobalFallback": true,
+          "localFallback": false
+        },
+        {
+          "length": 100000.0,
+          "sigma": 4.0,
+          "N0": 50001,
+          "N1": 50002,
+          "conservativeCombinedLocalCalls": 54,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 100000.0,
+          "sigma": 20.0,
+          "N0": 10001,
+          "N1": 10002,
+          "conservativeCombinedLocalCalls": 54,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        },
+        {
+          "length": 100000.0,
+          "sigma": 1000.0,
+          "N0": 201,
+          "N1": 202,
+          "conservativeCombinedLocalCalls": 54,
+          "wholeSourceGlobalFallback": false,
+          "localFallback": false
+        }
+      ],
+      "scope": "source-only local call estimate without explicit shutter; MAX_LOCAL128 perlevel; fallback still requires production vertex/shader checks"
+    }
+  ],
+  "candidateContract": {
+    "pixelSigmaFloor": 0.28,
+    "interval": [
+      -0.5,
+      0.5
+    ],
+    "N": "targetStep=.5*max(1,sigma);x=max(7,L/targetStep);N0=floor(x)+1;N1=N0+1;clampedQuintic(fract(x))",
+    "pointSpacing": "less than .5*max(1,sigma) pixels",
+    "localSupport": "boxProjectionHalf+6sigma+.02+explicitShutterProjection",
+    "localNormalization": "keep global1/N denominator"
+  },
+  "cases": [
+    {
+      "lengthPixels": 0.0,
+      "sigma": 0.28,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 6,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.0,
+      "candidateSpatialMaximumAbsoluteError": 0.0,
+      "spatialErrorOverPeakScale": 0.0,
+      "shaderErfOnlyMaximumAbsoluteError": 1.835557370544194e-07,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": null
+    },
+    {
+      "lengthPixels": 0.0,
+      "sigma": 0.28,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 7,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.0,
+      "candidateSpatialMaximumAbsoluteError": 0.0,
+      "spatialErrorOverPeakScale": 0.0,
+      "shaderErfOnlyMaximumAbsoluteError": 1.835557370544194e-07,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": null
+    },
+    {
+      "lengthPixels": 0.0,
+      "sigma": 0.28,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 5,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 2.168404344971009e-19,
+      "candidateSpatialMaximumAbsoluteError": 2.168404344971009e-19,
+      "spatialErrorOverPeakScale": 2.529617252249953e-19,
+      "shaderErfOnlyMaximumAbsoluteError": 1.835557370544194e-07,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          -1.0,
+          -1.0
+        ],
+        "reference": 0.0013743868115117443,
+        "candidate": 0.0013743868115117445,
+        "legacy8": 0.0013743868115117445,
+        "error": 2.168404344971009e-19,
+        "normalizationPeakScale": 0.8572064975609787
+      }
+    },
+    {
+      "lengthPixels": 0.0,
+      "sigma": 0.55,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 6,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 5.551115123125783e-17,
+      "candidateSpatialMaximumAbsoluteError": 5.551115123125783e-17,
+      "spatialErrorOverPeakScale": 1.3693468119478209e-16,
+      "shaderErfOnlyMaximumAbsoluteError": 6.900135307574828e-08,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.63,
+          -0.23
+        ],
+        "reference": 0.23043936610214677,
+        "candidate": 0.23043936610214683,
+        "legacy8": 0.23043936610214683,
+        "error": 5.551115123125783e-17,
+        "normalizationPeakScale": 0.4053841637992077
+      }
+    },
+    {
+      "lengthPixels": 0.0,
+      "sigma": 0.55,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 7,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 5.551115123125783e-17,
+      "candidateSpatialMaximumAbsoluteError": 5.551115123125783e-17,
+      "spatialErrorOverPeakScale": 1.3693468119478209e-16,
+      "shaderErfOnlyMaximumAbsoluteError": 6.900135307574828e-08,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.63,
+          -0.23
+        ],
+        "reference": 0.23043936610214677,
+        "candidate": 0.23043936610214683,
+        "legacy8": 0.23043936610214683,
+        "error": 5.551115123125783e-17,
+        "normalizationPeakScale": 0.4053841637992077
+      }
+    },
+    {
+      "lengthPixels": 0.0,
+      "sigma": 0.55,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 5,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 1.3877787807814457e-17,
+      "candidateSpatialMaximumAbsoluteError": 1.3877787807814457e-17,
+      "spatialErrorOverPeakScale": 3.423367029869552e-17,
+      "shaderErfOnlyMaximumAbsoluteError": 6.900135307574828e-08,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.63,
+          0.77
+        ],
+        "reference": 0.11647749707176372,
+        "candidate": 0.1164774970717637,
+        "legacy8": 0.1164774970717637,
+        "error": 1.3877787807814457e-17,
+        "normalizationPeakScale": 0.4053841637992077
+      }
+    },
+    {
+      "lengthPixels": 0.0,
+      "sigma": 1.0,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 6,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 6.938893903907228e-18,
+      "candidateSpatialMaximumAbsoluteError": 6.938893903907228e-18,
+      "spatialErrorOverPeakScale": 4.732198796711839e-17,
+      "shaderErfOnlyMaximumAbsoluteError": 3.033012607733809e-08,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          -1.37,
+          -0.23
+        ],
+        "reference": 0.060322279001520894,
+        "candidate": 0.06032227900152089,
+        "legacy8": 0.06032227900152089,
+        "error": 6.938893903907228e-18,
+        "normalizationPeakScale": 0.1466314963084118
+      }
+    },
+    {
+      "lengthPixels": 0.0,
+      "sigma": 1.0,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 7,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 6.938893903907228e-18,
+      "candidateSpatialMaximumAbsoluteError": 6.938893903907228e-18,
+      "spatialErrorOverPeakScale": 4.732198796711839e-17,
+      "shaderErfOnlyMaximumAbsoluteError": 3.033012607733809e-08,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          -1.37,
+          -0.23
+        ],
+        "reference": 0.060322279001520894,
+        "candidate": 0.06032227900152089,
+        "legacy8": 0.06032227900152089,
+        "error": 6.938893903907228e-18,
+        "normalizationPeakScale": 0.1466314963084118
+      }
+    },
+    {
+      "lengthPixels": 0.0,
+      "sigma": 1.0,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 5,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 6.938893903907228e-18,
+      "candidateSpatialMaximumAbsoluteError": 6.938893903907228e-18,
+      "spatialErrorOverPeakScale": 4.732198796711839e-17,
+      "shaderErfOnlyMaximumAbsoluteError": 3.033012607733809e-08,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          -1.0,
+          -1.0
+        ],
+        "reference": 0.05843355604713739,
+        "candidate": 0.058433556047137396,
+        "legacy8": 0.058433556047137396,
+        "error": 6.938893903907228e-18,
+        "normalizationPeakScale": 0.1466314963084118
+      }
+    },
+    {
+      "lengthPixels": 0.0,
+      "sigma": 4.0,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 6,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 1.734723475976807e-18,
+      "candidateSpatialMaximumAbsoluteError": 1.734723475976807e-18,
+      "spatialErrorOverPeakScale": 1.7530314285168473e-16,
+      "shaderErfOnlyMaximumAbsoluteError": 1.5437601034312687e-08,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          -1.0,
+          0.0
+        ],
+        "reference": 0.009592667417764437,
+        "candidate": 0.009592667417764435,
+        "legacy8": 0.009592667417764435,
+        "error": 1.734723475976807e-18,
+        "normalizationPeakScale": 0.009895564037003434
+      }
+    },
+    {
+      "lengthPixels": 0.0,
+      "sigma": 4.0,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 7,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 1.734723475976807e-18,
+      "candidateSpatialMaximumAbsoluteError": 1.734723475976807e-18,
+      "spatialErrorOverPeakScale": 1.7530314285168473e-16,
+      "shaderErfOnlyMaximumAbsoluteError": 2.5453666743779912e-08,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          -1.0,
+          0.0
+        ],
+        "reference": 0.009592667417764437,
+        "candidate": 0.009592667417764435,
+        "legacy8": 0.009592667417764435,
+        "error": 1.734723475976807e-18,
+        "normalizationPeakScale": 0.009895564037003434
+      }
+    },
+    {
+      "lengthPixels": 0.0,
+      "sigma": 4.0,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 5,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 1.734723475976807e-18,
+      "candidateSpatialMaximumAbsoluteError": 1.734723475976807e-18,
+      "spatialErrorOverPeakScale": 1.7530314285168473e-16,
+      "shaderErfOnlyMaximumAbsoluteError": 2.5453666743779912e-08,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.0,
+          0.0
+        ],
+        "reference": 0.009895564037003434,
+        "candidate": 0.009895564037003436,
+        "legacy8": 0.009895564037003436,
+        "error": 1.734723475976807e-18,
+        "normalizationPeakScale": 0.009895564037003434
+      }
+    },
+    {
+      "lengthPixels": 0.0,
+      "sigma": 20.0,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 6,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 1.0842021724855044e-19,
+      "candidateSpatialMaximumAbsoluteError": 1.0842021724855044e-19,
+      "spatialErrorOverPeakScale": 2.7254649864793397e-16,
+      "shaderErfOnlyMaximumAbsoluteError": 3.778267996048818e-09,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          -0.37,
+          -0.23
+        ],
+        "reference": 0.0003977101283561878,
+        "candidate": 0.00039771012835618767,
+        "legacy8": 0.00039771012835618767,
+        "error": 1.0842021724855044e-19,
+        "normalizationPeakScale": 0.00039780447661741527
+      }
+    },
+    {
+      "lengthPixels": 0.0,
+      "sigma": 20.0,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 7,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 1.0842021724855044e-19,
+      "candidateSpatialMaximumAbsoluteError": 1.0842021724855044e-19,
+      "spatialErrorOverPeakScale": 2.7254649864793397e-16,
+      "shaderErfOnlyMaximumAbsoluteError": 3.778267996048818e-09,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          -0.37,
+          -0.23
+        ],
+        "reference": 0.0003977101283561878,
+        "candidate": 0.00039771012835618767,
+        "legacy8": 0.00039771012835618767,
+        "error": 1.0842021724855044e-19,
+        "normalizationPeakScale": 0.00039780447661741527
+      }
+    },
+    {
+      "lengthPixels": 0.0,
+      "sigma": 20.0,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 5,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 1.0842021724855044e-19,
+      "candidateSpatialMaximumAbsoluteError": 1.0842021724855044e-19,
+      "spatialErrorOverPeakScale": 2.7254649864793397e-16,
+      "shaderErfOnlyMaximumAbsoluteError": 3.778267996048818e-09,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          -0.37,
+          -0.23
+        ],
+        "reference": 0.0003977101283561878,
+        "candidate": 0.00039771012835618767,
+        "legacy8": 0.00039771012835618767,
+        "error": 1.0842021724855044e-19,
+        "normalizationPeakScale": 0.00039780447661741527
+      }
+    },
+    {
+      "lengthPixels": 4.0,
+      "sigma": 0.28,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 14,
+      "N0": 9,
+      "N1": 10,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.0030423560506960823,
+      "candidateSpatialMaximumAbsoluteError": 0.0023383093989456927,
+      "spatialErrorOverPeakScale": 0.00935323759578277,
+      "shaderErfOnlyMaximumAbsoluteError": 4.539686943028087e-08,
+      "localWindowOnlyMaximumAbsoluteError": 1.540026439705855e-11,
+      "worst": {
+        "pixelOffset": [
+          -1.37,
+          -0.23
+        ],
+        "reference": 0.19488043865721105,
+        "candidate": 0.19721874805615675,
+        "legacy8": 0.19786691711557758,
+        "error": 0.0023383093989456927,
+        "normalizationPeakScale": 0.25
+      }
+    },
+    {
+      "lengthPixels": 4.0,
+      "sigma": 0.28,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 17,
+      "N0": 9,
+      "N1": 10,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.002724492147160364,
+      "candidateSpatialMaximumAbsoluteError": 0.0021190552662782736,
+      "spatialErrorOverPeakScale": 0.008476221065113095,
+      "shaderErfOnlyMaximumAbsoluteError": 1.73685059390305e-08,
+      "localWindowOnlyMaximumAbsoluteError": 6.1201044232461754e-15,
+      "worst": {
+        "pixelOffset": [
+          -2.37,
+          -1.23
+        ],
+        "reference": 0.012327909060751097,
+        "candidate": 0.010208853794472823,
+        "legacy8": 0.009603416913590733,
+        "error": 0.0021190552662782736,
+        "normalizationPeakScale": 0.25
+      }
+    },
+    {
+      "lengthPixels": 4.0,
+      "sigma": 0.28,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 11,
+      "N0": 9,
+      "N1": 10,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.0033601720585641204,
+      "candidateSpatialMaximumAbsoluteError": 0.0026103825385508095,
+      "spatialErrorOverPeakScale": 0.010441530154203238,
+      "shaderErfOnlyMaximumAbsoluteError": 2.080277777816164e-08,
+      "localWindowOnlyMaximumAbsoluteError": 1.2490009027033011e-14,
+      "worst": {
+        "pixelOffset": [
+          -1.0,
+          -1.0
+        ],
+        "reference": 0.22124585099155653,
+        "candidate": 0.22385623353010733,
+        "legacy8": 0.22460602305012065,
+        "error": 0.0026103825385508095,
+        "normalizationPeakScale": 0.25
+      }
+    },
+    {
+      "lengthPixels": 4.0,
+      "sigma": 0.55,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 14,
+      "N0": 9,
+      "N1": 10,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.00099596050830697,
+      "candidateSpatialMaximumAbsoluteError": 0.0007804341291955674,
+      "spatialErrorOverPeakScale": 0.0031217365167822697,
+      "shaderErfOnlyMaximumAbsoluteError": 3.025812950196993e-08,
+      "localWindowOnlyMaximumAbsoluteError": 2.5582673132684697e-11,
+      "worst": {
+        "pixelOffset": [
+          -1.37,
+          -0.23
+        ],
+        "reference": 0.1256926937930739,
+        "candidate": 0.12647312792226947,
+        "legacy8": 0.12668865430138088,
+        "error": 0.0007804341291955674,
+        "normalizationPeakScale": 0.25
+      }
+    },
+    {
+      "lengthPixels": 4.0,
+      "sigma": 0.55,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 17,
+      "N0": 9,
+      "N1": 10,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.000987660370020859,
+      "candidateSpatialMaximumAbsoluteError": 0.0007743323809671042,
+      "spatialErrorOverPeakScale": 0.0030973295238684168,
+      "shaderErfOnlyMaximumAbsoluteError": 1.1146285006091716e-08,
+      "localWindowOnlyMaximumAbsoluteError": 1.1446062847531024e-11,
+      "worst": {
+        "pixelOffset": [
+          -2.37,
+          -1.23
+        ],
+        "reference": 0.021874036405815908,
+        "candidate": 0.021099704024848804,
+        "legacy8": 0.02088637603579505,
+        "error": 0.0007743323809671042,
+        "normalizationPeakScale": 0.25
+      }
+    },
+    {
+      "lengthPixels": 4.0,
+      "sigma": 0.55,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 11,
+      "N0": 9,
+      "N1": 10,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.0010528800112741543,
+      "candidateSpatialMaximumAbsoluteError": 0.0008246382016056097,
+      "spatialErrorOverPeakScale": 0.003298552806422439,
+      "shaderErfOnlyMaximumAbsoluteError": 8.55895043727628e-09,
+      "localWindowOnlyMaximumAbsoluteError": 2.78695426111919e-12,
+      "worst": {
+        "pixelOffset": [
+          1.0,
+          1.0
+        ],
+        "reference": 0.13185077181968263,
+        "candidate": 0.13267541002128824,
+        "legacy8": 0.1329036518309568,
+        "error": 0.0008246382016056097,
+        "normalizationPeakScale": 0.25
+      }
+    },
+    {
+      "lengthPixels": 4.0,
+      "sigma": 1.0,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 14,
+      "N0": 9,
+      "N1": 10,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.00024109553730108924,
+      "candidateSpatialMaximumAbsoluteError": 0.0001900620280173848,
+      "spatialErrorOverPeakScale": 0.0007602481120695392,
+      "shaderErfOnlyMaximumAbsoluteError": 1.6644731690163006e-08,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          1.0,
+          0.0
+        ],
+        "reference": 0.07941523814590119,
+        "candidate": 0.07960530017391858,
+        "legacy8": 0.07965633368320228,
+        "error": 0.0001900620280173848,
+        "normalizationPeakScale": 0.25
+      }
+    },
+    {
+      "lengthPixels": 4.0,
+      "sigma": 1.0,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 17,
+      "N0": 9,
+      "N1": 10,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.00023344011077314208,
+      "candidateSpatialMaximumAbsoluteError": 0.0001844668818445777,
+      "spatialErrorOverPeakScale": 0.0007378675273783109,
+      "shaderErfOnlyMaximumAbsoluteError": 1.3751369890013798e-08,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          -0.37,
+          -0.23
+        ],
+        "reference": 0.08831176393921202,
+        "candidate": 0.08849623082105659,
+        "legacy8": 0.08854520404998516,
+        "error": 0.0001844668818445777,
+        "normalizationPeakScale": 0.25
+      }
+    },
+    {
+      "lengthPixels": 4.0,
+      "sigma": 1.0,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 11,
+      "N0": 9,
+      "N1": 10,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.00024053396156265006,
+      "candidateSpatialMaximumAbsoluteError": 0.00018962650105459888,
+      "spatialErrorOverPeakScale": 0.0007585060042183955,
+      "shaderErfOnlyMaximumAbsoluteError": 8.936000064907468e-09,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.63,
+          0.77
+        ],
+        "reference": 0.07930396841981949,
+        "candidate": 0.07949359492087409,
+        "legacy8": 0.07954450238138214,
+        "error": 0.00018962650105459888,
+        "normalizationPeakScale": 0.25
+      }
+    },
+    {
+      "lengthPixels": 4.0,
+      "sigma": 4.0,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 14,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 5.666625211474263e-06,
+      "candidateSpatialMaximumAbsoluteError": 5.666625211474263e-06,
+      "spatialErrorOverPeakScale": 2.2666500845897053e-05,
+      "shaderErfOnlyMaximumAbsoluteError": 7.716896812531848e-09,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.0,
+          0.0
+        ],
+        "reference": 0.009500250931424958,
+        "candidate": 0.009505917556636432,
+        "legacy8": 0.009505917556636432,
+        "error": 5.666625211474263e-06,
+        "normalizationPeakScale": 0.25
+      }
+    },
+    {
+      "lengthPixels": 4.0,
+      "sigma": 4.0,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 17,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 5.6666234254775655e-06,
+      "candidateSpatialMaximumAbsoluteError": 5.6666234254775655e-06,
+      "spatialErrorOverPeakScale": 2.2666493701910262e-05,
+      "shaderErfOnlyMaximumAbsoluteError": 3.618537906813213e-09,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.0,
+          0.0
+        ],
+        "reference": 0.009500250969578582,
+        "candidate": 0.00950591759300406,
+        "legacy8": 0.00950591759300406,
+        "error": 5.6666234254775655e-06,
+        "normalizationPeakScale": 0.25
+      }
+    },
+    {
+      "lengthPixels": 4.0,
+      "sigma": 4.0,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 11,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 5.6666216394826024e-06,
+      "candidateSpatialMaximumAbsoluteError": 5.6666216394826024e-06,
+      "spatialErrorOverPeakScale": 2.266648655793041e-05,
+      "shaderErfOnlyMaximumAbsoluteError": 7.518304428674738e-09,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.0,
+          0.0
+        ],
+        "reference": 0.009500251007732207,
+        "candidate": 0.00950591762937169,
+        "legacy8": 0.00950591762937169,
+        "error": 5.6666216394826024e-06,
+        "normalizationPeakScale": 0.25
+      }
+    },
+    {
+      "lengthPixels": 4.0,
+      "sigma": 20.0,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 14,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 1.030624849281429e-08,
+      "candidateSpatialMaximumAbsoluteError": 1.030624849281429e-08,
+      "spatialErrorOverPeakScale": 4.122499397125716e-08,
+      "shaderErfOnlyMaximumAbsoluteError": 2.446858508289764e-09,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.0,
+          0.0
+        ],
+        "reference": 0.00039714260018624967,
+        "candidate": 0.0003971529064347425,
+        "legacy8": 0.0003971529064347425,
+        "error": 1.030624849281429e-08,
+        "normalizationPeakScale": 0.25
+      }
+    },
+    {
+      "lengthPixels": 4.0,
+      "sigma": 20.0,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 17,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 1.0306248492380609e-08,
+      "candidateSpatialMaximumAbsoluteError": 1.0306248492380609e-08,
+      "spatialErrorOverPeakScale": 4.1224993969522436e-08,
+      "shaderErfOnlyMaximumAbsoluteError": 2.139175177327899e-09,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.0,
+          0.0
+        ],
+        "reference": 0.0003971426001862541,
+        "candidate": 0.0003971529064347465,
+        "legacy8": 0.0003971529064347465,
+        "error": 1.0306248492380609e-08,
+        "normalizationPeakScale": 0.25
+      }
+    },
+    {
+      "lengthPixels": 4.0,
+      "sigma": 20.0,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 11,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 1.0306248492326399e-08,
+      "candidateSpatialMaximumAbsoluteError": 1.0306248492326399e-08,
+      "spatialErrorOverPeakScale": 4.1224993969305596e-08,
+      "shaderErfOnlyMaximumAbsoluteError": 1.889380924771037e-09,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.0,
+          0.0
+        ],
+        "reference": 0.0003971426001862583,
+        "candidate": 0.0003971529064347506,
+        "legacy8": 0.0003971529064347506,
+        "error": 1.0306248492326399e-08,
+        "normalizationPeakScale": 0.25
+      }
+    },
+    {
+      "lengthPixels": 17.0,
+      "sigma": 0.28,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 17,
+      "N0": 35,
+      "N1": 36,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.04930679057943697,
+      "candidateSpatialMaximumAbsoluteError": 0.0008538520087175289,
+      "spatialErrorOverPeakScale": 0.01451548414819799,
+      "shaderErfOnlyMaximumAbsoluteError": 1.1104992869714891e-08,
+      "localWindowOnlyMaximumAbsoluteError": 1.4526678471238341e-11,
+      "worst": {
+        "pixelOffset": [
+          -8.0,
+          0.0
+        ],
+        "reference": 0.04837907973110989,
+        "candidate": 0.04923293173982742,
+        "legacy8": 0.04763642054245824,
+        "error": 0.0008538520087175289,
+        "normalizationPeakScale": 0.058823529411764705
+      }
+    },
+    {
+      "lengthPixels": 17.0,
+      "sigma": 0.28,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 18,
+      "N0": 35,
+      "N1": 36,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.048980569918037405,
+      "candidateSpatialMaximumAbsoluteError": 0.0007910504320280259,
+      "spatialErrorOverPeakScale": 0.013447857344476441,
+      "shaderErfOnlyMaximumAbsoluteError": 4.838611768198664e-09,
+      "localWindowOnlyMaximumAbsoluteError": 1.870635590872638e-12,
+      "worst": {
+        "pixelOffset": [
+          -7.37,
+          -3.23
+        ],
+        "reference": 0.04529266733062503,
+        "candidate": 0.046083717762653055,
+        "legacy8": 0.04140307721533076,
+        "error": 0.0007910504320280259,
+        "normalizationPeakScale": 0.058823529411764705
+      }
+    },
+    {
+      "lengthPixels": 17.0,
+      "sigma": 0.28,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 16,
+      "N0": 35,
+      "N1": 36,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.04923353611979982,
+      "candidateSpatialMaximumAbsoluteError": 0.000725806202423393,
+      "spatialErrorOverPeakScale": 0.012338705441197681,
+      "shaderErfOnlyMaximumAbsoluteError": 4.2074629093280524e-09,
+      "localWindowOnlyMaximumAbsoluteError": 2.7122887269470652e-12,
+      "worst": {
+        "pixelOffset": [
+          5.63,
+          5.77
+        ],
+        "reference": 0.04675486788922194,
+        "candidate": 0.04748067409164533,
+        "legacy8": 0.04096831835935166,
+        "error": 0.000725806202423393,
+        "normalizationPeakScale": 0.058823529411764705
+      }
+    },
+    {
+      "lengthPixels": 17.0,
+      "sigma": 0.55,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 17,
+      "N0": 35,
+      "N1": 36,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.013422299899896125,
+      "candidateSpatialMaximumAbsoluteError": 0.0002252236227954403,
+      "spatialErrorOverPeakScale": 0.0038288015875224853,
+      "shaderErfOnlyMaximumAbsoluteError": 4.6435698827784755e-09,
+      "localWindowOnlyMaximumAbsoluteError": 1.65690794418083e-11,
+      "worst": {
+        "pixelOffset": [
+          -8.0,
+          0.0
+        ],
+        "reference": 0.029515856326991524,
+        "candidate": 0.029741079949786964,
+        "legacy8": 0.03407184382642033,
+        "error": 0.0002252236227954403,
+        "normalizationPeakScale": 0.058823529411764705
+      }
+    },
+    {
+      "lengthPixels": 17.0,
+      "sigma": 0.55,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 18,
+      "N0": 35,
+      "N1": 36,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.014004514372194514,
+      "candidateSpatialMaximumAbsoluteError": 0.00020938037124736825,
+      "spatialErrorOverPeakScale": 0.00355946631120526,
+      "shaderErfOnlyMaximumAbsoluteError": 2.9486359603980716e-09,
+      "localWindowOnlyMaximumAbsoluteError": 3.4926783687438956e-12,
+      "worst": {
+        "pixelOffset": [
+          -7.37,
+          -3.23
+        ],
+        "reference": 0.02782583224075731,
+        "candidate": 0.02803521261200468,
+        "legacy8": 0.030871457326791866,
+        "error": 0.00020938037124736825,
+        "normalizationPeakScale": 0.058823529411764705
+      }
+    },
+    {
+      "lengthPixels": 17.0,
+      "sigma": 0.55,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 16,
+      "N0": 35,
+      "N1": 36,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.014805125505737433,
+      "candidateSpatialMaximumAbsoluteError": 0.00020927367346457865,
+      "spatialErrorOverPeakScale": 0.003557652448897837,
+      "shaderErfOnlyMaximumAbsoluteError": 9.944031648459473e-10,
+      "localWindowOnlyMaximumAbsoluteError": 2.0402377703954144e-12,
+      "worst": {
+        "pixelOffset": [
+          5.63,
+          5.77
+        ],
+        "reference": 0.02815230438891362,
+        "candidate": 0.028361578062378198,
+        "legacy8": 0.03076749861932314,
+        "error": 0.00020927367346457865,
+        "normalizationPeakScale": 0.058823529411764705
+      }
+    },
+    {
+      "lengthPixels": 17.0,
+      "sigma": 1.0,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 17,
+      "N0": 35,
+      "N1": 36,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.0015423538429422366,
+      "candidateSpatialMaximumAbsoluteError": 4.841887675623895e-05,
+      "spatialErrorOverPeakScale": 0.0008231209048560621,
+      "shaderErfOnlyMaximumAbsoluteError": 1.190777374274199e-09,
+      "localWindowOnlyMaximumAbsoluteError": 8.648238375430495e-12,
+      "worst": {
+        "pixelOffset": [
+          9.63,
+          -0.23
+        ],
+        "reference": 0.0030545861237904486,
+        "candidate": 0.0030061672470342096,
+        "legacy8": 0.0019525294732008,
+        "error": 4.841887675623895e-05,
+        "normalizationPeakScale": 0.058823529411764705
+      }
+    },
+    {
+      "lengthPixels": 17.0,
+      "sigma": 1.0,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 18,
+      "N0": 35,
+      "N1": 36,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.0015798512679858663,
+      "candidateSpatialMaximumAbsoluteError": 4.8677297760327254e-05,
+      "spatialErrorOverPeakScale": 0.0008275140619255633,
+      "shaderErfOnlyMaximumAbsoluteError": 1.7236244428259218e-09,
+      "localWindowOnlyMaximumAbsoluteError": 3.903866813148582e-12,
+      "worst": {
+        "pixelOffset": [
+          7.0,
+          3.0
+        ],
+        "reference": 0.01800119337095301,
+        "candidate": 0.018049870668713337,
+        "legacy8": 0.019581044638938876,
+        "error": 4.8677297760327254e-05,
+        "normalizationPeakScale": 0.058823529411764705
+      }
+    },
+    {
+      "lengthPixels": 17.0,
+      "sigma": 1.0,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 16,
+      "N0": 35,
+      "N1": 36,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.0015796684815366328,
+      "candidateSpatialMaximumAbsoluteError": 4.970303118054589e-05,
+      "spatialErrorOverPeakScale": 0.0008449515300692802,
+      "shaderErfOnlyMaximumAbsoluteError": 9.006582320225665e-10,
+      "localWindowOnlyMaximumAbsoluteError": 4.255429342236994e-12,
+      "worst": {
+        "pixelOffset": [
+          -5.37,
+          -5.23
+        ],
+        "reference": 0.01867646176256007,
+        "candidate": 0.018726164793740615,
+        "legacy8": 0.020256130244096702,
+        "error": 4.970303118054589e-05,
+        "normalizationPeakScale": 0.058823529411764705
+      }
+    },
+    {
+      "lengthPixels": 17.0,
+      "sigma": 4.0,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 17,
+      "N0": 9,
+      "N1": 10,
+      "mix": 0.5,
+      "legacy8MaximumAbsoluteError": 1.7268124900621067e-05,
+      "candidateSpatialMaximumAbsoluteError": 1.2299684015622259e-05,
+      "spatialErrorOverPeakScale": 0.0002090946282655784,
+      "shaderErfOnlyMaximumAbsoluteError": 5.244078869065527e-09,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          -4.37,
+          -0.23
+        ],
+        "reference": 0.004952721044843659,
+        "candidate": 0.004965020728859282,
+        "legacy8": 0.0049699891697442804,
+        "error": 1.2299684015622259e-05,
+        "normalizationPeakScale": 0.058823529411764705
+      }
+    },
+    {
+      "lengthPixels": 17.0,
+      "sigma": 4.0,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 18,
+      "N0": 9,
+      "N1": 10,
+      "mix": 0.5,
+      "legacy8MaximumAbsoluteError": 1.723213891400687e-05,
+      "candidateSpatialMaximumAbsoluteError": 1.227233516818034e-05,
+      "spatialErrorOverPeakScale": 0.00020862969785906578,
+      "shaderErfOnlyMaximumAbsoluteError": 1.3611385508288665e-09,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          4.0,
+          2.0
+        ],
+        "reference": 0.0049142989321548786,
+        "candidate": 0.004926571267323059,
+        "legacy8": 0.0049315310710688854,
+        "error": 1.227233516818034e-05,
+        "normalizationPeakScale": 0.058823529411764705
+      }
+    },
+    {
+      "lengthPixels": 17.0,
+      "sigma": 4.0,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 16,
+      "N0": 9,
+      "N1": 10,
+      "mix": 0.5,
+      "legacy8MaximumAbsoluteError": 1.7286087877889898e-05,
+      "candidateSpatialMaximumAbsoluteError": 1.2314968002539485e-05,
+      "spatialErrorOverPeakScale": 0.00020935445604317125,
+      "shaderErfOnlyMaximumAbsoluteError": 1.949889665529836e-09,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          3.0,
+          3.0
+        ],
+        "reference": 0.005003337678536142,
+        "candidate": 0.005015652646538682,
+        "legacy8": 0.005020623766414031,
+        "error": 1.2314968002539485e-05,
+        "normalizationPeakScale": 0.058823529411764705
+      }
+    },
+    {
+      "lengthPixels": 17.0,
+      "sigma": 20.0,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 17,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 1.7108630012674896e-07,
+      "candidateSpatialMaximumAbsoluteError": 1.7108630012674896e-07,
+      "spatialErrorOverPeakScale": 2.9084671021547322e-06,
+      "shaderErfOnlyMaximumAbsoluteError": 1.8303390014024444e-09,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.0,
+          0.0
+        ],
+        "reference": 0.00038614887511143357,
+        "candidate": 0.0003863199614115603,
+        "legacy8": 0.0003863199614115603,
+        "error": 1.7108630012674896e-07,
+        "normalizationPeakScale": 0.058823529411764705
+      }
+    },
+    {
+      "lengthPixels": 17.0,
+      "sigma": 20.0,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 18,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 1.7108630006294366e-07,
+      "candidateSpatialMaximumAbsoluteError": 1.7108630006294366e-07,
+      "spatialErrorOverPeakScale": 2.908467101070042e-06,
+      "shaderErfOnlyMaximumAbsoluteError": 3.7973019927041093e-10,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.0,
+          0.0
+        ],
+        "reference": 0.000386148875112754,
+        "candidate": 0.00038631996141281696,
+        "legacy8": 0.00038631996141281696,
+        "error": 1.7108630006294366e-07,
+        "normalizationPeakScale": 0.058823529411764705
+      }
+    },
+    {
+      "lengthPixels": 17.0,
+      "sigma": 20.0,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 16,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 1.7108629999951783e-07,
+      "candidateSpatialMaximumAbsoluteError": 1.7108629999951783e-07,
+      "spatialErrorOverPeakScale": 2.908467099991803e-06,
+      "shaderErfOnlyMaximumAbsoluteError": 4.984900447068882e-10,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.0,
+          0.0
+        ],
+        "reference": 0.00038614887511407447,
+        "candidate": 0.000386319961414074,
+        "legacy8": 0.000386319961414074,
+        "error": 1.7108629999951783e-07,
+        "normalizationPeakScale": 0.058823529411764705
+      }
+    },
+    {
+      "lengthPixels": 30.0,
+      "sigma": 0.28,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 17,
+      "N0": 61,
+      "N1": 62,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.030861710608525144,
+      "candidateSpatialMaximumAbsoluteError": 0.0003900992767270038,
+      "spatialErrorOverPeakScale": 0.011702978301810114,
+      "shaderErfOnlyMaximumAbsoluteError": 5.424921078328593e-09,
+      "localWindowOnlyMaximumAbsoluteError": 1.299685359335001e-11,
+      "worst": {
+        "pixelOffset": [
+          -15.37,
+          -0.23
+        ],
+        "reference": 0.005201357885953391,
+        "candidate": 0.004811258609226387,
+        "legacy8": 2.3809580190511508e-11,
+        "error": 0.0003900992767270038,
+        "normalizationPeakScale": 0.03333333333333333
+      }
+    },
+    {
+      "lengthPixels": 30.0,
+      "sigma": 0.28,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 19,
+      "N0": 61,
+      "N1": 62,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.03156741287645327,
+      "candidateSpatialMaximumAbsoluteError": 0.0003377350443827525,
+      "spatialErrorOverPeakScale": 0.010132051331482575,
+      "shaderErfOnlyMaximumAbsoluteError": 3.4541601280635437e-09,
+      "localWindowOnlyMaximumAbsoluteError": 8.88416510497203e-13,
+      "worst": {
+        "pixelOffset": [
+          -14.37,
+          -6.23
+        ],
+        "reference": 0.0015881815818691812,
+        "candidate": 0.0012504465374864287,
+        "legacy8": 1.6939053033206815e-13,
+        "error": 0.0003377350443827525,
+        "normalizationPeakScale": 0.03333333333333333
+      }
+    },
+    {
+      "lengthPixels": 30.0,
+      "sigma": 0.28,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 16,
+      "N0": 61,
+      "N1": 62,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.03231511666991884,
+      "candidateSpatialMaximumAbsoluteError": 0.00044315562035074623,
+      "spatialErrorOverPeakScale": 0.013294668610522387,
+      "shaderErfOnlyMaximumAbsoluteError": 2.0511701087633227e-09,
+      "localWindowOnlyMaximumAbsoluteError": 7.67774732679527e-13,
+      "worst": {
+        "pixelOffset": [
+          -11.0,
+          -11.0
+        ],
+        "reference": 0.003210475214021481,
+        "candidate": 0.002767319593670735,
+        "legacy8": 5.565312864761437e-12,
+        "error": 0.00044315562035074623,
+        "normalizationPeakScale": 0.03333333333333333
+      }
+    },
+    {
+      "lengthPixels": 30.0,
+      "sigma": 0.55,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 17,
+      "N0": 61,
+      "N1": 62,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.020236093880591388,
+      "candidateSpatialMaximumAbsoluteError": 0.00012831032325884978,
+      "spatialErrorOverPeakScale": 0.0038493096977654934,
+      "shaderErfOnlyMaximumAbsoluteError": 2.5941879928936817e-09,
+      "localWindowOnlyMaximumAbsoluteError": 7.157861109385877e-12,
+      "worst": {
+        "pixelOffset": [
+          -14.37,
+          -0.23
+        ],
+        "reference": 0.016759026016401418,
+        "candidate": 0.016887336339660268,
+        "legacy8": 0.006483941103603514,
+        "error": 0.00012831032325884978,
+        "normalizationPeakScale": 0.03333333333333333
+      }
+    },
+    {
+      "lengthPixels": 30.0,
+      "sigma": 0.55,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 19,
+      "N0": 61,
+      "N1": 62,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.020234395661170308,
+      "candidateSpatialMaximumAbsoluteError": 0.00012514346785560092,
+      "spatialErrorOverPeakScale": 0.0037543040356680275,
+      "shaderErfOnlyMaximumAbsoluteError": 1.6998618589114667e-09,
+      "localWindowOnlyMaximumAbsoluteError": 1.986563691325216e-12,
+      "worst": {
+        "pixelOffset": [
+          -14.37,
+          -6.23
+        ],
+        "reference": 0.0028692759492023063,
+        "candidate": 0.0027441324813467054,
+        "legacy8": 9.325252286494875e-06,
+        "error": 0.00012514346785560092,
+        "normalizationPeakScale": 0.03333333333333333
+      }
+    },
+    {
+      "lengthPixels": 30.0,
+      "sigma": 0.55,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 16,
+      "N0": 61,
+      "N1": 62,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.02023221106871233,
+      "candidateSpatialMaximumAbsoluteError": 0.0001344746475700092,
+      "spatialErrorOverPeakScale": 0.004034239427100276,
+      "shaderErfOnlyMaximumAbsoluteError": 9.879412964791667e-10,
+      "localWindowOnlyMaximumAbsoluteError": 1.2497294865632114e-12,
+      "worst": {
+        "pixelOffset": [
+          -11.0,
+          -11.0
+        ],
+        "reference": 0.004011043309008625,
+        "candidate": 0.0038765686614386156,
+        "legacy8": 2.208498934484955e-05,
+        "error": 0.0001344746475700092,
+        "normalizationPeakScale": 0.03333333333333333
+      }
+    },
+    {
+      "lengthPixels": 30.0,
+      "sigma": 1.0,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 17,
+      "N0": 61,
+      "N1": 62,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.005508560515221179,
+      "candidateSpatialMaximumAbsoluteError": 2.9021699996374835e-05,
+      "spatialErrorOverPeakScale": 0.000870650999891245,
+      "shaderErfOnlyMaximumAbsoluteError": 6.96899031538134e-10,
+      "localWindowOnlyMaximumAbsoluteError": 6.8019201382441e-12,
+      "worst": {
+        "pixelOffset": [
+          16.0,
+          0.0
+        ],
+        "reference": 0.002150630989716167,
+        "candidate": 0.002121609289719792,
+        "legacy8": 0.0004023295039179434,
+        "error": 2.9021699996374835e-05,
+        "normalizationPeakScale": 0.03333333333333333
+      }
+    },
+    {
+      "lengthPixels": 30.0,
+      "sigma": 1.0,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 19,
+      "N0": 61,
+      "N1": 62,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.0055051747165776425,
+      "candidateSpatialMaximumAbsoluteError": 2.8187839003500836e-05,
+      "spatialErrorOverPeakScale": 0.0008456351701050251,
+      "shaderErfOnlyMaximumAbsoluteError": 1.1026882592787834e-09,
+      "localWindowOnlyMaximumAbsoluteError": 2.3594511761038106e-12,
+      "worst": {
+        "pixelOffset": [
+          15.0,
+          6.0
+        ],
+        "reference": 0.0016790134250716747,
+        "candidate": 0.0016508255860681739,
+        "legacy8": 0.000259923097048146,
+        "error": 2.8187839003500836e-05,
+        "normalizationPeakScale": 0.03333333333333333
+      }
+    },
+    {
+      "lengthPixels": 30.0,
+      "sigma": 1.0,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 16,
+      "N0": 61,
+      "N1": 62,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 0.005501789311984566,
+      "candidateSpatialMaximumAbsoluteError": 2.8827600580134602e-05,
+      "spatialErrorOverPeakScale": 0.0008648280174040381,
+      "shaderErfOnlyMaximumAbsoluteError": 1.0252260650676914e-09,
+      "localWindowOnlyMaximumAbsoluteError": 1.6980687689294172e-12,
+      "worst": {
+        "pixelOffset": [
+          -11.37,
+          -11.23
+        ],
+        "reference": 0.002204049203381618,
+        "candidate": 0.0021752216028014834,
+        "legacy8": 0.0004254292036648623,
+        "error": 2.8827600580134602e-05,
+        "normalizationPeakScale": 0.03333333333333333
+      }
+    },
+    {
+      "lengthPixels": 30.0,
+      "sigma": 4.0,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 17,
+      "N0": 16,
+      "N1": 17,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 1.823518083166357e-05,
+      "candidateSpatialMaximumAbsoluteError": 4.5818247687867165e-06,
+      "spatialErrorOverPeakScale": 0.0001374547430636015,
+      "shaderErfOnlyMaximumAbsoluteError": 2.913970965565116e-09,
+      "localWindowOnlyMaximumAbsoluteError": 3.861333995602845e-12,
+      "worst": {
+        "pixelOffset": [
+          8.0,
+          0.0
+        ],
+        "reference": 0.003181746380019565,
+        "candidate": 0.0031863282047883516,
+        "legacy8": 0.0031999815608512285,
+        "error": 4.5818247687867165e-06,
+        "normalizationPeakScale": 0.03333333333333333
+      }
+    },
+    {
+      "lengthPixels": 30.0,
+      "sigma": 4.0,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 19,
+      "N0": 16,
+      "N1": 17,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 1.8480225181073413e-05,
+      "candidateSpatialMaximumAbsoluteError": 4.639506018826525e-06,
+      "spatialErrorOverPeakScale": 0.00013918518056479576,
+      "shaderErfOnlyMaximumAbsoluteError": 1.4455721320492942e-09,
+      "localWindowOnlyMaximumAbsoluteError": 2.163604365112981e-12,
+      "worst": {
+        "pixelOffset": [
+          -7.37,
+          -3.23
+        ],
+        "reference": 0.0031758281836441896,
+        "candidate": 0.003180467689663016,
+        "legacy8": 0.003194308408825263,
+        "error": 4.639506018826525e-06,
+        "normalizationPeakScale": 0.03333333333333333
+      }
+    },
+    {
+      "lengthPixels": 30.0,
+      "sigma": 4.0,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 16,
+      "N0": 16,
+      "N1": 17,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 1.8661792711433282e-05,
+      "candidateSpatialMaximumAbsoluteError": 4.663756692129765e-06,
+      "spatialErrorOverPeakScale": 0.00013991270076389294,
+      "shaderErfOnlyMaximumAbsoluteError": 1.8796153617925415e-09,
+      "localWindowOnlyMaximumAbsoluteError": 2.8561896771306383e-12,
+      "worst": {
+        "pixelOffset": [
+          5.63,
+          5.77
+        ],
+        "reference": 0.0031763368728616463,
+        "candidate": 0.003181000629553776,
+        "legacy8": 0.003194919187683513,
+        "error": 4.663756692129765e-06,
+        "normalizationPeakScale": 0.03333333333333333
+      }
+    },
+    {
+      "lengthPixels": 30.0,
+      "sigma": 20.0,
+      "angleDegrees": 0.0,
+      "phases": 2,
+      "points": 17,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 4.4089844128321906e-07,
+      "candidateSpatialMaximumAbsoluteError": 4.4089844128321906e-07,
+      "spatialErrorOverPeakScale": 1.3226953238496572e-05,
+      "shaderErfOnlyMaximumAbsoluteError": 1.7260779362890041e-09,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.0,
+          0.0
+        ],
+        "reference": 0.0003634638804400347,
+        "candidate": 0.0003639047788813179,
+        "legacy8": 0.0003639047788813179,
+        "error": 4.4089844128321906e-07,
+        "normalizationPeakScale": 0.03333333333333333
+      }
+    },
+    {
+      "lengthPixels": 30.0,
+      "sigma": 20.0,
+      "angleDegrees": 22.5,
+      "phases": 2,
+      "points": 19,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 4.408984408227042e-07,
+      "candidateSpatialMaximumAbsoluteError": 4.408984408227042e-07,
+      "spatialErrorOverPeakScale": 1.3226953224681126e-05,
+      "shaderErfOnlyMaximumAbsoluteError": 2.0713291536611153e-10,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.0,
+          0.0
+        ],
+        "reference": 0.00036346388045122393,
+        "candidate": 0.00036390477889204664,
+        "legacy8": 0.00036390477889204664,
+        "error": 4.408984408227042e-07,
+        "normalizationPeakScale": 0.03333333333333333
+      }
+    },
+    {
+      "lengthPixels": 30.0,
+      "sigma": 20.0,
+      "angleDegrees": 45.0,
+      "phases": 2,
+      "points": 16,
+      "N0": 8,
+      "N1": 9,
+      "mix": 0.0,
+      "legacy8MaximumAbsoluteError": 4.4089844036186406e-07,
+      "candidateSpatialMaximumAbsoluteError": 4.4089844036186406e-07,
+      "spatialErrorOverPeakScale": 1.3226953210855922e-05,
+      "shaderErfOnlyMaximumAbsoluteError": 1.987582373534115e-10,
+      "localWindowOnlyMaximumAbsoluteError": 0.0,
+      "worst": {
+        "pixelOffset": [
+          0.0,
+          0.0
+        ],
+        "reference": 0.000363463880462414,
+        "candidate": 0.00036390477890277585,
+        "legacy8": 0.00036390477890277585,
+        "error": 4.4089844036186406e-07,
+        "normalizationPeakScale": 0.03333333333333333
+      }
+    }
+  ],
+  "actualLengthSummary": {
+    "maximumLegacy8Error": 0.04930679057943697,
+    "maximumCandidateSpatialError": 0.0008538520087175289,
+    "maximumCandidateErrorOverPeakScale": 0.01451548414819799
+  },
+  "interiorRipple": [
+    {
+      "lengthPixels": 17.0,
+      "angleDegrees": 0.0,
+      "profileSamples": 129,
+      "scope": "continuous along-axis image function at fixed transverse offset; not a GPU raster simulation",
+      "legacy8PeakToPeakErrorOverReferenceMean": 1.8727833037652126,
+      "candidatePeakToPeakErrorOverReferenceMean": 0.00016091992234230297
+    },
+    {
+      "lengthPixels": 17.0,
+      "angleDegrees": 22.5,
+      "profileSamples": 129,
+      "scope": "continuous along-axis image function at fixed transverse offset; not a GPU raster simulation",
+      "legacy8PeakToPeakErrorOverReferenceMean": 1.817459885496104,
+      "candidatePeakToPeakErrorOverReferenceMean": 0.00015543635978101084
+    },
+    {
+      "lengthPixels": 17.0,
+      "angleDegrees": 45.0,
+      "profileSamples": 129,
+      "scope": "continuous along-axis image function at fixed transverse offset; not a GPU raster simulation",
+      "legacy8PeakToPeakErrorOverReferenceMean": 1.7606496199039514,
+      "candidatePeakToPeakErrorOverReferenceMean": 0.00020374813259437077
+    },
+    {
+      "lengthPixels": 30.0,
+      "angleDegrees": 0.0,
+      "profileSamples": 129,
+      "scope": "continuous along-axis image function at fixed transverse offset; not a GPU raster simulation",
+      "legacy8PeakToPeakErrorOverReferenceMean": 3.471950855386143,
+      "candidatePeakToPeakErrorOverReferenceMean": 0.00010868091764298475
+    },
+    {
+      "lengthPixels": 30.0,
+      "angleDegrees": 22.5,
+      "profileSamples": 129,
+      "scope": "continuous along-axis image function at fixed transverse offset; not a GPU raster simulation",
+      "legacy8PeakToPeakErrorOverReferenceMean": 3.4166234308593437,
+      "candidatePeakToPeakErrorOverReferenceMean": 0.00014641002522908017
+    },
+    {
+      "lengthPixels": 30.0,
+      "angleDegrees": 45.0,
+      "profileSamples": 129,
+      "scope": "continuous along-axis image function at fixed transverse offset; not a GPU raster simulation",
+      "legacy8PeakToPeakErrorOverReferenceMean": 3.3613293525060377,
+      "candidatePeakToPeakErrorOverReferenceMean": 0.00023637501356589874
+    }
+  ],
+  "fixtures": [
+    {
+      "pixelOffset": [
+        -10.0,
+        0.0
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 6.696835122816475e-07,
+      "candidateExactErf": 1.1967172752726923e-07,
+      "candidateShaderErf": 1.1977408990391783e-07,
+      "candidateLocalShaderErf": 1.1976521802599786e-07,
+      "legacy8ShaderErf": 1.0246928541940744e-14,
+      "refinementDifference": 2.5516867536035798e-20
+    },
+    {
+      "pixelOffset": [
+        -8.0,
+        0.0
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.04837907964089766,
+      "candidateExactErf": 0.0492329316438589,
+      "candidateShaderErf": 0.0492329345199436,
+      "candidateLocalShaderErf": 0.04923293451994343,
+      "legacy8ShaderErf": 0.04763642748252532,
+      "refinementDifference": 3.469446951953614e-17
+    },
+    {
+      "pixelOffset": [
+        -4.0,
+        0.0
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.054462027509234776,
+      "candidateExactErf": 0.05446243189121184,
+      "candidateShaderErf": 0.05446243893520846,
+      "candidateLocalShaderErf": 0.05446243893398213,
+      "legacy8ShaderErf": 0.01551381864733156,
+      "refinementDifference": 2.0816681711721685e-17
+    },
+    {
+      "pixelOffset": [
+        0.0,
+        0.0
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.05446202750923478,
+      "candidateExactErf": 0.05446641018161043,
+      "candidateShaderErf": 0.054466421286603124,
+      "candidateLocalShaderErf": 0.05446642128645227,
+      "legacy8ShaderErf": 0.005155221709420899,
+      "refinementDifference": 1.3877787807814457e-17
+    },
+    {
+      "pixelOffset": [
+        2.0,
+        0.0
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.054462027509234796,
+      "candidateExactErf": 0.054465266343193756,
+      "candidateShaderErf": 0.05446527153845595,
+      "candidateLocalShaderErf": 0.054465271538128426,
+      "legacy8ShaderErf": 0.007652446246122411,
+      "refinementDifference": 1.3877787807814457e-17
+    },
+    {
+      "pixelOffset": [
+        4.0,
+        0.0
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.05446202750923479,
+      "candidateExactErf": 0.054462431891211784,
+      "candidateShaderErf": 0.05446243893520841,
+      "candidateLocalShaderErf": 0.05446243893398208,
+      "legacy8ShaderErf": 0.01551381864733156,
+      "refinementDifference": 2.0816681711721685e-17
+    },
+    {
+      "pixelOffset": [
+        8.0,
+        0.0
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.04837907964089766,
+      "candidateExactErf": 0.04923293164385887,
+      "candidateShaderErf": 0.04923293451994358,
+      "candidateLocalShaderErf": 0.0492329345199434,
+      "legacy8ShaderErf": 0.04763642748252532,
+      "refinementDifference": 2.0816681711721685e-17
+    },
+    {
+      "pixelOffset": [
+        10.0,
+        0.0
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 6.696835122816479e-07,
+      "candidateExactErf": 1.1967172752726923e-07,
+      "candidateShaderErf": 1.1977408990391786e-07,
+      "candidateLocalShaderErf": 1.1976521802599786e-07,
+      "legacy8ShaderErf": 1.0246928541940744e-14,
+      "refinementDifference": 2.5093351062408648e-20
+    },
+    {
+      "pixelOffset": [
+        -9.369999885559082,
+        -0.23000000417232513
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.0005931248427377508,
+      "candidateExactErf": 0.0003394789563593217,
+      "candidateShaderErf": 0.00033947818882864656,
+      "candidateLocalShaderErf": 0.0003394781888269328,
+      "legacy8ShaderErf": 1.6172426393403643e-08,
+      "refinementDifference": 7.589415207398531e-19
+    },
+    {
+      "pixelOffset": [
+        -8.369999885559082,
+        -0.23000000417232513
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.030148725494476645,
+      "candidateExactErf": 0.030356021320375806,
+      "candidateShaderErf": 0.030356020138962932,
+      "candidateLocalShaderErf": 0.03035602013895926,
+      "legacy8ShaderErf": 0.006335755735006947,
+      "refinementDifference": 1.0408340855860843e-17
+    },
+    {
+      "pixelOffset": [
+        -4.369999885559082,
+        -0.23000000417232513
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.0487049165734865,
+      "candidateExactErf": 0.048708835289857214,
+      "candidateShaderErf": 0.048708838161179505,
+      "candidateLocalShaderErf": 0.04870883816104451,
+      "legacy8ShaderErf": 0.006665991739690014,
+      "refinementDifference": 2.0816681711721685e-17
+    },
+    {
+      "pixelOffset": [
+        -0.3700000047683716,
+        -0.23000000417232513
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.048704916573486454,
+      "candidateExactErf": 0.04870520603025686,
+      "candidateShaderErf": 0.04870520529065789,
+      "candidateLocalShaderErf": 0.048705205289523754,
+      "legacy8ShaderErf": 0.02549229298911963,
+      "refinementDifference": 3.469446951953614e-17
+    },
+    {
+      "pixelOffset": [
+        1.6299999952316284,
+        -0.23000000417232513
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.0487049165734865,
+      "candidateExactErf": 0.04870249722224044,
+      "candidateShaderErf": 0.0487024949308106,
+      "candidateLocalShaderErf": 0.0487024949265322,
+      "legacy8ShaderErf": 0.04189188845966151,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        4.630000114440918,
+        -0.23000000417232513
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.04870491657348648,
+      "candidateExactErf": 0.048701077890030045,
+      "candidateShaderErf": 0.048701073823561467,
+      "candidateLocalShaderErf": 0.048701073808980005,
+      "legacy8ShaderErf": 0.026665108585784178,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        7.630000114440918,
+        -0.23000000417232513
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.04811179173074873,
+      "candidateExactErf": 0.04836443487620278,
+      "candidateShaderErf": 0.04836443452469001,
+      "candidateLocalShaderErf": 0.04836443452262188,
+      "legacy8ShaderErf": 0.08872353040507405,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        8.630000114440918,
+        -0.23000000417232513
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.018556191079009857,
+      "candidateExactErf": 0.018349328949405774,
+      "candidateShaderErf": 0.01834932938470506,
+      "candidateLocalShaderErf": 0.018349329383648243,
+      "legacy8ShaderErf": 0.0006929386361483528,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        9.630000114440918,
+        -0.23000000417232513
+      ],
+      "motion": [
+        17.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 5.7748603633433565e-05,
+      "candidateExactErf": 2.159956433978581e-05,
+      "candidateShaderErf": 2.1601181475067262e-05,
+      "candidateLocalShaderErf": 2.1601180940503156e-05,
+      "legacy8ShaderErf": 7.777559383529899e-11,
+      "refinementDifference": 1.3552527156068805e-20
+    },
+    {
+      "pixelOffset": [
+        -9.0,
+        -4.0
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 9.950523891001425e-06,
+      "candidateExactErf": 2.9791133696731224e-06,
+      "candidateShaderErf": 2.979333479186581e-06,
+      "candidateLocalShaderErf": 2.9793334581803723e-06,
+      "legacy8ShaderErf": 3.679812717899137e-12,
+      "refinementDifference": 1.6940658945086007e-20
+    },
+    {
+      "pixelOffset": [
+        -8.0,
+        -3.0
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.020411081076012645,
+      "candidateExactErf": 0.02038326827730445,
+      "candidateShaderErf": 0.020383268263294042,
+      "candidateLocalShaderErf": 0.02038326826329394,
+      "legacy8ShaderErf": 0.0013648844224705492,
+      "refinementDifference": 3.469446951953614e-18
+    },
+    {
+      "pixelOffset": [
+        -7.0,
+        -3.0
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.053900084175089784,
+      "candidateExactErf": 0.054166115399071776,
+      "candidateShaderErf": 0.054166112800512235,
+      "candidateLocalShaderErf": 0.05416611280051213,
+      "legacy8ShaderErf": 0.09871007753378991,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        -4.0,
+        -2.0
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.04327727846576623,
+      "candidateExactErf": 0.04327877346555862,
+      "candidateShaderErf": 0.04327877364152625,
+      "candidateLocalShaderErf": 0.0432787736414702,
+      "legacy8ShaderErf": 0.008840106336895493,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        0.0,
+        0.0
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.055707719674598345,
+      "candidateExactErf": 0.0557127707395226,
+      "candidateShaderErf": 0.055712774277058355,
+      "candidateLocalShaderErf": 0.05571277427620758,
+      "legacy8ShaderErf": 0.0067271431162305596,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        2.0,
+        1.0
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.052420240100626264,
+      "candidateExactErf": 0.05241651526076261,
+      "candidateShaderErf": 0.0524165104221489,
+      "candidateLocalShaderErf": 0.05241651042214672,
+      "legacy8ShaderErf": 0.007340476424987649,
+      "refinementDifference": 2.7755575615628914e-17
+    },
+    {
+      "pixelOffset": [
+        4.0,
+        2.0
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.04327727846576625,
+      "candidateExactErf": 0.043278773465558584,
+      "candidateShaderErf": 0.043278773641526214,
+      "candidateLocalShaderErf": 0.04327877364147017,
+      "legacy8ShaderErf": 0.008840106336895493,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        7.0,
+        3.0
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.0539000841750898,
+      "candidateExactErf": 0.054166115399071735,
+      "candidateShaderErf": 0.054166112800512194,
+      "candidateLocalShaderErf": 0.05416611280051209,
+      "legacy8ShaderErf": 0.09871007753378991,
+      "refinementDifference": 1.3877787807814457e-17
+    },
+    {
+      "pixelOffset": [
+        8.0,
+        3.0
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.02041108107601264,
+      "candidateExactErf": 0.02038326827730449,
+      "candidateShaderErf": 0.020383268263294084,
+      "candidateLocalShaderErf": 0.020383268263293983,
+      "legacy8ShaderErf": 0.0013648844224705492,
+      "refinementDifference": 0.0
+    },
+    {
+      "pixelOffset": [
+        9.0,
+        4.0
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 9.950523891001423e-06,
+      "candidateExactErf": 2.9791133696731283e-06,
+      "candidateShaderErf": 2.97933347918659e-06,
+      "candidateLocalShaderErf": 2.979333458180381e-06,
+      "legacy8ShaderErf": 3.679812717899137e-12,
+      "refinementDifference": 1.3552527156068805e-20
+    },
+    {
+      "pixelOffset": [
+        -8.369999885559082,
+        -3.2300000190734863
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.00602283139753953,
+      "candidateExactErf": 0.00524754534871701,
+      "candidateShaderErf": 0.005247544769795113,
+      "candidateLocalShaderErf": 0.005247544769794447,
+      "legacy8ShaderErf": 1.4924613633770947e-05,
+      "refinementDifference": 2.6020852139652106e-18
+    },
+    {
+      "pixelOffset": [
+        -7.369999885559082,
+        -3.2300000190734863
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.04529267044003217,
+      "candidateExactErf": 0.0460837208664002,
+      "candidateShaderErf": 0.046083718890063824,
+      "candidateLocalShaderErf": 0.04608371889006331,
+      "legacy8ShaderErf": 0.04140306928049242,
+      "refinementDifference": 2.7755575615628914e-17
+    },
+    {
+      "pixelOffset": [
+        -4.369999885559082,
+        -1.2300000190734863
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.025643082651041763,
+      "candidateExactErf": 0.025643738936597413,
+      "candidateShaderErf": 0.02564373877214843,
+      "candidateLocalShaderErf": 0.02564373877214746,
+      "legacy8ShaderErf": 0.00783306566182444,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        -0.3700000047683716,
+        -0.23000000417232513
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.05504120830784934,
+      "candidateExactErf": 0.055044186682370176,
+      "candidateShaderErf": 0.05504418545791547,
+      "candidateLocalShaderErf": 0.055044185456038244,
+      "legacy8ShaderErf": 0.03748788375560439,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        1.6299999952316284,
+        0.7699999809265137
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.054691661052806075,
+      "candidateExactErf": 0.05468948842227289,
+      "candidateShaderErf": 0.054689486119514526,
+      "candidateLocalShaderErf": 0.0546894861195044,
+      "legacy8ShaderErf": 0.025693424176090676,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        3.630000114440918,
+        1.7699999809265137
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.04798006770682866,
+      "candidateExactErf": 0.04798141241327874,
+      "candidateShaderErf": 0.04798141513433623,
+      "candidateLocalShaderErf": 0.0479814151343214,
+      "legacy8ShaderErf": 0.01389804605535552,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        7.630000114440918,
+        2.7699999809265137
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.03262894615210411,
+      "candidateExactErf": 0.03315457817659687,
+      "candidateShaderErf": 0.0331545779617396,
+      "candidateLocalShaderErf": 0.03315457796173959,
+      "legacy8ShaderErf": 0.020339673789563032,
+      "refinementDifference": 0.0
+    },
+    {
+      "pixelOffset": [
+        8.630000114440918,
+        3.7699999809265137
+      ],
+      "motion": [
+        15.705951690673828,
+        6.505618572235107
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.0006110424465990497,
+      "candidateExactErf": 0.0003650063283014152,
+      "candidateShaderErf": 0.0003650060804934412,
+      "candidateLocalShaderErf": 0.0003650060804883504,
+      "legacy8ShaderErf": 2.829752605838798e-08,
+      "refinementDifference": 1.0842021724855044e-19
+    },
+    {
+      "pixelOffset": [
+        -7.0,
+        -7.0
+      ],
+      "motion": [
+        12.020814895629883,
+        12.020814895629883
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 8.07321451072178e-06,
+      "candidateExactErf": 2.3626091978899333e-06,
+      "candidateShaderErf": 2.3626016887422256e-06,
+      "candidateLocalShaderErf": 2.3626016732368686e-06,
+      "legacy8ShaderErf": 2.7345948121174907e-12,
+      "refinementDifference": 2.879912020664621e-20
+    },
+    {
+      "pixelOffset": [
+        -6.0,
+        -6.0
+      ],
+      "motion": [
+        12.020814895629883,
+        12.020814895629883
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.029255948440761192,
+      "candidateExactErf": 0.029282159467441546,
+      "candidateShaderErf": 0.029282155259948324,
+      "candidateLocalShaderErf": 0.029282155259943148,
+      "legacy8ShaderErf": 0.004743272605443368,
+      "refinementDifference": 0.0
+    },
+    {
+      "pixelOffset": [
+        -3.0,
+        -3.0
+      ],
+      "motion": [
+        12.020814895629883,
+        12.020814895629883
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.057027796455500115,
+      "candidateExactErf": 0.057027206267278044,
+      "candidateShaderErf": 0.057027204328774256,
+      "candidateLocalShaderErf": 0.057027204328710765,
+      "legacy8ShaderErf": 0.008540440466288275,
+      "refinementDifference": 4.163336342344337e-17
+    },
+    {
+      "pixelOffset": [
+        0.0,
+        0.0
+      ],
+      "motion": [
+        12.020814895629883,
+        12.020814895629883
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.05702779645550006,
+      "candidateExactErf": 0.057034005409866514,
+      "candidateShaderErf": 0.057034005252900484,
+      "candidateLocalShaderErf": 0.05703400525018407,
+      "legacy8ShaderErf": 0.008530483834099746,
+      "refinementDifference": 2.0816681711721685e-17
+    },
+    {
+      "pixelOffset": [
+        1.0,
+        1.0
+      ],
+      "motion": [
+        12.020814895629883,
+        12.020814895629883
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.05702779645550008,
+      "candidateExactErf": 0.0570330723637578,
+      "candidateShaderErf": 0.057033071675201316,
+      "candidateLocalShaderErf": 0.057033071674701286,
+      "legacy8ShaderErf": 0.08232344371000812,
+      "refinementDifference": 2.0816681711721685e-17
+    },
+    {
+      "pixelOffset": [
+        3.0,
+        3.0
+      ],
+      "motion": [
+        12.020814895629883,
+        12.020814895629883
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.05702779645550006,
+      "candidateExactErf": 0.05702720626727799,
+      "candidateShaderErf": 0.0570272043287742,
+      "candidateLocalShaderErf": 0.0570272043287107,
+      "legacy8ShaderErf": 0.008540440466288275,
+      "refinementDifference": 3.469446951953614e-17
+    },
+    {
+      "pixelOffset": [
+        6.0,
+        6.0
+      ],
+      "motion": [
+        12.020814895629883,
+        12.020814895629883
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.029255948440761192,
+      "candidateExactErf": 0.029282159467441615,
+      "candidateShaderErf": 0.029282155259948393,
+      "candidateLocalShaderErf": 0.029282155259943217,
+      "legacy8ShaderErf": 0.004743272605443368,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        7.0,
+        7.0
+      ],
+      "motion": [
+        12.020814895629883,
+        12.020814895629883
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 8.073214510721786e-06,
+      "candidateExactErf": 2.362609197889962e-06,
+      "candidateShaderErf": 2.362601688742254e-06,
+      "candidateLocalShaderErf": 2.362601673236897e-06,
+      "legacy8ShaderErf": 2.7345948121174907e-12,
+      "refinementDifference": 2.541098841762901e-20
+    },
+    {
+      "pixelOffset": [
+        -6.369999885559082,
+        -6.230000019073486
+      ],
+      "motion": [
+        12.020814895629883,
+        12.020814895629883
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.009690413138978516,
+      "candidateExactErf": 0.00898230012449869,
+      "candidateShaderErf": 0.008982297312680552,
+      "candidateLocalShaderErf": 0.008982297312657282,
+      "legacy8ShaderErf": 8.429961061045047e-05,
+      "refinementDifference": 1.0408340855860843e-17
+    },
+    {
+      "pixelOffset": [
+        -5.369999885559082,
+        -5.230000019073486
+      ],
+      "motion": [
+        12.020814895629883,
+        12.020814895629883
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.05510986463981004,
+      "candidateExactErf": 0.05526633649746355,
+      "candidateShaderErf": 0.05526633534361707,
+      "candidateLocalShaderErf": 0.055266335343609224,
+      "legacy8ShaderErf": 0.10434340570527038,
+      "refinementDifference": 2.7755575615628914e-17
+    },
+    {
+      "pixelOffset": [
+        -3.369999885559082,
+        -3.2300000190734863
+      ],
+      "motion": [
+        12.020814895629883,
+        12.020814895629883
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.055473520414461956,
+      "candidateExactErf": 0.05546900820370949,
+      "candidateShaderErf": 0.05546900623965639,
+      "candidateLocalShaderErf": 0.0554690062396427,
+      "legacy8ShaderErf": 0.038010668823826116,
+      "refinementDifference": 2.0816681711721685e-17
+    },
+    {
+      "pixelOffset": [
+        -0.3700000047683716,
+        -0.23000000417232513
+      ],
+      "motion": [
+        12.020814895629883,
+        12.020814895629883
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.05547351747597925,
+      "candidateExactErf": 0.05547758376363834,
+      "candidateShaderErf": 0.05547758176458704,
+      "candidateLocalShaderErf": 0.05547758176428317,
+      "legacy8ShaderErf": 0.03900612399917184,
+      "refinementDifference": 2.0816681711721685e-17
+    },
+    {
+      "pixelOffset": [
+        1.6299999952316284,
+        1.7699999809265137
+      ],
+      "motion": [
+        12.020814895629883,
+        12.020814895629883
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.05547351780247747,
+      "candidateExactErf": 0.05547903691193902,
+      "candidateShaderErf": 0.05547903358378568,
+      "candidateLocalShaderErf": 0.05547903358305892,
+      "legacy8ShaderErf": 0.021850269481481912,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        2.630000114440918,
+        2.7699999809265137
+      ],
+      "motion": [
+        12.020814895629883,
+        12.020814895629883
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.05547352041446193,
+      "candidateExactErf": 0.05547725958907233,
+      "candidateShaderErf": 0.05547725780474311,
+      "candidateLocalShaderErf": 0.05547725780447897,
+      "legacy8ShaderErf": 0.0400119727085291,
+      "refinementDifference": 4.85722573273506e-17
+    },
+    {
+      "pixelOffset": [
+        5.630000114440918,
+        5.769999980926514
+      ],
+      "motion": [
+        12.020814895629883,
+        12.020814895629883
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.04675486072325874,
+      "candidateExactErf": 0.047480666709266484,
+      "candidateShaderErf": 0.04748066666140489,
+      "candidateLocalShaderErf": 0.04748066666140391,
+      "legacy8ShaderErf": 0.040968265110386495,
+      "refinementDifference": 2.7755575615628914e-17
+    },
+    {
+      "pixelOffset": [
+        6.630000114440918,
+        6.769999980926514
+      ],
+      "motion": [
+        12.020814895629883,
+        12.020814895629883
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.00045689925062418935,
+      "candidateExactErf": 0.00026385488783370976,
+      "candidateShaderErf": 0.0002638550192499084,
+      "candidateLocalShaderErf": 0.00026385501924689305,
+      "legacy8ShaderErf": 1.7864048437664338e-08,
+      "refinementDifference": 6.505213034913027e-19
+    },
+    {
+      "pixelOffset": [
+        -16.0,
+        0.0
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.00012786537588950803,
+      "candidateExactErf": 5.868638637868493e-05,
+      "candidateShaderErf": 5.868712771963671e-05,
+      "candidateLocalShaderErf": 5.868712273583735e-05,
+      "legacy8ShaderErf": 0.0,
+      "refinementDifference": 5.692061405548898e-19
+    },
+    {
+      "pixelOffset": [
+        -15.0,
+        0.0
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.015430907794283208,
+      "candidateExactErf": 0.015430067247993074,
+      "candidateShaderErf": 0.015430068459731373,
+      "candidateLocalShaderErf": 0.015430068452524438,
+      "legacy8ShaderErf": 5.258658431340094e-08,
+      "refinementDifference": 1.734723475976807e-18
+    },
+    {
+      "pixelOffset": [
+        -8.0,
+        0.0
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.030861815588566373,
+      "candidateExactErf": 0.030861639866534032,
+      "candidateShaderErf": 0.03086164356117467,
+      "candidateLocalShaderErf": 0.030861643560666015,
+      "legacy8ShaderErf": 0.00010289631145207969,
+      "refinementDifference": 3.8163916471489756e-17
+    },
+    {
+      "pixelOffset": [
+        0.0,
+        0.0
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.030861815588566342,
+      "candidateExactErf": 0.030863496681161947,
+      "candidateShaderErf": 0.030863502106082918,
+      "candidateLocalShaderErf": 0.030863502106042825,
+      "legacy8ShaderErf": 1.0517316862680188e-07,
+      "refinementDifference": 3.469446951953614e-18
+    },
+    {
+      "pixelOffset": [
+        4.0,
+        0.0
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.030861815588566363,
+      "candidateExactErf": 0.030862940459068233,
+      "candidateShaderErf": 0.03086294364345037,
+      "candidateLocalShaderErf": 0.030862943643343032,
+      "legacy8ShaderErf": 3.400460914650581e-06,
+      "refinementDifference": 6.591949208711867e-17
+    },
+    {
+      "pixelOffset": [
+        8.0,
+        0.0
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.030861815588566353,
+      "candidateExactErf": 0.030861639866534053,
+      "candidateShaderErf": 0.03086164356117469,
+      "candidateLocalShaderErf": 0.030861643560666036,
+      "legacy8ShaderErf": 0.00010289631145207969,
+      "refinementDifference": 6.245004513516506e-17
+    },
+    {
+      "pixelOffset": [
+        15.0,
+        0.0
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.015430907794283166,
+      "candidateExactErf": 0.015430067247993074,
+      "candidateShaderErf": 0.015430068459731371,
+      "candidateLocalShaderErf": 0.015430068452524436,
+      "legacy8ShaderErf": 5.258658431340094e-08,
+      "refinementDifference": 4.163336342344337e-17
+    },
+    {
+      "pixelOffset": [
+        16.0,
+        0.0
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.00012786537588950614,
+      "candidateExactErf": 5.868638637868493e-05,
+      "candidateShaderErf": 5.868712771963671e-05,
+      "candidateLocalShaderErf": 5.868712273583735e-05,
+      "legacy8ShaderErf": 0.0,
+      "refinementDifference": 1.3010426069826053e-18
+    },
+    {
+      "pixelOffset": [
+        -16.3700008392334,
+        -0.23000000417232513
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 2.0124669188416694e-06,
+      "candidateExactErf": 4.5732902973028915e-07,
+      "candidateShaderErf": 4.57538021493019e-07,
+      "candidateLocalShaderErf": 4.5753802105072587e-07,
+      "legacy8ShaderErf": 0.0,
+      "refinementDifference": 2.202285662861181e-20
+    },
+    {
+      "pixelOffset": [
+        -15.369999885559082,
+        -0.23000000417232513
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.005201360008972115,
+      "candidateExactErf": 0.004811260837037367,
+      "candidateShaderErf": 0.004811260558141029,
+      "candidateLocalShaderErf": 0.004811260558140339,
+      "legacy8ShaderErf": 2.390913929287218e-11,
+      "refinementDifference": 6.071532165918825e-18
+    },
+    {
+      "pixelOffset": [
+        -14.369999885559082,
+        -0.23000000417232513
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.0259840593424512,
+      "candidateExactErf": 0.0263688014715897,
+      "candidateShaderErf": 0.02636879905818747,
+      "candidateLocalShaderErf": 0.0263687990581864,
+      "legacy8ShaderErf": 0.000403518103657486,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        -7.369999885559082,
+        -0.23000000417232513
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.02759945272497567,
+      "candidateExactErf": 0.027600950018655902,
+      "candidateShaderErf": 0.02760095052783069,
+      "candidateLocalShaderErf": 0.02760095052779427,
+      "legacy8ShaderErf": 4.5618137210109666e-07,
+      "refinementDifference": 2.42861286636753e-17
+    },
+    {
+      "pixelOffset": [
+        -0.3700000047683716,
+        -0.23000000417232513
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.027599452724975646,
+      "candidateExactErf": 0.027599474765067345,
+      "candidateShaderErf": 0.02759947411546252,
+      "candidateLocalShaderErf": 0.027599474115098357,
+      "legacy8ShaderErf": 1.7163143447282266e-05,
+      "refinementDifference": 2.7755575615628914e-17
+    },
+    {
+      "pixelOffset": [
+        3.630000114440918,
+        -0.23000000417232513
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.0275994527249757,
+      "candidateExactErf": 0.02759835035732903,
+      "candidateShaderErf": 0.027598349002258295,
+      "candidateLocalShaderErf": 0.027598349000557253,
+      "legacy8ShaderErf": 3.875940460926064e-07,
+      "refinementDifference": 3.469446951953614e-18
+    },
+    {
+      "pixelOffset": [
+        7.630000114440918,
+        -0.23000000417232513
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.027599452724975694,
+      "candidateExactErf": 0.027597955431309065,
+      "candidateShaderErf": 0.02759795361672283,
+      "candidateLocalShaderErf": 0.027597953603675666,
+      "legacy8ShaderErf": 4.5618137210109666e-07,
+      "refinementDifference": 3.469446951953614e-17
+    },
+    {
+      "pixelOffset": [
+        14.630000114440918,
+        -0.23000000417232513
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.022398092716003574,
+      "candidateExactErf": 0.022788169850122227,
+      "candidateShaderErf": 0.022788169473774635,
+      "candidateLocalShaderErf": 0.022788169473390685,
+      "legacy8ShaderErf": 1.7163091513577757e-05,
+      "refinementDifference": 1.3877787807814457e-17
+    },
+    {
+      "pixelOffset": [
+        15.630000114440918,
+        -0.23000000417232513
+      ],
+      "motion": [
+        30.0,
+        0.0
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.001615393382524453,
+      "candidateExactErf": 0.001230942235183956,
+      "candidateShaderErf": 0.0012309439839573,
+      "candidateLocalShaderErf": 0.001230943983698315,
+      "legacy8ShaderErf": 4.182571129109303e-14,
+      "refinementDifference": 1.0191500421363742e-17
+    },
+    {
+      "pixelOffset": [
+        -15.0,
+        -6.0
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 2.88651184807077e-05,
+      "candidateExactErf": 1.0948789023773229e-05,
+      "candidateShaderErf": 1.0949575729379924e-05,
+      "candidateLocalShaderErf": 1.0949575362849124e-05,
+      "legacy8ShaderErf": 0.0,
+      "refinementDifference": 5.759824041329242e-20
+    },
+    {
+      "pixelOffset": [
+        -14.0,
+        -6.0
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.008917047645508207,
+      "candidateExactErf": 0.008675505317912828,
+      "candidateShaderErf": 0.008675504245625337,
+      "candidateLocalShaderErf": 0.008675504245412323,
+      "legacy8ShaderErf": 2.5491980151246807e-09,
+      "refinementDifference": 1.734723475976807e-17
+    },
+    {
+      "pixelOffset": [
+        -13.0,
+        -6.0
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.012654000814472975,
+      "candidateExactErf": 0.012791207478542047,
+      "candidateShaderErf": 0.012791205451293123,
+      "candidateLocalShaderErf": 0.01279120545127076,
+      "legacy8ShaderErf": 0.0005008117872067605,
+      "refinementDifference": 1.214306433183765e-17
+    },
+    {
+      "pixelOffset": [
+        -7.0,
+        -3.0
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.030921386074473776,
+      "candidateExactErf": 0.030919008128519214,
+      "candidateShaderErf": 0.030919005959701627,
+      "candidateLocalShaderErf": 0.03091900595970118,
+      "legacy8ShaderErf": 8.135641619518172e-07,
+      "refinementDifference": 2.0816681711721685e-17
+    },
+    {
+      "pixelOffset": [
+        0.0,
+        0.0
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.03156770643142524,
+      "candidateExactErf": 0.03157052473510947,
+      "candidateShaderErf": 0.03157052705486962,
+      "candidateLocalShaderErf": 0.03157052705463396,
+      "legacy8ShaderErf": 2.947072898660353e-07,
+      "refinementDifference": 0.0
+    },
+    {
+      "pixelOffset": [
+        3.0,
+        1.0
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.02790737353801106,
+      "candidateExactErf": 0.027906135515460926,
+      "candidateShaderErf": 0.027906133214527975,
+      "candidateLocalShaderErf": 0.027906133214527586,
+      "legacy8ShaderErf": 0.0002973530535473075,
+      "refinementDifference": 4.5102810375396984e-17
+    },
+    {
+      "pixelOffset": [
+        7.0,
+        3.0
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.030921386074473797,
+      "candidateExactErf": 0.030919008128519283,
+      "candidateShaderErf": 0.0309190059597017,
+      "candidateLocalShaderErf": 0.030919005959701252,
+      "legacy8ShaderErf": 8.135641619518172e-07,
+      "refinementDifference": 4.5102810375396984e-17
+    },
+    {
+      "pixelOffset": [
+        13.0,
+        6.0
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.012654000814472995,
+      "candidateExactErf": 0.012791207478542031,
+      "candidateShaderErf": 0.012791205451293109,
+      "candidateLocalShaderErf": 0.012791205451270746,
+      "legacy8ShaderErf": 0.0005008117872067605,
+      "refinementDifference": 2.7755575615628914e-17
+    },
+    {
+      "pixelOffset": [
+        14.0,
+        6.0
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.008917047645508176,
+      "candidateExactErf": 0.008675505317912828,
+      "candidateShaderErf": 0.008675504245625337,
+      "candidateLocalShaderErf": 0.008675504245412323,
+      "legacy8ShaderErf": 2.5491980151246807e-09,
+      "refinementDifference": 4.683753385137379e-17
+    },
+    {
+      "pixelOffset": [
+        15.0,
+        6.0
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 2.8865118480707334e-05,
+      "candidateExactErf": 1.0948789023773227e-05,
+      "candidateShaderErf": 1.0949575729379924e-05,
+      "candidateLocalShaderErf": 1.0949575362849124e-05,
+      "legacy8ShaderErf": 0.0,
+      "refinementDifference": 4.1674021004911577e-19
+    },
+    {
+      "pixelOffset": [
+        -14.369999885559082,
+        -6.230000019073486
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.0015881853090674919,
+      "candidateExactErf": 0.0012504500068405376,
+      "candidateShaderErf": 0.0012504498858159551,
+      "candidateLocalShaderErf": 0.0012504498849249261,
+      "legacy8ShaderErf": 1.7009941331435756e-13,
+      "refinementDifference": 6.071532165918825e-18
+    },
+    {
+      "pixelOffset": [
+        -13.369999885559082,
+        -6.230000019073486
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.0074338981530104615,
+      "candidateExactErf": 0.007587105795658385,
+      "candidateShaderErf": 0.007587106077699623,
+      "candidateLocalShaderErf": 0.007587106077629005,
+      "legacy8ShaderErf": 2.8388073546428273e-06,
+      "refinementDifference": 1.0408340855860843e-17
+    },
+    {
+      "pixelOffset": [
+        -13.369999885559082,
+        -5.230000019073486
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.024167091402415755,
+      "candidateExactErf": 0.024498041773339217,
+      "candidateShaderErf": 0.02449803831919324,
+      "candidateLocalShaderErf": 0.02449803831918911,
+      "legacy8ShaderErf": 0.0004164925820391599,
+      "refinementDifference": 1.3877787807814457e-17
+    },
+    {
+      "pixelOffset": [
+        -7.369999885559082,
+        -3.2300000190734863
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.029581861023951238,
+      "candidateExactErf": 0.029581424083600153,
+      "candidateShaderErf": 0.029581423784319844,
+      "candidateLocalShaderErf": 0.02958142378431808,
+      "legacy8ShaderErf": 0.00020403458937581456,
+      "refinementDifference": 2.42861286636753e-17
+    },
+    {
+      "pixelOffset": [
+        -0.3700000047683716,
+        -0.23000000417232513
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.031190016556083347,
+      "candidateExactErf": 0.031191535666872165,
+      "candidateShaderErf": 0.031191535190933616,
+      "candidateLocalShaderErf": 0.0311915351903295,
+      "legacy8ShaderErf": 6.706367489663747e-05,
+      "refinementDifference": 3.122502256758253e-17
+    },
+    {
+      "pixelOffset": [
+        3.630000114440918,
+        1.7699999809265137
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.027188700173055656,
+      "candidateExactErf": 0.02718974727751349,
+      "candidateShaderErf": 0.027189749124579464,
+      "candidateLocalShaderErf": 0.027189749124084374,
+      "legacy8ShaderErf": 5.7481045801222855e-06,
+      "refinementDifference": 3.469446951953614e-17
+    },
+    {
+      "pixelOffset": [
+        6.630000114440918,
+        2.7699999809265137
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.03153138349211794,
+      "candidateExactErf": 0.0315291425049163,
+      "candidateShaderErf": 0.03152914065024821,
+      "candidateLocalShaderErf": 0.031529140650247284,
+      "legacy8ShaderErf": 1.813797659879948e-05,
+      "refinementDifference": 3.469446951953614e-17
+    },
+    {
+      "pixelOffset": [
+        13.630000114440918,
+        5.769999980926514
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.02091872078346027,
+      "candidateExactErf": 0.021151175120621188,
+      "candidateShaderErf": 0.02115117622890041,
+      "candidateLocalShaderErf": 0.02115117622885472,
+      "legacy8ShaderErf": 3.958446775264862e-06,
+      "refinementDifference": 4.163336342344337e-17
+    },
+    {
+      "pixelOffset": [
+        14.630000114440918,
+        5.769999980926514
+      ],
+      "motion": [
+        27.716386795043945,
+        11.48050308227539
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.0008088214738739416,
+      "candidateExactErf": 0.0005538156835368758,
+      "candidateShaderErf": 0.0005538155814692676,
+      "candidateLocalShaderErf": 0.0005538155814089137,
+      "legacy8ShaderErf": 9.75621191888831e-15,
+      "refinementDifference": 1.0733601507606494e-17
+    },
+    {
+      "pixelOffset": [
+        -11.0,
+        -11.0
+      ],
+      "motion": [
+        21.21320343017578,
+        21.21320343017578
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.003210475165802457,
+      "candidateExactErf": 0.0027673195490406227,
+      "candidateShaderErf": 0.0027673199863088105,
+      "candidateLocalShaderErf": 0.002767319986308661,
+      "legacy8ShaderErf": 5.573873140802607e-12,
+      "refinementDifference": 2.168404344971009e-18
+    },
+    {
+      "pixelOffset": [
+        -10.0,
+        -10.0
+      ],
+      "motion": [
+        21.21320343017578,
+        21.21320343017578
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.03169028187175011,
+      "candidateExactErf": 0.031902884391683685,
+      "candidateShaderErf": 0.03190288342756417,
+      "candidateLocalShaderErf": 0.031902883427564144,
+      "legacy8ShaderErf": 0.005876587347448863,
+      "refinementDifference": 3.469446951953614e-17
+    },
+    {
+      "pixelOffset": [
+        -5.0,
+        -5.0
+      ],
+      "motion": [
+        21.21320343017578,
+        21.21320343017578
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.03231575029927216,
+      "candidateExactErf": 0.032312802263737644,
+      "candidateShaderErf": 0.032312801288291365,
+      "candidateLocalShaderErf": 0.03231280128828717,
+      "legacy8ShaderErf": 0.0001201988360273899,
+      "refinementDifference": 2.0816681711721685e-17
+    },
+    {
+      "pixelOffset": [
+        0.0,
+        0.0
+      ],
+      "motion": [
+        21.21320343017578,
+        21.21320343017578
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.03231575029927217,
+      "candidateExactErf": 0.03231984705704176,
+      "candidateShaderErf": 0.032319846657172024,
+      "candidateLocalShaderErf": 0.03231984665640296,
+      "legacy8ShaderErf": 6.33736522636051e-07,
+      "refinementDifference": 0.0
+    },
+    {
+      "pixelOffset": [
+        3.0,
+        3.0
+      ],
+      "motion": [
+        21.21320343017578,
+        21.21320343017578
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.032315750299272146,
+      "candidateExactErf": 0.03231288461140808,
+      "candidateShaderErf": 0.03231288371908385,
+      "candidateLocalShaderErf": 0.03231288371907942,
+      "legacy8ShaderErf": 0.00024279189578125027,
+      "refinementDifference": 3.469446951953614e-17
+    },
+    {
+      "pixelOffset": [
+        5.0,
+        5.0
+      ],
+      "motion": [
+        21.21320343017578,
+        21.21320343017578
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.032315750299272146,
+      "candidateExactErf": 0.03231280226373766,
+      "candidateShaderErf": 0.032312801288291365,
+      "candidateLocalShaderErf": 0.03231280128828717,
+      "legacy8ShaderErf": 0.0001201988360273899,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        10.0,
+        10.0
+      ],
+      "motion": [
+        21.21320343017578,
+        21.21320343017578
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.03169028187175017,
+      "candidateExactErf": 0.03190288439168365,
+      "candidateShaderErf": 0.03190288342756413,
+      "candidateLocalShaderErf": 0.0319028834275641,
+      "legacy8ShaderErf": 0.005876587347448863,
+      "refinementDifference": 7.632783294297951e-17
+    },
+    {
+      "pixelOffset": [
+        11.0,
+        11.0
+      ],
+      "motion": [
+        21.21320343017578,
+        21.21320343017578
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.003210475165802429,
+      "candidateExactErf": 0.002767319549040623,
+      "candidateShaderErf": 0.00276731998630881,
+      "candidateLocalShaderErf": 0.0027673199863086605,
+      "legacy8ShaderErf": 5.573873140802607e-12,
+      "refinementDifference": 2.47198095326695e-17
+    },
+    {
+      "pixelOffset": [
+        -11.369999885559082,
+        -11.229999542236328
+      ],
+      "motion": [
+        21.21320343017578,
+        21.21320343017578
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.0002484718463613691,
+      "candidateExactErf": 0.00014031891656658764,
+      "candidateShaderErf": 0.00014031898174677319,
+      "candidateLocalShaderErf": 0.00014031898174591368,
+      "legacy8ShaderErf": 9.835975807910517e-17,
+      "refinementDifference": 2.710505431213761e-19
+    },
+    {
+      "pixelOffset": [
+        -10.369999885559082,
+        -10.229999542236328
+      ],
+      "motion": [
+        21.21320343017578,
+        21.21320343017578
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.026396227620211057,
+      "candidateExactErf": 0.026816984405812053,
+      "candidateShaderErf": 0.02681698404394029,
+      "candidateLocalShaderErf": 0.026816984043940124,
+      "legacy8ShaderErf": 0.00011999202715091864,
+      "refinementDifference": 6.938893903907228e-18
+    },
+    {
+      "pixelOffset": [
+        -5.369999885559082,
+        -5.230000019073486
+      ],
+      "motion": [
+        21.21320343017578,
+        21.21320343017578
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.03143499390396724,
+      "candidateExactErf": 0.03143522204999076,
+      "candidateShaderErf": 0.0314352199988337,
+      "candidateLocalShaderErf": 0.03143521999881277,
+      "legacy8ShaderErf": 5.997140104388708e-07,
+      "refinementDifference": 1.3877787807814457e-17
+    },
+    {
+      "pixelOffset": [
+        -0.3700000047683716,
+        -0.23000000417232513
+      ],
+      "motion": [
+        21.21320343017578,
+        21.21320343017578
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.03143499223882705,
+      "candidateExactErf": 0.0314374812205852,
+      "candidateShaderErf": 0.03143748037664676,
+      "candidateLocalShaderErf": 0.03143748037657419,
+      "legacy8ShaderErf": 0.0001078758490958331,
+      "refinementDifference": 4.85722573273506e-17
+    },
+    {
+      "pixelOffset": [
+        2.630000114440918,
+        2.7699999809265137
+      ],
+      "motion": [
+        21.21320343017578,
+        21.21320343017578
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.03143499390396728,
+      "candidateExactErf": 0.031435330949798106,
+      "candidateShaderErf": 0.0314353290951921,
+      "candidateLocalShaderErf": 0.03143532909516998,
+      "legacy8ShaderErf": 9.847583737446988e-07,
+      "refinementDifference": 3.469446951953614e-17
+    },
+    {
+      "pixelOffset": [
+        5.630000114440918,
+        5.769999980926514
+      ],
+      "motion": [
+        21.21320343017578,
+        21.21320343017578
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.03143499390396721,
+      "candidateExactErf": 0.031432033396563565,
+      "candidateShaderErf": 0.03143203226564104,
+      "candidateLocalShaderErf": 0.03143203226563763,
+      "legacy8ShaderErf": 0.00046572294173724186,
+      "refinementDifference": 7.632783294297951e-17
+    },
+    {
+      "pixelOffset": [
+        10.630000114440918,
+        10.770000457763672
+      ],
+      "motion": [
+        21.21320343017578,
+        21.21320343017578
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 0.0120608894110459,
+      "candidateExactErf": 0.011905853198377997,
+      "candidateShaderErf": 0.01190585147379989,
+      "candidateLocalShaderErf": 0.01190585147379987,
+      "legacy8ShaderErf": 3.1110535290596934e-08,
+      "refinementDifference": 4.85722573273506e-17
+    },
+    {
+      "pixelOffset": [
+        11.630000114440918,
+        11.770000457763672
+      ],
+      "motion": [
+        21.21320343017578,
+        21.21320343017578
+      ],
+      "sigma": 0.2800000011920929,
+      "inputRounding": "explicitFloat32beforeallreferencecalls",
+      "expected": 6.853616767286823e-07,
+      "candidateExactErf": 1.4582781573466147e-07,
+      "candidateShaderErf": 1.4583536359941893e-07,
+      "candidateLocalShaderErf": 1.4583536348101498e-07,
+      "legacy8ShaderErf": 1.5262361108983663e-24,
+      "refinementDifference": 1.514071393217062e-20
+    }
+  ],
+  "actualGPU": false,
+  "productionEdited": false,
+  "limits": [
+    "No GPU Float32/driver/F16/exposure/visual or performance acceptance. Python libm double erf, not production erfApprox, supplies the independent reference.",
+    "Full-plane normalized flux is a kernel identity, not exact finite-quad/raster/MSAA flux. Existing quad clipping and real main/mirror cost still need actual GPU tests.",
+    "Local6sigma error bound excludes approximate-erf and Float32 cancellation. Positive weights preserve the existing pointbound; near-plane projection and overlap-bin correctness are outside this isolated2D kernel test.",
+    "MAX_LOCAL/MAX_GLOBAL fallback must be whole-source and explicitly reported; switching tolegacy8 at resource limits may change shape and is not covered by interiorN continuity.",
+    "A uniform finite emitter-segment model is an image-space exposure surrogate, not a measured star plasma geometry or added physical source."
+  ]
+}

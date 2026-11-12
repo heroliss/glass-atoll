@@ -1,0 +1,29 @@
+{
+  "schema": "glass-atoll.r26-root-code-audit.v1",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 2,
+    "total": 2
+  },
+  "checks": [
+    {
+      "name": "Main changes only the exclusive paused QA entry with trusted factory overrides",
+      "passed": true,
+      "evidence": {
+        "mainSHA256": "f85592b854cc00c47865538cc18dc61a9e1f397ccd0439c4d37b57f17b5b8ecd",
+        "baselineSHA256": "b58f81451ff83f57b58e9fb3779ceb2be568fad0721c20a8cfb358724dc894c0",
+        "qaHookOnly": true
+      }
+    },
+    {
+      "name": "Production transmission math, volume renderer and approved audio are unchanged this round",
+      "passed": true,
+      "evidence": {
+        "pyro-smoke-transmission-gpu.js": "235930f8d031c9d922afdeaff506cc62c583bcf68fdfd549b69ab7e4bb719dc8",
+        "pyro-smoke-renderer.js": "4f152a1470d8351b997728691bc2e0ec15ee0962b55926179917cb42ce7ee3dd",
+        "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+      }
+    }
+  ]
+}

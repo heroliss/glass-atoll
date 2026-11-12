@@ -1,0 +1,337 @@
+{
+  "schema": "glass-atoll.r19-eulerian-actual-factory-cpu.v1",
+  "dateUTC": "2026-10-29T03:49:26.467Z",
+  "passed": true,
+  "counts": {
+    "passed": 11,
+    "total": 11
+  },
+  "sourceSHA256": "73648d67def9f5be7a2c5174e8787e24500d9fbc5c8388071c2cd0015043b0aa",
+  "fieldHelperSHA256": "4c19f88ad0083e3e0426464a1ee90facc9a107a5577f873ffe1cbc2a68d4977e",
+  "baselineSHA256": "abfdfdb70b556e2de1adb4431664c89500db5374047e95671104f4e95a31aeb0",
+  "checks": [
+    {
+      "name": "sealed baseline is pre-field production; shaders remain byte-exact",
+      "passed": true,
+      "evidence": {
+        "baselineSHA256": "abfdfdb70b556e2de1adb4431664c89500db5374047e95671104f4e95a31aeb0"
+      }
+    },
+    {
+      "name": "all luminous instantaneous row fields including partial-retirement and last-one stretch remain exact against pre-field",
+      "passed": true,
+      "evidence": {
+        "phases": [
+          6.03112119266109,
+          8.792622719670623,
+          8.832622719670624,
+          8.840622719670623
+        ],
+        "comparedRows": 4002
+      }
+    },
+    {
+      "name": "S0 RGB and positions equal instantaneous field while candidate view velocity uses correct Eulerian derivative",
+      "passed": true,
+      "evidence": {
+        "vectorRows": 1728,
+        "fieldAndPhysicalVelocitiesDifferent": 1536
+      }
+    },
+    {
+      "name": "S0 uploaded centre and stretch exactly preserve pre-field spatial support through partial and last-one tail retirement",
+      "passed": true,
+      "evidence": {
+        "evidence": [
+          {
+            "time": 8.792622719670623,
+            "selectedBodyActiveTails": 4,
+            "uploadedRows": 794
+          },
+          {
+            "time": 8.832622719670624,
+            "selectedBodyActiveTails": 1,
+            "uploadedRows": 745
+          },
+          {
+            "time": 8.840622719670623,
+            "selectedBodyActiveTails": 1,
+            "uploadedRows": 735
+          }
+        ],
+        "velocityExcluded": "The Eulerian derivative is intentionally different, but shutter0 cannot use it to enlarge spatial support."
+      }
+    },
+    {
+      "name": "all layers preserve positive retired tail history at default and long shutters with zero current ledger tail",
+      "passed": true,
+      "evidence": [
+        {
+          "layerId": "outer",
+          "S": 0,
+          "currentTailRows": 8,
+          "viewHistoryRows": 0,
+          "viewMeanRGB": [
+            0,
+            0,
+            0
+          ],
+          "instantLedgerRows": 0,
+          "currentClusters": 0
+        },
+        {
+          "layerId": "outer",
+          "S": 0.008333333333333333,
+          "currentTailRows": 8,
+          "viewHistoryRows": 1,
+          "viewMeanRGB": [
+            0.0006056029815226793,
+            0.00015571701214867062,
+            0.000002744481513161645
+          ],
+          "instantLedgerRows": 0,
+          "currentClusters": 0
+        },
+        {
+          "layerId": "outer",
+          "S": 0.1,
+          "currentTailRows": 8,
+          "viewHistoryRows": 6,
+          "viewMeanRGB": [
+            0.03283622668823227,
+            0.010136371965927538,
+            0.000917765585086272
+          ],
+          "instantLedgerRows": 0,
+          "currentClusters": 0
+        },
+        {
+          "layerId": "outer",
+          "S": 0.5,
+          "currentTailRows": 8,
+          "viewHistoryRows": 8,
+          "viewMeanRGB": [
+            0.6163286883675028,
+            0.2432305370166432,
+            0.049922066405542864
+          ],
+          "instantLedgerRows": 0,
+          "currentClusters": 0
+        },
+        {
+          "layerId": "outer",
+          "S": 1,
+          "currentTailRows": 8,
+          "viewHistoryRows": 8,
+          "viewMeanRGB": [
+            0.6429347573721316,
+            0.25646278291242197,
+            0.053876542394391436
+          ],
+          "instantLedgerRows": 0,
+          "currentClusters": 0
+        },
+        {
+          "layerId": "middle",
+          "S": 0,
+          "currentTailRows": 8,
+          "viewHistoryRows": 0,
+          "viewMeanRGB": [
+            0,
+            0,
+            0
+          ],
+          "instantLedgerRows": 0,
+          "currentClusters": 0
+        },
+        {
+          "layerId": "middle",
+          "S": 0.008333333333333333,
+          "currentTailRows": 8,
+          "viewHistoryRows": 1,
+          "viewMeanRGB": [
+            0.0014130736235529184,
+            0.00036333969637780683,
+            0.000006403790393960662
+          ],
+          "instantLedgerRows": 0,
+          "currentClusters": 0
+        },
+        {
+          "layerId": "middle",
+          "S": 0.1,
+          "currentTailRows": 8,
+          "viewHistoryRows": 3,
+          "viewMeanRGB": [
+            0.03214432904496789,
+            0.0088013575586956,
+            0.00035733756885747425
+          ],
+          "instantLedgerRows": 0,
+          "currentClusters": 0
+        },
+        {
+          "layerId": "middle",
+          "S": 0.5,
+          "currentTailRows": 8,
+          "viewHistoryRows": 8,
+          "viewMeanRGB": [
+            1.070426987062092,
+            0.4147637098431005,
+            0.0816497258065283
+          ],
+          "instantLedgerRows": 0,
+          "currentClusters": 0
+        },
+        {
+          "layerId": "middle",
+          "S": 1,
+          "currentTailRows": 8,
+          "viewHistoryRows": 8,
+          "viewMeanRGB": [
+            1.4859039053553715,
+            0.5920948739221785,
+            0.12406502379417361
+          ],
+          "instantLedgerRows": 0,
+          "currentClusters": 0
+        },
+        {
+          "layerId": "inner",
+          "S": 0,
+          "currentTailRows": 8,
+          "viewHistoryRows": 0,
+          "viewMeanRGB": [
+            0,
+            0,
+            0
+          ],
+          "instantLedgerRows": 0,
+          "currentClusters": 0
+        },
+        {
+          "layerId": "inner",
+          "S": 0.008333333333333333,
+          "currentTailRows": 8,
+          "viewHistoryRows": 1,
+          "viewMeanRGB": [
+            0.0024224119260907173,
+            0.0006228680485946825,
+            0.00001097792605264658
+          ],
+          "instantLedgerRows": 0,
+          "currentClusters": 0
+        },
+        {
+          "layerId": "inner",
+          "S": 0.1,
+          "currentTailRows": 8,
+          "viewHistoryRows": 2,
+          "viewMeanRGB": [
+            0.038388286251574755,
+            0.010130224531167187,
+            0.00027204344360143295
+          ],
+          "instantLedgerRows": 0,
+          "currentClusters": 0
+        },
+        {
+          "layerId": "inner",
+          "S": 0.5,
+          "currentTailRows": 8,
+          "viewHistoryRows": 8,
+          "viewMeanRGB": [
+            1.0790691456131754,
+            0.3969256262007548,
+            0.06835724213624417
+          ],
+          "instantLedgerRows": 0,
+          "currentClusters": 0
+        },
+        {
+          "layerId": "inner",
+          "S": 1,
+          "currentTailRows": 8,
+          "viewHistoryRows": 8,
+          "viewMeanRGB": [
+            2.2579803341104707,
+            0.8907311366319846,
+            0.1823330016379714
+          ],
+          "instantLedgerRows": 0,
+          "currentClusters": 0
+        }
+      ]
+    },
+    {
+      "name": "main and mirror history use same candidate bins and positions, conservative all-phase bounds stay positive when current RGB is black",
+      "passed": true,
+      "evidence": {
+        "mainRows": 9,
+        "mirrorRows": 9,
+        "bound": 0.0007269540927163348
+      }
+    },
+    {
+      "name": "CPU bound rectangle encloses actual model8 temporal centres and independent tail support using Eulerian velocity",
+      "passed": true,
+      "evidence": {
+        "sources": 48,
+        "witnesses": 1536,
+        "scope": "Double-precision independent projection of the authored first-order model; actual Float32 fragment/GPU bound gate remains root-owned"
+      }
+    },
+    {
+      "name": "cache is bounded to4 shutter keys, evicted query recomputes bit-identical RGB and never mutates borrowed prior result",
+      "passed": true,
+      "evidence": {
+        "shutters": 9,
+        "maximumPerRow": 4,
+        "evictedRGB": "exact Float32 upload equality"
+      }
+    },
+    {
+      "name": "actual helper field derivative matches independent offline path differences and all runtime samples stay at or before now",
+      "passed": true,
+      "evidence": {
+        "checked": 24,
+        "maxError": 9.283662727455066e-9,
+        "runtimeFieldSamples": 52442,
+        "lastPhysicalNow": 6.2311211926610905,
+        "scope": "Future-sided samples exist only in this detached offline reference, never in the instrumented runtime callbacks"
+      }
+    },
+    {
+      "name": "sourceT CPU and effective mock GPU receive ordered historical field endpoints and reflection water hits exactly once",
+      "passed": true,
+      "evidence": [
+        {
+          "reflection": false,
+          "rows": 9,
+          "sourceVersion": 1,
+          "cpuQueries": 9
+        },
+        {
+          "reflection": true,
+          "rows": 9,
+          "sourceVersion": 2,
+          "cpuQueries": 9
+        }
+      ]
+    },
+    {
+      "name": "every legacy instantaneous record ledger cluster and main/mirror upload stays exactly equal to pre-field source",
+      "passed": true,
+      "evidence": {
+        "phases": 3,
+        "views": 6
+      }
+    }
+  ],
+  "limits": [
+    "Actual source factory with instrumented private read-only getters and no-context renderer/mock transmission; no GPU execution or measured FPS.",
+    "Historical RGB bins integrate the unchanged instantaneous N-lag reference field; spatial/occlusion/camera/receiver history and T(t) remain approximations.",
+    "Ground crossing remains explicitly unsolved; synthetic retirement tests use Y100 to isolate source retirement.",
+    "Prior fixed-release nine-pass report and known-hole report remain archived separately and are not overwritten."
+  ]
+}

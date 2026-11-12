@@ -1,0 +1,34 @@
+[
+  {
+    "before": "calibreMm:90,height:120,burn:3.6,count:120,trail:false",
+    "after": "calibreMm:90,height:120,burn:3.6,count:72,trail:false"
+  },
+  {
+    "before": "calibreMm:120,height:160,burn:3.8,count:144,trail:false",
+    "after": "calibreMm:120,height:160,burn:3.8,count:64,trail:false"
+  },
+  {
+    "before": "// Hidden production/QA variants, not a camera-facing correction. The selected\n// default reference uses120 stars. Explicit dense preserves the original144\n// physical stars; alternatives isolate eye/mouth placement with no new RNG.",
+    "after": "// Hidden production/QA variants, not a camera-facing correction. The selected\n// default reference uses72 seeded, stratified stars. The other diagnostic\n// layouts retain their original point order and shared body-RNG consumption."
+  },
+  {
+    "before": "function groundVisibleApex(heads,originY){",
+    "after": "// Fixed-polyline arclength is an authored contour approximation, not a\n// physical heart-shell model. Sampling stays inside one stratum per body;\n// all variation is decided once from an independent event-seed namespace.\nconst heartContour=(()=>{\n  const points=Array.from({length:2049},(_,i)=>{const a=TAU*i/2048;return[16*Math.sin(a)**3/18,(13*Math.cos(a)-5*Math.cos(2*a)-2*Math.cos(3*a)-Math.cos(4*a))/18+.1];});\n  const lengths=[0];for(let i=1;i<points.length;i++)lengths.push(lengths[i-1]+Math.hypot(points[i][0]-points[i-1][0],points[i][1]-points[i-1][1]));\n  return{points,lengths,total:lengths.at(-1)};\n})();\nfunction heartPointAtFraction(fraction){\n  const distance=fraction*heartContour.total;let lo=1,hi=heartContour.lengths.length-1;\n  while(lo<hi){const mid=(lo+hi)>>1;if(heartContour.lengths[mid]<distance)lo=mid+1;else hi=mid;}\n  const t=(distance-heartContour.lengths[lo-1])/(heartContour.lengths[lo]-heartContour.lengths[lo-1]),a=heartContour.points[lo-1],b=heartContour.points[lo];\n  return{x:a[0]+(b[0]-a[0])*t,y:a[1]+(b[1]-a[1])*t,part:'heart'};\n}\nfunction polishedPatternPoints(type,seed){\n  const rng=seededRandom((seed>>>0)^(type==='heart'?0x48e2c19b:0x73d64a21));\n  const finish=(p,fraction)=>{const radial=.99+.02*rng();return Object.freeze({x:p.x*radial,y:p.y*radial,depth:(rng()*2-1)*.01,part:p.part,fraction,intensityUnit:rng(),lifeUnit:rng()});};\n  if(type==='heart')return Object.freeze(Array.from({length:64},(_,i)=>{const f=(i+.5+(rng()*2-1)*.18)/64;return finish(heartPointAtFraction(f),f);}));\n  const points=[];\n  for(let i=0;i<46;i++){const f=(i+.5+(rng()*2-1)*.18)/46,a=TAU*f;points.push(finish({x:Math.cos(a),y:Math.sin(a),part:'outline'},f));}\n  for(const left of [true,false])for(let j=0;j<6;j++){\n    const a=j*2.399963229728653+(rng()*2-1)*.10,r=.105*Math.sqrt(j/5);\n    points.push(finish({x:(left?-.34:.34)+r*Math.cos(a),y:.32+r*Math.sin(a),part:left?'left-eye':'right-eye'},null));\n  }\n  for(let i=0;i<14;i++){const f=(i+(i===0||i===13?0:(rng()*2-1)*.18))/13,a=PI*f;points.push(finish({x:-.54*Math.cos(a),y:-.10-.54*Math.sin(a),part:'mouth'},f));}\n  return Object.freeze(points);\n}\nfunction groundVisibleApex(heads,originY){"
+  },
+  {
+    "before": "  const enter=clamp(age/.028,0,1),end=clamp((body.life-age)/Math.max(.16,body.life*.24),0,1);\n  let envelope=enter*enter*end*end*(.36+.64*Math.exp(-age/(body.life*.7)));",
+    "after": "  // Strobe retains its complete old envelope/pulse arithmetic. Sustained\n  // scalar stars fade over the final55% with a C1 zero-slope endpoint;\n  // life, reference peak and RGB remain unchanged, with no energy makeup.\n  const original=body.strobe||body.kind==='rocket',enter=clamp(age/.028,0,1),end=clamp((body.life-age)/Math.max(.16,body.life*(original?.24:.55)),0,1);\n  let envelope=original?enter*enter*end*end*(.36+.64*Math.exp(-age/(body.life*.7))):enter*enter*(end*end*(3-2*end))*(.36+.64*Math.exp(-age/(body.life*.7)));"
+  },
+  {
+    "before": "  const patternPoints=smileyLayout?smileyPoints[smileyLayout]:null;",
+    "after": "  const polishedPoints=type==='heart'||smileyLayout==='reference'?polishedPatternPoints(type,seed):null;\n  const patternPoints=polishedPoints||(smileyLayout?smileyPoints[smileyLayout]:null);"
+  },
+  {
+    "before": "      const p=patternPoints[i];v=add(scale(patternBasis.right,p.x*21),scale(patternBasis.up,p.y*21));\n      options={drag:.16,patternPart:p.part,colour:palette?colour:EMISSION_PROFILES[p.part==='outline'?'yellow':'green']};",
+    "after": "      const p=patternPoints[i];v=add(scale(patternBasis.right,p.x*21),scale(patternBasis.up,p.y*21));\n      if(polishedPoints)v=add(v,scale(patternBasis.normal,p.depth*21));\n      options={drag:.16,patternPart:p.part,colour:palette?colour:EMISSION_PROFILES[p.part==='outline'?'yellow':'green'],...(polishedPoints?{intensity:5+5*p.intensityUnit,life:definition.burn*(.88+.23*p.lifeUnit)}:{})};"
+  },
+  {
+    "before": "      const a=TAU*i/definition.count;\n      let x=Math.cos(a),y=Math.sin(a);\n      x=16*Math.sin(a)**3/18;y=(13*Math.cos(a)-5*Math.cos(2*a)-2*Math.cos(3*a)-Math.cos(4*a))/18+.1;\n      v=add(scale(patternBasis.right,x*21),scale(patternBasis.up,y*21));options={drag:.16};",
+    "after": "      const p=patternPoints[i];\n      v=add(add(scale(patternBasis.right,p.x*21),scale(patternBasis.up,p.y*21)),scale(patternBasis.normal,p.depth*21));\n      options={drag:.16,intensity:5+5*p.intensityUnit,life:definition.burn*(.88+.23*p.lifeUnit)};"
+  }
+]

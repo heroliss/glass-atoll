@@ -1,0 +1,60 @@
+{
+  "schema": "glass-atoll.r13-shore-compile-repair-check.v1",
+  "dateUTC": "2026-10-28T11:10:29.248Z",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "the production delta is exactly four Cell ternaries rewritten as equivalent branches",
+      "passed": true,
+      "evidence": {
+        "before": "1b8f46e37143f6f869319ab6e17ad1f44b16175fcea56f8cb734aee33d957e07",
+        "after": "83233bb94540ce748a114c91217684c9090e2430d8ded1b9b8cbb836dc81fdb1",
+        "CPUFluxCFLVolumeClockUnchanged": true
+      }
+    },
+    {
+      "name": "the first actual GPU shader failure is preserved with its failing gate",
+      "passed": true,
+      "evidence": {
+        "counts": {
+          "passed": 2,
+          "total": 9
+        },
+        "actualGPU": true,
+        "firstReportSHA256": "8179b0e63353dda1491d8d02fd1cf57e94d710694ae9d0bb7def0c4dbca410dd"
+      }
+    },
+    {
+      "name": "boundary and accepted runtime/audio incumbents remain the protected bytes",
+      "passed": true,
+      "evidence": {
+        "shoreline-boundary.js": "c6fd1347bdb246f9c1c9a440f522b48d365b2fd135c08e3ecb7e38568a678707",
+        "hydrodynamics.js": "6ac8daffa0c27bd2387990edc7930ea60e91755e0261fd132eeb5cc3785c5ad9",
+        "waves.js": "af1d6b1559b701b8f1d36c53bbd89dd721e22bb792517a58543473f4629396d4",
+        "spectral-waves.js": "58ae823709ff9b5db57b638813ff2350bdd70405c38f4c3892adae999afaf82a",
+        "sand.js": "37b156b3ef9e9574596e284ed6b5e69bff35f0ffbc1e7089779d87e14fa61e91",
+        "fireworks.js": "bb6a0080f34d714379eb860a45f1e595c2d82241fb62cd04dfb4cb2b601b949b",
+        "fireworks-audio.js": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+      }
+    },
+    {
+      "name": "a rejected-promise await advances the valid transaction, but synchronous queries observe tick1",
+      "passed": true,
+      "evidence": {
+        "oldObservedTickAfterAwait": 2,
+        "newObservedTickBeforeAwait": 1,
+        "busyContractUnchanged": true,
+        "actualGPU": false
+      }
+    }
+  ],
+  "limits": [
+    "Mechanical source equivalence and JavaScript microtask oracle only. New actual GPU compilation/numerics remain unrun.",
+    "No CFL/volume/timing tolerance change and no main-host integration."
+  ]
+}

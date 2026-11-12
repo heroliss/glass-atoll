@@ -1,0 +1,3167 @@
+{
+  "schema": "glass-atoll.r10-transmission-offline-cpu-join.v1",
+  "dateUTC": "2026-10-27T22:19:41.113Z",
+  "analysisOnly": true,
+  "actualGPU": false,
+  "inputIsActualSceneCapture": true,
+  "input": {
+    "path": "verification/r10-transmission-scene-performance.json",
+    "SHA256": "f9b029750750b56e1e94963c523e82eae00733d034f0fbca766f6da4cd6efebf"
+  },
+  "protocolSourcesAtAnalysis": {
+    "main.js": "b2fe468c216b8fe89839f168a3c4b6ae7a21272d4f73277356f27b69f7e885a8",
+    "render-benchmark.js": "0a2bf5fe92ab322d044ced2a2fa1af66e635c27084d6325af9484d8128b6244e",
+    "verification/smoke-transmission-scene-performance.js": "f4c847c950b20470ef561ad315b93fb90a397cd60c781ae23efc3dfb7de62825",
+    "fireworks.js": "b37ea388471b6f50a307327fab95ccc10d7f9aaa1dc46ed921fc1abd9c890e43",
+    "pyro-smoke-columns.js": "d44a897ab8c7c9f58e0c7f974d07d1206b374d44dbb228bf05ebbe71131afad6",
+    "pyro-smoke.js": "01c4c66e15579f429e472a0089fda9f5ba1f17d782d3cd63d69a226b30225a89"
+  },
+  "sourceProvenance": "Capture report does not embed main file hash; join uses timestamp witnesses plus current frozen main/benchmark protocol and owner-confirmed capture versions. Hashes above identify inspected sources, not newly captured GPU tests.",
+  "checks": [
+    {
+      "name": "one synchronous mainframe probes before the unique CPUappend",
+      "passed": true,
+      "sourceOrderOffsets": [
+        54,
+        1193,
+        6589,
+        6758,
+        8137
+      ],
+      "protocol": "start -> beginquery -> probe(current frameStart) -> endquery -> UI/audio -> benchmark.frame"
+    },
+    {
+      "name": "benchmark appends one CPU sample and Nminus1intervals while runactive",
+      "passed": true,
+      "scope": "start/finish callbacks cannot interrupt the synchronous mainframe; run becomes null before resolution/drain"
+    },
+    {
+      "name": "observer registers before synchronous benchmark start",
+      "passed": true
+    },
+    {
+      "name": "all timestamp intervals establish exact chronological row alignment",
+      "passed": true,
+      "cpuSamples": 257,
+      "probeRows": 257,
+      "intervals": 256,
+      "maximumIntervalDifferenceMs": 7.105427357601002e-15
+    },
+    {
+      "name": "first and last full frames lie inside benchmark active window",
+      "passed": true,
+      "start": 132907.30000007153,
+      "firstFrameStart": 132908,
+      "lastFrameStart": 140918.30000007153,
+      "rawPrevious": 140918.30000007153,
+      "lastCPUEnd": 140930.89999997616,
+      "finishClockFromElapsed": 140931.30000007153
+    },
+    {
+      "name": "query beginlabels routeecho and rows agree without missing samples",
+      "passed": true,
+      "returned": 257,
+      "modes": {
+        "fast": {
+          "minimumRequired": 30,
+          "phaseRange": [
+            0.15880000007152262,
+            7.107399999857307
+          ],
+          "queryCount": 128,
+          "validWholeFrameGPU": {
+            "maximum": 78.640128,
+            "mean": 24.168443999999997,
+            "minimum": 12.623872,
+            "n": 128,
+            "p50": 14.770176,
+            "p95": 60.673024,
+            "percentile": "nearest-rank ceil(p*n)-1"
+          }
+        },
+        "legacy": {
+          "minimumRequired": 30,
+          "phaseRange": [
+            0.12099999999999513,
+            7.127799999952671
+          ],
+          "queryCount": 129,
+          "validWholeFrameGPU": {
+            "maximum": 71.394304,
+            "mean": 24.0353217984496,
+            "minimum": 12.432384,
+            "n": 129,
+            "p50": 14.826816,
+            "p95": 55.425152,
+            "percentile": "nearest-rank ceil(p*n)-1"
+          }
+        }
+      }
+    },
+    {
+      "name": "actual completed baseline and final GL contain no reported error",
+      "passed": true
+    },
+    {
+      "name": "joined CPUvalues exactly reproduce the raw benchmark mean",
+      "passed": true
+    },
+    {
+      "name": "GPUpermode recomputation agrees with unchanged raw helper statistics",
+      "passed": true
+    }
+  ],
+  "joinValid": true,
+  "windows": [
+    {
+      "id": "whole",
+      "lower": null,
+      "upper": null,
+      "inclusive": true,
+      "selection": "All recorded measured rows",
+      "modes": {
+        "legacy": {
+          "CPU": {
+            "n": 129,
+            "mean": 32.511627905128535,
+            "p50": 15.700000047683716,
+            "p95": 84.5,
+            "p99": 98.10000002384186,
+            "minimum": 4.5,
+            "maximum": 101,
+            "percentile": "nearest-rank ceil(p*n)-1"
+          },
+          "GPU": {
+            "n": 129,
+            "mean": 24.035321798449598,
+            "p50": 14.826816,
+            "p95": 55.425152,
+            "p99": 71.052288,
+            "minimum": 12.432384,
+            "maximum": 71.394304,
+            "percentile": "nearest-rank ceil(p*n)-1"
+          },
+          "phaseRange": [
+            0.12099999999999513,
+            7.127799999952671
+          ],
+          "meetsOriginalThirtySampleThreshold": true
+        },
+        "fast": {
+          "CPU": {
+            "n": 128,
+            "mean": 28.920312497764826,
+            "p50": 15.799999952316284,
+            "p95": 69.10000002384186,
+            "p99": 84.10000002384186,
+            "minimum": 4.5,
+            "maximum": 84.10000002384186,
+            "percentile": "nearest-rank ceil(p*n)-1"
+          },
+          "GPU": {
+            "n": 128,
+            "mean": 24.168443999999997,
+            "p50": 14.770176,
+            "p95": 60.673024,
+            "p99": 64.203616,
+            "minimum": 12.623872,
+            "maximum": 78.640128,
+            "percentile": "nearest-rank ceil(p*n)-1"
+          },
+          "phaseRange": [
+            0.15880000007152262,
+            7.107399999857307
+          ],
+          "meetsOriginalThirtySampleThreshold": true
+        }
+      },
+      "CPUdifference": {
+        "fastMinusLegacyMs": -3.591315407363709,
+        "fastRelativePercent": -11.046249107683714
+      },
+      "GPUdifference": {
+        "fastMinusLegacyMs": 0.13312220155039967,
+        "fastRelativePercent": 0.5538606999594409
+      }
+    },
+    {
+      "id": "predeclaredHot",
+      "lower": 0.1,
+      "upper": 2.5,
+      "inclusive": true,
+      "selection": "Root supplied [.1,2.5] before analysis, matching earlier V8 hotwindow; not chosen after seeing the result",
+      "modes": {
+        "legacy": {
+          "CPU": {
+            "n": 23,
+            "mean": 75.921739137691,
+            "p50": 79.39999997615814,
+            "p95": 98.10000002384186,
+            "p99": 101,
+            "minimum": 37.300000071525574,
+            "maximum": 101,
+            "percentile": "nearest-rank ceil(p*n)-1"
+          },
+          "GPU": {
+            "n": 23,
+            "mean": 45.60683547826086,
+            "p50": 46.408704,
+            "p95": 71.052288,
+            "p99": 71.394304,
+            "minimum": 20.487168,
+            "maximum": 71.394304,
+            "percentile": "nearest-rank ceil(p*n)-1"
+          },
+          "phaseRange": [
+            0.12099999999999513,
+            2.4782999999525828
+          ],
+          "meetsOriginalThirtySampleThreshold": false
+        },
+        "fast": {
+          "CPU": {
+            "n": 22,
+            "mean": 63.013636366887525,
+            "p50": 62.20000004768371,
+            "p95": 78.20000004768372,
+            "p99": 84.10000002384186,
+            "minimum": 25.5,
+            "maximum": 84.10000002384186,
+            "percentile": "nearest-rank ceil(p*n)-1"
+          },
+          "GPU": {
+            "n": 22,
+            "mean": 41.91597236363636,
+            "p50": 38.739616,
+            "p95": 63.258624,
+            "p99": 64.203616,
+            "minimum": 22.50592,
+            "maximum": 64.203616,
+            "percentile": "nearest-rank ceil(p*n)-1"
+          },
+          "phaseRange": [
+            0.15880000007152262,
+            2.423299999952576
+          ],
+          "meetsOriginalThirtySampleThreshold": false
+        }
+      },
+      "CPUdifference": {
+        "fastMinusLegacyMs": -12.908102770803481,
+        "fastRelativePercent": -17.001853378771337
+      },
+      "GPUdifference": {
+        "fastMinusLegacyMs": -3.6908631146245057,
+        "fastRelativePercent": -8.092784943133813
+      }
+    }
+  ],
+  "joinedRows": [
+    {
+      "frame": 1,
+      "frameStart": 132908,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 0.12099999999999513,
+      "C": 16.5,
+      "P": 11.5,
+      "cpuElapsedMs": 37.300000071525574,
+      "gpuElapsedMs": 20.487168
+    },
+    {
+      "frame": 2,
+      "frameStart": 132945.80000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 0.15880000007152262,
+      "C": 16.5,
+      "P": 11.5,
+      "cpuElapsedMs": 25.5,
+      "gpuElapsedMs": 22.658048
+    },
+    {
+      "frame": 3,
+      "frameStart": 132972.10000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 0.1851000000238372,
+      "C": 16.5,
+      "P": 11.5,
+      "cpuElapsedMs": 56.60000002384186,
+      "gpuElapsedMs": 32.93696
+    },
+    {
+      "frame": 4,
+      "frameStart": 133029.20000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 0.240100000023844,
+      "C": 16.5,
+      "P": 11.5,
+      "cpuElapsedMs": 53.79999995231629,
+      "gpuElapsedMs": 44.90128
+    },
+    {
+      "frame": 5,
+      "frameStart": 133083.39999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 0.29429999995231526,
+      "C": 16.5,
+      "P": 11.5,
+      "cpuElapsedMs": 47.20000004768371,
+      "gpuElapsedMs": 30.247424
+    },
+    {
+      "frame": 6,
+      "frameStart": 133132.60000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 0.3435000000000059,
+      "C": 16.5,
+      "P": 11.5,
+      "cpuElapsedMs": 45.29999995231629,
+      "gpuElapsedMs": 22.50592
+    },
+    {
+      "frame": 7,
+      "frameStart": 133178.39999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 0.38929999995232833,
+      "C": 16.5,
+      "P": 11.683199999809265,
+      "cpuElapsedMs": 70.5,
+      "gpuElapsedMs": 33.073152
+    },
+    {
+      "frame": 8,
+      "frameStart": 133249.39999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 0.4442999999523352,
+      "C": 16.5,
+      "P": 11.75,
+      "cpuElapsedMs": 65.80000007152557,
+      "gpuElapsedMs": 22.939264
+    },
+    {
+      "frame": 9,
+      "frameStart": 133315.89999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 0.499299999952342,
+      "C": 16.5,
+      "P": 11.75,
+      "cpuElapsedMs": 98.10000002384186,
+      "gpuElapsedMs": 31.39072
+    },
+    {
+      "frame": 10,
+      "frameStart": 133414.60000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 0.5542999999523488,
+      "C": 16.5,
+      "P": 11.75,
+      "cpuElapsedMs": 59,
+      "gpuElapsedMs": 38.739616
+    },
+    {
+      "frame": 11,
+      "frameStart": 133474,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 0.6092999999523556,
+      "C": 16.5,
+      "P": 11.75,
+      "cpuElapsedMs": 69.5,
+      "gpuElapsedMs": 33.778688
+    },
+    {
+      "frame": 12,
+      "frameStart": 133543.89999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 0.6642999999523624,
+      "C": 16.5,
+      "P": 11.75,
+      "cpuElapsedMs": 59.70000004768371,
+      "gpuElapsedMs": 37.680128
+    },
+    {
+      "frame": 13,
+      "frameStart": 133604.10000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 0.7192999999523693,
+      "C": 16.5,
+      "P": 11.75,
+      "cpuElapsedMs": 79.39999997615814,
+      "gpuElapsedMs": 47.520768
+    },
+    {
+      "frame": 14,
+      "frameStart": 133684,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 0.7742999999523761,
+      "C": 16.5,
+      "P": 11.75,
+      "cpuElapsedMs": 75.5,
+      "gpuElapsedMs": 25.101312
+    },
+    {
+      "frame": 15,
+      "frameStart": 133760.20000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 0.8292999999523829,
+      "C": 16.5,
+      "P": 11.75,
+      "cpuElapsedMs": 84.5,
+      "gpuElapsedMs": 46.408704
+    },
+    {
+      "frame": 16,
+      "frameStart": 133845.60000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 0.8842999999523897,
+      "C": 16.5,
+      "P": 11.97,
+      "cpuElapsedMs": 84.10000002384186,
+      "gpuElapsedMs": 27.468672
+    },
+    {
+      "frame": 17,
+      "frameStart": 133930.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 0.9392999999523964,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 84,
+      "gpuElapsedMs": 71.394304
+    },
+    {
+      "frame": 18,
+      "frameStart": 134014.80000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 0.9942999999524034,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 67,
+      "gpuElapsedMs": 27.699488
+    },
+    {
+      "frame": 19,
+      "frameStart": 134082.70000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 1.0492999999524102,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 84.79999995231628,
+      "gpuElapsedMs": 33.434624
+    },
+    {
+      "frame": 20,
+      "frameStart": 134167.89999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 1.104299999952417,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 76.90000009536743,
+      "gpuElapsedMs": 62.322784
+    },
+    {
+      "frame": 21,
+      "frameStart": 134245.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 1.1592999999524238,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 101,
+      "gpuElapsedMs": 30.84032
+    },
+    {
+      "frame": 22,
+      "frameStart": 134346.80000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 1.2142999999524309,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 75.39999997615814,
+      "gpuElapsedMs": 33.299456
+    },
+    {
+      "frame": 23,
+      "frameStart": 134423.20000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 1.2692999999524377,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 81,
+      "gpuElapsedMs": 71.052288
+    },
+    {
+      "frame": 24,
+      "frameStart": 134504.70000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 1.3242999999524443,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 65.39999997615814,
+      "gpuElapsedMs": 62.596096
+    },
+    {
+      "frame": 25,
+      "frameStart": 134570.5,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 1.3792999999524511,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 85.80000007152557,
+      "gpuElapsedMs": 44.653568
+    },
+    {
+      "frame": 26,
+      "frameStart": 134657,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 1.434299999952458,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 78.20000004768372,
+      "gpuElapsedMs": 51.121152
+    },
+    {
+      "frame": 27,
+      "frameStart": 134736.60000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 1.4892999999524648,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 84,
+      "gpuElapsedMs": 48.817152
+    },
+    {
+      "frame": 28,
+      "frameStart": 134821.10000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 1.5442999999524716,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 64.60000002384186,
+      "gpuElapsedMs": 57.335808
+    },
+    {
+      "frame": 29,
+      "frameStart": 134886.39999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 1.5992999999524784,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 81.80000007152557,
+      "gpuElapsedMs": 25.90736
+    },
+    {
+      "frame": 30,
+      "frameStart": 134968.80000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 1.6542999999524852,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 68.89999997615814,
+      "gpuElapsedMs": 48.580608
+    },
+    {
+      "frame": 31,
+      "frameStart": 135038.10000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 1.709299999952492,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 75.89999997615814,
+      "gpuElapsedMs": 61.650944
+    },
+    {
+      "frame": 32,
+      "frameStart": 135114.70000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 1.7642999999524989,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 57.5,
+      "gpuElapsedMs": 28.114688
+    },
+    {
+      "frame": 33,
+      "frameStart": 135172.80000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 1.8192999999525057,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 66.79999995231628,
+      "gpuElapsedMs": 51.079168
+    },
+    {
+      "frame": 34,
+      "frameStart": 135240,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 1.8742999999525125,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 58,
+      "gpuElapsedMs": 60.673024
+    },
+    {
+      "frame": 35,
+      "frameStart": 135298.5,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 1.929299999952519,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 68.89999997615814,
+      "gpuElapsedMs": 55.425152
+    },
+    {
+      "frame": 36,
+      "frameStart": 135367.70000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 1.9842999999525264,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 67.5,
+      "gpuElapsedMs": 64.203616
+    },
+    {
+      "frame": 37,
+      "frameStart": 135436.10000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 2.039299999952533,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 76.20000004768372,
+      "gpuElapsedMs": 37.282816
+    },
+    {
+      "frame": 38,
+      "frameStart": 135513.30000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 2.09429999995254,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 61.699999928474426,
+      "gpuElapsedMs": 43.52512
+    },
+    {
+      "frame": 39,
+      "frameStart": 135575.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 2.1492999999525466,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 66.29999995231628,
+      "gpuElapsedMs": 61.75744
+    },
+    {
+      "frame": 40,
+      "frameStart": 135642.80000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 2.2042999999525534,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 60.79999995231629,
+      "gpuElapsedMs": 36.859904
+    },
+    {
+      "frame": 41,
+      "frameStart": 135704.10000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 2.2592999999525603,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 70.60000002384186,
+      "gpuElapsedMs": 60.254208
+    },
+    {
+      "frame": 42,
+      "frameStart": 135775.10000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 2.314299999952567,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 53.5,
+      "gpuElapsedMs": 63.258624
+    },
+    {
+      "frame": 43,
+      "frameStart": 135829.10000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 2.368299999952569,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 87.5,
+      "gpuElapsedMs": 49.818624
+    },
+    {
+      "frame": 44,
+      "frameStart": 135916.89999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 2.423299999952576,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 62.20000004768371,
+      "gpuElapsedMs": 40.566784
+    },
+    {
+      "frame": 45,
+      "frameStart": 135981.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 2.4782999999525828,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 88.5,
+      "gpuElapsedMs": 69.745664
+    },
+    {
+      "frame": 46,
+      "frameStart": 136070.5,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 2.5332999999525896,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 84.10000002384186,
+      "gpuElapsedMs": 44.309504
+    },
+    {
+      "frame": 47,
+      "frameStart": 136155.10000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 2.5882999999525964,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 69.5,
+      "gpuElapsedMs": 55.194624
+    },
+    {
+      "frame": 48,
+      "frameStart": 136225.10000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 2.6432999999526032,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 67.79999995231628,
+      "gpuElapsedMs": 78.640128
+    },
+    {
+      "frame": 49,
+      "frameStart": 136293.5,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 2.69829999995261,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 77.10000002384186,
+      "gpuElapsedMs": 44.945408
+    },
+    {
+      "frame": 50,
+      "frameStart": 136371.10000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 2.753299999952617,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 64,
+      "gpuElapsedMs": 60.366624
+    },
+    {
+      "frame": 51,
+      "frameStart": 136435.5,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 2.8082999999526237,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 65.20000004768372,
+      "gpuElapsedMs": 37.112544
+    },
+    {
+      "frame": 52,
+      "frameStart": 136501.70000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 2.8632999999526305,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 54.5,
+      "gpuElapsedMs": 60.498944
+    },
+    {
+      "frame": 53,
+      "frameStart": 136556.60000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 2.918199999928788,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 63.60000002384186,
+      "gpuElapsedMs": 29.256704
+    },
+    {
+      "frame": 54,
+      "frameStart": 136620.60000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 2.973199999928795,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 47.60000002384186,
+      "gpuElapsedMs": 62.094336
+    },
+    {
+      "frame": 55,
+      "frameStart": 136668.60000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 3.021199999928797,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 64.79999995231628,
+      "gpuElapsedMs": 50.609696
+    },
+    {
+      "frame": 56,
+      "frameStart": 136733.80000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 3.0761999999288037,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 59.29999995231629,
+      "gpuElapsedMs": 40.801824
+    },
+    {
+      "frame": 57,
+      "frameStart": 136793.39999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 3.1311999999288105,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 63.800000071525574,
+      "gpuElapsedMs": 45.410976
+    },
+    {
+      "frame": 58,
+      "frameStart": 136857.5,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 3.1861999999288173,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 50.39999997615814,
+      "gpuElapsedMs": 50.460096
+    },
+    {
+      "frame": 59,
+      "frameStart": 136908.5,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 3.2371999999288192,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 72.70000004768372,
+      "gpuElapsedMs": 52.9152
+    },
+    {
+      "frame": 60,
+      "frameStart": 136981.70000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 3.292199999928826,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 50.699999928474426,
+      "gpuElapsedMs": 34.255136
+    },
+    {
+      "frame": 61,
+      "frameStart": 137033.60000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 3.3440999999049836,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 65.39999997615814,
+      "gpuElapsedMs": 27.895808
+    },
+    {
+      "frame": 62,
+      "frameStart": 137099.30000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 3.3990999999049905,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 49.89999997615814,
+      "gpuElapsedMs": 34.858688
+    },
+    {
+      "frame": 63,
+      "frameStart": 137149.60000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 3.449399999857306,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 58.60000002384186,
+      "gpuElapsedMs": 33.810336
+    },
+    {
+      "frame": 64,
+      "frameStart": 137208.60000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 3.5043999998573128,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 55,
+      "gpuElapsedMs": 28.8
+    },
+    {
+      "frame": 65,
+      "frameStart": 137264.39999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 3.5593999998573196,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 60.5,
+      "gpuElapsedMs": 30.953472
+    },
+    {
+      "frame": 66,
+      "frameStart": 137325.39999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 3.6143999998573264,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 51.60000002384186,
+      "gpuElapsedMs": 35.518464
+    },
+    {
+      "frame": 67,
+      "frameStart": 137377.5,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 3.666499999881168,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 62.800000071525574,
+      "gpuElapsedMs": 54.880256
+    },
+    {
+      "frame": 68,
+      "frameStart": 137441.20000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 3.721499999881175,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 69.10000002384186,
+      "gpuElapsedMs": 28.754944
+    },
+    {
+      "frame": 69,
+      "frameStart": 137510.80000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 3.7764999998811817,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 79.79999995231628,
+      "gpuElapsedMs": 34.03392
+    },
+    {
+      "frame": 70,
+      "frameStart": 137591.89999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 3.831499999881189,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 48.40000009536743,
+      "gpuElapsedMs": 35.990528
+    },
+    {
+      "frame": 71,
+      "frameStart": 137641.20000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 3.880799999952714,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 83.60000002384186,
+      "gpuElapsedMs": 30.201856
+    },
+    {
+      "frame": 72,
+      "frameStart": 137725.30000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 3.935799999952721,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 44.39999997615814,
+      "gpuElapsedMs": 31.756288
+    },
+    {
+      "frame": 73,
+      "frameStart": 137770,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 3.9804999998811894,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 55.70000004768371,
+      "gpuElapsedMs": 24.578048
+    },
+    {
+      "frame": 74,
+      "frameStart": 137826,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.035499999881196,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 41.89999997615814,
+      "gpuElapsedMs": 39.985152
+    },
+    {
+      "frame": 75,
+      "frameStart": 137868.20000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.077699999928882,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 50.60000002384186,
+      "gpuElapsedMs": 29.433856
+    },
+    {
+      "frame": 76,
+      "frameStart": 137919.30000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.128799999952719,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 37.199999928474426,
+      "gpuElapsedMs": 41.809184
+    },
+    {
+      "frame": 77,
+      "frameStart": 137956.89999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.166399999857347,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 43,
+      "gpuElapsedMs": 47.659008
+    },
+    {
+      "frame": 78,
+      "frameStart": 138000.20000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.209699999928873,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 49.699999928474426,
+      "gpuElapsedMs": 20.947968
+    },
+    {
+      "frame": 79,
+      "frameStart": 138050.39999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.259899999857353,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 44.90000009536743,
+      "gpuElapsedMs": 38.346752
+    },
+    {
+      "frame": 80,
+      "frameStart": 138095.80000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.305299999952723,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 36.79999995231629,
+      "gpuElapsedMs": 40.645632
+    },
+    {
+      "frame": 81,
+      "frameStart": 138133.10000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.342599999905033,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 38.29999995231629,
+      "gpuElapsedMs": 34.515968
+    },
+    {
+      "frame": 82,
+      "frameStart": 138171.70000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.3811999999288815,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 34.799999952316284,
+      "gpuElapsedMs": 32.795456
+    },
+    {
+      "frame": 83,
+      "frameStart": 138206.89999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.4163999998573615,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 35.200000047683716,
+      "gpuElapsedMs": 28.519808
+    },
+    {
+      "frame": 84,
+      "frameStart": 138242.39999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.4518999998573605,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 30.5,
+      "gpuElapsedMs": 35.392512
+    },
+    {
+      "frame": 85,
+      "frameStart": 138273.5,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.482999999881201,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 33.800000071525574,
+      "gpuElapsedMs": 30.769152
+    },
+    {
+      "frame": 86,
+      "frameStart": 138307.80000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.517299999952726,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 25.799999952316284,
+      "gpuElapsedMs": 38.979584
+    },
+    {
+      "frame": 87,
+      "frameStart": 138334.10000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.543599999905041,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 36.20000004768371,
+      "gpuElapsedMs": 24.740864
+    },
+    {
+      "frame": 88,
+      "frameStart": 138370.70000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.58019999992888,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 22,
+      "gpuElapsedMs": 35.078144
+    },
+    {
+      "frame": 89,
+      "frameStart": 138393.60000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.603099999905041,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 26.100000023841854,
+      "gpuElapsedMs": 26.452992
+    },
+    {
+      "frame": 90,
+      "frameStart": 138420.10000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.6295999999050395,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 22.5,
+      "gpuElapsedMs": 19.759168
+    },
+    {
+      "frame": 91,
+      "frameStart": 138443.20000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.652699999928885,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 24.699999928474423,
+      "gpuElapsedMs": 24.979456
+    },
+    {
+      "frame": 92,
+      "frameStart": 138468.30000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.677799999952725,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 18.899999976158146,
+      "gpuElapsedMs": 21.458944
+    },
+    {
+      "frame": 93,
+      "frameStart": 138487.39999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.696899999857351,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 18.800000071525577,
+      "gpuElapsedMs": 19.648512
+    },
+    {
+      "frame": 94,
+      "frameStart": 138506.60000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.71609999990504,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.200000047683716,
+      "gpuElapsedMs": 20.780352
+    },
+    {
+      "frame": 95,
+      "frameStart": 138521.10000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.7305999999050385,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 15.700000047683716,
+      "gpuElapsedMs": 20.191232
+    },
+    {
+      "frame": 96,
+      "frameStart": 138537.20000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.746699999928879,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.299999952316284,
+      "gpuElapsedMs": 20.067328
+    },
+    {
+      "frame": 97,
+      "frameStart": 138551.89999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.761399999857346,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.600000023841858,
+      "gpuElapsedMs": 18.507776
+    },
+    {
+      "frame": 98,
+      "frameStart": 138565.80000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.775299999952708,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 11.799999952316284,
+      "gpuElapsedMs": 20.943872
+    },
+    {
+      "frame": 99,
+      "frameStart": 138578,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.787499999881177,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 38,
+      "gpuElapsedMs": 20.824064
+    },
+    {
+      "frame": 100,
+      "frameStart": 138616.89999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.82639999985733,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 17.90000009536743,
+      "gpuElapsedMs": 21.20192
+    },
+    {
+      "frame": 101,
+      "frameStart": 138635.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.8447999999526985,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 23.699999928474423,
+      "gpuElapsedMs": 19.972096
+    },
+    {
+      "frame": 102,
+      "frameStart": 138659.39999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.868899999857334,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 11.700000047683716,
+      "gpuElapsedMs": 20.797568
+    },
+    {
+      "frame": 103,
+      "frameStart": 138671.89999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.8813999998573365,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 11.100000023841858,
+      "gpuElapsedMs": 19.580928
+    },
+    {
+      "frame": 104,
+      "frameStart": 138683.30000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.8927999999527,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 31.899999976158146,
+      "gpuElapsedMs": 20.119552
+    },
+    {
+      "frame": 105,
+      "frameStart": 138715.60000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.925099999905015,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 11.100000023841858,
+      "gpuElapsedMs": 21.481344
+    },
+    {
+      "frame": 106,
+      "frameStart": 138727.10000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.936599999905013,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12.5,
+      "gpuElapsedMs": 20.20352
+    },
+    {
+      "frame": 107,
+      "frameStart": 138740,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.949499999881169,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 18.399999976158146,
+      "gpuElapsedMs": 19.822592
+    },
+    {
+      "frame": 108,
+      "frameStart": 138759.20000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.968699999928859,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 11.600000023841858,
+      "gpuElapsedMs": 20.450304
+    },
+    {
+      "frame": 109,
+      "frameStart": 138771.20000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 4.980699999928859,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 8.699999928474426,
+      "gpuElapsedMs": 19.712
+    },
+    {
+      "frame": 110,
+      "frameStart": 138780.20000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 4.98969999992886,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 38.29999995231629,
+      "gpuElapsedMs": 19.961248
+    },
+    {
+      "frame": 111,
+      "frameStart": 138818.80000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.028299999952708,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 37.09999990463257,
+      "gpuElapsedMs": 20.290112
+    },
+    {
+      "frame": 112,
+      "frameStart": 138856.20000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.065699999928867,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 8.699999928474426,
+      "gpuElapsedMs": 19.811072
+    },
+    {
+      "frame": 113,
+      "frameStart": 138865.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.0747999999527025,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.899999976158142,
+      "gpuElapsedMs": 18.173952
+    },
+    {
+      "frame": 114,
+      "frameStart": 138880.5,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.089999999881172,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 16,
+      "gpuElapsedMs": 17.358848
+    },
+    {
+      "frame": 115,
+      "frameStart": 138896.89999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.106399999857331,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 6.5,
+      "gpuElapsedMs": 12.765184
+    },
+    {
+      "frame": 116,
+      "frameStart": 138904.39999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.113899999857324,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 50.300000071525574,
+      "gpuElapsedMs": 14.037888
+    },
+    {
+      "frame": 117,
+      "frameStart": 138955,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.164499999881173,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 6.800000071525574,
+      "gpuElapsedMs": 14.190912
+    },
+    {
+      "frame": 118,
+      "frameStart": 138962.10000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.171599999905013,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 5.5,
+      "gpuElapsedMs": 12.819584
+    },
+    {
+      "frame": 119,
+      "frameStart": 138967.89999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.177399999857329,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 5.100000023841858,
+      "gpuElapsedMs": 12.945408
+    },
+    {
+      "frame": 120,
+      "frameStart": 138973.70000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.18319999992886,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 9.100000023841858,
+      "gpuElapsedMs": 13.037568
+    },
+    {
+      "frame": 121,
+      "frameStart": 138983.20000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.1926999999288626,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 27.100000023841854,
+      "gpuElapsedMs": 13.132096
+    },
+    {
+      "frame": 122,
+      "frameStart": 139010.60000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.220099999905017,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.799999952316284,
+      "gpuElapsedMs": 15.053024
+    },
+    {
+      "frame": 123,
+      "frameStart": 139025.70000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.235199999928852,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12.399999976158142,
+      "gpuElapsedMs": 13.09696
+    },
+    {
+      "frame": 124,
+      "frameStart": 139038.39999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.247899999857324,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 4.5,
+      "gpuElapsedMs": 14.19264
+    },
+    {
+      "frame": 125,
+      "frameStart": 139044.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.25379999995269,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 6,
+      "gpuElapsedMs": 12.432384
+    },
+    {
+      "frame": 126,
+      "frameStart": 139052,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.261499999881167,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 23.399999976158146,
+      "gpuElapsedMs": 13.524352
+    },
+    {
+      "frame": 127,
+      "frameStart": 139075.89999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.285399999857319,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 17.800000071525574,
+      "gpuElapsedMs": 14.403584
+    },
+    {
+      "frame": 128,
+      "frameStart": 139094.10000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.303599999905003,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12.100000023841858,
+      "gpuElapsedMs": 13.744384
+    },
+    {
+      "frame": 129,
+      "frameStart": 139106.80000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.31629999995269,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13,
+      "gpuElapsedMs": 13.613056
+    },
+    {
+      "frame": 130,
+      "frameStart": 139120.30000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.329799999952684,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 7,
+      "gpuElapsedMs": 13.997888
+    },
+    {
+      "frame": 131,
+      "frameStart": 139127.60000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.337099999905007,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 20.299999952316284,
+      "gpuElapsedMs": 12.797664
+    },
+    {
+      "frame": 132,
+      "frameStart": 139148.20000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.357699999928855,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.100000023841858,
+      "gpuElapsedMs": 14.573568
+    },
+    {
+      "frame": 133,
+      "frameStart": 139161.60000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.371099999905013,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12.899999976158142,
+      "gpuElapsedMs": 13.128704
+    },
+    {
+      "frame": 134,
+      "frameStart": 139174.80000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.384299999952702,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 6.099999904632568,
+      "gpuElapsedMs": 14.629888
+    },
+    {
+      "frame": 135,
+      "frameStart": 139181.20000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.390699999928856,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 7.600000023841858,
+      "gpuElapsedMs": 13.261824
+    },
+    {
+      "frame": 136,
+      "frameStart": 139189.20000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.398699999928851,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.699999928474426,
+      "gpuElapsedMs": 12.852224
+    },
+    {
+      "frame": 137,
+      "frameStart": 139204.39999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.413899999857321,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12.600000023841858,
+      "gpuElapsedMs": 13.777056
+    },
+    {
+      "frame": 138,
+      "frameStart": 139217.5,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.426999999881161,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.700000047683716,
+      "gpuElapsedMs": 14.285824
+    },
+    {
+      "frame": 139,
+      "frameStart": 139231.60000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.441099999905006,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 25,
+      "gpuElapsedMs": 14.20736
+    },
+    {
+      "frame": 140,
+      "frameStart": 139256.89999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.466399999857316,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 17.5,
+      "gpuElapsedMs": 15.47776
+    },
+    {
+      "frame": 141,
+      "frameStart": 139275.39999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.484899999857319,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 10.200000047683716,
+      "gpuElapsedMs": 14.170112
+    },
+    {
+      "frame": 142,
+      "frameStart": 139285.89999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.495399999857312,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 7.200000047683716,
+      "gpuElapsedMs": 13.692256
+    },
+    {
+      "frame": 143,
+      "frameStart": 139293.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.5027999999526855,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 8.099999904632568,
+      "gpuElapsedMs": 13.011968
+    },
+    {
+      "frame": 144,
+      "frameStart": 139301.80000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.5112999999526835,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 16.299999952316284,
+      "gpuElapsedMs": 13.981504
+    },
+    {
+      "frame": 145,
+      "frameStart": 139318.39999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.527899999857311,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 24.40000009536743,
+      "gpuElapsedMs": 14.973952
+    },
+    {
+      "frame": 146,
+      "frameStart": 139343.20000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.552699999928834,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 15.799999952316284,
+      "gpuElapsedMs": 14.273536
+    },
+    {
+      "frame": 147,
+      "frameStart": 139359.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.568799999952674,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 16.199999928474426,
+      "gpuElapsedMs": 14.525888
+    },
+    {
+      "frame": 148,
+      "frameStart": 139376.20000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.585699999928835,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 11.799999952316284,
+      "gpuElapsedMs": 14.972928
+    },
+    {
+      "frame": 149,
+      "frameStart": 139388.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.59779999995267,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.099999904632568,
+      "gpuElapsedMs": 13.467392
+    },
+    {
+      "frame": 150,
+      "frameStart": 139401.70000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.611199999928829,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 15,
+      "gpuElapsedMs": 14.127328
+    },
+    {
+      "frame": 151,
+      "frameStart": 139417.20000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.626699999928832,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.399999976158142,
+      "gpuElapsedMs": 13.373632
+    },
+    {
+      "frame": 152,
+      "frameStart": 139431.89999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.641399999857299,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.200000047683716,
+      "gpuElapsedMs": 14.770176
+    },
+    {
+      "frame": 153,
+      "frameStart": 139445.60000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.6550999999049765,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.799999952316284,
+      "gpuElapsedMs": 13.617152
+    },
+    {
+      "frame": 154,
+      "frameStart": 139459.80000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.669299999952656,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 5.5,
+      "gpuElapsedMs": 14.038592
+    },
+    {
+      "frame": 155,
+      "frameStart": 139468.70000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.6781999999288075,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 5.299999952316284,
+      "gpuElapsedMs": 14.56128
+    },
+    {
+      "frame": 156,
+      "frameStart": 139477,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.686499999881121,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 10.899999976158142,
+      "gpuElapsedMs": 14.384128
+    },
+    {
+      "frame": 157,
+      "frameStart": 139488.20000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.697699999928801,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.199999928474426,
+      "gpuElapsedMs": 14.210112
+    },
+    {
+      "frame": 158,
+      "frameStart": 139502.70000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.712199999928799,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.699999928474426,
+      "gpuElapsedMs": 14.17216
+    },
+    {
+      "frame": 159,
+      "frameStart": 139516.80000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.726299999952644,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12.699999928474426,
+      "gpuElapsedMs": 13.087808
+    },
+    {
+      "frame": 160,
+      "frameStart": 139529.80000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.7392999999526495,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 15,
+      "gpuElapsedMs": 13.799904
+    },
+    {
+      "frame": 161,
+      "frameStart": 139545.20000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.754699999928803,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.600000023841858,
+      "gpuElapsedMs": 14.215168
+    },
+    {
+      "frame": 162,
+      "frameStart": 139559.10000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.768599999904964,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.200000047683716,
+      "gpuElapsedMs": 13.483008
+    },
+    {
+      "frame": 163,
+      "frameStart": 139572.70000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.782199999928807,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12.600000023841858,
+      "gpuElapsedMs": 15.910016
+    },
+    {
+      "frame": 164,
+      "frameStart": 139585.70000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.795199999928812,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 28.399999976158146,
+      "gpuElapsedMs": 13.771776
+    },
+    {
+      "frame": 165,
+      "frameStart": 139614.39999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.823899999857289,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 17.600000023841858,
+      "gpuElapsedMs": 14.68416
+    },
+    {
+      "frame": 166,
+      "frameStart": 139632.5,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.841999999881125,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12.300000071525574,
+      "gpuElapsedMs": 13.331104
+    },
+    {
+      "frame": 167,
+      "frameStart": 139645,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.854499999881128,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.399999976158142,
+      "gpuElapsedMs": 13.582336
+    },
+    {
+      "frame": 168,
+      "frameStart": 139659.80000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.869299999952659,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.699999928474426,
+      "gpuElapsedMs": 14.154016
+    },
+    {
+      "frame": 169,
+      "frameStart": 139673.70000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.88319999992882,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 5.699999928474426,
+      "gpuElapsedMs": 14.17216
+    },
+    {
+      "frame": 170,
+      "frameStart": 139680.5,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.889999999881141,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 7.800000071525574,
+      "gpuElapsedMs": 14.396416
+    },
+    {
+      "frame": 171,
+      "frameStart": 139688.70000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.898199999928821,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 11.5,
+      "gpuElapsedMs": 13.238272
+    },
+    {
+      "frame": 172,
+      "frameStart": 139700.39999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.909899999857302,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.100000023841858,
+      "gpuElapsedMs": 13.258816
+    },
+    {
+      "frame": 173,
+      "frameStart": 139714.70000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.924199999928831,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.5,
+      "gpuElapsedMs": 13.556736
+    },
+    {
+      "frame": 174,
+      "frameStart": 139728.5,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.937999999881143,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.700000047683716,
+      "gpuElapsedMs": 14.389248
+    },
+    {
+      "frame": 175,
+      "frameStart": 139743.5,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.952999999881143,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.700000047683716,
+      "gpuElapsedMs": 13.65024
+    },
+    {
+      "frame": 176,
+      "frameStart": 139757.5,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.966999999881139,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12,
+      "gpuElapsedMs": 15.045632
+    },
+    {
+      "frame": 177,
+      "frameStart": 139769.80000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 5.979299999952659,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.299999952316284,
+      "gpuElapsedMs": 13.320192
+    },
+    {
+      "frame": 178,
+      "frameStart": 139784.39999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 5.993899999857291,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.600000023841858,
+      "gpuElapsedMs": 14.70464
+    },
+    {
+      "frame": 179,
+      "frameStart": 139798.80000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.008299999952655,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.599999904632568,
+      "gpuElapsedMs": 13.120512
+    },
+    {
+      "frame": 180,
+      "frameStart": 139812.70000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.022199999928816,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 15.299999952316284,
+      "gpuElapsedMs": 14.181376
+    },
+    {
+      "frame": 181,
+      "frameStart": 139828.5,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.037999999881137,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12.800000071525574,
+      "gpuElapsedMs": 13.422336
+    },
+    {
+      "frame": 182,
+      "frameStart": 139841.60000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.051099999904977,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.299999952316284,
+      "gpuElapsedMs": 14.633056
+    },
+    {
+      "frame": 183,
+      "frameStart": 139856.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.0657999999526595,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 11.899999976158142,
+      "gpuElapsedMs": 14.002176
+    },
+    {
+      "frame": 184,
+      "frameStart": 139868.60000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.078099999904978,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.100000023841858,
+      "gpuElapsedMs": 13.666304
+    },
+    {
+      "frame": 185,
+      "frameStart": 139883,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.0924999998811415,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.399999976158142,
+      "gpuElapsedMs": 12.966912
+    },
+    {
+      "frame": 186,
+      "frameStart": 139896.70000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.106199999928819,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.199999928474426,
+      "gpuElapsedMs": 14.174208
+    },
+    {
+      "frame": 187,
+      "frameStart": 139911.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.120799999952666,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.399999976158142,
+      "gpuElapsedMs": 13.858816
+    },
+    {
+      "frame": 188,
+      "frameStart": 139925.89999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.135399999857299,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14,
+      "gpuElapsedMs": 13.96224
+    },
+    {
+      "frame": 189,
+      "frameStart": 139940.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.149799999952663,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 11.899999976158142,
+      "gpuElapsedMs": 13.31552
+    },
+    {
+      "frame": 190,
+      "frameStart": 139952.60000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.1620999999049815,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 25.399999976158146,
+      "gpuElapsedMs": 13.435904
+    },
+    {
+      "frame": 191,
+      "frameStart": 139978.5,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.187999999881143,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 16.399999976158142,
+      "gpuElapsedMs": 14.450688
+    },
+    {
+      "frame": 192,
+      "frameStart": 139995.20000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.20469999992882,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13,
+      "gpuElapsedMs": 13.100064
+    },
+    {
+      "frame": 193,
+      "frameStart": 140008.5,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.21799999988113,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.100000023841858,
+      "gpuElapsedMs": 14.936064
+    },
+    {
+      "frame": 194,
+      "frameStart": 140021.89999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.231399999857288,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12.700000047683716,
+      "gpuElapsedMs": 14.56128
+    },
+    {
+      "frame": 195,
+      "frameStart": 140034.89999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.244399999857293,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.600000023841858,
+      "gpuElapsedMs": 13.673472
+    },
+    {
+      "frame": 196,
+      "frameStart": 140049.80000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.25929999995266,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.099999904632568,
+      "gpuElapsedMs": 12.623872
+    },
+    {
+      "frame": 197,
+      "frameStart": 140064.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.273799999952658,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 4.799999952316284,
+      "gpuElapsedMs": 14.301184
+    },
+    {
+      "frame": 198,
+      "frameStart": 140069.30000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.278899999857288,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 10.399999976158142,
+      "gpuElapsedMs": 13.165568
+    },
+    {
+      "frame": 199,
+      "frameStart": 140080,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.28949999988113,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13,
+      "gpuElapsedMs": 13.539328
+    },
+    {
+      "frame": 200,
+      "frameStart": 140093.39999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.3028999998572885,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.200000047683716,
+      "gpuElapsedMs": 14.086144
+    },
+    {
+      "frame": 201,
+      "frameStart": 140108,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.317499999881136,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13,
+      "gpuElapsedMs": 15.562752
+    },
+    {
+      "frame": 202,
+      "frameStart": 140121.5,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.330999999881129,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12.800000071525574,
+      "gpuElapsedMs": 13.764608
+    },
+    {
+      "frame": 203,
+      "frameStart": 140134.70000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.344199999928819,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.899999976158142,
+      "gpuElapsedMs": 12.627232
+    },
+    {
+      "frame": 204,
+      "frameStart": 140148.89999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.358399999857298,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.600000023841858,
+      "gpuElapsedMs": 13.72768
+    },
+    {
+      "frame": 205,
+      "frameStart": 140162.89999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.3723999998572936,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 15.200000047683716,
+      "gpuElapsedMs": 14.46912
+    },
+    {
+      "frame": 206,
+      "frameStart": 140178.5,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.387999999881131,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 16.100000023841858,
+      "gpuElapsedMs": 14.34624
+    },
+    {
+      "frame": 207,
+      "frameStart": 140194.89999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.40439999985729,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 10.300000071525574,
+      "gpuElapsedMs": 13.274112
+    },
+    {
+      "frame": 208,
+      "frameStart": 140205.5,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.4149999998811325,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12.800000071525574,
+      "gpuElapsedMs": 14.333696
+    },
+    {
+      "frame": 209,
+      "frameStart": 140218.60000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.428099999904973,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 27.899999976158146,
+      "gpuElapsedMs": 13.967648
+    },
+    {
+      "frame": 210,
+      "frameStart": 140247,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.456499999881132,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 26.899999976158146,
+      "gpuElapsedMs": 14.036992
+    },
+    {
+      "frame": 211,
+      "frameStart": 140274.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.483799999952652,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 5.699999928474426,
+      "gpuElapsedMs": 14.826816
+    },
+    {
+      "frame": 212,
+      "frameStart": 140280.80000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.490299999952654,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 9.799999952316284,
+      "gpuElapsedMs": 13.336576
+    },
+    {
+      "frame": 213,
+      "frameStart": 140291,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.500499999881129,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 5.700000047683716,
+      "gpuElapsedMs": 13.293568
+    },
+    {
+      "frame": 214,
+      "frameStart": 140297,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.506499999881129,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 22.200000047683716,
+      "gpuElapsedMs": 14.258624
+    },
+    {
+      "frame": 215,
+      "frameStart": 140319.70000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.529199999928807,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 25.600000023841854,
+      "gpuElapsedMs": 14.990784
+    },
+    {
+      "frame": 216,
+      "frameStart": 140345.60000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.555099999904968,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 5.899999976158142,
+      "gpuElapsedMs": 15.281152
+    },
+    {
+      "frame": 217,
+      "frameStart": 140352.60000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.562099999904973,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 8.5,
+      "gpuElapsedMs": 13.472768
+    },
+    {
+      "frame": 218,
+      "frameStart": 140361.39999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.570899999857289,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 6.800000071525574,
+      "gpuElapsedMs": 14.497792
+    },
+    {
+      "frame": 219,
+      "frameStart": 140368.5,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.577999999881129,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 8.700000047683716,
+      "gpuElapsedMs": 13.252608
+    },
+    {
+      "frame": 220,
+      "frameStart": 140377.5,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.5869999998811295,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 26.100000023841854,
+      "gpuElapsedMs": 13.538304
+    },
+    {
+      "frame": 221,
+      "frameStart": 140403.89999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.613399999857293,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.5,
+      "gpuElapsedMs": 14.733664
+    },
+    {
+      "frame": 222,
+      "frameStart": 140418.70000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.628199999928825,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 24.699999928474423,
+      "gpuElapsedMs": 13.84448
+    },
+    {
+      "frame": 223,
+      "frameStart": 140443.89999997616,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.6533999998572995,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 4.5,
+      "gpuElapsedMs": 14.609696
+    },
+    {
+      "frame": 224,
+      "frameStart": 140449,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.658499999881144,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12.100000023841858,
+      "gpuElapsedMs": 15.130624
+    },
+    {
+      "frame": 225,
+      "frameStart": 140461.5,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.670999999881147,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.800000071525574,
+      "gpuElapsedMs": 13.68576
+    },
+    {
+      "frame": 226,
+      "frameStart": 140475.60000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.685099999904992,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 6.700000047683716,
+      "gpuElapsedMs": 14.196736
+    },
+    {
+      "frame": 227,
+      "frameStart": 140482.80000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.692299999952681,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 8,
+      "gpuElapsedMs": 13.176832
+    },
+    {
+      "frame": 228,
+      "frameStart": 140491.10000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.700599999904995,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 15.100000023841858,
+      "gpuElapsedMs": 14.399488
+    },
+    {
+      "frame": 229,
+      "frameStart": 140506.80000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.716299999952682,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.099999904632568,
+      "gpuElapsedMs": 14.1056
+    },
+    {
+      "frame": 230,
+      "frameStart": 140520.20000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.72969999992884,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 26.100000023841854,
+      "gpuElapsedMs": 13.24976
+    },
+    {
+      "frame": 231,
+      "frameStart": 140546.60000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.756099999905004,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 27.799999952316284,
+      "gpuElapsedMs": 14.811136
+    },
+    {
+      "frame": 232,
+      "frameStart": 140574.70000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.784199999928845,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 4.600000023841858,
+      "gpuElapsedMs": 15.342592
+    },
+    {
+      "frame": 233,
+      "frameStart": 140579.60000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.789099999905005,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 9.299999952316284,
+      "gpuElapsedMs": 13.560832
+    },
+    {
+      "frame": 234,
+      "frameStart": 140589.30000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.798799999952692,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 5.899999976158142,
+      "gpuElapsedMs": 14.73536
+    },
+    {
+      "frame": 235,
+      "frameStart": 140595.60000002384,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.805099999905011,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 10,
+      "gpuElapsedMs": 13.431808
+    },
+    {
+      "frame": 236,
+      "frameStart": 140606,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.815499999881169,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14,
+      "gpuElapsedMs": 14.280704
+    },
+    {
+      "frame": 237,
+      "frameStart": 140620.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.829799999952698,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 28.699999928474423,
+      "gpuElapsedMs": 13.076704
+    },
+    {
+      "frame": 238,
+      "frameStart": 140649.60000002384,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.859099999905013,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.299999952316284,
+      "gpuElapsedMs": 14.657536
+    },
+    {
+      "frame": 239,
+      "frameStart": 140663.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.87279999995269,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12.699999928474426,
+      "gpuElapsedMs": 14.584832
+    },
+    {
+      "frame": 240,
+      "frameStart": 140676.30000007153,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.885799999952695,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 6.099999904632568,
+      "gpuElapsedMs": 14.436352
+    },
+    {
+      "frame": 241,
+      "frameStart": 140682.80000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.892299999952698,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 8.299999952316284,
+      "gpuElapsedMs": 13.46048
+    },
+    {
+      "frame": 242,
+      "frameStart": 140691.39999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.90089999985733,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12.900000095367432,
+      "gpuElapsedMs": 13.999616
+    },
+    {
+      "frame": 243,
+      "frameStart": 140704.70000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.914199999928854,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 15.100000023841858,
+      "gpuElapsedMs": 13.447168
+    },
+    {
+      "frame": 244,
+      "frameStart": 140720,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.929499999881173,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.399999976158142,
+      "gpuElapsedMs": 12.977152
+    },
+    {
+      "frame": 245,
+      "frameStart": 140733.70000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.943199999928851,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 27.199999928474423,
+      "gpuElapsedMs": 14.463232
+    },
+    {
+      "frame": 246,
+      "frameStart": 140761.20000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.970699999928854,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 15.199999928474426,
+      "gpuElapsedMs": 14.174624
+    },
+    {
+      "frame": 247,
+      "frameStart": 140776.70000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 6.986199999928857,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 10.699999928474426,
+      "gpuElapsedMs": 14.983168
+    },
+    {
+      "frame": 248,
+      "frameStart": 140787.70000004768,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 6.997199999928853,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 5,
+      "gpuElapsedMs": 13.80352
+    },
+    {
+      "frame": 249,
+      "frameStart": 140793,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 7.002499999881167,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 10.200000047683716,
+      "gpuElapsedMs": 13.101056
+    },
+    {
+      "frame": 250,
+      "frameStart": 140803.5,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 7.01299999988116,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.399999976158142,
+      "gpuElapsedMs": 12.88192
+    },
+    {
+      "frame": 251,
+      "frameStart": 140818.20000004768,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 7.027699999928842,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 14.799999952316284,
+      "gpuElapsedMs": 13.766656
+    },
+    {
+      "frame": 252,
+      "frameStart": 140834,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 7.043499999881163,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 26.200000047683716,
+      "gpuElapsedMs": 14.108672
+    },
+    {
+      "frame": 253,
+      "frameStart": 140860.5,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 7.069999999881162,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.100000023841858,
+      "gpuElapsedMs": 14.0264
+    },
+    {
+      "frame": 254,
+      "frameStart": 140874,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 7.083499999881155,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 13.5,
+      "gpuElapsedMs": 13.000704
+    },
+    {
+      "frame": 255,
+      "frameStart": 140888,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 7.097499999881151,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 9.600000023841858,
+      "gpuElapsedMs": 15.58528
+    },
+    {
+      "frame": 256,
+      "frameStart": 140897.89999997616,
+      "mode": "fast",
+      "routeEcho": "fast",
+      "sourcePhase": 7.107399999857307,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 19.800000071525577,
+      "gpuElapsedMs": 12.851328
+    },
+    {
+      "frame": 257,
+      "frameStart": 140918.30000007153,
+      "mode": "legacy",
+      "routeEcho": "legacy",
+      "sourcePhase": 7.127799999952671,
+      "C": 16.5,
+      "P": 12,
+      "cpuElapsedMs": 12.599999904632568,
+      "gpuElapsedMs": 13.162496
+    }
+  ],
+  "wholeWindow": {
+    "averageFps": 31.90428713858425,
+    "elapsedSeconds": 8.024,
+    "rawIntervals": 256,
+    "slowIntervalsOver1000div60": 125,
+    "slowFraction": 0.48828125,
+    "frameMs": {
+      "count": 256,
+      "maximum": 101.5,
+      "mean": 31.290234375279397,
+      "median": 16.100000023841858,
+      "minimum": 4.899999976158142,
+      "p95": 81.5,
+      "p99": 87.79999995231628
+    },
+    "framePercentileDefinition": "benchmark floor(p*(n-1)); different from per-mode nearest-rank",
+    "CPUcount": 257,
+    "GPUcountAtBenchmarkSeal": 252,
+    "GPUcountIncludingBoundedDrain": 257,
+    "drain": {
+      "maximumMs": 2000,
+      "milliseconds": 68.89999997615814,
+      "unreturned": []
+    },
+    "phaseRange": [
+      0.12099999999999513,
+      7.127799999952671
+    ]
+  },
+  "fixture": {
+    "headSource": "adaptive",
+    "viewport": [
+      1920,
+      1080
+    ],
+    "renderScale": 1,
+    "qualityPreset": "medium",
+    "sound": false,
+    "wind": 1.8,
+    "sourceSettings": {
+      "autoDirection": true,
+      "autoFrame": true,
+      "autoLaunch": false,
+      "azimuth": 110,
+      "cloudIllumination": true,
+      "clusterModel": "moments",
+      "elevation": 80,
+      "finiteClusterPhase": true,
+      "intensityScale": 1,
+      "persistentSmoke": true,
+      "resolvedSmokeLighting": false,
+      "type": "chrysanthemum"
+    },
+    "camera": [
+      -300.0978790174206,
+      11.999999999999986,
+      -215.3498340677912
+    ],
+    "target": [
+      60.998293641496936,
+      92.2385243793764,
+      25.774108290507627
+    ],
+    "C": [
+      16.5,
+      16.5
+    ],
+    "P": [
+      11.5,
+      12
+    ]
+  },
+  "limits": [
+    "CPU elapsed includes JavaScript, driver waits/GL submission, probe, UI/audio and possible garbage collection; not exclusive JavaScript compute.",
+    "Alternating consecutive phases are not strict same-time paired samples. One window, no independent per-mode FPS or speedup confidence interval.",
+    "Hot subset23/22 is descriptive and does not meet the original whole-run minimum30 samples per mode.",
+    "Whole GPUmean is flat/slightly higher despite CPU elapsed improvement; no overall FPS gain or60FPS claim.",
+    "No comparison to R9 different smoke-lighting/audio/configuration window as controlled before/after."
+  ]
+}

@@ -1,0 +1,31 @@
+# R29 current native lifetime peak calibration
+
+The reviewed production change extends only the explicit complete-request ceilings from1.4m to4m for SourceT and tiled SH1, and updates the four daily application callers. Legacy defaults, `maxPairs`/`maxBakePairs`, per-map1m conservative64-slot policy, optical kernels, packing, inner64 sum order, increasing reduction, native state guards, source physics and accepted audio remain unchanged. Daily map allowance stays8. Independent capacity-only and native fixture reviews preceded the root-owned actual calibration.
+
+The primary inputs are the actual dense60Hz sampled maxima of the same native one-event physical update union. They replace the easier old20Hz phase choices; the old raw captures are retained as history. Each module contains the complete original snapshot, emission ledger, current source associations, exact view rays, padded uploaded words, independent original/quantized T reference for every row, and independent positive-Laplace signed SH references for every packet. The same-generation joint job decodes one snapshot/ledger and computes two fresh private fields; it is not a scene render.
+
+| Job | Actual native data | Logical pairs | Actual numerical draws | Whole-job GPU | Instrumented CPU submit |
+| --- | --- | ---: | ---: | ---: | ---: |
+| [SourceT peak](../r29-source-peak-actual-gpu.json) |1,652 packets ×1,366 optical rows |2,256,632 |5 |1.912832ms |17.1ms |
+| [SH peak](../r29-light-peak-actual-gpu.json) |2,301 packets ×1,409 emission rows |3,242,109 |6 |1.584128ms |11.8ms |
+| [Same-generation joint peak](../r29-joint-peak-actual-gpu.json) |2,258 packets ×871 optical rows and1,431 emission rows |5,197,916 |10 |3.093504ms |34.0ms |
+
+Root's saved results passed4/4,4/4 and5/5, respectively. Each job used one complete synchronous prepare per selected kernel, one retrospective whole-job timer and exact fixed read caps:21,984 /110,832 /122,832bytes. All valid output rows and eight partial cells per kernel were read; all independent final-reference numerical, signed SH, angular positivity and raw/per-packet group-bound gates remain unchanged. No scene, volume, reference GPU, second renderer/context or all-pair CPU oracle was dispatched inside these jobs. Readbacks were serialized inside the page as exact JSON text.
+
+The instrumented submission times include original input packing, first resource upload/possible compilation and QA guards; they are not isolated CPU kernel benchmarks. The three phases contain different native density/source distributions and use the existing renderer/program cache state. They are not warm/A-B performance comparisons, a linear scaling law, a full-frame timing or a60FPS claim.
+
+## Frozen verification and source-guard correction
+
+Final common runtime SHA256 is `3535ebae18ff359b52daec0a7eedfaca746d2c0ff3703360aeffaa7f9bf3896d`; pin module `3e3e36a7822446b9bf8c68bfd1fb0bb45834e40ef177745b653b3def2b96a59d`; JSON manifest `f740c21294afd21d5d44ec8c875b55ec3c0d7ec1998db14d07fece9114c01864`. Thin wrappers statically select one primary phase; caller data/count/policy overrides are rejected before context access. Complete original inputs and offline references are owned before the first await. The production source/cached-function pins bind the current capacity-only implementation rather than just its factory name.
+
+Before any hardware dispatch, independent review found that a separate imported pin map needed an explicit completeness guard. The first repair required all keys but could still accept a nonenumerable mandatory source plus an extra enumerable source, allowing `Object.entries` to skip the mandatory fetch. Both withdrawn runtimes/pinsets and their earlier CPU reports are preserved under `baselines/r29-before-pin-keyset-repair/` and `baselines/r29-before-enumerable-pin-keyset-repair/`. The two falsification receipts explicitly retain these failures; no hardware test used the withdrawn versions.
+
+The final guard accepts only frozen ordinary literal objects with exact `Reflect.ownKeys`, required enumerable data descriptors, no symbols/getters/prototype aliases,16 shared sources,17 cached functions,3 fixed jobs and4 selected sources per job, plus exact phase identity. Ten descriptor/prototype adversarial cases and the earlier missing-map/schema/digest cases reject before getters/context; getter calls remain0. Own input/factory routing suite passed6/6, final deployed helper preflight8/8 and independent complete runner review7/7. The frozen artifacts and numerical paths were not altered by these guard repairs.
+
+## What is still outside this admission
+
+The primary optical inputs submit zero reflection rows. Motion's current-eye one-event CPU witness near+3.90s instead has2,301 packets and1,402 rows in each view, with1,399 SH rows:9,671,103 aggregate logical pairs across different kernels. The exact existing planner requires5maps+reduction for each request, or18 numerical draws for main SourceT, reflection SourceT and shared SH, before real smoke volumes, scene/water, depth-copy, lens and display. Equal main/mirror row counts do not permit attenuation reuse.
+
+The observed two-event current-eye workload is larger again:3,364 packets,3,112 optical rows per eye,3,101 SH rows and31,369,300 aggregate pairs, with82 sampled checkpoints over4m for at least one kernel. Current SourceT overbudget refusal falls back to complete CPU ray queries; SH refusal disables resolved lighting and retains local/cluster approximation. These routes remain a known main-thread/perceived-lighting gap, not a solved repeated-firework case.
+
+The next bounded integration and fallback decisions are detailed in [the fresh production frame design](R29-ONE-FRESH-SCENE-FRAME-DESIGN.md). One real fresh SH bake plus actual per-view T consumption and smoke-volume/scene composition is required; `benchmarkFrozenSmoke()` alone can reuse the SH cache. A larger measured complete GPU policy may be appropriate, while a fail-closed overbudget transaction can contain the known CPU fallback stall during review. Neither dropping matter/sources, stale T/SH reuse nor dispatch splitting alone establishes acceptable evolving-frame performance. Overall scene/visual goal remains active.

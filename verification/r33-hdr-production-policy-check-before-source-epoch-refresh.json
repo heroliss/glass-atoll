@@ -1,0 +1,198 @@
+{
+  "schema": "glass-atoll.r33-hdr-current-screen-pure-policy-production-check.v1",
+  "actualGPU": false,
+  "newBrowserActions": 0,
+  "newNativeCalls": 0,
+  "newPermissions": 0,
+  "productionEdits": 0,
+  "passed": false,
+  "counts": {
+    "passed": 11,
+    "total": 12,
+    "incumbentPolicyCases": 9,
+    "productionIntegrationCases": 3
+  },
+  "sourcePins": {
+    "productionPolicy": "d8450e111a9c09b57be98b79a6871e5dea59ad24e38e0e9edc12b0bbd7e7dbf5",
+    "incumbentResolver": "9958bb923d18625291132e47cc70dfac43a61a3c45af50b24d7e1a2ee4cbbff3",
+    "diagnostic": "3fec8b674a3c3dfa8035dd73cb04ca71c14b2cfe5e71d1ff707af6c1907e413d"
+  },
+  "policy": {
+    "revision": "r33-unit-scale-screen-and-contained-window-v1",
+    "screenFields": [
+      "width",
+      "height",
+      "availLeft",
+      "availTop",
+      "left",
+      "top",
+      "availWidth",
+      "availHeight"
+    ],
+    "windowFields": [
+      "screenX",
+      "screenY",
+      "outerWidth",
+      "outerHeight",
+      "devicePixelRatio",
+      "visualViewportScale"
+    ],
+    "optionFields": [
+      "deviceName",
+      "peakNits",
+      "paperWhiteNits"
+    ],
+    "foregroundFallback": false,
+    "admittedNativeScale": 1,
+    "admittedDPR": 1,
+    "newPermissions": false,
+    "productionEdits": false,
+    "actualGPU": false,
+    "limits": "No mixed/uniform-nonunit DPI conversion, straddling-window inference, forged-origin authentication or general HDR/display calibration support is claimed."
+  },
+  "checks": [
+    {
+      "name": "Complete authoritative saved current-browser case selects DISPLAY6/1270 instead of foreground DISPLAY5/700",
+      "passed": true,
+      "evidence": {
+        "oldDevice": "\\\\.\\DISPLAY5",
+        "oldPeak": 700,
+        "newDevice": "\\\\.\\DISPLAY6",
+        "newPeak": 1270,
+        "geometry": {
+          "policy": "r33-unit-scale-screen-and-contained-window-v1",
+          "reliable": true,
+          "reason": "unique-unit-scale-screen-with-fully-contained-window",
+          "deviceName": "\\\\.\\DISPLAY6",
+          "screen": {
+            "left": -2560,
+            "top": 0,
+            "width": 2560,
+            "height": 1440
+          },
+          "originSource": "legacy-available-origin-exactly-equals-native-full-origin",
+          "window": {
+            "left": -2552,
+            "top": 8,
+            "right": -8,
+            "bottom": 1432
+          },
+          "qualification": "Corroborated trusted snapshot, not authentication against a self-consistent forged browser/native report"
+        }
+      }
+    },
+    {
+      "name": "Foreground/friendly-name changes cannot redirect auto; genuine primary geometry can select DISPLAY5",
+      "passed": true,
+      "evidence": {
+        "foregroundIgnored": true,
+        "friendlyNameNotIdentity": true,
+        "currentGeometryNotPersistentlyPinned": true
+      }
+    },
+    {
+      "name": "Explicit native device and manual luminance intent remain incumbent choices even with invalid geometry",
+      "passed": true,
+      "evidence": {
+        "explicit": "\\\\.\\DISPLAY5",
+        "unmatchedDoesNotAutoFallback": true,
+        "manualPeak": 1200,
+        "manualWhite": 250
+      }
+    },
+    {
+      "name": "Mixed, uniform nonunit, missing native scale and page/pinch zoom reject geometry without foreground fallback",
+      "passed": true,
+      "evidence": {
+        "rejected": 11,
+        "allUnitScaleOnly": true,
+        "noNativeBoundsDividedByPerScreenScale": true
+      }
+    },
+    {
+      "name": "One-sided zero-origin spoof, missing origin, straddling and offscreen windows all reject",
+      "passed": true,
+      "evidence": {
+        "rejected": 5,
+        "qualification": "Cannot authenticate an entirely self-consistent forged snapshot; trusted live property acquisition is required"
+      }
+    },
+    {
+      "name": "Available work area is not silently used as full-screen origin; explicit full origin retains legitimate taskbar offset",
+      "passed": true,
+      "evidence": {
+        "legacyOffsetRejected": true,
+        "explicitFullOriginCanCorroborate": true
+      }
+    },
+    {
+      "name": "Overlapping/cloned native bounds and duplicate native identities cannot produce an auto selection",
+      "passed": true,
+      "evidence": {
+        "cases": 3
+      }
+    },
+    {
+      "name": "Closed browser/options descriptors reject getters, hidden/inherited fields and caller reliability flags without invoking getters",
+      "passed": true,
+      "evidence": {
+        "getterCalls": 0,
+        "callerReliableFlagAccepted": false
+      }
+    },
+    {
+      "name": "Input snapshots stay byte-identical and output geometry has independent ownership; no hidden I/O",
+      "passed": true,
+      "evidence": {
+        "readOnly": true,
+        "ownedGeometry": true,
+        "permissionsRequested": 0,
+        "nativeCalls": 0,
+        "browserCalls": 0
+      }
+    },
+    {
+      "name": "Production module is exact candidate except its first comment and relocated incumbent import",
+      "passed": true,
+      "evidence": {
+        "candidateSHA256": "05c952b43fa43c2687de2c53f47ea1f0534a16755aa24144c7b10cf0aa816dae",
+        "productionSHA256": "d8450e111a9c09b57be98b79a6871e5dea59ad24e38e0e9edc12b0bbd7e7dbf5",
+        "normalization": "First comment line and one import path only"
+      }
+    },
+    {
+      "name": "Actual production capture function copies the saved own-screen/window fields and corroborates full containment without browser calls",
+      "passed": true,
+      "evidence": {
+        "captureSHA256": "e5fcaaf640646f0520c6e83cbc30d1baf025aa640192c8eccf0ea1951414676d",
+        "source": "Actual main.js function evaluated with only a plain Window facade",
+        "selectedDevice": "\\\\.\\DISPLAY6",
+        "peakNits": 1270,
+        "window": {
+          "left": -2552,
+          "top": 8,
+          "right": -8,
+          "bottom": 1432
+        },
+        "nativeBounds": {
+          "left": -2560,
+          "top": 0,
+          "right": 0,
+          "bottom": 1440
+        },
+        "productionBrowserCalls": 0
+      }
+    },
+    {
+      "name": "Integration source epoch, unpromoted water, approved audio and original candidate proof remain pinned",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ '6286ef916de9db77c46268da983af46153baf5caa28dcf51916f39970159d3a3'\n- '3dc48edd0c6f284760275c7a86a70993acbd41c0c9b95381ab917f77c614cba1'\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r33-hdr-production-policy-check.mjs:20:186\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r33-hdr-production-policy-check.mjs:8:102)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r33-hdr-production-policy-check.mjs:20:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    }
+  ],
+  "limits": [
+    "This admits only exact current all-unit-scale native geometry with unit browserDPR and a fully contained window; it is not general mixedDPI or zoom support.",
+    "Matches saved trusted observations; no live browser selection, HDR presentation or physical nit measurement occurred here.",
+    "Self-consistent forged browser/native snapshots cannot be detected by a pure legacy geometry resolver.",
+    "An unreliable multi-display geometry produces explicit ambiguous calibration without foreground fallback; explicit native device selection and existing single-display/manual luminance behavior are retained."
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "schema": "glass-atoll.choreography-polish.geometry.v1",
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "checks": [
+    {
+      "name": "one continuous ground sector crosses its centre and reverses smoothly for19 seconds",
+      "passed": true,
+      "evidence": {
+        "shots": 128,
+        "duration": 19.05,
+        "centreCrossings": 8,
+        "reversals": 7,
+        "maximumAdjacentDegrees": 8.13517953414105,
+        "previousMaximumAdjacentDegrees": 103.71177920604848
+      }
+    },
+    {
+      "name": "longer ground show does not increase simultaneous burning heads per event",
+      "passed": true,
+      "evidence": {
+        "currentMaximum": 24,
+        "previousMaximum": 29
+      }
+    },
+    {
+      "name": "waterfall actually releases from a nearly horizontal moving parent and falls much farther",
+      "passed": true,
+      "evidence": {
+        "horizontalCarrierMetres": 128.94126844944293,
+        "minimumLateDropMetres": 78.11166096903193,
+        "maximumLateDropMetres": 99.82951963941818,
+        "minimumLateWorldY": 137.0809395918602,
+        "oldChildLife": 3.25,
+        "currentChildLifeRange": [
+          5.6035543665289875,
+          6.096006915345788
+        ],
+        "tailCarrierCount": 192
+      }
+    },
+    {
+      "name": "reference planar patterns use fewer irregular seeded points and independent burn durations",
+      "passed": true,
+      "evidence": [
+        {
+          "type": "display-saturn",
+          "planeCount": 48,
+          "formerPlaneCount": 64,
+          "minimumLife": 4.626292624912691,
+          "maximumLife": 5.09064882897446
+        },
+        {
+          "type": "display-heart",
+          "planeCount": 48,
+          "formerPlaneCount": 64,
+          "minimumLife": 4.626292624912691,
+          "maximumLife": 5.09064882897446
+        },
+        {
+          "type": "display-flower",
+          "planeCount": 48,
+          "formerPlaneCount": 64,
+          "minimumLife": 4.626292624912691,
+          "maximumLife": 5.09064882897446
+        }
+      ]
+    }
+  ],
+  "scope": "Actual production events. Before builder shares current curve code only to isolate geometry; no raster, visual or FPS claim."
+}

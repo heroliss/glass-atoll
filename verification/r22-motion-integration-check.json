@@ -1,0 +1,445 @@
+{
+  "schema": "glass-atoll.r22-motion-integration.v1",
+  "dateUTC": "2026-10-29T05:24:33.603Z",
+  "passed": true,
+  "counts": {
+    "passed": 13,
+    "total": 13
+  },
+  "sourceSHA256": {
+    "physics": "2cdffbced09c8a151f9fb3cb1531a905633af6978c41f9fc3ea2c1a13006419d",
+    "tail": "fec6dab3486b0dd6ef3c780c0a1af38f685f635629ceec31204a48835d2f1389",
+    "layer": "e42e8c9b4405ff32c86bacc4cdfbbb8ed7cbf9d7275860593fc366e5ff9bdf09",
+    "thrust": "c9b1d306d3681594e9cc2f20ddb00ddb6719c0b3d66079f5ce13e895b0d2471a"
+  },
+  "baselinePhysicsSHA256": "35bbded2c937d335890c14a9a33abc0487db93a34b8458042db2720719374291",
+  "checks": [
+    {
+      "name": "All old event/profile outputs and ordinary sampler arithmetic remain exactly equal to frozen physics",
+      "passed": true,
+      "evidence": {
+        "events": 24,
+        "poses": 504,
+        "tailPoses": 24,
+        "comparison": "deepStrictEqual complete return objects, including signed zero and unchanged old event metadata"
+      }
+    },
+    {
+      "name": "Historical queue-expectation failure reproduces unchanged on frozen and current physics",
+      "passed": true,
+      "evidence": {
+        "fiveLaunchAccepted": [
+          true,
+          true,
+          true,
+          true,
+          false
+        ],
+        "state": {
+          "time": 0,
+          "active": 4,
+          "queued": 0,
+          "launches": 4,
+          "rejected": 1,
+          "skippedAutomatic": 0,
+          "maxActive": 4,
+          "maxQueued": 16,
+          "launchPolicy": "immediate",
+          "lastLaunch": {
+            "id": "2027822723-0.00000",
+            "type": "peony",
+            "time": 0,
+            "azimuth": 113.56895493828783,
+            "elevation": 82.02369714851702,
+            "origin": [
+              29,
+              0.5,
+              7
+            ],
+            "seed": 2027822723,
+            "burstOrientation": {
+              "yawDegrees": 199.91976245306432,
+              "tiltDegrees": -3.4945561923086643,
+              "rollDegrees": -6.986914154142141
+            }
+          },
+          "settings": {
+            "type": "peony",
+            "azimuth": 104,
+            "elevation": 80,
+            "autoDirection": true,
+            "autoLaunch": false,
+            "interval": 7.5,
+            "intervalSeconds": 7.5,
+            "launchSpreadDegrees": 3,
+            "burstTiltDegrees": 12,
+            "burstRollDegrees": 8,
+            "starDragModel": "bounded-descent",
+            "smileyLayout": "reference",
+            "intensityScale": 1
+          },
+          "windSegments": 1,
+          "activeEvents": [
+            {
+              "id": "2654450032-0.00000",
+              "type": "peony",
+              "pattern": "peony",
+              "smileyLayout": null,
+              "intensityScale": 1,
+              "actualStarCount": 224,
+              "calibreMm": 90,
+              "heightInfo": {
+                "inputMode": "definition-rise",
+                "referenceRiseMetres": 120,
+                "referenceElevationDegrees": 80,
+                "explicitWorldHeight": null,
+                "calibratedRiseMetres": 120,
+                "actualBurstWorldY": 118.31050751405041,
+                "actualBurstRiseMetres": 117.81050751405041,
+                "productReference": {
+                  "calibreMm": 90,
+                  "riseMetres": 120,
+                  "referenceWidthMetres": 60,
+                  "source": "https://san-en-fireworks.com/index/products/productse/",
+                  "evidence": "supplier product-scale example",
+                  "widthCalibrated": false
+                },
+                "widthCalibrated": false,
+                "visibleApex": null
+              },
+              "paletteMode": "single-colour",
+              "aerodynamics": {
+                "model": "effective-linear-drag-matched-terminal",
+                "starDragModel": "bounded-descent",
+                "terminalSpeedMetresPerSecond": 18,
+                "dragPerSecond": 0.545,
+                "childTerminalSpeedMetresPerSecond": 18,
+                "gravityMetresPerSecondSquared": 9.81,
+                "buoyancy": "dense burning body; no invented hot-gas lift",
+                "calibration": "authored terminal-speed reference, not measured particle properties"
+              },
+              "burstOrientation": {
+                "yawDegrees": 258.95111446268857,
+                "tiltDegrees": -0.7476348727941513,
+                "rollDegrees": -2.180670890957117
+              }
+            },
+            {
+              "id": "1013918497-0.00000",
+              "type": "peony",
+              "pattern": "peony",
+              "smileyLayout": null,
+              "intensityScale": 1,
+              "actualStarCount": 224,
+              "calibreMm": 90,
+              "heightInfo": {
+                "inputMode": "definition-rise",
+                "referenceRiseMetres": 120,
+                "referenceElevationDegrees": 80,
+                "explicitWorldHeight": null,
+                "calibratedRiseMetres": 120,
+                "actualBurstWorldY": 118.63220000192757,
+                "actualBurstRiseMetres": 118.13220000192757,
+                "productReference": {
+                  "calibreMm": 90,
+                  "riseMetres": 120,
+                  "referenceWidthMetres": 60,
+                  "source": "https://san-en-fireworks.com/index/products/productse/",
+                  "evidence": "supplier product-scale example",
+                  "widthCalibrated": false
+                },
+                "widthCalibrated": false,
+                "visibleApex": null
+              },
+              "paletteMode": "single-colour",
+              "aerodynamics": {
+                "model": "effective-linear-drag-matched-terminal",
+                "starDragModel": "bounded-descent",
+                "terminalSpeedMetresPerSecond": 18,
+                "dragPerSecond": 0.545,
+                "childTerminalSpeedMetresPerSecond": 18,
+                "gravityMetresPerSecondSquared": 9.81,
+                "buoyancy": "dense burning body; no invented hot-gas lift",
+                "calibration": "authored terminal-speed reference, not measured particle properties"
+              },
+              "burstOrientation": {
+                "yawDegrees": 318.28373872675,
+                "tiltDegrees": 1.679240919649601,
+                "rollDegrees": 5.4382740668952465
+              }
+            },
+            {
+              "id": "3668354258-0.00000",
+              "type": "peony",
+              "pattern": "peony",
+              "smileyLayout": null,
+              "intensityScale": 1,
+              "actualStarCount": 224,
+              "calibreMm": 90,
+              "heightInfo": {
+                "inputMode": "definition-rise",
+                "referenceRiseMetres": 120,
+                "referenceElevationDegrees": 80,
+                "explicitWorldHeight": null,
+                "calibratedRiseMetres": 120,
+                "actualBurstWorldY": 120.98801939424379,
+                "actualBurstRiseMetres": 120.48801939424379,
+                "productReference": {
+                  "calibreMm": 90,
+                  "riseMetres": 120,
+                  "referenceWidthMetres": 60,
+                  "source": "https://san-en-fireworks.com/index/products/productse/",
+                  "evidence": "supplier product-scale example",
+                  "widthCalibrated": false
+                },
+                "widthCalibrated": false,
+                "visibleApex": null
+              },
+              "paletteMode": "single-colour",
+              "aerodynamics": {
+                "model": "effective-linear-drag-matched-terminal",
+                "starDragModel": "bounded-descent",
+                "terminalSpeedMetresPerSecond": 18,
+                "dragPerSecond": 0.545,
+                "childTerminalSpeedMetresPerSecond": 18,
+                "gravityMetresPerSecondSquared": 9.81,
+                "buoyancy": "dense burning body; no invented hot-gas lift",
+                "calibration": "authored terminal-speed reference, not measured particle properties"
+              },
+              "burstOrientation": {
+                "yawDegrees": 121.40614067204297,
+                "tiltDegrees": -1.247559830546379,
+                "rollDegrees": 7.425794091075659
+              }
+            },
+            {
+              "id": "2027822723-0.00000",
+              "type": "peony",
+              "pattern": "peony",
+              "smileyLayout": null,
+              "intensityScale": 1,
+              "actualStarCount": 224,
+              "calibreMm": 90,
+              "heightInfo": {
+                "inputMode": "definition-rise",
+                "referenceRiseMetres": 120,
+                "referenceElevationDegrees": 80,
+                "explicitWorldHeight": null,
+                "calibratedRiseMetres": 120,
+                "actualBurstWorldY": 121.70731841493239,
+                "actualBurstRiseMetres": 121.20731841493239,
+                "productReference": {
+                  "calibreMm": 90,
+                  "riseMetres": 120,
+                  "referenceWidthMetres": 60,
+                  "source": "https://san-en-fireworks.com/index/products/productse/",
+                  "evidence": "supplier product-scale example",
+                  "widthCalibrated": false
+                },
+                "widthCalibrated": false,
+                "visibleApex": null
+              },
+              "paletteMode": "single-colour",
+              "aerodynamics": {
+                "model": "effective-linear-drag-matched-terminal",
+                "starDragModel": "bounded-descent",
+                "terminalSpeedMetresPerSecond": 18,
+                "dragPerSecond": 0.545,
+                "childTerminalSpeedMetresPerSecond": 18,
+                "gravityMetresPerSecondSquared": 9.81,
+                "buoyancy": "dense burning body; no invented hot-gas lift",
+                "calibration": "authored terminal-speed reference, not measured particle properties"
+              },
+              "burstOrientation": {
+                "yawDegrees": 199.91976245306432,
+                "tiltDegrees": -3.4945561923086643,
+                "rollDegrees": -6.986914154142141
+              }
+            }
+          ],
+          "model": "analytic linear-drag segments; deterministic world-space events; authored reference photometry, not CFD",
+          "capacityPolicy": "complete events, immediate acceptance or explicit rejection; automatic full slots skip without queue"
+        },
+        "scope": "Regression equality only; the old physics-check suite still fails its obsolete assertion that all five launches are accepted and queued"
+      }
+    },
+    {
+      "name": "Powered actual sampler matches independent full ODE through force/wind knots, cutoff and tiny-drag branch",
+      "passed": true,
+      "evidence": {
+        "cases": 90,
+        "maxPositionError": 1.652011860642233e-11,
+        "maxVelocityError": 2.76489942052649e-12,
+        "reference": "RK4 full p/v ODE; force/wind breakpoints aligned, no production response formula reuse"
+      }
+    },
+    {
+      "name": "Motor response bounds include numerical margins and enclose actual extra position/velocity",
+      "passed": true,
+      "evidence": {
+        "cases": 50,
+        "beforeBirth": "null",
+        "bound": "Causal integrated absolute acceleration plus explicit numeric margins; passive base is separate"
+      }
+    },
+    {
+      "name": "Actual powered event patches exactly32 roots while160 native radial bodies and native RNG remain unchanged",
+      "passed": true,
+      "evidence": {
+        "motorCount": 32,
+        "radialCount": 160,
+        "ids": [
+          4,
+          11,
+          15,
+          18,
+          26,
+          34,
+          41,
+          45,
+          48,
+          56,
+          61,
+          70,
+          77,
+          81,
+          87,
+          91,
+          101,
+          107,
+          109,
+          116,
+          125,
+          131,
+          135,
+          142,
+          147,
+          153,
+          158,
+          164,
+          172,
+          179,
+          182,
+          189
+        ],
+        "nativeAudioEventsExact": true
+      }
+    },
+    {
+      "name": "Every compiled motor root agrees with full-state ODE under changing wind through powered/cutoff/coast phases",
+      "passed": true,
+      "evidence": {
+        "cases": 256,
+        "motorBodies": 64,
+        "seeds": [
+          42,
+          9999
+        ],
+        "maxPositionError": 1.9610979506978765e-12,
+        "maxVelocityError": 9.947598300641403e-14,
+        "reference": "Same independent RK4 full-state ODE, actual compiled world force schedules and body drag"
+      }
+    },
+    {
+      "name": "Direct/configure/launch admission rejects unsupported motor profiles atomically before state/seed changes",
+      "passed": true,
+      "evidence": {
+        "rejections": 5,
+        "stateAndNextSeedExact": true
+      }
+    },
+    {
+      "name": "Powered flight admission rejects explicit/inherited height and non-apex timing before configure/launch mutation",
+      "passed": true,
+      "evidence": {
+        "rejections": 16,
+        "defaultAndExplicitApexExact": true,
+        "ordinaryHeightAndTimedFlightExact": true,
+        "settingsActivePendingAndNextSeedExact": true
+      }
+    },
+    {
+      "name": "Optical0x preserves every motor schedule, lifetime and physical trajectory",
+      "passed": true,
+      "evidence": {
+        "poses": 1152,
+        "motorScheduleAndLifeExact": true
+      }
+    },
+    {
+      "name": "Committed carrier wind updates inherited burst state without rotating or resampling motor schedules",
+      "passed": true,
+      "evidence": {
+        "bodies": 192,
+        "scheduleIdentityPreserved": true
+      }
+    },
+    {
+      "name": "Physical30/60/120 replay and arbitrary past query order return exactly identical powered poses",
+      "passed": true,
+      "evidence": {
+        "rates": [
+          30,
+          60,
+          120
+        ],
+        "worldPoses": 576,
+        "pastQueries": 4
+      }
+    },
+    {
+      "name": "Eulerian tail qdot uses current prescribed motor acceleration including represented sides of knots and cutoff",
+      "passed": true,
+      "evidence": {
+        "cases": 42,
+        "maxDerivativeError": 1.9019614772020077e-9,
+        "maxPositionError": 0,
+        "roundedLeftKnots": [
+          {
+            "lag": 0.00625,
+            "knot": 1.0028644812386482,
+            "nominalSide": "left",
+            "rightSideUlps": 1,
+            "nominalRepresentedAge": 1.0028644812386478
+          },
+          {
+            "lag": 0.1,
+            "knot": 1.0028644812386482,
+            "nominalSide": "left",
+            "rightSideUlps": 1,
+            "nominalRepresentedAge": 1.0028644812386478
+          },
+          {
+            "lag": 0.31,
+            "knot": 0.7521483609289862,
+            "nominalSide": "left",
+            "rightSideUlps": 1,
+            "nominalRepresentedAge": 0.7521483609289845
+          },
+          {
+            "lag": 0.31,
+            "knot": 1.0028644812386482,
+            "nominalSide": "left",
+            "rightSideUlps": 1,
+            "nominalRepresentedAge": 1.0028644812386478
+          }
+        ],
+        "oracle": "Five-point one-sided differences on the represented force-cell side, plus minimum-ulp right samples; independently constructed fixed-lag paths via the separately ODE-validated actual body sampler; no qdot formula reuse"
+      }
+    },
+    {
+      "name": "Event retirement covers actual motor/material/luminous ends, detached tail support and maximum source shutter history",
+      "passed": true,
+      "evidence": {
+        "events": 12,
+        "minimumMargin": 3.6534219162755193,
+        "scope": "Source lifetimes/tails/source exposure and original event smoke envelope; scheduler/material-transfer admission is separate"
+      }
+    }
+  ],
+  "limits": [
+    "Actual physics/tail CPU consumers only; no GPU, native visual, smoke mass integration, full optical shutter curvature or performance acceptance.",
+    "Motion uses authored acceleration/effective linear drag with stepped directions; no measured mass/nozzle/fuel/attitude/chemical calibration.",
+    "Numerical bounds use explicit practical margins; no universal arbitrary-epoch interval-arithmetic claim."
+  ]
+}

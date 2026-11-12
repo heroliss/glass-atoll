@@ -1,0 +1,329 @@
+{
+  "date": "2026-10-26T22:09:00.503Z",
+  "passed": false,
+  "passedCount": 11,
+  "total": 12,
+  "sourceSHA256": "a5705b5bbca5091d14ee82642b2c706712a99d4b902bd77ccb6bc9ff7be9f046",
+  "baselineSHA256": "4bf96b00252cf79403a865b3d35b902c2aa8dcb9732c4dab4169ac96c1aaca63",
+  "productionFlareEnabled": false,
+  "gpuExecuted": false,
+  "scope": "CPU operator/configuration proofs and independent double reference. Real GPU/FP16/GLSL results are a separate required gate.",
+  "checks": [
+    {
+      "name": "legacy bool defaults keep flare off and preserve exact 1.8% budget",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "object configure preserves separate flags and validates atomically",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Missing expected exception.\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/optical-flare-check.mjs:21:101\n    at test (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/optical-flare-check.mjs:8:65)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/optical-flare-check.mjs:19:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "all four on/off budgets are nonnegative convex mixtures <=1.8%",
+      "passed": true,
+      "detail": [
+        {
+          "bloom": 0,
+          "flare": false,
+          "direct": 1,
+          "ghost": 0,
+          "veil": 0,
+          "total": 0
+        },
+        {
+          "bloom": 0,
+          "flare": true,
+          "direct": 0.995,
+          "ghost": 0.003,
+          "veil": 0.002,
+          "total": 0.005
+        },
+        {
+          "bloom": 0.018,
+          "flare": false,
+          "direct": 0.982,
+          "ghost": 0,
+          "veil": 0,
+          "total": 0.018
+        },
+        {
+          "bloom": 0.013,
+          "flare": true,
+          "direct": 0.982,
+          "ghost": 0.003,
+          "veil": 0.002,
+          "total": 0.018
+        }
+      ]
+    },
+    {
+      "name": "coating weights are nonnegative and sum to one separately for R/G/B",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "every affine kernel expands, includes Jacobian s^2, and cannot amplify a pixel peak",
+      "passed": true,
+      "detail": {
+        "operatorPeakBoundRGB": [
+          0.99652664,
+          0.99649208,
+          0.996484064
+        ]
+      }
+    },
+    {
+      "name": "independent continuous Gaussian integration verifies Jacobian/crop, not re-normalized ghosts",
+      "passed": true,
+      "detail": [
+        {
+          "source": [
+            0.04,
+            -0.03
+          ],
+          "scale": -0.72,
+          "fluxRatio": 1.0000000000000142
+        },
+        {
+          "source": [
+            0.04,
+            -0.03
+          ],
+          "scale": -0.48,
+          "fluxRatio": 0.9999999999999772
+        },
+        {
+          "source": [
+            0.04,
+            -0.03
+          ],
+          "scale": 0.86,
+          "fluxRatio": 1.0000000000000122
+        },
+        {
+          "source": [
+            0.04,
+            -0.03
+          ],
+          "scale": 0.24,
+          "fluxRatio": 0.9991538617730569
+        },
+        {
+          "source": [
+            0.38,
+            0.25
+          ],
+          "scale": -0.72,
+          "fluxRatio": 0.21185441251802795
+        },
+        {
+          "source": [
+            0.38,
+            0.25
+          ],
+          "scale": -0.48,
+          "fluxRatio": 3.693049785922817e-9
+        },
+        {
+          "source": [
+            0.38,
+            0.25
+          ],
+          "scale": 0.86,
+          "fluxRatio": 0.9772506482894081
+        },
+        {
+          "source": [
+            0.38,
+            0.25
+          ],
+          "scale": 0.24,
+          "fluxRatio": 1.2352564053392488e-32
+        },
+        {
+          "source": [
+            0.48,
+            0.48
+          ],
+          "scale": -0.72,
+          "fluxRatio": 1.0131954613372116e-12
+        },
+        {
+          "source": [
+            0.48,
+            0.48
+          ],
+          "scale": -0.48,
+          "fluxRatio": 2.572191993842571e-43
+        },
+        {
+          "source": [
+            0.48,
+            0.48
+          ],
+          "scale": 0.86,
+          "fluxRatio": 0.0008332125914384794
+        },
+        {
+          "source": [
+            0.48,
+            0.48
+          ],
+          "scale": 0.24,
+          "fluxRatio": 1.0775550073006426e-93
+        }
+      ]
+    },
+    {
+      "name": "zero-outside reference does not clamp a missing image into fake edge energy",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "double raster uniform field stays below input in all modes, black stays exact zero",
+      "passed": true,
+      "detail": [
+        {
+          "bloom": false,
+          "flare": false,
+          "ratio": 1
+        },
+        {
+          "bloom": false,
+          "flare": true,
+          "ratio": 0.9965266399999657
+        },
+        {
+          "bloom": true,
+          "flare": false,
+          "ratio": 1
+        },
+        {
+          "bloom": true,
+          "flare": true,
+          "ratio": 0.9965266399999657
+        }
+      ]
+    },
+    {
+      "name": "double raster point flux includes source centre/edge/corner crop without extra energy",
+      "passed": true,
+      "detail": [
+        {
+          "point": [
+            64,
+            48
+          ],
+          "bloom": false,
+          "fluxRatio": [
+            0.9991857239327558,
+            0.9991855801199541,
+            0.9991862619001237
+          ]
+        },
+        {
+          "point": [
+            64,
+            48
+          ],
+          "bloom": true,
+          "fluxRatio": [
+            0.9991857239327546,
+            0.9991855801199532,
+            0.999186261900123
+          ]
+        },
+        {
+          "point": [
+            90,
+            65
+          ],
+          "bloom": false,
+          "fluxRatio": [
+            0.9979894765075035,
+            0.9979808339276535,
+            0.997972197349493
+          ]
+        },
+        {
+          "point": [
+            90,
+            65
+          ],
+          "bloom": true,
+          "fluxRatio": [
+            0.9979894765075057,
+            0.9979808339276557,
+            0.9979721973494939
+          ]
+        },
+        {
+          "point": [
+            0,
+            48
+          ],
+          "bloom": false,
+          "fluxRatio": [
+            0.995,
+            0.995,
+            0.995
+          ]
+        },
+        {
+          "point": [
+            0,
+            48
+          ],
+          "bloom": true,
+          "fluxRatio": [
+            0.9950000000000009,
+            0.9950000000000009,
+            0.9950000000000009
+          ]
+        },
+        {
+          "point": [
+            0,
+            0
+          ],
+          "bloom": false,
+          "fluxRatio": [
+            0.995,
+            0.995,
+            0.995
+          ]
+        },
+        {
+          "point": [
+            0,
+            0
+          ],
+          "bloom": true,
+          "fluxRatio": [
+            0.9949999999999993,
+            0.9949999999999993,
+            0.9949999999999993
+          ]
+        }
+      ]
+    },
+    {
+      "name": "power-of-two P compensation is linear in reference including ghosts/veil",
+      "passed": true,
+      "detail": {
+        "maxCompensatedError": 0
+      }
+    },
+    {
+      "name": "source/lens/P/scene APIs are absent and pass topology remains four down + one combine",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline original file is preserved byte-for-byte for real GPU A oracle",
+      "passed": true,
+      "detail": null
+    }
+  ]
+}

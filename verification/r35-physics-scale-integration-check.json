@@ -1,0 +1,69 @@
+{
+  "schema": "glass-atoll.r35-physics-scale-integration-check.v1",
+  "scope": "full-new-profile-integration",
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "actualGPU": false,
+  "browserActions": 0,
+  "rendererCalls": 0,
+  "sourcePins": {
+    "fireworks-physics.js": "247bdf9de104354258cd7b63a960501fb2295d3fe2372019d77139ac15a384cc",
+    "firework-layer-profile.js": "2cf3bf64de718a69a26fbe13bd90dff15d3a72301db4bc54f1f47fba62e33b9c",
+    "firework-scale-calibration.js": "e1e2fd9c704f9670eedd25e04120573d463a139173ba68d009b80884df7e9aee"
+  },
+  "checks": [
+    {
+      "name": "Physics whole-file inverse recovers the archived old source exactly; only new profile admission/metadata/reference-bounds seams added",
+      "passed": true,
+      "evidence": {
+        "currentSHA256": "247bdf9de104354258cd7b63a960501fb2295d3fe2372019d77139ac15a384cc",
+        "archivedSHA256": "2cdffbced09c8a151f9fb3cb1531a905633af6978c41f9fc3ea2c1a13006419d",
+        "CRLFPreserved": true
+      }
+    },
+    {
+      "name": "All original type/profile event, sampler and legacy eventBounds outputs remain exact against import-relocated archived physics/layer code",
+      "passed": true,
+      "evidence": {
+        "cases": 117,
+        "oldProfilesUnchanged": true,
+        "archivedImportsOnlyRelocated": true
+      }
+    },
+    {
+      "name": "Actual integrated new constructor supports full25..90 angle domain and arbitrary admitted rotations,120m free-flight target and gain0 motion identity",
+      "passed": true,
+      "evidence": {
+        "cases": 48,
+        "maxErrorMetres": 4.263256414560601e-14,
+        "explicitHeightStillAdmitted": true,
+        "scope": "Geometric pre-contact width; no full visible-circle/safety promise at low angles."
+      }
+    },
+    {
+      "name": "Constructor, settings and per-launch drag rejection occur before simulation state mutation",
+      "passed": true,
+      "evidence": {
+        "stateExactOnRejectedConfigureAndLaunch": true,
+        "validLowAngleLaunchAccepted": true
+      }
+    },
+    {
+      "name": "New eventBounds analytic reference encloses actual burning-head and detached-tail centres for full lifetimes under declared held-wind ranges",
+      "passed": true,
+      "evidence": {
+        "checkedAboveFloorCentrePoints": 66610,
+        "maximumTailComponentPaddingMetres": 13.107893099755799,
+        "zeroAndExplicitWindAssumptionsRecorded": true,
+        "noLiveOrRasterCoverageClaim": true
+      }
+    }
+  ],
+  "limits": [
+    "Archived physics/layer modules relocated imports only; original owner tests/reports are not executed or rewritten.",
+    "Source/CPU integration does not admit GPU imagery, FPS, terrain safety, exact optical raster support or measured supplier/combustion behavior."
+  ]
+}
