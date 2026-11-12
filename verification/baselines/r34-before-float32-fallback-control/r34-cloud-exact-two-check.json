@@ -1,0 +1,71 @@
+{
+  "schema": "glass-atoll.r34-cloud-exact-two-cpu-source-check.v1",
+  "actualGPU": false,
+  "browserActions": 0,
+  "nativeContextCalls": 0,
+  "productionEdits": 0,
+  "productionAdmitted": false,
+  "gpuBitwiseEquivalent": false,
+  "passed": true,
+  "counts": {
+    "passed": 5,
+    "total": 5
+  },
+  "baselineSkySHA256": "51db558ead3dea10d4c74633c2a8eb5bedf20952c136e0668b97de0a5ffc8eee",
+  "stagedSkySHA256": "31751168eb41aa357bdff01e1695d4f685a088ad1950020b60d092dbeabea548",
+  "transformerSHA256": "9953f20098f4b7fc6d901b6d0cb1a99a4d82abc2832eedbf0a99ab6cd5d1128d",
+  "sampleCases": 867,
+  "checks": [
+    {
+      "name": "Whole source inverse and exact unchanged fallback, texture/LOD prefixes and outside density consumers",
+      "passed": true,
+      "wholeModuleInverse": true,
+      "fallbackCPUBytes": 2782,
+      "fallbackGLSLBytes": 4936,
+      "addedExactTwoTextureSamples": 0
+    },
+    {
+      "name": "Transformer rejects already-patched, edited/missing shared arithmetic, malformed inverse and unsupported input; no fuzzy replace",
+      "passed": true,
+      "negativeCases": 5
+    },
+    {
+      "name": "Actual CPU density function and original texture sampler retain exact finite outputs and sample argument order at endpoints/intermediate blends",
+      "passed": true,
+      "sampleCases": 867,
+      "exactTwoCases": 96,
+      "nonzeroExactTwo": 36,
+      "traceFourExactTwo": 48,
+      "continuityLowCases": 12,
+      "baselineLogCalls": 3,
+      "candidateLogCalls": 0,
+      "baselineExpCalls": 6,
+      "candidateExpCalls": 3
+    },
+    {
+      "name": "Finite evaluation-order witness blocks any universal GPU bit-identity claim; nonfinite arithmetic endpoints cannot be skipped generally",
+      "passed": true,
+      "witness": {
+        "x": 1,
+        "y": 2.9802322387695312e-8,
+        "literalEndpoint": 2.9802322387695312e-8,
+        "alternativeEvaluation": 0,
+        "actualBackendObserved": false,
+        "claim": "Illustrates finite non-associativity only; not proof ANGLE uses this particular mix lowering"
+      },
+      "gpuBitwiseProven": false
+    },
+    {
+      "name": "Production source remains unchanged; staged file preserves original imports and is not a relocated runtime module",
+      "passed": true,
+      "productionChanged": false,
+      "actualGPU": false
+    }
+  ],
+  "limits": [
+    "Exact CPU JS results cover only the declared finite synthetic texture/position/time cases using the actual original sampler/function source.",
+    "No universal GPU bitwise equivalence follows from endpoint algebra, preserved source expressions or CPU equality.",
+    "Shader register allocation/precision/reassociation may change even unchanged fallback expressions; actual strict numeric gates are still required.",
+    "No program compilation, performance measurement, browser or GPU execution occurred."
+  ]
+}

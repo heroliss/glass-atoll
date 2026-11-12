@@ -1,0 +1,280 @@
+{
+  "schema": "glass-atoll.pyro-smoke-events-check.v1",
+  "dateUTC": "2026-10-26T22:17:07.946Z",
+  "runtimeIntegration": false,
+  "noGPUOrBrowser": true,
+  "passed": true,
+  "counts": {
+    "checks": 36,
+    "passed": 36
+  },
+  "checks": [
+    {
+      "id": "default_sources_are_nine_packets_with_explicit_uncalibrated_reference_area",
+      "passed": true
+    },
+    {
+      "id": "burst_partition_conserves_total_reference_area_and_equal_kernel_weights",
+      "passed": true
+    },
+    {
+      "id": "packet_birth_times_are_event_time_not_current_display_frame",
+      "passed": true
+    },
+    {
+      "id": "world_source_mean_and_bounded_initial_covariances_are_valid",
+      "passed": true,
+      "evidence": {
+        "centroid": [
+          4.000000000000001,
+          120.00000000000001,
+          -7.000000000000001
+        ],
+        "maxPacketMeanRadiusMetres": 2.1954107627333665
+      }
+    },
+    {
+      "id": "isolated_derived_seed_is_deterministic_and_does_not_advance_star_RNG",
+      "passed": true
+    },
+    {
+      "id": "audio_energy_is_not_read_as_smoke_mass_or_explosion_yield",
+      "passed": true
+    },
+    {
+      "id": "all_eight_air_types_have_one_tube_launch_and_one_burst_source",
+      "passed": true
+    },
+    {
+      "id": "real_fan_nine_launch_records_do_not_become_nine_shell_bursts",
+      "passed": true
+    },
+    {
+      "id": "real_bouquet_single_ground_launch_has_its_own_authored_area",
+      "passed": true
+    },
+    {
+      "id": "same_batch_and_repeated_event_keys_are_idempotent",
+      "passed": true
+    },
+    {
+      "id": "conflicting_world_position_for_same_key_rejects_batch_atomically",
+      "passed": true
+    },
+    {
+      "id": "same_physical_time_new_ID_after_flush_is_legal_not_lost_to_watermark",
+      "passed": true
+    },
+    {
+      "id": "same_time_different_ids_in_one_complete_batch_sort_deterministically",
+      "passed": true
+    },
+    {
+      "id": "stage_chunk_order_does_not_change_closed_complete_batch_output",
+      "passed": true
+    },
+    {
+      "id": "source_packets_may_interleave_in_time_while_ids_stay_monotonic",
+      "passed": true
+    },
+    {
+      "id": "future_staged_event_is_not_injected_before_its_event_time",
+      "passed": true
+    },
+    {
+      "id": "strictly_older_unknown_event_is_rejected_without_replay_or_retiming",
+      "passed": true
+    },
+    {
+      "id": "clear_discards_old_future_packets_and_same_time_duplicate_but_accepts_new_ID",
+      "passed": true
+    },
+    {
+      "id": "clear_tombstones_pending_or_future_staged_events_instead_of_replaying_them",
+      "passed": true
+    },
+    {
+      "id": "clear_at4000_seconds_requires_matching_origin_and_never_replays_empty_history",
+      "passed": true
+    },
+    {
+      "id": "seen_capacity_never_evicts_paused_time_keys_or_silently_replays_them",
+      "passed": true
+    },
+    {
+      "id": "pending_capacity_and_invalid_batches_are_atomic_before_any_emission",
+      "passed": true
+    },
+    {
+      "id": "invalid_configuration_and_state_shape_rejected",
+      "passed": true
+    },
+    {
+      "id": "caller_mutation_does_not_relocate_staged_source_or_expose_internal_history",
+      "passed": true
+    },
+    {
+      "id": "late_source_is_not_shifted_to_current_state_clock_or_partially_injected",
+      "passed": true
+    },
+    {
+      "id": "watermark_and_clear_refuse_rewind",
+      "passed": true
+    },
+    {
+      "id": "queue_failure_is_explicit_fault_locked_and_clear_prevents_partial_source_replay",
+      "passed": true
+    },
+    {
+      "id": "binding_existing_state_continues_its_emission_id_sequence",
+      "passed": true
+    },
+    {
+      "id": "new_adapter_bound_to_existing_sources_cannot_alias_the_old_source_ID",
+      "passed": true
+    },
+    {
+      "id": "zero_authored_source_area_is_disabled_without_zero_mass_packets",
+      "passed": true
+    },
+    {
+      "id": "actual_drain_world_events_match_at_30_60_120Hz",
+      "passed": true,
+      "evidence": {
+        "events": 13,
+        "wind": [
+          2,
+          0,
+          0.5
+        ],
+        "worldPositionIncludesFlightWind": true
+      }
+    },
+    {
+      "id": "actual_streamed_emission_ids_seeds_births_and_packet_fields_are_rate_invariant",
+      "passed": true
+    },
+    {
+      "id": "actual_downstream_physical_state_is_identical_for_streamed_30_60_120Hz",
+      "passed": true
+    },
+    {
+      "id": "one_off_complete_batch_equals_the_real_streamed_source_and_state",
+      "passed": true
+    },
+    {
+      "id": "no_wind_30min_state_keeps_mass_without_source_age_fade_or_active_slot_extension",
+      "passed": true
+    },
+    {
+      "id": "long_stream_keeps_identity_and_recent_logs_bounded_without_old_replay",
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "airTypes": [
+      {
+        "type": "peony",
+        "eventRecords": 2,
+        "packets": 18,
+        "referenceArea": 20.350000000000005
+      },
+      {
+        "type": "chrysanthemum",
+        "eventRecords": 2,
+        "packets": 18,
+        "referenceArea": 20.350000000000005
+      },
+      {
+        "type": "willow",
+        "eventRecords": 2,
+        "packets": 18,
+        "referenceArea": 20.350000000000005
+      },
+      {
+        "type": "palm",
+        "eventRecords": 2,
+        "packets": 18,
+        "referenceArea": 20.350000000000005
+      },
+      {
+        "type": "ring",
+        "eventRecords": 2,
+        "packets": 18,
+        "referenceArea": 20.350000000000005
+      },
+      {
+        "type": "heart",
+        "eventRecords": 2,
+        "packets": 18,
+        "referenceArea": 20.350000000000005
+      },
+      {
+        "type": "crossette",
+        "eventRecords": 2,
+        "packets": 18,
+        "referenceArea": 20.350000000000005
+      },
+      {
+        "type": "strobe",
+        "eventRecords": 2,
+        "packets": 18,
+        "referenceArea": 20.350000000000005
+      }
+    ],
+    "replay": [
+      {
+        "fps": 30,
+        "eventRecords": 13,
+        "sourcePackets": 117,
+        "packetsSHA256": "4307726351f719880a50004368601fa31587f42dc4e0c0b4ae3f6e4f94124d2b",
+        "stateSHA256": "9f69b51b66bcddbf42d30f86590eff9ded3ce50e0e3eb43deed0695642e7c095",
+        "referenceArea": 41.60000000000001
+      },
+      {
+        "fps": 60,
+        "eventRecords": 13,
+        "sourcePackets": 117,
+        "packetsSHA256": "4307726351f719880a50004368601fa31587f42dc4e0c0b4ae3f6e4f94124d2b",
+        "stateSHA256": "9f69b51b66bcddbf42d30f86590eff9ded3ce50e0e3eb43deed0695642e7c095",
+        "referenceArea": 41.60000000000001
+      },
+      {
+        "fps": 120,
+        "eventRecords": 13,
+        "sourcePackets": 117,
+        "packetsSHA256": "4307726351f719880a50004368601fa31587f42dc4e0c0b4ae3f6e4f94124d2b",
+        "stateSHA256": "9f69b51b66bcddbf42d30f86590eff9ded3ce50e0e3eb43deed0695642e7c095",
+        "referenceArea": 41.60000000000001
+      }
+    ],
+    "stillAir30min": {
+      "mass": 20.000000000000004,
+      "packetCount": 9,
+      "stateTime": 1800
+    },
+    "identityStress": {
+      "events": 3000,
+      "packets": 27000,
+      "rememberedEvents": 1,
+      "peakRememberedAndPendingKeys": 2,
+      "recentLog": 32,
+      "note": "adapter-only counting sink, not a scene/state/GPU performance test"
+    }
+  },
+  "sourceSHA256": {
+    "../pyro-smoke-events.js": "26c2510e2257d512ea97ecbfde945f57298a2dd4877acdac278c755791bca07b",
+    "../pyro-smoke-state.js": "d40060da202a0c4b488986acef4afcbb64550ac97bd875b012b9bdba70a25e19",
+    "../fireworks-physics.js": "5a61e6b87b233941cba647bfc44599009ee679f2f91172ececac66a045609b41",
+    "./pyro-smoke-events-check.mjs": "219ac5ea5861c8defff9d5262147366d706b901b4e45c851302ee7f27f8ec6e7"
+  },
+  "nodeMilliseconds": 186.3051,
+  "limits": [
+    "authored reference area/relative source units, not kg or measured PM, audio energy or explosive yield",
+    "actual production CPU events and state; no main/renderer/visual/GPU acceptance",
+    "same-time new events after a completed flush use actual arrival order; complete timestamped input batches are sorted deterministically",
+    "exactly-once memory is bounded: same-watermark overflow rejects explicitly; unknown older inputs are stale",
+    "clearForState means caller replaces cleared physical state; adapter preserves IDs/tombstones",
+    "Gaussian/thermal/diffusion and capacity-merge limits remain those of pyro-smoke-state; no CFD or settled-deposition claim"
+  ]
+}

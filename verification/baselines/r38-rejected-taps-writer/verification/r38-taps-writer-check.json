@@ -1,0 +1,159 @@
+{
+  "schema": "glass-atoll.r38-taps-writer-cpu-check.v1",
+  "passed": true,
+  "checks": 7,
+  "total": 7,
+  "actualGPU": false,
+  "browserUsed": false,
+  "productionFilesOwned": [
+    "firework-layer-profile.js"
+  ],
+  "sourceSHA256": {
+    "layer": "411ebd75fec379582e5d94086e40241d9f8c388c3c96a668bbbbb5af5d948715",
+    "oldLayer": "411242962dc8681e2eb487acc7f03937ebe32331ec06414f9e78a5674778c537",
+    "audio": "4e5ede41813249f062e50b212553e5e1821c27feaead8416b68ab51ba1b8ec31"
+  },
+  "actualDataset": {
+    "events": 3,
+    "bodies": 576,
+    "seed": 341070,
+    "gains": [
+      0,
+      1,
+      64
+    ],
+    "SHA256": "51bc60748428bc78868a1eee1798290969b30f79d48f8cc71d5c5b159419a120",
+    "recordingSHA256": "105a48495f09650e09cb3de6b6d43811ce794e658f10baeffc89fda779a28cfe"
+  },
+  "totalTypedComparisons": 54565,
+  "totalObjectIsValues": 1582385,
+  "totalMatchedRejections": 15,
+  "results": [
+    {
+      "name": "Append-only whole-file inverse preserves every original byte and LF, with no old sampler edits",
+      "passed": true,
+      "evidence": {
+        "originalBytes": 16634,
+        "appendedBytes": 2331,
+        "originalSHA256": "411242962dc8681e2eb487acc7f03937ebe32331ec06414f9e78a5674778c537",
+        "candidateSHA256": "411ebd75fec379582e5d94086e40241d9f8c388c3c96a668bbbbb5af5d948715",
+        "oldPublicAPIByteExact": true
+      }
+    },
+    {
+      "name": "Actual 192-root radiant instances at 0x/1x/64x: Float64 and Float32 taps at phases, head/tail lags, knots and lifetimes are Object.is exact",
+      "passed": true,
+      "evidence": {
+        "events": 3,
+        "gains": [
+          0,
+          1,
+          64
+        ],
+        "actualBodies": 576,
+        "completeComparisons": 54144,
+        "comparedValues": 1570176,
+        "errorsUnexpected": 0,
+        "materialUnchanged": true
+      }
+    },
+    {
+      "name": "Delays, signed zero, all legacy example profile shapes and narrow representable windows keep exact typed stores",
+      "passed": true,
+      "evidence": {
+        "cases": 406,
+        "narrowWindowsMayRejectIdentically": true
+      }
+    },
+    {
+      "name": "Invalid finite/order/bin/output inputs and late unrepresentable bins preserve old error priority and partial output writes",
+      "passed": true,
+      "evidence": {
+        "rejectionCases": 22,
+        "lateBinWrittenEntries": 3,
+        "lateBinError": {
+          "name": "RangeError",
+          "message": "Positive profile bins are not representable at this age"
+        },
+        "requiredOutIsExplicitNewAPI": true
+      }
+    },
+    {
+      "name": "Borrowed subarray byte offsets, suffix and neighboring storage are preserved; independent calls do not alias retained rows",
+      "passed": true,
+      "evidence": {
+        "outputPooling": false,
+        "independentOwnedTargets": true
+      }
+    },
+    {
+      "name": "Old public window summaries including field order remain deep-exact against separately loaded archived API",
+      "passed": true,
+      "evidence": {
+        "fullSummaryComparisons": 408,
+        "oldAPIFieldOrderPreserved": true
+      }
+    },
+    {
+      "name": "Comparable bounded warmed CPU microbenchmark consumes identical actual Float64 tap output, with summary return discarded in both arms",
+      "passed": true,
+      "evidence": {
+        "jobs": 5056,
+        "repeatsPerBatch": 4,
+        "callsPerBatch": 20224,
+        "warmupBatchesPerArm": 2,
+        "schedule": "ABBA repeated4 times",
+        "results": {
+          "summary": {
+            "batches": 8,
+            "minMs": 16.735799999999983,
+            "medianMs": 16.9366,
+            "maxMs": 19.029899999999998,
+            "allMs": [
+              17.234399999999994,
+              17.004400000000032,
+              16.846499999999992,
+              17.70640000000003,
+              16.735799999999983,
+              16.784899999999993,
+              19.029899999999998,
+              16.868799999999965
+            ],
+            "medianNanosecondsPerWindow": 837.4505537974684
+          },
+          "tapsOnly": {
+            "batches": 8,
+            "minMs": 13.345500000000015,
+            "medianMs": 13.679149999999964,
+            "maxMs": 14.040499999999952,
+            "allMs": [
+              14.03109999999998,
+              13.345500000000015,
+              14.040499999999952,
+              13.78570000000002,
+              13.712199999999996,
+              13.646099999999933,
+              13.404700000000048,
+              13.466999999999985
+            ],
+            "medianNanosecondsPerWindow": 676.3820213607578
+          }
+        },
+        "medianRatioTapsToSummary": 0.8076680089274096,
+        "checksum": 1233264978.074675,
+        "scope": "Isolated warmed Node calls with real compiled profiles and same caller-buffer allocation; not browser, source-bound subphase or frame-rate proof"
+      }
+    }
+  ],
+  "engine": {
+    "node": "v24.22.0",
+    "V8": "13.6.233.17-node.57",
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900H"
+  },
+  "wallSeconds": 0.5805954999999999,
+  "limits": [
+    "No browser, GL, GPU, pixels, actual-frame speedup or promotion is established.",
+    "Public summary sampler remains full original bytes; required caller output is an explicit new-writer API distinction.",
+    "No buffers are pooled and all point/material/shutter/kernel/sample-count behavior outside this new entry is unchanged."
+  ]
+}

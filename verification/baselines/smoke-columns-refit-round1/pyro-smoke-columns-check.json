@@ -1,0 +1,361 @@
+{
+  "date": "2026-10-26T22:37:45.949Z",
+  "sourceSHA256": "831143fec9e292812a0fc74994bd11b2da9bcef155334535d5e91e0e89150c2b",
+  "stateSourceSHA256": "d40060da202a0c4b488986acef4afcbb64550ac97bd875b012b9bdba70a25e19",
+  "passed": true,
+  "passedCount": 20,
+  "total": 20,
+  "runtimeIntegrated": false,
+  "pressure": {
+    "packetCount": 4096,
+    "rays": 64,
+    "buildMs": 24.234199999999987,
+    "acceleratedCPU": {
+      "count": 64,
+      "meanMs": 0.04014687499999825,
+      "medianMs": 0.037549999999981765,
+      "p95Ms": 0.08259999999998513,
+      "maximumMs": 0.13680000000002224,
+      "minimumMs": 0.009599999999977626
+    },
+    "stateBruteCPU": {
+      "count": 64,
+      "meanMs": 0.6284374999999991,
+      "medianMs": 0.5342499999999859,
+      "p95Ms": 1.1965999999999894,
+      "maximumMs": 1.4919000000000153,
+      "minimumMs": 0.46160000000003265
+    },
+    "kernels": {
+      "mean": 28.234375,
+      "maximum": 56
+    },
+    "visitedNodes": {
+      "mean": 106.8125,
+      "maximum": 203
+    },
+    "maximumStateAbsoluteDifference": 2.115892247652948e-10,
+    "maximumOmittedBound": 0.00000525340271164664,
+    "maximumStateBoundRatio": 0.000040110524746755014,
+    "retainedPacketCount": 4096,
+    "scope": "Node CPU execution including allocations/GC; same snapshot/rays, default controlled omission versus state AS brute oracle. Not scene FPS, GPU cost or exact-zero approximation."
+  },
+  "limits": [
+    "CPU source-path query only; not per-fragment 4096-packet rendering.",
+    "Unbounded Gaussians. No halfspace, deposition, ground absorption or shoreline boundary policy.",
+    "Analytic omission bound excludes binary64 kernel rounding; independent numerical integration/state-AS comparison test the latter separately.",
+    "Source/centre/tail anchor choices remain a host approximation, not exact extended-source integration.",
+    "Relative reference mass and authored extinction, not calibrated kg/PM or measured pyrotechnic photometry."
+  ],
+  "checks": [
+    {
+      "name": "empty snapshot and zero-length actual endpoint rays give tau0/T1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "isotropic central column matches the independent full-line analytic value",
+      "passed": true,
+      "detail": {
+        "tau": [
+          0.2785211504108168,
+          0.2785211504108168,
+          0.2785211504108168
+        ],
+        "expected": 0.2785211504108169
+      }
+    },
+    {
+      "name": "RGB profiles sum physical optical depths and preserve zero channels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "transparent profile skips computation without deleting physical packets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "full rotated SPD finite columns agree with independent numerical density integration",
+      "passed": true,
+      "detail": [
+        {
+          "ray": {
+            "origin": [
+              -9.171327123901612,
+              -7.604285809502067,
+              -1.4358259343639292
+            ],
+            "direction": [
+              0.7642772603251344,
+              0.6336904841251723,
+              0.1196521611969941
+            ],
+            "end": 24,
+            "start": 0
+          },
+          "maximumAbsoluteError": 1.4238610290817633e-14
+        },
+        {
+          "ray": {
+            "origin": [
+              7.052056497473579,
+              2.085096271074653,
+              9.482661688407495
+            ],
+            "direction": [
+              -0.587671374789465,
+              -0.17375802258955442,
+              -0.7902218073672912
+            ],
+            "end": 24,
+            "start": 0
+          },
+          "maximumAbsoluteError": 8.132383655379272e-15
+        },
+        {
+          "ray": {
+            "origin": [
+              -7.0335097495996255,
+              1.386238447496572,
+              9.62330938757397
+            ],
+            "direction": [
+              0.5861258124666354,
+              -0.11551987062471435,
+              -0.8019424489644975
+            ],
+            "end": 24,
+            "start": 0
+          },
+          "maximumAbsoluteError": 5.662137425588298e-15
+        },
+        {
+          "ray": {
+            "origin": [
+              5.152568904167089,
+              -8.374174369111174,
+              6.879261393749466
+            ],
+            "direction": [
+              -0.4293807420139241,
+              0.6978478640925978,
+              -0.5732717828124555
+            ],
+            "end": 24,
+            "start": 0
+          },
+          "maximumAbsoluteError": 5.495603971894525e-15
+        },
+        {
+          "ray": {
+            "origin": [
+              -8.650658720202298,
+              6.945356331002845,
+              -4.574727220500327
+            ],
+            "direction": [
+              0.7208882266835248,
+              -0.5787796942502371,
+              0.38122726837502724
+            ],
+            "end": 24,
+            "start": 0
+          },
+          "maximumAbsoluteError": 1.304512053934559e-15
+        },
+        {
+          "ray": {
+            "origin": [
+              7.816617413180749,
+              -7.3780492011161485,
+              5.335249029039681
+            ],
+            "direction": [
+              -0.6513847844317291,
+              0.6148374334263457,
+              -0.44460408575330673
+            ],
+            "end": 24,
+            "start": 0
+          },
+          "maximumAbsoluteError": 1.0103029524088925e-14
+        }
+      ]
+    },
+    {
+      "name": "finite segment start/end and inside origins agree with density quadrature",
+      "passed": true,
+      "detail": [
+        {
+          "maximumError": 4.440892098500626e-16
+        },
+        {
+          "maximumError": 1.2490009027033011e-15
+        },
+        {
+          "maximumError": 2.0816681711721685e-17
+        }
+      ]
+    },
+    {
+      "name": "same-sign 6-sigma tails and close endpoints retain positive small columns",
+      "passed": true,
+      "detail": {
+        "tailTau": 1.568166120085509e-10,
+        "shortTau": 1.453835847033744e-20,
+        "defaultBudgetMayOmit": true
+      }
+    },
+    {
+      "name": "48 random rays match state brute columns within its published AS erf error",
+      "passed": true,
+      "detail": {
+        "rays": 48,
+        "maximumAbsoluteError": 2.5717879404861185e-9,
+        "maximumASBoundRatio": 0.025481942120647364,
+        "oracleLimit": "state uses ~1.5e-7 absolute erf approximation; endpoint difference bound 3e-7 times per-ray prefactor, not a loosened BVH omission budget"
+      }
+    },
+    {
+      "name": "reversed endpoint ray and nonuniform subdivisions preserve the same column",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "large common translation is stable within binary64 coordinate accuracy",
+      "passed": true,
+      "detail": {
+        "maximumError": 5.133962699410688e-12
+      }
+    },
+    {
+      "name": "missed 5sigma boxes never mean automatic deletion: large-tail puff must be evaluated",
+      "passed": true,
+      "detail": {
+        "tauRGB": [
+          0.5641604915683711,
+          0.5641604915683711,
+          0.5641604915683711
+        ],
+        "T": [
+          0.568837490231846,
+          0.568837490231846,
+          0.568837490231846
+        ],
+        "errorBound": 0,
+        "errorBoundRGB": [
+          0,
+          0,
+          0
+        ],
+        "actualOmittedBound": 0,
+        "transmissionLowerRGB": [
+          0.568837490231846,
+          0.568837490231846,
+          0.568837490231846
+        ],
+        "errorBoundIncludesRoundoff": false,
+        "visitedNodes": 1,
+        "bboxTests": 2,
+        "kernelsEvaluated": 1,
+        "omittedPackets": 0,
+        "skippedNodes": 0,
+        "zeroExtinctionPackets": 0,
+        "elapsedMs": 0.021199999999993224
+      }
+    },
+    {
+      "name": "node sum over remaining budget descends and leaf never drops remaining smoke",
+      "passed": true,
+      "detail": {
+        "kernels": 3,
+        "omitted": 5,
+        "errorBound": 0.000008896729102882463,
+        "actualError": 0.000002820802457841856
+      }
+    },
+    {
+      "name": "finite segment missing box but supporting line through centre obeys tail bound",
+      "passed": true,
+      "detail": {
+        "actualTail": 1.568166120085509e-10,
+        "bound": 0.0000017793458205764921
+      }
+    },
+    {
+      "name": "256 adversarial rotated/anisotropic missed-ray trials satisfy analytic omitted bounds",
+      "passed": true,
+      "detail": {
+        "trials": 256,
+        "totalOmitted": 256,
+        "maximumActualToBoundRatio": 0.2991130798664024
+      }
+    },
+    {
+      "name": "budget0 evaluates every nontransparent packet, even when arbitrarily far",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source snapshot/profiles stay immutable and invalid update is atomic",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fresh snapshot update changes the query without old-state retention or stale revision use",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "invalid nonfinite/negative/profile/SPD/ray inputs fail instead of clipping data",
+      "passed": true,
+      "detail": {
+        "invalidCases": 11
+      }
+    },
+    {
+      "name": "diagnostics record rays/nodes/kernels/cost without entering physics or renderer state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "4096-packet CPU pressure: bounded omission agrees with exact columns and retains every packet",
+      "passed": true,
+      "detail": {
+        "packetCount": 4096,
+        "rays": 64,
+        "buildMs": 24.234199999999987,
+        "acceleratedCPU": {
+          "count": 64,
+          "meanMs": 0.04014687499999825,
+          "medianMs": 0.037549999999981765,
+          "p95Ms": 0.08259999999998513,
+          "maximumMs": 0.13680000000002224,
+          "minimumMs": 0.009599999999977626
+        },
+        "stateBruteCPU": {
+          "count": 64,
+          "meanMs": 0.6284374999999991,
+          "medianMs": 0.5342499999999859,
+          "p95Ms": 1.1965999999999894,
+          "maximumMs": 1.4919000000000153,
+          "minimumMs": 0.46160000000003265
+        },
+        "kernels": {
+          "mean": 28.234375,
+          "maximum": 56
+        },
+        "visitedNodes": {
+          "mean": 106.8125,
+          "maximum": 203
+        },
+        "maximumStateAbsoluteDifference": 2.115892247652948e-10,
+        "maximumOmittedBound": 0.00000525340271164664,
+        "maximumStateBoundRatio": 0.000040110524746755014,
+        "retainedPacketCount": 4096,
+        "scope": "Node CPU execution including allocations/GC; same snapshot/rays, default controlled omission versus state AS brute oracle. Not scene FPS, GPU cost or exact-zero approximation."
+      }
+    }
+  ]
+}

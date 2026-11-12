@@ -1,0 +1,224 @@
+{
+  "schema": "glass-atoll.r29-native-calibration-gpu-preflight.v1",
+  "dateUTC": "2026-10-29T15:57:55.708Z",
+  "actualGPU": false,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 7,
+    "total": 7
+  },
+  "checks": [
+    {
+      "name": "Frozen deployed capacity-only source/cache pins and three fixed wrapper/artifact identities match",
+      "passed": true,
+      "evidence": {
+        "sharedSources": 16,
+        "functionPins": 17,
+        "jobs": [
+          {
+            "kind": "source",
+            "artifactDigest": "7a1c6261ae3489b158b539487a4bcbd0d7958bdbd3a980671bc30d93e8e82c15",
+            "phase": {
+              "densityRevision": 3463,
+              "densityTime": 161.8,
+              "key": "source-peak",
+              "label": "source-peak",
+              "seconds": 2.681963161603079,
+              "time": 161.80883333333384
+            }
+          },
+          {
+            "kind": "joint",
+            "artifactDigest": "51c7e73d5667f5ab6da82937ee48d71979f0c9c885adcafa133ab39e07aab401",
+            "phase": {
+              "densityRevision": 4698,
+              "densityTime": 162.95000000000002,
+              "key": "joint-peak",
+              "label": "joint-peak",
+              "seconds": 3.8319631616030847,
+              "time": 162.95883333333384
+            }
+          },
+          {
+            "kind": "light",
+            "artifactDigest": "61be84b2d72760799334e3291ecc3b2bb9b13d3c5ffa28b32a445c1867ff147e",
+            "phase": {
+              "densityRevision": 4785,
+              "densityTime": 163,
+              "key": "light-peak",
+              "label": "light-peak",
+              "seconds": 3.881963161603096,
+              "time": 163.00883333333385
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cached pinmap completeness falsification is repaired before capture/await/context, including omitted kernel/factory maps",
+      "passed": true,
+      "evidence": {
+        "oldWeakGuardAcceptedEmptyFunctionMap": true,
+        "malformedCasesRejected": 7,
+        "mutableCasesRejected": 2,
+        "prototypeKindRejected": true,
+        "requiredSharedSources": 16,
+        "requiredFunctions": 17,
+        "requiredJobs": 3,
+        "selectedSourcesPerJob": 4,
+        "beforeRuntimeSHA256": "dd44b9a805bc470a7e880add2aaed936f7e72b50eb6c6dd4910d36c3c14843a8",
+        "preservedBefore": "baselines/r29-before-pin-keyset-repair/",
+        "actualGPU": false
+      }
+    },
+    {
+      "name": "Actual root QA hooks override trusted factories after options and restore exclusive parent lock",
+      "passed": true,
+      "evidence": {
+        "guardedHooks": 3,
+        "trustedAfterOptions": true,
+        "allFourDailyBudgets4m": true
+      }
+    },
+    {
+      "name": "All fixed wrappers reject missing lock/null/variable policy and stale factories/source before context or construction",
+      "passed": true,
+      "evidence": [
+        {
+          "kind": "source",
+          "mode": "null",
+          "contextCalls": 0
+        },
+        {
+          "kind": "source",
+          "mode": "lock",
+          "contextCalls": 0
+        },
+        {
+          "kind": "source",
+          "mode": "policy",
+          "contextCalls": 0
+        },
+        {
+          "kind": "source",
+          "mode": "factory",
+          "contextCalls": 0
+        },
+        {
+          "kind": "source",
+          "mode": "drift",
+          "contextCalls": 0
+        },
+        {
+          "kind": "light",
+          "mode": "null",
+          "contextCalls": 0
+        },
+        {
+          "kind": "light",
+          "mode": "lock",
+          "contextCalls": 0
+        },
+        {
+          "kind": "light",
+          "mode": "policy",
+          "contextCalls": 0
+        },
+        {
+          "kind": "light",
+          "mode": "factory",
+          "contextCalls": 0
+        },
+        {
+          "kind": "light",
+          "mode": "drift",
+          "contextCalls": 0
+        },
+        {
+          "kind": "joint",
+          "mode": "null",
+          "contextCalls": 0
+        },
+        {
+          "kind": "joint",
+          "mode": "lock",
+          "contextCalls": 0
+        },
+        {
+          "kind": "joint",
+          "mode": "policy",
+          "contextCalls": 0
+        },
+        {
+          "kind": "joint",
+          "mode": "factory",
+          "contextCalls": 0
+        },
+        {
+          "kind": "joint",
+          "mode": "drift",
+          "contextCalls": 0
+        }
+      ]
+    },
+    {
+      "name": "Correct cached/imported pins reach only the existing-context boundary and never create a renderer or yield to a live field",
+      "passed": true,
+      "evidence": [
+        {
+          "kind": "source",
+          "contextCalls": 1,
+          "drawCap": 5,
+          "readCap": 21984,
+          "capture": 37857960
+        },
+        {
+          "kind": "light",
+          "contextCalls": 1,
+          "drawCap": 6,
+          "readCap": 110832,
+          "capture": 38164170
+        },
+        {
+          "kind": "joint",
+          "contextCalls": 1,
+          "drawCap": 10,
+          "readCap": 122832,
+          "capture": 38145402
+        }
+      ]
+    },
+    {
+      "name": "One common concurrency guard covers all three jobs and releases after pre-context failure",
+      "passed": true,
+      "evidence": {
+        "crossJobConcurrentRejected": true,
+        "guardReleased": true,
+        "realGL": false
+      }
+    },
+    {
+      "name": "Whole-job timer/read order, same-generation fresh paths, exact shader/state lineage and first-fault cleanup remain explicit",
+      "passed": true,
+      "evidence": {
+        "maxDraws": [
+          5,
+          6,
+          10
+        ],
+        "oneWholeJobQuery": true,
+        "signedFourthNotOpacity": true,
+        "onlineOracle": false,
+        "sceneFrameAdmitted": false
+      }
+    }
+  ],
+  "runtimeSHA256": "03ab3dda8b18ce50434c0aac948dbbf5870343db161ec49fc7cf25f47b7df694",
+  "pinsModuleSHA256": "83f46d70841a4282abab094252fb8ce516ee75f109310d832b3501a618937b1d",
+  "pinsManifestSHA256": "0b768fa849d8a6a2076769c6491b08d6e6d43b1a1968820452d435bcf8720ada",
+  "limits": [
+    "Fixed original input/deployed pin/cached factory/entry/concurrency checks and source-path proofs only; deliberate existing-context boundary, no real GL/browser/GPU.",
+    "Input/complete map-tag and numerical-validator CPU checks are separate r29-native-calibration-input-check.json; actual5/6/10draw and normal evolving frame require root-owned later evidence."
+  ]
+}

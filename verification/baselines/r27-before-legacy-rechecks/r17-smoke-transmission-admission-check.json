@@ -1,0 +1,133 @@
+{
+  "schema": "glass-atoll.runtime-transmission-admission-cpu.v1",
+  "actualGPU": false,
+  "passed": true,
+  "counts": {
+    "passed": 12,
+    "total": 12
+  },
+  "checks": [
+    {
+      "name": "ordinary SPD hardware contract matches original-double zero-budgetCPU with one4x1read",
+      "passed": true,
+      "evidence": {
+        "maximumMockFloat32TError": 2.5586078922223976e-8,
+        "stateRestored": true,
+        "readbackBytes": 64
+      }
+    },
+    {
+      "name": "NaN Inf range alpha and excessiveTerror all fail and restore state",
+      "passed": true
+    },
+    {
+      "name": "unsupported invalidtarget preparethrow and readthrow use explicitfalse cleanup and state restoration",
+      "passed": true
+    },
+    {
+      "name": "missingfloat WebGL1 lostcontext and invalidrenderer reject without invoking field",
+      "passed": true
+    },
+    {
+      "name": "async factories are rejected before scheduling work and asyncprepare before calling it",
+      "passed": true
+    },
+    {
+      "name": "runtime module has no verification dependency newcontext timer or asyncwait",
+      "passed": true
+    },
+    {
+      "name": "actual browser BACK8 default-query alias reproduces old false-pass and restores canonical one selection",
+      "passed": true,
+      "evidence": {
+        "savedBaselineFalsePass": true,
+        "savedBaselineGLError": 1282,
+        "queriedDefaultBuffers": [
+          1029,
+          1029,
+          1029,
+          1029,
+          1029,
+          1029,
+          1029,
+          1029
+        ],
+        "restoredDefaultBuffers": [
+          1029
+        ],
+        "readbackBytes": 64
+      }
+    },
+    {
+      "name": "canonical default BACK or NONE and full offscreen MRT selections restore independently of READ FBO",
+      "passed": true,
+      "evidence": {
+        "defaultSelectionCount": 1,
+        "offscreenMRTSelectionCount": 3,
+        "separateReadBindingPreserved": true
+      }
+    },
+    {
+      "name": "preexisting GL error fails before constructing or mutating a field",
+      "passed": true,
+      "evidence": {
+        "entryGLErrors": [
+          1282
+        ],
+        "fieldsConstructed": 0
+      }
+    },
+    {
+      "name": "GL errors during prepare read restore or dispose fail even when numeric pixels and state pass",
+      "passed": true,
+      "evidence": [
+        {
+          "phase": "prepare",
+          "reason": "exit-gl-error",
+          "exitGLErrors": [
+            1282
+          ]
+        },
+        {
+          "phase": "read",
+          "reason": "exit-gl-error",
+          "exitGLErrors": [
+            1282
+          ]
+        },
+        {
+          "phase": "restore",
+          "reason": "exit-gl-error",
+          "exitGLErrors": [
+            1282
+          ]
+        },
+        {
+          "phase": "dispose",
+          "reason": "exit-gl-error",
+          "exitGLErrors": [
+            1282
+          ]
+        }
+      ]
+    },
+    {
+      "name": "persistent GL faults have a bounded error drain and cannot pass",
+      "passed": true,
+      "evidence": {
+        "maximumEntryErrorReads": 16,
+        "maximumExitErrorReads": 16,
+        "fieldsConstructed": 0
+      }
+    },
+    {
+      "name": "unavailable or throwing GL error checks fail explicitly without invoking the field",
+      "passed": true
+    }
+  ],
+  "sourceSHA256": "c8f6b906531ebd33a83c16d54b85bc1eb6698c402c973d737d0f5110af203027",
+  "limits": [
+    "RealThree objects and nonGPU mocked field/readback only; no GPU/FBO/driver numerical acceptance.",
+    "Root must invoke the runtime preflight once on the actual healthy renderer and independently compare state."
+  ]
+}

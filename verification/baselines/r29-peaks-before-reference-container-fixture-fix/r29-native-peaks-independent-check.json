@@ -1,0 +1,278 @@
+{
+  "schema": "glass-atoll.r29-native-peaks-independent-cpu.v1",
+  "dateUTC": "2026-10-29T15:43:29.229Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": false,
+  "counts": {
+    "passed": 5,
+    "total": 6
+  },
+  "checks": [
+    {
+      "name": "Dense optical reads preserve the exact R28 physical time union and all203 saved physical checkpoints",
+      "passed": true,
+      "evidence": {
+        "physicalUpdates": 1120,
+        "original60HzPostBurstReads": 598,
+        "totalUnionPostBurstReads": 801,
+        "unchangedR28PhysicalCheckpoints": 203,
+        "physicalSourceHistoryEntries": 2645,
+        "extraPhysicalUpdates": 0,
+        "scope": "Saved source/provenance/count association audit; the physical producer is not rerun here"
+      }
+    },
+    {
+      "name": "Actual denser sampled maxima and their distinct complete consumers independently recompute",
+      "passed": true,
+      "evidence": {
+        "original60HzPeaks": {
+          "density": {
+            "densityTime": 163.9,
+            "jointPairs": 716795,
+            "lightPairs": 507840,
+            "lightSources": 192,
+            "main": 79,
+            "mainPairs": 208955,
+            "packetCount": 2645,
+            "phase": 4.781963161603102,
+            "reflection": 0,
+            "reflectionPairs": 0,
+            "time": 163.90883333333386
+          },
+          "joint": {
+            "densityTime": 162.95000000000002,
+            "jointPairs": 5197916,
+            "lightPairs": 3231198,
+            "lightSources": 1431,
+            "main": 871,
+            "mainPairs": 1966718,
+            "packetCount": 2258,
+            "phase": 3.8319631616030847,
+            "reflection": 0,
+            "reflectionPairs": 0,
+            "time": 162.95883333333384
+          },
+          "lighting": {
+            "densityTime": 163,
+            "jointPairs": 5186454,
+            "lightPairs": 3242109,
+            "lightSources": 1409,
+            "main": 845,
+            "mainPairs": 1944345,
+            "packetCount": 2301,
+            "phase": 3.881963161603096,
+            "reflection": 0,
+            "reflectionPairs": 0,
+            "time": 163.00883333333385
+          },
+          "sourceT": {
+            "densityTime": 161.8,
+            "jointPairs": 4635512,
+            "lightPairs": 2378880,
+            "lightSources": 1440,
+            "main": 1366,
+            "mainPairs": 2256632,
+            "packetCount": 1652,
+            "phase": 2.681963161603079,
+            "reflection": 0,
+            "reflectionPairs": 0,
+            "time": 161.80883333333384
+          }
+        },
+        "unionMaximaSame": true,
+        "scope": "Sampled maxima in this fixed native scenario; neither continuous maxima, nonzero mirror nor multi-event acceptance"
+      }
+    },
+    {
+      "name": "Frozen complete phase modules/JSON retain every raw snapshot, source identity/order and history association",
+      "passed": true,
+      "evidence": {
+        "fixtures": [
+          {
+            "key": "source-peak",
+            "digest": "7a1c6261ae3489b158b539487a4bcbd0d7958bdbd3a980671bc30d93e8e82c15",
+            "phase": {
+              "densityRevision": 3463,
+              "densityTime": 161.8,
+              "key": "source-peak",
+              "label": "source-peak",
+              "seconds": 2.681963161603079,
+              "time": 161.80883333333384
+            },
+            "packetIds": 1652,
+            "currentRecords": 1746,
+            "ledgerSourceRows": 1440,
+            "mainRows": 1366,
+            "mirrorSubmitted": false
+          },
+          {
+            "key": "joint-peak",
+            "digest": "51c7e73d5667f5ab6da82937ee48d71979f0c9c885adcafa133ab39e07aab401",
+            "phase": {
+              "densityRevision": 4698,
+              "densityTime": 162.95000000000002,
+              "key": "joint-peak",
+              "label": "joint-peak",
+              "seconds": 3.8319631616030847,
+              "time": 162.95883333333384
+            },
+            "packetIds": 2258,
+            "currentRecords": 1454,
+            "ledgerSourceRows": 1431,
+            "mainRows": 871,
+            "mirrorSubmitted": false
+          },
+          {
+            "key": "light-peak",
+            "digest": "61be84b2d72760799334e3291ecc3b2bb9b13d3c5ffa28b32a445c1867ff147e",
+            "phase": {
+              "densityRevision": 4785,
+              "densityTime": 163,
+              "key": "light-peak",
+              "label": "light-peak",
+              "seconds": 3.881963161603096,
+              "time": 163.00883333333385
+            },
+            "packetIds": 2301,
+            "currentRecords": 1428,
+            "ledgerSourceRows": 1409,
+            "mainRows": 845,
+            "mirrorSubmitted": false
+          }
+        ],
+        "snapshotTopLevelOnce": true,
+        "sourceHistoryAndAllOriginalRowsRetained": true
+      }
+    },
+    {
+      "name": "All original-double rays and source/packet packed words match unchanged math under explicit4m",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ Float64Array(12) [\n- [\n    0.9969001145833329,\n    0.9969001145833329,\n    0.9969001145833329,\n    1,\n    0.9952812734902439,\n\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r29-native-peaks-independent-check.mjs:33:426\n    at check (file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r29-native-peaks-independent-check.mjs:11:68)\n    at file:///E:/GPT-Projects/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/glass-atoll/verification/r29-native-peaks-independent-check.mjs:31:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\n    at async node:internal/modules/esm/loader:647:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "All SH packing/signed coefficients/angular bounds and independent384node witnesses retain the existing model",
+      "passed": true,
+      "evidence": {
+        "allCoefficients": 74532,
+        "allNegativeC1": 27072,
+        "maximumSelectedDifference": 1.0540119070335012e-15,
+        "phases": [
+          {
+            "key": "source-peak",
+            "allSignedCoefficientValues": 19824,
+            "negativeC1": 7406,
+            "selected384NodeRows": [
+              0,
+              826,
+              1651,
+              1177
+            ],
+            "maximumNormalized256vs384": 6.108848745160431e-16
+          },
+          {
+            "key": "joint-peak",
+            "allSignedCoefficientValues": 27096,
+            "negativeC1": 9734,
+            "selected384NodeRows": [
+              0,
+              1129,
+              2257,
+              2255
+            ],
+            "maximumNormalized256vs384": 1.0540119070335012e-15
+          },
+          {
+            "key": "light-peak",
+            "allSignedCoefficientValues": 27612,
+            "negativeC1": 9932,
+            "selected384NodeRows": [
+              0,
+              1150,
+              2300,
+              2291
+            ],
+            "maximumNormalized256vs384": 8.260114003264752e-16
+          }
+        ],
+        "fourthChannel": "Signed C1z; never opacity",
+        "scope": "Complete stored invariants/packing plus selected convergence falsification, not a universal numerical certificate or complete second quadrature replay"
+      }
+    },
+    {
+      "name": "All frozen per-kernel complete schedules and fixed5/6/10 jobs fit exact4m/map1m allocation without dropping mirror work",
+      "passed": true,
+      "evidence": {
+        "jobs": [
+          {
+            "key": "source-peak",
+            "TlogicalPairs": 2256632,
+            "TconservativeSlots": 2273024,
+            "Tdraws": 5,
+            "SHlogicalPairs": 2378880,
+            "SHconservativeSlots": 2431744,
+            "SHtiles": 23,
+            "SHdraws": 5,
+            "jointDraws": 10,
+            "reflectionDraws": 0
+          },
+          {
+            "key": "joint-peak",
+            "TlogicalPairs": 1966718,
+            "TconservativeSlots": 2006784,
+            "Tdraws": 4,
+            "SHlogicalPairs": 3231198,
+            "SHconservativeSlots": 3323776,
+            "SHtiles": 23,
+            "SHdraws": 6,
+            "jointDraws": 10,
+            "reflectionDraws": 0
+          },
+          {
+            "key": "light-peak",
+            "TlogicalPairs": 1944345,
+            "TconservativeSlots": 1946880,
+            "Tdraws": 4,
+            "SHlogicalPairs": 3242109,
+            "SHconservativeSlots": 3387072,
+            "SHtiles": 23,
+            "SHdraws": 6,
+            "jointDraws": 10,
+            "reflectionDraws": 0
+          }
+        ],
+        "primaryCalibrationDraws": [
+          5,
+          6,
+          10
+        ],
+        "scope": "No manufactured neutral mirror draw in the fixed camera; real nonzero-mirror/coherent normal frame/accumulation remain separate"
+      }
+    }
+  ],
+  "fixturePins": [
+    {
+      "key": "source-peak",
+      "moduleSHA256": "a607ab808988ce8206732abd3a22cafc3dde19941a08e1331f9889573f155445",
+      "digest": "7a1c6261ae3489b158b539487a4bcbd0d7958bdbd3a980671bc30d93e8e82c15"
+    },
+    {
+      "key": "joint-peak",
+      "moduleSHA256": "93b594b397670ea5dee6d68623ff465eea288be834a090fcc2dccc195fe31200",
+      "digest": "51c7e73d5667f5ab6da82937ee48d71979f0c9c885adcafa133ab39e07aab401"
+    },
+    {
+      "key": "light-peak",
+      "moduleSHA256": "6a47ddab03c61a3e8af649cfcb3e87d0d03f7b4e71959ad84889ccaf78722ac7",
+      "digest": "61be84b2d72760799334e3291ecc3b2bb9b13d3c5ffa28b32a445c1867ff147e"
+    }
+  ],
+  "countScanSHA256": "4fbeb483f811f7ce60716af369c3b917c444a5cca9db01315ebdcf8292c02b6e",
+  "limits": [
+    "Saved dense capture/input/pack/schedule/numeric-reference audit only; the actual physical producer is not rerun and no GPU is touched.",
+    "The original60Hz/full-union maxima are sampled, fixed-camera and single-event observations, not continuum or multi-event upper bounds.",
+    "All saved rows are retained and validated; selected independent reference replays complement, not relabel, owner all-row offline oracle generation.",
+    "Frozen numerical jobs are not a coherent fresh normal scene frame or sustainedFPS; no visual/GPU performance admission follows from this CPU report."
+  ]
+}

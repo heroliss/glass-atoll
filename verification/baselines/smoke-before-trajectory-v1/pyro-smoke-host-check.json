@@ -1,0 +1,226 @@
+{
+  "schema": "glass-atoll.pyro-smoke-host-check.v1",
+  "dateUTC": "2026-10-26T22:48:10.386Z",
+  "passed": true,
+  "counts": {
+    "checks": 20,
+    "passed": 20
+  },
+  "checks": [
+    {
+      "id": "actual_factory_constructs_with_vendor_THREE_and_empty_renderer",
+      "passed": true,
+      "renderCalls": 0
+    },
+    {
+      "id": "empty_host_public_snapshot_tracks_committed_clock_and_wind_regression",
+      "passed": true,
+      "advance": {
+        "time": 1,
+        "requestedTime": 1,
+        "steps": 20,
+        "completed": true,
+        "behindSeconds": 0,
+        "uncommittedRemainderSeconds": 0,
+        "revision": 0
+      },
+      "snapshotHeader": {
+        "time": 1,
+        "requestedTime": 1,
+        "tick": 20,
+        "currentWind": [
+          2,
+          0,
+          0
+        ]
+      },
+      "retainedFailure": "pyro-smoke-host-first.json"
+    },
+    {
+      "id": "real_drained_event_array_is_shared_to_audio_and_smoke_without_second_drain",
+      "passed": true
+    },
+    {
+      "id": "same_time_duplicate_real_launch_does_not_repeat_source_mass",
+      "passed": true
+    },
+    {
+      "id": "paused_updates_without_events_preserve_full_snapshot_bit_exact",
+      "passed": true
+    },
+    {
+      "id": "new_launch_at_same_paused_time_is_legal_without_old_replay",
+      "passed": true
+    },
+    {
+      "id": "wind_changes_integrate_history_instead_of_current_wind_times_age",
+      "passed": true,
+      "windIntervals": [
+        {
+          "start": 0,
+          "end": 2,
+          "x": 1
+        },
+        {
+          "start": 2,
+          "end": 3,
+          "x": 2
+        }
+      ]
+    },
+    {
+      "id": "sixty_second_residual_keeps_relative_mass_without_age_fade",
+      "passed": true
+    },
+    {
+      "id": "actual_30_60_120Hz_fanout_and_physical_snapshots_are_identical",
+      "passed": true
+    },
+    {
+      "id": "P_C_camera_and_celestial_fields_are_not_physical_inputs",
+      "passed": true
+    },
+    {
+      "id": "clear_at_4000_seconds_preserves_origin_and_avoids_catchup_delay",
+      "passed": true,
+      "initialSteps": 0,
+      "laterSteps": 13,
+      "explicitlyCleared": 0.35
+    },
+    {
+      "id": "correct_consume_then_clear_then_empty_stream_does_not_reemit_pending_launch",
+      "passed": true
+    },
+    {
+      "id": "unconsumed_external_pending_launch_counterexample_is_explicit_caller_scope",
+      "passed": true
+    },
+    {
+      "id": "explicit_clear_accounts_airborne_and_future_packet_mass_once",
+      "passed": true
+    },
+    {
+      "id": "same_time_new_ID_remains_legal_after_explicit_clear",
+      "passed": true
+    },
+    {
+      "id": "large_jump_reports_bounded_catchup_without_claiming_completion",
+      "passed": true
+    },
+    {
+      "id": "origin_4000_empty_host_does_not_silently_replay_from_zero",
+      "passed": true
+    },
+    {
+      "id": "physical_rewind_is_rejected_and_snapshot_is_unchanged",
+      "passed": true
+    },
+    {
+      "id": "public_snapshot_is_a_defensive_copy_and_does_not_mutate_optics_cache",
+      "passed": true
+    },
+    {
+      "id": "mirror_source_transmission_clips_at_actual_water_hit",
+      "passed": true,
+      "reflected": [
+        0.8804853300186077,
+        0.8804853300186077,
+        0.8804853300186077
+      ],
+      "direct": [
+        0.8804853300186077,
+        0.8804853300186077,
+        0.8804853300186077
+      ],
+      "wholeVirtualPath": [
+        0.8801114849968041,
+        0.8801114849968041,
+        0.8801114849968041
+      ]
+    }
+  ],
+  "metrics": {
+    "fanout": {
+      "eventRecords": 1,
+      "sameArrayUnaffected": true,
+      "secondDrainIsEmpty": true,
+      "referenceArea": 0.35
+    },
+    "residual60s": {
+      "time": 60,
+      "packets": 9,
+      "airborne": 0.35,
+      "ageClear": false,
+      "note": "mass retention is not constant visible density; covariance grew and peak density fell"
+    },
+    "replay": [
+      {
+        "fps": 30,
+        "eventRecords": 4,
+        "packetCount": 36,
+        "snapshotSHA256": "63ff1ca2b4f0cff0ee54fe8d7deed52b4ccd124cd98f3d9b111a683fc0494981",
+        "sourceMass": 40.70000000000001,
+        "maxUncommittedRemainder": 0.03333333333333344
+      },
+      {
+        "fps": 60,
+        "eventRecords": 4,
+        "packetCount": 36,
+        "snapshotSHA256": "63ff1ca2b4f0cff0ee54fe8d7deed52b4ccd124cd98f3d9b111a683fc0494981",
+        "sourceMass": 40.70000000000001,
+        "maxUncommittedRemainder": 0.03333333333333344
+      },
+      {
+        "fps": 120,
+        "eventRecords": 4,
+        "packetCount": 36,
+        "snapshotSHA256": "63ff1ca2b4f0cff0ee54fe8d7deed52b4ccd124cd98f3d9b111a683fc0494981",
+        "sourceMass": 40.70000000000001,
+        "maxUncommittedRemainder": 0.04166666666666785
+      }
+    ],
+    "correctClearProtocol": {
+      "order": [
+        "drain once",
+        "fanout same array to audio+smoke consume",
+        "host.clear",
+        "empty stream"
+      ],
+      "replayedMass": 0
+    },
+    "unconsumedCounterexample": {
+      "externalPendingEvents": 1,
+      "emittedReferenceAreaAfterClear": 0.35,
+      "scope": "host cannot tombstone an event it never received; caller must consume central fanout before clear, not secretly drain inside host"
+    },
+    "boundedCatchup": {
+      "time": 10,
+      "requestedTime": 1000,
+      "steps": 200,
+      "completed": false,
+      "behindSeconds": 990,
+      "uncommittedRemainderSeconds": null,
+      "revision": 217,
+      "note": "requested time and committed time differ explicitly; this is not normal origin-aware integration"
+    }
+  },
+  "sourceSHA256": {
+    "pyro-smoke.js": "ec9bc187547d5155ee3b90e67b9b67085c786cbb3544f1b8cf0dc0b0d08eb020",
+    "pyro-smoke-state.js": "d40060da202a0c4b488986acef4afcbb64550ac97bd875b012b9bdba70a25e19",
+    "pyro-smoke-events.js": "26c2510e2257d512ea97ecbfde945f57298a2dd4877acdac278c755791bca07b",
+    "pyro-smoke-columns.js": "cad9b4f1fc01e47fc2f961274cb56f441cb12070af1b8dd83f7b6145114641a4",
+    "pyro-smoke-renderer.js": "07914ffaf2114a527653eeb2811be1ac0c7a8753a32aeea790f7ca4515081e77"
+  },
+  "readOnlyRuntime": true,
+  "noGPU": true,
+  "noAppIntegration": true,
+  "retainedFirstFailure": "pyro-smoke-host-first.json",
+  "limits": [
+    "real host factory and actual physics drain arrays, empty renderer is never drawn",
+    "fake audio sink proves shared fanout ownership, not actual sound playback",
+    "relative dry mass retained, not calibrated kg or persistent identical opacity",
+    "central pending events must be consumed before clear; host does not drain physics or infer unseen identities",
+    "bounded catchup completed=false is intentional; normal creation/clear uses current origin",
+    "no GPU/pixel/depth/reflection/composite/performance acceptance inferred"
+  ]
+}

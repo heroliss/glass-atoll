@@ -1,0 +1,372 @@
+{
+  "schema": "glass-atoll.r30-native-cpu-small-view-preplan-acceptance.v1",
+  "dateUTC": "2026-10-29T17:36:13.377Z",
+  "actualGPU": false,
+  "browserActions": 0,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 4,
+    "total": 4
+  },
+  "helperSHA256": "264fc77d9b153639b5b73f772f9f4d8cdc99094b955c8bd90d69061b9d077524",
+  "replaySHA256": "339e493ad7e16f0c99d8c700f3f556b83c10a3845c94c7b851f7df6b695c4148",
+  "sourcePins": {
+    "fireworks.js": "f0e3b7db8a268cb02227c81282e85a808158942e2b73656df39fdc752c783463",
+    "pyro-smoke.js": "e2a5afe8bdc772d77f28cf9e34d24d2eea74f2a228db783145f6ad7831ebb697",
+    "water.js": "d7d5b76dadf35e2e507b640b8975fb3819821b29d113ceeebf195080fd88b045",
+    "smoke-transmission-layout.js": "79b76d3ece575ab9eb4678e42825ff19b758200627512b0bfed78ab5b81508a5",
+    "smoke-transmission-rectangles.js": "3080bdaf0630010dd0f7e91ff84b050eac889235f7b0a587c831ea4090898832",
+    "pyro-smoke-light-tiles.js": "3840487aef7d42ea11be02efc7b2f06defbf5275bccf57e131c893bf9bace663"
+  },
+  "checks": [
+    {
+      "name": "Actual current production cameras/160x171 optical fills own all main+water-hit mirror rays without any real optical work",
+      "passed": true,
+      "evidence": {
+        "schema": "glass-atoll.r30-native-cpu-view-preplan.v1",
+        "revision": "r30-actual-current-view-cpu-preplan-v1",
+        "passed": true,
+        "actualGPU": false,
+        "cpuProjectionOnly": true,
+        "inertAcknowledgementOnly": true,
+        "requiresActualBackendReplacement": true,
+        "physicalTime": 163.02687017173076,
+        "densityRevision": 4785,
+        "packets": 2301,
+        "ledgerSources": 1399,
+        "ledgerVersion": 1,
+        "recordGeneration": 1,
+        "optics": {
+          "width": 160,
+          "height": 171,
+          "focalMm": 28,
+          "aperture": 8,
+          "focusMetres": 476.5178374998543,
+          "sensorHeightMm": 36,
+          "dof": false,
+          "vignette": true,
+          "shutterSeconds": 0.008333333333333333
+        },
+        "originalCameraAspect": 0.9357585139318886,
+        "viewportAspect": 0.935672514619883,
+        "inertRenderCalls": 2,
+        "realRendererCalls": 0,
+        "columnQueries": 0,
+        "smokeRenders": 0,
+        "shBakes": 0,
+        "physicalSnapshotUnchanged": true,
+        "columnDiagnosticsUnchanged": true,
+        "fullOriginalRaysOwnedBeforeFirstAwait": true,
+        "fakeTexturesDisposed": true,
+        "numericalDrawsPlanned": 18,
+        "logicalPairsPlanned": 9671103,
+        "viewCounts": [
+          {
+            "kind": "main",
+            "count": 1402,
+            "active": 1402,
+            "sourceVersion": 1,
+            "rayDigest": "97602fbc1eeda03d2f8d689d8e97228f9c410075a186c890f05d835a104c0fb2",
+            "submitted": true,
+            "numericalDraws": 6
+          },
+          {
+            "kind": "reflection",
+            "count": 1402,
+            "active": 1402,
+            "sourceVersion": 2,
+            "rayDigest": "7b70c5794de9ed9c1c83a3c458fdd0a6cfe79df73c47e765c0ae25a854fd73da",
+            "submitted": true,
+            "numericalDraws": 6
+          }
+        ],
+        "lightBakeCountPlanned": 1,
+        "scope": "Preplan only. Actual scene requires one fresh shared productionSH and fresh productionSourceT for each corresponding ordered draw; no precomputed optical values or GPU/fps claim.",
+        "origins": [
+          {
+            "kind": "main",
+            "count": 1402,
+            "originCount": 1,
+            "allOriginsOnMeanWaterPlane": false
+          },
+          {
+            "kind": "reflection",
+            "count": 1402,
+            "originCount": 1402,
+            "allOriginsOnMeanWaterPlane": true
+          }
+        ],
+        "camera": [
+          -157.6425659120671,
+          11.999999999999947,
+          -367.0586520111614
+        ],
+        "target": [
+          110.01852283013451,
+          0,
+          27.000722993261995
+        ],
+        "waterReflectionCallbackSHA256": "dfbc60de58cac6df455eac669413f19a833ba840842f223cf6287065a4ca4cae",
+        "sourceUserStateSHA256": "eb45a739a4ba595baa58637f56204c9fbfe516c9c8a10479f4af33bb01c4280b"
+      }
+    },
+    {
+      "name": "Strict production4m/map1m/maps8 complete schedules account for both view-specific T plus one shared completeSH",
+      "passed": true,
+      "evidence": {
+        "views": [
+          {
+            "kind": "main",
+            "count": 1402,
+            "logicalPairs": 3226002,
+            "mapRects": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 256,
+                "height": 61,
+                "begin": 0,
+                "end": 15616,
+                "texels": 15616,
+                "index": 0,
+                "logicalPairs": 999424,
+                "conservativePairs": 999424
+              },
+              {
+                "x": 0,
+                "y": 61,
+                "width": 256,
+                "height": 61,
+                "begin": 15616,
+                "end": 31232,
+                "texels": 15616,
+                "index": 1,
+                "logicalPairs": 999424,
+                "conservativePairs": 999424
+              },
+              {
+                "x": 0,
+                "y": 122,
+                "width": 256,
+                "height": 61,
+                "begin": 31232,
+                "end": 46848,
+                "texels": 15616,
+                "index": 2,
+                "logicalPairs": 999424,
+                "conservativePairs": 999424
+              },
+              {
+                "x": 0,
+                "y": 183,
+                "width": 256,
+                "height": 14,
+                "begin": 46848,
+                "end": 50432,
+                "texels": 3584,
+                "index": 3,
+                "logicalPairs": 225290,
+                "conservativePairs": 229376
+              },
+              {
+                "x": 0,
+                "y": 197,
+                "width": 40,
+                "height": 1,
+                "begin": 50432,
+                "end": 50472,
+                "texels": 40,
+                "index": 4,
+                "logicalPairs": 2440,
+                "conservativePairs": 2560
+              }
+            ],
+            "numericalDraws": 6
+          },
+          {
+            "kind": "reflection",
+            "count": 1402,
+            "logicalPairs": 3226002,
+            "mapRects": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 256,
+                "height": 61,
+                "begin": 0,
+                "end": 15616,
+                "texels": 15616,
+                "index": 0,
+                "logicalPairs": 999424,
+                "conservativePairs": 999424
+              },
+              {
+                "x": 0,
+                "y": 61,
+                "width": 256,
+                "height": 61,
+                "begin": 15616,
+                "end": 31232,
+                "texels": 15616,
+                "index": 1,
+                "logicalPairs": 999424,
+                "conservativePairs": 999424
+              },
+              {
+                "x": 0,
+                "y": 122,
+                "width": 256,
+                "height": 61,
+                "begin": 31232,
+                "end": 46848,
+                "texels": 15616,
+                "index": 2,
+                "logicalPairs": 999424,
+                "conservativePairs": 999424
+              },
+              {
+                "x": 0,
+                "y": 183,
+                "width": 256,
+                "height": 14,
+                "begin": 46848,
+                "end": 50432,
+                "texels": 3584,
+                "index": 3,
+                "logicalPairs": 225290,
+                "conservativePairs": 229376
+              },
+              {
+                "x": 0,
+                "y": 197,
+                "width": 40,
+                "height": 1,
+                "begin": 50432,
+                "end": 50472,
+                "texels": 40,
+                "index": 4,
+                "logicalPairs": 2440,
+                "conservativePairs": 2560
+              }
+            ],
+            "numericalDraws": 6
+          }
+        ],
+        "sharedSH": {
+          "packets": 2301,
+          "sources": 1399,
+          "logicalPairs": 3219099,
+          "mapRects": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 256,
+              "height": 61,
+              "begin": 0,
+              "end": 15616,
+              "texels": 15616,
+              "index": 0,
+              "conservativePairs": 999424
+            },
+            {
+              "x": 0,
+              "y": 61,
+              "width": 256,
+              "height": 61,
+              "begin": 15616,
+              "end": 31232,
+              "texels": 15616,
+              "index": 1,
+              "conservativePairs": 999424
+            },
+            {
+              "x": 0,
+              "y": 122,
+              "width": 256,
+              "height": 61,
+              "begin": 31232,
+              "end": 46848,
+              "texels": 15616,
+              "index": 2,
+              "conservativePairs": 999424
+            },
+            {
+              "x": 0,
+              "y": 183,
+              "width": 256,
+              "height": 14,
+              "begin": 46848,
+              "end": 50432,
+              "texels": 3584,
+              "index": 3,
+              "conservativePairs": 229376
+            },
+            {
+              "x": 0,
+              "y": 197,
+              "width": 190,
+              "height": 1,
+              "begin": 50432,
+              "end": 50622,
+              "texels": 190,
+              "index": 4,
+              "conservativePairs": 12160
+            }
+          ],
+          "numericalDraws": 6
+        },
+        "completeLogicalPairs": 9671103,
+        "completeNumericalDraws": 18,
+        "scope": "CPU scheduling proof only, no GPU or frame-time admission"
+      }
+    },
+    {
+      "name": "Full owned double-ray arrays stay frozen and repeat exactly after generation-only request version advances",
+      "passed": true,
+      "evidence": {
+        "views": [
+          {
+            "kind": "main",
+            "count": 1402,
+            "active": 1402,
+            "sourceVersion": 3,
+            "rayDigest": "97602fbc1eeda03d2f8d689d8e97228f9c410075a186c890f05d835a104c0fb2",
+            "submitted": true,
+            "numericalDraws": 6
+          },
+          {
+            "kind": "reflection",
+            "count": 1402,
+            "active": 1402,
+            "sourceVersion": 4,
+            "rayDigest": "7b70c5794de9ed9c1c83a3c458fdd0a6cfe79df73c47e765c0ae25a854fd73da",
+            "submitted": true,
+            "numericalDraws": 6
+          }
+        ],
+        "allOriginalDoubleRaysExact": true,
+        "sourceVersionsAdvancedOnly": true,
+        "priorOwnedArraysUnchanged": true,
+        "actualRendererCalls": 0
+      }
+    },
+    {
+      "name": "Wrong viewport/aspect or physically mutated pair rejects before further CPU fill; no fake result can count as an optical GPU receipt",
+      "passed": true,
+      "evidence": {
+        "wrongViewportRejected": true,
+        "originalAspectRequired": true,
+        "mutationRejected": true,
+        "fakeAcknowledgementExplicit": true,
+        "noOpticalValuesPublished": true
+      }
+    }
+  ],
+  "limits": [
+    "CPU actual projection only. No T, SH, GL, image, renderer performance or actual scene-frame claim.",
+    "Inert fake acknowledgement updates private FW uniforms/diagnostic labels; the trusted real scene must replace them via fresh actual batch prepares before each ordered view draw.",
+    "Small viewport preserves camera aspect1209/1292;160/171 is only the integer allocation ratio.",
+    "One fresh sharedSH must be consumed by both distinct views in the same actual scene generation; public snapshot value identity is proven separately from internal volume pointer identity."
+  ]
+}

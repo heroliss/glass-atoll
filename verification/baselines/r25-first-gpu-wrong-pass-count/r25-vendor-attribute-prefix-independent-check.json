@@ -1,0 +1,111 @@
+{
+  "schema": "glass-atoll.r25-vendored-attribute-prefix-independent-cpu.v1",
+  "dateUTC": "2026-10-29T09:20:01.721Z",
+  "actualGPU": false,
+  "productionEdits": 0,
+  "passed": true,
+  "counts": {
+    "passed": 7,
+    "total": 7
+  },
+  "checks": [
+    {
+      "name": "Candidate/source/Three pins and exact shader+packing scope are retained",
+      "passed": true,
+      "evidence": {
+        "revision": "180",
+        "candidateSHA256": "4f152a1470d8351b997728691bc2e0ec15ee0962b55926179917cb42ce7ee3dd",
+        "vendorSHA256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+        "baselineSHA256": "0221cab9bdd44ed04178fd8d838d5aa31d2521d1d0b5af27a8a228bdc40c2e0e",
+        "scope": "Only helper plus two dirty-mark replacements; shader/geometry/packing/render restoration text byte-identical"
+      }
+    },
+    {
+      "name": "First actual r180 createBuffer uploads full capacity and leaves queued range intact",
+      "passed": true,
+      "evidence": {
+        "firstAllocatedComponents": 32,
+        "activeComponents": 12,
+        "rangeStillPending": true
+      }
+    },
+    {
+      "name": "Next view replaces pending range and uploads exact component prefix with unchanged allocated suffix",
+      "passed": true,
+      "evidence": {
+        "uploadedComponents": 8,
+        "prefixBytes": 32,
+        "capacityBytes": 128,
+        "unchangedSuffix": true
+      }
+    },
+    {
+      "name": "Count zero does not dirty/clear clean or pending attributes, though r180 can consume a prior pending upload",
+      "passed": true,
+      "evidence": {
+        "cleanZeroExtraUploads": 0,
+        "pendingZeroConsumesComponents": 12,
+        "reason": "Geometry upload precedes the eventual instanceCount0 draw early return"
+      }
+    },
+    {
+      "name": "Upload exception leaves dirty version/range and a later positive retry safely replaces it",
+      "passed": true,
+      "evidence": {
+        "interruptedRangeComponents": 15,
+        "retriedComponents": 3,
+        "exceptionDidNotAdvanceCachedVersion": true
+      }
+    },
+    {
+      "name": "All five packet fields plus resolved index use scalar-component lengths and growth rewrites every active value",
+      "passed": true,
+      "evidence": [
+        {
+          "itemSize": 4,
+          "lastComponents": 12
+        },
+        {
+          "itemSize": 3,
+          "lastComponents": 9
+        },
+        {
+          "itemSize": 4,
+          "lastComponents": 12
+        },
+        {
+          "itemSize": 2,
+          "lastComponents": 6
+        },
+        {
+          "itemSize": 4,
+          "lastComponents": 12
+        },
+        {
+          "itemSize": 1,
+          "lastComponents": 3
+        }
+      ]
+    },
+    {
+      "name": "Actual r180 WebGLObjects cache admits consecutive main/mirror render calls but not a mutation after same-frame traversal",
+      "passed": true,
+      "evidence": {
+        "separateRenderCallsFreshUploads": true,
+        "autoResetDoesNotResetFrameCounter": true,
+        "sameFrameLateMutationNotUploaded": true,
+        "transparentDoubleSide": "two instanced draws per smoke render unless explicitly changed; QA must count actual GL draws"
+      }
+    }
+  ],
+  "sourceSHA256": "4f152a1470d8351b997728691bc2e0ec15ee0962b55926179917cb42ce7ee3dd",
+  "vendorSHA256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+  "coreSHA256": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+  "limits": [
+    "Exact vendored WebGLAttributes/WebGLObjects control flow plus real Three BufferAttribute; fake GL storage, not real driver/renderer/framebuffer/pixel or GPU-performance acceptance.",
+    "First use still allocates/uploads full VBO capacity; active-prefix benefit applies to later dirty updates.",
+    "Count0 creates no new dirty range/version, but existing pending versions may still upload before instanced draw is skipped.",
+    "Main/mirror correctness assumes separate renderer.render calls with data filled before scene traversal, not mutation in object.onBeforeRender or manually suppressed frame advancement.",
+    "No GPU helper implementation or native renderer work is included."
+  ]
+}
