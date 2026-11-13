@@ -6,7 +6,7 @@ third-party material and keep their own terms; the MIT license does not relicens
 | Files | Source | Terms |
 | --- | --- | --- |
 | `vendor/three*.js`, `vendor/addons/` | Three.js | MIT — `vendor/THREE-LICENSE.txt` |
-| `vendor/fsr1/` | AMD FidelityFX FSR 1 | MIT — license header in the files |
+| `vendor/fsr1/` | AMD FidelityFX FSR 1 | MIT — `vendor/fsr1/license.txt` |
 | `assets/night/astronomy.js` | Astronomy Engine, Don Cross | MIT — `assets/night/ASTRONOMY-LICENSE.txt` |
 | `assets/night/catalog/*.bin`, `point-identifiers.json`, `system-reconciliation.json` | Derived from the ESA Hipparcos and Tycho-2 catalogues (ESA 1997, SP-1200; Høg et al. 2000, A&A 355, L27; via CDS/VizieR) | **CC BY-NC 3.0 IGO, credit ESA — non-commercial use only.** See `assets/night/catalog/LICENSE-SOURCES.txt` |
 | `assets/night/catalog/milkyway-4k.hdr`, `assets/night/starmap_2020_4k.*`, `assets/night/lroc_color_poles_1k.jpg` | NASA Scientific Visualization Studio / LRO | Public domain (NASA media usage guidelines) — `assets/night/SOURCES.md` |
