@@ -1,6 +1,6 @@
 # Glass Atoll · 玻璃海
 
-**在线体验：** <https://heroliss.github.io/liss-works/play/glass-atoll/> · **作品介绍：** <https://heroliss.github.io/liss-works/projects/glass-atoll/> · **许可：** 代码 [MIT](LICENSE)，第三方素材各自适用其许可（见下文 [声音与素材授权](#声音与素材授权)）
+**在线体验：** <https://heroliss.github.io/liss-works/play/glass-atoll/> · **作品介绍：** <https://heroliss.github.io/liss-works/projects/glass-atoll/> · **许可：** 代码 [MIT](LICENSE)，第三方代码与素材各自适用其许可（[说明](THIRD-PARTY-NOTICES.md)）（见下文 [声音与素材授权](#声音与素材授权)）
 
 本地 HTML / WebGL 热带离岛：透明浅海、白沙、椰树、可调天空与阳光，可以自由拖动、缩放、投石和放下漂浮叶片。声音默认开启；浏览器限制自动播放时会在首次交互后启动。画面由实时三维场景生成，真实照片只用于材质和迭代对照。
 
