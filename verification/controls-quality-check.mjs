@@ -74,13 +74,13 @@ check('HTML controls have unique ids and explicit label targets exist',()=>{
   const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length);
   for(const ref of [...html.matchAll(/<label[^>]*\bfor="([^"]+)"/g)].map(m=>m[1]))assert(ids.includes(ref),ref);
 });
-check('HTML retains core views, offers close-island fireworks, and ten firework types',()=>{
+check('HTML retains core views, offers close-island fireworks, and twenty-six firework types',()=>{
   const html=readFileSync(new URL('../index.html',import.meta.url),'utf8');
   const select=id=>html.match(new RegExp(`<select[^>]+id="${id}"[^>]*>([\\s\\S]*?)<\\/select>`))[1];
   const views=[...select('view-preset').matchAll(/<option\b[^>]*value="([^"]+)"/g)].map(match=>match[1]);
-  for(const view of ['shore','lagoon','aerial','sandbar','palm','reef','waterline','island','sun','moon','fireworks','fireworks-close'])assert(views.includes(view),view);
+  for(const view of ['shore','lagoon','aerial','sandbar','palm','reef','waterline','island','sun','moon','fireworks','fireworks-close','fireworks-beach','fireworks-palms','fireworks-aerial'])assert(views.includes(view),view);
   assert.equal(views.length,new Set(views).size);
-  assert.equal([...select('firework-type').matchAll(/<option\b/g)].length,20); // twenty firework types (README)
+  assert.equal([...select('firework-type').matchAll(/<option\b/g)].length,26); // twenty-six firework types (README)
 });
 const report={date:new Date().toISOString(),scope:'Pure data/time/capability and HTML structure. No browser render, callback interaction, GPU allocation or performance claim.',passed:checks.every(c=>c.passed),count:checks.length,checks};
 writeFileSync(new URL('controls-quality-check.json',import.meta.url),JSON.stringify(report,null,2)+'\n');
