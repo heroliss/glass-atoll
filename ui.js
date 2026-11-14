@@ -2,7 +2,7 @@ import {deriveWeather} from './weather.js';
 import {DEFAULT_QUALITY, QUALITY_PRESETS} from './quality-presets.js';
 import {FIREWORK_TYPES} from './fireworks-physics.js';
 import {initQuickExperience} from './ui-quick-experience.js';
-const viewLabels = {shore:'白沙岸边',lagoon:'玻璃浅海',aerial:'高空俯瞰',sandbar:'沙舌尽头',palm:'椰林树下',reef:'珊瑚浅滩',waterline:'贴近水面',island:'离岛全景',sun:'朝向太阳',moon:'朝向月亮',stars:'星河视角',fireworks:'烟花与离岛','fireworks-close':'岛边观烟花'};
+const viewLabels = {shore:'白沙岸边',lagoon:'玻璃浅海',aerial:'高空俯瞰',sandbar:'沙舌尽头',palm:'椰林树下',reef:'珊瑚浅滩',waterline:'贴近水面',island:'离岛全景',sun:'朝向太阳',moon:'朝向月亮',stars:'星河视角',fireworks:'海上远景','fireworks-close':'岛边近景','fireworks-beach':'沙滩仰望','fireworks-palms':'椰林剪影','fireworks-aerial':'高空俯瞰烟花'};
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
 // Explicit civil offset; never parse datetime-local in the browser's own zone.
@@ -173,7 +173,7 @@ export function initUI(callbacks = {}) {
   function updateFireworksUI() {
     const f=state.fireworks;$('#firework-type').value=f.type;
     const profile=f.effectProfile||'legacy';$('#firework-profile').value=profile;
-    $('#firework-profile-hint').textContent=profile==='three-heart-radiant120-v1'?'金色长尾，蓝外层、绿中层、红内芯分别燃尽；使用更强的参考发光，未按实物测光。120米为参考展开，低角度碰水会裁切花形。仅限单次燃放。':profile==='three-heart-scale120-v1'?'蓝外层、绿中层、红内芯。外层在爆开后2.5秒参考展开120米；这是创作标定，低角度碰水会裁切花形。仅限单次燃放。':profile==='three-heart-v1'?'蓝外层、绿中层、红内芯，分别燃尽。仅限单次燃放。':profile==='two-colour-v1'?'由红转绿，金色尾迹独立燃尽。仅限单次燃放。':`共${FIREWORK_TYPES.length}种烟花；随机燃放包含常用样式与大型编排。`;
+    $('#firework-profile-hint').textContent=profile==='three-heart-radiant120-v1'?'金色长尾，蓝外层、绿中层、红内芯分别燃尽。120 米为参考展开，低角度碰水会裁切花形。仅限单次燃放。':profile==='three-heart-scale120-v1'?'蓝外层、绿中层、红内芯。外层在爆开后2.5秒参考展开120米；这是创作标定，低角度碰水会裁切花形。仅限单次燃放。':profile==='three-heart-v1'?'蓝外层、绿中层、红内芯，分别燃尽。仅限单次燃放。':profile==='two-colour-v1'?'由红转绿，金色尾迹独立燃尽。仅限单次燃放。':`共${FIREWORK_TYPES.length}种烟花；随机燃放包含常用样式与大型编排。`;
     const type=FIREWORK_TYPES.find(t=>t.id===f.type)||FIREWORK_TYPES[0];
     const complex=profile==='legacy'&&type.collection==='large-choreographed',description=$('#firework-complex-description');
     description.hidden=!complex;description.textContent=complex?`编排约${type.burn}秒。${type.description}`:'';
@@ -286,6 +286,7 @@ export function initUI(callbacks = {}) {
     for(const [ids,keys]of [[['firework-interval-min','firework-interval-max'],['intervalMinSeconds','intervalMaxSeconds']],[['firework-auto-tilt-min','firework-auto-tilt-max'],['automaticTiltMinDegrees','automaticTiltMaxDegrees']]])for(const id of ids)$('#'+id).addEventListener('change',()=>submitFireworks(Object.fromEntries(keys.map((key,index)=>[key,$('#'+ids[index]).value===''?NaN:Number($('#'+ids[index]).value)]))));
     for(const [id,key]of [['firework-auto','autoLaunch'],['firework-direction','autoDirection'],['firework-frame','autoFrame'],['persistent-smoke','persistentSmoke'],['firework-cloud-light','cloudIllumination'],['smoke-resolved-light','resolvedSmokeLighting']])$('#'+id).addEventListener('change',event=>submitFireworks({[key]:event.target.checked}));
     $('#clear-smoke').addEventListener('click',()=>invoke('onClearSmoke'));
+    $('#firework-air-glow').addEventListener('input',event=>{const value=Number(event.target.value);$('#firework-air-glow-output').textContent=`${value}%`;fillRange('firework-air-glow');invoke('onFireworkAirGlow',value/100);});fillRange('firework-air-glow');
     $('#smoke-gpu').addEventListener('change',async event=>{const result=await invoke('onSmokeGPUChange',event.target.checked);if(result)state.fireworks.gpuTransmission={requested:result.requested,available:result.support?.passed??true,effective:result.enabled};updateFireworksUI();});
     $('#firework-brightness').addEventListener('input',event=>submitFireworks({intensityScale:Number(event.target.value)}));
     $('#firework-blackout').addEventListener('change',event=>submitFireworks({intensityScale:event.target.checked?0:lastNonZeroFireworkIntensity}));

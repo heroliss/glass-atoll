@@ -152,7 +152,7 @@ const ui=initUI({
   onLaunchFirework(){return launchFirework();},
   onRandomFirework(){return launchFirework({randomType:true});},
   onStopFireworks(){const result=configureFireworksSettings({autoLaunch:false});fireworks?.stop();return result;},
-  onClearSmoke(){clearSmoke();},
+  onClearSmoke(){clearSmoke();},onFireworkAirGlow(value){fireworkAirGlow=Math.min(1,Math.max(0,Number(value)||0));lastPausedRenderKey=null;},
   onSmokeGPUChange(enabled){return setSmokeGPUEnabled(enabled);},
   onFocusPick(){focusPicking=true;renderer.domElement.focus({preventScroll:true});renderer.domElement.style.cursor='crosshair';ui.notify('点选希望清晰的物体；Esc 取消');},
   onRestorePivot(){navigation?.restorePivot();},
@@ -695,7 +695,7 @@ async function init(){
     async runAdaptiveTrailVaryingProbe(){if(qaRenderLock||graphicsContextInterrupted)throw new Error('A live renderer with no active GPU diagnostic is required');qaRenderLock=true;try{const {runAdaptiveTrailVaryingProbe}=await import('./verification/fireworks/adaptive-tail-varying-probe.js');return await runAdaptiveTrailVaryingProbe(THREE,renderer);}finally{clock.getDelta();qaRenderLock=false;lastPausedRenderKey=null;}},
     setFireworksTrailIntegration(mode,{resetHistory=true}={}){if(!['legacy8','adaptive'].includes(mode))throw new RangeError('Unknown trail integration');fireworks.configure({trailIntegration:mode});if(resetHistory){updateScenePhotometry(0,true);lens.resetTemporalHistory('QA trail optical integration');lastPausedRenderKey=null;return fireworks.diagnostics();}return{requested:mode,historyReset:false};},
     setFireworksTailColourMode(mode){if(!['constant','cooling'].includes(mode))throw new RangeError('Unknown detached-tail colour mode');fireworks.configure({tailColourMode:mode});updateScenePhotometry(0,true);lens.resetTemporalHistory('QA detached ember colour');lastPausedRenderKey=null;return fireworks.diagnostics();},
-    setFireworkHighlightResponse(value){const result=fireworks.setHighlightResponse(value);lastPausedRenderKey=null;return result;},fireworkBurstShadow(){return burstShadow.state;},setFireworkBurstShadow(value){const result=burstShadow.setQuality(typeof value==='object'?value:{enabled:!!value});lastPausedRenderKey=null;return result;},fireworkLightField(){const lighting=fireworks.getReceiverLighting();return {...fireField.state,dominant:lighting.dominant,nearProxies:lighting.near.length,farRows:lighting.far.length};},sampleFireworkField(position,normal){return fireField.sampleIrradiance(position,normal);},environmentFireLights(){return environmentLocalLights.state.fireworks;},waterFireLights(){return water.uniforms.uFireLightPosition.value.map((p,i)=>({position:[p.x,p.y,p.z],radius:p.w,rawRGB:water.uniforms.uFireLightColour.value[i].toArray()})).filter(l=>Math.max(...l.rawRGB)>0);},setWaterFireLight(value){water.uniforms.uFireSurface.value=Math.max(0,Number(value)||0);lastPausedRenderKey=null;return water.uniforms.uFireSurface.value;},setFireworksPhotometryMode(mode,{radiusMm=2}={}){fireworks.configure({photometryMode:mode,thermalEmittingRadiusMm:radiusMm});updateScenePhotometry(0,true);lens.resetTemporalHistory('QA thermal source photometry');lastPausedRenderKey=null;return fireworks.diagnostics();},
+    setFireworkHighlightResponse(value){const result=fireworks.setHighlightResponse(value);lastPausedRenderKey=null;return result;},fireworkBurstShadow(){return burstShadow.state;},setFireworkAirGlow(value){fireworkAirGlow=Math.min(1,Math.max(0,Number(value)||0));lastPausedRenderKey=null;return fireworkAirGlow;},setFireworkBurstShadow(value){const result=burstShadow.setQuality(typeof value==='object'?value:{enabled:!!value});lastPausedRenderKey=null;return result;},fireworkLightField(){const lighting=fireworks.getReceiverLighting();return {...fireField.state,dominant:lighting.dominant,nearProxies:lighting.near.length,farRows:lighting.far.length};},sampleFireworkField(position,normal){return fireField.sampleIrradiance(position,normal);},environmentFireLights(){return environmentLocalLights.state.fireworks;},waterFireLights(){return water.uniforms.uFireLightPosition.value.map((p,i)=>({position:[p.x,p.y,p.z],radius:p.w,rawRGB:water.uniforms.uFireLightColour.value[i].toArray()})).filter(l=>Math.max(...l.rawRGB)>0);},setWaterFireLight(value){water.uniforms.uFireSurface.value=Math.max(0,Number(value)||0);lastPausedRenderKey=null;return water.uniforms.uFireSurface.value;},setFireworksPhotometryMode(mode,{radiusMm=2}={}){fireworks.configure({photometryMode:mode,thermalEmittingRadiusMm:radiusMm});updateScenePhotometry(0,true);lens.resetTemporalHistory('QA thermal source photometry');lastPausedRenderKey=null;return fireworks.diagnostics();},
     setBackgroundLocalAir(enabled,{model='quadratic'}={}){if(model!=='quadratic')throw new RangeError('Support integration candidate is withdrawn pending GPU investigation');const patch={backgroundLocalScattering:enabled?1:0};aerialPerspective.configure(patch);Object.assign(parameters.air,patch);setAir();updateScenePhotometry(0,true);lens.resetTemporalHistory('QA background local scattering');lastPausedRenderKey=null;return aerialPerspective.diagnostics();},
     fireworkFramingSources(options={}){return fireworks.getFramingSources({shutterSeconds:currentOptics().shutterSeconds,...options});},
     get smokeTransmissionMode(){return qaSmokeTransmissionMode;},
@@ -1096,7 +1096,7 @@ function currentOptics(){const l=lens?.state;return {kernelBudgetFloat32,width:l
 function finiteAirPayload(){const light=atmosphere.lighting(),coefficients=marineAirCoefficients({...parameters.air,humidity:atmosphere.getWeatherState().current.humidity});return {...coefficients,enabled:parameters.air.enabled,sunDirection:keyDirection.toArray(),rawSunRGB:arrayRGB(light.keyColor).map(v=>v*3.6*(light.physicalKeyStrength??0)),ambientIrradianceRGB:arrayRGB(light.physicalSkyIrradiance)};}
 function applyEnvironmentRatios(){if(!environmentCapture)return;const r=environmentCapture.setSceneExposure(radiometry.state.storageEV);scene.environmentIntensity=.8*r.environmentRatio;if(water){water.uniforms.uSkyCube.value=environmentCapture.cubeTarget.texture;water.uniforms.uSkyCubeScale.value=r.cubeRatio;}}
 let burstBoundsCache=null,burstBoundsTime=-Infinity,burstBoundsClusters=-1;
-let transientIndirectAge=0,fireworkRecordCount=0;
+let transientIndirectAge=0,fireworkRecordCount=0,fireworkAirGlow=.2;
 const environmentProxies=createFireworkEnvironmentProxies();
 function markPhotometryPhase(profile,name){if(profile){const now=performance.now();profile.phases[name]=now-profile.last;profile.last=now;}}
 function updateScenePhotometry(delta=0,force=false){
@@ -1121,7 +1121,11 @@ function updateScenePhotometry(delta=0,force=false){
   localLights.update({frame:baseFrame,camera,sunAltitude:celestialFrame?.mode==='astronomical'?celestialFrame.sun.altitudeDeg:parameters.sun.elevation,clusters:receiverClusters,burstBounds:b?.active?[{center:b.centre,radius:b.radius}]:[]});
   // Air, cloud and foam paths keep two proxies, now smooth in time instead of re-paired per frame.
   const environmentClusters=environmentProxies.update(fireworks?.getEventLightClusters?.()||[],parameters.paused?0:delta);
-  environmentLocalLights.update({frame:baseFrame,clusters:environmentClusters});if(water){water.uniforms.uFireDisplayGain.value=renderer.toneMappingExposure;water.uniforms.uFireLightScale.value=baseFrame.sceneScale;const surfaceLights=(fireworks?.getEventLightClusters?.()||[]).slice().sort((a,b)=>b.referenceCandela-a.referenceCandela);for(let i=0;i<FIRE_SURFACE_LIGHTS;i++){const c=surfaceLights[i],I=c?c.referenceCandela*RAW_PER_CANDELA:0;water.uniforms.uFireLightPosition.value[i].set(c?c.position[0]:0,c?c.position[1]:0,c?c.position[2]:0,c?Math.max(2,c.radius):2);water.uniforms.uFireLightColour.value[i].set(c?c.color[0]*I:0,c?c.color[1]*I:0,c?c.color[2]*I:0);}}
+  // The stars themselves are shown through a display-referred shoulder (their cores would
+  // otherwise clip), while light scattered by the air stays linear. Unscaled, the forward-
+  // scatter halo then reads far brighter relative to the burst than it would to an eye, so the
+  // air path receives a reduced share. This is a display choice, not a physical quantity.
+  environmentLocalLights.update({frame:baseFrame,clusters:fireworkAirGlow>=1?environmentClusters:environmentClusters.map(c=>({...c,referenceCandela:c.referenceCandela*fireworkAirGlow,intensity:c.intensity*fireworkAirGlow}))});if(water){water.uniforms.uFireDisplayGain.value=renderer.toneMappingExposure;water.uniforms.uFireLightScale.value=baseFrame.sceneScale;const surfaceLights=(fireworks?.getEventLightClusters?.()||[]).slice().sort((a,b)=>b.referenceCandela-a.referenceCandela);for(let i=0;i<FIRE_SURFACE_LIGHTS;i++){const c=surfaceLights[i],I=c?c.referenceCandela*RAW_PER_CANDELA:0;water.uniforms.uFireLightPosition.value[i].set(c?c.position[0]:0,c?c.position[1]:0,c?c.position[2]:0,c?Math.max(2,c.radius):2);water.uniforms.uFireLightColour.value[i].set(c?c.color[0]*I:0,c?c.color[1]*I:0,c?c.color[2]*I:0);}}
   atmosphere.setTransientLights(environmentClusters,{rawPerCandela:RAW_PER_CANDELA,enabled:fireworksSettings.cloudIllumination});
   markPhotometryPhase(detailed,'local-and-cloud-setup');
   const fieldRequested=fireworksSettings.resolvedSmokeLighting,fieldVisible=fieldRequested&&fireworksSettings.persistentSmoke&&pyroSmoke?.packetCount>0;
@@ -1356,7 +1360,7 @@ function configureFireworksSettings(value={}){
   Object.assign(fireworksSettings,value);
   if(smokeChanged)restartSmokeEpoch();
   if(illuminationChanged){lens?.resetTemporalHistory('firework illumination');if(atmosphere&&localLights)updateScenePhotometry(0,true);}
-  if(geometryChanged&&['fireworks-close','fireworks'].includes(ui.state.view)&&camera)moveTo(ui.state.view);
+  if(geometryChanged&&ui.state.view.startsWith('fireworks')&&camera)moveTo(ui.state.view);
   ui.syncFireworks({...fireworksSettings,maxActive:fireworks?.diagnostics().maxActive??32});lastPausedRenderKey=null;return result;
 }
 function stopDirector(reason='manual takeover'){
@@ -1528,15 +1532,29 @@ function moveTo(name){
     if(name==='sun'&&celestialFrame.mode==='artistic')direction.copy(sunDirection);
     view=islandCelestialView(direction.toArray());
   }
-  if(name==='fireworks-close'||name==='fireworks'){
+  const fireworkView=name.startsWith('fireworks');
+  if(fireworkView){
     const base=fireworks.rig.position,azimuth=fireworksSettings.autoDirection?Math.atan2(base.x,-base.z)*180/Math.PI:fireworksSettings.azimuth;
     const types=name==='fireworks'&&fireworksSettings.autoLaunch?fireworks.types:fireworks.types.filter(type=>type.id===fireworksSettings.type);
     const envelopes=types.map(type=>getFireworkShowEnvelope({type:type.id,settings:fireworksSettings,origin:[base.x,base.y+.17,base.z],muzzleOffsetMetres:.66,azimuth,shutterSeconds:currentOptics().shutterSeconds}));
     const envelope={min:[0,1,2].map(c=>Math.min(...envelopes.map(e=>e.min[c]))),max:[0,1,2].map(c=>Math.max(...envelopes.map(e=>e.max[c])))};
     view=islandFireworksView(THREE,camera,{azimuth,envelope,automaticFan:fireworksSettings.autoLaunch&&fireworksSettings.randomLaunchTilt});
+    if(name!=='fireworks'&&name!=='fireworks-close'){
+      // Three authored vantage points, all placed on the line from the bursts back across the cay
+      // so the island stays between the viewer and the show.
+      const cx=(envelope.min[0]+envelope.max[0])/2,cz=(envelope.min[2]+envelope.max[2])/2,top=envelope.max[1],bearing=azimuth*Math.PI/180;
+      let ax=-1.5-cx,az=-1-cz;const reach=Math.hypot(ax,az);
+      if(reach<8){ax=-Math.sin(bearing);az=Math.cos(bearing);}else{ax/=reach;az/=reach;}
+      const ground=(x,z)=>Math.max(0,terrainHeight(x,z));
+      if(name==='fireworks-beach'){const x=-1.5+ax*17,z=-1+az*10;view={position:[x,ground(x,z)+1.65,z],target:[cx,top*.6,cz]};}
+      // Palms: back off until the horizon sits near the bottom edge and the envelope's top near the
+      // upper edge (about 42 degrees of the 28 mm frame), so the grove stays in view as a silhouette.
+      else if(name==='fireworks-palms'){const distance=Math.max(52,top/.9-reach),x=-1.5+ax*distance,z=-1+az*distance;view={position:[x,ground(x,z)+1.4,z],target:[cx,.384*(distance+reach),cz]};}
+      else{const x=-1.5+ax*150,z=-1+az*150;view={position:[x,top*.75+60,z],target:[cx*.4,top*.15,cz*.4]};}
+    }
   }
   if(!view)return;
-  view=keepIslandInPreset(THREE,camera,view,{witness:[0,terrainHeight(0,0)+.02,0]});
+  if(!fireworkView||name==='fireworks'||name==='fireworks-close')view=keepIslandInPreset(THREE,camera,view,{witness:[0,terrainHeight(0,0)+.02,0]});
   if(fireworksSettings.autoFrame){fireworksSettings.autoFrame=false;ui.syncFireworks(fireworksSettings);}
   navigation?.stop();pendingThrow=null;
   beginCameraTransition(new THREE.Vector3(...view.position),new THREE.Vector3(...view.target));

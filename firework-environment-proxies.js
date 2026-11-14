@@ -41,7 +41,9 @@ export function createFireworkEnvironmentProxies({timeConstantSeconds=.35}={}){
     const follow=dt>0?1-Math.exp(-dt/(.4*timeConstantSeconds)):0;
     for(let j=0;j<2;j++){const s=sums[j];if(!(s.I>1e-6)){shown[j]=null;continue;}if(!shown[j])shown[j]=[...s.position];else for(let c=0;c<3;c++)shown[j][c]+=(s.position[c]-shown[j][c])*follow;s.position=[...shown[j]];}
     return sums.filter(s=>s.I>1e-6).map((s,slot)=>{
-      const radius=Math.max(2,Math.sqrt(s.spread/s.I)),ids=[...new Set(s.ids)];
+      // These proxies only feed air, cloud and foam. A floor of 20 m keeps a view ray that
+      // passes through a young, still compact burst from seeing a point-source spike.
+      const radius=Math.max(20,Math.sqrt(s.spread/s.I)),ids=[...new Set(s.ids)];
       return {position:s.position,color:s.rgb,colour:s.rgb,referenceCandela:s.I,intensity:s.I,radius,rmsRadius:radius,maxExtent:radius,
         kind:'fireworks diffuse cluster',eventId:'environment/'+slot,mergedEventIds:ids,pathFlags:{diffuse:true,smoke:true,specular:false},
         illuminationModel:'two smooth-weight anchor proxies; conserved instantaneous I/RGB; low-pass positions'};
